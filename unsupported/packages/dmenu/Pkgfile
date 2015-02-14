@@ -1,0 +1,15 @@
+# Description: menu for X window manager
+# Depends:     xorg-libxinerama xorg-libxft xorg-libxrender freetype fontconfig
+
+name=dmenu
+version=4.5
+release=mix-1
+source=(http://dl.suckless.org/tools/dmenu-$version.tar.gz)
+ 
+build() {
+  cd $name-$version
+  sed -i "s|^PREFIX =.*|PREFIX = /usr|" config.mk
+  sed -i "s|^X11INC =.*|X11INC = /usr/include/X11|" config.mk
+  sed -i "s|^X11LIB =.*|X11LIB = /usr/lib/X11|" config.mk
+  make PREFIX=$PKG MANPREFIX=$PKG/usr/share/man clean install
+}

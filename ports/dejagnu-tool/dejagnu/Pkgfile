@@ -1,0 +1,15 @@
+# Description: application test framework
+
+name=dejagnu
+version=1.5.1
+release=0
+source=(ftp://ftp.gnu.org/gnu/dejagnu/dejagnu-$version.tar.gz)
+
+build() {
+  cd $name-$version
+  ./configure --prefix=/tools
+  make DESTDIR=$PKG install
+  rm -rv $PKG/tools/share/{info,man}
+  find $PKG -name README -delete
+}
+

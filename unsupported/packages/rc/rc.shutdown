@@ -1,0 +1,58 @@
+#!/bin/bash
+#
+# /etc/rc.shutdown - system shutdown script
+#
+
+# load configuration
+. /etc/rc.conf
+
+# set linefeed mode to avoid staircase effect
+/bin/stty onlcr
+
+echo "system is coming down ..."
+
+if [ "$PREVLEVEL" = "2" ]; then
+    # shutdown services
+    if [ "${SERVICES[*]}" ]; then
+        for service in "${SERVICES[@]}"; do
+            R_SERVICES=($service ${R_SERVICES[@]})
+        done
+        for service in "${R_SERVICES[@]}"; do
+            /etc/init.d/$service stop &> /tmp/rc.$$
+            /bin/logger -t $service -f /tmp/rc.$$
+            /bin/rm -f /tmp/rc.$$
+        done
+    fi
+fi
+
+# terminate all processes
+/sbin/killall5 -15
+/bin/sleep 5
+/sbin/killall5 -9
+
+# Save random seed
+/bin/dd if=/dev/urandom of=/var/lib/urandom/seed count=1 2> /dev/null
+
+# save system clock
+/sbin/hwclock --systohc
+
+# write to wtmp file before unmounting
+/sbin/halt -w
+
+# turn off swap
+/sbin/swapoff -a
+
+# unmount file systems
+/bin/umount -a -d -r -t notmpfs,nosysfs,nodevtmpfs,noproc,nodevpts
+
+# remount root filesystem read-only
+/bin/mount -o remount,ro /
+
+# power off or reboot
+if [ "$RUNLEVEL" = "0" ]; then
+    /sbin/poweroff -d -f -i
+else
+    /sbin/reboot -d -f -i
+fi
+
+# End of file

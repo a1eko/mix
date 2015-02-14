@@ -1,0 +1,14 @@
+# Description: ZIP compression utility
+
+name=gzip
+version=1.6
+release=0
+source=(ftp://ftp.gnu.org/gnu/gzip/gzip-$version.tar.xz)
+
+build() {
+  cd $name-$version
+  ./configure --prefix=/tools
+  make
+  make prefix=$PKG/tools install
+  rm -rv $PKG/tools/share/{info,man}
+}

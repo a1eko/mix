@@ -1,0 +1,15 @@
+# Description: archiving program
+
+name=tar
+version=1.28
+release=0
+source=(http://ftp.gnu.org/gnu/tar/tar-$version.tar.bz2)
+
+build() {
+  cd $name-$version
+  ./configure --prefix=/tools
+  make
+  make DESTDIR=$PKG install
+  rm -rv $PKG/tools/share/info
+}
+

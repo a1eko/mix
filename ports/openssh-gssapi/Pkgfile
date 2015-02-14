@@ -1,0 +1,27 @@
+# Description: OpenBSD secure shell
+# Depends on: openssl krb5
+
+name=openssh-gssapi
+version=6.7p1
+release=mix-2
+source=(ftp://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-$version.tar.gz
+        http://ftp.debian.org/debian/pool/main/o/openssh/openssh_$version-3.debian.tar.xz
+	sshd)
+
+build() {
+  cd openssh-$version
+  tar xvf ../openssh_$version-3.debian.tar.xz
+  patch -Np1 -i debian/patches/gssapi.patch
+  ./configure --prefix=/usr \
+    --libexecdir=/usr/lib/openssh \
+    --sysconfdir=/etc/ssh \
+    --datadir=/usr/share/sshd \
+    --with-md5-passwords \
+    --with-privsep-path=/var/lib/sshd \
+    --with-kerberos5=/usr
+  make
+  make DESTDIR=$PKG install
+
+  echo "PermitRootLogin no" >> $PKG/etc/ssh/sshd_config
+  install -D -m 755 -v ../sshd $PKG/etc/rc.d/sshd
+}

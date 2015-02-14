@@ -1,0 +1,15 @@
+# Description: programs for manipulating info pages
+
+name=texinfo
+version=5.2
+release=1
+source=(ftp://ftp.gnu.org/gnu/texinfo/texinfo-$version.tar.gz)
+
+build() {
+  cd $name-$version
+  ./configure --prefix=/usr
+  make
+  $TST make -k check || true
+  make DESTDIR=$PKG install
+  rm -rv $PKG/usr/share/info
+}

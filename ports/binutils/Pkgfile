@@ -1,0 +1,19 @@
+# Description: linker, assembler and other development tools
+
+name=binutils
+version=2.25
+release=mix-1
+source=(ftp://ftp.gnu.org/gnu/binutils/binutils-$version.tar.bz2)
+
+build() {
+  cd $name-$version
+  mkdir -v ../binutils-build
+  cd ../binutils-build
+
+  ../binutils-$version/configure --prefix=/usr \
+    --enable-shared --disable-werror
+  make tooldir=/usr
+  $TST make -k check || true
+  make tooldir=/usr DESTDIR=$PKG install
+  rm -rv $PKG/usr/share/info
+}

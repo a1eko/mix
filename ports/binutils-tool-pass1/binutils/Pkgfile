@@ -1,0 +1,29 @@
+# Description: linker, assembler and other development tools
+
+name=binutils
+version=2.25
+release=0pass1
+source=(ftp://ftp.gnu.org/gnu/binutils/binutils-$version.tar.bz2)
+
+: ${MIX_TGT:=$(uname -m)-mix-linux-gnu}
+
+build() {
+  cd $name-$version
+  mkdir -v ../binutils-build
+  cd ../binutils-build
+
+  case $(uname -m) in
+    x86_64) mkdir -pv $PKG/tools/lib && ln -sv lib $PKG/tools/lib64 ;;
+  esac
+
+  # build cross linker
+  ../binutils-$version/configure --prefix=/tools \
+    --with-lib-path=/tools/lib \
+    --with-sysroot=$MIX \
+    --target=$MIX_TGT \
+    --disable-nls \
+    --disable-werror
+  make
+  make DESTDIR=$PKG install
+  rm -rv $PKG/tools/share/{info,man}
+}

@@ -1,0 +1,5 @@
+Add iptables to SERVICES in /etc/rc.conf to activate personal firewall.
+
+Kernel configuration needed:
+	CONFIG_NET=y
+	CONFIG_NETFILTER=y

@@ -1,0 +1,25 @@
+# Description: compiler collection
+
+name=gcc
+version=4.9.2
+release=0libstdcxx
+source=(ftp://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.bz2)
+
+: ${MIX_TGT:=$(uname -m)-mix-linux-gnu}
+
+build() {
+  cd $name-$version
+  mkdir -v ../gcc-build
+  cd ../gcc-build
+
+  ../gcc-$version/libstdc++-v3/configure --prefix=/tools \
+    --host=$MIX_TGT \
+    --disable-multilib \
+    --disable-shared \
+    --disable-nls \
+    --disable-libstdcxx-threads \
+    --disable-libstdcxx-pch \
+    --with-gxx-include-dir=/tools/$MIX_TGT/include/c++/$version
+  make
+  make DESTDIR=$PKG install
+}

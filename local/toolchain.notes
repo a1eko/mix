@@ -1,0 +1,16 @@
+On Tue, Oct 08, 2013 at 10:53:43PM +0200, psamek at redash.cz wrote:
+> I have still one old server on i686 arch. I am using 3.0 ports and
+> i686 overlay ports [1] (thanks, Juergen). Please can you help me,
+> how to upgrade also the toolchain ports - binutils, gcc, glibc ...
+
+You have the ports aleady in place, so just do a build/install
+of glibc, binutils and gcc and a second run but with reverted 
+order. 
+To avoid an unclean unmount of "/" on next shutdown, reload the 
+init process after the glibc update with 'telinit u'.
+
+
+HTH and best regards
+Juergen
+
+

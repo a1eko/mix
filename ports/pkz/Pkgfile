@@ -1,0 +1,13 @@
+# Description: package manager for scripted source-based distribution
+# Depends on: wget
+
+name=pkz
+version=0.1
+release=1
+source=(pkz.sh pkzi.sh pkz.conf)
+
+build() {
+  install -v -D -m 755 pkz.sh $PKG/usr/bin/pkz
+  install -v -D -m 755 pkzi.sh $PKG/usr/bin/pkzi
+  install -v -D -m 644 pkz.conf $PKG/etc/pkz.conf
+}

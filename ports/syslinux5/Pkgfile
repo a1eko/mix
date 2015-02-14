@@ -1,0 +1,16 @@
+# Description: linux kernel loader
+
+name=syslinux5
+version=5.10
+release=1
+source=(ftp://ftp.kernel.org/pub/linux/utils/boot/syslinux/syslinux-$version.tar.xz)
+ 
+build() {
+  cd syslinux-$version
+  unset CFLAGS CXXFLAGS CONFIG_SITE MAKEFLAGS
+  make installer
+  make MANDIR=/usr/share/man INSTALLROOT=$PKG install extbootinstall
+  mkdir -pv $PKG/etc
+  ln -sv /boot/extlinux/extlinux.conf $PKG/etc/
+  find $PKG -name README -delete
+}

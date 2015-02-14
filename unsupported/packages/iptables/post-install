@@ -1,0 +1,1 @@
+test -f $ROOT/etc/init.d/iptables || cp -v $ROOT/etc/init.d/iptables{.new,}

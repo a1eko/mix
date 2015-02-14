@@ -1,0 +1,15 @@
+# Description: data compression utility
+
+name=lzip
+version=1.16
+release=1
+source=(http://download.savannah.gnu.org/releases/lzip/lzip-$version.tar.gz)
+
+build() {
+  cd $name-$version
+  ./configure --prefix=/usr
+  make
+  $TST make -k check
+  make DESTDIR=$PKG install
+  rm -rv $PKG/usr/share/info
+}

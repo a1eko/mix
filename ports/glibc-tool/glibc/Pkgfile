@@ -1,0 +1,27 @@
+# Description: system C library
+
+name=glibc
+version=2.21
+release=0
+source=(ftp://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz)
+
+: ${MIX_TGT:=$(uname -m)-mix-linux-gnu}
+
+build() {
+  cd $name-$version
+  mkdir -v ../glibc-build
+  cd ../glibc-build
+
+  ../glibc-$version/configure --prefix=/tools \
+    --host=$MIX_TGT \
+    --build=$(../glibc-${version}/scripts/config.guess) \
+    --disable-profile \
+    --enable-kernel=2.6.32 \
+    --with-headers=/tools/include \
+    libc_cv_forced_unwind=yes \
+    libc_cv_ctors_header=yes \
+    libc_cv_c_cleanup=yes
+  make
+  make install_root=$PKG install
+  rm -rv $PKG/tools/share/info
+}

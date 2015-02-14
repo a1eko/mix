@@ -1,0 +1,1 @@
+test -f $ROOT/etc/sudoers || cp -v $ROOT/etc/sudoers{.new,}

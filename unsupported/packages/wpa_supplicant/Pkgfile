@@ -1,0 +1,27 @@
+# Description: wifi protected access client
+# Depends on:  libnl openssl
+
+name=wpa_supplicant
+version=2.3
+release=mix-1
+source=(http://hostap.epitest.fi/releases/$name-$version.tar.gz)
+ 
+build() {
+  cd $name-$version
+  cd wpa_supplicant
+  cp -v defconfig .config
+  echo "CONFIG_READLINE=y
+        CONFIG_LIBNL32=y
+        CFLAGS+=-I/usr/include/libnl3" >> .config
+  make
+
+  install -v -d $PKG/{sbin,usr/share/man/man{8,5},etc}
+  install -v -m 0755 wpa_{cli,passphrase,supplicant} $PKG/sbin
+  install -v -m 0644 doc/docbook/wpa_{background,cli,passphrase,supplicant}.8 $PKG/usr/share/man/man8/
+  install -v -m 0644 doc/docbook/wpa_supplicant.conf.5 $PKG/usr/share/man/man5/
+
+  echo -e "ctrl_interface=/var/run/wpa_supplicant\n" > $PKG/etc/wpa_supplicant.conf
+  chmod 0600 $PKG/etc/wpa_supplicant.conf
+
+  mv -v $PKG/etc/wpa_supplicant.conf{,.new}
+}

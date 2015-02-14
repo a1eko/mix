@@ -1,0 +1,18 @@
+# Description: system utilities
+
+name=util-linux
+version=2.25.2
+release=0
+source=(ftp://ftp.kernel.org/pub/linux/utils/util-linux/v2.25/$name-$version.tar.xz)
+
+build() {
+  cd $name-$version
+  ./configure --prefix=/tools \
+    --without-python \
+    --disable-makeinstall-chown \
+    --without-systemdsystemunitdir \
+    PKG_CONFIG=""
+  make
+  make DESTDIR=$PKG install
+  rm -rv $PKG/tools/share/man
+}

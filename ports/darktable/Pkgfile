@@ -1,0 +1,16 @@
+# Description: photographic raw image manipulation tool
+# Depends on: lensfun openexr cmake lcms2
+
+name=darktable
+version=1.6.2
+release=1
+
+source=(http://github.com/darktable-org/darktable/releases/download/release-$version/darktable-$version.tar.xz)
+ 
+build() {
+  cd $name-$version
+  ./build.sh --prefix /usr --buildtype Release #--disable-kwallet
+  cd build
+  make DESTDIR=$PKG install
+  rm -rv $PKG/usr/share/{applications,doc,locale}
+}

@@ -1,0 +1,47 @@
+# Basic video tools
+#
+# NOTE: installs after graphics.mix and sound.mix
+
+liba52
+#divx
+libcddb
+libdv
+libdvdcss
+libdvdread
+#libfame
+#libmng # build failed
+libmp4v2
+libmpeg2
+libvpx
+libtheora
+libquicktime
+lzo
+x264
+libxvid
+mjpegtools
+
+cmake
+nettle
+libidn
+gnutls
+faac
+fribidi
+libass
+libbluray
+libcdio
+libdvdnav
+libmodplug
+libmpcdec
+opencore-amr
+opus
+orc
+rtmpdump
+schroedinger
+vcdimager
+x265
+
+ffmpeg
+mplayer
+#transcode # build failed
+xine-lib
+xine-ui

@@ -1,0 +1,14 @@
+# Description: difference based modification of files
+
+name=patch
+version=2.7.3
+release=0
+source=(ftp://ftp.gnu.org/gnu/patch/patch-$version.tar.xz)
+
+build() {
+  cd $name-$version
+  ./configure --prefix=/tools
+  make
+  make prefix=$PKG/tools install
+  rm -rv $PKG/tools/share/man
+}

@@ -1,0 +1,16 @@
+# Description: zathura PDF viewer plugin
+# URL: http://pwmt.org/projects/zathura-pdf-poppler/
+# Depends on: gtk girara zathura poppler
+
+name=zathura-pdf-poppler
+version=0.2.5
+release=1
+
+source=(http://pwmt.org/projects/zathura-pdf-poppler/download/$name-$version.tar.gz)
+
+build() {
+  cd $name-$version
+  make
+  make DESTDIR=$PKG install
+  rm -rv $PKG/usr/share
+}

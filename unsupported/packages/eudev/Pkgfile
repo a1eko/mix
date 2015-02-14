@@ -1,0 +1,45 @@
+# Description: dynamic creation of device nodes
+
+name=eudev
+version=2.1.1
+release=mix-1
+source=(ftp://trumpetti.atm.tut.fi/gentoo/distfiles/eudev-$version.tar.gz udev)
+
+build()
+{
+  cd $name-$version
+  sed -r -i 's|/usr(/bin/test)|\1|' test/udev-test.pl
+
+  BLKID_CFLAGS=-I/tools/include \
+  BLKID_LIBS='-L/tools/lib -lblkid' \
+  ./configure --prefix=/usr \
+    --bindir=/sbin \
+    --sbindir=/sbin \
+    --libdir=/usr/lib \
+    --sysconfdir=/etc \
+    --libexecdir=/lib \
+    --with-rootprefix= \
+    --with-rootlibdir=/lib \
+    --enable-split-usr \
+    --enable-libkmod \
+    --enable-rule_generator \
+    --enable-keymap \
+    --disable-introspection \
+    --disable-manpages \
+    --disable-gudev \
+    --disable-gtk-doc-html \
+    --with-firmware-path=/lib/firmware
+  make
+
+  mkdir -pv $PKG/lib/{firmware,udev}
+  mkdir -pv $PKG/{etc,lib}/udev/rules.d
+
+  $TST make -k check || true
+  make DESTDIR=$PKG install
+
+  LD_LIBRARY_PATH=$PKG/lib \
+  $PKG/sbin/udevadm hwdb --update --root=$PKG
+
+  mkdir -pv $PKG/etc/init.d
+  install -m 755 ../udev $PKG/etc/init.d/
+}

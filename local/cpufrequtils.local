@@ -1,0 +1,5 @@
+# Add-on to /etc/rc.local
+cpufreq-set -c 0 -g ondemand -d 800000
+cpufreq-set -c 1 -g ondemand -d 800000
+cpufreq-set -c 2 -g ondemand -d 800000
+cpufreq-set -c 3 -g ondemand -d 800000

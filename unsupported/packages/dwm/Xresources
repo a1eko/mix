@@ -1,0 +1,7 @@
+UXTerm*background: black
+UXTerm*foreground: grey
+UXTerm*cursorColor: blue
+XTerm*background: black
+XTerm*foreground: grey
+XTerm*cursorColor: blue
+Rxvt*scrollBar_right: on

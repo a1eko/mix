@@ -1,0 +1,24 @@
+# Description: linux kernel
+
+name=linux
+version=3.19
+release=mix-1
+source=(ftp://ftp.kernel.org/pub/linux/kernel/v3.x/linux-$version.tar.xz config.local)
+
+build() {
+  cd $name-$version
+  make mrproper
+  make defconfig
+  cat .config ../config.local > all.config
+  make mrproper
+  KCONFIG_ALLCONFIG=all.config make allnoconfig
+  make
+  mkdir -v $PKG/boot
+  cp -v $(find arch/ -type f -name bzImage) $PKG/boot/vmlinuz-$version-$release
+  cp -v System.map $PKG/boot/System.map-$version-$release
+  cp -v .config $PKG/boot/config-$version-$release
+  ln -sv vmlinuz-$version-$release $PKG/boot/vmlinuz-mix
+  ln -sv System.map-$version-$release $PKG/boot/System.map-mix
+  ln -sv config-$version-$release $PKG/boot/config-mix
+  make INSTALL_MOD_PATH=$PKG modules_install
+}

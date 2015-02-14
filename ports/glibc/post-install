@@ -1,0 +1,7 @@
+mkdir -pv $ROOT/usr/lib/locale
+localedef -i en_US -f ISO-8859-1 en_US
+localedef -i en_US -f UTF-8 en_US.UTF-8
+
+for file in nsswitch.conf ld.so.conf hosts host.conf resolv.conf; do
+  test -f $ROOT/etc/$file || cp -v $ROOT/etc/$file{.new,}
+done

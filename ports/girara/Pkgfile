@@ -1,0 +1,17 @@
+# Description: zathura interface library
+# URL: http://pwmt.org/projects/girara/
+# Depends on: gtk intltool
+
+name=girara
+version=0.1.9
+release=1
+
+source=(http://pwmt.org/projects/girara/download/girara-$version.tar.gz)
+ 
+build() {
+  cd $name-$version
+  sed '/^GIRARA_GTK/s/3$/2/' -i config.mk
+  make
+  make DESTDIR=$PKG install
+  rm -rv $PKG/usr/share
+}

@@ -1,0 +1,67 @@
+# Description: compiler collection
+
+name=gcc
+version=4.9.2
+release=0pass1
+source=(ftp://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.bz2
+	http://www.mpfr.org/mpfr-current/mpfr-3.1.2.tar.xz
+	http://ftp.gnu.org/gnu/gmp/gmp-6.0.0a.tar.xz
+	http://www.multiprecision.org/mpc/download/mpc-1.0.2.tar.gz)
+
+: ${MIX_TGT:=$(uname -m)-mix-linux-gnu}
+
+build() {
+  cd $name-$version
+  mkdir -v mpfr gmp mpc
+  tar -C mpfr --strip-components=1 -xf ../mpfr-3.1.2.tar.xz
+  tar -C gmp --strip-components=1 -xf ../gmp-6.0.0a.tar.xz
+  tar -C mpc --strip-components=1 -xf ../mpc-1.0.2.tar.gz
+
+  for file in \
+    $(find gcc/config -name linux64.h -o -name linux.h -o -name sysv4.h)
+  do
+    cp -uv $file{,.orig}
+    sed -e 's@/lib\(64\)\?\(32\)\?/ld@/tools&@g' \
+      -e 's@/usr@/tools@g' $file.orig > $file
+    echo '
+#undef STANDARD_STARTFILE_PREFIX_1
+#undef STANDARD_STARTFILE_PREFIX_2
+#define STANDARD_STARTFILE_PREFIX_1 "/tools/lib/"
+#define STANDARD_STARTFILE_PREFIX_2 ""' >> $file
+    touch $file.orig
+  done
+
+  # fix stack protection for glibc build
+  sed -i '/k prot/agcc_cv_libc_provides_ssp=yes' gcc/configure
+
+  mkdir -v ../gcc-build
+  cd ../gcc-build
+
+  # build cross compiler
+  ../gcc-$version/configure --prefix=/tools \
+    --target=$MIX_TGT \
+    --with-sysroot=$MIX \
+    --with-newlib \
+    --without-headers \
+    --with-local-prefix=/tools \
+    --with-native-system-header-dir=/tools/include \
+    --disable-nls \
+    --disable-shared \
+    --disable-multilib \
+    --disable-decimal-float \
+    --disable-threads \
+    --disable-libatomic \
+    --disable-libgomp \
+    --disable-libitm \
+    --disable-libquadmath \
+    --disable-libsanitizer \
+    --disable-libssp \
+    --disable-libvtv \
+    --disable-libcilkrts \
+    --disable-libstdc++-v3 \
+    --enable-languages=c,c++
+  make
+  make DESTDIR=$PKG install
+  rm -rv $PKG/tools/share/{info,man}
+  find $PKG -name "README*" -delete
+}

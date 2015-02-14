@@ -1,0 +1,14 @@
+# Description: file searching utilities
+
+name=findutils
+version=4.4.2
+release=0
+source=(ftp://ftp.gnu.org/gnu/findutils/findutils-$version.tar.gz)
+
+build() {
+  cd $name-$version
+  ./configure --prefix=/tools
+  make
+  make DESTDIR=$PKG install
+  rm -rv $PKG/tools/share/{info,man}
+}

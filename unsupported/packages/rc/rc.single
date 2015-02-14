@@ -1,0 +1,53 @@
+#!/bin/bash
+#
+# /etc/rc.single - single-user startup script
+#
+
+# load configuration
+. /etc/rc.conf
+
+if [ "$PREVLEVEL" = "2" ]; then
+    # shutdown services
+    if [ "${SERVICES[*]}" ]; then
+        echo -n "shutting down services ... "
+        for service in "${SERVICES[@]}"; do
+            R_SERVICES=($service ${R_SERVICES[@]})
+        done
+        for service in "${R_SERVICES[@]}"; do
+            /etc/init.d/$service stop &> /tmp/rc.$$
+            /bin/logger -t $service -f /tmp/rc.$$
+            /bin/rm -f /tmp/rc.$$
+        done
+        echo done
+    fi
+fi
+
+if [ "$PREVLEVEL" != "N" ]; then
+    # terminate all processes
+    echo -n "terminating processes ... "
+    /sbin/killall5 -15
+    /bin/sleep 5
+    /sbin/killall5 -9
+    echo done
+
+    # restart udev
+    if [ -x /etc/init.d/udev ]; then
+      echo -n "restarting udev ... "
+      /etc/init.d/udev restart
+      /bin/sleep 5
+      echo done
+    fi
+                
+    # restart log daemons
+    echo -n "restarting log daemons ... "
+    /sbin/syslogd
+    /sbin/klogd -c 4
+    echo done
+fi
+
+if [ "$RUNLEVEL" = "1" ]; then
+    # enter single-user mode
+    exec /sbin/init -t1 S
+fi
+
+# End of file

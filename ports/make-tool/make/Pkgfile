@@ -1,0 +1,14 @@
+# Description: state-dependent file processing
+
+name=make
+version=4.1
+release=0
+source=(ftp://ftp.gnu.org/gnu/make/make-$version.tar.bz2)
+
+build() {
+  cd $name-$version
+  ./configure --prefix=/tools --without-guile
+  make
+  make DESTDIR=$PKG install
+  rm -rv $PKG/tools/share/{info,man}
+}

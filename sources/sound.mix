@@ -1,0 +1,25 @@
+# Basic audio tools
+#
+# NOTE: installs before video.mix
+
+libsdl
+libmad
+libid3tag
+libogg
+libsndfile
+libxslt
+speex
+
+alsa-lib
+alsa-plugins
+alsa-utils
+flac
+lame
+libao
+libvorbis
+moc
+mpg123
+vorbis-tools
+wavpack
+
+cdparanoia

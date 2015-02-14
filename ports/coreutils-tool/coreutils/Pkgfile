@@ -1,0 +1,14 @@
+# Description: core utilities
+
+name=coreutils
+version=8.23
+release=0
+source=(ftp://ftp.gnu.org/gnu/coreutils/coreutils-$version.tar.xz)
+
+build() {
+  cd $name-$version
+  ./configure --prefix=/tools --enable-install-program=hostname
+  make
+  make DESTDIR=$PKG install
+  rm -rv $PKG/tools/share
+}

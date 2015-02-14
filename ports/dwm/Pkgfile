@@ -1,0 +1,23 @@
+# Description:	X window manager
+
+name=dwm
+version=6.0
+release=mix-4
+source=(http://dl.suckless.org/dwm/$name-$version.tar.gz
+	http://dwm.suckless.org/patches/dwm-$version-xft.diff)
+ 
+build() {
+  cd $name-$version
+  patch -Np0 -i ../dwm-$version-xft.diff
+  sed \
+    -e "s|^INCS =.*|& -I/usr/include/freetype2|" \
+    -e "s|^LIBS =.*|& -lXft|" \
+    -e "s|^PREFIX =.*|PREFIX = /usr|" \
+    -e "s|^X11INC =.*|X11INC = /usr/include/X11|" \
+    -e "s|^X11LIB =.*|X11LIB = /usr/lib/X11|" \
+    -i config.mk
+  sed -i -e "s|1 << 8|0|" config.def.h
+  cp -v config.def.h config.h
+  make
+  make DESTDIR=$PKG install
+}

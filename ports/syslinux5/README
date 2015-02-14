@@ -1,0 +1,3 @@
+
+PXE network loader is not installed. FAT loader depends on `mtools`.
+

@@ -1,0 +1,58 @@
+# Description: compiler collection
+
+name=gcc
+version=4.9.2
+release=0pass2
+source=(ftp://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.bz2
+	http://www.mpfr.org/mpfr-current/mpfr-3.1.2.tar.xz
+	http://ftp.gnu.org/gnu/gmp/gmp-6.0.0a.tar.xz
+	http://www.multiprecision.org/mpc/download/mpc-1.0.2.tar.gz)
+
+: ${MIX_TGT:=$(uname -m)-mix-linux-gnu}
+
+build() {
+  cd $name-$version
+
+  # restore internal header
+  cat gcc/limitx.h gcc/glimits.h gcc/limity.h > \
+    `dirname $($MIX_TGT-gcc -print-libgcc-file-name)`/include-fixed/limits.h
+
+  # change paths for pass2 temporary build
+  for file in \
+    $(find gcc/config -name linux64.h -o -name linux.h -o -name sysv4.h)
+  do
+    cp -uv $file{,.orig}
+    sed -e 's@/lib\(64\)\?\(32\)\?/ld@/tools&@g' \
+    -e 's@/usr@/tools@g' $file.orig > $file
+    echo '
+#undef STANDARD_STARTFILE_PREFIX_1
+#undef STANDARD_STARTFILE_PREFIX_2
+#define STANDARD_STARTFILE_PREFIX_1 "/tools/lib/"
+#define STANDARD_STARTFILE_PREFIX_2 ""' >> $file
+    touch $file.orig
+  done
+
+  mkdir -v mpfr gmp mpc
+  tar -C mpfr --strip-components=1 -xf ../mpfr-3.1.2.tar.xz
+  tar -C gmp --strip-components=1 -xf ../gmp-6.0.0a.tar.xz
+  tar -C mpc --strip-components=1 -xf ../mpc-1.0.2.tar.gz
+
+  mkdir -v ../gcc-build
+  cd ../gcc-build
+
+  # build gcc using cross compiler and linker
+  CC=$MIX_TGT-gcc CXX=$MIX_TGT-g++ AR=$MIX_TGT-ar RANLIB=$MIX_TGT-ranlib \
+  ../gcc-$version/configure --prefix=/tools \
+    --with-local-prefix=/tools \
+    --with-native-system-header-dir=/tools/include \
+    --enable-languages=c,c++ \
+    --disable-libstdcxx-pch \
+    --disable-multilib \
+    --disable-bootstrap \
+    --disable-libgomp
+  make
+  make DESTDIR=$PKG install
+  ln -vs gcc $PKG/tools/bin/cc
+  rm -rv $PKG/tools/share/{info,man}
+  find $PKG -name "README*" -delete
+}

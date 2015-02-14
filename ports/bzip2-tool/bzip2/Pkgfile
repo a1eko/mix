@@ -1,0 +1,13 @@
+# Description: data compression program
+
+name=bzip2
+version=1.0.6
+release=0
+source=(http://www.bzip.org/$version/bzip2-$version.tar.gz)
+
+build() {
+  cd $name-$version
+  make
+  make PREFIX=$PKG/tools install
+  rm -rv $PKG/tools/man
+}

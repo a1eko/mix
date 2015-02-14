@@ -1,0 +1,14 @@
+# Description: data compression utilities
+
+name=xz
+version=5.2.0
+release=0
+source=(http://tukaani.org/xz/xz-$version.tar.xz)
+
+build() {
+  cd $name-$version
+  ./configure --prefix=/tools
+  make
+  make DESTDIR=$PKG install
+  rm -rv $PKG/tools/share/doc
+}

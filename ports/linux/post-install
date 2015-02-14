@@ -1,0 +1,5 @@
+if [ -x /sbin/extlinux ]; then
+  if [ -f /boot/extlinux/extlinux.conf ]; then
+    extlinux --update /boot/extlinux
+  fi
+fi

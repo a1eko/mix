@@ -1,0 +1,14 @@
+# Description: stream editor
+
+name=sed
+version=4.2.2
+release=0
+source=(ftp://ftp.gnu.org/gnu/sed/sed-$version.tar.bz2)
+
+build() {
+  cd $name-$version
+  ./configure --prefix=/tools
+  make
+  make DESTDIR=$PKG install
+  rm -rv $PKG/tools/share/{info,man}
+}

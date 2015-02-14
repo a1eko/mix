@@ -1,0 +1,281 @@
+
+Examples of the network setup scripts.
+
+
+Configure loopback device and a static IP address for eth0 using iproute2:
+--------------------------------------------------------------------------------
+#!/bin/sh
+#
+# /etc/rc.d/net - static IP network script
+#
+
+case $1 in
+start)
+	/sbin/ip addr add 127.0.0.1/8 dev lo broadcast + scope host
+	/sbin/ip link set lo up
+	/sbin/ip addr add 192.168.1.100/24 dev eth0 broadcast +
+	/sbin/ip link set eth0 up
+	/sbin/ip route add default via 192.168.1.1
+	;;
+stop)
+	/sbin/ip route del default
+	/sbin/ip link set eth0 down
+	/sbin/ip addr del 192.168.1.100/24 dev eth0
+	/sbin/ip link set lo down
+	/sbin/ip addr del 127.0.0.1/8 dev lo
+	;;
+restart)
+	$0 stop
+	$0 start
+	;;
+*)
+	echo "usage: $0 [start|stop|restart]"
+	;;
+esac
+
+# End of file
+--------------------------------------------------------------------------------
+
+
+Configure loopback device and dynamic IP address using iproute2 and dhcpcd:
+--------------------------------------------------------------------------------
+#!/bin/sh
+#
+# /etc/rc.d/net - dynamic IP network script
+#
+
+case $1 in
+start)
+	/sbin/ip addr add 127.0.0.1/8 dev lo broadcast + scope host
+	/sbin/ip link set lo up
+	/sbin/dhcpcd -t 10
+	;;
+stop)
+	/sbin/dhcpcd -x
+	/sbin/ip link set lo down
+	/sbin/ip addr del 127.0.0.1/8 dev lo
+	;;
+restart)
+	$0 stop
+	$0 start
+	;;
+*)
+	echo "usage: $0 [start|stop|restart]"
+	;;
+esac
+
+# End of file
+--------------------------------------------------------------------------------
+
+
+Set up static IP address network using net-tools:
+--------------------------------------------------------------------------------
+#!/bin/sh
+#
+# /etc/rc.d/net - static IP network script
+#
+
+case $1 in
+start)
+        /sbin/ifconfig lo 127.0.0.1
+        #/sbin/ifconfig eth0 xxx.xxx.xxx.xxx netmask 255.255.255.xxx
+        #/sbin/route add default gw xxx.xxx.xxx.xxx
+        ;;
+stop)
+        #/sbin/ifconfig eth0 down
+        /sbin/ifconfig lo down
+        ;;
+restart)
+        $0 stop
+        $0 start
+        ;;
+*)
+        echo "usage: $0 [start|stop|restart]"
+        ;;
+esac
+
+# End of file
+--------------------------------------------------------------------------------
+
+
+Set up dynamic IP address network using net-tools and dhcpcd:
+--------------------------------------------------------------------------------
+#!/bin/sh
+#
+# /etc/rc.d/net - dynamic IP network script
+#
+
+case $1 in
+start)
+        /sbin/ifconfig lo 127.0.0.1
+        /sbin/dhcpcd eth0
+        ;;
+stop)
+        /bin/killall -q /sbin/dhcpcd
+        /sbin/ifconfig eth0 down
+        /sbin/ifconfig lo down
+        ;;
+restart)
+        $0 stop
+        $0 start
+        ;;
+*)
+        echo "usage: $0 [start|stop|restart]"
+        ;;
+esac
+
+# End of file
+--------------------------------------------------------------------------------
+
+
+Configure WPA2 encrypted wireless network using iproute2, wpa_supplicant
+and dhcpcd. Set password for the network with ssid=<ssid> and password
+<your_secret>:
+
+	wpa_passphrase <ssid> <your_secret> >> /etc/wpa_supplicant.conf
+
+Add unprotected networks to /etc/wpa_supplicant.conf, if any:
+
+	network={
+	  ssid="Some-SSID"
+	  key_mgmt=NONE
+	}
+
+Install network script:
+--------------------------------------------------------------------------------
+#!/bin/sh
+#
+# /etc/rc.d/wifi: start/stop network
+#
+
+case $1 in
+start)
+	/sbin/ip addr add 127.0.0.1/8 dev lo broadcast + scope host
+	/sbin/ip link set lo up
+	/usr/sbin/wpa_supplicant -B -Dwext -iwlan0 -c/etc/wpa_supplicant.conf
+	/sbin/dhcpcd -t 10 -h $HOSTNAME wlan0
+	;;
+stop)
+	/usr/bin/killall -q /sbin/dhcpcd
+	/usr/bin/killall -q /usr/sbin/wpa_supplicant
+	/sbin/ip link set lo down
+	/sbin/ip addr del 127.0.0.1/8 dev lo
+	;;
+restart)
+	$0 stop
+	$0 start
+	;;
+*)
+	echo "usage: $0 [start|stop|restart]"
+	;;
+esac
+
+# End of file
+--------------------------------------------------------------------------------
+
+
+Set up password protected wireless network using net-tools, wireles_tools
+and dhcpcd:
+--------------------------------------------------------------------------------
+#!/bin/sh
+#
+# /etc/rc.d/wifi: start/stop wifi network
+#
+
+IFACE="wlan0"
+IP="192.168.100.2"
+NETMASK="255.255.255.0"
+GW="192.168.100.1"
+ESSID="<your-essid>"
+KEY="<your-key>"
+
+case $1 in
+  start)
+    /sbin/ifconfig $IFACE $IP netmask $NETMASK
+    /sbin/route add default gw $GW
+    /usr/sbin/iwconfig $IFACE essid $ESSID
+    /usr/sbin/iwconfig $IFACE key open s:$KEY
+    /usr/sbin/iwconfig $IFACE mode managed
+    ;;
+  stop)
+    /sbin/ifconfig $IFACE down
+    ;;
+  restart)
+    $0 stop
+    $0 start
+    ;;
+  *)
+    echo "usage: $0 [start|stop|restart]"
+    ;;
+ esac
+
+# End of file
+--------------------------------------------------------------------------------
+
+
+Set up unprotected wireless dynamic IP network using iproute2,
+wireless_tools and dhcpcd:
+--------------------------------------------------------------------------------
+#!/bin/sh 
+# 
+# /etc/rc.d/wifi - wireless network script 
+#
+
+case $1 in
+start)
+        /sbin/ip addr add 127.0.0.1/8 dev lo broadcast + scope host
+        /sbin/ip link set lo up
+        #/usr/sbin/iwconfig wlan0 mode Managed essid any
+        #/sbin/ip link set wlan0 up
+        #/sbin/dhcpcd wlan0
+        ;;
+stop)
+        #/bin/killall -q /sbin/dhcpcd
+        #/sbin/ip link set wlan0 down
+        /sbin/ip link set lo down
+        ;;
+restart)
+        $0 stop
+        $0 start
+        ;;
+*)
+        echo "usage: $0 [start|stop|restart]"
+        ;;
+esac
+
+# End of file
+--------------------------------------------------------------------------------
+
+
+Set up unprotected wireless network using net-tools, wireless_tools
+and dhcpcd:
+--------------------------------------------------------------------------------
+#!/bin/sh
+#
+# /etc/rc.d/wifi - wireless network script
+#
+
+case $1 in
+start)
+        /sbin/ifconfig lo 127.0.0.1
+        #/sbin/ifconfig wlan0 up
+        #/usr/sbin/iwconfig wlan0 mode Managed essid any
+        #/sbin/dhcpcd wlan0
+        ;;
+stop)
+        #/bin/killall -q /sbin/dhcpcd
+        #/sbin/ifconfig wlan0 down
+        /sbin/ifconfig lo down
+        ;;
+restart)
+        $0 stop
+        $0 start
+        ;;
+*)
+        echo "usage: $0 [start|stop|restart]"
+        ;;
+esac
+
+# End of file
+--------------------------------------------------------------------------------
+

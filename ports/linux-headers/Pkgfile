@@ -1,0 +1,14 @@
+# Description: linux kernel headers
+
+name=linux-headers
+version=3.19
+release=1
+source=(ftp://ftp.kernel.org/pub/linux/kernel/v3.x/linux-$version.tar.xz)
+
+build() {
+  cd linux-$version
+  make mrproper
+  make headers_check
+  make INSTALL_HDR_PATH=$PKG/usr headers_install
+  find $PKG/usr/include \( -name .install -o -name ..install.cmd \) -delete
+}

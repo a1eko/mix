@@ -1,0 +1,16 @@
+#
+# /etc/fstab - static information about the filesystems
+#
+# file system, mount-point, type, options, dump, fsck order
+
+/dev/sda7 /        ext3     defaults 1 1
+/dev/sda1 /boot    ext3     defaults 1 2
+/dev/sda9 /home    ext3     defaults 0 2
+/dev/sda5 swap     swap     pri=1 0 0
+proc      /proc    proc     nosuid,noexec,nodev 0 0
+sysfs     /sys     sysfs    nosuid,noexec,nodev 0 0
+devpts    /dev/pts devpts   gid=5,mode=620 0 0
+tmpfs     /run     tmpfs    defaults 0 0
+devtmpfs  /dev     devtmpfs mode=0755,nosuid 0 0
+
+# End of file

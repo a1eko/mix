@@ -1,0 +1,16 @@
+# Description: photographic image manipulation library
+# Depends on: glib libpng cmake
+
+name=lensfun
+version=0.3.0
+release=1
+source=(http://downloads.sourceforge.net/$name/$name-$version.tar.bz2) 
+
+build() {
+  cd $name-$version
+  mkdir cmake_build
+  cd cmake_build
+  cmake -DLENSFUN_INSTALL_PREFIX=/usr -DBUILD_TESTS=OFF ..
+  make
+  make DESTDIR=$PKG install
+}

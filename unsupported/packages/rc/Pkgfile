@@ -1,0 +1,27 @@
+# Description: system boot scripts
+
+name=rc
+version=0.2
+release=mix-4
+source=(rc rc.conf rc.local rc.modules rc.multi rc.shutdown rc.single inittab)
+
+build() {
+  mkdir -pv $PKG/etc/init.d
+  install -m 644 inittab $PKG/etc
+  install -m 755 rc $PKG/etc
+  install -m 755 rc.modules $PKG/etc
+  install -m 755 rc.single $PKG/etc
+  install -m 755 rc.multi $PKG/etc
+  install -m 755 rc.local $PKG/etc
+  install -m 755 rc.shutdown $PKG/etc
+  install -m 644 rc.conf $PKG/etc
+  mkdir -pv $PKG/var/log $PKG/var/lib/urandom
+  touch $PKG/var/log/boot $PKG/var/lib/urandom/seed
+  chmod 640 $PKG/var/log/boot $PKG/var/lib/urandom/seed
+
+  for file in inittab rc.modules rc.local rc.conf; do
+    if [ -f $PKG/etc/$file ]; then
+      mv -v $PKG/etc/$file{,.new} 
+    fi
+  done
+}

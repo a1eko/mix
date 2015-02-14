@@ -1,0 +1,26 @@
+#!/bin/sh
+#
+# /etc/rc.d/wifi - wireless network script
+#
+
+case $1 in
+start)
+	/sbin/ip addr add 127.0.0.1/8 dev lo broadcast + scope host
+	/usr/sbin/wpa_supplicant -B -Dwext -iwlan0 -c/etc/wpa_supplicant.conf
+	/sbin/dhcpcd -h $HOSTNAME wlan0
+	;;
+stop)
+	/bin/killall -q /sbin/dhcpcd
+	/bin/killall -q /sbin/wpa_supplicant
+	/sbin/ip addr del 127.0.0.1/8 dev lo
+	;;
+restart)
+	$0 stop
+	$0 start
+	;;
+*)
+	echo "usage: $0 [start|stop|restart]"
+	;;
+esac
+
+# End of file

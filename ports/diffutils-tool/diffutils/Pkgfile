@@ -1,0 +1,14 @@
+# Description: programs that show differences between files
+
+name=diffutils
+version=3.3
+release=0
+source=(http://ftp.gnu.org/gnu/diffutils/diffutils-$version.tar.xz)
+
+build() {
+  cd $name-$version
+  ./configure --prefix=/tools
+  make
+  make prefix=$PKG/tools install
+  rm -rv $PKG/tools/share/{info,man}
+}

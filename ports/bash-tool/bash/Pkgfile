@@ -1,0 +1,15 @@
+# Description: Bourne shell compatible command language interpreter
+
+name=bash
+version=4.3.30
+release=0
+source=(ftp://ftp.gnu.org/gnu/bash/bash-$version.tar.gz)
+
+build() {
+  cd $name-$version
+  ./configure --prefix=/tools --without-bash-malloc
+  make
+  make DESTDIR=$PKG install
+  ln -sv bash $PKG/tools/bin/sh
+  rm -rv $PKG/tools/share/{man,info}
+}
