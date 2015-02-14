@@ -24,7 +24,7 @@ rsync -aqz crux.nu::ports/crux-3.1/opt/ $MIX/usr/packages
 rsync -aqz crux.nu::ports/crux-3.1/contrib/tcl $MIX/usr/packages
 rsync -aqz crux.nu::ports/crux-3.1/contrib/lynx $MIX/usr/packages
 rsync -aqz crux.nu::ports/crux-3.1/contrib/linux-firmware $MIX/usr/packages
-cp -r ports/* $MIX/usr/packages/
+cp -r  {ports,tools}/* $MIX/usr/packages/
 
 mkdir -pv $MIX/{tools/bin,var/log/{packages,sources}}
 sudo ln -sfv $MIX/tools /
