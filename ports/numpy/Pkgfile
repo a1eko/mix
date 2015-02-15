@@ -1,0 +1,17 @@
+# Description: array numerics in Python
+# URL: http://www.numpy.org/
+# Depends on: python
+
+name=numpy
+version=1.9.1
+release=1
+source=(http://downloads.sourceforge.net/numpy/numpy-$version.tar.gz)
+
+build() {
+  cd $name-$version
+  python setup.py build
+  python setup.py install --root=$PKG
+
+  find $PKG -type d -name doc -o -name docs | xargs rm -r
+  find $PKG -type f -name "*.txt" -delete
+}

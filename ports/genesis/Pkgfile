@@ -1,0 +1,23 @@
+# Description:	neural system simulation software
+# URL: http://www.genesis-sim.org/GENESIS/
+
+name=genesis
+version=2.4
+release=1
+source=(http://www.genesis-sim.org/GENESIS/genesis-ftp/genesis-$version-src.tar.gz)
+
+build() {
+  cd $name-$version
+  cd genesis/src
+  ./configure --prefix=/usr/lib/genesis
+  (cd diskio/interface/netcdf && make)
+  make
+  make INSTALLDIR=$PKG/usr/lib/genesis install
+
+  mkdir -pv $PKG/usr/bin
+  ln -sv ../lib/genesis/genesis $PKG/usr/bin/
+  rm -v $PKG/usr/lib/genesis/.*simrc
+  find $PKG -type f -name ".*simrc" | xargs sed -i "s:$PKG::"
+  rm -rv $PKG/usr/lib/genesis/{bin,man}
+  rm -rv $PKG/usr/lib/genesis/{Hyperdoc,Libmake,Scripts,Tutorials,Usermake}
+}

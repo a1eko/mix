@@ -1,0 +1,72 @@
+drwxr-xr-x	root/root	usr/   
+drwxr-xr-x	root/root	usr/etc/   
+-rw-r--r--	root/root	usr/etc/mpicxx.conf   
+-rw-r--r--	root/root	usr/etc/mpicc.conf   
+drwxr-xr-x	root/root	usr/share/   
+drwxr-xr-x	root/root	usr/share/man/   
+drwxr-xr-x	root/root	usr/share/man/man1/   
+-rw-r--r--	root/root	usr/share/man/man1/mpif90.1.gz   
+-rw-r--r--	root/root	usr/share/man/man1/mpicxx.1.gz   
+-rw-r--r--	root/root	usr/share/man/man1/mpicc.1.gz   
+-rw-r--r--	root/root	usr/share/man/man1/mpif77.1.gz   
+-rw-r--r--	root/root	usr/share/man/man1/mpiexec.1.gz   
+drwxr-xr-x	root/root	usr/include/   
+-rw-r--r--	root/root	usr/include/mpi.h   
+-rw-r--r--	root/root	usr/include/opa_primitives.h   
+-rw-r--r--	root/root	usr/include/opa_queue.h   
+-rw-r--r--	root/root	usr/include/mpicxx.h   
+-rw-r--r--	root/root	usr/include/opa_config.h   
+-rw-r--r--	root/root	usr/include/mpiof.h   
+-rw-r--r--	root/root	usr/include/mpio.h   
+drwxr-xr-x	root/root	usr/include/primitives/   
+-rw-r--r--	root/root	usr/include/primitives/opa_emulated.h   
+-rw-r--r--	root/root	usr/include/primitives/opa_nt_intrinsics.h   
+-rw-r--r--	root/root	usr/include/primitives/opa_gcc_intel_32_64.h   
+-rw-r--r--	root/root	usr/include/primitives/opa_gcc_intrinsics.h   
+-rw-r--r--	root/root	usr/include/primitives/opa_gcc_sicortex.h   
+-rw-r--r--	root/root	usr/include/primitives/opa_gcc_ppc.h   
+-rw-r--r--	root/root	usr/include/primitives/opa_gcc_intel_32_64_p3barrier.h   
+-rw-r--r--	root/root	usr/include/primitives/opa_gcc_ia64.h   
+-rw-r--r--	root/root	usr/include/primitives/opa_gcc_intel_32_64_barrier.h   
+-rw-r--r--	root/root	usr/include/primitives/opa_sun_atomic_ops.h   
+-rw-r--r--	root/root	usr/include/primitives/opa_by_lock.h   
+-rw-r--r--	root/root	usr/include/primitives/opa_gcc_intel_32_64_p3.h   
+-rw-r--r--	root/root	usr/include/primitives/opa_gcc_intel_32_64_ops.h   
+-rw-r--r--	root/root	usr/include/primitives/opa_unsafe.h   
+-rw-r--r--	root/root	usr/include/opa_util.h   
+drwxr-xr-x	root/root	usr/lib/   
+-rw-r--r--	root/root	usr/lib/libmpl.a   
+-rwxr-xr-x	root/root	usr/lib/libmpich.so.10.0.4   
+-rwxr-xr-x	root/root	usr/lib/libmpich.la   
+lrwxrwxrwx	root/root	usr/lib/libmpl.so.1 -> libmpl.so.1.0.0 
+-rwxr-xr-x	root/root	usr/lib/libopa.la   
+lrwxrwxrwx	root/root	usr/lib/libmpich.so.10 -> libmpich.so.10.0.4 
+-rwxr-xr-x	root/root	usr/lib/libmpl.so.1.0.0   
+lrwxrwxrwx	root/root	usr/lib/libmpichcxx.so.10 -> libmpichcxx.so.10.0.4 
+drwxr-xr-x	root/root	usr/lib/pkgconfig/   
+-rw-r--r--	root/root	usr/lib/pkgconfig/mpich.pc   
+-rw-r--r--	root/root	usr/lib/pkgconfig/openpa.pc   
+-rwxr-xr-x	root/root	usr/lib/libmpichcxx.la   
+-rw-r--r--	root/root	usr/lib/libmpichcxx.a   
+-rwxr-xr-x	root/root	usr/lib/libmpichcxx.so.10.0.4   
+-rwxr-xr-x	root/root	usr/lib/libopa.so.1.0.0   
+-rwxr-xr-x	root/root	usr/lib/libmpl.la   
+lrwxrwxrwx	root/root	usr/lib/libmpich.so -> libmpich.so.10.0.4 
+lrwxrwxrwx	root/root	usr/lib/libopa.so.1 -> libopa.so.1.0.0 
+lrwxrwxrwx	root/root	usr/lib/libopa.so -> libopa.so.1.0.0 
+lrwxrwxrwx	root/root	usr/lib/libmpichcxx.so -> libmpichcxx.so.10.0.4 
+-rw-r--r--	root/root	usr/lib/libopa.a   
+lrwxrwxrwx	root/root	usr/lib/libmpl.so -> libmpl.so.1.0.0 
+-rw-r--r--	root/root	usr/lib/libmpich.a   
+drwxr-xr-x	root/root	usr/bin/   
+lrwxrwxrwx	root/root	usr/bin/mpirun -> mpiexec.hydra 
+-rwxr-xr-x	root/root	usr/bin/mpichversion   
+-rwxr-xr-x	root/root	usr/bin/parkill   
+-rwxr-xr-x	root/root	usr/bin/mpiexec.hydra   
+-rwxr-xr-x	root/root	usr/bin/mpicxx   
+-rwxr-xr-x	root/root	usr/bin/hydra_persist   
+lrwxrwxrwx	root/root	usr/bin/mpic++ -> mpicxx 
+-rwxr-xr-x	root/root	usr/bin/mpicc   
+-rwxr-xr-x	root/root	usr/bin/hydra_nameserver   
+lrwxrwxrwx	root/root	usr/bin/mpiexec -> mpiexec.hydra 
+-rwxr-xr-x	root/root	usr/bin/hydra_pmi_proxy   

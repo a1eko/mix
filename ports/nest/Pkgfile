@@ -1,0 +1,18 @@
+# Description: neural simulator
+# URL: http://www.nest-initiative.org/
+# Depends on: python numpy gsl
+# Nice to have: mpich
+
+name=nest
+version=2.6.0
+release=1
+source=(http://www.nest-initiative.org/download/gplreleases/nest-$version.tar.gz)
+
+build() {
+  cd $name-$version
+  if which mpirun &>/dev/null; then WITH_MPI=--with-mpi; fi
+  ./configure --prefix=/usr $WITH_MPI
+  make
+  make DESTDIR=$PKG install
+  rm -rv $PKG/usr/share/doc
+}
