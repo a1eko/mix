@@ -36,6 +36,12 @@ strip_static=
 strip_binaries=
 use_mirror=
 
+formatted_output=no
+list_notinstalled=no
+list_installed=no
+list_updated=no
+list_all=yes
+
 usage() {
   cat << EOF 
 Usage: 	pkz [options] <command> <packages>
@@ -54,6 +60,11 @@ Options:
   -c conf		configuration file [/etc/pkz.conf]
   -p path		packages directory [/usr/packages]
   -s path		sources directory [/usr/sources]
+  -md			markdown formatted output
+  -a			list all packages
+  -i			list installed packages
+  -n			list not-installed packages
+  -u			list updated packages
 
 Command:
   clean			delete working directory
@@ -61,6 +72,8 @@ Command:
   build			make binary package
   install		install binary package
   remove		uninstall binary package
+  upgrade		upgrade binary package
+  list			show available packages
 
 Packages:
   <name> [<name2> ...]	package name or list of packages
@@ -281,6 +294,34 @@ do_upgrade() {
   fi
 }
 
+installed() {
+  local ver
+  if [ -f $pkgreg.gz ]; then
+    echo "(installed)"
+  elif [ -f $zregs/$name#* ]; then
+    ver=$(echo $(basename $zregs/$name#* .gz) | cut -d'#' -f2)
+    echo "($ver)"
+  fi
+}
+
+do_list() {
+  if [ $formatted_output = yes ]; then
+    if [ $list_all = yes \
+      -o $list_installed = yes -a "$(installed)" = '(installed)' \
+      -o $list_updated = yes -a "$(installed)" != '(installed)' -a "$(installed)" != '' \
+      -o $list_notinstalled = yes -a "$(installed)" = '' ]; then
+      echo "* [$name]($pkgdir) $version-$release $(eval installed) -$(grep Description: $pkgfile | cut -d: -f2)"
+    fi
+  else
+    if [ $list_all = yes -o \
+      $list_installed = yes -a "$(installed)" = '(installed)' \
+      -o $list_updated = yes -a "$(installed)" != '(installed)' -a "$(installed)" != '' \
+      -o $list_notinstalled = yes -a "$(installed)" = '' ]; then
+      echo $name $version-$release $(eval installed) -$(grep Description: $pkgfile | cut -d: -f2)
+    fi
+  fi
+}
+
 
 test $# -eq 0 && usage && exit
 while true; do
@@ -292,18 +333,24 @@ while true; do
     -p) shift; test -d "$1" && zpackages=$(cd $1; pwd) || error "no directory $1" ;;
     -s) shift; test -d "$1" && zsources=$(cd $1; pwd) || error "no directory $1" ;;
     -m) shift; test -n "$1" && use_mirror=$1 ;;
+    -md) formatted_output=yes ;;
+    -n) list_notinstalled=yes; list_all=no ;;
+    -i) list_installed=yes; list_all=no ;;
+    -u) list_updated=yes; list_all=no ;;
+    -a) list_all=yes ;;
     *) break ;;
   esac
   shift
 done
 
 case $1 in 
-  source | clean | build | install | remove | upgrade) cmd=$1; shift ;;
+  source | clean | build | install | remove | upgrade | list) cmd=$1; shift ;;
   *) error "unknown command $1" ;;
 esac
 
 test -r $zconf && source $zconf
 test $cmd = clean -a $# -eq 0 && set $(cd $zpackages; ls)
+test $cmd = list -a $# -eq 0 && set $(cd $zpackages; ls)
 
 while [ $# -gt 0 ]; do
   test "$1" = include -a -f "$2" && shift && set $(sed 's/#.*$//' $1)
