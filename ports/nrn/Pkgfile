@@ -1,0 +1,17 @@
+# Description: Neuron simulation environment
+# URL: http://www.neuron.yale.edu/neuron/
+# Depends on: iv python numpy
+
+name=nrn
+version=7.3
+release=1
+source=(http://www.neuron.yale.edu/ftp/neuron/versions/v$version/nrn-$version.tar.gz)
+ 
+build() {
+  cd $name-$version
+  sed -i 's/$(MAKE) $(AM_MAKEFLAGS) install-exec-hook/#&/' Makefile.in
+  ./configure --prefix=/usr --with-iv=/usr --with-nrnpython
+  make
+  make DESTDIR=$PKG install
+  rm -rv $PKG/usr/share/nrn/{demo,libtool,examples}
+}
