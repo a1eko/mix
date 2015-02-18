@@ -231,87 +231,86 @@ drwxr-xr-x	root/root	usr/include/nrn/
 -rw-r--r--	root/root	usr/include/nrn/hoc.h   
 -rw-r--r--	root/root	usr/include/nrn/nrnisaac.h   
 -rw-r--r--	root/root	usr/include/nrn/membfunc.h   
-drwxr-xr-x	root/root	usr/x86_64/   
-drwxr-xr-x	root/root	usr/x86_64/lib/   
--rwxr-xr-x	root/root	usr/x86_64/lib/libnrnmpi.la   
-lrwxrwxrwx	root/root	usr/x86_64/lib/libnrnpython.so.0 -> libnrnpython.so.0.0.0 
-lrwxrwxrwx	root/root	usr/x86_64/lib/libmemacs.so.0 -> libmemacs.so.0.0.0 
--rwxr-xr-x	root/root	usr/x86_64/lib/libneuron_gnu.la   
--rwxr-xr-x	root/root	usr/x86_64/lib/libsundials.so.0.0.0   
--rwxr-xr-x	root/root	usr/x86_64/lib/libmeschach.so.0.0.0   
-lrwxrwxrwx	root/root	usr/x86_64/lib/libscopmath.so -> libscopmath.so.0.0.0 
-lrwxrwxrwx	root/root	usr/x86_64/lib/libsundials.so -> libsundials.so.0.0.0 
--rw-r--r--	root/root	usr/x86_64/lib/ocmain.o   
--rwxr-xr-x	root/root	usr/x86_64/lib/libmemacs.la   
-lrwxrwxrwx	root/root	usr/x86_64/lib/libnrnoc.so.0 -> libnrnoc.so.0.0.0 
--rw-r--r--	root/root	usr/x86_64/lib/nrnnoiv.o   
--rwxr-xr-x	root/root	usr/x86_64/lib/libnrnmpi.so.0.0.0   
-lrwxrwxrwx	root/root	usr/x86_64/lib/libmeschach.so.0 -> libmeschach.so.0.0.0 
-lrwxrwxrwx	root/root	usr/x86_64/lib/libmemacs.so -> libmemacs.so.0.0.0 
-lrwxrwxrwx	root/root	usr/x86_64/lib/libocxt.so.0 -> libocxt.so.0.0.0 
--rwxr-xr-x	root/root	usr/x86_64/lib/libocxt.so.0.0.0   
-lrwxrwxrwx	root/root	usr/x86_64/lib/libivoc.so.0 -> libivoc.so.0.0.0 
--rwxr-xr-x	root/root	usr/x86_64/lib/libsparse13.la   
-lrwxrwxrwx	root/root	usr/x86_64/lib/libnrniv.so -> libnrniv.so.0.0.0 
--rwxr-xr-x	root/root	usr/x86_64/lib/libmeschach.la   
--rwxr-xr-x	root/root	usr/x86_64/lib/liboc.la   
-lrwxrwxrwx	root/root	usr/x86_64/lib/libsparse13.so.0 -> libsparse13.so.0.0.0 
-lrwxrwxrwx	root/root	usr/x86_64/lib/libneuron_gnu.so -> libneuron_gnu.so.0.0.0 
--rw-r--r--	root/root	usr/x86_64/lib/nrnconf.h   
--rwxr-xr-x	root/root	usr/x86_64/lib/libnrnoc.so.0.0.0   
--rwxr-xr-x	root/root	usr/x86_64/lib/libsundials.la   
-lrwxrwxrwx	root/root	usr/x86_64/lib/libnrnpython.so -> libnrnpython.so.0.0.0 
--rwxr-xr-x	root/root	usr/x86_64/lib/libocxt.la   
-lrwxrwxrwx	root/root	usr/x86_64/lib/libsparse13.so -> libsparse13.so.0.0.0 
-lrwxrwxrwx	root/root	usr/x86_64/lib/libscopmath.so.0 -> libscopmath.so.0.0.0 
--rw-r--r--	root/root	usr/x86_64/lib/nvkludge.o   
--rwxr-xr-x	root/root	usr/x86_64/lib/libmemacs.so.0.0.0   
--rwxr-xr-x	root/root	usr/x86_64/lib/libnrnpython.so.0.0.0   
-lrwxrwxrwx	root/root	usr/x86_64/lib/libsundials.so.0 -> libsundials.so.0.0.0 
-lrwxrwxrwx	root/root	usr/x86_64/lib/libmeschach.so -> libmeschach.so.0.0.0 
--rw-r--r--	root/root	usr/x86_64/lib/ocnoiv.o   
--rwxr-xr-x	root/root	usr/x86_64/lib/libivoc.la   
-lrwxrwxrwx	root/root	usr/x86_64/lib/liboc.so -> liboc.so.0.0.0 
--rwxr-xr-x	root/root	usr/x86_64/lib/liboc.so.0.0.0   
-lrwxrwxrwx	root/root	usr/x86_64/lib/libnrniv.so.0 -> libnrniv.so.0.0.0 
-lrwxrwxrwx	root/root	usr/x86_64/lib/libneuron_gnu.so.0 -> libneuron_gnu.so.0.0.0 
--rwxr-xr-x	root/root	usr/x86_64/lib/libscopmath.so.0.0.0   
-lrwxrwxrwx	root/root	usr/x86_64/lib/libnrnoc.so -> libnrnoc.so.0.0.0 
-lrwxrwxrwx	root/root	usr/x86_64/lib/libocxt.so -> libocxt.so.0.0.0 
--rwxr-xr-x	root/root	usr/x86_64/lib/libivoc.so.0.0.0   
--rw-r--r--	root/root	usr/x86_64/lib/ivocmain.o   
--rw-r--r--	root/root	usr/x86_64/lib/cprop.o   
-lrwxrwxrwx	root/root	usr/x86_64/lib/liboc.so.0 -> liboc.so.0.0.0 
-lrwxrwxrwx	root/root	usr/x86_64/lib/libivoc.so -> libivoc.so.0.0.0 
--rwxr-xr-x	root/root	usr/x86_64/lib/libsparse13.so.0.0.0   
-lrwxrwxrwx	root/root	usr/x86_64/lib/libnrnmpi.so.0 -> libnrnmpi.so.0.0.0 
--rwxr-xr-x	root/root	usr/x86_64/lib/libneuron_gnu.so.0.0.0   
--rwxr-xr-x	root/root	usr/x86_64/lib/libnrnpython.la   
--rwxr-xr-x	root/root	usr/x86_64/lib/libnrniv.la   
--rwxr-xr-x	root/root	usr/x86_64/lib/libscopmath.la   
--rw-r--r--	root/root	usr/x86_64/lib/nrnmain.o   
--rwxr-xr-x	root/root	usr/x86_64/lib/libnrnoc.la   
--rwxr-xr-x	root/root	usr/x86_64/lib/libnrniv.so.0.0.0   
-lrwxrwxrwx	root/root	usr/x86_64/lib/libnrnmpi.so -> libnrnmpi.so.0.0.0 
-drwxr-xr-x	root/root	usr/x86_64/bin/   
--rwxr-xr-x	root/root	usr/x86_64/bin/nrniv   
--rwxr-xr-x	root/root	usr/x86_64/bin/sortspike   
--rwxr-xr-x	root/root	usr/x86_64/bin/nrngui   
--rwxr-xr-x	root/root	usr/x86_64/bin/nrnmech_makefile   
--rwxr-xr-x	root/root	usr/x86_64/bin/nocmodl   
--rwxr-xr-x	root/root	usr/x86_64/bin/mos2nrn2.sh   
--rwxr-xr-x	root/root	usr/x86_64/bin/mos2nrn   
--rwxr-xr-x	root/root	usr/x86_64/bin/bbswork.sh   
--rwxr-xr-x	root/root	usr/x86_64/bin/hoc_ed   
--rwxr-xr-x	root/root	usr/x86_64/bin/modlunit   
--rwxr-xr-x	root/root	usr/x86_64/bin/hel2mos1.sh   
--rwxr-xr-x	root/root	usr/x86_64/bin/oc   
--rwxr-xr-x	root/root	usr/x86_64/bin/ivoc   
--rwxr-xr-x	root/root	usr/x86_64/bin/nrnivmodl   
--rwxr-xr-x	root/root	usr/x86_64/bin/neurondemo   
--rwxr-xr-x	root/root	usr/x86_64/bin/nrnoc   
--rwxr-xr-x	root/root	usr/x86_64/bin/nrnocmodl   
--rwxr-xr-x	root/root	usr/x86_64/bin/nrniv_makefile   
--rwxr-xr-x	root/root	usr/x86_64/bin/memacs   
--rwxr-xr-x	root/root	usr/x86_64/bin/mkthreadsafe   
--rwxr-xr-x	root/root	usr/x86_64/bin/nrnoc_makefile   
+drwxr-xr-x	root/root	usr/lib/   
+-rwxr-xr-x	root/root	usr/lib/libnrnmpi.la   
+lrwxrwxrwx	root/root	usr/lib/libnrnpython.so.0 -> libnrnpython.so.0.0.0 
+lrwxrwxrwx	root/root	usr/lib/libmemacs.so.0 -> libmemacs.so.0.0.0 
+-rwxr-xr-x	root/root	usr/lib/libneuron_gnu.la   
+-rwxr-xr-x	root/root	usr/lib/libsundials.so.0.0.0   
+-rwxr-xr-x	root/root	usr/lib/libmeschach.so.0.0.0   
+lrwxrwxrwx	root/root	usr/lib/libscopmath.so -> libscopmath.so.0.0.0 
+lrwxrwxrwx	root/root	usr/lib/libsundials.so -> libsundials.so.0.0.0 
+-rw-r--r--	root/root	usr/lib/ocmain.o   
+-rwxr-xr-x	root/root	usr/lib/libmemacs.la   
+lrwxrwxrwx	root/root	usr/lib/libnrnoc.so.0 -> libnrnoc.so.0.0.0 
+-rw-r--r--	root/root	usr/lib/nrnnoiv.o   
+-rwxr-xr-x	root/root	usr/lib/libnrnmpi.so.0.0.0   
+lrwxrwxrwx	root/root	usr/lib/libmeschach.so.0 -> libmeschach.so.0.0.0 
+lrwxrwxrwx	root/root	usr/lib/libmemacs.so -> libmemacs.so.0.0.0 
+lrwxrwxrwx	root/root	usr/lib/libocxt.so.0 -> libocxt.so.0.0.0 
+-rwxr-xr-x	root/root	usr/lib/libocxt.so.0.0.0   
+lrwxrwxrwx	root/root	usr/lib/libivoc.so.0 -> libivoc.so.0.0.0 
+-rwxr-xr-x	root/root	usr/lib/libsparse13.la   
+lrwxrwxrwx	root/root	usr/lib/libnrniv.so -> libnrniv.so.0.0.0 
+-rwxr-xr-x	root/root	usr/lib/libmeschach.la   
+-rwxr-xr-x	root/root	usr/lib/liboc.la   
+lrwxrwxrwx	root/root	usr/lib/libsparse13.so.0 -> libsparse13.so.0.0.0 
+lrwxrwxrwx	root/root	usr/lib/libneuron_gnu.so -> libneuron_gnu.so.0.0.0 
+-rw-r--r--	root/root	usr/lib/nrnconf.h   
+-rwxr-xr-x	root/root	usr/lib/libnrnoc.so.0.0.0   
+-rwxr-xr-x	root/root	usr/lib/libsundials.la   
+lrwxrwxrwx	root/root	usr/lib/libnrnpython.so -> libnrnpython.so.0.0.0 
+-rwxr-xr-x	root/root	usr/lib/libocxt.la   
+lrwxrwxrwx	root/root	usr/lib/libsparse13.so -> libsparse13.so.0.0.0 
+lrwxrwxrwx	root/root	usr/lib/libscopmath.so.0 -> libscopmath.so.0.0.0 
+-rw-r--r--	root/root	usr/lib/nvkludge.o   
+-rwxr-xr-x	root/root	usr/lib/libmemacs.so.0.0.0   
+-rwxr-xr-x	root/root	usr/lib/libnrnpython.so.0.0.0   
+lrwxrwxrwx	root/root	usr/lib/libsundials.so.0 -> libsundials.so.0.0.0 
+lrwxrwxrwx	root/root	usr/lib/libmeschach.so -> libmeschach.so.0.0.0 
+-rw-r--r--	root/root	usr/lib/ocnoiv.o   
+-rwxr-xr-x	root/root	usr/lib/libivoc.la   
+lrwxrwxrwx	root/root	usr/lib/liboc.so -> liboc.so.0.0.0 
+-rwxr-xr-x	root/root	usr/lib/liboc.so.0.0.0   
+lrwxrwxrwx	root/root	usr/lib/libnrniv.so.0 -> libnrniv.so.0.0.0 
+lrwxrwxrwx	root/root	usr/lib/libneuron_gnu.so.0 -> libneuron_gnu.so.0.0.0 
+-rwxr-xr-x	root/root	usr/lib/libscopmath.so.0.0.0   
+lrwxrwxrwx	root/root	usr/lib/libnrnoc.so -> libnrnoc.so.0.0.0 
+lrwxrwxrwx	root/root	usr/lib/libocxt.so -> libocxt.so.0.0.0 
+-rwxr-xr-x	root/root	usr/lib/libivoc.so.0.0.0   
+-rw-r--r--	root/root	usr/lib/ivocmain.o   
+-rw-r--r--	root/root	usr/lib/cprop.o   
+lrwxrwxrwx	root/root	usr/lib/liboc.so.0 -> liboc.so.0.0.0 
+lrwxrwxrwx	root/root	usr/lib/libivoc.so -> libivoc.so.0.0.0 
+-rwxr-xr-x	root/root	usr/lib/libsparse13.so.0.0.0   
+lrwxrwxrwx	root/root	usr/lib/libnrnmpi.so.0 -> libnrnmpi.so.0.0.0 
+-rwxr-xr-x	root/root	usr/lib/libneuron_gnu.so.0.0.0   
+-rwxr-xr-x	root/root	usr/lib/libnrnpython.la   
+-rwxr-xr-x	root/root	usr/lib/libnrniv.la   
+-rwxr-xr-x	root/root	usr/lib/libscopmath.la   
+-rw-r--r--	root/root	usr/lib/nrnmain.o   
+-rwxr-xr-x	root/root	usr/lib/libnrnoc.la   
+-rwxr-xr-x	root/root	usr/lib/libnrniv.so.0.0.0   
+lrwxrwxrwx	root/root	usr/lib/libnrnmpi.so -> libnrnmpi.so.0.0.0 
+drwxr-xr-x	root/root	usr/bin/   
+-rwxr-xr-x	root/root	usr/bin/nrniv   
+-rwxr-xr-x	root/root	usr/bin/sortspike   
+-rwxr-xr-x	root/root	usr/bin/nrngui   
+-rwxr-xr-x	root/root	usr/bin/nrnmech_makefile   
+-rwxr-xr-x	root/root	usr/bin/nocmodl   
+-rwxr-xr-x	root/root	usr/bin/mos2nrn2.sh   
+-rwxr-xr-x	root/root	usr/bin/mos2nrn   
+-rwxr-xr-x	root/root	usr/bin/bbswork.sh   
+-rwxr-xr-x	root/root	usr/bin/hoc_ed   
+-rwxr-xr-x	root/root	usr/bin/modlunit   
+-rwxr-xr-x	root/root	usr/bin/hel2mos1.sh   
+-rwxr-xr-x	root/root	usr/bin/oc   
+-rwxr-xr-x	root/root	usr/bin/ivoc   
+-rwxr-xr-x	root/root	usr/bin/nrnivmodl   
+-rwxr-xr-x	root/root	usr/bin/neurondemo   
+-rwxr-xr-x	root/root	usr/bin/nrnoc   
+-rwxr-xr-x	root/root	usr/bin/nrnocmodl   
+-rwxr-xr-x	root/root	usr/bin/nrniv_makefile   
+-rwxr-xr-x	root/root	usr/bin/memacs   
+-rwxr-xr-x	root/root	usr/bin/mkthreadsafe   
+-rwxr-xr-x	root/root	usr/bin/nrnoc_makefile   
