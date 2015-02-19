@@ -165,7 +165,7 @@ Reboot the system ...
 Setting up the new system
 -------------------------
 
-Start `net` or `wifi` script.
+Start `net` script.
 
 	sudo /etc/rc.d/net start
 
