@@ -139,6 +139,7 @@ strip_objects() {
 
 do_clean() {
   rm -rf $pkgwork $pkgbin
+  chown -R --reference $zpackages $pkgdir
 }
 
 do_source() {
