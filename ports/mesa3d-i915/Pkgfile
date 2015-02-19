@@ -3,7 +3,7 @@
 
 name=mesa3d-i915
 version=10.4.3
-release=mix-1
+release=1
 
 source=(ftp://ftp.freedesktop.org/pub/mesa/$version/MesaLib-$version.tar.bz2)
 
