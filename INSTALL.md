@@ -48,7 +48,8 @@ Set password for user *root*.
 	passwd root
 
 Add user *build*. User *build* must be a member of the group *wheel*
-to be able to execute `sudo` commands.
+to be able to execute `sudo` commands (run `visudo` to configure *sudo*
+if necessary).
 
 	useradd -m -g users -G floppy,audio,video,cdrom,wheel -s /bin/bash build
 	passwd build

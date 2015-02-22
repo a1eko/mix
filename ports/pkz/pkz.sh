@@ -355,21 +355,40 @@ test $cmd = list -a $# -eq 0 && set $(cd $zpackages; ls)
 
 while [ $# -gt 0 ]; do
   test "$1" = include -a -f "$2" && shift && set $(sed 's/#.*$//' $1)
-  pkgdir=$zpackages/$1
-  pkgfile=$pkgdir/Pkgfile
-  test -d $pkgdir || error "no directory $pkgdir"
-  test -f $pkgfile || error "no file $pkgfile"
-  source $pkgfile 
-  test "$name" = $1 || error "corrupt $pkgfile"
-  revision=$version-$release
-  pkgwork=$pkgdir/files
-  pkgcont=$pkgdir/.footprint
-  pkgsum=$pkgdir/.md5sum
-  pkgreg=$zregs/$name#$revision
-  pkgbuild=$zbuilds/$name#$revision
-  pkgbin=$zsources/$name#$revision.pkg.tar.gz
-  SRC=$pkgwork/source
-  PKG=$pkgwork/install
-  do_$cmd
-  shift
+  if [ $cmd = list ]; then
+    patt="$1"
+    if ls -d $zpackages/*${patt}* &>/dev/null; then
+      for d in $(ls -d $zpackages/*${patt}*); do
+        pkgdir=$d
+        pkgfile=$pkgdir/Pkgfile
+        test -d $pkgdir || error "no directory $pkgdir"
+        test -f $pkgfile || error "no file $pkgfile"
+        source $pkgfile 
+        revision=$version-$release
+        pkgreg=$zregs/$name#$revision
+        do_$cmd
+        shift
+      done
+    else
+      shift
+    fi
+  else
+    pkgdir=$zpackages/$1
+    pkgfile=$pkgdir/Pkgfile
+    test -d $pkgdir || error "no directory $pkgdir"
+    test -f $pkgfile || error "no file $pkgfile"
+    source $pkgfile 
+    test "$name" = $1 || error "corrupt $pkgfile"
+    revision=$version-$release
+    pkgwork=$pkgdir/files
+    pkgcont=$pkgdir/.footprint
+    pkgsum=$pkgdir/.md5sum
+    pkgreg=$zregs/$name#$revision
+    pkgbuild=$zbuilds/$name#$revision
+    pkgbin=$zsources/$name#$revision.pkg.tar.gz
+    SRC=$pkgwork/source
+    PKG=$pkgwork/install
+    do_$cmd
+    shift
+  fi
 done
