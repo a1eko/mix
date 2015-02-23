@@ -1,0 +1,17 @@
+# Description: ZIP archive manipulation perl module
+
+name=p5-archive-zip
+version=1.45
+release=mix-1
+source=(http://www.cpan.org/modules/by-module/Archive/Archive-Zip-$version.tar.gz)
+
+build() {
+  cd Archive-Zip-$version
+  perl Makefile.PL
+  make
+  make test
+  make DESTDIR=$PKG install
+  rm -rv $PKG/usr/man
+  find $PKG \( -name perllocal.pod -o -name .packlist \) -delete
+  find $PKG -depth -empty -delete
+}

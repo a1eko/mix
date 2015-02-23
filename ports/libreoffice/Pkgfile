@@ -1,0 +1,55 @@
+# Description: office suite
+# Depends on: p5-archive-zip unzip wget which zip cups curl gperf gtk p5-xml-parser krb5 gst-plugins-base gdb
+# NOTE: must be built in a graphical environment, fails otherwise.
+
+name=libreoffice
+version=4.4.0.3
+release=mix-1
+source=()
+
+build() {
+  wget http://download.documentfoundation.org/libreoffice/src/4.4.0/libreoffice-$version.tar.xz
+  wget http://download.documentfoundation.org/libreoffice/src/4.4.0/libreoffice-help-$version.tar.xz
+  wget http://download.documentfoundation.org/libreoffice/src/4.4.0/libreoffice-dictionaries-$version.tar.xz
+  wget http://download.documentfoundation.org/libreoffice/src/4.4.0/libreoffice-translations-$version.tar.xz
+
+  install -dm755 external/tarballs
+  tar -xf ../libreoffice-dictionaries-$version.tar.xz --no-overwrite-dir --strip-components=1
+  ln -sv ../../libreoffice-dictionaries-$version.tar.xz external/tarballs/
+  ln -sv ../../libreoffice-translations-$version.tar.xz external/tarballs/
+  ln -sv ../../libreoffice-help-$version.tar.xz external/tarballs/
+
+  sed -e "/gzip -f/d" \
+    -e "s|.1.gz|.1|g" \
+    -i bin/distro-install-desktop-integration
+  sed -e "/distro-install-file-lists/d" -i Makefile.in
+  sed -e "/ustrbuf/a #include <algorithm>" \
+    -i svl/source/misc/gridprinter.cxx
+  chmod -v +x bin/unpack-sources
+
+  ./autogen.sh --prefix=/usr \
+    --sysconfdir=/etc \
+    --disable-dbus \
+    --disable-gconf \
+    --disable-gstreamer-0.10 \
+    --disable-odk \
+    --disable-postgresql-sdbc \
+    --enable-python=internal \
+    --enable-release-build=yes \
+    --with-help \
+    --with-lang="en-US sv ru" \
+    --with-parallelism \
+    --with-vendor="MiX" \
+    --without-java
+  make build
+  make DESTDIR=$PKG distro-pack-install
+
+  chown -cR 0:0 dictionaries/ 
+  mkdir -pv $PKG/usr/lib/libreoffice/share/extensions/dict-{en,sv,ru} 
+  cp -vR dictionaries/en/* $PKG/usr/lib/libreoffice/share/extensions/dict-en/
+  cp -vR dictionaries/sv_SE/* $PKG/usr/lib/libreoffice/share/extensions/dict-sv/
+  cp -vR dictionaries/ru_RU/* $PKG/usr/lib/libreoffice/share/extensions/dict-ru/
+
+  find $PKG -name "README*" -delete
+  rm -v $PKG/gid_Module*
+}
