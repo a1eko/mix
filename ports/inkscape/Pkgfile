@@ -1,0 +1,19 @@
+# Description: An open source SVG editor.
+# URL: http://www.inkscape.org
+# Depends on: boehm-gc boost gsl gtkmm intltool lcms2 libart_lgpl popt
+
+name=inkscape
+version=0.91
+release=mix-1
+source=(https://inkscape.global.ssl.fastly.net/media/resources/file/$name-$version.tar.bz2)
+
+build() {
+  cd $name-$version
+  ./configure --prefix=/usr --mandir=/usr/man --disable-nls
+  make
+  make DESTDIR=$PKG install
+  rm -v $PKG/usr/man/man1/{inkscape.??.1,inkscape.zh_TW.1}
+  rm -rv $PKG/usr/share/locale $PKG/usr/man/?? $PKG/usr/man/zh_TW
+  find $PKG/usr/share/inkscape -name README -exec rm -f {} +
+  /usr/bin/python -mcompileall $PKG
+}
