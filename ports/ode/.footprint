@@ -1,0 +1,34 @@
+drwxr-xr-x	root/root	usr/   
+drwxr-xr-x	root/root	usr/include/   
+drwxr-xr-x	root/root	usr/include/ode/   
+-rw-r--r--	root/root	usr/include/ode/mass.h   
+-rw-r--r--	root/root	usr/include/ode/odemath_legacy.h   
+-rw-r--r--	root/root	usr/include/ode/objects.h   
+-rw-r--r--	root/root	usr/include/ode/contact.h   
+-rw-r--r--	root/root	usr/include/ode/collision.h   
+-rw-r--r--	root/root	usr/include/ode/misc.h   
+-rw-r--r--	root/root	usr/include/ode/odecpp.h   
+-rw-r--r--	root/root	usr/include/ode/rotation.h   
+-rw-r--r--	root/root	usr/include/ode/matrix.h   
+-rw-r--r--	root/root	usr/include/ode/timer.h   
+-rw-r--r--	root/root	usr/include/ode/memory.h   
+-rw-r--r--	root/root	usr/include/ode/collision_trimesh.h   
+-rw-r--r--	root/root	usr/include/ode/collision_space.h   
+-rw-r--r--	root/root	usr/include/ode/error.h   
+-rw-r--r--	root/root	usr/include/ode/common.h   
+-rw-r--r--	root/root	usr/include/ode/odeinit.h   
+-rw-r--r--	root/root	usr/include/ode/ode.h   
+-rw-r--r--	root/root	usr/include/ode/odeconfig.h   
+-rw-r--r--	root/root	usr/include/ode/compatibility.h   
+-rw-r--r--	root/root	usr/include/ode/export-dif.h   
+-rw-r--r--	root/root	usr/include/ode/odemath.h   
+-rw-r--r--	root/root	usr/include/ode/odecpp_collision.h   
+drwxr-xr-x	root/root	usr/lib/   
+-rwxr-xr-x	root/root	usr/lib/libode.la   
+lrwxrwxrwx	root/root	usr/lib/libode.so -> libode.so.3.0.0 
+-rwxr-xr-x	root/root	usr/lib/libode.so.3.0.0   
+drwxr-xr-x	root/root	usr/lib/pkgconfig/   
+-rw-r--r--	root/root	usr/lib/pkgconfig/ode.pc   
+lrwxrwxrwx	root/root	usr/lib/libode.so.3 -> libode.so.3.0.0 
+drwxr-xr-x	root/root	usr/bin/   
+-rwxr-xr-x	root/root	usr/bin/ode-config   

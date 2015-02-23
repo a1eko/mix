@@ -1,0 +1,15 @@
+# Description: Microsoft Word DOC files converter
+# URL: http://www.winfield.demon.nl/
+
+name=antiword
+version=0.37
+release=1
+source=(http://www.winfield.demon.nl/linux/$name-$version.tar.gz)
+
+build() {
+  cd $name-$version
+  make GLOBAL_INSTALL_DIR=/usr/bin all
+  make GLOBAL_INSTALL_DIR=/usr/bin DESTDIR=$PKG global_install
+  install -v -D -m 644 Docs/antiword.1 $PKG/usr/share/man/man1/antiword.1
+  rm -v $PKG/usr/bin/kantiword
+}

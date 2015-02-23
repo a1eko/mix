@@ -1,0 +1,15 @@
+# Description: Microsoft Word DOC to text converter
+# URL: http://www.wagner.pp.ru/~vitus/software/catdoc/
+
+name=catdoc
+version=0.94.2
+release=1
+source=(http://ftp.wagner.pp.ru/pub/$name/$name-$version.tar.gz)
+
+build() {
+  cd $name-$version
+  ./configure -prefix=/usr --with-wish=/usr/bin/wish
+  export MAKEFLAGS="-j1"
+  make
+  make prefix=$PKG/usr install
+}

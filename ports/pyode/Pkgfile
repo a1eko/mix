@@ -1,0 +1,15 @@
+# Description: Python bindings for ode
+# URL: http://pyode.sourceforge.net/
+# Depends on: python pyrex ode
+
+name=pyode
+version=20100322
+release=1
+
+source=(http://sourceforge.net/projects/pyode/files/pyode/snapshot-2010-03-22/PyODE-snapshot-2010-03-22.tar.bz2)
+
+build() {
+  cd PyODE-snapshot-2010-03-22
+  python setup.py build
+  python setup.py install --root=$PKG
+}
