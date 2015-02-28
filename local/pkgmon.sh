@@ -19,4 +19,4 @@ if [ -d $P/ports ]; then
     echo
   done
 fi
-rm -f .listing* index.html
+rm -f .listing* index.html*

@@ -62,7 +62,7 @@ BASE3="bzip2 pkg-config ncurses attr acl libcap sed shadow psmisc procps \
   check autoconf automake diffutils gawk findutils gettext groff xz less \
   gzip kbd libpipeline make man-db man-pages patch sudo sysklogd sysvinit \
   tar texinfo vim"
-BOOT="linux nasm syslinux5 rc"
+BOOT="linux nasm syslinux rc"
 
 $toolsh "pkz source $BASE1 $BASE2 $BASE3 $BOOT"
 $toolsh "pkz source include $MIX/usr/sources/coreopt.mix"
