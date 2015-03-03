@@ -1,0 +1,50 @@
+# Description: concurrent neural system simulation software
+# URL: http://genesis-sim.org/
+
+name=pgenesis
+version=2.4
+release=git-1
+source=()
+
+build() {
+  git clone https://github.com/genesis-sim/genesis-$version.git
+  rm -rf genesis-$version/genesis-binaries
+  cd genesis-$version
+  cd pgenesis
+
+  cat Makefile.dist > Makefile
+  cat >> Makefile << 'EOF'
+GENESIS=/usr/lib/genesis
+INST_DIR=/usr/lib/pgenesis
+USE_MPI=1
+MPI_LIB=
+MPI_CMD='mpirun -np $$num_nodes $$exec $$nargv'
+MPI_DEBUG_CMD='mpirun -gdb -np $$num_nodes $$exec $$nargv'
+MACHINE=Linux
+OS=BSD
+XLIB=/usr/lib
+CC=mpicc
+CPP=cpp -P
+CFLAGS=-O2 -D__NO_MATH_INLINES -DLONGWORDS
+LD=ld
+RANLIB=ranlib
+AR=ar
+CPLIB=cp
+YACC=bison -y
+LEX=flex -l
+LEXLIB=-lfl
+LIBS=$(LEXLIB) -lm
+TERMCAP=-lncurses
+TERMOPT=-DTERMIO -DDONT_USE_SIGIO
+EDITED=yes
+EOF
+
+  make INST_DIR=$PKG/usr/lib/pgenesis install
+
+  mkdir -pv $PKG/usr/share/pgenesis/startup
+  cp -rv src/startup/*simrc $PKG/usr/share/pgenesis/startup/
+  mkdir -pv $PKG/usr/bin
+  ln -sv ../lib/pgenesis/pgenesis $PKG/usr/bin/
+  ln -sv ../lib/pgenesis/ipclean $PKG/usr/bin/
+  rm -rv $PKG/usr/lib/pgenesis/{Hyperdoc,Scripts}
+}
