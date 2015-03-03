@@ -1,5 +1,6 @@
 # Description: concurrent neural system simulation software
 # URL: http://genesis-sim.org/
+# Depends on: genesis mpich
 
 name=pgenesis
 version=2.4
