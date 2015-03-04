@@ -3,7 +3,7 @@
 # Depends on: python
 
 name=numpy
-version=1.9.1
+version=1.9.2
 release=1
 source=(http://downloads.sourceforge.net/numpy/numpy-$version.tar.gz)
 

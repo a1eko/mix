@@ -601,6 +601,6 @@ drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/numpy/matrixlib/tests/
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/numpy/matrixlib/defmatrix.pyc   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/numpy/matrixlib/setup.py   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/numpy/version.pyc   
--rw-r--r--	root/root	usr/lib/python2.7/site-packages/numpy-1.9.1-py2.7.egg-info   
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/numpy-1.9.2-py2.7.egg-info   
 drwxr-xr-x	root/root	usr/bin/   
 -rwxr-xr-x	root/root	usr/bin/f2py   
