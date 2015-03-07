@@ -45,7 +45,7 @@ EOF
   mkdir -pv $PKG/usr/share/pgenesis/startup
   cp -rv src/startup/*simrc $PKG/usr/share/pgenesis/startup/
   mkdir -pv $PKG/usr/bin
-  ln -sv ../lib/pgenesis/pgenesis $PKG/usr/bin/
-  ln -sv ../lib/pgenesis/ipclean $PKG/usr/bin/
+  ln -sv ../lib/pgenesis/bin/pgenesis $PKG/usr/bin/
+  ln -sv ../lib/pgenesis/bin/ipclean $PKG/usr/bin/
   rm -rv $PKG/usr/lib/pgenesis/{Hyperdoc,Scripts}
 }
