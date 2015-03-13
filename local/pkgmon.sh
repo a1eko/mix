@@ -1,17 +1,14 @@
 #!/bin/bash
 
-T=/tmp/pkgmon.log
+M=(ftp://trumpetti.atm.tut.fi/gentoo/distfiles
+   ftp://ftp.kernel.org/pub/linux/kernel/v3.x) 
 S=/var/log/sources/pkgmon.log
+T=/tmp/pkgmon.log
 P=$(pwd)
-
-if [ "$1" = update ]; then
-  touch $T
-  cp -bv $T $S
-fi
 
 cd /tmp
 rm -f .listing* index.html*
-for m in ftp://trumpetti.atm.tut.fi/gentoo/distfiles ftp://ftp.kernel.org/pub/linux/kernel/v3.x; do
+for m in ${M[@]}; do
   wget -q --no-remove-listing $m/
   awk '{ print $9 }' .listing >> .listing-tmp
 done
@@ -27,3 +24,6 @@ fi
 rm -f .listing* index.html*
 touch $S
 comm -13 <(sort $S) <(sort $T)
+if [ "$1" = update ]; then
+  cp -bv $T $S
+fi
