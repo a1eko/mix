@@ -47,5 +47,5 @@ EOF
   mkdir -pv $PKG/usr/bin
   ln -sv ../lib/pgenesis/bin/pgenesis $PKG/usr/bin/
   ln -sv ../lib/pgenesis/bin/ipclean $PKG/usr/bin/
-  rm -rv $PKG/usr/lib/pgenesis/{Hyperdoc,Scripts}
+  rm -rv $PKG/usr/lib/pgenesis/Hyperdoc
 }
