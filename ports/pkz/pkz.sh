@@ -150,7 +150,7 @@ do_source() {
       f=$(basename $s)
       if [ ! -f $SRC/$f ]; then
         if [ -f $pkgdir/$f ]; then
-          ln -f $pkgdir/$f $SRC
+          ln -Lf $pkgdir/$f $SRC
         else
           if [ -f $zsources/$f ]; then
             ln -sf $zsources/$f $SRC
