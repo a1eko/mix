@@ -348,10 +348,9 @@ case $1 in
   source | clean | build | install | remove | upgrade | list) cmd=$1; shift ;;
   *) error "unknown command $1" ;;
 esac
-if [ $cmd = clean -o $cmd = list ]; then
-  test $# -eq 0 && set [a-zA-Z0-9]
-fi
 
+test $cmd = clean -a $# -eq 0 && set $(cd $zpackages; ls)
+test $cmd = list -a $# -eq 0 && set [a-zA-Z0-9]
 test -r $zconf && source $zconf
 
 while [ $# -gt 0 ]; do
