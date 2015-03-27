@@ -1,7 +1,7 @@
 # Description: linux kernel headers
 
 name=linux-headers
-version=3.19.2
+version=3.19.3
 release=1
 source=(ftp://ftp.kernel.org/pub/linux/kernel/v3.x/linux-$version.tar.xz)
 
