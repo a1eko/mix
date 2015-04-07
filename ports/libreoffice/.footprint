@@ -5193,6 +5193,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/program/opengl/
 -rw-r--r--	root/root	usr/lib/libreoffice/program/opengl/debugFragmentShader.glsl   
 -rw-r--r--	root/root	usr/lib/libreoffice/program/opengl/transformedTextureVertexShader.glsl   
 -rw-r--r--	root/root	usr/lib/libreoffice/program/opengl/screenTextFragmentShader.glsl   
+-rw-r--r--	root/root	usr/lib/libreoffice/program/opengl/areaScaleFragmentShader.glsl   
 -rw-r--r--	root/root	usr/lib/libreoffice/program/opengl/rectangularTwoColorGradientFragmentShader.glsl   
 -rw-r--r--	root/root	usr/lib/libreoffice/program/opengl/pickingFragmentShader.glsl   
 -rw-r--r--	root/root	usr/lib/libreoffice/program/opengl/shape3DFragmentShader.glsl   
@@ -5206,6 +5207,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/program/opengl/
 -rw-r--r--	root/root	usr/lib/libreoffice/program/opengl/blendedTextureVertexShader.glsl   
 -rw-r--r--	root/root	usr/lib/libreoffice/program/opengl/dissolveFragmentShader.glsl   
 -rw-r--r--	root/root	usr/lib/libreoffice/program/opengl/shape3DVertexShaderBatch.glsl   
+-rw-r--r--	root/root	usr/lib/libreoffice/program/opengl/areaScaleFastFragmentShader.glsl   
 -rw-r--r--	root/root	usr/lib/libreoffice/program/opengl/textureVertexShader.glsl   
 -rw-r--r--	root/root	usr/lib/libreoffice/program/opengl/symbolVertexShader.glsl   
 -rw-r--r--	root/root	usr/lib/libreoffice/program/opengl/shape3DFragmentShaderV300.glsl   

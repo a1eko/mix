@@ -13,5 +13,5 @@ build() {
   ./configure --prefix=/usr --exec-prefix=/usr --with-iv=/usr --with-nrnpython
   make
   make DESTDIR=$PKG install
-  rm -rv $PKG/usr/share/nrn/{demo,libtool,examples}
+  rm -rv $PKG/usr/share/nrn/{demo,examples}
 }

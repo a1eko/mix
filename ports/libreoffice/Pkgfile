@@ -3,15 +3,19 @@
 # NOTE: must be built in a graphical environment, fails otherwise.
 
 name=libreoffice
-version=4.4.0.3
+version=4.4.2.2
 release=mix-1
 source=()
 
 build() {
-  wget http://download.documentfoundation.org/libreoffice/src/4.4.0/libreoffice-$version.tar.xz
-  wget http://download.documentfoundation.org/libreoffice/src/4.4.0/libreoffice-help-$version.tar.xz
-  wget http://download.documentfoundation.org/libreoffice/src/4.4.0/libreoffice-dictionaries-$version.tar.xz
-  wget http://download.documentfoundation.org/libreoffice/src/4.4.0/libreoffice-translations-$version.tar.xz
+  #wget http://download.documentfoundation.org/libreoffice/src/4.4.2/libreoffice-$version.tar.xz
+  #wget http://download.documentfoundation.org/libreoffice/src/4.4.2/libreoffice-help-$version.tar.xz
+  #wget http://download.documentfoundation.org/libreoffice/src/4.4.2/libreoffice-dictionaries-$version.tar.xz
+  #wget http://download.documentfoundation.org/libreoffice/src/4.4.2/libreoffice-translations-$version.tar.xz
+ln -v /usr/sources/libreoffice*xz .
+
+  tar -xf libreoffice-4.4.2.2.tar.xz --no-overwrite-dir
+  cd $name-$version
 
   install -dm755 external/tarballs
   tar -xf ../libreoffice-dictionaries-$version.tar.xz --no-overwrite-dir --strip-components=1

@@ -1,0 +1,77 @@
+drwxr-xr-x	root/root	usr/   
+drwxr-xr-x	root/root	usr/share/   
+drwxr-xr-x	root/root	usr/share/man/   
+drwxr-xr-x	root/root	usr/share/man/man1/   
+-rw-r--r--	root/root	usr/share/man/man1/plotfont.1.gz   
+-rw-r--r--	root/root	usr/share/man/man1/plot.1.gz   
+-rw-r--r--	root/root	usr/share/man/man1/tek2plot.1.gz   
+-rw-r--r--	root/root	usr/share/man/man1/ode.1.gz   
+-rw-r--r--	root/root	usr/share/man/man1/spline.1.gz   
+drwxr-xr-x	root/root	usr/share/ode/   
+-rw-r--r--	root/root	usr/share/ode/henon.ode   
+-rw-r--r--	root/root	usr/share/ode/coupled.ode   
+-rw-r--r--	root/root	usr/share/ode/population.ode   
+-rw-r--r--	root/root	usr/share/ode/limitcycle.ode   
+-rw-r--r--	root/root	usr/share/ode/dynamo.ode   
+-rw-r--r--	root/root	usr/share/ode/ddho.ode   
+-rw-r--r--	root/root	usr/share/ode/lunar.sh   
+-rw-r--r--	root/root	usr/share/ode/soliton.ode   
+-rw-r--r--	root/root	usr/share/ode/rumor.ode   
+-rw-r--r--	root/root	usr/share/ode/orbit.ode   
+-rw-r--r--	root/root	usr/share/ode/qcd.ode   
+-rw-r--r--	root/root	usr/share/ode/chem.ode   
+-rw-r--r--	root/root	usr/share/ode/viscous.ode   
+-rw-r--r--	root/root	usr/share/ode/atwoods.ode   
+-rw-r--r--	root/root	usr/share/ode/lorenz.ode   
+-rw-r--r--	root/root	usr/share/ode/bead.ode   
+drwxr-xr-x	root/root	usr/share/pic2plot/   
+-rw-r--r--	root/root	usr/share/pic2plot/picmacros.ps   
+-rw-r--r--	root/root	usr/share/pic2plot/macros.pic   
+-rw-r--r--	root/root	usr/share/pic2plot/pic0.ps   
+-rw-r--r--	root/root	usr/share/pic2plot/pic1.ps   
+drwxr-xr-x	root/root	usr/share/libplot/   
+-rw-r--r--	root/root	usr/share/libplot/hershey.bib   
+-rw-r--r--	root/root	usr/share/libplot/h-fonts.txt   
+-rw-r--r--	root/root	usr/share/libplot/kanji.txt   
+-rw-r--r--	root/root	usr/share/libplot/kana.txt   
+-rw-r--r--	root/root	usr/share/libplot/colors.txt   
+-rw-r--r--	root/root	usr/share/libplot/h-glyphs.txt   
+drwxr-xr-x	root/root	usr/share/tek2plot/   
+-rw-r--r--	root/root	usr/share/tek2plot/karney.tek   
+-rw-r--r--	root/root	usr/share/tek2plot/usmap.tek   
+-rw-r--r--	root/root	usr/share/tek2plot/skymap2.tek   
+-rw-r--r--	root/root	usr/share/tek2plot/ocpred.tek   
+-rw-r--r--	root/root	usr/share/tek2plot/aitest.tek   
+-rw-r--r--	root/root	usr/share/tek2plot/skymap.tek   
+-rw-r--r--	root/root	usr/share/tek2plot/imtesth.tek   
+-rw-r--r--	root/root	usr/share/tek2plot/fotest.tek   
+-rw-r--r--	root/root	usr/share/tek2plot/scale.tek   
+-rw-r--r--	root/root	usr/share/tek2plot/dmerc.tek   
+drwxr-xr-x	root/root	usr/include/   
+-rw-r--r--	root/root	usr/include/plotcompat.h   
+-rw-r--r--	root/root	usr/include/xmi.h   
+-rw-r--r--	root/root	usr/include/plot.h   
+-rw-r--r--	root/root	usr/include/plotter.h   
+drwxr-xr-x	root/root	usr/lib/   
+lrwxrwxrwx	root/root	usr/lib/libplotter.so -> libplotter.so.2.2.4 
+-rwxr-xr-x	root/root	usr/lib/libplotter.so.2.2.4   
+-rwxr-xr-x	root/root	usr/lib/libplotter.la   
+lrwxrwxrwx	root/root	usr/lib/libxmi.so -> libxmi.so.0.1.3 
+lrwxrwxrwx	root/root	usr/lib/libxmi.so.0 -> libxmi.so.0.1.3 
+-rwxr-xr-x	root/root	usr/lib/libplot.so.2.2.4   
+lrwxrwxrwx	root/root	usr/lib/libplotter.so.2 -> libplotter.so.2.2.4 
+-rwxr-xr-x	root/root	usr/lib/libplot.la   
+lrwxrwxrwx	root/root	usr/lib/libplot.so -> libplot.so.2.2.4 
+lrwxrwxrwx	root/root	usr/lib/libplot.so.2 -> libplot.so.2.2.4 
+-rwxr-xr-x	root/root	usr/lib/libxmi.la   
+-rwxr-xr-x	root/root	usr/lib/libxmi.so.0.1.3   
+drwxr-xr-x	root/root	usr/bin/   
+-rwxr-xr-x	root/root	usr/bin/plot   
+-rwxr-xr-x	root/root	usr/bin/plotfont   
+-rwxr-xr-x	root/root	usr/bin/ode   
+-rwxr-xr-x	root/root	usr/bin/spline   
+-rwxr-xr-x	root/root	usr/bin/pic2plot   
+-rwxr-xr-x	root/root	usr/bin/hersheydemo   
+-rwxr-xr-x	root/root	usr/bin/graph   
+-rwxr-xr-x	root/root	usr/bin/double   
+-rwxr-xr-x	root/root	usr/bin/tek2plot   
