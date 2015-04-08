@@ -13,6 +13,10 @@ monitor() {
     wget -q --no-remove-listing $m/
     awk '{ print $9 }' .listing >> .listing-tmp
   done
+  wget -q -O - https://pypi.python.org/pypi?%3Aaction=index \
+    | grep 'href="/pypi/' | cut -d'"' -f2 \
+    | sed -e 's,/pypi/,,'i -e 's,/,-,' \
+    >> .listing-tmp
   sort -u .listing-tmp > .listing-files
   if [ -d $P/ports ]; then
     for p in $P/ports/*; do

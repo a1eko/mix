@@ -2,13 +2,13 @@
 # URL: http://matplotlib.org/
 # Depends on: python numpy libpng freetype python-dateutil pyparsing six
 
-name=python-matplotlib
+name=matplotlib
 version=1.4.3
 release=1
-source=(https://downloads.sourceforge.net/project/matplotlib/matplotlib/matplotlib-$version/matplotlib-$version.tar.gz)
+source=(https://downloads.sourceforge.net/project/$name/$name/$name-$version/$name-$version.tar.gz)
 
 build() {
-  cd matplotlib-$version
+  cd $name-$version
   python setup.py build
   python setup.py install --root=$PKG
 }
