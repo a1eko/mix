@@ -1,10 +1,9 @@
 # Description: language for writing Python extension modules
-# URL: http://www.cosc.canterbury.ac.nz/greg.ewing/python/Pyrex/
 # Depends on: python
 
 name=pyrex
 version=0.9.9
-release=1
+release=mix-1
 source=(http://www.cosc.canterbury.ac.nz/greg.ewing/python/Pyrex/Pyrex-$version.tar.gz)
 
 build() {

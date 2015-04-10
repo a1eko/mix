@@ -2,7 +2,7 @@
 
 name=texinfo
 version=5.2
-release=1
+release=mix-1
 source=(ftp://ftp.gnu.org/gnu/texinfo/texinfo-$version.tar.gz)
 
 build() {

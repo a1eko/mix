@@ -1,10 +1,9 @@
 # Description: plotting utilities
-# URL: http://www.gnu.org/software/plotutils/plotutils.html
 # Depends on: libpng
 
 name=plotutils
 version=2.6
-release=1
+release=mix-1
 source=(ftp://ftp.gnu.org/gnu/$name/$name-$version.tar.gz
 	plotutils-2.6-libpng-1.5-gentoo.patch)
 

@@ -1,12 +1,11 @@
 # Description: zathura PostScript viewer plugin
-# URL: http://pwmt.org/projects/zathura-ps/
 # Depends on: zathura girara libspectre
 
 name=zathura-ps
 version=0.2.2
-release=1
+release=mix-1
 
-source=(http://pwmt.org/projects/zathura-ps/download/$name-$version.tar.gz)
+source=(http://pwmt.org/projects/$name/download/$name-$version.tar.gz)
  
 build() {
   cd $name-$version

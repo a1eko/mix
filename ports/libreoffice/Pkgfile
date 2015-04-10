@@ -13,7 +13,7 @@ build() {
   wget http://download.documentfoundation.org/libreoffice/src/4.4.2/libreoffice-dictionaries-$version.tar.xz
   wget http://download.documentfoundation.org/libreoffice/src/4.4.2/libreoffice-translations-$version.tar.xz
 
-  tar -xf libreoffice-4.4.2.2.tar.xz --no-overwrite-dir
+  tar -xf libreoffice-$version.tar.xz --no-overwrite-dir
   cd $name-$version
 
   install -dm755 external/tarballs

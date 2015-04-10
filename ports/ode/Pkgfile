@@ -1,10 +1,8 @@
 # Description: library for simulating rigid body dynamics
-# URL: http://www.ode.org/
 
 name=ode
 version=0.12
 release=mix-1
-
 source=(http://downloads.sourceforge.net/opende/ode-$version.tar.bz2)
 
 build() {

@@ -1,5 +1,4 @@
 # Description: A numerical library for C and C++ programmers.
-# URL: http://www.gnu.org/software/gsl/
 
 name=gsl
 version=1.16
@@ -7,13 +6,9 @@ release=mix-1
 source=(ftp://ftp.gnu.org/gnu/$name/$name-$version.tar.gz)
 
 build() {
-	cd $name-$version
-
-	./configure \
-		--prefix=/usr \
-		--mandir=/usr/man \
-
-	make
-	make DESTDIR=$PKG install
-	rm -r $PKG/usr/share/info
+  cd $name-$version
+  ./configure --prefix=/usr
+  make
+  make DESTDIR=$PKG install
+  rm -rv $PKG/usr/share/info
 }

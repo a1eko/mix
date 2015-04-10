@@ -1,10 +1,9 @@
 # Description: graphical interface library
-# URL: http://www.neuron.yale.edu/ftp/neuron/versions/v7.3/
 # Depends on: xorg
 
 name=iv
 version=18
-release=1
+release=mix-1
 source=(http://www.neuron.yale.edu/ftp/neuron/versions/v7.3/iv-$version.tar.gz)
  
 build() {

@@ -6,7 +6,7 @@ release=0pass2
 source=(ftp://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.bz2
 	http://www.mpfr.org/mpfr-current/mpfr-3.1.2.tar.xz
 	http://ftp.gnu.org/gnu/gmp/gmp-6.0.0a.tar.xz
-	http://www.multiprecision.org/mpc/download/mpc-1.0.2.tar.gz)
+	http://www.multiprecision.org/mpc/download/mpc-1.0.3.tar.gz)
 
 : ${MIX_TGT:=$(uname -m)-mix-linux-gnu}
 
@@ -35,7 +35,7 @@ build() {
   mkdir -v mpfr gmp mpc
   tar -C mpfr --strip-components=1 -xf ../mpfr-3.1.2.tar.xz
   tar -C gmp --strip-components=1 -xf ../gmp-6.0.0a.tar.xz
-  tar -C mpc --strip-components=1 -xf ../mpc-1.0.2.tar.gz
+  tar -C mpc --strip-components=1 -xf ../mpc-1.0.3.tar.gz
 
   mkdir -v ../gcc-build
   cd ../gcc-build

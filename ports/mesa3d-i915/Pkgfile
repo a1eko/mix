@@ -2,14 +2,13 @@
 # Depends on: expat libdrm libvdpau libxml2-python talloc xorg-dri2proto xorg-dri3proto xorg-glproto xorg-libxdamage xorg-libxshmfence xorg-libxt xorg-libxvmc xorg-libxxf86vm xorg-makedepend xorg-presentproto
 
 name=mesa3d-i915
-version=10.4.3
-release=1
-
-source=(ftp://ftp.freedesktop.org/pub/mesa/$version/MesaLib-$version.tar.bz2)
+version=10.5.2
+release=mix-1
+source=(ftp://ftp.freedesktop.org/pub/mesa/$version/mesa-$version.tar.xz)
 
 build() {
-  cd Mesa-$version
-  autoreconf --install --symlink
+  cd mesa-$version
+  autoreconf --force --install --symlink
   ./configure --prefix=/usr \
     --sysconfdir=/etc \
     --enable-gbm \
@@ -21,7 +20,7 @@ build() {
     --enable-xa \
     --enable-vdpau \
     --disable-dependency-tracking \
-    --with-egl-platforms=drm,x11 \
+    --with-egl-platforms=drm \
     --with-gallium-drivers=i915,svga,swrast
   make
   make DESTDIR=$PKG install

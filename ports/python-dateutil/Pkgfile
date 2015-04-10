@@ -1,10 +1,9 @@
 # Description: python extensions to the standard datetime module
-# URL: https://github.com/dateutil/dateutil/
 # Depends on: python setuptools
 
 name=python-dateutil
 version=2.4.1
-release=1
+release=mix-1
 source=(http://pypi.python.org/packages/source/p/$name/$name-$version.tar.gz)
 
 build() {

@@ -1,9 +1,9 @@
 # Description: portable scripting environment
 
 name=tcl
-version=8.6.3
+version=8.6.4
 release=0
-source=(http://downloads.sourceforge.net/sourceforge/tcl/tcl${version}-src.tar.gz)
+source=(http://sourceforge.net/projects/tcl/files/Tcl/$version/tcl-core$version-src.tar.gz)
 
 build() {
   cd $name$version

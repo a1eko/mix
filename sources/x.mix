@@ -3,12 +3,14 @@
 # NOTE: installs after coreopt.mix
 
 libpng
+setuptools
 
 expat
 freetype
 libxml2
 libxml2-python
 libpthread-stubs
+mako
 talloc
 
 p5-xml-parser

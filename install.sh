@@ -24,7 +24,7 @@ rsync -aqz crux.nu::ports/crux-3.1/opt/ $MIX/usr/packages
 rsync -aqz crux.nu::ports/crux-3.1/contrib/tcl $MIX/usr/packages
 rsync -aqz crux.nu::ports/crux-3.1/contrib/lynx $MIX/usr/packages
 rsync -aqz crux.nu::ports/crux-3.1/contrib/linux-firmware $MIX/usr/packages
-cp -r  {ports,tools}/* $MIX/usr/packages/
+cp -r {ports,tools}/* $MIX/usr/packages/
 
 mkdir -pv $MIX/{tools/bin,var/log/{packages,sources}}
 sudo ln -sfv $MIX/tools /
@@ -57,11 +57,11 @@ P=$MIX/usr/packages
 BASE1="linux-headers glibc tzdata"
 BASE2="zlib file binutils libgmp libmpfr libmpc gcc"
 BASE3="bzip2 pkg-config ncurses attr acl libcap sed shadow psmisc procps \
-  kmod gperf util-linux e2fsprogs coreutils iana-etc m4 flex bison \
-  grep readline bash bc libtool gdbm inetutils perl tcl expect dejagnu \
-  check autoconf automake diffutils gawk findutils gettext groff xz less \
-  gzip kbd libpipeline make man-db man-pages patch sudo sysklogd sysvinit \
-  tar texinfo vim"
+  e2fsprogs coreutils iana-etc m4 flex bison grep readline bash bc \
+  libtool gdbm inetutils perl tcl expect dejagnu check autoconf automake \
+  diffutils gawk findutils gettext gperf groff xz less gzip kbd kmod \
+  libpipeline make man-pages patch sudo sysklogd sysvinit tar texinfo \
+  eudev util-linux man-db vim"
 BOOT="linux nasm syslinux rc"
 
 $toolsh "pkz source $BASE1 $BASE2 $BASE3 $BOOT"

@@ -3,7 +3,7 @@
 
 name=pkz
 version=0.1
-release=1
+release=mix-1
 source=(pkz.sh pkz.conf)
 
 build() {

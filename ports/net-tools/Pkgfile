@@ -2,8 +2,8 @@
 
 name=net-tools
 version=1.60
-release=5
-source=(http://www.tazenda.demon.co.uk/phil/net-tools/net-tools-$version.tar.bz2)
+release=mix-5
+source=(http://www.tazenda.demon.co.uk/phil/$name/$name-$version.tar.bz2)
 
 build() {
   cd $name-$version

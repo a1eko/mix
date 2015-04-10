@@ -1,9 +1,9 @@
 # Description: system utilities
 
 name=util-linux
-version=2.25.2
+version=2.26.1
 release=0
-source=(ftp://ftp.kernel.org/pub/linux/utils/util-linux/v2.25/$name-$version.tar.xz)
+source=(ftp://ftp.kernel.org/pub/linux/utils/util-linux/v2.26/$name-$version.tar.xz)
 
 build() {
   cd $name-$version

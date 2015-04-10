@@ -1,11 +1,9 @@
 # Description: document viewer
-# URL: http://pwmt.org/projects/zathura/
 # Depends on: gtk girara sqlite3 intltool
 
 name=zathura
 version=0.2.6
-release=1
-
+release=mix-1
 source=(http://pwmt.org/projects/zathura/download/zathura-$version.tar.gz)
  
 build() {

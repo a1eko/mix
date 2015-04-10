@@ -11,7 +11,8 @@ build() {
   cd ../binutils-build
 
   ../binutils-$version/configure --prefix=/usr \
-    --enable-shared --disable-werror
+    --enable-shared \
+    --disable-werror
   make tooldir=/usr
   $TST make -k check || true
   make tooldir=/usr DESTDIR=$PKG install

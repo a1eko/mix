@@ -1,10 +1,9 @@
 # Description: python interface to Neuron simulation environment
-# URL: http://www.neuron.yale.edu/neuron/
 # Depends on: nrn python
 
 name=nrnpython
 version=7.3
-release=1
+release=mix-1
 source=(http://www.neuron.yale.edu/ftp/neuron/versions/v$version/nrn-$version.tar.gz)
  
 build() {

@@ -1,12 +1,10 @@
 # Description: zathura DjVu viewer plugin
-# URL: http://pwmt.org/projects/zathura-djvu/
 # Depends on: zathura girara djvulibre
 
 name=zathura-djvu
 version=0.2.4
-release=1
-
-source=(http://pwmt.org/projects/zathura-djvu/download/$name-$version.tar.gz)
+release=mix-1
+source=(http://pwmt.org/projects/$name/download/$name-$version.tar.gz)
  
 build() {
   cd $name-$version

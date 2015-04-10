@@ -1,10 +1,9 @@
 # Description: Python bindings for ode
-# URL: http://pyode.sourceforge.net/
 # Depends on: python pyrex ode
 
 name=pyode
 version=20100322
-release=1
+release=mix-1
 
 source=(http://sourceforge.net/projects/pyode/files/pyode/snapshot-2010-03-22/PyODE-snapshot-2010-03-22.tar.bz2)
 

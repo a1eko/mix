@@ -1,10 +1,9 @@
 # Description: array numerics in Python
-# URL: http://www.numpy.org/
 # Depends on: python
 
 name=numpy
 version=1.9.2
-release=1
+release=mix-1
 source=(http://downloads.sourceforge.net/numpy/numpy-$version.tar.gz)
 
 build() {

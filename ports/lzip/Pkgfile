@@ -2,7 +2,7 @@
 
 name=lzip
 version=1.16
-release=1
+release=mix-1
 source=(http://download.savannah.gnu.org/releases/lzip/lzip-$version.tar.gz)
 
 build() {

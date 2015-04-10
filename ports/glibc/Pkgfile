@@ -16,7 +16,9 @@ build()
   cd ../glibc-build
 
   ../glibc-$version/configure --prefix=/usr \
-    --disable-profile --enable-kernel=2.6.32 --enable-obsolete-rpc
+    --disable-profile \
+    --enable-kernel=2.6.32 \
+    --enable-obsolete-rpc
   make
   $TST TIMEOUTFACTOR=16 make -k check || true
   install -Dv -m 644 ../ld.so.conf $PKG/etc/ld.so.conf

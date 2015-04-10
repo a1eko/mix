@@ -3,7 +3,6 @@
 #
 # NOTE: installs after the base system
 
-eudev
 expat
 libarchive
 libffi

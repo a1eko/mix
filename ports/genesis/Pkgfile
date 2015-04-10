@@ -1,9 +1,8 @@
 # Description: neural system simulation software
-# URL: http://genesis-sim.org/
 
 name=genesis
 version=2.4
-release=1
+release=mix-1
 source=(http://www.genesis-sim.org/GENESIS/genesis-ftp/genesis-$version-src.tar.gz)
 
 build() {

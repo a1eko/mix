@@ -3,8 +3,8 @@
 
 name=re-alpine
 version=2.02
-release=1
-source=(http://sourceforge.net/projects/re-alpine/files/re-alpine-$version.tar.bz2)
+release=mix-1
+source=(http://sourceforge.net/projects/$name/files/$name-$version.tar.bz2)
 
 build() {
   cd $name-$version

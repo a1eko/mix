@@ -9,10 +9,12 @@ source=(https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libca
 build() {
   cd libcap-$version
   sed -i "/^CFLAGS/s/-O2/$CFLAGS/" Make.Rules 
+  sed -i '/install.*STALIBNAME/d' libcap/Makefile
   make
   make RAISE_SETFCAP=no DESTDIR=$PKG man_prefix=/usr install
   install -d $PKG/usr/lib
-  mv $PKG/lib*/libcap.a $PKG/usr/lib
-  rm $PKG/lib*/libcap.so
-  ln -s ../../lib/libcap.so.$version $PKG/usr/lib/libcap.so
+  #mv -v $PKG/lib*/libcap.a $PKG/usr/lib
+  rm -v $PKG/lib*/libcap.so
+  ln -sv ../../lib/libcap.so.$version $PKG/usr/lib/libcap.so
+  rm -rv $PKG/usr/man/man3
 }

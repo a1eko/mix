@@ -68,11 +68,11 @@ types (for example, `/dev/sda9`, `ext3`, etc.). Uncomment `swap`
 and `/boot` instances, if applicable.
 
 Inspect file `/etc/rc.conf` and set variables `FONT`, `KEYMAP`, `TIMEZONE`
-and `HOSTNAME`. The array variable `SERVICES` will contain names of the
+and `HOSTNAME`. The array variable `SERVICES` contains names of the
 service scripts from the directory `/etc/rc.d` to start automatically
 in the multi-user runlevel.
 
-Edit script `net` in the directory `/etc/rc.d` to set up wired network.
+Edit script `net` in the directory `/etc/rc.d` to set up the network.
 
 Edit `/etc/host.conf`, `/etc/hosts` and `/etc/resolv.conf` files. File
 `/etc/resolv.conf` will be configured automatically if dynamic IP is used.
@@ -80,9 +80,9 @@ Edit `/etc/host.conf`, `/etc/hosts` and `/etc/resolv.conf` files. File
 
 ### Making the system bootable ###
 
-Inspect package *linux*. A default kernel has been installed
-already. Adjust configuration in `local.config` and reinstall the kernel,
-if necessary.
+Inspect package *linux*. A default kernel has been installed already. If
+necessary, adjust configuration in `local.config` and reinstall the
+kernel.
 
 	pkz build linux
 	pkz -f install linux

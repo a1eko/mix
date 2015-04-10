@@ -1,9 +1,8 @@
 # Description: Microsoft Word DOC to text converter
-# URL: http://www.wagner.pp.ru/~vitus/software/catdoc/
 
 name=catdoc
 version=0.94.4
-release=1
+release=mix-1
 source=(http://ftp.debian.org/debian/pool/main/c/catdoc/${name}_$version.orig.tar.gz)
 
 build() {

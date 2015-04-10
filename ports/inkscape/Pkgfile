@@ -1,5 +1,4 @@
 # Description: SVG editor
-# URL: http://www.inkscape.org
 # Depends on: boehm-gc boost gsl gtkmm intltool lcms2 libart_lgpl popt
 
 name=inkscape

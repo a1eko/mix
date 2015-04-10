@@ -1,9 +1,8 @@
 # Description: Microsoft Word DOC files converter
-# URL: http://www.winfield.demon.nl/
 
 name=antiword
 version=0.37
-release=1
+release=mix-1
 source=(http://www.winfield.demon.nl/linux/$name-$version.tar.gz)
 
 build() {
