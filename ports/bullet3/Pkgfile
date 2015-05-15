@@ -1,0 +1,21 @@
+# Description: library for rigid body dynamics
+# Depends on: git cmake
+
+name=bullet3
+version=master
+release=git-mix-1
+source=()
+
+build() {
+  git clone https://github.com/bulletphysics/bullet3.git
+  cmake bullet3 \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DBUILD_SHARED_LIBS=ON \
+    -DBUILD_BULLET3=ON \
+    -DBUILD_BULLET2_DEMOS=OFF \
+    -DBUILD_CPU_DEMOS=OFF \
+    -DBUILD_UNIT_TESTS=OFF \
+    -DINSTALL_LIBS=ON
+  make
+  make DESTDIR=$PKG install
+}
