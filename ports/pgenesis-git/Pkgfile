@@ -1,13 +1,13 @@
 # Description: concurrent neural system simulation software
 # Depends on: genesis mpich
 
-name=pgenesis
+name=pgenesis-git
 version=2.4
-release=mix-git-1
+release=mix-1
 source=()
 
 build() {
-  git clone https://github.com/genesis-sim/genesis-$version.git
+  git clone http://github.com/genesis-sim/genesis-$version.git
   rm -rf genesis-$version/genesis-binaries
   cd genesis-$version
   cd pgenesis
