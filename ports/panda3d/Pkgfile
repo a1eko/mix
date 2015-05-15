@@ -1,0 +1,14 @@
+# Description: game engine with Python bindings
+# Depends on: python libjpeg-turbo libpng openssl libvorbis freetype gtk libtiff xorg-libx11 xorg-libxrandr xorg-libxxf86dga xorg-libxcursor bullet3 ode
+
+name=panda3d
+version=master
+release=git-mix-1
+source=()
+
+build() {
+  git clone https://github.com/panda3d/panda3d
+  cd panda3d
+  python makepanda/makepanda.py --everything
+  python makepanda/installpanda.py --prefix=/usr --destdir=$PKG
+}
