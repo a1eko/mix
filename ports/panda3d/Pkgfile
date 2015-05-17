@@ -1,5 +1,5 @@
 # Description: game engine with Python bindings
-# Depends on: python libjpeg-turbo libpng openssl libvorbis freetype gtk libtiff xorg-libx11 xorg-libxrandr xorg-libxxf86dga xorg-libxcursor bullet3 ode
+# Depends on: python libjpeg-turbo libpng openssl libvorbis freetype gtk openal libtxc_dxtn libtiff xorg-libx11 xorg-libxrandr xorg-libxxf86dga xorg-libxcursor bullet3 ode
 
 name=panda3d
 version=master
