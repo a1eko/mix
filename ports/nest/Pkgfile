@@ -5,7 +5,7 @@
 name=nest
 version=2.6.0
 release=mix-1
-source=(http://www.nest-initiative.org/download/gplreleases/nest-$version.tar.gz)
+source=(http://www.nest-initiative.org/downloads/gplreleases/nest-$version.tar.gz)
 
 build() {
   cd $name-$version
