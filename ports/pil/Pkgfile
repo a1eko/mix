@@ -1,0 +1,15 @@
+# Description: Python Imaging Library
+# Depends on: python libjpeg-turbo libpng freetype lcms
+
+name=pil
+version=1.1.7
+release=mix-1
+source=(http://effbot.org/downloads/Imaging-$version.tar.gz)
+
+build () {
+  cd Imaging-$version
+  find . -name "*.c" | xargs sed -i "/include/s/freetype\///"
+  python setup.py build_ext -i
+  python setup.py install --root=$PKG
+}
+
