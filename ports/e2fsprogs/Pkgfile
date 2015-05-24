@@ -1,7 +1,7 @@
 # Description: ext2 filesystem utilities
 
 name=e2fsprogs
-version=1.42.12
+version=1.42.13
 release=mix-1
 source=(http://downloads.sourceforge.net/project/$name/$name/v$version/$name-$version.tar.gz)
 
