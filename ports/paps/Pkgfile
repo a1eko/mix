@@ -1,0 +1,18 @@
+# Description: UTF-8 text to PostScript converter 
+# Depends on: pango
+
+name=paps
+version=0.6.8
+release=mix-1
+
+source=(http://downloads.sourceforge.net/paps/paps-$version.tar.gz
+	http://ftp.debian.org/debian/pool/main/p/paps/paps_$version-7.debian.tar.gz)
+
+build() {
+  cd $name-$version
+  tar xvf ../paps_$version-7.debian.tar.gz
+  patch -Np1 -i debian/patches/freetype2.5
+  ./configure --prefix=/usr --mandir=/usr/share/man
+  make
+  make DESTDIR=$PKG install
+}
