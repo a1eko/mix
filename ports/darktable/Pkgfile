@@ -2,7 +2,7 @@
 # Depends on: lensfun openexr cmake lcms2
 
 name=darktable
-version=1.6.6
+version=1.6.7
 release=mix-1
 source=(http://github.com/darktable-org/darktable/releases/download/release-$version/darktable-$version.tar.xz)
  
