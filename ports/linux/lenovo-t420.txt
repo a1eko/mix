@@ -5,10 +5,10 @@ Network card: Intel E1000 PCI-E (E1000E)
 Wireless: Intel IW LAGN (IWLWIFI)
 Wireless extensions required (CFG80211_WEXT)
 NT filesystem with r/w support (NTFS_FS=m, NTFS_RW=y)
-Virtual filesystem on /dev (DEVTMPFS)
 
 Enabled by default
 
 Graphics: Intel 9xx (DRM_I915)
 CPU: Intel x86_64 (GENERIC_CPU)
 Hard drive: SATA ()
+Virtual filesystem on /dev (DEVTMPFS)
