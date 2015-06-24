@@ -1,0 +1,25 @@
+# Description: mail user agent and tools
+# Depends on: openssl
+
+name=alpine
+version=2.20
+release=mix-1
+source=(http://patches.freeiz.com/$name/release/src/$name-$version.tar.xz
+        http://patches.freeiz.com/$name/patches/$name-$version/all.patch.gz)
+
+build() {
+  cd $name-$version
+  gunzip -c ../all.patch.gz | patch -Np1
+  ./configure --prefix=/usr \
+    --sysconfdir=/etc \
+    --disable-shared \
+    --disable-debug \
+    --with-debug-level=0 \
+    --without-ldap \
+    --without-krb5 \
+    --without-tcl \
+    --with-ssl-dir=/usr \
+    --with-passfile=.pine-passfile
+  make
+  make DESTDIR=$PKG install
+}
