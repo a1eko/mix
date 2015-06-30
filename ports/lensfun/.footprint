@@ -9,6 +9,7 @@ drwxr-xr-x	root/root	usr/share/lensfun/
 -rw-r--r--	root/root	usr/share/lensfun/slr-vivitar.xml   
 -rw-r--r--	root/root	usr/share/lensfun/compact-konica-minolta.xml   
 -rw-r--r--	root/root	usr/share/lensfun/slr-hasselblad.xml   
+-rw-r--r--	root/root	usr/share/lensfun/actioncams.xml   
 -rw-r--r--	root/root	usr/share/lensfun/mil-samsung.xml   
 -rw-r--r--	root/root	usr/share/lensfun/timestamp.txt   
 -rw-r--r--	root/root	usr/share/lensfun/compact-canon.xml   
@@ -38,7 +39,6 @@ drwxr-xr-x	root/root	usr/share/lensfun/
 -rw-r--r--	root/root	usr/share/lensfun/mil-samyang.xml   
 -rw-r--r--	root/root	usr/share/lensfun/compact-nikon.xml   
 -rw-r--r--	root/root	usr/share/lensfun/compact-pentax.xml   
--rw-r--r--	root/root	usr/share/lensfun/compact-gopro.xml   
 -rw-r--r--	root/root	usr/share/lensfun/slr-schneider.xml   
 -rw-r--r--	root/root	usr/share/lensfun/slr-nikon.xml   
 -rw-r--r--	root/root	usr/share/lensfun/mil-canon.xml   
@@ -60,8 +60,8 @@ drwxr-xr-x	root/root	usr/lib/
 drwxr-xr-x	root/root	usr/lib/pkgconfig/   
 -rw-r--r--	root/root	usr/lib/pkgconfig/lensfun.pc   
 lrwxrwxrwx	root/root	usr/lib/liblensfun.so -> liblensfun.so.0 
--rwxr-xr-x	root/root	usr/lib/liblensfun.so.0.3.0   
-lrwxrwxrwx	root/root	usr/lib/liblensfun.so.0 -> liblensfun.so.0.3.0 
+lrwxrwxrwx	root/root	usr/lib/liblensfun.so.0 -> liblensfun.so.0.3.1 
+-rwxr-xr-x	root/root	usr/lib/liblensfun.so.0.3.1   
 drwxr-xr-x	root/root	usr/bin/   
 -rwxr-xr-x	root/root	usr/bin/lensfun-update-data   
 -rwxr-xr-x	root/root	usr/bin/g-lensfun-update-data   
