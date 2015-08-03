@@ -179,7 +179,7 @@ xorg-libevdev
 xorg-xf86-input-evdev
 xorg-xf86-input-synaptics
 xorg-xf86-video-fbdev
-xorg-xf86-video-intel
+#xorg-xf86-video-intel
 xorg-xf86-video-vesa
 
 glew
@@ -192,5 +192,5 @@ xorg-font-msttcorefonts
 
 libjpeg-turbo
 xterm
-dmenu # mix release
-dwm # mix release
+dmenu  # mix release
+dwm  # mix release
