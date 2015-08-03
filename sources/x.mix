@@ -98,7 +98,7 @@ xorg-libxshmfence
 
 libvdpau
 libdrm
-mesa3d-i915 # mix release
+mesa3d  # mix release
 libepoxy
 
 xorg-xbitmaps

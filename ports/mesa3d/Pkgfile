@@ -1,0 +1,27 @@
+# Description: OpenGL compatible graphics library
+# Depends on: expat libdrm libvdpau libxml2-python talloc xorg-dri2proto xorg-dri3proto xorg-glproto xorg-libxdamage xorg-libxshmfence xorg-libxt xorg-libxvmc xorg-libxxf86vm xorg-makedepend xorg-presentproto
+
+name=mesa3d
+version=10.6.3
+release=i915-mix-1
+source=(ftp://ftp.freedesktop.org/pub/mesa/$version/mesa-$version.tar.xz)
+
+build() {
+  cd mesa-$version
+  autoreconf --force --install --symlink
+  ./configure --prefix=/usr \
+    --sysconfdir=/etc \
+    --enable-gbm \
+    --enable-gles1 \
+    --enable-gles2 \
+    --enable-glx-tls \
+    --enable-osmesa \
+    --enable-texture-float \
+    --enable-xa \
+    --enable-vdpau \
+    --disable-dependency-tracking \
+    --with-egl-platforms=drm \
+    --with-gallium-drivers=i915,svga,swrast
+  make
+  make DESTDIR=$PKG install
+}
