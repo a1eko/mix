@@ -1,7 +1,7 @@
 # Description: programs for manipulating info pages
 
 name=texinfo
-version=5.2
+version=6.0
 release=mix-1
 source=(ftp://ftp.gnu.org/gnu/texinfo/texinfo-$version.tar.gz)
 
