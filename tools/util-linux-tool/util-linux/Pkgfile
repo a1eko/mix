@@ -14,5 +14,5 @@ build() {
     PKG_CONFIG=""
   make
   make DESTDIR=$PKG install
-  rm -rv $PKG/tools/share/man
+  rm -rv $PKG/tools/share/{doc,man}
 }

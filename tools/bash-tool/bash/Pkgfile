@@ -11,5 +11,5 @@ build() {
   make
   make DESTDIR=$PKG install
   ln -sv bash $PKG/tools/bin/sh
-  rm -rv $PKG/tools/share/{man,info}
+  rm -rv $PKG/tools/share/{doc,man,info}
 }
