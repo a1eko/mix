@@ -42,7 +42,7 @@ fetchmail
 git
 lynx
 mailx
-openssh
+#openssh
 time
 unzip
 wget
