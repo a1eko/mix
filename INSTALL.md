@@ -181,6 +181,7 @@ Clean up the package trees.
 
 Delete unneeded files in `/usr/sources`.
 
-Get the CRUX ports and build the rest of the system. Be careful with
-the toolchain packages: *binutils*, *gcc*, *glibc* and *linux-headers*
-don't need to be upgraded.
+Get the CRUX ports and build the rest of the system. Use `*.mix` files
+in `/usr/sources` for building optional packages in proper order. Be
+careful with the toolchain packages: *binutils*, *gcc*, *glibc* and
+*linux-headers* don't need to be upgraded.
