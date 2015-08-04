@@ -1,7 +1,7 @@
 # Description: programming language and script interpreter
 
 name=perl
-version=5.20.2
+version=5.22.0
 release=0
 source=(http://cpan.org/src/5.0/perl-$version.tar.bz2)
 

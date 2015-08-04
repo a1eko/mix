@@ -12,6 +12,19 @@ build()
   cd $name-$version
   patch -Np1 -i ../glibc-$version-fhs-1.patch
 
+  # fix regression
+  sed -e '/ia32/s/^/1:/' \
+    -e '/SSE2/s/^1://' \
+    -i  sysdeps/i386/i686/multiarch/mempcpy_chk.S
+
+  # upstream security fix
+  sed -i '/glibc.*pad/{i\  buflen = buflen > pad ? buflen - pad : 0;
+                     s/ + pad//}' resolv/nss_dns/dns-host.c
+
+  # testcase fix
+  sed -e '/tst-audit2-ENV/i CFLAGS-tst-audit2.c += -fno-builtin' \
+    -i elf/Makefile
+
   mkdir -v ../glibc-build
   cd ../glibc-build
 

@@ -3,10 +3,13 @@
 name=ncurses
 version=5.9
 release=0
-source=(ftp://ftp.gnu.org/gnu/ncurses/ncurses-$version.tar.gz)
+source=(ftp://ftp.gnu.org/gnu/ncurses/ncurses-$version.tar.gz
+	http://www.linuxfromscratch.org/patches/downloads/ncurses/ncurses-$version-gcc5_buildfixes-1.patch
+)
 
 build() {
   cd $name-$version
+  patch -Np1 -i ../ncurses-$version-gcc5_buildfixes-1.patch
   ./configure --prefix=/tools \
     --with-install-prefix=$PKG \
     --with-shared \
