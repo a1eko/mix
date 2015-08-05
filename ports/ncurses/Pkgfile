@@ -1,0 +1,41 @@
+# Description: A System V Release 4.0 curses emulation library
+
+name=ncurses
+version=5.9
+release=mix-2
+source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.gz
+	http://www.linuxfromscratch.org/patches/downloads/ncurses/ncurses-$version-gcc5_buildfixes-1.patch
+)
+
+build() {
+    cd $name-$version
+    patch -Np1 -i ../ncurses-5.9-gcc5_buildfixes-1.patch
+
+    local OPTIONS="\
+--with-install-prefix=$PKG \
+--prefix=/usr \
+--with-normal \
+--with-shared \
+--without-debug \
+--without-ada \
+--without-tests
+--enable-pc-files
+"
+
+    ./configure $OPTIONS
+    make
+    make install
+    make distclean
+
+    ./configure $OPTIONS --enable-widec
+    make
+    make install
+
+    mkdir -v $PKG/lib
+
+    for i in w ''; do
+        mv -v $PKG/usr/lib/libncurses$i.so.* $PKG/lib
+        ln -v -sf libncurses$i.so $PKG/usr/lib/libcurses$i.so
+        ln -v -sf ../../lib/libncurses$i.so.$version $PKG/usr/lib/libncurses$i.so
+    done
+}
