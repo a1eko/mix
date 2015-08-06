@@ -3,7 +3,7 @@
 name=gettext
 version=0.19.5.1
 release=0
-source=(ftp://ftp.gnu.org/gnu/gettext/gettext-$version.tar.gz)
+source=(ftp://ftp.gnu.org/gnu/gettext/gettext-$version.tar.xz)
 
 build() {
   cd $name-$version
