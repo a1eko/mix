@@ -1,0 +1,22 @@
+# Description: The VP8/VP9 Codec SDK
+# NOTE: crux v1.3.0
+
+name=libvpx
+version=1.4.0
+release=mix-1
+source=(https://webm.googlecode.com/files/$name-$version.tar.bz2)
+
+build() {
+  cd $name-$version
+  ./configure --prefix=/usr \
+    --enable-vp8 \
+    --enable-vp9 \
+    --enable-runtime-cpu-detect \
+    --enable-shared \
+    --enable-postproc \
+    --enable-pic \
+    --disable-install-docs \
+    --disable-install-srcs
+  make
+  make DIST_DIR="$PKG/usr" install
+}

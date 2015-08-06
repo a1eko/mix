@@ -9,10 +9,10 @@ libdv
 libdvdcss
 libdvdread
 #libfame
-#libmng # build failed
+#libmng
 libmp4v2
 libmpeg2
-libvpx
+libvpx  # mix port
 libtheora
 libquicktime
 lzo
@@ -42,6 +42,6 @@ x265
 
 ffmpeg
 mplayer
-#transcode # build failed
+#transcode
 xine-lib
 xine-ui

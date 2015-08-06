@@ -1,0 +1,15 @@
+# Description: download rtmp streams
+
+name=rtmpdump
+version=2.4
+release=mix-1
+source=(http://crux.ster.zone/downloads/$name/$name-${version}_p20131018.tar.gz)
+
+build() {
+  make CRYPTO=OPENSSL SYS=posix
+  make CRYPTO=OPENSSL prefix=/usr \
+    sbindir=/usr/bin \
+    mandir=/usr/man \
+    DESTDIR=$PKG \
+    install
+}

@@ -98,7 +98,7 @@ xorg-libxshmfence
 
 libvdpau
 libdrm
-mesa3d  # mix release
+mesa3d  # mix port
 libepoxy
 
 xorg-xbitmaps
@@ -192,5 +192,5 @@ xorg-font-msttcorefonts
 
 libjpeg-turbo
 xterm
-dmenu  # mix release
-dwm  # mix release
+dmenu  # mix port
+dwm  # mix port
