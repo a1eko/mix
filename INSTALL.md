@@ -27,7 +27,7 @@ Mount Linux partition on `/mnt`. Set target directory `MIX`, optionally
 disable running test suites, build and install the base system.
 
 	export MIX=/mnt
-	export TST=:
+	export MIX_TST=no
 	./install.sh
 
 Mount virtual file systems and enter `chroot`.

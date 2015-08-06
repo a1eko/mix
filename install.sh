@@ -9,6 +9,7 @@
 test -n "$MIX"
 test "$MIX" != '/'
 test $(id -u) != 0
+test "$MIX_TST" != no || export TST=:
 sudo -v
 
 #
