@@ -1,0 +1,15 @@
+# Description: Open Source H265/HEVC video encoder.
+# Depends on: yasm cmake
+
+name=x265
+version=1.7
+release=mix-1
+source=(ftp://trumpetti.atm.tut.fi/gentoo/distfiles/${name}_${version}.tar.gz)
+
+build() {
+  cd ${name}_${version}/build/linux
+  unset CC CXX
+  cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/usr ../../source
+  make
+  make DESTDIR=$PKG install
+}
