@@ -38,7 +38,7 @@ orc
 rtmpdump
 schroedinger
 vcdimager
-x265
+#x265
 
 ffmpeg
 mplayer
