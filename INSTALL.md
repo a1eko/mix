@@ -23,8 +23,8 @@ should be available too.
 Installing MiX
 --------------
 
-Mount Linux partition on `/mnt`. Set target directory `MIX`, optionally
-disable running test suites, build and install the base system.
+Mount Linux partition on `/mnt`. Set target directory `MIX`. Optionally
+disable running test suites. Build and install the base system.
 
 	export MIX=/mnt
 	export MIX_TST=no
