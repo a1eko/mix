@@ -33,7 +33,7 @@ feh
 ghostscript
 libxml2
 libxslt
-netpbm
+#netpbm
 poppler
 xaw3d #libXaw3dXft
 db
