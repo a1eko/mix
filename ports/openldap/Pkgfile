@@ -1,4 +1,5 @@
 # Description: Lightweight Directory Access Protocol (LDAP) Toolkit
+# Depends on: perl, openssl, cyrus-sasl
 # NOTE: crux v2.4.40
 
 name=openldap
