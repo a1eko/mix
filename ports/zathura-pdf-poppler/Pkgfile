@@ -1,5 +1,5 @@
 # Description: zathura PDF viewer plugin
-# Depends on: gtk girara zathura poppler
+# Depends on: gtk girara zathura poppler poppler-glib
 
 name=zathura-pdf-poppler
 version=0.2.5
