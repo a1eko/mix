@@ -1,10 +1,9 @@
 drwxr-xr-x	root/root	usr/   
 drwxr-xr-x	root/root	usr/share/   
-drwxr-xr-x	root/root	usr/share/iv/   
-drwxr-xr-x	root/root	usr/share/iv/app-defaults/   
--rw-r--r--	root/root	usr/share/iv/app-defaults/Doc   
--rw-r--r--	root/root	usr/share/iv/app-defaults/Idemo   
--rw-r--r--	root/root	usr/share/iv/app-defaults/InterViews   
+drwxr-xr-x	root/root	usr/share/app-defaults/   
+-rw-r--r--	root/root	usr/share/app-defaults/Doc   
+-rw-r--r--	root/root	usr/share/app-defaults/Idemo   
+-rw-r--r--	root/root	usr/share/app-defaults/InterViews   
 drwxr-xr-x	root/root	usr/include/   
 -rw-r--r--	root/root	usr/include/ivstrm.h   
 drwxr-xr-x	root/root	usr/include/TIFF/   
@@ -276,17 +275,16 @@ drwxr-xr-x	root/root	usr/include/InterViews/Bitmaps/
 -rw-r--r--	root/root	usr/include/InterViews/simplecomp.h   
 -rw-r--r--	root/root	usr/include/InterViews/compositor.h   
 -rw-r--r--	root/root	usr/include/InterViews/selection.h   
-drwxr-xr-x	root/root	usr/x86_64/   
-drwxr-xr-x	root/root	usr/x86_64/lib/   
-lrwxrwxrwx	root/root	usr/x86_64/lib/libIVhines.so.3 -> libIVhines.so.3.0.3 
--rwxr-xr-x	root/root	usr/x86_64/lib/libUnidrawhines.so.3.0.3   
--rwxr-xr-x	root/root	usr/x86_64/lib/libIVhines.so.3.0.3   
-lrwxrwxrwx	root/root	usr/x86_64/lib/libUnidrawhines.so.3 -> libUnidrawhines.so.3.0.3 
-lrwxrwxrwx	root/root	usr/x86_64/lib/libIVhines.so -> libIVhines.so.3.0.3 
-lrwxrwxrwx	root/root	usr/x86_64/lib/libUnidrawhines.so -> libUnidrawhines.so.3.0.3 
--rwxr-xr-x	root/root	usr/x86_64/lib/libIVhines.la   
--rwxr-xr-x	root/root	usr/x86_64/lib/libUnidrawhines.la   
-drwxr-xr-x	root/root	usr/x86_64/bin/   
--rwxr-xr-x	root/root	usr/x86_64/bin/iclass   
--rwxr-xr-x	root/root	usr/x86_64/bin/idemo   
--rwxr-xr-x	root/root	usr/x86_64/bin/idraw   
+drwxr-xr-x	root/root	usr/lib/   
+lrwxrwxrwx	root/root	usr/lib/libIVhines.so.3 -> libIVhines.so.3.0.3 
+-rwxr-xr-x	root/root	usr/lib/libUnidrawhines.so.3.0.3   
+-rwxr-xr-x	root/root	usr/lib/libIVhines.so.3.0.3   
+lrwxrwxrwx	root/root	usr/lib/libUnidrawhines.so.3 -> libUnidrawhines.so.3.0.3 
+lrwxrwxrwx	root/root	usr/lib/libIVhines.so -> libIVhines.so.3.0.3 
+lrwxrwxrwx	root/root	usr/lib/libUnidrawhines.so -> libUnidrawhines.so.3.0.3 
+-rwxr-xr-x	root/root	usr/lib/libIVhines.la   
+-rwxr-xr-x	root/root	usr/lib/libUnidrawhines.la   
+drwxr-xr-x	root/root	usr/bin/   
+-rwxr-xr-x	root/root	usr/bin/iclass   
+-rwxr-xr-x	root/root	usr/bin/idemo   
+-rwxr-xr-x	root/root	usr/bin/idraw   

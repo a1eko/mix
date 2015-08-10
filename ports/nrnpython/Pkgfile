@@ -2,13 +2,15 @@
 # Depends on: nrn python
 
 name=nrnpython
-version=7.3
+version=hg
 release=mix-1
-source=(http://www.neuron.yale.edu/ftp/neuron/versions/v$version/nrn-$version.tar.gz)
+source=()
  
 build() {
-  cd nrn-$version
-  ./configure --prefix=/usr --with-iv=/usr --with-nrnpython
+  hg clone http://www.neuron.yale.edu/hg/neuron/nrn
+  cd nrn
+  ./build.sh
+  ./configure --prefix=/usr --exec-prefix=/usr --with-iv=/usr --with-nrnpython
   cd src/nrnpython
   python setup.py install --prefix=$PKG/usr 
 }

@@ -2,13 +2,15 @@
 # Depends on: xorg
 
 name=iv
-version=18
+version=hg
 release=mix-1
-source=(http://www.neuron.yale.edu/ftp/neuron/versions/v7.3/iv-$version.tar.gz)
+source=()
  
 build() {
-  cd $name-$version
-  ./configure --prefix=/usr --datadir=/usr/share/iv
+  hg clone http://www.neuron.yale.edu/hg/neuron/$name
+  cd $name
+  ./build.sh
+  ./configure --prefix=/usr --exec-prefix=/usr
   make
   make DESTDIR=$PKG install
 }

@@ -2,12 +2,14 @@
 # Depends on: iv python numpy
 
 name=nrn
-version=7.3
+version=hg
 release=mix-1
-source=(http://www.neuron.yale.edu/ftp/neuron/versions/v$version/nrn-$version.tar.gz)
+source=()
  
 build() {
-  cd $name-$version
+  hg clone http://www.neuron.yale.edu/hg/neuron/$name
+  cd $name
+  ./build.sh
   sed -i 's/$(MAKE) $(AM_MAKEFLAGS) install-exec-hook/#&/' Makefile.in
   ./configure --prefix=/usr --exec-prefix=/usr --with-iv=/usr --with-nrnpython
   make
