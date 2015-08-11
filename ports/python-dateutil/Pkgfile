@@ -2,7 +2,7 @@
 # Depends on: python setuptools
 
 name=python-dateutil
-version=2.4.1
+version=2.4.2
 release=mix-1
 source=(http://pypi.python.org/packages/source/p/$name/$name-$version.tar.gz)
 
