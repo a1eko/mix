@@ -1,0 +1,16 @@
+# Description: Macromedia Flash Plugin for Firefox
+# Depends on: rpm2targz
+# NOTE: crux original
+
+name=flash-player-plugin
+version=11.2.202.491
+release=mix-1
+source=()
+
+build() {
+  wget http://fpdownload.macromedia.com/get/flashplayer/pdc/$version/flash-plugin-$version-release.x86_64.rpm
+  rpm2targz flash-plugin-$version-release.x86_64.rpm
+  tar xf flash-plugin-$version-release.x86_64.tar.gz
+  install -v -D -m 0755 usr/lib64/flash-plugin/libflashplayer.so \
+    $PKG/usr/lib/mozilla/plugins/libflashplayer.so
+}
