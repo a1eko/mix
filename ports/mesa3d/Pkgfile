@@ -2,7 +2,7 @@
 # Depends on: expat libdrm libvdpau libxml2-python talloc xorg-dri2proto xorg-dri3proto xorg-glproto xorg-libxdamage xorg-libxshmfence xorg-libxt xorg-libxvmc xorg-libxxf86vm xorg-makedepend xorg-presentproto
 
 name=mesa3d
-version=10.6.3
+version=10.6.4
 release=i915-mix-1
 source=(ftp://ftp.freedesktop.org/pub/mesa/$version/mesa-$version.tar.xz)
 

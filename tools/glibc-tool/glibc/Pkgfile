@@ -1,7 +1,7 @@
 # Description: system C library
 
 name=glibc
-version=2.21
+version=2.22
 release=0
 source=(ftp://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz)
 
@@ -9,11 +9,6 @@ source=(ftp://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz)
 
 build() {
   cd $name-$version
-
-  # fix regression
-  sed -e '/ia32/s/^/1:/' \
-    -e '/SSE2/s/^1://' \
-    -i  sysdeps/i386/i686/multiarch/mempcpy_chk.S
 
   mkdir -v ../glibc-build
   cd ../glibc-build
