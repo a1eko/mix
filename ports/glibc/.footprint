@@ -119,7 +119,6 @@ drwxr-xr-x	root/root	usr/share/i18n/locales/
 -rw-r--r--	root/root	usr/share/i18n/locales/oc_FR   
 -rw-r--r--	root/root	usr/share/i18n/locales/ar_MA   
 -rw-r--r--	root/root	usr/share/i18n/locales/ks_IN   
--rw-r--r--	root/root	usr/share/i18n/locales/bh_IN   
 -rw-r--r--	root/root	usr/share/i18n/locales/eu_ES   
 -rw-r--r--	root/root	usr/share/i18n/locales/be_BY@latin   
 -rw-r--r--	root/root	usr/share/i18n/locales/es_PY   
@@ -189,7 +188,6 @@ drwxr-xr-x	root/root	usr/share/i18n/locales/
 -rw-r--r--	root/root	usr/share/i18n/locales/es_CU   
 -rw-r--r--	root/root	usr/share/i18n/locales/lg_UG   
 -rw-r--r--	root/root	usr/share/i18n/locales/eu_ES@euro   
--rw-r--r--	root/root	usr/share/i18n/locales/tu_IN   
 -rw-r--r--	root/root	usr/share/i18n/locales/tt_RU   
 -rw-r--r--	root/root	usr/share/i18n/locales/ur_IN   
 -rw-r--r--	root/root	usr/share/i18n/locales/iu_CA   
@@ -337,6 +335,7 @@ drwxr-xr-x	root/root	usr/share/i18n/locales/
 -rw-r--r--	root/root	usr/share/i18n/locales/ta_IN   
 -rw-r--r--	root/root	usr/share/i18n/locales/te_IN   
 -rw-r--r--	root/root	usr/share/i18n/locales/translit_neutral   
+-rw-r--r--	root/root	usr/share/i18n/locales/tcy_IN   
 -rw-r--r--	root/root	usr/share/i18n/locales/fr_CH   
 -rw-r--r--	root/root	usr/share/i18n/locales/kn_IN   
 -rw-r--r--	root/root	usr/share/i18n/locales/lo_LA   
@@ -402,6 +401,7 @@ drwxr-xr-x	root/root	usr/share/i18n/locales/
 -rw-r--r--	root/root	usr/share/i18n/locales/es_PR   
 -rw-r--r--	root/root	usr/share/i18n/locales/hsb_DE   
 -rw-r--r--	root/root	usr/share/i18n/locales/zu_ZA   
+-rw-r--r--	root/root	usr/share/i18n/locales/bhb_IN   
 -rw-r--r--	root/root	usr/share/i18n/locales/ast_ES   
 -rw-r--r--	root/root	usr/share/i18n/locales/anp_IN   
 -rw-r--r--	root/root	usr/share/i18n/locales/ar_OM   
@@ -693,7 +693,8 @@ lrwxrwxrwx	root/root	usr/lib64/libnss_db.so -> ../../lib64/libnss_db.so.2
 -rw-r--r--	root/root	usr/lib64/libpthread.a   
 lrwxrwxrwx	root/root	usr/lib64/libutil.so -> ../../lib64/libutil.so.1 
 -rw-r--r--	root/root	usr/lib64/libcrypt.a   
-lrwxrwxrwx	root/root	usr/lib64/libm.so -> ../../lib64/libm.so.6 
+-rw-r--r--	root/root	usr/lib64/libm.so   
+-rw-r--r--	root/root	usr/lib64/libmvec.a   
 lrwxrwxrwx	root/root	usr/lib64/libnsl.so -> ../../lib64/libnsl.so.1 
 drwxr-xr-x	root/root	usr/lib64/gconv/   
 -rwxr-xr-x	root/root	usr/lib64/gconv/CP775.so   
@@ -955,6 +956,7 @@ drwxr-xr-x	root/root	usr/lib64/gconv/
 lrwxrwxrwx	root/root	usr/lib64/libBrokenLocale.so -> ../../lib64/libBrokenLocale.so.1 
 -rw-r--r--	root/root	usr/lib64/gcrt1.o   
 -rw-r--r--	root/root	usr/lib64/libnsl.a   
+lrwxrwxrwx	root/root	usr/lib64/libmvec.so -> ../../lib64/libmvec.so.1 
 lrwxrwxrwx	root/root	usr/lib64/libdl.so -> ../../lib64/libdl.so.2 
 -rw-r--r--	root/root	usr/lib64/libBrokenLocale.a   
 -rw-r--r--	root/root	usr/lib64/libresolv.a   
@@ -1220,6 +1222,8 @@ drwxr-xr-x	root/root	usr/include/bits/
 -rw-r--r--	root/root	usr/include/bits/printf-ldbl.h   
 -rw-r--r--	root/root	usr/include/bits/initspin.h   
 -rw-r--r--	root/root	usr/include/bits/ioctl-types.h   
+-rw-r--r--	root/root	usr/include/bits/libm-simd-decl-stubs.h   
+-rw-r--r--	root/root	usr/include/bits/math-vector.h   
 -rw-r--r--	root/root	usr/include/bits/statfs.h   
 -rw-r--r--	root/root	usr/include/bits/sigaction.h   
 -rw-r--r--	root/root	usr/include/bits/waitstatus.h   
@@ -1442,48 +1446,50 @@ drwxr-xr-x	root/root	sbin/
 -rwxr-xr-x	root/root	sbin/sln   
 -rwxr-xr-x	root/root	sbin/ldconfig   
 drwxr-xr-x	root/root	lib64/   
--rwxr-xr-x	root/root	lib64/libcidn-2.21.so   
-lrwxrwxrwx	root/root	lib64/libnss_files.so.2 -> libnss_files-2.21.so 
--rwxr-xr-x	root/root	lib64/libBrokenLocale-2.21.so   
--rwxr-xr-x	root/root	lib64/libnss_nisplus-2.21.so   
-lrwxrwxrwx	root/root	lib64/libnss_compat.so.2 -> libnss_compat-2.21.so 
-lrwxrwxrwx	root/root	lib64/libnss_hesiod.so.2 -> libnss_hesiod-2.21.so 
-lrwxrwxrwx	root/root	lib64/libnss_dns.so.2 -> libnss_dns-2.21.so 
--rwxr-xr-x	root/root	lib64/libpthread-2.21.so   
--rwxr-xr-x	root/root	lib64/libnss_files-2.21.so   
-lrwxrwxrwx	root/root	lib64/libnss_db.so.2 -> libnss_db-2.21.so 
+-rwxr-xr-x	root/root	lib64/libdl-2.22.so   
+-rwxr-xr-x	root/root	lib64/librt-2.22.so   
+lrwxrwxrwx	root/root	lib64/libnss_files.so.2 -> libnss_files-2.22.so 
+lrwxrwxrwx	root/root	lib64/libnss_compat.so.2 -> libnss_compat-2.22.so 
+lrwxrwxrwx	root/root	lib64/libnss_hesiod.so.2 -> libnss_hesiod-2.22.so 
+lrwxrwxrwx	root/root	lib64/libnss_dns.so.2 -> libnss_dns-2.22.so 
+-rwxr-xr-x	root/root	lib64/libnss_nisplus-2.22.so   
+lrwxrwxrwx	root/root	lib64/libnss_db.so.2 -> libnss_db-2.22.so 
 -rwxr-xr-x	root/root	lib64/libmemusage.so   
--rwxr-xr-x	root/root	lib64/libm-2.21.so   
--rwxr-xr-x	root/root	lib64/librt-2.21.so   
-lrwxrwxrwx	root/root	lib64/libnsl.so.1 -> libnsl-2.21.so 
--rwxr-xr-x	root/root	lib64/libnss_nis-2.21.so   
--rwxr-xr-x	root/root	lib64/ld-2.21.so   
-lrwxrwxrwx	root/root	lib64/libdl.so.2 -> libdl-2.21.so 
+-rwxr-xr-x	root/root	lib64/libcidn-2.22.so   
+-rwxr-xr-x	root/root	lib64/libc-2.22.so   
+lrwxrwxrwx	root/root	lib64/libnsl.so.1 -> libnsl-2.22.so 
+lrwxrwxrwx	root/root	lib64/libdl.so.2 -> libdl-2.22.so 
 -rwxr-xr-x	root/root	lib64/libSegFault.so   
-lrwxrwxrwx	root/root	lib64/libnss_nis.so.2 -> libnss_nis-2.21.so 
--rwxr-xr-x	root/root	lib64/libnsl-2.21.so   
-lrwxrwxrwx	root/root	lib64/libBrokenLocale.so.1 -> libBrokenLocale-2.21.so 
--rwxr-xr-x	root/root	lib64/libc-2.21.so   
--rwxr-xr-x	root/root	lib64/libcrypt-2.21.so   
--rwxr-xr-x	root/root	lib64/libnss_db-2.21.so   
--rwxr-xr-x	root/root	lib64/libutil-2.21.so   
--rwxr-xr-x	root/root	lib64/libresolv-2.21.so   
-lrwxrwxrwx	root/root	lib64/libnss_nisplus.so.2 -> libnss_nisplus-2.21.so 
-lrwxrwxrwx	root/root	lib64/libresolv.so.2 -> libresolv-2.21.so 
-lrwxrwxrwx	root/root	lib64/libanl.so.1 -> libanl-2.21.so 
-lrwxrwxrwx	root/root	lib64/libcrypt.so.1 -> libcrypt-2.21.so 
-lrwxrwxrwx	root/root	lib64/librt.so.1 -> librt-2.21.so 
-lrwxrwxrwx	root/root	lib64/libutil.so.1 -> libutil-2.21.so 
-lrwxrwxrwx	root/root	lib64/libpthread.so.0 -> libpthread-2.21.so 
-lrwxrwxrwx	root/root	lib64/libm.so.6 -> libm-2.21.so 
--rwxr-xr-x	root/root	lib64/libdl-2.21.so   
-lrwxrwxrwx	root/root	lib64/libcidn.so.1 -> libcidn-2.21.so 
--rwxr-xr-x	root/root	lib64/libnss_hesiod-2.21.so   
+-rwxr-xr-x	root/root	lib64/libnss_files-2.22.so   
+-rwxr-xr-x	root/root	lib64/libpthread-2.22.so   
+lrwxrwxrwx	root/root	lib64/libnss_nis.so.2 -> libnss_nis-2.22.so 
+-rwxr-xr-x	root/root	lib64/libnss_compat-2.22.so   
+-rwxr-xr-x	root/root	lib64/libresolv-2.22.so   
+lrwxrwxrwx	root/root	lib64/libBrokenLocale.so.1 -> libBrokenLocale-2.22.so 
+-rwxr-xr-x	root/root	lib64/libnss_db-2.22.so   
+-rwxr-xr-x	root/root	lib64/libnss_dns-2.22.so   
+-rwxr-xr-x	root/root	lib64/libnss_nis-2.22.so   
+lrwxrwxrwx	root/root	lib64/libmvec.so.1 -> libmvec-2.22.so 
+-rwxr-xr-x	root/root	lib64/libanl-2.22.so   
+lrwxrwxrwx	root/root	lib64/libnss_nisplus.so.2 -> libnss_nisplus-2.22.so 
+lrwxrwxrwx	root/root	lib64/libresolv.so.2 -> libresolv-2.22.so 
+-rwxr-xr-x	root/root	lib64/libmvec-2.22.so   
+lrwxrwxrwx	root/root	lib64/libanl.so.1 -> libanl-2.22.so 
+lrwxrwxrwx	root/root	lib64/libcrypt.so.1 -> libcrypt-2.22.so 
+lrwxrwxrwx	root/root	lib64/librt.so.1 -> librt-2.22.so 
+lrwxrwxrwx	root/root	lib64/libutil.so.1 -> libutil-2.22.so 
+lrwxrwxrwx	root/root	lib64/libpthread.so.0 -> libpthread-2.22.so 
+lrwxrwxrwx	root/root	lib64/libm.so.6 -> libm-2.22.so 
+-rwxr-xr-x	root/root	lib64/libnsl-2.22.so   
+-rwxr-xr-x	root/root	lib64/libm-2.22.so   
+-rwxr-xr-x	root/root	lib64/libcrypt-2.22.so   
+lrwxrwxrwx	root/root	lib64/libcidn.so.1 -> libcidn-2.22.so 
+-rwxr-xr-x	root/root	lib64/ld-2.22.so   
 -rwxr-xr-x	root/root	lib64/libpcprofile.so   
-lrwxrwxrwx	root/root	lib64/ld-linux-x86-64.so.2 -> ld-2.21.so 
-lrwxrwxrwx	root/root	lib64/libc.so.6 -> libc-2.21.so 
--rwxr-xr-x	root/root	lib64/libnss_compat-2.21.so   
+lrwxrwxrwx	root/root	lib64/ld-linux-x86-64.so.2 -> ld-2.22.so 
+-rwxr-xr-x	root/root	lib64/libutil-2.22.so   
+lrwxrwxrwx	root/root	lib64/libc.so.6 -> libc-2.22.so 
 lrwxrwxrwx	root/root	lib64/libthread_db.so.1 -> libthread_db-1.0.so 
 -rwxr-xr-x	root/root	lib64/libthread_db-1.0.so   
--rwxr-xr-x	root/root	lib64/libnss_dns-2.21.so   
--rwxr-xr-x	root/root	lib64/libanl-2.21.so   
+-rwxr-xr-x	root/root	lib64/libnss_hesiod-2.22.so   
+-rwxr-xr-x	root/root	lib64/libBrokenLocale-2.22.so   

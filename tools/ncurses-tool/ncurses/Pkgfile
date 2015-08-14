@@ -16,5 +16,5 @@ build() {
     --enable-overwrite
   make
   make install
-  rm -rv $PKG/tools/man
+  rm -rv $PKG/tools/share/man
 }
