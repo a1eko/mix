@@ -9,4 +9,3 @@
    default_realm = NADA.KTH.SE
    dns_lookup_realm = true
    dns_lookup_kdc = true
-   allow_weak_crypto = true

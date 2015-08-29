@@ -2,26 +2,27 @@
 # Depends on: openssl krb5
 
 name=openssh
-version=6.7p1
-release=gssapi-mix-3
+version=6.9p1
+release=gssapi-mix-1
 source=(ftp://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-$version.tar.gz
-        http://ftp.debian.org/debian/pool/main/o/openssh/openssh_$version-6.debian.tar.xz
+        http://ftp.debian.org/debian/pool/main/o/openssh/openssh_$version-1.debian.tar.xz
 	sshd)
 
 build() {
   cd openssh-$version
-  tar xvf ../openssh_$version-6.debian.tar.xz
+  tar xvf ../openssh_$version-1.debian.tar.xz
   patch -Np1 -i debian/patches/gssapi.patch
   ./configure --prefix=/usr \
     --libexecdir=/usr/lib/openssh \
     --sysconfdir=/etc/ssh \
-    --datadir=/usr/share/sshd \
     --with-md5-passwords \
     --with-privsep-path=/var/lib/sshd \
-    --with-kerberos5=/usr
+    --with-kerberos5=/usr \
+    --with-xauth=/usr/bin/xauth
   make
   make DESTDIR=$PKG install
 
   echo "PermitRootLogin no" >> $PKG/etc/ssh/sshd_config
   install -D -m 755 -v ../sshd $PKG/etc/rc.d/sshd
+  chown -v root:sys $PKG/var/lib/sshd
 }
