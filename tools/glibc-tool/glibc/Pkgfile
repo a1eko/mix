@@ -3,12 +3,15 @@
 name=glibc
 version=2.22
 release=0
-source=(ftp://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz)
+source=(ftp://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz
+        http://www.linuxfromscratch.org/patches/downloads/glibc/glibc-$version-upstream_i386_fix-1.patch
+)
 
 : ${MIX_TGT:=$(uname -m)-mix-linux-gnu}
 
 build() {
   cd $name-$version
+  patch -Np1 -i ../glibc-$version-upstream_i386_fix-1.patch
 
   mkdir -v ../glibc-build
   cd ../glibc-build
