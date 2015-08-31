@@ -21,7 +21,7 @@ monitor() {
   if [ -d $P/ports ]; then
     for p in $P/ports/*; do
       source $p/Pkgfile
-      echo $name $version-$release
+      echo $name $version-$release:
       grep "^$name" .listing-files
       echo
     done > $T
