@@ -1,7 +1,7 @@
 #!/bin/bash
 
-M=(ftp://trumpetti.atm.tut.fi/gentoo/distfiles
-   ftp://ftp.kernel.org/pub/linux/kernel/v3.x) 
+M=(ftp://ftp.df.lth.se/pub/gentoo/
+   ftp://ftp.kernel.org/pub/linux/kernel/v4.x) 
 S=/var/log/sources/pkgmon.log
 T=/tmp/pkgmon.log
 P=$(pwd)
