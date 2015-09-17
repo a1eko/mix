@@ -9,11 +9,6 @@ build() {
   cd $name-$version
   unset CONFIG_SITE
 
-  # upstream fixes
-  sed -e '/int.*old_desc_blocks/s/int/blk64_t/' \
-    -e '/if (old_desc_blocks/s/super->s_first_meta_bg/desc_blocks/' \
-    -i lib/ext2fs/closefs.c
-
   mkdir -v build
   cd build
 
