@@ -1,6 +1,6 @@
 # Description: Macromedia Flash Plugin for Firefox
 # Depends on: rpm2targz
-# NOTE: crux original
+# NOTE: CRUX original
 
 name=flash-player-plugin
 version=11.2.202.508

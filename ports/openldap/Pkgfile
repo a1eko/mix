@@ -3,6 +3,7 @@
 # Packager: Daniel Mueller, daniel at danm dot de
 # Maintainer: Jose V Beneyto, sepen at crux dot nu
 # Depends on: perl, openssl, cyrus-sasl
+# NOTE: CRUX original
 
 name=openldap
 version=2.4.42

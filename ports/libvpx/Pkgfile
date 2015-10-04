@@ -1,5 +1,5 @@
 # Description: The VP8/VP9 Codec SDK
-# NOTE: crux v1.3.0
+# NOTE: CRUX original, v1.3.0
 
 name=libvpx
 version=1.4.0
