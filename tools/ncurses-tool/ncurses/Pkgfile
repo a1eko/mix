@@ -7,6 +7,10 @@ source=(ftp://ftp.gnu.org/gnu/ncurses/ncurses-$version.tar.gz)
 
 build() {
   cd $name-$version
+
+  # ensure gawk is found
+  sed -i s/mawk// configure
+
   ./configure --prefix=/tools \
     --with-install-prefix=$PKG \
     --with-shared \

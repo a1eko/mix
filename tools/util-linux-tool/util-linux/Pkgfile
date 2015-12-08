@@ -1,7 +1,7 @@
 # Description: system utilities
 
 name=util-linux
-version=2.27
+version=2.27.1
 release=0
 source=(ftp://ftp.kernel.org/pub/linux/utils/util-linux/v2.27/$name-$version.tar.xz)
 
