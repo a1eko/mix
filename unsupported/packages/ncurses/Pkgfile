@@ -1,4 +1,6 @@
 # Description: A System V Release 4.0 curses emulation library
+# URL:         http://www.gnu.org/software/ncurses/ncurses.html
+# Maintainer:  CRUX System Team, core-ports at crux dot nu
 
 name=ncurses
 version=6.0
@@ -28,13 +30,11 @@ build() {
     make
     make install
 
-    mkdir -v $PKG/lib
+    mkdir $PKG/lib
 
     for i in w ''; do
-        mv -v $PKG/usr/lib/libncurses$i.so.* $PKG/lib
-        ln -v -sf libncurses$i.so $PKG/usr/lib/libcurses$i.so
-        ln -v -sf ../../lib/libncurses$i.so.$version $PKG/usr/lib/libncurses$i.so
+        mv $PKG/usr/lib/libncurses$i.so.* $PKG/lib
+        ln -sf libncurses$i.so $PKG/usr/lib/libcurses$i.so
+        ln -sf ../../lib/libncurses$i.so.$version $PKG/usr/lib/libncurses$i.so
     done
-
-    rm -rv $PKG/usr/share/man/man3
 }

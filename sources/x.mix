@@ -10,7 +10,6 @@ freetype
 libxml2
 libxml2-python
 libpthread-stubs
-mako
 talloc
 
 p5-xml-parser
@@ -173,13 +172,14 @@ xorg-font-util
 xorg-font-winitzki-cyrillic
 xorg-font-xfree86-type1
 
+mtdev
 xkeyboard-config
 xorg-server
 xorg-libevdev
 xorg-xf86-input-evdev
 xorg-xf86-input-synaptics
 xorg-xf86-video-fbdev
-#xorg-xf86-video-intel
+xorg-xf86-video-intel
 xorg-xf86-video-vesa
 
 glew
@@ -192,5 +192,5 @@ xorg-font-msttcorefonts
 
 libjpeg-turbo
 xterm
-dmenu  # mix port
-dwm  # mix port
+dmenu
+dwm

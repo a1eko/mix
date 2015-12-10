@@ -1,9 +1,11 @@
 # Description: Macromedia Flash Plugin for Firefox
-# Depends on: rpm2targz
-# NOTE: CRUX original
+# URL: http://www.adobe.com/products/flashplayer/
+# Maintainer: Jose V Beneyto, sepen at crux dot nu
+# Packager: Matt Housh, jaeger at crux dot nu
+# Depends on: wget rpm2targz
 
 name=flash-player-plugin
-version=11.2.202.548
+version=11.2.202.554
 release=mix-1
 source=()
 
@@ -11,6 +13,6 @@ build() {
   wget http://fpdownload.macromedia.com/get/flashplayer/pdc/$version/flash-plugin-$version-release.x86_64.rpm
   rpm2targz flash-plugin-$version-release.x86_64.rpm
   tar xf flash-plugin-$version-release.x86_64.tar.gz
-  install -v -D -m 0755 usr/lib64/flash-plugin/libflashplayer.so \
+  install -D -m 0755 usr/lib64/flash-plugin/libflashplayer.so \
     $PKG/usr/lib/mozilla/plugins/libflashplayer.so
 }

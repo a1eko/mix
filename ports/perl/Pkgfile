@@ -1,5 +1,7 @@
 # Description: Perl programming language
-# NOTE: original by CRUX System Team, core-ports at crux dot nu
+# URL:         http://www.perl.org/
+# Maintainer:  CRUX System Team, core-ports at crux dot nu
+# Depends on:  db gdbm
 
 name=perl
 version=5.22.0

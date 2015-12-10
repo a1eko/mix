@@ -13,7 +13,6 @@ libpcre
 popt
 sharutils
 sysfsutils
-#tcp_wrappers
 yasm
 
 python
@@ -22,6 +21,7 @@ rsync
 glib
 
 db
+dbus
 exim
 iptables
 #procmail
@@ -31,7 +31,7 @@ iproute2
 iputils
 linux-firmware
 wireless-tools
-#wpa_supplicant
+wpa_supplicant
 
 bindutils
 cpio
