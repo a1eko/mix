@@ -19,23 +19,21 @@ gdk-pixbuf
 giblib
 harfbuzz
 hicolor-icon-theme
-lcms
+lcms2
 pango
 poppler-data
 t1lib
 
 gtk
 
-#PDFlib-Lite
 p5-xml-parser
 feh
-#libgd
+libgd
 ghostscript
 libxml2
 libxslt
-#netpbm
 poppler
-xaw3d #libXaw3dXft
+xaw3d
 db
 
 apr
@@ -53,12 +51,7 @@ enscript
 exiv2
 gimp
 gnuplot
-#libgsf
 libwmf
 popt
-#transfig
-#ufraw
-#xfig
-#xpaint
 
 imagemagick
