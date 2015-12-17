@@ -9,4 +9,9 @@ nss
 
 lftp
 rsync
+
+at-spi2-core
+at-spi2-atk
+gtk3
+
 firefox
