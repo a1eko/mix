@@ -3,16 +3,14 @@
 # NOTE: installs after graphics.mix and sound.mix
 
 liba52
-#divx
 libcddb
 libdv
 libdvdcss
 libdvdread
-#libfame
-#libmng
+libmng
 libmp4v2
 libmpeg2
-libvpx  # mix port
+libvpx
 libtheora
 libquicktime
 lzo
@@ -41,7 +39,7 @@ vcdimager
 x265
 
 ffmpeg
-mplayer
+#mplayer
 #transcode
 xine-lib
 xine-ui
