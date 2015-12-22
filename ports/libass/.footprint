@@ -1,0 +1,13 @@
+drwxr-sr-x	root/users	usr/   
+drwxr-sr-x	root/users	usr/include/   
+drwxr-sr-x	root/users	usr/include/ass/   
+-rw-r--r--	root/users	usr/include/ass/ass.h   
+-rw-r--r--	root/users	usr/include/ass/ass_types.h   
+drwxr-sr-x	root/users	usr/lib/   
+-rwxr-xr-x	root/users	usr/lib/libass.la   
+-rwxr-xr-x	root/users	usr/lib/libass.so.5.2.0   
+drwxr-sr-x	root/users	usr/lib/pkgconfig/   
+-rw-r--r--	root/users	usr/lib/pkgconfig/libass.pc   
+lrwxrwxrwx	root/users	usr/lib/libass.so.5 -> libass.so.5.2.0 
+-rw-r--r--	root/users	usr/lib/libass.a   
+lrwxrwxrwx	root/users	usr/lib/libass.so -> libass.so.5.2.0 
