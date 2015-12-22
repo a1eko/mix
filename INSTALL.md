@@ -135,14 +135,14 @@ Installer runs on a mounted filesystem.
 
 	./extlinux --install /boot/extlinux 
 
-Exit *root*.
-
-	exit
-
 That's it.
 
 
 ### Rebooting ###
+
+Exit *root*.
+
+	exit
 
 If the `/boot` directory is on a separate partition, copy installed
 files from `$MIX/boot` to the actual destination `/boot`.

@@ -1,0 +1,17 @@
+# Description: Kernel multi-touch transformation library
+# URL: http://launchpad.net/mtdev
+# Maintainer: CRUX Xorg Team, xorg-ports at crux dot nu
+
+name=mtdev
+version=1.1.5
+release=mix-1
+source=(http://trumpetti.atm.tut.fi/gentoo/distfiles/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+
+	./configure --prefix=/usr
+
+	make
+	make DESTDIR=$PKG install
+}
