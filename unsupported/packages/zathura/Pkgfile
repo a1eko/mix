@@ -1,14 +1,15 @@
 # Description: document viewer
-# Depends on: gtk3 girara sqlite3 intltool
+# Depends on: gtk girara sqlite3 intltool
 
 name=zathura
-version=0.3.3
+version=0.2.6
 release=mix-1
 source=(http://pwmt.org/projects/zathura/download/zathura-$version.tar.gz)
  
 build() {
   cd $name-$version
+  sed '/^ZATHURA_GTK/s/3$/2/' -i config.mk
   make
-  make DESTDIR=$PKG install
-  rm -rv $PKG/usr/share/{applications,locale}
+  make DESTDIR=$PKG MANPREFIX=/usr/man install
+  rm -rv $PKG/usr/share
 }

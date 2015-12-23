@@ -2,7 +2,7 @@
 # Depends on: zathura girara libspectre
 
 name=zathura-ps
-version=0.2.3
+version=0.2.2
 release=mix-1
 
 source=(http://pwmt.org/projects/$name/download/$name-$version.tar.gz)
@@ -11,6 +11,5 @@ build() {
   cd $name-$version
   make
   make DESTDIR=$PKG install
-  rm -rv $PKG/usr/share/applications
-  rmdir -v $PKG/usr/share
+  rm -rv $PKG/usr/share
 }

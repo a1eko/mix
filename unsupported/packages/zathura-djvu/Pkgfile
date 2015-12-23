@@ -2,7 +2,7 @@
 # Depends on: zathura girara djvulibre
 
 name=zathura-djvu
-version=0.2.5
+version=0.2.4
 release=mix-1
 source=(http://pwmt.org/projects/$name/download/$name-$version.tar.gz)
  
@@ -10,6 +10,5 @@ build() {
   cd $name-$version
   make
   make DESTDIR=$PKG install
-  rm -rv $PKG/usr/share/applications
-  rmdir -v $PKG/usr/share
+  rm -rv $PKG/usr/share
 }

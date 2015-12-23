@@ -1,15 +1,14 @@
-# Description: zathura DjVu viewer plugin
-# Depends on: zathura girara djvulibre
+# Description: zathura PDF viewer plugin
+# Depends on: gtk girara zathura poppler poppler-glib
 
-name=zathura-djvu
+name=zathura-pdf-poppler
 version=0.2.5
 release=mix-1
 source=(http://pwmt.org/projects/$name/download/$name-$version.tar.gz)
- 
+
 build() {
   cd $name-$version
   make
   make DESTDIR=$PKG install
-  rm -rv $PKG/usr/share/applications
-  rmdir -v $PKG/usr/share
+  rm -rv $PKG/usr/share
 }
