@@ -31,7 +31,11 @@ drwxr-xr-x	root/root	usr/share/icons/hicolor/256x256/apps/
 -rw-r--r--	root/root	usr/share/icons/hicolor/256x256/apps/darktable.png   
 drwxr-xr-x	root/root	usr/share/man/   
 drwxr-xr-x	root/root	usr/share/man/man1/   
+-rw-r--r--	root/root	usr/share/man/man1/darktable-viewer.1.gz   
+-rw-r--r--	root/root	usr/share/man/man1/darktable-generate-cache.1.gz   
 -rw-r--r--	root/root	usr/share/man/man1/darktable.1.gz   
+-rw-r--r--	root/root	usr/share/man/man1/darktable-cmstest.1.gz   
+-rw-r--r--	root/root	usr/share/man/man1/darktable-cltest.1.gz   
 -rw-r--r--	root/root	usr/share/man/man1/darktable-cli.1.gz   
 drwxr-xr-x	root/root	usr/share/appdata/   
 -rw-r--r--	root/root	usr/share/appdata/darktable.appdata.xml   
@@ -55,11 +59,14 @@ drwxr-xr-x	root/root	usr/share/darktable/kernels/
 -rw-r--r--	root/root	usr/share/darktable/kernels/gaussian.cl   
 -rw-r--r--	root/root	usr/share/darktable/kernels/common.h   
 -rw-r--r--	root/root	usr/share/darktable/kernels/sharpen.cl   
+-rw-r--r--	root/root	usr/share/darktable/kernels/colorreconstruction.cl   
 -rw-r--r--	root/root	usr/share/darktable/kernels/blendop.cl   
 -rw-r--r--	root/root	usr/share/darktable/kernels/soften.cl   
 -rw-r--r--	root/root	usr/share/darktable/kernels/bloom.cl   
--rw-r--r--	root/root	usr/share/darktable/darktable.gtkrc   
+-rw-r--r--	root/root	usr/share/darktable/kernels/demosaic_other.cl   
+-rw-r--r--	root/root	usr/share/darktable/noiseprofiles.json   
 drwxr-xr-x	root/root	usr/share/darktable/watermarks/   
+-rw-r--r--	root/root	usr/share/darktable/watermarks/simple-text.svg   
 -rw-r--r--	root/root	usr/share/darktable/watermarks/hasselblad.svg   
 -rw-r--r--	root/root	usr/share/darktable/watermarks/promo.svg   
 -rw-r--r--	root/root	usr/share/darktable/watermarks/darktable.svg   
@@ -69,6 +76,7 @@ drwxr-xr-x	root/root	usr/share/darktable/lua/darktable/
 drwxr-xr-x	root/root	usr/share/darktable/lua/darktable/external/   
 drwxr-xr-x	root/root	usr/share/darktable/lua/darktable/external/pygy_require/   
 -rw-r--r--	root/root	usr/share/darktable/lua/darktable/external/pygy_require/README.md   
+-rw-r--r--	root/root	usr/share/darktable/lua/darktable/external/pygy_require/.gitignore   
 -rw-r--r--	root/root	usr/share/darktable/lua/darktable/external/pygy_require/require.lua   
 drwxr-xr-x	root/root	usr/share/darktable/lua/darktable/external/pygy_require/rockspecs/   
 -rw-r--r--	root/root	usr/share/darktable/lua/darktable/external/pygy_require/rockspecs/require-0.1.4-2.rockspec   
@@ -105,6 +113,7 @@ drwxr-xr-x	root/root	usr/share/darktable/style/
 -rw-r--r--	root/root	usr/share/darktable/style/loading.gif   
 -rw-r--r--	root/root	usr/share/darktable/style/thumb-1.jpg   
 -rw-r--r--	root/root	usr/share/darktable/darktablerc   
+-rw-r--r--	root/root	usr/share/darktable/darktable.css   
 -rw-r--r--	root/root	usr/share/darktable/gdb_commands   
 drwxr-xr-x	root/root	usr/share/darktable/pixmaps/   
 -rw-r--r--	root/root	usr/share/darktable/pixmaps/idbutton-2.svg   
@@ -140,11 +149,13 @@ drwxr-xr-x	root/root	usr/share/darktable/pixmaps/plugins/darkroom/
 -rw-r--r--	root/root	usr/share/darktable/pixmaps/plugins/darkroom/watermark.svg   
 -rw-r--r--	root/root	usr/share/darktable/pixmaps/plugins/darkroom/lowpass.png   
 -rw-r--r--	root/root	usr/share/darktable/pixmaps/plugins/darkroom/lens.png   
+-rw-r--r--	root/root	usr/share/darktable/pixmaps/plugins/darkroom/colorreconstruct.svg   
 -rw-r--r--	root/root	usr/share/darktable/pixmaps/plugins/darkroom/highpass.svg   
 -rw-r--r--	root/root	usr/share/darktable/pixmaps/plugins/darkroom/colorcorrection.png   
 -rw-r--r--	root/root	usr/share/darktable/pixmaps/plugins/darkroom/highlights.svg   
 -rw-r--r--	root/root	usr/share/darktable/pixmaps/plugins/darkroom/lowlight.svg   
 -rw-r--r--	root/root	usr/share/darktable/pixmaps/plugins/darkroom/colorzones.png   
+-rw-r--r--	root/root	usr/share/darktable/pixmaps/plugins/darkroom/colorreconstruct.png   
 -rw-r--r--	root/root	usr/share/darktable/pixmaps/plugins/darkroom/temperature.png   
 -rw-r--r--	root/root	usr/share/darktable/pixmaps/plugins/darkroom/dither.png   
 -rw-r--r--	root/root	usr/share/darktable/pixmaps/plugins/darkroom/colortransfer.svg   
@@ -224,6 +235,8 @@ drwxr-xr-x	root/root	usr/lib/darktable/
 drwxr-xr-x	root/root	usr/lib/darktable/plugins/   
 drwxr-xr-x	root/root	usr/lib/darktable/plugins/imageio/   
 drwxr-xr-x	root/root	usr/lib/darktable/plugins/imageio/storage/   
+-rwxr-xr-x	root/root	usr/lib/darktable/plugins/imageio/storage/libfacebook.so   
+-rwxr-xr-x	root/root	usr/lib/darktable/plugins/imageio/storage/libpicasa.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/imageio/storage/libdisk.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/imageio/storage/libgallery.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/imageio/storage/liblatex.so   
@@ -233,6 +246,7 @@ drwxr-xr-x	root/root	usr/lib/darktable/plugins/imageio/format/
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/imageio/format/libtiff.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/imageio/format/libjpeg.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/imageio/format/libppm.so   
+-rwxr-xr-x	root/root	usr/lib/darktable/plugins/imageio/format/libpdf.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/imageio/format/libcopy.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/imageio/format/libpfm.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/imageio/format/libj2k.so   
@@ -259,7 +273,6 @@ drwxr-xr-x	root/root	usr/lib/darktable/plugins/imageio/format/
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/libcolorbalance.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/liblens.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/libcolisa.so   
--rwxr-xr-x	root/root	usr/lib/darktable/plugins/libletsgofloat.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/libborders.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/liblevels.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/libcolorin.so   
@@ -279,10 +292,12 @@ drwxr-xr-x	root/root	usr/lib/darktable/plugins/lighttable/
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/lighttable/libimport.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/lighttable/liblighttable_mode.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/lighttable/libsnapshots.so   
+-rwxr-xr-x	root/root	usr/lib/darktable/plugins/lighttable/libcamera.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/lighttable/libcopy_history.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/lighttable/libmetadata_view.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/lighttable/libhistory.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/lighttable/libsession.so   
+-rwxr-xr-x	root/root	usr/lib/darktable/plugins/lighttable/liblive_view.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/lighttable/libcolorpicker.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/lighttable/libhinter.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/lighttable/libmodulelist.so   
@@ -302,6 +317,7 @@ drwxr-xr-x	root/root	usr/lib/darktable/plugins/lighttable/
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/libchannelmixer.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/libdither.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/libdenoiseprofile.so   
+-rwxr-xr-x	root/root	usr/lib/darktable/plugins/libcolorreconstruct.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/libcolortransfer.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/libshadhi.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/librawdenoise.so   
@@ -322,6 +338,8 @@ drwxr-xr-x	root/root	usr/lib/darktable/plugins/lighttable/
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/liblowpass.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/libcolorcorrection.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/librelight.so   
+-rwxr-xr-x	root/root	usr/lib/darktable/plugins/librawprepare.so   
+-rwxr-xr-x	root/root	usr/lib/darktable/plugins/libfinalscale.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/liblowlight.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/libzonesystem.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/libgrain.so   
@@ -332,12 +350,14 @@ drwxr-xr-x	root/root	usr/lib/darktable/plugins/lighttable/
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/libcolorout.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/libmonochrome.so   
 drwxr-xr-x	root/root	usr/lib/darktable/views/   
+-rwxr-xr-x	root/root	usr/lib/darktable/views/libtethering.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/views/liblighttable.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/views/libslideshow.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/views/libdarkroom.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/libdarktable.so   
 drwxr-xr-x	root/root	usr/bin/   
 -rwxr-xr-x	root/root	usr/bin/darktable-viewer   
+-rwxr-xr-x	root/root	usr/bin/darktable-generate-cache   
 -rwxr-xr-x	root/root	usr/bin/darktable-cli   
 -rwxr-xr-x	root/root	usr/bin/darktable-cltest   
 -rwxr-xr-x	root/root	usr/bin/darktable   
