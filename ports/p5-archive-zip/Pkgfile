@@ -11,7 +11,7 @@ build() {
   make
   make test
   make DESTDIR=$PKG install
-  rm -rv $PKG/usr/man
+  rm -rv $PKG/usr/share/man/man3
   find $PKG \( -name perllocal.pod -o -name .packlist \) -delete
   find $PKG -depth -empty -delete
 }
