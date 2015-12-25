@@ -1,24 +1,16 @@
 # Description: basic network utilities
 
 name=net-tools
-version=1.60
-release=mix-5
-source=(http://www.tazenda.demon.co.uk/phil/$name/$name-$version.tar.bz2)
+version=CVS_20101030
+release=mix-1
+source=(ftp://anduin.linuxfromscratch.org/BLFS/net-tools/net-tools-$version.tar.gz
+	http://linuxfromscratch.org/patches/downloads/net-tools/net-tools-$version-remove_dups-1.patch
+)
 
 build() {
   cd $name-$version
-  sed -i -e '/PROGS/s/hostname //' -e '/hostname.*bin/d' Makefile
-  sed -i 's/in 1 5/in 5/' man/Makefile
-  sed -i '/default:/d' lib/inet_sr.c
-  sed -i 's/of(x25/of(struct x25/' lib/x25_sr.c
-  sed -i -e '/Token/s/y$/n/' config.in
-  sed -i -e '/HAVE_HWSTRIP y/s/y$/n/' config.in
-
+  patch -Np1 -i ../net-tools-$version-remove_dups-1.patch
   yes "" | make config
   make
   make BASEDIR=$PKG update
-
-  # conflicts with inetutils
-  rm -v $PKG/sbin/ifconfig
-  rm -v $PKG/usr/share/man/man8/ifconfig.8
 }

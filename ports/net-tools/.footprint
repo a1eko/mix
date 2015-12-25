@@ -3,8 +3,11 @@ drwxr-xr-x	root/root	sbin/
 -rwxr-xr-x	root/root	sbin/route   
 -rwxr-xr-x	root/root	sbin/slattach   
 -rwxr-xr-x	root/root	sbin/rarp   
+-rwxr-xr-x	root/root	sbin/mii-tool   
+-rwxr-xr-x	root/root	sbin/iptunnel   
 -rwxr-xr-x	root/root	sbin/nameif   
 -rwxr-xr-x	root/root	sbin/plipconfig   
+-rwxr-xr-x	root/root	sbin/ipmaddr   
 drwxr-xr-x	root/root	usr/   
 drwxr-xr-x	root/root	usr/share/   
 drwxr-xr-x	root/root	usr/share/man/   
