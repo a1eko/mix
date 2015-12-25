@@ -3935,8 +3935,6 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/program/
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libiolo.so   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libunoxmllo.so   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libsaxlo.so   
--rwxr-xr-x	root/root	usr/lib/libreoffice/program/libmwaw-0.3.so.3   
--rwxr-xr-x	root/root	usr/lib/libreoffice/program/libodfgen-0.1.so.1   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/gengal   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/simpress   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libpython3.3m.so-gdb.py   
@@ -3969,7 +3967,6 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/program/services/
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libforlo.so   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libtextconversiondlgslo.so   
 -rw-r--r--	root/root	usr/lib/libreoffice/program/pythonscript.py   
--rwxr-xr-x	root/root	usr/lib/libreoffice/program/libetonyek-0.1.so.1   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libodfflatxmllo.so   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libepplo.so   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libwpftwriterlo.so   
@@ -4679,6 +4676,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/program/python-core-3.3.3/lib/multiproc
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libCbcSolver.so.3   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libpllo.so   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/unopkg   
+-rwxr-xr-x	root/root	usr/lib/libreoffice/program/libwps-0.4-lo.so.4   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/liblocaledata_es.so   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libclucene.so   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libwpftcalclo.so   
@@ -4695,9 +4693,9 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/program/python-core-3.3.3/lib/multiproc
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libcanvastoolslo.so   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libconfigmgrlo.so   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libcollator_data.so   
+-rwxr-xr-x	root/root	usr/lib/libreoffice/program/libmwaw-0.3-lo.so.3   
 -rw-r--r--	root/root	usr/lib/libreoffice/program/unorc   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libraptor2-lo.so.0   
--rwxr-xr-x	root/root	usr/lib/libreoffice/program/libwpg-0.3.so.3   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/liblnthlo.so   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libPresentationMinimizerlo.so   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libucptdoc1lo.so   
@@ -4946,6 +4944,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/program/resource/
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libswdlo.so   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libunordflo.so   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libprotocolhandlerlo.so   
+-rwxr-xr-x	root/root	usr/lib/libreoffice/program/librevenge-0.0-lo.so.0   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libemboleobj.so   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libnss3.so   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libGLEW.so.1.10   
@@ -4958,11 +4957,11 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/program/resource/
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libdbalo.so   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/liblibreofficekitgtk.so   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libsdbtlo.so   
+-rwxr-xr-x	root/root	usr/lib/libreoffice/program/libwpd-0.10-lo.so.10   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libhyphenlo.so   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/liboffacclo.so   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libxsltdlglo.so   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/liboglcanvaslo.so   
--rwxr-xr-x	root/root	usr/lib/libreoffice/program/libwpd-0.10.so.10   
 -rw-r--r--	root/root	usr/lib/libreoffice/program/bootstraprc   
 drwxr-xr-x	root/root	usr/lib/libreoffice/program/types/   
 -rw-r--r--	root/root	usr/lib/libreoffice/program/types/offapi.rdb   
@@ -4993,9 +4992,9 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/program/types/
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libicuuc.so.54   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libfwelo.so   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libdeployment.so   
+-rwxr-xr-x	root/root	usr/lib/libreoffice/program/libwpg-0.3-lo.so.3   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libucpdav1.so   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/xid-fullscreen-on-all-monitors   
--rwxr-xr-x	root/root	usr/lib/libreoffice/program/libwps-0.4.so.4   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libctllo.so   
 drwxr-xr-x	root/root	usr/lib/libreoffice/program/shell/   
 -rw-r--r--	root/root	usr/lib/libreoffice/program/shell/about.svg   
@@ -5191,11 +5190,13 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/program/opengl/
 -rw-r--r--	root/root	usr/lib/libreoffice/program/opengl/symbolFragmentShader.glsl   
 -rw-r--r--	root/root	usr/lib/libreoffice/program/opengl/renderTextureVertexShader.glsl   
 -rw-r--r--	root/root	usr/lib/libreoffice/program/opengl/maskedTextureFragmentShader.glsl   
+-rw-r--r--	root/root	usr/lib/libreoffice/program/opengl/maskedTextureVertexShader.glsl   
 -rw-r--r--	root/root	usr/lib/libreoffice/program/opengl/rectangularMultiColorGradientFragmentShader.glsl   
 -rw-r--r--	root/root	usr/lib/libreoffice/program/opengl/linearMultiColorGradientFragmentShader.glsl   
 -rw-r--r--	root/root	usr/lib/libreoffice/program/opengl/dummyVertexShader.glsl   
 -rw-r--r--	root/root	usr/lib/libreoffice/program/opengl/shape3DVertexShader.glsl   
 -rw-r--r--	root/root	usr/lib/libreoffice/program/opengl/debugVertexShader.glsl   
+-rw-r--r--	root/root	usr/lib/libreoffice/program/opengl/areaHashCRC64TFragmentShader.glsl   
 -rw-r--r--	root/root	usr/lib/libreoffice/program/opengl/linearTwoColorGradientFragmentShader.glsl   
 -rw-r--r--	root/root	usr/lib/libreoffice/program/opengl/textureFragmentShader.glsl   
 -rw-r--r--	root/root	usr/lib/libreoffice/program/opengl/diffTextureFragmentShader.glsl   
@@ -5249,6 +5250,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/program/opengl/
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libcppcanvaslo.so   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/sdraw   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libexpwraplo.so   
+-rwxr-xr-x	root/root	usr/lib/libreoffice/program/libucpimagelo.so   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libdict_zh.so   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libipslo.so   
 -rw-r--r--	root/root	usr/lib/libreoffice/program/pagein-writer   
@@ -5265,7 +5267,6 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/program/opengl/
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libipxlo.so   
 -rw-r--r--	root/root	usr/lib/libreoffice/program/pythonloader.unorc   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libstocserviceslo.so   
--rwxr-xr-x	root/root	usr/lib/libreoffice/program/librevenge-0.0.so.0   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libtklo.so   
 -r--r--r--	root/root	usr/lib/libreoffice/program/libplc4.so   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/soffice   
@@ -5279,12 +5280,14 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/program/opengl/
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libitilo.so   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libsdfiltlo.so   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/liblosessioninstalllo.so   
+-rwxr-xr-x	root/root	usr/lib/libreoffice/program/libetonyek-0.1-lo.so.1   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/regview   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libcuilo.so   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libsoftokn3.so   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libguesslanglo.so   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libuuresolverlo.so   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libpythonloaderlo.so   
+-rwxr-xr-x	root/root	usr/lib/libreoffice/program/libodfgen-0.1-lo.so.1   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libegilo.so   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libetilo.so   
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libucpexpand1lo.so   
