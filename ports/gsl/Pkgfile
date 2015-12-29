@@ -1,7 +1,7 @@
 # Description: A numerical library for C and C++ programmers.
 
 name=gsl
-version=1.16
+version=2.1
 release=mix-1
 source=(ftp://ftp.gnu.org/gnu/$name/$name-$version.tar.gz)
 
