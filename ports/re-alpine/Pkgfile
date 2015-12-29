@@ -1,0 +1,20 @@
+# Description: mail user agent and tools
+# Depends on: openssl
+
+name=re-alpine
+version=2.03
+release=mix-1
+source=(http://sourceforge.net/projects/$name/files/$name-$version.tar.bz2)
+
+build() {
+  cd $name-$version
+  ./configure --prefix=/usr \
+    --sysconfdir=/etc \
+    --without-ldap \
+    --without-krb5 \
+    --without-tcl \
+    --with-ssl-dir=/usr \
+    --with-passfile=.pine-passfile
+  make
+  make DESTDIR=$PKG install
+}
