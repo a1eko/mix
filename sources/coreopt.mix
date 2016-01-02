@@ -12,6 +12,7 @@ openssl
 libpcre
 popt
 sharutils
+start-stop-daemon
 sysfsutils
 yasm
 
