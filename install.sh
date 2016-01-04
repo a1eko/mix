@@ -3,7 +3,7 @@
 # MiX Installation
 # ================
 #
-# Alexander Kozlov <akozlov@nada.kth.se>
+# Alexander Kozlov <akozlov@kth.se>
 #
 
 test -n "$MIX"

@@ -185,3 +185,5 @@ Get the CRUX ports and build the rest of the system. Use `*.mix` files
 in `/usr/sources` for building optional packages in proper order. Be
 careful with the toolchain packages: *binutils*, *gcc*, *glibc* and
 *linux-headers* don't need to be upgraded.
+
+Alexander Kozlov <akozlov@kth.se>  

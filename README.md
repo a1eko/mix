@@ -12,4 +12,4 @@ from the hard drive using BSD-like init scripts.  The work is licensed via
 [GNU GPL](http://www.gnu.org/copyleft/gpl.html).  All external sources
 preserve their original licenses.
 
-Alexander Kozlov <akozlov@nada.kth.se>  
+Alexander Kozlov <akozlov@kth.se>  
