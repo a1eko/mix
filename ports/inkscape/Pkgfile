@@ -1,17 +1,35 @@
-# Description: SVG editor
-# Depends on: boehm-gc boost gsl gtkmm intltool lcms2 libart_lgpl popt
+# Description: An open source SVG editor.
+# URL: http://www.inkscape.org
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Packager: Huynh Ngoc Chau Tran, tran dot huynh at laposte dot net
+# Depends on: boehm-gc boost gsl gtkmm intltool libart_lgpl poppler-glib popt
 
 name=inkscape
 version=0.91
 release=mix-1
-source=(https://inkscape.global.ssl.fastly.net/media/resources/file/$name-$version.tar.bz2)
+source=(http://inkscape.global.ssl.fastly.net/media/resources/file/$name-$version.tar.bz2)
 
 build() {
-  cd $name-$version
-  ./configure --prefix=/usr --mandir=/usr/man --disable-nls
-  make
-  make DESTDIR=$PKG install
-  rm -rv $PKG/usr/man/{??,zh_TW}
-  rm -v $PKG/usr/man/man1/{inkscape.??.1,inkscape.zh_TW.1}
-  find $PKG -name "README*" -delete
+	cd $name-$version
+
+	export CXXFLAGS+=' -std=c++11'
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-nls
+
+	make
+	make DESTDIR=$PKG install
+
+	rm \
+		$PKG/usr/man/man1/inkscape.??.1 \
+		$PKG/usr/man/man1/inkscape.zh_TW.1
+
+	rm -r \
+		$PKG/usr/man/?? \
+		$PKG/usr/man/zh_TW
+
+	find $PKG/usr/share/inkscape -name README -exec rm -f {} +
+	/usr/bin/python -mcompileall $PKG
 }
