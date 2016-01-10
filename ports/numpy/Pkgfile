@@ -2,7 +2,7 @@
 # Depends on: python
 
 name=numpy
-version=1.10.2
+version=1.10.4
 release=mix-1
 source=(http://downloads.sourceforge.net/numpy/numpy-$version.tar.gz)
 
