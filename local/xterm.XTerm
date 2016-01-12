@@ -1,4 +1,5 @@
-# Add-on to app-defaults/XTerm
-#
+!
+! Add-on to app-defaults/XTerm
+!
 *VT100*faceName: Monospace
 *VT100*faceSize: 10
