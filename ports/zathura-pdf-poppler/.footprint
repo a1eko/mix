@@ -1,7 +1,4 @@
-drwxr-xr-x	root/root	usr/   
-drwxr-xr-x	root/root	usr/share/   
-drwxr-xr-x	root/root	usr/share/appdata/   
--rw-r--r--	root/root	usr/share/appdata/zathura-pdf-poppler.metainfo.xml   
-drwxr-xr-x	root/root	usr/lib/   
-drwxr-xr-x	root/root	usr/lib/zathura/   
--rwxr-xr-x	root/root	usr/lib/zathura/pdf.so   
+drwxr-sr-x	root/users	usr/   
+drwxr-sr-x	root/users	usr/lib/   
+drwxr-sr-x	root/users	usr/lib/zathura/   
+-rwxr-xr-x	root/users	usr/lib/zathura/pdf.so   

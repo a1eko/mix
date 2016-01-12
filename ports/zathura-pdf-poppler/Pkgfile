@@ -10,6 +10,6 @@ build() {
   cd $name-$version
   make
   make DESTDIR=$PKG install
-  rm -rv $PKG/usr/share/applications
+  rm -rv $PKG/usr/share/{applications,appdata}
   rmdir -v $PKG/usr/share
 }
