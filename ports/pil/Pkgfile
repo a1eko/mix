@@ -1,5 +1,5 @@
 # Description: Python Imaging Library
-# Depends on: python libjpeg-turbo libpng freetype lcms
+# Depends on: python libjpeg-turbo libpng freetype lcms2
 
 name=pil
 version=1.1.7
