@@ -19,6 +19,7 @@ drwxr-xr-x	root/root	usr/include/drm/
 -rw-r--r--	root/root	usr/include/drm/exynos_drm.h   
 -rw-r--r--	root/root	usr/include/drm/drm_fourcc.h   
 -rw-r--r--	root/root	usr/include/drm/i915_drm.h   
+-rw-r--r--	root/root	usr/include/drm/virtgpu_drm.h   
 drwxr-xr-x	root/root	usr/include/xen/   
 -rw-r--r--	root/root	usr/include/xen/evtchn.h   
 -rw-r--r--	root/root	usr/include/xen/privcmd.h   
@@ -67,6 +68,7 @@ drwxr-xr-x	root/root	usr/include/video/
 -rw-r--r--	root/root	usr/include/video/uvesafb.h   
 -rw-r--r--	root/root	usr/include/video/sisfb.h   
 drwxr-xr-x	root/root	usr/include/scsi/   
+-rw-r--r--	root/root	usr/include/scsi/cxlflash_ioctl.h   
 -rw-r--r--	root/root	usr/include/scsi/scsi_netlink.h   
 -rw-r--r--	root/root	usr/include/scsi/scsi_bsg_fc.h   
 -rw-r--r--	root/root	usr/include/scsi/scsi_netlink_fc.h   
@@ -87,6 +89,8 @@ drwxr-xr-x	root/root	usr/include/rdma/
 -rw-r--r--	root/root	usr/include/rdma/ib_user_mad.h   
 -rw-r--r--	root/root	usr/include/rdma/ib_user_sa.h   
 -rw-r--r--	root/root	usr/include/rdma/ib_user_verbs.h   
+drwxr-xr-x	root/root	usr/include/rdma/hfi/   
+-rw-r--r--	root/root	usr/include/rdma/hfi/hfi1_user.h   
 -rw-r--r--	root/root	usr/include/rdma/rdma_netlink.h   
 -rw-r--r--	root/root	usr/include/rdma/ib_user_cm.h   
 drwxr-xr-x	root/root	usr/include/sound/   
@@ -179,6 +183,7 @@ drwxr-xr-x	root/root	usr/include/linux/
 -rw-r--r--	root/root	usr/include/linux/atmbr2684.h   
 -rw-r--r--	root/root	usr/include/linux/coff.h   
 -rw-r--r--	root/root	usr/include/linux/kernel-page-flags.h   
+-rw-r--r--	root/root	usr/include/linux/userfaultfd.h   
 -rw-r--r--	root/root	usr/include/linux/coda.h   
 -rw-r--r--	root/root	usr/include/linux/acct.h   
 -rw-r--r--	root/root	usr/include/linux/affs_hardblocks.h   
@@ -209,6 +214,7 @@ drwxr-xr-x	root/root	usr/include/linux/nfsd/
 -rw-r--r--	root/root	usr/include/linux/ncp_no.h   
 -rw-r--r--	root/root	usr/include/linux/errqueue.h   
 -rw-r--r--	root/root	usr/include/linux/isdn_divertif.h   
+-rw-r--r--	root/root	usr/include/linux/scif_ioctl.h   
 -rw-r--r--	root/root	usr/include/linux/hdlcdrv.h   
 -rw-r--r--	root/root	usr/include/linux/net_dropmon.h   
 -rw-r--r--	root/root	usr/include/linux/fanotify.h   
@@ -359,6 +365,7 @@ drwxr-xr-x	root/root	usr/include/linux/can/
 -rw-r--r--	root/root	usr/include/linux/wait.h   
 -rw-r--r--	root/root	usr/include/linux/joystick.h   
 -rw-r--r--	root/root	usr/include/linux/telephony.h   
+-rw-r--r--	root/root	usr/include/linux/input-event-codes.h   
 -rw-r--r--	root/root	usr/include/linux/binfmts.h   
 -rw-r--r--	root/root	usr/include/linux/soundcard.h   
 drwxr-xr-x	root/root	usr/include/linux/caif/   
@@ -540,6 +547,7 @@ drwxr-xr-x	root/root	usr/include/linux/sunrpc/
 -rw-r--r--	root/root	usr/include/linux/if_frad.h   
 -rw-r--r--	root/root	usr/include/linux/netfilter.h   
 -rw-r--r--	root/root	usr/include/linux/scc.h   
+-rw-r--r--	root/root	usr/include/linux/gsmmux.h   
 -rw-r--r--	root/root	usr/include/linux/selinux_netlink.h   
 -rw-r--r--	root/root	usr/include/linux/ppp_defs.h   
 drwxr-xr-x	root/root	usr/include/linux/hdlc/   
@@ -571,6 +579,7 @@ drwxr-xr-x	root/root	usr/include/linux/android/
 -rw-r--r--	root/root	usr/include/linux/gen_stats.h   
 -rw-r--r--	root/root	usr/include/linux/mic_ioctl.h   
 -rw-r--r--	root/root	usr/include/linux/pfkeyv2.h   
+-rw-r--r--	root/root	usr/include/linux/mpls_iptunnel.h   
 -rw-r--r--	root/root	usr/include/linux/atm_zatm.h   
 -rw-r--r--	root/root	usr/include/linux/ixjuser.h   
 -rw-r--r--	root/root	usr/include/linux/xfrm.h   
@@ -646,6 +655,7 @@ drwxr-xr-x	root/root	usr/include/linux/dvb/
 -rw-r--r--	root/root	usr/include/linux/cciss_ioctl.h   
 drwxr-xr-x	root/root	usr/include/linux/wimax/   
 -rw-r--r--	root/root	usr/include/linux/wimax/i2400m.h   
+-rw-r--r--	root/root	usr/include/linux/lwtunnel.h   
 -rw-r--r--	root/root	usr/include/linux/filter.h   
 -rw-r--r--	root/root	usr/include/linux/ipmi.h   
 -rw-r--r--	root/root	usr/include/linux/synclink.h   
@@ -663,6 +673,7 @@ drwxr-xr-x	root/root	usr/include/linux/tc_ematch/
 -rw-r--r--	root/root	usr/include/linux/mei.h   
 -rw-r--r--	root/root	usr/include/linux/a.out.h   
 -rw-r--r--	root/root	usr/include/linux/watchdog.h   
+-rw-r--r--	root/root	usr/include/linux/ndctl.h   
 -rw-r--r--	root/root	usr/include/linux/errno.h   
 -rw-r--r--	root/root	usr/include/linux/if_team.h   
 -rw-r--r--	root/root	usr/include/linux/atmclip.h   
@@ -699,6 +710,7 @@ drwxr-xr-x	root/root	usr/include/linux/tc_ematch/
 -rw-r--r--	root/root	usr/include/linux/ivtvfb.h   
 -rw-r--r--	root/root	usr/include/linux/virtio_balloon.h   
 -rw-r--r--	root/root	usr/include/linux/netfilter_ipv6.h   
+-rw-r--r--	root/root	usr/include/linux/virtio_gpu.h   
 -rw-r--r--	root/root	usr/include/linux/hsr_netlink.h   
 -rw-r--r--	root/root	usr/include/linux/bpf_common.h   
 drwxr-xr-x	root/root	usr/include/linux/usb/   
@@ -726,6 +738,7 @@ drwxr-xr-x	root/root	usr/include/linux/usb/
 -rw-r--r--	root/root	usr/include/linux/romfs_fs.h   
 -rw-r--r--	root/root	usr/include/linux/toshiba.h   
 -rw-r--r--	root/root	usr/include/linux/i2o-dev.h   
+-rw-r--r--	root/root	usr/include/linux/membarrier.h   
 -rw-r--r--	root/root	usr/include/linux/map_to_7segment.h   
 -rw-r--r--	root/root	usr/include/linux/sonypi.h   
 -rw-r--r--	root/root	usr/include/linux/if_tunnel.h   
@@ -769,6 +782,7 @@ drwxr-xr-x	root/root	usr/include/linux/mmc/
 -rw-r--r--	root/root	usr/include/linux/cciss_defs.h   
 -rw-r--r--	root/root	usr/include/linux/rtc.h   
 -rw-r--r--	root/root	usr/include/linux/usbip.h   
+-rw-r--r--	root/root	usr/include/linux/ila.h   
 -rw-r--r--	root/root	usr/include/linux/media-bus-format.h   
 -rw-r--r--	root/root	usr/include/linux/auto_fs4.h   
 -rw-r--r--	root/root	usr/include/linux/atmapi.h   
