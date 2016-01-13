@@ -35,23 +35,23 @@ drwxr-xr-x	root/root	usr/include/primitives/
 -rw-r--r--	root/root	usr/include/primitives/opa_unsafe.h   
 -rw-r--r--	root/root	usr/include/opa_util.h   
 drwxr-xr-x	root/root	usr/lib/   
-lrwxrwxrwx	root/root	usr/lib/libmpi.so -> libmpi.so.12.0.5 
+lrwxrwxrwx	root/root	usr/lib/libmpi.so -> libmpi.so.12.1.0 
+-rwxr-xr-x	root/root	usr/lib/libmpi.so.12.1.0   
+-rwxr-xr-x	root/root	usr/lib/libmpicxx.so.12.1.0   
 -rwxr-xr-x	root/root	usr/lib/libmpicxx.la   
 drwxr-xr-x	root/root	usr/lib/pkgconfig/   
 -rw-r--r--	root/root	usr/lib/pkgconfig/mpich.pc   
 -rw-r--r--	root/root	usr/lib/pkgconfig/openpa.pc   
-lrwxrwxrwx	root/root	usr/lib/libmpicxx.so.12 -> libmpicxx.so.12.0.5 
+lrwxrwxrwx	root/root	usr/lib/libmpicxx.so.12 -> libmpicxx.so.12.1.0 
 -rw-r--r--	root/root	usr/lib/libmpi.a   
-lrwxrwxrwx	root/root	usr/lib/libmpi.so.12 -> libmpi.so.12.0.5 
+lrwxrwxrwx	root/root	usr/lib/libmpi.so.12 -> libmpi.so.12.1.0 
 -rw-r--r--	root/root	usr/lib/libmpicxx.a   
--rwxr-xr-x	root/root	usr/lib/libmpicxx.so.12.0.5   
 lrwxrwxrwx	root/root	usr/lib/libmpich.so -> libmpi.so 
 lrwxrwxrwx	root/root	usr/lib/libopa.so -> libmpi.so 
 -rwxr-xr-x	root/root	usr/lib/libmpi.la   
 lrwxrwxrwx	root/root	usr/lib/libmpichcxx.so -> libmpicxx.so 
 lrwxrwxrwx	root/root	usr/lib/libmpl.so -> libmpi.so 
--rwxr-xr-x	root/root	usr/lib/libmpi.so.12.0.5   
-lrwxrwxrwx	root/root	usr/lib/libmpicxx.so -> libmpicxx.so.12.0.5 
+lrwxrwxrwx	root/root	usr/lib/libmpicxx.so -> libmpicxx.so.12.1.0 
 drwxr-xr-x	root/root	usr/bin/   
 lrwxrwxrwx	root/root	usr/bin/mpirun -> mpiexec.hydra 
 -rwxr-xr-x	root/root	usr/bin/mpichversion   
