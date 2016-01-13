@@ -1,5 +1,5 @@
 # Description: graphical interface library
-# Depends on: xorg
+# Depends on: xorg mercurial
 
 name=iv
 version=hg

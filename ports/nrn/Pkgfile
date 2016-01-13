@@ -1,5 +1,5 @@
 # Description: Neuron simulation environment
-# Depends on: iv python numpy
+# Depends on: iv python numpy mercurial
 
 name=nrn
 version=hg
