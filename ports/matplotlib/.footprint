@@ -3,15 +3,6 @@ drwxr-xr-x	root/root	usr/lib/
 drwxr-xr-x	root/root	usr/lib/python2.7/   
 drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/pylab.py   
--rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib-1.5.0-py2.7-nspkg.pth   
-drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/matplotlib-1.5.0-py2.7.egg-info/   
--rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib-1.5.0-py2.7.egg-info/top_level.txt   
--rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib-1.5.0-py2.7.egg-info/dependency_links.txt   
--rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib-1.5.0-py2.7.egg-info/namespace_packages.txt   
--rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib-1.5.0-py2.7.egg-info/requires.txt   
--rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib-1.5.0-py2.7.egg-info/not-zip-safe   
--rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib-1.5.0-py2.7.egg-info/SOURCES.txt   
--rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib-1.5.0-py2.7.egg-info/PKG-INFO   
 drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/matplotlib/   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/afm.py   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/quiver.py   
@@ -99,6 +90,7 @@ drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_i
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_contour/contour_manual_labels.pdf   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_contour/contour_corner_mask_False.png   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_contour/contour_manual_labels.png   
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_contour/contour_labels_size_color.png   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_contour/contour_datetime_axis.png   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_contour/contour_manual_colors_and_levels.png   
 drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_streamplot/   
@@ -334,6 +326,7 @@ drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_i
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_collections/EventCollection_plot__set_lineoffset.svg   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_collections/EventCollection_plot__set_linelength.png   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_collections/EventCollection_plot__extend_positions.pdf   
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_collections/size_in_xy.png   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_collections/EventCollection_plot__add_positions.png   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_collections/EventCollection_plot__set_ls_dash.svg   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_collections/EllipseCollection_test_image.png   
@@ -477,6 +470,7 @@ drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_i
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stixsans_54.pdf   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stix_47.svg   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stix_59.png   
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_dejavuserif_79.svg   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_cm_63.png   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_cm_25.pdf   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathfont_stix_22.png   
@@ -502,6 +496,7 @@ drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_i
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stix_10.svg   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stix_02.png   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stixsans_75.svg   
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stix_79.png   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stixsans_09.pdf   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_cm_18.svg   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stix_78.svg   
@@ -516,6 +511,7 @@ drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_i
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathfont_stixsans_06.png   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_cm_65.pdf   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stix_02.svg   
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_cm_79.pdf   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathfont_stix_54.png   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stix_23.png   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathfont_stixsans_01.png   
@@ -592,6 +588,7 @@ drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_i
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stix_02.pdf   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stixsans_41.png   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stixsans_68.svg   
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_dejavuserif_79.pdf   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stixsans_34.pdf   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stix_60.png   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stix_46.svg   
@@ -612,6 +609,7 @@ drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_i
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stix_68.pdf   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_cm_72.png   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stix_19.png   
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stixsans_79.png   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_cm_08.pdf   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathfont_cm_27.png   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathfont_cm_15.png   
@@ -642,6 +640,7 @@ drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_i
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stixsans_23.png   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_cm_49.pdf   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stix_00.png   
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_dejavusans_79.png   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathfont_cm_57.png   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stixsans_04.png   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stix_22.pdf   
@@ -680,6 +679,7 @@ drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_i
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stixsans_35.pdf   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_cm_30.png   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stix_73.png   
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stixsans_79.pdf   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_cm_33.png   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stix_39.pdf   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stix_53.png   
@@ -706,6 +706,7 @@ drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_i
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathfont_cm_33.png   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stixsans_31.pdf   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stixsans_64.pdf   
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stix_79.pdf   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stixsans_45.pdf   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stixsans_24.svg   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathfont_cm_12.png   
@@ -748,6 +749,7 @@ drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_i
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stix_50.png   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_cm_17.png   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_cm_47.pdf   
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_dejavusans_79.svg   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stixsans_36.svg   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stix_69.png   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_cm_33.pdf   
@@ -773,6 +775,7 @@ drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_i
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stix_64.svg   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stixsans_47.svg   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stix_77.pdf   
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_cm_79.png   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathfont_stixsans_32.png   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_cm_13.svg   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stixsans_33.svg   
@@ -831,6 +834,7 @@ drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_i
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_cm_69.png   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_cm_24.svg   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stix_32.svg   
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_dejavusans_79.pdf   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_cm_02.svg   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathfont_stixsans_13.png   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stixsans_67.svg   
@@ -941,6 +945,7 @@ drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_i
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stix_26.png   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stixsans_22.svg   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stix_12.pdf   
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_dejavuserif_79.png   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stixsans_61.svg   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stix_18.png   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_cm_01.svg   
@@ -1039,6 +1044,7 @@ drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_i
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stixsans_56.svg   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stixsans_34.svg   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stixsans_66.svg   
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stix_79.svg   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stixsans_16.svg   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stix_27.pdf   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathfont_stixsans_05.png   
@@ -1163,6 +1169,7 @@ drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_i
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stixsans_01.svg   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathfont_stix_27.png   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathfont_cm_19.png   
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stixsans_79.svg   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathfont_stix_05.png   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_cm_05.svg   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_cm_04.svg   
@@ -1243,6 +1250,7 @@ drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_i
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stixsans_71.pdf   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stix_03.svg   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_cm_18.png   
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_cm_79.svg   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stix_70.svg   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_cm_14.svg   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_images/test_mathtext/mathtext_stixsans_53.svg   
@@ -1803,6 +1811,7 @@ drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_i
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/test_quiver.py   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/test_mathtext.pyc   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/test_units.pyc   
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/test_container.py   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/test_ticker.pyc   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/test_simplification.pyc   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/test_cbook.py   
@@ -1850,6 +1859,7 @@ drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/baseline_i
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/test_type1font.py   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/test_font_manager.py   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/__init__.py   
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/test_container.pyc   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/test_patches.pyc   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/test_offsetbox.pyc   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/tests/test_backend_pdf.py   
@@ -2415,6 +2425,14 @@ drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/matplotlib/delaunay/
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/delaunay/interpolate.pyc   
 -rwxr-xr-x	root/root	usr/lib/python2.7/site-packages/matplotlib/_cntr.so   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib/sankey.py   
+drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/matplotlib-1.5.1-py2.7.egg-info/   
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib-1.5.1-py2.7.egg-info/top_level.txt   
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib-1.5.1-py2.7.egg-info/dependency_links.txt   
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib-1.5.1-py2.7.egg-info/namespace_packages.txt   
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib-1.5.1-py2.7.egg-info/requires.txt   
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib-1.5.1-py2.7.egg-info/not-zip-safe   
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib-1.5.1-py2.7.egg-info/SOURCES.txt   
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib-1.5.1-py2.7.egg-info/PKG-INFO   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/pylab.pyc   
 drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/mpl_toolkits/   
 drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/mpl_toolkits/mplot3d/   
@@ -2572,3 +2590,4 @@ drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/mpl_toolkits/axes_grid/
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/mpl_toolkits/axes_grid/anchored_artists.pyc   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/mpl_toolkits/gtktools.pyc   
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/mpl_toolkits/gtktools.py   
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/matplotlib-1.5.1-py2.7-nspkg.pth   

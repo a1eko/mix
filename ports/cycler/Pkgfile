@@ -1,0 +1,13 @@
+# Description: composable style cycles
+# Depends on: python
+
+name=cycler
+version=0.9.0
+release=mix-1
+source=(http://pypi.python.org/packages/source/c/$name/$name-$version.tar.gz)
+
+build() {
+  cd $name-$version
+  python setup.py build
+  python setup.py install --root=$PKG
+}

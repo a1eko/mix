@@ -1,8 +1,8 @@
 # Description: python plotting library
-# Depends on: python numpy libpng freetype python-dateutil pyparsing six
+# Depends on: python numpy setuptools libpng freetype python-dateutil pyparsing six cycler
 
 name=matplotlib
-version=1.5.0
+version=1.5.1
 release=mix-1
 source=(https://downloads.sourceforge.net/project/$name/$name/$name-$version/$name-$version.tar.gz)
 
