@@ -3,9 +3,9 @@
 # Nice to have: mpich
 
 name=nest
-version=2.6.0
+version=2.10.0
 release=mix-1
-source=(http://www.nest-initiative.org/downloads/gplreleases/nest-$version.tar.gz)
+source=(http://github.com/nest/nest-simulator/releases/download/v$version/nest-$version.tar.gz)
 
 build() {
   cd $name-$version
