@@ -1,7 +1,5 @@
 #!/bin/bash
 
-VERSION=0.1exp
-
 : ${PKZ=''}
 
 ROOT=${PKZROOT-$PKZ}
@@ -35,8 +33,9 @@ strip_shared=
 strip_static=
 strip_binaries=
 use_mirror=
+suggest_pkgs=no
+resolve_deps=yes
 
-formatted_output=no
 list_notinstalled=no
 list_installed=no
 list_updated=no
@@ -45,6 +44,7 @@ list_all=yes
 usage() {
   cat << EOF 
 Usage: 	pkz [options] <command> <packages>
+       	pkz [-h|--help]
 EOF
 }
 
@@ -55,16 +55,15 @@ Package manager for scripted source-based distribution.
 
 Options:
   -h, --help		help
-  -V, --version		version
   -f			forced execution
   -c conf		configuration file [/etc/pkz.conf]
   -p path		packages directory [/usr/packages]
   -s path		sources directory [/usr/sources]
-  -md			markdown formatted output
-  -a			list all packages
-  -i			list installed packages
-  -n			list not-installed packages
-  -u			list updated packages
+  -a			show all packages (list)
+  -i			show installed packages (list)
+  -n			show not-installed packages (list)
+  -u			show updated packages (list)
+  -o			include optional dependencies (resolve)
 
 Command:
   clean			delete working directory
@@ -73,7 +72,8 @@ Command:
   install		install binary package
   remove		uninstall binary package
   upgrade		upgrade binary package
-  list			show available packages
+  list			show packages
+  resolve		show unresolved dependencies
 
 Packages:
   <name> [<name2> ...]	package name or list of packages
@@ -306,21 +306,47 @@ installed() {
 }
 
 do_list() {
-  if [ $formatted_output = yes ]; then
-    if [ $list_all = yes \
-      -o $list_installed = yes -a "$(installed)" = '(installed)' \
-      -o $list_updated = yes -a "$(installed)" != '(installed)' -a "$(installed)" != '' \
-      -o $list_notinstalled = yes -a "$(installed)" = '' ]; then
-      echo "* [$name]($pkgdir) $version-$release $(eval installed) -$(grep Description: $pkgfile | cut -d: -f2)"
-    fi
-  else
-    if [ $list_all = yes -o \
-      $list_installed = yes -a "$(installed)" = '(installed)' \
-      -o $list_updated = yes -a "$(installed)" != '(installed)' -a "$(installed)" != '' \
-      -o $list_notinstalled = yes -a "$(installed)" = '' ]; then
-      echo $name $version-$release $(eval installed) -$(grep Description: $pkgfile | cut -d: -f2)
-    fi
+  if [ $list_all = yes -o \
+    $list_installed = yes -a "$(installed)" = '(installed)' \
+    -o $list_updated = yes -a "$(installed)" != '(installed)' -a "$(installed)" != '' \
+    -o $list_notinstalled = yes -a "$(installed)" = '' ]; then
+     echo $name $version-$release $(eval installed) -$(grep Description: $pkgfile | cut -d: -f2)
   fi
+}
+
+do_resolve()
+{
+  export LC_ALL=C
+  dep=$zbuilds/$$_pkgdep
+  required='Depends on:'
+  if [ $suggest_pkgs == yes ]; then
+    optional='Nice to have:'
+  else
+    optional=$$$$$$
+  fi
+  find $zpackages -name Pkgfile | xargs grep -e "$required" -e "$optional" \
+    | cut -d: -f1,3 \
+    | sed -e 's/://' -e 's:.*\/\(.*\)\/Pkgfile:\1:' -e 's/,/ /g' \
+      -e 's/[ \t][ \t]*/ /g' -e "s/ $//" | sort -u > $dep.db
+  rm -f $dep
+  touch $dep
+  echo $name > $dep.in
+  while [ -s $dep.in ]; do
+    cat $dep.in | while read n; do
+      grep "^$n " $dep.db
+    done | sed 's: :\n:g' | sort -u > $dep.out
+    cat $dep.in $dep | sort -u >> $dep.tmp
+    mv $dep.tmp $dep
+    comm -13 --nocheck-order $dep $dep.out | sort -u > $dep.in
+  done
+  if [ $resolve_deps == yes ]; then
+    (cd $zregs; ls -1 *.gz | cut -d# -f1 | sort -u > $dep.inst)
+    comm -13 --nocheck-order $dep.inst $dep > $dep.tmp
+    mv $dep.tmp $dep
+    rm $dep.inst
+  fi
+  echo $name: $(cat $dep | grep -v "^$name$")
+  rm -f $dep $dep.{db,in,out}
 }
 
 
@@ -328,13 +354,12 @@ test $# -eq 0 && usage && exit
 while true; do
   case "$1" in
     -h | --help) help && exit ;;
-    -V | --version) echo $VERSION && exit ;;
     -f) forced_exec=yes ;;
     -c) shift; test -r "$1" && zconf=$1 || error "no file $1" ;;
     -p) shift; test -d "$1" && zpackages=$(cd $1; pwd) || error "no directory $1" ;;
     -s) shift; test -d "$1" && zsources=$(cd $1; pwd) || error "no directory $1" ;;
     -m) shift; test -n "$1" && use_mirror=$1 ;;
-    -md) formatted_output=yes ;;
+    -o) suggest_pkgs=yes; ;;
     -n) list_notinstalled=yes; list_all=no ;;
     -i) list_installed=yes; list_all=no ;;
     -u) list_updated=yes; list_all=no ;;
@@ -345,7 +370,7 @@ while true; do
 done
 
 case $1 in 
-  source | clean | build | install | remove | upgrade | list) cmd=$1; shift ;;
+  source | clean | build | install | remove | upgrade | list | resolve) cmd=$1; shift ;;
   *) error "unknown command $1" ;;
 esac
 

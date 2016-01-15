@@ -2,7 +2,7 @@
 # Depends on: wget
 
 name=pkz
-version=0.1
+version=0.2
 release=mix-1
 source=(pkz.sh pkz.conf)
 
