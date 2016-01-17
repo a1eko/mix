@@ -1,0 +1,13 @@
+# Description: Python bindings for the HDF5 library
+# Depends on: python cython hdf5 numpy six
+
+name=h5py
+version=2.5.0
+release=mix-1
+source=(https://pypi.python.org/packages/source/h/$name/$name-$version.tar.gz)
+
+build () {
+  cd $name-$version
+  python setup.py install --root=$PKG
+}
+

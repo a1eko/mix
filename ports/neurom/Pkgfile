@@ -1,0 +1,13 @@
+# Description: toolkit for the analysis and processing of neuron morphologies
+# Depends on: python numpy matplotlib h5py enum34 pyyaml
+
+name=neurom
+version=git
+release=mix-1
+source=()
+
+build() {
+  git clone https://github.com/BlueBrain/NeuroM.git
+  cd NeuroM
+  python setup.py install --root=$PKG
+}
