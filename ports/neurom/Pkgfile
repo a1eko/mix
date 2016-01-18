@@ -2,12 +2,13 @@
 # Depends on: python numpy matplotlib h5py enum34 pyyaml
 
 name=neurom
-version=git
-release=mix-1
+version=0.0.12
+release=git-mix-1
 source=()
 
 build() {
-  git clone https://github.com/BlueBrain/NeuroM.git
+  #git clone https://github.com/BlueBrain/NeuroM.git
+  git clone --branch v$version https://github.com/BlueBrain/NeuroM.git
   cd NeuroM
   python setup.py install --root=$PKG
 }
