@@ -2,15 +2,15 @@
 # Depends on: openssl krb5
 
 name=openssh
-version=7.1p1
-release=gssapi-mix-2
+version=7.1p2
+release=gssapi-mix-1
 source=(ftp://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-$version.tar.gz
-        http://ftp.debian.org/debian/pool/main/o/openssh/openssh_$version-6.debian.tar.xz
+        http://ftp.debian.org/debian/pool/main/o/openssh/openssh_$version-2.debian.tar.xz
 	sshd)
 
 build() {
   cd openssh-$version
-  tar xvf ../openssh_$version-6.debian.tar.xz
+  tar xvf ../openssh_$version-2.debian.tar.xz
   patch -Np1 -i debian/patches/gssapi.patch
   ./configure --prefix=/usr \
     --libexecdir=/usr/lib/openssh \
