@@ -1,5 +1,6 @@
 # Description: python plotting library
 # Depends on: python numpy setuptools libpng freetype python-dateutil pyparsing six cycler
+# Nice to have: pygtk
 
 name=matplotlib
 version=1.5.1
