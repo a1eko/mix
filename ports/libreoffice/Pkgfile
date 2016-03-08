@@ -1,17 +1,17 @@
 # Description: office suite
-# Depends on: p5-archive-zip unzip wget which zip cups curl gperf gtk p5-xml-parser krb5 gst-plugins-base gdb
+# Depends on: p5-archive-zip unzip wget which zip cups curl gperf gtk gtk3 p5-xml-parser krb5 gst-plugins-base gdb
 # NOTE: must be built in a graphical environment, fails otherwise.
 
 name=libreoffice
-version=5.0.4.2
+version=5.1.0.3
 release=mix-1
 source=()
 
 build() {
-  wget http://download.documentfoundation.org/libreoffice/src/5.0.4/libreoffice-$version.tar.xz
-  wget http://download.documentfoundation.org/libreoffice/src/5.0.4/libreoffice-help-$version.tar.xz
-  wget http://download.documentfoundation.org/libreoffice/src/5.0.4/libreoffice-dictionaries-$version.tar.xz
-  wget http://download.documentfoundation.org/libreoffice/src/5.0.4/libreoffice-translations-$version.tar.xz
+  wget http://download.documentfoundation.org/libreoffice/src/5.1.0/libreoffice-$version.tar.xz
+  wget http://download.documentfoundation.org/libreoffice/src/5.1.0/libreoffice-help-$version.tar.xz
+  wget http://download.documentfoundation.org/libreoffice/src/5.1.0/libreoffice-dictionaries-$version.tar.xz
+  wget http://download.documentfoundation.org/libreoffice/src/5.1.0/libreoffice-translations-$version.tar.xz
 
   tar -xf libreoffice-$version.tar.xz --no-overwrite-dir
   cd $name-$version
@@ -26,22 +26,25 @@ build() {
     -e "s|.1.gz|.1|g" \
     -i bin/distro-install-desktop-integration
   sed -e "/distro-install-file-lists/d" -i Makefile.in
+  sed -i "s#isnan#std::&#g" xmloff/source/draw/ximp3dscene.cxx
   chmod -v +x bin/unpack-sources
 
   ./autogen.sh --prefix=/usr \
     --sysconfdir=/etc \
     --disable-dbus \
-    --disable-gconf \
-    --disable-gstreamer-0.10 \
+    --disable-dconf \
     --disable-odk \
+    --disable-firebird-sdbc \
     --disable-postgresql-sdbc \
     --enable-python=internal \
     --enable-release-build=yes \
     --with-help \
     --with-lang="en-US sv ru" \
+    --with-myspell-dicts \
     --with-parallelism \
     --with-vendor="MiX" \
-    --without-java
+    --without-java \
+    --without-system-dicts 
   make build
   make DESTDIR=$PKG distro-pack-install
 
