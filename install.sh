@@ -49,6 +49,10 @@ cat > $MIX/usr/sources/config.site << EOF
 enable_nls=no
 EOF
 
+sudo chown -R root:root $MIX
+sudo chown -R $USER $MIX/tools
+sudo chown -R $USER $MIX/sources
+
 toolsh="env -i MIX=$MIX PKZ=$MIX PKZCONF=$MIX/usr/sources/pkz.conf \
   CONFIG_SITE=$MIX/usr/sources/config.site \
   MIX_TGT=$MIX_TGT HOME=$HOME TERM=linux LC_ALL=C \
@@ -161,8 +165,8 @@ $toolsh "pkz -p $P/xz-tool         clean xz"
 
 sudo rm -r $MIX/usr/packages/*-tool{,-*}
 sudo rm $MIX/var/log/packages/dummy.gz
-sudo chown -R root:root $MIX/tools
-sudo chown root:root $MIX
+sudo chown -R root:root $MIX
+sudo chown -R $USER $MIX/sources
 
 #
 # Base system building environment
