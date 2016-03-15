@@ -40,6 +40,5 @@ x265
 
 ffmpeg
 mplayer
-#transcode
 xine-lib
 xine-ui
