@@ -39,7 +39,7 @@ vcdimager
 x265
 
 ffmpeg
-#mplayer
+mplayer
 #transcode
 xine-lib
 xine-ui
