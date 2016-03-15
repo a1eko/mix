@@ -179,7 +179,7 @@ do_build() {
       f=$(basename $s)
       case $f in 
         *.tar | *.tar.* | *.tbz2 | *.tbz | *.tgz | *.txz)
-          tar xf $f || error "corrupt source $f" ;;
+          tar --no-same-owner -xf $f || error "corrupt source $f" ;;
         *.zip | *.ZIP)
           unzip -q $f ;;
       esac
