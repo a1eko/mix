@@ -18,19 +18,18 @@ sudo -v
 
 sudo chown $USER $MIX
 mkdir -pv sources
-sudo mkdir -pv $MIX/usr/{packages,sources}
-sudo chown $USER $MIX/usr/{packages,sources}
+mkdir -pv $MIX/usr/{packages,sources}
+mkdir -pv $MIX/{tools/bin,var/log/{packages,sources}}
 cp -r sources $MIX/usr/
-rsync -aqz crux.nu::ports/crux-3.2/core/ $MIX/usr/packages
-rsync -aqz crux.nu::ports/crux-3.2/opt/ $MIX/usr/packages
-rsync -aqz crux.nu::ports/crux-3.2/contrib/tcl $MIX/usr/packages
-rsync -aqz crux.nu::ports/crux-3.2/contrib/lynx $MIX/usr/packages
-rsync -aqz crux.nu::ports/crux-3.2/contrib/libvpx $MIX/usr/packages
-rsync -aqz crux.nu::ports/crux-3.2/contrib/rtmpdump $MIX/usr/packages
-rsync -aqz crux.nu::ports/crux-3.2/contrib/linux-firmware $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.2/core/ $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.2/opt/ $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.2/contrib/tcl $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.2/contrib/lynx $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.2/contrib/libvpx $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.2/contrib/rtmpdump $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.2/contrib/linux-firmware $MIX/usr/packages
 cp -r {ports,tools}/* $MIX/usr/packages/
 
-mkdir -pv $MIX/{tools/bin,var/log/{packages,sources}}
 sudo ln -sfv $MIX/tools /
 echo | gzip -c > $MIX/var/log/packages/dummy.gz
 
@@ -49,8 +48,6 @@ EOF
 cat > $MIX/usr/sources/config.site << EOF
 enable_nls=no
 EOF
-
-sudo chown -R $USER:root $MIX
 
 toolsh="env -i MIX=$MIX PKZ=$MIX PKZCONF=$MIX/usr/sources/pkz.conf \
   CONFIG_SITE=$MIX/usr/sources/config.site \
@@ -165,7 +162,7 @@ $toolsh "pkz -p $P/xz-tool         clean xz"
 sudo rm -r $MIX/usr/packages/*-tool{,-*}
 sudo rm $MIX/var/log/packages/dummy.gz
 sudo chown -R root:root $MIX
-sudo chown -R $USER $MIX/usr/sources
+sudo chown -R $USER $MIX/{usr,var/log}/sources
 
 #
 # Base system building environment

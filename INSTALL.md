@@ -54,10 +54,7 @@ if necessary).
 	useradd -m -g users -G floppy,audio,video,cdrom,wheel -s /bin/bash build
 	passwd build
 
-	#chown -R build /usr/{packages,sources}
-	#chown -R build /var/log/{packages,sources}
-
-	chown -R build {/var/log,/usr}/sources
+	sudo chown -R build {/usr,/var/log}/sources
 
 Add regular users.
 
