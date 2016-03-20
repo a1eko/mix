@@ -174,9 +174,12 @@ xorg-font-xfree86-type1
 
 mtdev
 xkeyboard-config
-xorg-server
 xorg-libevdev
+xorg-rgb
+xorg-server
 xorg-xf86-input-evdev
+xorg-xf86-input-keyboard
+xorg-xf86-input-mouse
 xorg-xf86-input-synaptics
 xorg-xf86-video-fbdev
 xorg-xf86-video-intel
@@ -189,6 +192,8 @@ mesa-demos
 
 cabextract
 xorg-font-msttcorefonts
+
+xorg
 
 libjpeg-turbo
 xterm
