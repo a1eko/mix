@@ -252,6 +252,7 @@ drwxr-xr-x	root/root	usr/lib/darktable/plugins/imageio/format/
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/imageio/format/libcopy.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/imageio/format/libpfm.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/imageio/format/libj2k.so   
+-rwxr-xr-x	root/root	usr/lib/darktable/plugins/imageio/format/libexr.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/libscalepixels.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/libdefringe.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/libequalizer.so   
@@ -294,10 +295,12 @@ drwxr-xr-x	root/root	usr/lib/darktable/plugins/lighttable/
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/lighttable/liblighttable_mode.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/lighttable/libprint_settings.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/lighttable/libsnapshots.so   
+-rwxr-xr-x	root/root	usr/lib/darktable/plugins/lighttable/libcamera.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/lighttable/libcopy_history.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/lighttable/libmetadata_view.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/lighttable/libhistory.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/lighttable/libsession.so   
+-rwxr-xr-x	root/root	usr/lib/darktable/plugins/lighttable/liblive_view.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/lighttable/libcolorpicker.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/lighttable/libhinter.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/lighttable/libmodulelist.so   
@@ -350,6 +353,7 @@ drwxr-xr-x	root/root	usr/lib/darktable/plugins/lighttable/
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/libcolorout.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/libmonochrome.so   
 drwxr-xr-x	root/root	usr/lib/darktable/views/   
+-rwxr-xr-x	root/root	usr/lib/darktable/views/libtethering.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/views/liblighttable.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/views/libprint.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/views/libslideshow.so   

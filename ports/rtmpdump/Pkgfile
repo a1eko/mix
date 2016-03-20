@@ -10,11 +10,32 @@ release=mix-1
 source=(http://crux.ster.zone/downloads/$name/$name-${version}_p20131018.tar.gz)
 
 build() {
-  install -d $PKG/usr/lib
-  make SYS=posix
-  make prefix=/usr \
-    sbindir=/usr/bin \
-    mandir=/usr/man \
-    DESTDIR=$PKG \
-    install
+	#sed -i 's/\$(MAKEFLAGS)//g' Makefile
+
+#	sed -i \
+#		-e 's|OPT=|&-fPIC |' \
+#		-e 's|OPT|OPTS|' \
+#		-e 's|CFLAGS=.*|& $(OPT)|' \
+#		librtmp/Makefile
+#
+#
+#	install -d $PKG/usr/lib
+#
+#	[ "$CC" ] || CC=gcc
+#
+#	make \
+#		CC="$CC" \
+#		$MAKEFLAGS \
+#		OPT="$CFLAGS" \
+#		XLDFLAGS="$LDFLAGS" \
+#		CRYPTO=OPENSSL \
+#		SYS=posix
+
+	make \
+		prefix=/usr \
+		sbindir=/usr/bin \
+		mandir=/usr/man \
+		DESTDIR=$PKG \
+		install
+		#CRYPTO=OPENSSL \
 }
