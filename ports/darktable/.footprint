@@ -353,6 +353,7 @@ drwxr-xr-x	root/root	usr/lib/darktable/plugins/lighttable/
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/libcolorout.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/libmonochrome.so   
 drwxr-xr-x	root/root	usr/lib/darktable/views/   
+-rwxr-xr-x	root/root	usr/lib/darktable/views/libknight.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/views/libtethering.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/views/liblighttable.so   
 -rwxr-xr-x	root/root	usr/lib/darktable/views/libprint.so   

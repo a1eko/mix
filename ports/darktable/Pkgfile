@@ -3,7 +3,7 @@
 # Nice to have: libgphoto2 mesa3d openexr 
 
 name=darktable
-version=2.0.2
+version=2.0.3
 release=mix-1
 source=(http://github.com/darktable-org/darktable/releases/download/release-$version/darktable-$version.tar.xz)
  
