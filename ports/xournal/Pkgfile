@@ -1,0 +1,15 @@
+# Description: Notetaking and sketching application
+# Depends on: gtk+ libgnomecanvas poppler-glib
+
+name=xournal
+version=0.4.8
+release=mix-1
+source=(http://downloads.sourceforge.net/project/$name/$name/$version/$name-$version.tar.gz)
+
+build() {
+  cd $name-$version
+  ./configure --prefix=/usr 
+  make
+  make DESTDIR=$PKG install
+  rm -rv $PKG/usr/share/locale
+}
