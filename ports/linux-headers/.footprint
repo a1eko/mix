@@ -9,6 +9,7 @@ drwxr-xr-x	root/root	usr/include/drm/
 -rw-r--r--	root/root	usr/include/drm/drm_sarea.h   
 -rw-r--r--	root/root	usr/include/drm/nouveau_drm.h   
 -rw-r--r--	root/root	usr/include/drm/i810_drm.h   
+-rw-r--r--	root/root	usr/include/drm/amdgpu_drm.h   
 -rw-r--r--	root/root	usr/include/drm/drm_mode.h   
 -rw-r--r--	root/root	usr/include/drm/via_drm.h   
 -rw-r--r--	root/root	usr/include/drm/sis_drm.h   
@@ -19,6 +20,7 @@ drwxr-xr-x	root/root	usr/include/drm/
 -rw-r--r--	root/root	usr/include/drm/exynos_drm.h   
 -rw-r--r--	root/root	usr/include/drm/drm_fourcc.h   
 -rw-r--r--	root/root	usr/include/drm/i915_drm.h   
+-rw-r--r--	root/root	usr/include/drm/vc4_drm.h   
 -rw-r--r--	root/root	usr/include/drm/virtgpu_drm.h   
 drwxr-xr-x	root/root	usr/include/xen/   
 -rw-r--r--	root/root	usr/include/xen/evtchn.h   
@@ -222,7 +224,6 @@ drwxr-xr-x	root/root	usr/include/linux/nfsd/
 -rw-r--r--	root/root	usr/include/linux/pktcdvd.h   
 -rw-r--r--	root/root	usr/include/linux/bpf.h   
 -rw-r--r--	root/root	usr/include/linux/cn_proc.h   
--rw-r--r--	root/root	usr/include/linux/nvme.h   
 drwxr-xr-x	root/root	usr/include/linux/netfilter/   
 -rw-r--r--	root/root	usr/include/linux/netfilter/xt_CHECKSUM.h   
 -rw-r--r--	root/root	usr/include/linux/netfilter/xt_addrtype.h   
@@ -494,6 +495,7 @@ drwxr-xr-x	root/root	usr/include/linux/hsi/
 -rw-r--r--	root/root	usr/include/linux/fb.h   
 -rw-r--r--	root/root	usr/include/linux/if_phonet.h   
 -rw-r--r--	root/root	usr/include/linux/flat.h   
+-rw-r--r--	root/root	usr/include/linux/nvme_ioctl.h   
 -rw-r--r--	root/root	usr/include/linux/cycx_cfm.h   
 -rw-r--r--	root/root	usr/include/linux/if_ppp.h   
 -rw-r--r--	root/root	usr/include/linux/if_addrlabel.h   
