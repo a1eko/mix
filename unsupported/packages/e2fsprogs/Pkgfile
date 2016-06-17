@@ -1,0 +1,34 @@
+# Description: ext2 filesystem utilities
+
+name=e2fsprogs
+version=1.43
+release=mix-1
+source=(http://downloads.sourceforge.net/project/$name/$name/v$version/$name-$version.tar.gz)
+
+build() {
+  cd $name-$version
+  unset CONFIG_SITE
+
+  $TST sed -i -e 's:\[\.-\]::' tests/filter.sed
+
+  mkdir -v build
+  cd build
+
+  LIBS=-L/tools/lib \
+  CFLAGS=-I/tools/include \
+  PKG_CONFIG_PATH=/tools/lib/pkgconfig \
+  ../configure --prefix=/usr \
+     --bindir=/bin \
+     --with-root-prefix="" \
+     --enable-elf-shlibs \
+     --disable-libblkid \
+     --disable-libuuid \
+     --disable-uuidd \
+     --disable-fsck
+  make -j1
+  $TST ln -sfv /tools/lib/lib{blk,uu}id.so.1 lib
+  $TST make LD_LIBRARY_PATH=/tools/lib -k check || true
+  make -j1 DESTDIR=$PKG install install-libs
+  chmod -v u+w $PKG/usr/lib/{libcom_err,libe2p,libext2fs,libss}.a
+  rm -rv $PKG/usr/share/info
+}

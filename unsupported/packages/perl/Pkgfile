@@ -4,7 +4,7 @@
 # Depends on:  db gdbm
 
 name=perl
-version=5.22.1
+version=5.22.2
 release=mix-1
 source=(http://www.cpan.org/src/5.0/$name-$version.tar.xz)
 
@@ -13,9 +13,6 @@ build() {
 
     ./Configure -des \
                 -Dprefix=/usr \
-		-Dvendorprefix=/usr \
-		-Dman1dir=/usr/share/man/man1 \
-		-Dman3dir=/usr/share/man/man3 \
                 -Dprivlib=/usr/lib/perl5/${version%.*} \
                 -Dsitelib=/usr/lib/perl5/site_perl/${version%.*} \
                 -Dvendorlib=/usr/lib/perl5/site_perl/${version%.*} \
@@ -32,7 +29,7 @@ build() {
 
     ln -sf perl${version%-*} $PKG/usr/bin/perl
     ln -sf c2ph $PKG/usr/bin/pstruct
-    ln -sf c2ph.1pm $PKG/usr/share/man/man1/pstruct.1pm
+    #ln -sf c2ph.1pm $PKG/usr/share/man/man1/pstruct.1pm
 
     find $PKG \
          -iname 'TODO*' -or \

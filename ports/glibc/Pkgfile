@@ -1,18 +1,18 @@
 # Description: system C library
 
 name=glibc
-version=2.22
-release=mix-2
+version=2.23
+release=mix-1
 source=(ftp://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz
 	http://www.linuxfromscratch.org/patches/downloads/glibc/glibc-$version-fhs-1.patch
-	http://www.linuxfromscratch.org/patches/downloads/glibc/glibc-$version-upstream_i386_fix-1.patch
+	http://www.linuxfromscratch.org/patches/downloads/glibc/glibc-$version-upstream_fixes-1.patch
 	host.conf hosts ld.so.conf nsswitch.conf resolv.conf)
 
 build()
 {
   cd $name-$version
   patch -Np1 -i ../glibc-$version-fhs-1.patch
-  patch -Np1 -i ../glibc-$version-upstream_i386_fix-1.patch
+  patch -Np1 -i ../glibc-$version-upstream_fixes-1.patch
 
   mkdir -v ../glibc-build
   cd ../glibc-build

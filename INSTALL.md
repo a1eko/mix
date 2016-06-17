@@ -7,8 +7,8 @@ System requirements
 * A 32-bit CPU i686 or higher is required. MiX is tested on x86_64
 architecture.
 
-* The core system is about 800 MB (1.5 GB with sources) and needs over
-5 GB of the disk space to build.
+* The core system is about 1.4 GB (2.7 GB with sources) and needs over
+7 GB of the disk space to build.
 
 * Host system should be relatively up-to-date. This distribution is
 known to build successfully in a *stable* Debian environment, with GNU
@@ -168,9 +168,9 @@ Start `net` script.
 
 	sudo /etc/rc.d/net start
 
-Inspect and configure packages *iproute2*, *dhcpcd* and
-*wpa_supplicant* to get it working. See also optional *net-tools* and
-*wireless_tools*. Wireless network cards may require firmware to be
+Inspect and configure packages *iproute2*, *dhcpcd* and *wpa_supplicant*
+to get it working. See also optional *ca-certificates*, *net-tools*
+and *wireless_tools*. Wireless network cards may require firmware to be
 loaded from `/lib/firmware`.
 
 Clean up the package trees.

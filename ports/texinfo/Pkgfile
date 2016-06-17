@@ -7,7 +7,7 @@ source=(ftp://ftp.gnu.org/gnu/texinfo/texinfo-$version.tar.gz)
 
 build() {
   cd $name-$version
-  ./configure --prefix=/usr
+  ./configure --prefix=/usr --disable-nls
   make
   $TST make -k check || true
   make DESTDIR=$PKG install

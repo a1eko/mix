@@ -5,7 +5,7 @@
 libpng
 setuptools
 
-expat
+#expat
 freetype
 libxml2
 libxml2-python

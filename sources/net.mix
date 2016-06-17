@@ -7,9 +7,10 @@ libidl
 nspr
 nss
 
-lftp
+#lftp
 rsync
 
+autoconf-2.13
 at-spi2-core
 at-spi2-atk
 gtk3

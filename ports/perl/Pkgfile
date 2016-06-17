@@ -1,0 +1,35 @@
+# Description: Perl programming language
+
+name=perl
+version=5.24.0
+release=mix-1
+source=(http://www.cpan.org/src/5.0/$name-$version.tar.xz)
+
+build() {
+    cd $name-$version
+
+    # use system libs
+    export BUILD_ZLIB=False
+    export BUILD_BZIP2=0
+
+    sh Configure -des -Dprefix=/usr \
+                  -Dvendorprefix=/usr \
+                  -Dman1dir=/usr/share/man/man1 \
+                  -Dman3dir=/usr/share/man/man3 \
+                  -Dpager="/usr/bin/less -isR" \
+                  -Duseshrplib
+    make
+    $TST make -k test
+    make DESTDIR=$PKG install
+
+    rm -rv $PKG/usr/share/man/man3
+    find $PKG \
+         -iname 'TODO*' -or \
+         -iname 'Change*' -or \
+         -iname 'README*' -or \
+         -name '*.bs' -or \
+         -name '.packlist' -or \
+         -name 'perllocal.pod' | xargs rm
+    find $PKG -depth -empty -exec rmdir {} \;
+    chmod -R +w $PKG
+}

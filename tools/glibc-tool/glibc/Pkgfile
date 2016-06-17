@@ -1,17 +1,17 @@
 # Description: system C library
 
 name=glibc
-version=2.22
+version=2.23
 release=0
 source=(ftp://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz
-        http://www.linuxfromscratch.org/patches/downloads/glibc/glibc-$version-upstream_i386_fix-1.patch
+        http://www.linuxfromscratch.org/patches/downloads/glibc/glibc-$version-upstream_fixes-1.patch
 )
 
 : ${MIX_TGT:=$(uname -m)-mix-linux-gnu}
 
 build() {
   cd $name-$version
-  patch -Np1 -i ../glibc-$version-upstream_i386_fix-1.patch
+  patch -Np1 -i ../glibc-$version-upstream_fixes-1.patch
 
   mkdir -v ../glibc-build
   cd ../glibc-build
@@ -19,9 +19,7 @@ build() {
   ../glibc-$version/configure --prefix=/tools \
     --host=$MIX_TGT \
     --build=$(../glibc-${version}/scripts/config.guess) \
-    --disable-profile \
     --enable-kernel=2.6.32 \
-    --enable-obsolete-rpc \
     --with-headers=/tools/include \
     libc_cv_forced_unwind=yes \
     libc_cv_ctors_header=yes \

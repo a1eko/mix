@@ -1,13 +1,15 @@
 # Description: ext2 filesystem utilities
 
 name=e2fsprogs
-version=1.42.13
+version=1.43.1
 release=mix-1
-source=(http://downloads.sourceforge.net/project/$name/$name/v$version/$name-$version.tar.gz)
+source=(http://downloads.sourceforge.net/project/$name/$name/v$version/$name-$version.tar.xz)
 
 build() {
   cd $name-$version
-  unset CONFIG_SITE
+  #unset CONFIG_SITE
+
+  $TST sed -i -e 's:\[\.-\]::' tests/filter.sed
 
   mkdir -v build
   cd build
@@ -27,6 +29,6 @@ build() {
   $TST ln -sfv /tools/lib/lib{blk,uu}id.so.1 lib
   $TST make LD_LIBRARY_PATH=/tools/lib -k check || true
   make -j1 DESTDIR=$PKG install install-libs
+  chmod -v u+w $PKG/usr/lib/{libcom_err,libe2p,libext2fs,libss}.a
   rm -rv $PKG/usr/share/info
-  chmod +w -R $PKG
 }

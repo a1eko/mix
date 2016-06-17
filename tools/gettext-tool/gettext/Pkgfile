@@ -1,7 +1,7 @@
 # Description: internatinalization and localization utilities
 
 name=gettext
-version=0.19.6
+version=0.19.8
 release=0
 source=(ftp://ftp.gnu.org/gnu/gettext/gettext-$version.tar.xz)
 

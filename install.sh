@@ -29,6 +29,7 @@ rsync -rqz crux.nu::ports/crux-3.2/contrib/libvpx $MIX/usr/packages
 rsync -rqz crux.nu::ports/crux-3.2/contrib/rtmpdump $MIX/usr/packages
 rsync -rqz crux.nu::ports/crux-3.2/contrib/linux-firmware $MIX/usr/packages
 cp -r {ports,tools}/* $MIX/usr/packages/
+rm -f $MIX/usr/packages/C*
 
 sudo ln -sfv $MIX/tools /
 echo | gzip -c > $MIX/var/log/packages/dummy.gz
@@ -40,9 +41,6 @@ ln -sv ../../usr/bin/pkz $MIX/tools/bin/
 
 cat > $MIX/usr/sources/pkz.conf << EOF
 TST="$TST"
-strip_shared=--strip-debug
-strip_static=--strip-debug
-strip_binaries=--strip-unneeded
 EOF
 
 cat > $MIX/usr/sources/config.site << EOF
@@ -59,12 +57,12 @@ P=$MIX/usr/packages
 
 BASE1="linux-headers glibc tzdata"
 BASE2="zlib file binutils libgmp libmpfr libmpc gcc"
-BASE3="bzip2 pkg-config ncurses attr acl libcap sed shadow psmisc procps \
-  e2fsprogs coreutils iana-etc m4 bison flex grep readline bash bc \
-  libtool gdbm inetutils perl tcl expect dejagnu check autoconf automake \
-  diffutils gawk findutils gettext gperf groff xz less gzip kbd kmod \
-  libpipeline make man-pages patch sudo sysklogd sysvinit tar texinfo \
-  eudev util-linux man-db vim"
+BASE3="bzip2 pkg-config ncurses attr acl libcap sed shadow psmisc \
+  iana-etc m4 bison flex grep readline bash bc libtool gdbm gperf \
+  inetutils perl tcl expect dejagnu check autoconf automake xz kmod \
+  gettext procps e2fsprogs coreutils diffutils gawk findutils groff less \
+  gzip kbd libpipeline make man-pages patch sudo sysklogd sysvinit eudev \
+  util-linux man-db tar texinfo vim"
 
 BOOT="linux nasm syslinux rc"
 
@@ -184,7 +182,6 @@ MAKEFLAGS="-j$(getconf _NPROCESSORS_ONLN)"
 
 chrootsh="sudo chroot $MIX /tools/bin/env -i \
   PKZCONF=/usr/sources/pkz.conf HOME=/root TERM=linux LC_ALL=C \
-  CONFIG_SITE=/usr/sources/config.site \
   ${MAKEFLAGS+"MAKEFLAGS=$MAKEFLAGS"} \
   PATH=/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin \
   /tools/bin/bash -e +h -c"
@@ -272,6 +269,12 @@ $chrootsh "
   rm -f a.out dummy{,2}.log
 "
 
+cat >> $MIX/usr/sources/pkz.conf << EOF
+strip_shared=--strip-debug
+strip_static=--strip-debug
+strip_binaries=--strip-unneeded
+EOF
+
 cat >> $MIX/usr/sources/config.site << 'EOF'
 test -z "$CFLAGS" && export CFLAGS="-O2 -pipe -mtune=native" || true
 test -z "$CXXFLAGS" && export CXXFLAGS="$CFLAGS" || true
@@ -293,7 +296,6 @@ $chrootsh "pkz install include /usr/sources/coreopt.mix"
 $chrootsh "pkz clean include /usr/sources/coreopt.mix"
 
 $chrootsh "cat > /etc/config.site << 'EOF'
-enable_nls=no
 test -z \"\$CFLAGS\" && export CFLAGS=\"-O2 -pipe -mtune=native\" || true
 test -z \"\$CXXFLAGS\" && export CXXFLAGS=\"\$CFLAGS\" || true
 test -z \"\$MAKEFLAGS\" && export MAKEFLAGS=\"-j4\" || true

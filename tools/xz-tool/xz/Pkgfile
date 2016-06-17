@@ -10,5 +10,5 @@ build() {
   ./configure --prefix=/tools
   make
   make DESTDIR=$PKG install
-  rm -rv $PKG/tools/share/doc
+  rm -rv $PKG/tools/share/{doc,man}
 }
