@@ -1,7 +1,7 @@
 # Description: linker, assembler and other development tools
 
 name=binutils
-version=2.26
+version=2.26.1
 release=0pass2
 source=(ftp://ftp.gnu.org/gnu/binutils/binutils-$version.tar.bz2)
 
