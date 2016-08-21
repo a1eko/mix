@@ -2,6 +2,5 @@
 5e2ac30a60de726fd39fa2a5410bb6eb  hosts
 fb3976f942e00d20efb9b6f00f893a29  nsswitch.conf
 420997b5302c3c4e44d1bf2330514112  ld.so.conf
-9a5997c3452909b1769918c759eff8a2  glibc-2.23-fhs-1.patch
-e602b6c3a332f4a06e2914e02ae2b295  glibc-2.23-upstream_fixes-1.patch
-456995968f3acadbed39f5eba31678df  glibc-2.23.tar.xz
+9a5997c3452909b1769918c759eff8a2  glibc-2.24-fhs-1.patch
+97dc5517f92016f3d70d83e3162ad318  glibc-2.24.tar.xz

@@ -5,7 +5,7 @@
 # Depends on: wget rpm2targz
 
 name=flash-player-plugin
-version=11.2.202.577
+version=11.2.202.632
 release=mix-1
 source=()
 

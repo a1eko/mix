@@ -1,24 +1,21 @@
 # Description: system C library
 
 name=glibc
-version=2.23
+version=2.24
 release=mix-1
 source=(ftp://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz
 	http://www.linuxfromscratch.org/patches/downloads/glibc/glibc-$version-fhs-1.patch
-	http://www.linuxfromscratch.org/patches/downloads/glibc/glibc-$version-upstream_fixes-1.patch
 	host.conf hosts ld.so.conf nsswitch.conf resolv.conf)
 
 build()
 {
   cd $name-$version
   patch -Np1 -i ../glibc-$version-fhs-1.patch
-  patch -Np1 -i ../glibc-$version-upstream_fixes-1.patch
 
   mkdir -v ../glibc-build
   cd ../glibc-build
 
   ../glibc-$version/configure --prefix=/usr \
-    --disable-profile \
     --enable-kernel=2.6.32 \
     --enable-obsolete-rpc
   make

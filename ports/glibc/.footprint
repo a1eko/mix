@@ -31,7 +31,6 @@ drwxr-xr-x	root/root	usr/share/i18n/locales/
 -rw-r--r--	root/root	usr/share/i18n/locales/os_RU   
 -rw-r--r--	root/root	usr/share/i18n/locales/ber_MA   
 -rw-r--r--	root/root	usr/share/i18n/locales/en_AG   
--rw-r--r--	root/root	usr/share/i18n/locales/pap_AN   
 -rw-r--r--	root/root	usr/share/i18n/locales/ar_SA   
 -rw-r--r--	root/root	usr/share/i18n/locales/gl_ES   
 -rw-r--r--	root/root	usr/share/i18n/locales/ks_IN@devanagari   
@@ -96,7 +95,6 @@ drwxr-xr-x	root/root	usr/share/i18n/locales/
 -rw-r--r--	root/root	usr/share/i18n/locales/translit_wide   
 -rw-r--r--	root/root	usr/share/i18n/locales/the_NP   
 -rw-r--r--	root/root	usr/share/i18n/locales/so_ET   
--rw-r--r--	root/root	usr/share/i18n/locales/iw_IL   
 -rw-r--r--	root/root	usr/share/i18n/locales/ts_ZA   
 -rw-r--r--	root/root	usr/share/i18n/locales/gez_ET@abegede   
 -rw-r--r--	root/root	usr/share/i18n/locales/gez_ER@abegede   
@@ -153,6 +151,7 @@ drwxr-xr-x	root/root	usr/share/i18n/locales/
 -rw-r--r--	root/root	usr/share/i18n/locales/be_BY@latin   
 -rw-r--r--	root/root	usr/share/i18n/locales/en_IE   
 -rw-r--r--	root/root	usr/share/i18n/locales/nso_ZA   
+-rw-r--r--	root/root	usr/share/i18n/locales/en_IL   
 -rw-r--r--	root/root	usr/share/i18n/locales/sl_SI   
 -rw-r--r--	root/root	usr/share/i18n/locales/de_BE@euro   
 -rw-r--r--	root/root	usr/share/i18n/locales/nan_TW@latin   
@@ -177,6 +176,7 @@ drwxr-xr-x	root/root	usr/share/i18n/locales/
 -rw-r--r--	root/root	usr/share/i18n/locales/tn_ZA   
 -rw-r--r--	root/root	usr/share/i18n/locales/en_DK   
 -rw-r--r--	root/root	usr/share/i18n/locales/raj_IN   
+-rw-r--r--	root/root	usr/share/i18n/locales/de_LI   
 -rw-r--r--	root/root	usr/share/i18n/locales/cy_GB   
 -rw-r--r--	root/root	usr/share/i18n/locales/wo_SN   
 -rw-r--r--	root/root	usr/share/i18n/locales/uz_UZ@cyrillic   
@@ -223,6 +223,7 @@ drwxr-xr-x	root/root	usr/share/i18n/locales/
 -rw-r--r--	root/root	usr/share/i18n/locales/fr_CH   
 -rw-r--r--	root/root	usr/share/i18n/locales/translit_cjk_compat   
 -rw-r--r--	root/root	usr/share/i18n/locales/nl_BE@euro   
+-rw-r--r--	root/root	usr/share/i18n/locales/ln_CD   
 -rw-r--r--	root/root	usr/share/i18n/locales/i18n   
 -rw-r--r--	root/root	usr/share/i18n/locales/so_SO   
 -rw-r--r--	root/root	usr/share/i18n/locales/gez_ER   
@@ -232,13 +233,16 @@ drwxr-xr-x	root/root	usr/share/i18n/locales/
 -rw-r--r--	root/root	usr/share/i18n/locales/en_US   
 -rw-r--r--	root/root	usr/share/i18n/locales/es_PR   
 -rw-r--r--	root/root	usr/share/i18n/locales/nn_NO   
+-rw-r--r--	root/root	usr/share/i18n/locales/de_IT   
 -rw-r--r--	root/root	usr/share/i18n/locales/dz_BT   
 -rw-r--r--	root/root	usr/share/i18n/locales/mk_MK   
 -rw-r--r--	root/root	usr/share/i18n/locales/ca_AD   
 -rw-r--r--	root/root	usr/share/i18n/locales/pl_PL   
+-rw-r--r--	root/root	usr/share/i18n/locales/sgs_LT   
 -rw-r--r--	root/root	usr/share/i18n/locales/ar_AE   
 -rw-r--r--	root/root	usr/share/i18n/locales/es_HN   
 -rw-r--r--	root/root	usr/share/i18n/locales/lb_LU   
+-rw-r--r--	root/root	usr/share/i18n/locales/chr_US   
 -rw-r--r--	root/root	usr/share/i18n/locales/ar_SS   
 -rw-r--r--	root/root	usr/share/i18n/locales/ar_IQ   
 -rw-r--r--	root/root	usr/share/i18n/locales/km_KH   
@@ -343,6 +347,7 @@ drwxr-xr-x	root/root	usr/share/i18n/locales/
 -rw-r--r--	root/root	usr/share/i18n/locales/fur_IT   
 -rw-r--r--	root/root	usr/share/i18n/locales/mg_MG   
 -rw-r--r--	root/root	usr/share/i18n/locales/pap_CW   
+-rw-r--r--	root/root	usr/share/i18n/locales/eo   
 -rw-r--r--	root/root	usr/share/i18n/locales/ar_LY   
 -rw-r--r--	root/root	usr/share/i18n/locales/szl_PL   
 -rw-r--r--	root/root	usr/share/i18n/locales/fy_NL   
@@ -1444,50 +1449,50 @@ drwxr-xr-x	root/root	etc/ld.so.conf.d/
 -rw-r--r--	root/root	etc/hosts.new   
 -rw-r--r--	root/root	etc/ld.so.conf.new   
 drwxr-xr-x	root/root	lib64/   
-lrwxrwxrwx	root/root	lib64/libnsl.so.1 -> libnsl-2.23.so 
--rwxr-xr-x	root/root	lib64/libnss_db-2.23.so   
-lrwxrwxrwx	root/root	lib64/libutil.so.1 -> libutil-2.23.so 
--rwxr-xr-x	root/root	lib64/libpthread-2.23.so   
--rwxr-xr-x	root/root	lib64/libc-2.23.so   
+lrwxrwxrwx	root/root	lib64/libnsl.so.1 -> libnsl-2.24.so 
+-rwxr-xr-x	root/root	lib64/libc-2.24.so   
+lrwxrwxrwx	root/root	lib64/libutil.so.1 -> libutil-2.24.so 
 -rwxr-xr-x	root/root	lib64/libthread_db-1.0.so   
--rwxr-xr-x	root/root	lib64/libdl-2.23.so   
-lrwxrwxrwx	root/root	lib64/libBrokenLocale.so.1 -> libBrokenLocale-2.23.so 
-lrwxrwxrwx	root/root	lib64/libnss_compat.so.2 -> libnss_compat-2.23.so 
-lrwxrwxrwx	root/root	lib64/libmvec.so.1 -> libmvec-2.23.so 
--rwxr-xr-x	root/root	lib64/libcrypt-2.23.so   
-lrwxrwxrwx	root/root	lib64/libnss_nis.so.2 -> libnss_nis-2.23.so 
--rwxr-xr-x	root/root	lib64/librt-2.23.so   
--rwxr-xr-x	root/root	lib64/libm-2.23.so   
--rwxr-xr-x	root/root	lib64/libnss_files-2.23.so   
--rwxr-xr-x	root/root	lib64/libBrokenLocale-2.23.so   
--rwxr-xr-x	root/root	lib64/libnss_nis-2.23.so   
--rwxr-xr-x	root/root	lib64/libnsl-2.23.so   
-lrwxrwxrwx	root/root	lib64/libresolv.so.2 -> libresolv-2.23.so 
--rwxr-xr-x	root/root	lib64/libmvec-2.23.so   
--rwxr-xr-x	root/root	lib64/libresolv-2.23.so   
--rwxr-xr-x	root/root	lib64/libanl-2.23.so   
+-rwxr-xr-x	root/root	lib64/libresolv-2.24.so   
+-rwxr-xr-x	root/root	lib64/libBrokenLocale-2.24.so   
+lrwxrwxrwx	root/root	lib64/libBrokenLocale.so.1 -> libBrokenLocale-2.24.so 
+lrwxrwxrwx	root/root	lib64/libnss_compat.so.2 -> libnss_compat-2.24.so 
+lrwxrwxrwx	root/root	lib64/libmvec.so.1 -> libmvec-2.24.so 
+lrwxrwxrwx	root/root	lib64/libnss_nis.so.2 -> libnss_nis-2.24.so 
+-rwxr-xr-x	root/root	lib64/libpthread-2.24.so   
+-rwxr-xr-x	root/root	lib64/libnss_compat-2.24.so   
+-rwxr-xr-x	root/root	lib64/libnss_nis-2.24.so   
+lrwxrwxrwx	root/root	lib64/libresolv.so.2 -> libresolv-2.24.so 
+-rwxr-xr-x	root/root	lib64/ld-2.24.so   
 -rwxr-xr-x	root/root	lib64/libmemusage.so   
+-rwxr-xr-x	root/root	lib64/libcrypt-2.24.so   
+-rwxr-xr-x	root/root	lib64/libdl-2.24.so   
+-rwxr-xr-x	root/root	lib64/libcidn-2.24.so   
+-rwxr-xr-x	root/root	lib64/libnss_db-2.24.so   
 -rwxr-xr-x	root/root	lib64/libSegFault.so   
--rwxr-xr-x	root/root	lib64/ld-2.23.so   
-lrwxrwxrwx	root/root	lib64/libc.so.6 -> libc-2.23.so 
-lrwxrwxrwx	root/root	lib64/libnss_files.so.2 -> libnss_files-2.23.so 
-lrwxrwxrwx	root/root	lib64/libnss_hesiod.so.2 -> libnss_hesiod-2.23.so 
--rwxr-xr-x	root/root	lib64/libnss_nisplus-2.23.so   
--rwxr-xr-x	root/root	lib64/libnss_dns-2.23.so   
-lrwxrwxrwx	root/root	lib64/librt.so.1 -> librt-2.23.so 
-lrwxrwxrwx	root/root	lib64/libpthread.so.0 -> libpthread-2.23.so 
-lrwxrwxrwx	root/root	lib64/libnss_nisplus.so.2 -> libnss_nisplus-2.23.so 
-lrwxrwxrwx	root/root	lib64/libnss_db.so.2 -> libnss_db-2.23.so 
-lrwxrwxrwx	root/root	lib64/libcidn.so.1 -> libcidn-2.23.so 
+-rwxr-xr-x	root/root	lib64/libnss_nisplus-2.24.so   
+-rwxr-xr-x	root/root	lib64/libmvec-2.24.so   
+lrwxrwxrwx	root/root	lib64/libc.so.6 -> libc-2.24.so 
+lrwxrwxrwx	root/root	lib64/libnss_files.so.2 -> libnss_files-2.24.so 
+lrwxrwxrwx	root/root	lib64/libnss_hesiod.so.2 -> libnss_hesiod-2.24.so 
+-rwxr-xr-x	root/root	lib64/libnss_files-2.24.so   
+lrwxrwxrwx	root/root	lib64/librt.so.1 -> librt-2.24.so 
+lrwxrwxrwx	root/root	lib64/libpthread.so.0 -> libpthread-2.24.so 
+lrwxrwxrwx	root/root	lib64/libnss_nisplus.so.2 -> libnss_nisplus-2.24.so 
+lrwxrwxrwx	root/root	lib64/libnss_db.so.2 -> libnss_db-2.24.so 
+-rwxr-xr-x	root/root	lib64/libanl-2.24.so   
+lrwxrwxrwx	root/root	lib64/libcidn.so.1 -> libcidn-2.24.so 
 -rwxr-xr-x	root/root	lib64/libpcprofile.so   
-lrwxrwxrwx	root/root	lib64/libm.so.6 -> libm-2.23.so 
-lrwxrwxrwx	root/root	lib64/libnss_dns.so.2 -> libnss_dns-2.23.so 
-lrwxrwxrwx	root/root	lib64/ld-linux-x86-64.so.2 -> ld-2.23.so 
-lrwxrwxrwx	root/root	lib64/libdl.so.2 -> libdl-2.23.so 
--rwxr-xr-x	root/root	lib64/libnss_hesiod-2.23.so   
--rwxr-xr-x	root/root	lib64/libnss_compat-2.23.so   
+lrwxrwxrwx	root/root	lib64/libm.so.6 -> libm-2.24.so 
+lrwxrwxrwx	root/root	lib64/libnss_dns.so.2 -> libnss_dns-2.24.so 
+lrwxrwxrwx	root/root	lib64/ld-linux-x86-64.so.2 -> ld-2.24.so 
+lrwxrwxrwx	root/root	lib64/libdl.so.2 -> libdl-2.24.so 
+-rwxr-xr-x	root/root	lib64/libnsl-2.24.so   
+-rwxr-xr-x	root/root	lib64/librt-2.24.so   
 lrwxrwxrwx	root/root	lib64/libthread_db.so.1 -> libthread_db-1.0.so 
-lrwxrwxrwx	root/root	lib64/libanl.so.1 -> libanl-2.23.so 
--rwxr-xr-x	root/root	lib64/libcidn-2.23.so   
--rwxr-xr-x	root/root	lib64/libutil-2.23.so   
-lrwxrwxrwx	root/root	lib64/libcrypt.so.1 -> libcrypt-2.23.so 
+-rwxr-xr-x	root/root	lib64/libnss_hesiod-2.24.so   
+lrwxrwxrwx	root/root	lib64/libanl.so.1 -> libanl-2.24.so 
+-rwxr-xr-x	root/root	lib64/libm-2.24.so   
+lrwxrwxrwx	root/root	lib64/libcrypt.so.1 -> libcrypt-2.24.so 
+-rwxr-xr-x	root/root	lib64/libutil-2.24.so   
+-rwxr-xr-x	root/root	lib64/libnss_dns-2.24.so   

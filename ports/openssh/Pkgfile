@@ -2,7 +2,7 @@
 # Depends on: openssl krb5
 
 name=openssh
-version=7.2p2
+version=7.3p1
 release=gssapi-mix-1
 deb=1
 source=(ftp://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-$version.tar.gz
