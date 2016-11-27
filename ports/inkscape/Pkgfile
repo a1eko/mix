@@ -6,7 +6,7 @@
 
 name=inkscape
 version=0.91
-release=mix-1
+release=mix-2
 source=(http://inkscape.global.ssl.fastly.net/media/resources/file/$name-$version.tar.bz2)
 
 build() {
@@ -14,10 +14,17 @@ build() {
 
 	export CXXFLAGS+=' -std=c++11'
 
+#	./configure \
+#		--prefix=/usr \
+#		--mandir=/usr/man \
+#		--disable-nls
 	./configure \
 		--prefix=/usr \
-		--mandir=/usr/man \
-		--disable-nls
+		--disable-nls \
+		--enable-lcms \
+		--enable-poppler-cairo \
+		--disable-strict-build \
+		--disable-dependency-tracking
 
 	make
 	make DESTDIR=$PKG install

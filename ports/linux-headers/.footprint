@@ -388,6 +388,7 @@ drwxr-xr-x	root/root	usr/include/linux/caif/
 -rw-r--r--	root/root	usr/include/linux/kcmp.h   
 -rw-r--r--	root/root	usr/include/linux/oom.h   
 -rw-r--r--	root/root	usr/include/linux/bfs_fs.h   
+-rw-r--r--	root/root	usr/include/linux/sync_file.h   
 -rw-r--r--	root/root	usr/include/linux/irqnr.h   
 -rw-r--r--	root/root	usr/include/linux/capi.h   
 -rw-r--r--	root/root	usr/include/linux/tipc_netlink.h   
