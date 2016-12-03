@@ -2,6 +2,7 @@ TODO
 *~
 *.bak
 files
+.footprint
 sources/*.?z
 sources/*.Z
 sources/*.bz*
