@@ -4,7 +4,7 @@
 # Depends on: expat libdrm libvdpau xorg-dri3proto xorg-glproto xorg-libxdamage xorg-libxshmfence xorg-libxvmc xorg-presentproto xorg-libxxf86vm
 
 name=mesa3d
-version=12.0.4
+version=12.0.5
 release=mix-1
 source=(ftp://ftp.freedesktop.org/pub/mesa/$version/mesa-$version.tar.xz)
 

@@ -2,18 +2,20 @@
 
 name=binutils
 version=2.27
-release=mix-1
+release=mix-2
 source=(ftp://ftp.gnu.org/gnu/binutils/binutils-$version.tar.bz2)
 
 build() {
   cd $name-$version
-  mkdir -v ../binutils-build
-  cd ../binutils-build
+  mkdir -v build
+  cd build
 
-  ../binutils-$version/configure --prefix=/usr \
+  ../configure --prefix=/usr \
     --enable-shared \
+    --enable-plugins \
     --disable-nls \
-    --disable-werror
+    --disable-werror \
+    --with-system-zlib
   make tooldir=/usr
   $TST make -k check || true
   make tooldir=/usr DESTDIR=$PKG install

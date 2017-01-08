@@ -1,18 +1,27 @@
 # Description: compiler collection
 
 name=gcc
-version=6.2.0
+version=6.3.0
 release=mix-1
 source=(ftp://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.bz2)
 
 build()
 {
   cd $name-$version
-  mkdir -v ../gcc-build
-  cd ../gcc-build
+
+  # change default directory to lib
+  case $(uname -m) in
+    x86_64)
+      sed -e '/m64=/s/lib64/lib/' \
+        -i.orig gcc/config/i386/t-linux64
+      ;;
+  esac
+
+  mkdir -v build
+  cd build
 
   SED=sed \
-  ../gcc-$version/configure --prefix=/usr \
+  ../configure --prefix=/usr \
     --enable-languages=c,c++ \
     --disable-multilib \
     --disable-nls \
@@ -21,7 +30,7 @@ build()
   make
   $TST ulimit -s 32768
   $TST make -k check || true
-  $TST ../gcc-$version/contrib/test_summary
+  $TST ../contrib/test_summary
   make DESTDIR=$PKG install
 
   mkdir -v $PKG/lib

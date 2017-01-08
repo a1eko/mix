@@ -2,7 +2,7 @@
 
 name=glibc
 version=2.24
-release=mix-1
+release=mix-2
 source=(ftp://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz
 	http://www.linuxfromscratch.org/patches/downloads/glibc/glibc-$version-fhs-1.patch
 	host.conf hosts ld.so.conf nsswitch.conf resolv.conf)
@@ -12,31 +12,41 @@ build()
   cd $name-$version
   patch -Np1 -i ../glibc-$version-fhs-1.patch
 
-  mkdir -v ../glibc-build
-  cd ../glibc-build
+  # create compatibility links
+  case $(uname -m) in
+    x86) ln -s ld-linux.so.2 /lib/ld-lsb.so.3
+    ;;
+    x86_64) ln -s ../lib/ld-linux-x86-64.so.2 /lib64
+            ln -s ../lib/ld-linux-x86-64.so.2 /lib64/ld-lsb-x86-64.so.3
+    ;;
+  esac
 
-  ../glibc-$version/configure --prefix=/usr \
+  mkdir -v build
+  cd build
+
+  ../configure --prefix=/usr \
     --enable-kernel=2.6.32 \
-    --enable-obsolete-rpc
+    --enable-obsolete-rpc \
+    libc_cv_slibdir=/lib
   make
   $TST TIMEOUTFACTOR=16 make -k check || true
-  install -Dv -m 644 ../ld.so.conf $PKG/etc/ld.so.conf
+  install -Dv -m 644 $SRC/ld.so.conf $PKG/etc/ld.so.conf
   make install_root=$PKG install
   rm -v $PKG/usr/include/rpcsvc/*.x
   rm -rv $PKG/usr/share/info
 
   # install nscd
-  cp -v ../glibc-$version/nscd/nscd.conf $PKG/etc/nscd.conf
+  cp -v ../nscd/nscd.conf $PKG/etc/nscd.conf
   mkdir -pv $PKG/var/cache/nscd
 
   # install locales (optional)
   #make install_root=$PKG localedata/install-locales
 
   # install configuration files
-  install -v -m 644 ../nsswitch.conf $PKG/etc/nsswitch.conf
-  install -v -m 644 ../hosts $PKG/etc/hosts
-  install -v -m 644 ../host.conf $PKG/etc/host.conf
-  install -v -m 644 ../resolv.conf $PKG/etc/resolv.conf
+  install -v -m 644 $SRC/nsswitch.conf $PKG/etc/nsswitch.conf
+  install -v -m 644 $SRC/hosts $PKG/etc/hosts
+  install -v -m 644 $SRC/host.conf $PKG/etc/host.conf
+  install -v -m 644 $SRC/resolv.conf $PKG/etc/resolv.conf
   mkdir -v $PKG/etc/ld.so.conf.d
 
   # conflicts with tzdata

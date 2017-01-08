@@ -10,12 +10,12 @@ source=(ftp://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz)
 build() {
   cd $name-$version
 
-  mkdir -v ../glibc-build
-  cd ../glibc-build
+  mkdir -v build
+  cd build
 
-  ../glibc-$version/configure --prefix=/tools \
+  ../configure --prefix=/tools \
     --host=$MIX_TGT \
-    --build=$(../glibc-${version}/scripts/config.guess) \
+    --build=$(../scripts/config.guess) \
     --enable-kernel=2.6.32 \
     --with-headers=/tools/include \
     libc_cv_forced_unwind=yes \

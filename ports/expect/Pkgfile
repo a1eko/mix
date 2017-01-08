@@ -9,7 +9,9 @@ build() {
   cd $name$version
   unset CONFIG_SITE
   sed -i 's:/usr/local/bin:/bin:' configure
-  ./configure --prefix=/usr --with-tcl=/usr/lib --with-tclinclude=/usr/include
+  ./configure --prefix=/usr \
+    --with-tcl=/usr/lib \
+    --with-tclinclude=/usr/include
   make
   make SCRIPTS="" DESTDIR=$PKG install
   rm -rv $PKG/usr/man

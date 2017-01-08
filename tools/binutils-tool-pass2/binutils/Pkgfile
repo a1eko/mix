@@ -9,12 +9,12 @@ source=(ftp://ftp.gnu.org/gnu/binutils/binutils-$version.tar.bz2)
 
 build() {
   cd $name-$version
-  mkdir -v ../binutils-build
-  cd ../binutils-build
+  mkdir -v build
+  cd build
 
   # make linker using cross compiler and linker
   CC=$MIX_TGT-gcc AR=$MIX_TGT-ar RANLIB=$MIX_TGT-ranlib \
-  ../binutils-$version/configure --prefix=/tools \
+  ../configure --prefix=/tools \
     --with-lib-path=/tools/lib \
     --disable-nls \
     --disable-werror \

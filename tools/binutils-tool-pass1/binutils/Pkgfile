@@ -9,15 +9,15 @@ source=(ftp://ftp.gnu.org/gnu/binutils/binutils-$version.tar.bz2)
 
 build() {
   cd $name-$version
-  mkdir -v ../binutils-build
-  cd ../binutils-build
+  mkdir -v build
+  cd build
 
   case $(uname -m) in
     x86_64) mkdir -pv $PKG/tools/lib && ln -sv lib $PKG/tools/lib64 ;;
   esac
 
   # build cross linker
-  ../binutils-$version/configure --prefix=/tools \
+  ../configure --prefix=/tools \
     --with-lib-path=/tools/lib \
     --with-sysroot=$MIX \
     --target=$MIX_TGT \

@@ -1,7 +1,7 @@
 # Description: compiler collection
 
 name=gcc
-version=6.2.0
+version=6.3.0
 release=0libstdcxx
 source=(ftp://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.bz2)
 
@@ -9,10 +9,10 @@ source=(ftp://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.bz2)
 
 build() {
   cd $name-$version
-  mkdir -v ../gcc-build
-  cd ../gcc-build
+  mkdir -v build
+  cd build
 
-  ../gcc-$version/libstdc++-v3/configure --prefix=/tools \
+  ../libstdc++-v3/configure --prefix=/tools \
     --host=$MIX_TGT \
     --disable-multilib \
     --disable-nls \

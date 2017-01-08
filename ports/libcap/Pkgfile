@@ -14,10 +14,11 @@ build () {
     sed -i "/^CFLAGS/s/-O2/$CFLAGS/" Make.Rules 
 
     make
-    make RAISE_SETFCAP=no DESTDIR=$PKG man_prefix=/usr/share install
+    make RAISE_SETFCAP=no lib=lib DESTDIR=$PKG man_prefix=/usr/share install
+    rm -rv $PKG/usr/share/man/man3
 
     install -d $PKG/usr/lib
-    mv $PKG/lib*/libcap.a $PKG/usr/lib
-    rm $PKG/lib*/libcap.so
+    mv $PKG/lib/libcap.a $PKG/usr/lib
+    rm $PKG/lib/libcap.so
     ln -s ../../lib/libcap.so.$version $PKG/usr/lib/libcap.so
 }

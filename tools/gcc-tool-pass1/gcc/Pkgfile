@@ -1,11 +1,11 @@
 # Description: compiler collection
 
 name=gcc
-version=6.2.0
+version=6.3.0
 release=0pass1
 source=(ftp://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.bz2
-	http://www.mpfr.org/mpfr-current/mpfr-3.1.4.tar.xz
-	http://ftp.gnu.org/gnu/gmp/gmp-6.1.1.tar.xz
+	http://www.mpfr.org/mpfr-current/mpfr-3.1.5.tar.xz
+	http://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.xz
 	http://www.multiprecision.org/mpc/download/mpc-1.0.3.tar.gz)
 
 : ${MIX_TGT:=$(uname -m)-mix-linux-gnu}
@@ -13,8 +13,8 @@ source=(ftp://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.bz2
 build() {
   cd $name-$version
   mkdir -v mpfr gmp mpc
-  tar -C mpfr --strip-components=1 -xf ../mpfr-3.1.4.tar.xz
-  tar -C gmp --strip-components=1 -xf ../gmp-6.1.1.tar.xz
+  tar -C mpfr --strip-components=1 -xf ../mpfr-3.1.5.tar.xz
+  tar -C gmp --strip-components=1 -xf ../gmp-6.1.2.tar.xz
   tar -C mpc --strip-components=1 -xf ../mpc-1.0.3.tar.gz
 
   for file in \
@@ -31,11 +31,19 @@ build() {
     touch $file.orig
   done
 
-  mkdir -v ../gcc-build
-  cd ../gcc-build
+  # set default directory to lib
+  case $(uname -m) in
+    x86_64)
+      sed -e '/m64=/s/lib64/lib/' \
+          -i.orig gcc/config/i386/t-linux64
+   ;;
+  esac
+
+  mkdir -v build
+  cd build
 
   # build cross compiler
-  ../gcc-$version/configure --prefix=/tools \
+  ../configure --prefix=/tools \
     --target=$MIX_TGT \
     --with-glibc-version=2.11 \
     --with-sysroot=$MIX \

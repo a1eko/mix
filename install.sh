@@ -23,11 +23,11 @@ mkdir -pv $MIX/{tools/bin,var/log/{packages,sources}}
 cp -r sources $MIX/usr/
 rsync -rqz crux.nu::ports/crux-3.2/core/ $MIX/usr/packages
 rsync -rqz crux.nu::ports/crux-3.2/opt/ $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.2/opt/linux-firmware $MIX/usr/packages
 rsync -rqz crux.nu::ports/crux-3.2/contrib/tcl $MIX/usr/packages
 rsync -rqz crux.nu::ports/crux-3.2/contrib/lynx $MIX/usr/packages
 rsync -rqz crux.nu::ports/crux-3.2/contrib/libvpx $MIX/usr/packages
 rsync -rqz crux.nu::ports/crux-3.2/contrib/rtmpdump $MIX/usr/packages
-rsync -rqz crux.nu::ports/crux-3.2/contrib/linux-firmware $MIX/usr/packages
 cp -r {ports,tools}/* $MIX/usr/packages/
 rm -f $MIX/usr/packages/C*
 
@@ -310,4 +310,4 @@ sudo umount -v $MIX/run
 sudo umount -v $MIX/proc
 sudo umount -v $MIX/sys
 
-echo Base done in $MIX
+echo Base system built in $MIX

@@ -2,15 +2,12 @@
 # Depends on: ghostscript
 
 name=libspectre
-version=0.2.7
-release=mix-2
-source=(http://libspectre.freedesktop.org/releases/libspectre-$version.tar.gz
-	file:./libspectre-0.2.7-gs918-gentoo.patch
-)
+version=0.2.8
+release=mix-1
+source=(http://libspectre.freedesktop.org/releases/libspectre-$version.tar.gz)
  
 build() {
   cd $name-$version
-  patch -Np1 -i ../libspectre-0.2.7-gs918-gentoo.patch 
   ./configure --prefix=/usr --disable-static
   make
   make DESTDIR=$PKG install

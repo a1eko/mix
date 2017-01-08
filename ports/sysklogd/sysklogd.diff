@@ -1,0 +1,26 @@
+diff -aur sysklogd-1.5.1.orig/Makefile sysklogd-1.5.1/Makefile
+--- sysklogd-1.5.1.orig/Makefile	2014-10-04 21:47:18.000000000 +0200
++++ sysklogd-1.5.1/Makefile	2016-03-06 19:25:06.859968348 +0100
+@@ -20,7 +20,8 @@
+ CC= gcc
+ #SKFLAGS= -g -DSYSV -Wall
+ #LDFLAGS= -g
+-SKFLAGS= $(RPM_OPT_FLAGS) -O3 -DSYSV -fomit-frame-pointer -Wall -fno-strength-reduce
++RPM_OPT_FLAGS ?= -O2
++SKFLAGS= $(RPM_OPT_FLAGS) -DSYSV  -Wall
+ # -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE
+ # -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE
+ # $(shell getconf LFS_SKFLAGS)
+
+diff --git a/ksym_mod.c b/ksym_mod.c
+index 68cd6b6..2cdd104 100644
+--- a/ksym_mod.c
++++ b/ksym_mod.c
+@@ -189,7 +189,6 @@ extern int InitMsyms()
+ 		else
+ 			Syslog(LOG_ERR, "Error loading kernel symbols " \
+ 			       "- %s\n", strerror(errno));
+-		fclose(ksyms);
+ 		return(0);
+ 	}
+ 

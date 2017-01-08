@@ -1,7 +1,7 @@
 # Description: General purpose library and file format for storing scientific data
 
 name=hdf5
-version=1.8.16
+version=1.8.18
 release=mix-1
 source=(ftp://ftp.hdfgroup.org/HDF5/current/src/$name-$version.tar.bz2)
 
