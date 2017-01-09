@@ -1,5 +1,5 @@
 # Description: Notetaking and sketching application
-# Depends on: gtk+ libgnomecanvas poppler-glib
+# Depends on: gtk libgnomecanvas poppler-glib
 
 name=xournal
 version=0.4.8
