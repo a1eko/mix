@@ -1,16 +1,16 @@
-# Description: photographic image manipulation library
-# Depends on: glib libpng cmake
+# Description: Database of photographic lenses
+# URL: http://lensfun.sourcefourge.net
+# Maintainer: xcko shrdlu, xcko at bitmessage dot ch
+# Depends on: python, libpng, cmake
 
 name=lensfun
 version=0.3.2
 release=mix-1
-source=(http://downloads.sourceforge.net/$name/$name-$version.tar.gz) 
+source=(http://sourceforge.net/projects/lensfun/files/$version/$name-$version.tar.gz)
 
 build() {
-  cd $name-$version
-  mkdir cmake_build
-  cd cmake_build
-  cmake -DLENSFUN_INSTALL_PREFIX=/usr -DBUILD_TESTS=OFF ..
-  make
-  make DESTDIR=$PKG install
+	cd $name-$version
+	cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=lib .
+	make
+	make DESTDIR=$PKG install
 }
