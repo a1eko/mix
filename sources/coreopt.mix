@@ -3,6 +3,7 @@
 #
 # NOTE: installs after the base system
 
+ca-certificates
 expat
 libarchive
 libffi

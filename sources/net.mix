@@ -2,7 +2,6 @@
 #
 # NOTE: installs after {coreopt,graphics,sound,video}.mix
 
-ca-certificates
 libidl
 nspr
 nss

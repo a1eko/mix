@@ -168,10 +168,11 @@ Start `net` script.
 
 	sudo /etc/rc.d/net start
 
-Inspect and configure packages *iproute2*, *dhcpcd* and *wpa_supplicant*
-to get it working. See also optional *ca-certificates*, *net-tools*
-and *wireless_tools*. Wireless network cards may require firmware to be
-loaded from `/lib/firmware`.
+**NOTE:** Inspect and configure packages *iproute2*, *dhcpcd* and
+*wpa_supplicant* to get it working. See also optional *ca-certificates*,
+*net-tools* and *wireless_tools*. Wireless network cards may require
+firmware to be loaded from `/lib/firmware` and *wpa_supplicant* get
+started before invocation of the `net` script.
 
 Clean up the package trees.
 
