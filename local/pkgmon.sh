@@ -13,10 +13,13 @@ monitor() {
     wget -q --no-remove-listing $m/
     awk '{ print $9 }' .listing >> .listing-tmp
   done
-  wget -q -O - https://pypi.python.org/pypi?%3Aaction=index \
+  wget -qO- https://pypi.python.org/pypi?%3Aaction=index \
     | grep 'href="/pypi/' | cut -d'"' -f2 \
     | sed -e 's,/pypi/,,'i -e 's,/,-,' \
     >> .listing-tmp
+  for f in $(wget -qO- http://www.linuxfromscratch.org/lfs/downloads/development/wget-list); do
+      basename $f >> .listing-tmp
+  done
   sort -u .listing-tmp > .listing-files
   if [ -d $P/ports ]; then
     for p in $P/ports/*; do
@@ -26,7 +29,7 @@ monitor() {
       echo
     done > $T
   fi
-  rm -f .listing* index.html*
+  rm -f .listing* index.html* wget-list
   touch $S
   comm -13 <(sort $S) <(sort $T)
 }
