@@ -2,7 +2,7 @@
 
 name=net-tools
 version=CVS_20101030
-release=mix-1
+release=mix-2
 source=(ftp://anduin.linuxfromscratch.org/BLFS/net-tools/net-tools-$version.tar.gz
 	http://linuxfromscratch.org/patches/downloads/net-tools/net-tools-$version-remove_dups-1.patch
 )
@@ -10,6 +10,7 @@ source=(ftp://anduin.linuxfromscratch.org/BLFS/net-tools/net-tools-$version.tar.
 build() {
   cd $name-$version
   patch -Np1 -i ../net-tools-$version-remove_dups-1.patch
+  sed -i '/#include <netinet\/ip.h>/d'  iptunnel.c
   yes "" | make config
   make
   make BASEDIR=$PKG update
