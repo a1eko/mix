@@ -1,8 +1,8 @@
 # Description: system C library
 
 name=glibc
-version=2.24
-release=mix-2
+version=2.25
+release=mix-1
 source=(ftp://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz
 	http://www.linuxfromscratch.org/patches/downloads/glibc/glibc-$version-fhs-1.patch
 	host.conf hosts ld.so.conf nsswitch.conf resolv.conf)
@@ -27,6 +27,7 @@ build()
   ../configure --prefix=/usr \
     --enable-kernel=2.6.32 \
     --enable-obsolete-rpc \
+    --enable-stack-protector=strong \
     libc_cv_slibdir=/lib
   make
   $TST TIMEOUTFACTOR=16 make -k check || true
