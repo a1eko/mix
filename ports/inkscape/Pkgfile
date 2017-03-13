@@ -1,18 +1,19 @@
 # Description: An open source SVG editor.
-# URL: http://www.inkscape.org/
+# URL: https://www.inkscape.org/
 # Maintainer: Danny Rawlins, crux at romster dot me
-# Packager: Huynh Ngoc Chau Tran, tran dot huynh at laposte dot net
 # Depends on: boehm-gc boost gsl gtkmm intltool poppler-glib popt
 
 name=inkscape
-version=0.91
-release=mix-2
-source=(http://inkscape.global.ssl.fastly.net/media/resources/file/$name-$version.tar.bz2)
+version=0.92.0
+release=1
+source=(https://inkscape.org/gallery/item/10552/$name-$version.tar.bz2)
 
 build() {
 	cd $name-$version
 
 	export CXXFLAGS+=' -std=c++11'
+
+	./autogen.sh
 
 	./configure \
 		--prefix=/usr \

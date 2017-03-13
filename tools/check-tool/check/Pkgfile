@@ -1,9 +1,9 @@
 # Description: unit testing framework for C
 
 name=check
-version=0.10.0
+version=0.11.0
 release=0
-source=(http://sourceforge.net/projects/check/files/check/$version/check-$version.tar.gz)
+source=( https://github.com/libcheck/check/releases/download/$version/check-$version.tar.gz)
 
 build() {
   cd $name-$version

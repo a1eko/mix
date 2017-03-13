@@ -1,9 +1,9 @@
 # Description: stream editor
 
 name=sed
-version=4.2.2
+version=4.4
 release=0
-source=(ftp://ftp.gnu.org/gnu/sed/sed-$version.tar.bz2)
+source=(ftp://ftp.gnu.org/gnu/sed/sed-$version.tar.xz)
 
 build() {
   cd $name-$version

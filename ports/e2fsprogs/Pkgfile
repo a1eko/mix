@@ -27,5 +27,5 @@ build() {
   $TST make LD_LIBRARY_PATH=/tools/lib -k check || true
   make -j1 DESTDIR=$PKG install install-libs
   chmod -v u+w $PKG/usr/lib/{libcom_err,libe2p,libext2fs,libss}.a
-  rm -rv $PKG/usr/share/info
+  rm -rv $PKG/usr/share/{info,man/man3}
 }

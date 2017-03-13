@@ -1,7 +1,7 @@
 # Description: core utilities
 
 name=coreutils
-version=8.25
+version=8.26
 release=0
 source=(ftp://ftp.gnu.org/gnu/coreutils/coreutils-$version.tar.xz)
 

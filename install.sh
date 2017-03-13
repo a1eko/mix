@@ -56,9 +56,9 @@ toolsh="env -i MIX=$MIX PKZ=$MIX PKZCONF=$MIX/usr/sources/pkz.conf \
 P=$MIX/usr/packages
 
 BASE1="linux-headers glibc tzdata"
-BASE2="zlib file binutils libgmp libmpfr libmpc gcc"
+BASE2="zlib file m4 binutils libgmp libmpfr libmpc gcc"
 BASE3="bzip2 pkg-config ncurses attr acl libcap sed shadow psmisc \
-  iana-etc m4 bison flex grep readline bash bc libtool gdbm gperf \
+  iana-etc bison flex grep readline bash bc libtool gdbm gperf \
   inetutils perl tcl expect dejagnu check autoconf automake xz kmod \
   gettext procps e2fsprogs coreutils diffutils gawk findutils groff less \
   gzip kbd libpipeline make man-pages patch sudo sysklogd sysvinit eudev \
@@ -115,6 +115,7 @@ $toolsh "pkz -p $P/check-tool   clean check"
 
 $toolsh "pkz -p $P/ncurses-tool    -f install ncurses"
 $toolsh "pkz -p $P/bash-tool       -f install bash"
+$toolsh "pkz -p $P/bison-tool      -f install bison"
 $toolsh "pkz -p $P/bzip2-tool      -f install bzip2"
 $toolsh "pkz -p $P/coreutils-tool  -f install coreutils"
 $toolsh "pkz -p $P/diffutils-tool  -f install diffutils"

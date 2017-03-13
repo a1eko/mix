@@ -1,0 +1,15 @@
+# Description: parser generator
+
+name=bison
+version=3.0.4
+release=0
+source=(ftp://ftp.gnu.org/gnu/$name/$name-$version.tar.xz)
+
+build() {
+  cd $name-$version
+  ./configure --prefix=/tools
+  make
+  make DESTDIR=$PKG install
+  rm -rv $PKG/tools/share/{doc,info,man}
+  rm -v  $PKG/tools/share/bison/README
+}
