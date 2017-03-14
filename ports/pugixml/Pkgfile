@@ -5,7 +5,7 @@
 
 name=pugixml
 version=1.8.1
-release=mix-1
+release=1
 source=(http://github.com/zeux/$name/releases/download/v$version/$name-$version.tar.gz)
 
 build() {

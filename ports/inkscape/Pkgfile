@@ -5,7 +5,7 @@
 
 name=inkscape
 version=0.92.0
-release=1
+release=mix-1
 source=(https://inkscape.org/gallery/item/10552/$name-$version.tar.bz2)
 
 build() {
