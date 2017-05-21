@@ -7,6 +7,7 @@ source=(http://ftp.gnu.org/gnu/diffutils/diffutils-$version.tar.xz)
 
 build() {
   cd $name-$version
+  sed -i '233,237 s/max)/max) \\/' lib/intprops.h
   ./configure --prefix=/tools
   make
   make prefix=$PKG/tools install
