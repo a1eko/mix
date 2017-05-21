@@ -1,7 +1,7 @@
 # Description: compiler collection
 
 name=gcc
-version=6.3.0
+version=7.1.0
 release=0pass2
 source=(ftp://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.bz2
 	http://www.mpfr.org/mpfr-current/mpfr-3.1.5.tar.xz
@@ -31,7 +31,7 @@ build() {
     touch $file.orig
   done
 
-  # change default dircetory to lib
+  # change default directory to lib
   case $(uname -m) in
     x86_64)
       sed -e '/m64=/s/lib64/lib/' \

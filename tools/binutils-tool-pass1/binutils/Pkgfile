@@ -17,12 +17,12 @@ build() {
   esac
 
   # build cross linker
+  CC=$MIX_TGT-gcc AR=$MIX_TGT-ar RANLIB=$MIX_TGT-ranlib \
   ../configure --prefix=/tools \
-    --with-lib-path=/tools/lib \
-    --with-sysroot=$MIX \
-    --target=$MIX_TGT \
     --disable-nls \
-    --disable-werror
+    --disable-werror \
+    --with-lib-path=/tools/lib \
+    --with-sysroot
   make
   make DESTDIR=$PKG install
   rm -rv $PKG/tools/share/{info,man}

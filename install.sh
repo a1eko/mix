@@ -193,8 +193,8 @@ $chrootsh "
 "
 
 $chrootsh "
-  ln -sv /tools/bin/{bash,cat,echo,pwd,stty} /bin
-  ln -sv /tools/bin/perl /usr/bin
+  ln -sv /tools/bin/{bash,cat,dd,echo,ln,pwd,rm,stty} /bin
+  ln -sv /tools/bin/{install,perl} /usr/bin
   ln -sv /tools/lib/libgcc_s.so{,.1} /usr/lib
   ln -sv /tools/lib/libstdc++.so{,.6} /usr/lib
   sed 's/tools/usr/' /tools/lib/libstdc++.la > /usr/lib/libstdc++.la
@@ -206,7 +206,8 @@ $chrootsh "rm /etc/issue /usr/bin/crux"
 $chrootsh "ln -sv ../man /usr/share/man"
 
 $chrootsh "
-  touch /var/log/{btmp,lastlog,wtmp}
+  touch /var/log/{btmp,lastlog,faillog,wtmp}
+  chgrp -v utmp /var/log/lastlog
   chmod -v 664 /var/log/lastlog
   chmod -v 600 /var/log/btmp
 "
@@ -224,9 +225,9 @@ $chrootsh "pkz clean $BASE1"
 
 $chrootsh "
   mv -v /tools/bin/{ld,ld-old}
-  mv -v /tools/$($chrootsh 'gcc -dumpmachine')/bin/{ld,ld-old}
+  mv -v /tools/$($chrootsh 'uname -m')-pc-linux-gnu/bin/{ld,ld-old}
   mv -v /tools/bin/{ld-new,ld}
-  ln -sv /tools/bin/ld /tools/$($chrootsh 'gcc -dumpmachine')/bin/ld
+  ln -sv /tools/bin/ld /tools/$($chrootsh 'uname -m')-pc-linux-gnu/bin/ld
 "
 
 SPECS=$(dirname $($chrootsh 'gcc --print-libgcc-file-name'))/specs
