@@ -1,7 +1,8 @@
 #!/bin/bash
 
-M=(ftp://trumpetti.atm.tut.fi/gentoo/
-   ftp://ftp.kernel.org/pub/linux/kernel/v4.x) 
+M=(http://trumpetti.atm.tut.fi/gentoo/distfiles/
+   http://www.kernel.org/pub/linux/kernel/v4.x/
+   http://crux.nu/files/distfiles/)
 S=/var/log/sources/pkgmon.log
 T=/tmp/pkgmon.log
 P=$(pwd)
@@ -10,8 +11,7 @@ monitor() {
   cd /tmp
   rm -f .listing* index.html*
   for m in ${M[@]}; do
-    wget -q --no-remove-listing $m/
-    awk '{ print $9 }' .listing >> .listing-tmp
+    wget -qO- $m | fmt -w1 | grep href= | cut -d'"' -f2 >> .listing-tmp
   done
   wget -qO- https://pypi.python.org/pypi?%3Aaction=index \
     | grep 'href="/pypi/' | cut -d'"' -f2 \

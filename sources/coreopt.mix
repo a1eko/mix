@@ -9,6 +9,7 @@ libarchive
 libffi
 libnl
 lzip
+lzo
 openssl
 libpcre
 popt
@@ -49,5 +50,7 @@ unzip
 wget
 which
 zip
+
+cmake
 
 pkz

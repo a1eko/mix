@@ -70,7 +70,8 @@ and `HOSTNAME`. The array variable `SERVICES` contains names of the
 service scripts from the directory `/etc/rc.d` to start automatically
 in the multi-user runlevel.
 
-Edit script `net` in the directory `/etc/rc.d` to set up the network.
+Edit scripts `net` and `wlan` in the directory `/etc/rc.d` to be used
+for setting up the network.
 
 Edit `/etc/host.conf`, `/etc/hosts` and `/etc/resolv.conf` files. File
 `/etc/resolv.conf` will be configured automatically if dynamic IP is used.
@@ -164,7 +165,7 @@ Reboot the system ...
 Setting up the new system
 -------------------------
 
-Start `net` script.
+Start `net` or `wlan` script.
 
 	sudo /etc/rc.d/net start
 
@@ -172,7 +173,8 @@ Start `net` script.
 *wpa_supplicant* to get it working. See also optional *ca-certificates*,
 *net-tools* and *wireless_tools*. Wireless network cards may require
 firmware to be loaded from `/lib/firmware` and *wpa_supplicant* get
-started before invocation of the `net` script.
+started before invocation of the `net` script (`wlan` starts
+*wpa_supplicant* automaticaly).
 
 Clean up the package trees.
 
