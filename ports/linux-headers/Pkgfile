@@ -1,7 +1,7 @@
 # Description: linux kernel headers
 
 name=linux-headers
-version=4.10.8
+version=4.11.3
 release=mix-1
 source=(https://www.kernel.org/pub/linux/kernel/v4.x/linux-$version.tar.xz)
 
