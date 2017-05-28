@@ -21,13 +21,13 @@ mkdir -pv sources
 mkdir -pv $MIX/usr/{packages,sources}
 mkdir -pv $MIX/{tools/bin,var/log/{packages,sources}}
 cp -r sources $MIX/usr/
-rsync -rqz crux.nu::ports/crux-3.2/core/ $MIX/usr/packages
-rsync -rqz crux.nu::ports/crux-3.2/opt/ $MIX/usr/packages
-rsync -rqz crux.nu::ports/crux-3.2/opt/linux-firmware $MIX/usr/packages
-rsync -rqz crux.nu::ports/crux-3.2/contrib/tcl $MIX/usr/packages
-rsync -rqz crux.nu::ports/crux-3.2/contrib/lynx $MIX/usr/packages
-rsync -rqz crux.nu::ports/crux-3.2/contrib/libvpx $MIX/usr/packages
-rsync -rqz crux.nu::ports/crux-3.2/contrib/rtmpdump $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.3/core/ $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.3/opt/ $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.3/opt/linux-firmware $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.3/contrib/tcl $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.3/contrib/lynx $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.3/contrib/libvpx $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.3/contrib/rtmpdump $MIX/usr/packages
 cp -r {ports,tools}/* $MIX/usr/packages/
 rm -f $MIX/usr/packages/C*
 
@@ -203,7 +203,7 @@ $chrootsh "
 
 $chrootsh "pkz install filesystem"
 $chrootsh "rm /etc/issue /usr/bin/crux"
-$chrootsh "ln -sv ../man /usr/share/man"
+$chrootsh "ln -sv share/man /usr/man"
 
 $chrootsh "
   touch /var/log/{btmp,lastlog,faillog,wtmp}

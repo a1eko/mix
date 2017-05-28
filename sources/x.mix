@@ -3,7 +3,8 @@
 # NOTE: installs after coreopt.mix
 
 libpng
-setuptools
+python-setuptools
+python-pip
 
 freetype
 libxml2
@@ -71,6 +72,7 @@ xorg-libxpm
 xorg-libxfixes
 xorg-libxrender
 xorg-libfontenc
+xorg-libxfont2
 xorg-libxkbfile
 xorg-libxv
 xorg-libdmx

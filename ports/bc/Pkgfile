@@ -1,0 +1,36 @@
+# Description: An arbitrary precision calculator language
+# URL:         http://www.gnu.org/software/bc/bc.html
+# Maintainer:  CRUX System Team, core-ports at crux dot nu
+# Depends on:  ncurses, readline
+
+name=bc
+version=1.07.1
+release=mix-1
+source=(http://ftpmirror.gnu.org/gnu/$name/$name-$version.tar.gz)
+
+build() { 
+    cd $name-$version
+
+    # use sed instead of ed
+    cat > bc/fix-libmath_h << "EOF"
+#! /bin/bash
+sed -e '1   s/^/{"/' \
+    -e     's/$/",/' \
+    -e '2,$ s/^/"/'  \
+    -e   '$ d'       \
+    -i libmath.h
+
+sed -e '$ s/$/0}/' \
+    -i libmath.h
+EOF
+    
+    ./configure --prefix=/usr --with-readline
+    
+    # do not regen docs
+    touch doc/*
+
+    make
+    make DESTDIR=$PKG install
+
+    rm -r $PKG/usr/share/info
+}

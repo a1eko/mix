@@ -1,13 +1,12 @@
 # Description: programs that show differences between files
 
 name=diffutils
-version=3.5
+version=3.6
 release=0
 source=(http://ftp.gnu.org/gnu/diffutils/diffutils-$version.tar.xz)
 
 build() {
   cd $name-$version
-  sed -i '233,237 s/max)/max) \\/' lib/intprops.h
   ./configure --prefix=/tools
   make
   make prefix=$PKG/tools install
