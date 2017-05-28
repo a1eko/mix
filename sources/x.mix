@@ -4,7 +4,6 @@
 
 libpng
 python-setuptools
-python-pip
 
 freetype
 libxml2

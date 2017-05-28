@@ -319,11 +319,13 @@ do_resolve()
   dep=$zbuilds/$$_pkgdep
   required='Depends on:'
   if [ $suggest_pkgs == yes ]; then
-    optional='Nice to have:'
+    opt1='Nice to have:'
+    opt2='Optional:'
   else
-    optional=$$$$$$
+    opt1=$$$$$$
+    opt2=$$$$$$
   fi
-  find $zpackages -name Pkgfile | xargs grep -e "$required" -e "$optional" \
+  find $zpackages -name Pkgfile | xargs grep -e "$required" -e "$opt1" -e "$opt2" \
     | cut -d: -f1,3 \
     | sed -e 's/://' -e 's:.*\/\(.*\)\/Pkgfile:\1:' -e 's/,/ /g' \
       -e 's/[ \t][ \t]*/ /g' -e "s/ $//" | sort -u > $dep.db

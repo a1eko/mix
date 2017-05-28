@@ -1,0 +1,19 @@
+# Description: Functions for accessing ISO-IEC:14496-1:2001 MPEG-4 standard.
+# URL: https://code.google.com/archive/p/mp4v2/
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Packager: Matt Housh, jaeger at morpheus dot net
+
+name=libmp4v2
+version=2.0.0
+release=mix-2
+source=(https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/mp4v2/mp4v2-$version.tar.bz2)
+
+build() {
+	cd mp4v2-$version
+
+CXXFLAGS="-fpermissive" \
+	./configure --prefix=/usr
+
+	make
+	make DESTDIR=$PKG install
+}

@@ -6,7 +6,7 @@ libidl
 nspr
 nss
 
-#lftp
+lftp
 rsync
 
 autoconf-2.13
