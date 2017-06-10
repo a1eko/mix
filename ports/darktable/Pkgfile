@@ -2,7 +2,7 @@
 # Depends on: gtk3 cmake libxml2 pugixml libxslt json-glib libpng libjpeg-turbo libtiff librsvg sqlite3 exiv2 lensfun lcms2 curl mesa3d openexr libgphoto2 dbus-glib libwebp
 
 name=darktable
-version=2.2.3
+version=2.2.5
 release=mix-1
 source=(http://github.com/darktable-org/darktable/releases/download/release-$version/darktable-$version.tar.xz)
  
