@@ -5,7 +5,7 @@
 
 name=bc
 version=1.07.1
-release=mix-1
+release=mix-2
 source=(http://ftpmirror.gnu.org/gnu/$name/$name-$version.tar.gz)
 
 build() { 
@@ -24,6 +24,13 @@ sed -e '$ s/$/0}/' \
     -i libmath.h
 EOF
     
+    # create temporary links
+    ln -sv /tools/lib/libncursesw.so.6 /usr/lib/libncursesw.so.6
+    ln -sfv libncurses.so.6 /usr/lib/libncurses.so
+
+    # fix configure for missing files
+    sed -i -e '/flex/s/as_fn_error/: ;; # &/' configure
+
     ./configure --prefix=/usr --with-readline
     
     # do not regen docs

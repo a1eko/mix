@@ -15,10 +15,10 @@ build()
   # create compatibility links
   ln -sfv /tools/lib/gcc /usr/lib
   case $(uname -m) in
-    i?86) GCC_INCDIR=/usr/lib/gcc/$(uname -m)-pc-linux-gnu/7.1.0/include
+    i?86) GCC_INCDIR=/usr/lib/gcc/$(uname -m)-pc-linux-gnu/7.2.0/include
       ln -s ld-linux.so.2 /lib/ld-lsb.so.3
       ;;
-    x86_64) GCC_INCDIR=/usr/lib/gcc/x86_64-pc-linux-gnu/7.1.0/include
+    x86_64) GCC_INCDIR=/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include
       ln -s ../lib/ld-linux-x86-64.so.2 /lib64
       ln -s ../lib/ld-linux-x86-64.so.2 /lib64/ld-lsb-x86-64.so.3
       ;;
