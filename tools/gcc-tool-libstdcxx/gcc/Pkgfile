@@ -3,7 +3,7 @@
 name=gcc
 version=7.2.0
 release=0libstdcxx
-source=(ftp://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.bz2)
+source=(ftp://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz)
 
 : ${MIX_TGT:=$(uname -m)-mix-linux-gnu}
 

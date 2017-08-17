@@ -1,9 +1,9 @@
 # Description: compiler collection
 
 name=gcc
-version=7.1.0
+version=7.2.0
 release=mix-1
-source=(ftp://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.bz2)
+source=(ftp://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz)
 
 build()
 {
