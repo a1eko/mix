@@ -1,7 +1,7 @@
 # Description: system C library
 
 name=glibc
-version=2.25
+version=2.26
 release=0
 source=(ftp://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz)
 
@@ -16,7 +16,7 @@ build() {
   ../configure --prefix=/tools \
     --host=$MIX_TGT \
     --build=$(../scripts/config.guess) \
-    --enable-kernel=2.6.32 \
+    --enable-kernel=3.2 \
     --with-headers=/tools/include \
     libc_cv_forced_unwind=yes \
     libc_cv_c_cleanup=yes
