@@ -1,7 +1,7 @@
 # Description: file type identification utility
 
 name=file
-version=5.30
+version=5.31
 release=0
 source=(ftp://ftp.astron.com/pub/file/file-$version.tar.gz)
 
