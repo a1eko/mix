@@ -13,6 +13,7 @@ jasper
 libid3tag
 imlib2
 libtiff
+shared-mime-info
 
 atk
 gdk-pixbuf

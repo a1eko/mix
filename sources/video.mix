@@ -26,7 +26,7 @@ gnutls
 faac
 fribidi
 libass
-libbluray
+#libbluray
 libcdio
 libdvdnav
 libmodplug
