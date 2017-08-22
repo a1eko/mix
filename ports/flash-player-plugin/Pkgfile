@@ -2,10 +2,9 @@
 # URL: http://www.adobe.com/products/flashplayer/
 # Maintainer: Jose V Beneyto, sepen at crux dot nu
 # Packager: Matt Housh, jaeger at crux dot nu
-# Depends on: wget rpm2targz
 
 name=flash-player-plugin
-version=25.0.0.171
+version=26.0.0.151
 release=mix-1
 source=()
 

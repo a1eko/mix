@@ -57,12 +57,13 @@ P=$MIX/usr/packages
 
 BASE1="linux-headers glibc tzdata"
 BASE2="zlib file readline m4 bc binutils libgmp libmpfr libmpc gcc"
+
 BASE3="bzip2 pkg-config ncurses attr acl libcap sed shadow psmisc \
-  iana-etc bison flex grep bash libtool gdbm gperf \
-  inetutils perl tcl expect dejagnu check autoconf automake xz kmod \
-  gettext procps e2fsprogs coreutils diffutils gawk findutils groff less \
-  gzip kbd libpipeline make man-pages patch sudo sysklogd sysvinit eudev \
-  util-linux man-db tar texinfo vim"
+  iana-etc bison flex grep bash libtool gdbm gperf inetutils perl tcl \
+  expect dejagnu check autoconf automake xz kmod gettext procps e2fsprogs \
+  coreutils diffutils gawk findutils groff less gzip kbd libpipeline \
+  make man-pages patch sudo sysklogd sysvinit eudev util-linux man-db \
+  tar texinfo vim"
 
 BOOT="linux nasm syslinux rc"
 

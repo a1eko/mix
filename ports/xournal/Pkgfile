@@ -2,7 +2,7 @@
 # Depends on: gtk libgnomecanvas poppler-glib
 
 name=xournal
-version=0.4.8
+version=0.4.8.2016
 release=mix-1
 source=(http://downloads.sourceforge.net/project/$name/$name/$version/$name-$version.tar.gz)
 

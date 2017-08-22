@@ -1,10 +1,10 @@
 # Description: mail user agent and tools
 # Depends on: openssl
 
-name=re-alpine
-version=2.03
+name=alpine
+version=2.21
 release=mix-1
-source=(http://sourceforge.net/projects/$name/files/$name-$version.tar.bz2)
+source=(http://alpine.freeiz.com/alpine/release/src/$name-$version.tar.xz)
 
 build() {
   cd $name-$version

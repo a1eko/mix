@@ -2,7 +2,7 @@
 # Depends on: gtk3 girara zathura poppler-glib
 
 name=zathura-pdf-poppler
-version=0.2.6
+version=0.2.7
 release=mix-1
 source=(http://pwmt.org/projects/$name/download/$name-$version.tar.gz)
 
