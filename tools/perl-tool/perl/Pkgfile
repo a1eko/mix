@@ -1,17 +1,12 @@
 # Description: programming language and script interpreter
 
 name=perl
-version=5.26.0
+version=5.26.1
 release=0
 source=(http://cpan.org/src/5.0/perl-$version.tar.xz)
 
 build() {
   cd $name-$version
-
-  # fix build specific error
-  sed -e '9751 a#ifndef PERL_IN_XSUB_RE' \
-    -e '9808 a#endif'                  \
-    -i regexec.c
 
   sh Configure -des -Dprefix=/tools -Dlibs=-lm
   make
