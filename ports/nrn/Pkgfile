@@ -1,17 +1,19 @@
 # Description: Neuron simulation environment
-# Depends on: iv python numpy mercurial
+# Depends on: iv python numpy git
+# Nice to have: mpich
 
 name=nrn
-version=hg
+version=git
 release=mix-1
 source=()
  
 build() {
-  hg clone http://www.neuron.yale.edu/hg/neuron/$name
+  git clone https://github.com/nrnhines/nrn
   cd $name
   ./build.sh
-  sed -i 's/$(MAKE) $(AM_MAKEFLAGS) install-exec-hook/#&/' Makefile.in
-  ./configure --prefix=/usr --exec-prefix=/usr --with-iv=/usr --with-nrnpython
+  if which mpirun &>/dev/null; then WITH_MPI=--with-mpi; fi
+  ./configure --prefix=/usr --exec-prefix=/usr --with-iv=/usr \
+    --with-nrnpython --with-paranrn $WITH_MPI
   make
   make DESTDIR=$PKG install
   rm -rv $PKG/usr/share/nrn/{demo,examples}

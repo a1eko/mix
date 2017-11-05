@@ -1,16 +1,16 @@
 # Description: python interface to Neuron simulation environment
-# Depends on: nrn python
+# Depends on: nrn python git
 
 name=nrnpython
-version=hg
+version=git
 release=mix-1
 source=()
  
 build() {
-  hg clone http://www.neuron.yale.edu/hg/neuron/nrn
+  git clone https://github.com/nrnhines/nrn
   cd nrn
   ./build.sh
-  ./configure --prefix=/usr --exec-prefix=/usr --with-iv=/usr --with-nrnpython-only
+  ./configure --prefix=/usr --exec-prefix=/usr --with-iv=/usr --with-nrnpython
   cd src/nrnpython
   python setup.py install --prefix=$PKG/usr 
 }

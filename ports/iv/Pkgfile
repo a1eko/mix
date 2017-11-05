@@ -1,13 +1,13 @@
 # Description: graphical interface library
-# Depends on: xorg mercurial
+# Depends on: xorg git
 
 name=iv
-version=hg
+version=git
 release=mix-1
 source=()
  
 build() {
-  hg clone http://www.neuron.yale.edu/hg/neuron/$name
+  git clone https://github.com/nrnhines/$name
   cd $name
   ./build.sh
   ./configure --prefix=/usr --exec-prefix=/usr
