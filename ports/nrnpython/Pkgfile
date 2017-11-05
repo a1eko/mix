@@ -10,7 +10,7 @@ build() {
   hg clone http://www.neuron.yale.edu/hg/neuron/nrn
   cd nrn
   ./build.sh
-  ./configure --prefix=/usr --exec-prefix=/usr --with-iv=/usr --with-nrnpython
+  ./configure --prefix=/usr --exec-prefix=/usr --with-iv=/usr --with-nrnpython-only
   cd src/nrnpython
   python setup.py install --prefix=$PKG/usr 
 }
