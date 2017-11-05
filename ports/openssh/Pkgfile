@@ -11,7 +11,7 @@ source=(ftp://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-$version.tar.
 
 build() {
   cd openssh-$version
-  tar xvf ../openssh_$version-$deb.debian.tar.xz
+  tar xvf ../openssh_$version-$deb.debian.tar.xz debian/patches/gssapi.patch
   patch -Np1 -i debian/patches/gssapi.patch
 
   ./configure --prefix=/usr \
