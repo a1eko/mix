@@ -14,5 +14,5 @@ build() {
     --with-tclinclude=/usr/include
   make
   make SCRIPTS="" DESTDIR=$PKG install
-  rm -rv $PKG/usr/man
+  rm -rv $PKG/usr/share/man
 }
