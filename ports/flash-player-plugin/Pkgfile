@@ -4,7 +4,7 @@
 # Packager: Matt Housh, jaeger at crux dot nu
 
 name=flash-player-plugin
-version=26.0.0.151
+version=27.0.0.183
 release=mix-1
 source=()
 
