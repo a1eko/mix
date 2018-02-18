@@ -2,7 +2,7 @@
 # Depends on: zathura girara libspectre
 
 name=zathura-ps
-version=0.2.4
+version=0.2.5
 release=mix-1
 
 source=(http://pwmt.org/projects/$name/download/$name-$version.tar.gz)

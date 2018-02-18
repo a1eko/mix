@@ -2,7 +2,7 @@
 # Depends on: gtk3 girara sqlite3 intltool
 
 name=zathura
-version=0.3.7
+version=0.3.8
 release=mix-1
 source=(http://pwmt.org/projects/zathura/download/zathura-$version.tar.gz)
  

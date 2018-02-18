@@ -2,7 +2,7 @@
 # Depends on: gtk3 intltool
 
 name=girara
-version=0.2.7
+version=0.2.8
 release=mix-1
 
 source=(http://pwmt.org/projects/girara/download/girara-$version.tar.gz)
