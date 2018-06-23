@@ -1,7 +1,7 @@
 # Description: application test framework
 
 name=dejagnu
-version=1.6
+version=1.6.1
 release=0
 source=(ftp://ftp.gnu.org/gnu/dejagnu/dejagnu-$version.tar.gz)
 

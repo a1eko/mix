@@ -7,6 +7,10 @@ source=(ftp://ftp.gnu.org/gnu/make/make-$version.tar.bz2)
 
 build() {
   cd $name-$version
+
+  # fix error caused by glibc-2.27
+  sed -i '211,217 d; 219,229 d; 232 d' glob/glob.c
+
   ./configure --prefix=/tools --without-guile
   make
   make DESTDIR=$PKG install

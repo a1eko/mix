@@ -2,6 +2,5 @@
 5e2ac30a60de726fd39fa2a5410bb6eb  hosts
 fb3976f942e00d20efb9b6f00f893a29  nsswitch.conf
 420997b5302c3c4e44d1bf2330514112  ld.so.conf
-9a5997c3452909b1769918c759eff8a2  glibc-2.26-fhs-1.patch
-1377e4f5422c6672ff48d430c07b245c  glibc-2.26-local_glob_exploits-2.patch
-102f637c3812f81111f48f2427611be1  glibc-2.26.tar.xz
+898cd5656519ffbc3a03fe811dd89e82  glibc-2.27.tar.xz
+9a5997c3452909b1769918c759eff8a2  glibc-2.27-fhs-1.patch

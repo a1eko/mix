@@ -1,7 +1,7 @@
 # Description: programmed dialogue with interactive programs
 
 name=expect
-version=5.45.3
+version=5.45.4
 release=0
 source=(http://prdownloads.sourceforge.net/expect/expect$version.tar.gz)
 
@@ -13,5 +13,5 @@ build() {
     --with-tclinclude=/tools/include
   make
   make SCRIPTS="" DESTDIR=$PKG install
-  rm -rv $PKG/tools/man
+  rm -rv $PKG/tools/share/man
 }

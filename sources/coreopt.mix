@@ -4,13 +4,10 @@
 # NOTE: installs after the base system
 
 ca-certificates
-expat
 libarchive
 libffi
 libnl
-lzip
 lzo
-openssl
 libpcre
 popt
 sharutils
@@ -25,13 +22,12 @@ glib
 
 db
 dbus
-exim
+#exim
 iptables
 
 dhcpcd
 iproute2
 iputils
-linux-firmware
 wireless-tools
 wpa_supplicant
 

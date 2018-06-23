@@ -1,7 +1,7 @@
 # Description: system utilities
 
 name=util-linux
-version=2.30.1
+version=2.32
 release=0
 source=(https://www.kernel.org/pub/linux/utils/$name/v${version:0:4}/$name-$version.tar.xz)
 

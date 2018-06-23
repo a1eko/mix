@@ -1,7 +1,7 @@
 # Description: programmed dialogue with interactive programs
 
 name=expect
-version=5.45.3
+version=5.45.4
 release=mix-1
 source=(http://prdownloads.sourceforge.net/expect/expect$version.tar.gz)
 

@@ -1,7 +1,7 @@
 # Description: difference based modification of files
 
 name=patch
-version=2.7.5
+version=2.7.6
 release=0
 source=(ftp://ftp.gnu.org/gnu/patch/patch-$version.tar.xz)
 

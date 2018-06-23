@@ -155,7 +155,7 @@ do_source() {
             ln -sf $zsources/$f $SRC
   	  else
 	    message -n "fetching $s ..."
-	    (cd $zsources; wget -q $s || wget -nv -c $use_mirror/$(basename $s)) || error "cannot fetch $(basename $s)"
+	    (cd $zsources; wget -q $s || rm -f $(basename $s) && wget -nv $use_mirror/$(basename $s)) || error "cannot fetch $(basename $s)"
 	    echo \ done
 	    if [ -f $pkgsum ]; then
 	      grep -qw "$(cd $zsources; md5sum $f)" $pkgsum || error "md5sum failed"
@@ -229,7 +229,7 @@ do_install() {
         cat $pkgdir/*README* | sed 's/^/# /'
       fi
     else
-      message "another release installed, ignored"
+      message "another release installed, skipping"
     fi
   else
     message "installed already, ignored"

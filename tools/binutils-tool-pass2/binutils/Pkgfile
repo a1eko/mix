@@ -1,7 +1,7 @@
 # Description: linker, assembler and other development tools
 
 name=binutils
-version=2.29
+version=2.30
 release=0pass2
 source=(ftp://ftp.gnu.org/gnu/binutils/binutils-$version.tar.bz2)
 
@@ -18,6 +18,7 @@ build() {
     --with-lib-path=/tools/lib \
     --disable-nls \
     --disable-werror \
+    --with-lib-path=/tools/lib \
     --with-sysroot
   make
   make DESTDIR=$PKG install

@@ -41,7 +41,7 @@ x265
 
 ffmpeg
 mplayer
-#xine-lib
-#xine-ui
+xine-lib
+xine-ui
 
 mpv

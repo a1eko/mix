@@ -1,7 +1,7 @@
 # Description: archiving program
 
 name=tar
-version=1.29
+version=1.30
 release=0
 source=(http://ftp.gnu.org/gnu/tar/tar-$version.tar.xz)
 

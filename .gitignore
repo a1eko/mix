@@ -3,6 +3,7 @@ TODO
 *.bak
 files
 .footprint
+.signature
 sources/*.?z
 sources/*.Z
 sources/*.bz*

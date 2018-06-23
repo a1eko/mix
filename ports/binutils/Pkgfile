@@ -1,7 +1,7 @@
 # Description: linker, assembler and other development tools
 
 name=binutils
-version=2.29
+version=2.30
 release=mix-1
 source=(ftp://ftp.gnu.org/gnu/binutils/binutils-$version.tar.bz2)
 
@@ -17,6 +17,7 @@ build() {
     --enable-shared \
     --disable-nls \
     --disable-werror \
+    --enable-64-bit-bfd \
     --with-system-zlib
   make tooldir=/usr
   $TST make -k check || true

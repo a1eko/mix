@@ -21,13 +21,10 @@ mkdir -pv sources
 mkdir -pv $MIX/usr/{packages,sources}
 mkdir -pv $MIX/{tools/bin,var/log/{packages,sources}}
 cp -r sources $MIX/usr/
-rsync -rqz crux.nu::ports/crux-3.3/core/ $MIX/usr/packages
-rsync -rqz crux.nu::ports/crux-3.3/opt/ $MIX/usr/packages
-rsync -rqz crux.nu::ports/crux-3.3/opt/linux-firmware $MIX/usr/packages
-rsync -rqz crux.nu::ports/crux-3.3/contrib/tcl $MIX/usr/packages
-rsync -rqz crux.nu::ports/crux-3.3/contrib/lynx $MIX/usr/packages
-rsync -rqz crux.nu::ports/crux-3.3/contrib/libvpx $MIX/usr/packages
-rsync -rqz crux.nu::ports/crux-3.3/contrib/rtmpdump $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.4/core/ $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.4/opt/ $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.4/contrib/tcl $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.4/contrib/lynx $MIX/usr/packages
 cp -r {ports,tools}/* $MIX/usr/packages/
 rm -f $MIX/usr/packages/C*
 
@@ -55,15 +52,14 @@ toolsh="env -i MIX=$MIX PKZ=$MIX PKZCONF=$MIX/usr/sources/pkz.conf \
 
 P=$MIX/usr/packages
 
-BASE1="linux-headers glibc tzdata"
+BASE1="linux-headers glibc lzip tzdata"
 BASE2="zlib file readline m4 bc binutils libgmp libmpfr libmpc gcc"
-
 BASE3="bzip2 pkg-config ncurses attr acl libcap sed shadow psmisc \
-  iana-etc bison flex grep bash libtool gdbm gperf inetutils perl tcl \
-  expect dejagnu check autoconf automake xz kmod gettext procps e2fsprogs \
-  coreutils diffutils gawk findutils groff less gzip kbd libpipeline \
-  make man-pages patch sudo sysklogd sysvinit eudev util-linux man-db \
-  tar texinfo vim"
+  iana-etc bison flex grep bash libtool gdbm gperf expat inetutils perl \
+  tcl expect dejagnu check autoconf automake xz kmod gettext elfutils \
+  openssl procps e2fsprogs coreutils diffutils gawk findutils groff less \
+  gzip kbd libpipeline make man-pages patch sudo sysklogd sysvinit eudev \
+  util-linux man-db tar texinfo vim"
 
 BOOT="linux nasm syslinux rc"
 
@@ -107,13 +103,12 @@ $toolsh "
 $toolsh "pkz -p $P/tcl-tool     -f install tcl"
 $toolsh "pkz -p $P/expect-tool  -f install expect"
 $toolsh "pkz -p $P/dejagnu-tool -f install dejagnu"
-$toolsh "pkz -p $P/check-tool   -f install check"
 
 $toolsh "pkz -p $P/tcl-tool     clean tcl"
 $toolsh "pkz -p $P/expect-tool  clean expect"
 $toolsh "pkz -p $P/dejagnu-tool clean dejagnu"
-$toolsh "pkz -p $P/check-tool   clean check"
 
+$toolsh "pkz -p $P/m4-tool         -f install m4"
 $toolsh "pkz -p $P/ncurses-tool    -f install ncurses"
 $toolsh "pkz -p $P/bash-tool       -f install bash"
 $toolsh "pkz -p $P/bison-tool      -f install bison"
@@ -126,7 +121,6 @@ $toolsh "pkz -p $P/gawk-tool       -f install gawk"
 $toolsh "pkz -p $P/gettext-tool    -f install gettext"
 $toolsh "pkz -p $P/grep-tool       -f install grep"
 $toolsh "pkz -p $P/gzip-tool       -f install gzip"
-$toolsh "pkz -p $P/m4-tool         -f install m4"
 $toolsh "pkz -p $P/make-tool       -f install make"
 $toolsh "pkz -p $P/patch-tool      -f install patch"
 $toolsh "pkz -p $P/perl-tool       -f install perl"
@@ -198,7 +192,6 @@ $chrootsh "
   ln -sv /tools/bin/{install,perl} /usr/bin
   ln -sv /tools/lib/libgcc_s.so{,.1} /usr/lib
   ln -sv /tools/lib/libstdc++.so{,.6} /usr/lib
-  sed 's/tools/usr/' /tools/lib/libstdc++.la > /usr/lib/libstdc++.la
   ln -sv bash /bin/sh
 "
 
@@ -254,6 +247,9 @@ $chrootsh "
 
 $chrootsh "pkz -f install $BASE2"
 $chrootsh "pkz clean $BASE2"
+
+$chrootsh "pkz install linux-firmware"
+$chrootsh "pkz clean linux-firmware"
 
 $chrootsh "
   cd /usr/sources
