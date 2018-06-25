@@ -1,0 +1,12 @@
+# Description:  The Mozilla Firefox browser
+
+name=firefox-bin
+version=60.0.2
+release=mix-1
+source=(https://ftp.mozilla.org/pub/firefox/releases/$version/linux-x86_64/en-US/firefox-$version.tar.bz2)
+
+build() {
+  mkdir -pv $PKG/opt $PKG/usr/bin
+  mv firefox $PKG/opt/
+  ln -sv /opt/firefox/firefox $PKG/usr/bin
+}

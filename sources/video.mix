@@ -22,11 +22,14 @@ cmake
 docutils
 nettle
 libidn
+
+libtasn1 
+p11-kit
+
 gnutls
 faac
 fribidi
 libass
-#libbluray
 libcdio
 libdvdnav
 libmodplug
@@ -34,14 +37,12 @@ libmpcdec
 opencore-amr
 opus
 orc
-rtmpdump
+#rtmpdump
 schroedinger
-vcdimager
+#vcdimager
 x265
 
 ffmpeg
 mplayer
-xine-lib
-xine-ui
 
 mpv

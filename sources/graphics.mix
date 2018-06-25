@@ -21,6 +21,12 @@ giblib
 harfbuzz
 hicolor-icon-theme
 lcms2
+
+fribidi
+libtirpc
+mpdecimal
+sqlite3
+
 pango
 poppler-data
 t1lib

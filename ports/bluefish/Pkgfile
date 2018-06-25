@@ -1,0 +1,23 @@
+# Description:  GTK+ text editor targeted towards programmers and web designers
+# URL:          http://bluefish.openoffice.nl/
+# Maintainer:   Filip Rex Dimovski, bjorn at krstarica dot com
+# Depends on:   gtk
+
+name=bluefish
+version=2.2.5
+release=mix-1
+source=(http://sourceforge.net/projects/bluefish/files/bluefish/$version/$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+
+    ./configure --prefix=/usr --disable-nls \
+        --with-gtk2 --disable-update-databases \
+        --disable-xml-catalog-update --disable-spell-check
+
+    make
+    make DESTDIR=$PKG install
+
+    # Remove unnecessary cruft
+    rm -r $PKG/usr/share/{doc,xml}
+}
