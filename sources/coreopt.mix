@@ -49,4 +49,15 @@ zip
 
 cmake
 
+python3
+
+python3-pyparsing
+python3-six
+
+python3-appdirs
+python3-packaging
+python3-pip
+
+python3-setuptools
+
 pkz

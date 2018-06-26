@@ -412,11 +412,14 @@ while [ $# -gt 0 ]; do
     pkgreg=$zregs/$name#$revision
     pkgbuild=$zbuilds/$name#$revision
     pkgbin=$zsources/$name#$revision.pkg.tar.gz
+
+    # crux compatibility
     SRC=$pkgwork/source
     PKG=$pkgwork/install
     PKGMK_ROOT=$pkgdir
     PKGMK_SOURCE_DIR=$SRC
-    #PKGMK_WORK_DIR=?
+    #PKGMK_WORK_DIR unset (unknown)
+
     do_$cmd
     shift
   fi
