@@ -53,7 +53,7 @@ toolsh="env -i MIX=$MIX PKZ=$MIX PKZCONF=$MIX/usr/sources/pkz.conf \
 P=$MIX/usr/packages
 
 BASE1="linux-headers glibc lzip tzdata"
-BASE2="zlib file readline m4 bc binutils libgmp libmpfr libmpc gcc"
+BASE2="zlib file readline m4 bc binutils libgmp libmpfr libmpc gcc linux-firmware"
 BASE3="bzip2 pkg-config ncurses attr acl libcap sed shadow psmisc \
   iana-etc bison flex grep bash libtool gdbm gperf expat inetutils perl \
   tcl expect dejagnu check autoconf automake xz kmod gettext elfutils \
@@ -247,9 +247,6 @@ $chrootsh "
 
 $chrootsh "pkz -f install $BASE2"
 $chrootsh "pkz clean $BASE2"
-
-$chrootsh "pkz install linux-firmware"
-$chrootsh "pkz clean linux-firmware"
 
 $chrootsh "
   cd /usr/sources

@@ -4,12 +4,5 @@ TODO
 files
 .footprint
 .signature
-sources/*.?z
-sources/*.Z
-sources/*.bz*
-sources/*.diff
-sources/*.lzma
-sources/*.patch
-sources/*.t?z
-sources/*.tar
-sources/*.tar.*
+sources/*
+!sources/*.mix
