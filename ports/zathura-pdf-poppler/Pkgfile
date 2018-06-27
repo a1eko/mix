@@ -1,15 +1,14 @@
 # Description: zathura PDF viewer plugin
-# Depends on: gtk3 girara zathura poppler-glib
+# Depends on: gtk3 girara zathura poppler-glib meson ninja
 
 name=zathura-pdf-poppler
-version=0.2.8
+version=0.2.9
 release=mix-1
-source=(http://pwmt.org/projects/$name/download/$name-$version.tar.gz)
+source=(http://pwmt.org/projects/$name/download/$name-$version.tar.xz)
 
 build() {
   cd $name-$version
-  make
-  make DESTDIR=$PKG install
-  rm -rv $PKG/usr/share/{applications,metainfo}
-  rmdir -v $PKG/usr/share
+  meson build --prefix=/usr
+  DESTDIR=$PKG ninja -C build install
+  rm -rv $PKG/usr/share
 }

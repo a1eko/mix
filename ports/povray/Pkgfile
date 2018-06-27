@@ -2,7 +2,7 @@
 # Depends on: libtiff libpng boost openexr
 
 name=povray
-version=3.7.0.4
+version=3.7.0.7
 _v=${version%.*.*} # 3.7
 release=mix-1
 source=(https://github.com/POV-Ray/povray/archive/v$version.tar.gz)

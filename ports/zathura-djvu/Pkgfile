@@ -2,14 +2,13 @@
 # Depends on: zathura girara djvulibre
 
 name=zathura-djvu
-version=0.2.7
+version=0.2.8
 release=mix-1
-source=(http://pwmt.org/projects/$name/download/$name-$version.tar.gz)
+source=(http://pwmt.org/projects/$name/download/$name-$version.tar.xz)
  
 build() {
   cd $name-$version
-  make
-  make DESTDIR=$PKG install
-  rm -rv $PKG/usr/share/applications
-  rmdir -v $PKG/usr/share
+  meson build --prefix=/usr
+  DESTDIR=$PKG ninja -C build install
+  rm -rv $PKG/usr/share
 }

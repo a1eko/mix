@@ -13,7 +13,7 @@ build() {
   ./build.sh
   if which mpirun &>/dev/null; then WITH_MPI=--with-mpi; fi
   ./configure --prefix=/usr --exec-prefix=/usr --with-iv=/usr \
-    --with-nrnpython --with-paranrn $WITH_MPI
+    --with-pyexe=python2 --with-nrnpython --with-paranrn $WITH_MPI
   make
   make DESTDIR=$PKG install
   rm -rv $PKG/usr/share/nrn/{demo,examples}

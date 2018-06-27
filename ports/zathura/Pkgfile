@@ -1,14 +1,15 @@
 # Description: document viewer
-# Depends on: gtk3 girara sqlite3 intltool
+# Depends on: gtk3 girara sqlite3 intltool meson ninja
 
 name=zathura
-version=0.3.8
+version=0.4.0
 release=mix-1
-source=(http://pwmt.org/projects/zathura/download/zathura-$version.tar.gz)
+source=(http://pwmt.org/projects/zathura/download/zathura-$version.tar.xz)
  
 build() {
   cd $name-$version
-  make
-  make DESTDIR=$PKG install
-  rm -rv $PKG/usr/share/{applications,locale}
+  sed -i "/subdir('doc')/d" meson.build
+  meson build --prefix=/usr
+  DESTDIR=$PKG ninja -C build install
+  rm -rv $PKG/usr/share
 }

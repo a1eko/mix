@@ -1,5 +1,5 @@
 # Description: A tool to search text in PDF files
-# Depends on: poppler
+# Depends on: poppler libgcrypt
 
 name=pdfgrep
 version=2.1.0

@@ -4,12 +4,12 @@
 # Packager: Matt Housh, jaeger at crux dot nu
 
 name=flash-player-plugin
-version=27.0.0.183
+version=30.0.0.113
 release=mix-1
-source=()
+source=(https://fpdownload.adobe.com/pub/flashplayer/pdc/$version/flash-player-npapi-$version-release.x86_64.rpm)
 
 build() {
-  wget https://fpdownload.adobe.com/pub/flashplayer/pdc/$version/flash-player-npapi-$version-release.x86_64.rpm
+#  wget https://fpdownload.adobe.com/pub/flashplayer/pdc/$version/flash-player-npapi-$version-release.x86_64.rpm
   rpm2targz flash-player-npapi-$version-release.x86_64.rpm
   tar xf flash-player-npapi-$version-release.x86_64.tar.gz
   install -D -m 0755 usr/lib64/flash-plugin/libflashplayer.so \

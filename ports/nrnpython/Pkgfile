@@ -10,7 +10,8 @@ build() {
   git clone https://github.com/nrnhines/nrn
   cd nrn
   ./build.sh
-  ./configure --prefix=/usr --exec-prefix=/usr --with-iv=/usr --with-nrnpython
+  ./configure --prefix=/usr --exec-prefix=/usr --with-iv=/usr \
+    --with-pyexe=python2 --with-nrnpython 
   cd src/nrnpython
   python setup.py install --prefix=$PKG/usr 
 }

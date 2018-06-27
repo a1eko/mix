@@ -4,7 +4,7 @@
 name=alpine
 version=2.21
 release=mix-1
-source=(http://alpine.freeiz.com/alpine/release/src/$name-$version.tar.xz)
+source=( http://anduin.linuxfromscratch.org/BLFS/alpine/$name-$version.tar.xz)
 
 build() {
   cd $name-$version
