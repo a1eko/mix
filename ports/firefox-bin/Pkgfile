@@ -1,7 +1,7 @@
 # Description:  The Mozilla Firefox browser
 
 name=firefox-bin
-version=61.0.2
+version=62.0.2
 release=mix-1
 source=(https://ftp.mozilla.org/pub/firefox/releases/$version/linux-x86_64/en-US/firefox-$version.tar.bz2)
 
