@@ -1,0 +1,25 @@
+# Description: GNU shar (encoding/decoding) utilities
+# URL: http://www.gnu.org/software/sharutils/sharutils.html
+# Maintainer: Jose V Beneyto, sepen at crux dot nu
+# Packager:  Antti Nykanen, aon at iki dot fi
+# Depends on: 
+
+name=sharutils
+version=4.15.2
+release=mix-2
+source=(ftp://ftp.gnu.org/gnu/$name/$name-$version.tar.xz)
+
+build(){
+  cd $name-$version
+
+  sed -i 's/IO_ftrylockfile/IO_EOF_SEEN/' lib/*.c
+  echo "#define _IO_IN_BACKUP 0x100" >> lib/stdio-impl.h
+
+  ./configure --prefix=/usr \
+              --disable-nls
+
+  make
+  make DESTDIR=$PKG install
+
+  rm -rf $PKG/usr/share/info
+}

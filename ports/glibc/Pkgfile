@@ -1,8 +1,8 @@
 # Description: system C library
 
 name=glibc
-version=2.27
-gccver=8.1.0
+version=2.28
+gccver=8.2.0
 release=mix-1
 source=(ftp://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz
 	http://www.linuxfromscratch.org/patches/downloads/glibc/glibc-$version-fhs-1.patch
@@ -35,7 +35,6 @@ build()
   ../configure --prefix=/usr \
     --disable-werror \
     --enable-kernel=3.2 \
-    --enable-obsolete-rpc \
     --enable-stack-protector=strong \
     libc_cv_slibdir=/lib
   make
@@ -46,7 +45,6 @@ build()
   sed '/test-installation/s@$(PERL)@echo not running@' -i ../Makefile
 
   make install_root=$PKG install
-  rm -v $PKG/usr/include/rpcsvc/*.x
   rm -rv $PKG/usr/share/info
 
   # install nscd

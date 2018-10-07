@@ -1,14 +1,13 @@
 # Description: programming language and script interpreter
 
 name=perl
-version=5.26.2
+version=5.28.0
 release=0
 source=(http://cpan.org/src/5.0/perl-$version.tar.xz)
 
 build() {
   cd $name-$version
-
-  sh Configure -des -Dprefix=/tools -Dlibs=-lm
+  sh Configure -des -Dprefix=/tools -Dlibs=-lm -Uloclibpth -Ulocincpth
   make
   mkdir -pv $PKG/tools/bin
   cp -v perl cpan/podlators/scripts/pod2man $PKG/tools/bin/

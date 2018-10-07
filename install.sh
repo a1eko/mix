@@ -53,13 +53,13 @@ toolsh="env -i MIX=$MIX PKZ=$MIX PKZCONF=$MIX/usr/sources/pkz.conf \
 P=$MIX/usr/packages
 
 BASE1="linux-headers glibc lzip tzdata"
-BASE2="zlib file readline m4 bc binutils libgmp libmpfr libmpc gcc linux-firmware"
-BASE3="bzip2 pkg-config ncurses attr acl libcap sed shadow psmisc \
-  iana-etc bison flex grep bash libtool gdbm gperf expat inetutils perl \
-  tcl expect dejagnu check autoconf automake xz kmod gettext elfutils \
-  openssl procps e2fsprogs coreutils diffutils gawk findutils groff less \
-  gzip kbd libpipeline make man-pages patch sudo sysklogd sysvinit eudev \
-  util-linux man-db tar texinfo vim"
+BASE2="zlib file readline m4 bc binutils libgmp libmpfr libmpc shadow gcc linux-firmware"
+BASE3="bzip2 pkg-config ncurses attr acl libcap sed psmisc iana-etc bison \
+  flex grep bash libtool gdbm gperf expat inetutils perl tcl expect \
+  dejagnu check autoconf automake xz kmod gettext elfutils openssl \
+  coreutils diffutils gawk findutils groff less gzip kbd libpipeline \
+  make man-pages patch man-db tar texinfo vim procps util-linux e2fsprogs \
+  sudo sysklogd sysvinit eudev"
 
 BOOT="linux nasm syslinux rc"
 
@@ -127,7 +127,6 @@ $toolsh "pkz -p $P/perl-tool       -f install perl"
 $toolsh "pkz -p $P/sed-tool        -f install sed"
 $toolsh "pkz -p $P/tar-tool        -f install tar"
 $toolsh "pkz -p $P/texinfo-tool    -f install texinfo"
-$toolsh "pkz -p $P/util-linux-tool -f install util-linux"
 $toolsh "pkz -p $P/xz-tool         -f install xz"
 
 $toolsh "pkz -p $P/ncurses-tool    clean ncurses"
@@ -148,7 +147,6 @@ $toolsh "pkz -p $P/perl-tool       clean perl"
 $toolsh "pkz -p $P/sed-tool        clean sed"
 $toolsh "pkz -p $P/tar-tool        clean tar"
 $toolsh "pkz -p $P/texinfo-tool    clean texinfo"
-$toolsh "pkz -p $P/util-linux-tool clean util-linux"
 $toolsh "pkz -p $P/xz-tool         clean xz"
 
 ( cd / && tar czf $MIX/usr/sources/tools.tar.gz tools/* )

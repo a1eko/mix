@@ -1,0 +1,25 @@
+# Description: Collection of boot loaders for the Linux operating system
+# URL: http://syslinux.zytor.com/
+# Maintainer: Matt Housh, jaeger at crux dot ninja
+# Depends on: mtools perl python
+
+name=syslinux
+version=6.03
+release=mix-5
+source=(http://www.kernel.org/pub/linux/utils/boot/$name/$name-$version.tar.xz \
+	$name-6.03-sysmacros.patch $name-Makefile.patch)
+
+build() {
+  cd $name-$version
+
+  patch -p1 -i $SRC/$name-6.03-sysmacros.patch
+  patch -p0 -i $SRC/$name-Makefile.patch
+
+  make OPTFLAGS="$CFLAGS" installer
+  make -j1 OPTFLAGS="$CFLAGS" INSTALLROOT=$PKG MANDIR=/usr/share/man install
+
+  # revdep
+  install -d $PKG/etc/revdep.d
+  echo '/usr/share/syslinux'       > $PKG/etc/revdep.d/syslinux
+  echo '/usr/share/syslinux/efi64' >> $PKG/etc/revdep.d/syslinux
+}
