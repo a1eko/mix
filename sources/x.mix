@@ -1,6 +1,7 @@
 # X Window system
 # 
 # NOTE: installs after coreopt.mix
+#
 
 xorg-util-macros
 xorg-xorgproto
