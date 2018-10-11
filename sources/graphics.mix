@@ -1,6 +1,7 @@
 # Basic graphics tools
 #
 # NOTE: installs after x.mix
+#       pkz -f install include graphics.mix
 
 libjpeg-turbo
 libpng
@@ -16,12 +17,14 @@ libtiff
 shared-mime-info
 
 atk
+cairo
 gdk-pixbuf
 giblib
 harfbuzz
 hicolor-icon-theme
 lcms2
 
+freetype
 fribidi
 libtirpc
 mpdecimal
@@ -43,20 +46,24 @@ poppler
 xaw3d
 db
 
+at-spi2-core
+at-spi2-atk
+gtk3
+
 apr
 libcroco
 librsvg
 neon
 sqlite3
 
-babl
-gegl
+#babl
+#gegl
 libexif
 subversion
 
 enscript
 exiv2
-gimp
+#gimp
 gnuplot
 libwmf
 popt
