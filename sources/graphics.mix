@@ -1,7 +1,10 @@
 # Basic graphics tools
 #
 # NOTE: installs after x.mix
-#       pkz -f install include graphics.mix
+# Clean up previous builds and force installation of rebuilt packages.
+#
+#       sudo pkz clean
+#       sudo pkz -f install include graphics.mix
 #
 
 libjpeg-turbo
@@ -55,7 +58,6 @@ apr
 libcroco
 librsvg
 neon
-sqlite3
 
 #babl
 #gegl

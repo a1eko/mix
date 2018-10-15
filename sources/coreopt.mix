@@ -19,9 +19,6 @@ yasm
 python
 rsync
 
-glib
-
-db
 dbus
 #exim
 iptables

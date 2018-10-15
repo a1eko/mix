@@ -2,12 +2,13 @@
 
 name=texinfo
 version=6.5
-release=mix-1
+release=mix-2
 source=(ftp://ftp.gnu.org/gnu/texinfo/texinfo-$version.tar.gz)
 
 build() {
   cd $name-$version
-  ./configure --prefix=/usr --disable-nls
+  sed -i '5481,5485 s/({/(\\{/' tp/Texinfo/Parser.pm
+  ./configure --prefix=/usr --disable-nls --disable-static
   make
   $TST make -k check || true
   make DESTDIR=$PKG install
