@@ -2,7 +2,7 @@
 # Depends on: gtk3 girara sqlite3 intltool meson ninja
 
 name=zathura
-version=0.4.0
+version=0.4.1
 release=mix-1
 source=(http://pwmt.org/projects/zathura/download/zathura-$version.tar.xz)
  

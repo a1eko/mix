@@ -4,28 +4,35 @@
 # Depends on: elfutils libdrm libvdpau xorg-libxdamage xorg-libxshmfence xorg-libxvmc xorg-libxxf86vm
 
 name=mesa3d
-version=18.0.5
+version=18.2.2
 release=mix-1
 source=(https://mesa.freedesktop.org/archive/mesa-$version.tar.xz)
 
 build() {
- cd mesa-$version
+  cd mesa-$version
 
- ./configure \
-  --prefix=/usr \
-  --sysconfdir=/etc \
-  --enable-gbm \
-  --enable-gles1 \
-  --enable-gles2 \
-  --enable-glx-tls \
-  --enable-osmesa \
-  --enable-texture-float \
-  --enable-xa \
-  --enable-vdpau \
-  --disable-dependency-tracking \
-  --with-platforms=x11,drm \
-  --with-gallium-drivers=svga,swrast
+  ./configure \
+    --prefix=/usr \
+    --sysconfdir=/etc \
+    --enable-gbm \
+    --enable-gles1 \
+    --enable-gles2 \
+    --enable-glx-tls \
+    --enable-osmesa \
+    --enable-texture-float \
+    --enable-xa \
+    --enable-vdpau \
+    --disable-dependency-tracking \
+    --with-platforms=x11,drm \
+    --with-gallium-drivers=svga,swrast
 
- make
- make DESTDIR=$PKG install
+  make
+  make DESTDIR=$PKG install
+
+  # indirect rendering symlink
+  ln -sv libGLX_mesa.so.0 $PKG/usr/lib/libGLX_indirect.so.0
+
+  # remove libGLES* for libglvnd; see thread at
+  # https://lists.freedesktop.org/archives/mesa-maintainers/2017-March/000055.html
+  rm -v $PKG/usr/lib/libGLES*
 }

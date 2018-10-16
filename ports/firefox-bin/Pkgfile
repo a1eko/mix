@@ -1,7 +1,8 @@
 # Description:  The Mozilla Firefox browser
+# Depends on:   gtk3
 
 name=firefox-bin
-version=62.0.2
+version=62.0.3
 release=mix-1
 source=(https://ftp.mozilla.org/pub/firefox/releases/$version/linux-x86_64/en-US/firefox-$version.tar.bz2)
 
