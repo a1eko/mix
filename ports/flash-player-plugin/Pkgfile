@@ -2,9 +2,10 @@
 # URL: http://www.adobe.com/products/flashplayer/
 # Maintainer: Jose V Beneyto, sepen at crux dot nu
 # Packager: Matt Housh, jaeger at crux dot nu
+# Depends on: rpm2targz
 
 name=flash-player-plugin
-version=30.0.0.113
+version=31.0.0.122
 release=mix-1
 source=(https://fpdownload.adobe.com/pub/flashplayer/pdc/$version/flash-player-npapi-$version-release.x86_64.rpm)
 

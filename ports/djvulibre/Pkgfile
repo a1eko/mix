@@ -1,7 +1,7 @@
 # Description: GPL'ed reader of DjVu format
-# URL: http://djvu.sourceforge.net/
-# Maintainer: John Vogel, jvogel4 at stny dot rr dot com
-# Depends on: libjpeg
+# URL:         http://djvu.sourceforge.net/
+# Maintainer:  John Vogel, jvogel4 at stny dot rr dot com
+# Depends on:  libjpeg-turbo
 
 name=djvulibre
 version=3.5.27
@@ -10,8 +10,14 @@ source=(http://download.sourceforge.net/djvu/$name-$version.tar.gz)
 
 build() {
 	cd $name-$version
-	./configure --prefix=/usr --disable-i18n --disable-djview --disable-desktopfiles
+
+	./configure \
+		--prefix=/usr \
+		--disable-i18n \
+		--disable-djview
+
 	make
 	make DESTDIR=$PKG install
+
 	rm -rf $PKG/usr/share/djvu/osi/{cs,de,fr,ja,zh}
 }

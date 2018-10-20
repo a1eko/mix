@@ -2,7 +2,7 @@
 # Depends on: poppler libgcrypt
 
 name=pdfgrep
-version=2.1.0
+version=2.1.1
 release=mix-1
 source=(https://pdfgrep.org/download/pdfgrep-$version.tar.gz)
 
@@ -10,7 +10,6 @@ build() {
   cd $name-$version
   ./configure --prefix=/usr
   make
-  #$TST make -k check
   make DESTDIR=$PKG install
   rm -rv $PKG/usr/share/{bash,zsh}*
 }
