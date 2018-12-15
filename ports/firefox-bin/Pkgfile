@@ -2,7 +2,7 @@
 # Depends on:   gtk3
 
 name=firefox-bin
-version=63.0.3
+version=65.0b4
 release=mix-1
 source=(https://ftp.mozilla.org/pub/firefox/releases/$version/linux-x86_64/en-US/firefox-$version.tar.bz2)
 
