@@ -1,13 +1,12 @@
 # Description: programs for manipulating info pages
 
 name=texinfo
-version=6.5
-release=mix-2
+version=6.6
+release=mix-1
 source=(ftp://ftp.gnu.org/gnu/texinfo/texinfo-$version.tar.gz)
 
 build() {
   cd $name-$version
-  sed -i '5481,5485 s/({/(\\{/' tp/Texinfo/Parser.pm
   ./configure --prefix=/usr --disable-nls --disable-static
   make
   $TST make -k check || true
