@@ -184,9 +184,10 @@ Delete unneeded files in `/usr/sources`.
 
 Get the CRUX ports and build the rest of the system. Use `*.mix` files
 in `/usr/sources` for building optional packages in proper order. Be
-careful with toolchain packages, e.g. *binutils*, *gcc*, *glibc*,
-*linux-headers*, they don't need to be upgraded.  In CRUX ports that
-use *pkgtools* during build, replace string "`pkginfo -i`" with "`pkz
--i list`".
+careful with toolchain packages, i.e. *binutils*, *gcc*, *glibc*,
+and *linux-headers*, they don't need to be upgraded.  In CRUX ports
+that use *pkgtools* during build, replace string "`pkginfo -i`" with
+"`pkz -i list`". MiX packages from the `ports/` directory overwrite
+corresponding CRUX ports.
 
 Alexander Kozlov <akozlov@kth.se>  
