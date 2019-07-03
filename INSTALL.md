@@ -7,7 +7,7 @@ System requirements
 * A 32-bit CPU i686 or higher is required. MiX is tested on x86_64
 architecture.
 
-* The core system is about 2.2 GB (3.5 GB with sources) and needs over
+* The core system is about 2.4 GB (3.7 GB with sources) and needs over
 10 GB of the disk space to build.
 
 * Host system should be relatively up-to-date. This distribution is
