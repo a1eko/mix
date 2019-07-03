@@ -1,7 +1,7 @@
 # Description: portable scripting environment
 
 name=tcl
-version=8.6.8
+version=8.6.9
 release=0
 source=(http://sourceforge.net/projects/tcl/files/Tcl/$version/tcl$version-src.tar.gz)
 
@@ -14,5 +14,5 @@ build() {
   make INSTALL_ROOT=$PKG install-private-headers
   chmod -v u+w $PKG/tools/lib/libtcl8.6.so
   ln -sv tclsh8.6 $PKG/tools/bin/tclsh
-  rm -rfv $PKG/tools/share/man
+  rm -rfv $PKG/tools/{,share}/man
 }

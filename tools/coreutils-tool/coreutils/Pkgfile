@@ -1,9 +1,9 @@
 # Description: core utilities
 
 name=coreutils
-version=8.30
+version=8.31
 release=0
-source=(ftp://ftp.gnu.org/gnu/coreutils/coreutils-$version.tar.xz)
+source=(http://ftp.gnu.org/gnu/coreutils/coreutils-$version.tar.xz)
 
 build() {
   cd $name-$version

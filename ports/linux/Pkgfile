@@ -1,9 +1,9 @@
 # Description: linux kernel
 
 name=linux
-version=5.0.8
+version=5.1.15
 release=mix-1
-source=(https://www.kernel.org/pub/linux/kernel/v4.x/linux-$version.tar.xz config.local)
+source=(https://www.kernel.org/pub/linux/kernel/v5.x/linux-$version.tar.xz config.local)
 
 build() {
   cd $name-$version

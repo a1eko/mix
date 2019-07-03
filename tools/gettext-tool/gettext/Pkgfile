@@ -1,20 +1,14 @@
 # Description: internatinalization and localization utilities
 
 name=gettext
-version=0.19.8.1
+version=0.20.1
 release=0
-source=(ftp://ftp.gnu.org/gnu/gettext/gettext-$version.tar.xz)
+source=(http://ftp.gnu.org/gnu/gettext/gettext-$version.tar.xz)
 
 build() {
   cd $name-$version
-  cd gettext-tools
-  EMACS="no" \
-  ./configure --prefix=/tools --disable-shared
-  make -C gnulib-lib
-  make -C intl pluralx.c
-  make -C src msgfmt
-  make -C src msgmerge
-  make -C src xgettext
+  ./configure --disable-shared
+  make
   mkdir -pv $PKG/tools/bin
-  cp -v src/{msgfmt,msgmerge,xgettext} $PKG/tools/bin/
+  cp -v gettext-tools/src/{msgfmt,msgmerge,xgettext} $PKG/tools/bin/
 }

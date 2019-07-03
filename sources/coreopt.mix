@@ -6,7 +6,7 @@
 
 ca-certificates
 libarchive
-libffi
+#libffi
 libnl
 lzo
 libpcre
@@ -14,14 +14,20 @@ popt
 sharutils
 start-stop-daemon
 sysfsutils
+unzip
 yasm
+zip
 
-python
+#python
+python3-setuptools
+python3-pip
+ninja
 rsync
 
 dbus
 #exim
 iptables
+meson
 
 dhcpcd
 iproute2
@@ -37,13 +43,13 @@ ed
 fetchmail
 git
 lynx
-mailx
+#mailx
 #openssh
 time
-unzip
+#unzip
 wget
 which
-zip
+#zip
 
 cmake
 

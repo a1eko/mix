@@ -1,8 +1,8 @@
 # Description: system C library
 
 name=glibc
-version=2.28
-gccver=8.2.0
+version=2.29
+gccver=9.1.0
 release=mix-1
 source=(ftp://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz
 	http://www.linuxfromscratch.org/patches/downloads/glibc/glibc-$version-fhs-1.patch
@@ -14,7 +14,6 @@ build()
   patch -Np1 -i ../glibc-$version-fhs-1.patch
 
   # create compatibility links
-  ln -sfv /tools/lib/gcc /usr/lib
   case $(uname -m) in
     i?86) GCC_INCDIR=/usr/lib/gcc/$(uname -m)-pc-linux-gnu/$gccver/include
       ln -s ld-linux.so.2 /lib/ld-lsb.so.3
@@ -25,19 +24,18 @@ build()
       ;;
   esac
 
-  # remove possible leftover
-  rm -f /usr/include/limits.h
-
   mkdir -v build
   cd build
 
-  CC="gcc -isystem $GCC_INCDIR -isystem /usr/include" \
+  CC="gcc -ffile-prefix-map=/tools=/usr" \
   ../configure --prefix=/usr \
     --disable-werror \
     --enable-kernel=3.2 \
     --enable-stack-protector=strong \
+    --with-headers=/usr/include \
     libc_cv_slibdir=/lib
   make
+  # FIXME $TST <ld-linux links>
   $TST TIMEOUTFACTOR=16 make -k check || true
   install -Dv -m 644 $SRC/ld.so.conf $PKG/etc/ld.so.conf
 

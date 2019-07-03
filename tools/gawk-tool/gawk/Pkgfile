@@ -1,9 +1,9 @@
 # Description: text processing language interpreter
 
 name=gawk
-version=4.2.1
+version=5.0.1
 release=0
-source=(ftp://ftp.gnu.org/gnu/gawk/gawk-$version.tar.xz)
+source=(http://ftp.gnu.org/gnu/gawk/gawk-$version.tar.xz)
 
 build() {
   cd $name-$version

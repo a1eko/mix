@@ -3,7 +3,7 @@
 name=texinfo
 version=6.6
 release=0
-source=(ftp://ftp.gnu.org/gnu/texinfo/texinfo-$version.tar.gz)
+source=(http://ftp.gnu.org/gnu/texinfo/texinfo-$version.tar.gz)
 
 build() {
   cd $name-$version

@@ -1,9 +1,9 @@
 # Description: compiler collection
 
 name=gcc
-version=8.2.0
+version=9.1.0
 release=0libstdcxx
-source=(ftp://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz)
+source=(http://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz)
 
 : ${MIX_TGT:=$(uname -m)-mix-linux-gnu}
 

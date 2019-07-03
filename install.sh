@@ -21,10 +21,10 @@ mkdir -pv sources
 mkdir -pv $MIX/usr/{packages,sources}
 mkdir -pv $MIX/{tools/bin,var/log/{packages,sources}}
 cp -r sources $MIX/usr/
-rsync -rqz crux.nu::ports/crux-3.4/core/ $MIX/usr/packages
-rsync -rqz crux.nu::ports/crux-3.4/opt/ $MIX/usr/packages
-rsync -rqz crux.nu::ports/crux-3.4/contrib/tcl $MIX/usr/packages
-rsync -rqz crux.nu::ports/crux-3.4/contrib/lynx $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.5/core/ $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.5/opt/ $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.5/contrib/tcl $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.5/contrib/lynx $MIX/usr/packages
 cp -r {ports,tools}/* $MIX/usr/packages/
 rm -f $MIX/usr/packages/C*
 
@@ -56,8 +56,8 @@ BASE1="linux-headers glibc lzip tzdata"
 BASE2="zlib file readline m4 bc binutils libgmp libmpfr libmpc shadow gcc linux-firmware"
 BASE3="bzip2 pkg-config ncurses attr acl libcap sed psmisc iana-etc bison \
   flex grep bash libtool gdbm gperf expat inetutils perl tcl expect \
-  dejagnu check autoconf automake xz kmod gettext elfutils openssl \
-  coreutils diffutils gawk findutils groff less gzip kbd libpipeline \
+  dejagnu check autoconf automake xz kmod gettext elfutils libffi coreutils openssl python3 \
+  diffutils gawk findutils groff less gzip kbd libpipeline \
   make man-pages patch man-db tar texinfo vim procps util-linux e2fsprogs \
   sudo sysklogd sysvinit eudev"
 
@@ -124,6 +124,7 @@ $toolsh "pkz -p $P/gzip-tool       -f install gzip"
 $toolsh "pkz -p $P/make-tool       -f install make"
 $toolsh "pkz -p $P/patch-tool      -f install patch"
 $toolsh "pkz -p $P/perl-tool       -f install perl"
+$toolsh "pkz -p $P/python3-tool    -f install python3"
 $toolsh "pkz -p $P/sed-tool        -f install sed"
 $toolsh "pkz -p $P/tar-tool        -f install tar"
 $toolsh "pkz -p $P/texinfo-tool    -f install texinfo"
@@ -144,6 +145,7 @@ $toolsh "pkz -p $P/m4-tool         clean m4"
 $toolsh "pkz -p $P/make-tool       clean make"
 $toolsh "pkz -p $P/patch-tool      clean patch"
 $toolsh "pkz -p $P/perl-tool       clean perl"
+$toolsh "pkz -p $P/python3-tool    clean python3"
 $toolsh "pkz -p $P/sed-tool        clean sed"
 $toolsh "pkz -p $P/tar-tool        clean tar"
 $toolsh "pkz -p $P/texinfo-tool    clean texinfo"

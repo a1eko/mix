@@ -1,9 +1,9 @@
 # Description: compiler collection
 
 name=gcc
-version=8.2.0
+version=9.1.0
 release=mix-1
-source=(ftp://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz)
+source=(http://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz)
 
 build()
 {
@@ -17,9 +17,6 @@ build()
       ;;
   esac
 
-  # remove the symlink created during tool building phase
-  rm -f /usr/lib/gcc
-
   mkdir -v build
   cd build
 
@@ -29,7 +26,6 @@ build()
     --disable-multilib \
     --disable-nls \
     --disable-bootstrap \
-    --disable-libmpx \
     --with-system-zlib
   make
   $TST ulimit -s 32768
