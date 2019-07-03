@@ -6,7 +6,6 @@
 
 ca-certificates
 libarchive
-#libffi
 libnl
 lzo
 libpcre
@@ -18,7 +17,6 @@ unzip
 yasm
 zip
 
-#python
 python3-setuptools
 python3-pip
 ninja
@@ -46,10 +44,8 @@ lynx
 #mailx
 #openssh
 time
-#unzip
 wget
 which
-#zip
 
 cmake
 
