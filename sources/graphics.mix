@@ -47,12 +47,11 @@ ghostscript
 libxml2
 libxslt
 poppler
-xaw3d
-db
 
 at-spi2-core
 at-spi2-atk
 gtk3
+rust-bin
 
 apr
 libcroco

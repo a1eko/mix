@@ -9,20 +9,20 @@ xorg-libxau
 xorg-libxdmcp
 xorg-xcb-proto
 
-python3
+#python3
 
 python3-pyparsing
-python3-setuptools
+#python3-setuptools
 python3-six
 
 python3-appdirs
 python3-packaging
-python3-pip
+#python3-pip
 
 libxml2
-meson
+#meson
 mtdev
-ninja
+#ninja
 xorg-libevdev
 
 libxslt
@@ -76,6 +76,18 @@ xorg-xcb-util-renderutil
 xorg-xcb-util-wm
 xorg-xcb-util-cursor
 
+db
+libtirpc
+mpdecimal
+sqlite3
+
+python
+python3-markupsafe
+python3-mako
+
+libglvnd
+llvm
+
 libdrm
 libvdpau
 mesa3d
@@ -83,7 +95,7 @@ mesa3d
 xorg-xbitmaps
 
 xorg-iceauth
-xorg-mkfontdir
+#xorg-mkfontdir
 xorg-mkfontscale
 xorg-rgb
 xorg-sessreg
@@ -117,7 +129,6 @@ intltool
 xkeyboard-config
 xorg-libpixman
 
-sqlite3
 glib
 
 cairo
