@@ -64,7 +64,6 @@ BASE3="bzip2 pkg-config ncurses attr acl libcap sed psmisc iana-etc bison \
 BOOT="linux nasm syslinux rc"
 
 $toolsh "pkz source $BASE1 $BASE2 $BASE3 $BOOT"
-#$toolsh "pkz source include $MIX/usr/sources/coreopt.mix"
 
 #
 # Making tools
@@ -286,9 +285,6 @@ $chrootsh "
   groupadd -g 50 sshd
   useradd -c 'privacy separation' -d /var/lib/sshd -g sshd -s /bin/false -u 50 sshd
 "
-
-#$chrootsh "pkz install include /usr/sources/coreopt.mix"
-#$chrootsh "pkz clean include /usr/sources/coreopt.mix"
 
 $chrootsh "cat > /etc/config.site << 'EOF'
 test -z \"\$CFLAGS\" && export CFLAGS=\"-O2 -pipe -mtune=native\" || true
