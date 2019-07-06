@@ -9,20 +9,14 @@ xorg-libxau
 xorg-libxdmcp
 xorg-xcb-proto
 
-#python3
-
 python3-pyparsing
-#python3-setuptools
 python3-six
 
 python3-appdirs
 python3-packaging
-#python3-pip
 
 libxml2
-#meson
 mtdev
-#ninja
 xorg-libevdev
 
 libxslt

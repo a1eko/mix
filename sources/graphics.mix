@@ -1,17 +1,13 @@
 # Basic graphics tools
 #
 # NOTE: installs after x.mix
-# Clean up previous builds and force installation of rebuilt packages.
-#
-#       sudo pkz clean
-#       sudo pkz -f install include graphics.mix
 #
 
-libjpeg-turbo
-libpng
+#libjpeg-turbo
+#libpng
 openjpeg
 
-cairo
+#cairo
 giflib
 gobject-introspection
 jasper
@@ -24,15 +20,15 @@ atk
 cairo
 gdk-pixbuf
 giblib
-harfbuzz
+#harfbuzz
 hicolor-icon-theme
 lcms2
 
-freetype
+#freetype
 fribidi
-libtirpc
-mpdecimal
-sqlite3
+#libtirpc
+#mpdecimal
+#sqlite3
 
 pango
 poppler-data
@@ -68,6 +64,6 @@ exiv2
 #gimp
 gnuplot
 libwmf
-popt
+#popt
 
 imagemagick

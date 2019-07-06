@@ -64,6 +64,7 @@ BASE3="bzip2 pkg-config ncurses attr acl libcap sed psmisc iana-etc bison \
 BOOT="linux nasm syslinux rc"
 
 $toolsh "pkz source $BASE1 $BASE2 $BASE3 $BOOT"
+$toolsh "pkz source include $MIX/usr/source/coreopt.mix"
 
 #
 # Making tools
@@ -279,6 +280,9 @@ $chrootsh "pkz clean $BASE3"
 
 $chrootsh "pkz -f install $BOOT"
 $chrootsh "pkz clean $BOOT"
+
+$chrootsh "pkz -f install include /usr/sources/coreopt.mix"
+$chrootsh "pkz clean include /usr/sources/coreopt.mix"
 
 $chrootsh "
   install -v -m 700 -o root -g sys -d /var/lib/sshd
