@@ -193,7 +193,7 @@ do_build() {
   du -sk $PKG | cut -f1 | sed "s/^/size /" >> pkgbuild
   gzip -3 -c pkgbuild > $pkgbuild.gz
   test $compress_manuals = yes && compress_files $PKG '*/man/man*'
-  test -n "$strip_shared""$strip_static""$strip_binaries" && strip_objects
+  test -n "$strip_shared""$strip_static""$strip_binaries" -a ! -e $pkgdir/.nostrip && strip_objects
   ( cd $PKG; tar cf - . | gzip -3 -c > $SRC/pkgbin ) || error "packaging failed"
   tar tvvf pkgbin | awk '{if(NR>1) print $1, $2, $6, $7, $8, $9}' \
     | sed -e 's/ /\t/' -e 's/ \.\//\t/' > pkgcont
