@@ -53,11 +53,11 @@ toolsh="env -i MIX=$MIX PKZ=$MIX PKZCONF=$MIX/usr/sources/pkz.conf \
 P=$MIX/usr/packages
 
 BASE1="linux-headers glibc lzip tzdata"
-BASE2="zlib file readline m4 bc binutils libgmp libmpfr libmpc shadow gcc linux-firmware"
+BASE2="zlib file readline m4 bc binutils libgmp libmpfr libmpc shadow gcc"
 BASE3="bzip2 pkg-config ncurses attr acl libcap sed psmisc iana-etc bison \
   flex grep bash libtool gdbm gperf expat inetutils perl tcl expect \
   dejagnu check autoconf automake xz kmod gettext elfutils libffi coreutils openssl python3 \
-  diffutils gawk findutils groff less gzip kbd libpipeline \
+  diffutils gawk findutils groff less gzip kbd libpipeline linux-firmware \
   make man-pages patch man-db tar texinfo vim procps util-linux e2fsprogs \
   sudo sysklogd sysvinit eudev"
 
