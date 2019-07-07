@@ -3,8 +3,8 @@
 
 name=zathura-pdf-poppler
 version=0.2.9
-release=mix-1
-source=(http://pwmt.org/projects/$name/download/$name-$version.tar.xz)
+release=mix-2
+source=(https://github.com/pwmt/zathura-pdf-poppler/archive/$version.tar.gz)
 
 build() {
   cd $name-$version

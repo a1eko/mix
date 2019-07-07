@@ -1,0 +1,14 @@
+# Description: PostScript rendering library
+# Depends on: ghostscript
+
+name=libspectre
+version=0.2.8
+release=mix-1
+source=(http://libspectre.freedesktop.org/releases/libspectre-$version.tar.gz)
+ 
+build() {
+  cd $name-$version
+  ./configure --prefix=/usr --disable-static
+  make
+  make DESTDIR=$PKG install
+}

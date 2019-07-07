@@ -2,10 +2,10 @@
 # Depends on: gtk3 intltool libnotify json-c meson ninja
 
 name=girara
-version=0.3.1
-release=mix-1
+version=0.3.2
+release=mix-2
 
-source=(http://pwmt.org/projects/girara/download/girara-$version.tar.xz)
+source=(https://github.com/pwmt/girara/archive/$version.tar.gz)
  
 build() {
   cd $name-$version
@@ -13,4 +13,5 @@ build() {
   DESTDIR=$PKG ninja -C build install
   rm -rv $PKG/usr/share/locale
   rmdir -v $PKG/usr/share
+  find $PKG -perm -g+w | xargs chmod g-w
 }
