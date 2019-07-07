@@ -2,7 +2,7 @@
 # Depends on: poppler libgcrypt
 
 name=pdfgrep
-version=2.1.1
+version=2.1.2
 release=mix-1
 source=(https://pdfgrep.org/download/pdfgrep-$version.tar.gz)
 
