@@ -2,14 +2,12 @@
 # Depends on: python, libpng, cmake
 
 name=lensfun
-version=0.3.2
+version=0.3.95
 release=mix-1
-source=(http://sourceforge.net/projects/lensfun/files/$version/$name-$version.tar.gz
-  	lensfun-fix-python-install-dir.patch)
+source=(http://sourceforge.net/projects/lensfun/files/$version/$name-$version.tar.gz)
 
 build() {
   cd $name-$version
-  patch -p1 -i ../lensfun-fix-python-install-dir.patch
   cmake . \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DCMAKE_BUILD_TYPE=Release \
@@ -17,4 +15,3 @@ build() {
   make
   make DESTDIR=$PKG install
 }
-
