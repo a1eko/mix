@@ -23,10 +23,12 @@ monitor() {
   sort -u .listing-tmp > .listing-files
   if [ -d $P/ports ]; then
     for p in $P/ports/*; do
-      source $p/Pkgfile
-      echo $name $version-$release:
-      grep "^$name" .listing-files
-      echo
+      if [ -e $p/Pkgfile ]; then
+        source $p/Pkgfile
+        echo $name $version-$release:
+        grep "^$name" .listing-files
+        echo
+      fi
     done > $T
   fi
   rm -f .listing* index.html* wget-list
