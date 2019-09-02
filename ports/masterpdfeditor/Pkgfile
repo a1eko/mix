@@ -5,7 +5,7 @@
 
 name=masterpdfeditor
 version=4
-release=mix-1
+release=mix-4.3.89-1
 
 source=("https://code-industry.net/public/master-pdf-editor-4.3.89_qt5.amd64.tar.gz")
 
