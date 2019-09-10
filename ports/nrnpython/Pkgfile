@@ -1,5 +1,5 @@
 # Description: python interface to Neuron simulation environment
-# Depends on: nrn python git
+# Depends on: nrn python3 git
 
 name=nrnpython
 version=git
@@ -11,7 +11,7 @@ build() {
   cd nrn
   ./build.sh
   ./configure --prefix=/usr --exec-prefix=/usr --with-iv=/usr \
-    --with-pyexe=python2 --with-nrnpython 
+    --with-pyexe=python3 --with-nrnpython 
   cd src/nrnpython
-  python setup.py install --prefix=$PKG/usr 
+  python3 setup.py install --prefix=$PKG/usr 
 }
