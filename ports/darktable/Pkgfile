@@ -1,5 +1,6 @@
 # Description: photographic raw image manipulation tool
-# Depends on: gtk3 cmake libxml2 pugixml libxslt json-glib libpng libjpeg-turbo libtiff librsvg sqlite3 exiv2 lensfun lcms2 curl mesa3d openexr libgphoto2 dbus-glib libwebp llvm
+# Depends on: gtk3 cmake libxml2 pugixml libxslt json-glib libpng libjpeg-turbo libtiff librsvg sqlite3 exiv2 lensfun lcms2 curl mesa3d openexr libgphoto2 dbus-glib libwebp llvm clang
+# Nice to have: openmp
 
 name=darktable
 version=git
@@ -12,7 +13,10 @@ build() {
   git submodule init
   git submodule update
 
-  ./build.sh --prefix /usr --buildtype Release
+  CC=clang \
+  CXX=clang++ \
+  ./build.sh --prefix /usr --buildtype Release -j4
+
   cd build
   make DESTDIR=$PKG install
   rm -rv $PKG/usr/share/{applications,doc,locale}
