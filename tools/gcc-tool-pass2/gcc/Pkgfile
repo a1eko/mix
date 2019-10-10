@@ -1,7 +1,7 @@
 # Description: compiler collection
 
 name=gcc
-version=9.1.0
+version=9.2.0
 release=0pass2
 source=(http://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz
 	http://www.mpfr.org/mpfr-current/mpfr-4.0.2.tar.xz
@@ -48,7 +48,10 @@ build() {
   cd build
 
   # build gcc using cross compiler and linker
-  CC=$MIX_TGT-gcc CXX=$MIX_TGT-g++ AR=$MIX_TGT-ar RANLIB=$MIX_TGT-ranlib \
+  CC=$MIX_TGT-gcc \
+  CXX=$MIX_TGT-g++ \
+  AR=$MIX_TGT-ar \
+  RANLIB=$MIX_TGT-ranlib \
   ../configure --prefix=/tools \
     --with-local-prefix=/tools \
     --with-native-system-header-dir=/tools/include \
@@ -59,6 +62,7 @@ build() {
     --disable-libgomp
   make
   make DESTDIR=$PKG install
+
   ln -vs gcc $PKG/tools/bin/cc
   rm -rv $PKG/tools/share/{info,man}
   find $PKG -name "README*" -delete

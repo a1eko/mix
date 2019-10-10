@@ -1,7 +1,7 @@
 # Description: data compression program
 
 name=bzip2
-version=1.0.7
+version=1.0.8
 release=0
 source=(https://www.sourceware.org/pub/bzip2/bzip2-$version.tar.gz)
 

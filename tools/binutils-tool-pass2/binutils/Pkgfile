@@ -13,7 +13,9 @@ build() {
   cd build
 
   # make linker using cross compiler and linker
-  CC=$MIX_TGT-gcc AR=$MIX_TGT-ar RANLIB=$MIX_TGT-ranlib \
+  CC=$MIX_TGT-gcc \
+  AR=$MIX_TGT-ar \
+  RANLIB=$MIX_TGT-ranlib \
   ../configure --prefix=/tools \
     --disable-nls \
     --disable-werror \

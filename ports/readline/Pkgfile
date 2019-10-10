@@ -4,13 +4,15 @@
 # Depends on:  ncurses
 
 name=readline
-version=8.0
+version=8.0.1
 release=mix-1
 source=(http://ftpmirror.gnu.org/gnu/$name/$name-${version:0:3}.tar.gz \
-        inputrc)
+        $name-$version.patch.gz inputrc)
 
 build() {
     cd $name-${version:0:3}
+
+    gunzip -c $SRC/$name-$version.patch.gz | patch -p0
 
     ./configure --prefix=/usr
     make -j1 SHLIB_LIBS="-L/tools/lib -lncurses"

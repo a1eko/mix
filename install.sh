@@ -56,8 +56,8 @@ BASE1="linux-headers glibc lzip tzdata"
 BASE2="zlib file readline m4 bc binutils libgmp libmpfr libmpc shadow gcc"
 BASE3="bzip2 pkg-config ncurses attr acl libcap sed psmisc iana-etc bison \
   flex grep bash libtool gdbm gperf expat inetutils perl tcl expect \
-  dejagnu check autoconf automake xz kmod gettext elfutils libffi coreutils openssl python3 \
-  diffutils gawk findutils groff less gzip kbd libpipeline linux-firmware \
+  dejagnu check autoconf automake xz kmod gettext elfutils libffi openssl python3 \
+  coreutils diffutils gawk findutils groff less gzip kbd libpipeline linux-firmware \
   make man-pages patch man-db tar texinfo vim procps util-linux e2fsprogs \
   sudo sysklogd sysvinit eudev"
 
@@ -188,8 +188,8 @@ $chrootsh "
 "
 
 $chrootsh "
-  ln -sv /tools/bin/{bash,cat,dd,echo,ln,pwd,rm,stty} /bin
-  ln -sv /tools/bin/{install,perl} /usr/bin
+  ln -sv /tools/bin/{bash,cat,chmod,dd,echo,ln,imkdir,pwd,rm,stty,touch} /bin
+  ln -sv /tools/bin/{env,install,perl} /usr/bin
   ln -sv /tools/lib/libgcc_s.so{,.1} /usr/lib
   ln -sv /tools/lib/libstdc++.so{,.6} /usr/lib
   ln -sv bash /bin/sh

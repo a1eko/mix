@@ -3,13 +3,13 @@
 # Maintainer:  CRUX System Team, core-ports at crux dot nu
 
 name=bison
-version=3.4.1
-release=mix-2
+version=3.4.2
+release=mix-1
 source=(http://ftpmirror.gnu.org/gnu/$name/$name-$version.tar.xz)
 
 build() {
     cd $name-$version
-    sed -i '6855 s/mv/cp/' Makefile.in
+    sed -i '9327 s/mv/cp/' Makefile.in
     ./configure --prefix=/usr --disable-nls
     make -j1
     make DESTDIR=$PKG install
