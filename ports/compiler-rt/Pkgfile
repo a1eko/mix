@@ -2,9 +2,10 @@
 # Depends on:  cmake ninja llvm
 
 name=compiler-rt
-version=8.0.1
+version=9.0.0
 release=mix-1
-source=(https://github.com/llvm/llvm-project/releases/download/llvmorg-$version/$name-$version.src.tar.xz)
+source=(http://releases.llvm.org/$version/$name-$version.src.tar.xz)
+
 
 build() {
   cd $name-$version.src
