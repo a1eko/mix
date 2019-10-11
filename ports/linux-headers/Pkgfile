@@ -8,7 +8,9 @@ source=(https://www.kernel.org/pub/linux/kernel/v5.x/linux-$version.tar.xz)
 build() {
   cd linux-$version
   make mrproper
-  make headers_check
-  make INSTALL_HDR_PATH=$PKG/usr headers_install
-  find $PKG/usr/include \( -name .install -o -name ..install.cmd \) -delete
+  make headers
+  find usr/include -name '.*' -delete
+  rm usr/include/Makefile
+  mkdir -pv $PKG/usr/include
+  cp -rv usr/include/* $PKG/usr/include/
 }

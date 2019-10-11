@@ -64,7 +64,7 @@ BASE3="bzip2 pkg-config ncurses attr acl libcap sed psmisc iana-etc bison \
 BOOT="linux nasm syslinux rc"
 
 $toolsh "pkz source $BASE1 $BASE2 $BASE3 $BOOT"
-$toolsh "pkz source include $MIX/usr/source/coreopt.mix"
+$toolsh "pkz source include $MIX/usr/sources/coreopt.mix"
 
 #
 # Making tools
