@@ -8,9 +8,7 @@ source=(https://github.com/gavinhoward/$name/archive/$version/$name-$version.tar
 build() { 
     cd $name-$version
 
-    PREFIX=/usr CC=gcc CFLAGS="-std=c99" ./configure.sh -G -O3
+    PREFIX=/usr CC=gcc CFLAGS="-std=c99" ./configure.sh --disable-nls -G -O3 
     make
     make DESTDIR=$PKG install
-
-    # FIXME # rm -r $PKG/usr/share/info
 }

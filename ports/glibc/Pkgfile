@@ -19,10 +19,10 @@ build()
 
   # create compatibility links
   case $(uname -m) in
-    i?86) # FIXME unneeded # GCC_INCDIR=/usr/lib/gcc/$(uname -m)-pc-linux-gnu/$gccver/include
+    i?86)
       ln -s ld-linux.so.2 /lib/ld-lsb.so.3
       ;;
-    x86_64) # FIXME unneeded # GCC_INCDIR=/usr/lib/gcc/x86_64-pc-linux-gnu/$gccver/include
+    x86_64)
       ln -s ../lib/ld-linux-x86-64.so.2 /lib64
       ln -s ../lib/ld-linux-x86-64.so.2 /lib64/ld-lsb-x86-64.so.3
       ;;
