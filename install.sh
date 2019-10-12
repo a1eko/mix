@@ -9,7 +9,8 @@
 test -n "$MIX"
 test "$MIX" != '/'
 test $(id -u) != 0
-test "$MIX_TST" != no || export TST=:
+#test "$MIX_TST" != no || export TST=:
+test "$MIX_TST" = no && export TST=:
 sudo -v
 
 #
@@ -181,6 +182,10 @@ chrootsh="sudo chroot $MIX /tools/bin/env -i \
   ${MAKEFLAGS+"MAKEFLAGS=$MAKEFLAGS"} \
   PATH=/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin \
   /tools/bin/bash -e +h -c"
+
+if [ "$MIX_BIN" = yes ]; then
+    $chrootsh "echo clean_pkgbin=no >> $MIX/usr/sources/pkz.conf
+fi
 
 $chrootsh "
   mkdir -pv /bin

@@ -35,6 +35,7 @@ strip_binaries=
 use_mirror=
 suggest_pkgs=no
 resolve_deps=yes
+clean_pkgbin=yes
 
 list_notinstalled=no
 list_installed=no
@@ -138,7 +139,8 @@ strip_objects() {
 }
 
 do_clean() {
-  rm -rf $pkgwork $pkgbin
+  rm -rf $pkgwork
+  test "$clean_pkgbin" = yes && rm -rf $pkgbin
 }
 
 do_source() {
