@@ -184,7 +184,7 @@ chrootsh="sudo chroot $MIX /tools/bin/env -i \
   /tools/bin/bash -e +h -c"
 
 if [ "$MIX_BIN" = yes ]; then
-    $chrootsh "echo clean_pkgbin=no >> $MIX/usr/sources/pkz.conf
+    $chrootsh "echo clean_pkgbin=no >> /usr/sources/pkz.conf"
 fi
 
 $chrootsh "
