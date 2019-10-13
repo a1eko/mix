@@ -9,9 +9,41 @@
 test -n "$MIX"
 test "$MIX" != '/'
 test $(id -u) != 0
-#test "$MIX_TST" != no || export TST=:
-test "$MIX_TST" = no && export TST=:
 sudo -v
+
+MIX_TGT=$(uname -m)-mix-linux-gnu
+MIX_TST=${MIX_TST-yes}
+MIX_DIST=${MIX_DIST-no}
+if [ "$MIX_DIST" = yes ]; then
+  MIX_TOOLS=no
+  MIX_CORE=yes
+  MIX_CORE_CLEAN=yes
+fi
+MIX_TOOLS=${MIX_TOOLS-yes}
+MIX_CORE=${MIX_CORE-yes}
+MIX_CORE_CLEAN=${MIX_CORE_CLEAN-yes}
+
+echo MIX_TGT=$MIX_TGT
+echo MIX_TST=$MIX_TST
+echo MIX_TOOLS=$MIX_TOOLS
+echo MIX_CORE=$MIX_CORE
+echo MIX_CORE_CLEAN=$MIX_CORE_CLEAN
+echo MIX_DIST=$MIX_DIST
+
+test "$MIX_TST" = no && export TST=:
+
+P=$MIX/usr/packages
+
+BASE1="linux-headers glibc lzip tzdata"
+BASE2="zlib file readline m4 bc binutils libgmp libmpfr libmpc shadow gcc"
+BASE3="bzip2 pkg-config ncurses attr acl libcap sed psmisc iana-etc bison \
+  flex grep bash libtool gdbm gperf expat inetutils perl tcl expect \
+  dejagnu check autoconf automake xz kmod gettext elfutils libffi openssl python3 \
+  coreutils diffutils gawk findutils groff less gzip kbd libpipeline linux-firmware \
+  make man-pages patch man-db tar texinfo vim procps util-linux e2fsprogs \
+  sudo sysklogd sysvinit eudev"
+
+BOOT="linux nasm syslinux rc"
 
 #
 # Toolchain building environment
@@ -32,8 +64,6 @@ rm -f $MIX/usr/packages/C*
 sudo ln -sfv $MIX/tools /
 echo | gzip -c > $MIX/var/log/packages/dummy.gz
 
-MIX_TGT=$(uname -m)-mix-linux-gnu
-
 sudo install -v -m 755 -D $MIX/usr/packages/pkz/pkz.sh $MIX/usr/bin/pkz
 ln -sv ../../usr/bin/pkz $MIX/tools/bin/
 
@@ -51,25 +81,16 @@ toolsh="env -i MIX=$MIX PKZ=$MIX PKZCONF=$MIX/usr/sources/pkz.conf \
   PATH=/tools/bin:/bin:/usr/bin \
   /bin/bash -e +h -c"
 
-P=$MIX/usr/packages
-
-BASE1="linux-headers glibc lzip tzdata"
-BASE2="zlib file readline m4 bc binutils libgmp libmpfr libmpc shadow gcc"
-BASE3="bzip2 pkg-config ncurses attr acl libcap sed psmisc iana-etc bison \
-  flex grep bash libtool gdbm gperf expat inetutils perl tcl expect \
-  dejagnu check autoconf automake xz kmod gettext elfutils libffi openssl python3 \
-  coreutils diffutils gawk findutils groff less gzip kbd libpipeline linux-firmware \
-  make man-pages patch man-db tar texinfo vim procps util-linux e2fsprogs \
-  sudo sysklogd sysvinit eudev"
-
-BOOT="linux nasm syslinux rc"
-
-$toolsh "pkz source $BASE1 $BASE2 $BASE3 $BOOT"
-$toolsh "pkz source include $MIX/usr/sources/coreopt.mix"
+if [ "$MIX_DIST" != yes ]; then
+  $toolsh "pkz source $BASE1 $BASE2 $BASE3 $BOOT"
+  $toolsh "pkz source include $MIX/usr/sources/coreopt.mix"
+fi
 
 #
 # Making tools
 #
+
+if [ "$MIX_TOOLS" = yes ]; then  # MIX_TOOLS [
 
 $toolsh "pkz -p $P/binutils-tool-pass1 -f install binutils"
 $toolsh "pkz -p $P/gcc-tool-pass1      -f install gcc"
@@ -133,6 +154,7 @@ $toolsh "pkz -p $P/xz-tool         -f install xz"
 
 $toolsh "pkz -p $P/ncurses-tool    clean ncurses"
 $toolsh "pkz -p $P/bash-tool       clean bash"
+$toolsh "pkz -p $P/bison-tool      clean bison"
 $toolsh "pkz -p $P/bzip2-tool      clean bzip2"
 $toolsh "pkz -p $P/coreutils-tool  clean coreutils"
 $toolsh "pkz -p $P/diffutils-tool  clean diffutils"
@@ -156,12 +178,23 @@ $toolsh "pkz -p $P/xz-tool         clean xz"
 
 sudo rm -r $MIX/usr/packages/*-tool{,-*}
 sudo rm $MIX/var/log/packages/dummy.gz
-sudo chown -R root:root $MIX
-sudo chown -R $USER $MIX/{usr,var/log}/sources
+
+echo Tool system built in $MIX
+
+fi  # MIX_TOOLS ]
 
 #
 # Base system building environment
 #
+
+if [ "$MIX_CORE" = yes ]; then  # MIX_CORE [
+
+if [ "$MIX_DIST" = yes ]; then
+    sudo tar -C $MIX -xf $MIX/usr/sources/tools.tar.gz
+fi
+
+sudo chown -R root:root $MIX
+sudo chown -R $USER $MIX/{usr,var/log}/sources
 
 sudo mkdir -pv $MIX/{dev,proc,sys,run}
 sudo mknod -m 600 $MIX/dev/console c 5 1
@@ -183,7 +216,7 @@ chrootsh="sudo chroot $MIX /tools/bin/env -i \
   PATH=/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin \
   /tools/bin/bash -e +h -c"
 
-if [ "$MIX_BIN" = yes ]; then
+if [ "$MIX_CORE_CLEAN" != yes ]; then
     $chrootsh "echo clean_pkgbin=no >> /usr/sources/pkz.conf"
 fi
 
@@ -283,8 +316,20 @@ EOF
 $chrootsh "pkz -f install $BASE3"
 $chrootsh "pkz clean $BASE3"
 
+echo Base system built in $MIX
+
+#
+# Building boot system
+#
+
 $chrootsh "pkz -f install $BOOT"
 $chrootsh "pkz clean $BOOT"
+
+echo Boot system built in $MIX
+
+#
+# Building optional core packages
+#
 
 $chrootsh "pkz -f install include /usr/sources/coreopt.mix"
 $chrootsh "pkz clean include /usr/sources/coreopt.mix"
@@ -310,4 +355,6 @@ sudo umount -v $MIX/run
 sudo umount -v $MIX/proc
 sudo umount -v $MIX/sys
 
-echo Base system built in $MIX
+echo Core system built in $MIX
+
+fi  # MIX_CORE ]
