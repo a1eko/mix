@@ -1,0 +1,334 @@
+#
+# MiX Installation
+#
+MIX_TGT=x86_64-mix-linux-gnu
+MIX_TST=no
+MIX_TOOLS=no
+MIX_CORE=yes
+MIX_CORE_CLEAN=yes
+MIX_DIST=yes
+#
+# Toolchain building environment
+#
+mkdir: created directory '/mnt/usr'
+mkdir: created directory '/mnt/usr/packages'
+mkdir: created directory '/mnt/usr/sources'
+mkdir: created directory '/mnt/tools'
+mkdir: created directory '/mnt/tools/bin'
+mkdir: created directory '/mnt/var'
+mkdir: created directory '/mnt/var/log'
+mkdir: created directory '/mnt/var/log/packages'
+mkdir: created directory '/mnt/var/log/sources'
+'/tools' -> '/mnt/tools'
+install: creating directory '/mnt/usr/bin'
+'/mnt/usr/packages/pkz/pkz.sh' -> '/mnt/usr/bin/pkz'
+'/mnt/tools/bin/pkz' -> '../../usr/bin/pkz'
+#
+# Making tools
+#
+#
+# Base system building environment
+#
+mkdir: created directory '/mnt/dev'
+mkdir: created directory '/mnt/proc'
+mkdir: created directory '/mnt/sys'
+mkdir: created directory '/mnt/run'
+mount: /dev bound on /mnt/dev.
+mount: devpts mounted on /mnt/dev/pts.
+mount: proc mounted on /mnt/proc.
+mount: sysfs mounted on /mnt/sys.
+mount: tmpfs mounted on /mnt/run.
+mkdir: created directory '/bin'
+mkdir: created directory '/usr/lib'
+'/bin/bash' -> '/tools/bin/bash'
+'/bin/cat' -> '/tools/bin/cat'
+'/bin/chmod' -> '/tools/bin/chmod'
+'/bin/dd' -> '/tools/bin/dd'
+'/bin/echo' -> '/tools/bin/echo'
+'/bin/ln' -> '/tools/bin/ln'
+'/bin/imkdir' -> '/tools/bin/imkdir'
+'/bin/pwd' -> '/tools/bin/pwd'
+'/bin/rm' -> '/tools/bin/rm'
+'/bin/stty' -> '/tools/bin/stty'
+'/bin/touch' -> '/tools/bin/touch'
+'/usr/bin/env' -> '/tools/bin/env'
+'/usr/bin/install' -> '/tools/bin/install'
+'/usr/bin/perl' -> '/tools/bin/perl'
+'/usr/lib/libgcc_s.so' -> '/tools/lib/libgcc_s.so'
+'/usr/lib/libgcc_s.so.1' -> '/tools/lib/libgcc_s.so.1'
+'/usr/lib/libstdc++.so' -> '/tools/lib/libstdc++.so'
+'/usr/lib/libstdc++.so.6' -> '/tools/lib/libstdc++.so.6'
+'/bin/sh' -> 'bash'
+gzip: /var/log/packages/*.gz: No such file or directory
+filesystem 3.5-1: installed
+'/usr/man' -> 'share/man'
+mode of '/var/log/lastlog' changed from 0644 (rw-r--r--) to 0664 (rw-rw-r--)
+mode of '/var/log/btmp' changed from 0644 (rw-r--r--) to 0600 (rw-------)
+#
+# Building base system
+#
+gzip: /usr/packages/linux-headers/.footprint: No such file or directory
+linux-headers 5.3.1-mix-1: installed
+glibc 2.30-mix-1: installed
+mkdir: created directory '/usr/lib/locale'
+'/etc/nsswitch.conf.new' -> '/etc/nsswitch.conf'
+'/etc/ld.so.conf.new' -> '/etc/ld.so.conf'
+'/etc/host.conf.new' -> '/etc/host.conf'
+'/etc/resolv.conf.new' -> '/etc/resolv.conf'
+lzip 1.21-1: installed
+tzdata 2019c-1: installed
+renamed '/tools/bin/ld' -> '/tools/bin/ld-old'
+renamed '/tools/x86_64-pc-linux-gnu/bin/ld' -> '/tools/x86_64-pc-linux-gnu/bin/ld-old'
+renamed '/tools/bin/ld-new' -> '/tools/bin/ld'
+'/tools/x86_64-pc-linux-gnu/bin/ld' -> '/tools/bin/ld'
+'specs' -> '/tools/lib/gcc/x86_64-pc-linux-gnu/9.2.0/specs'
+      [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]
+/usr/lib/../lib/crt1.o succeeded
+/usr/lib/../lib/crti.o succeeded
+/usr/lib/../lib/crtn.o succeeded
+#include <...> search starts here:
+ /usr/include
+attempt to open /lib/libc.so.6 succeeded
+found ld-linux-x86-64.so.2 at /lib/ld-linux-x86-64.so.2
+SEARCH_DIR("/usr/lib")
+SEARCH_DIR("/lib")
+zlib 1.2.11-1: installed
+file 5.37-1: installed
+readline 8.0.1-mix-1: installed
+m4 1.4.18-mix-1: installed
+bc 2.1.3-mix-1: installed
+binutils 2.32-mix-1: installed
+libgmp 6.1.2-1: installed
+libmpfr 4.0.2-1: installed
+libmpc 1.1.0-1: installed
+shadow 4.7-mix-1: installed
+gcc 9.2.0-mix-1: installed
+      [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]
+/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../lib/crt1.o succeeded
+/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../lib/crti.o succeeded
+/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../lib/crtn.o succeeded
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include
+ /usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed
+ /usr/include
+attempt to open /lib/libc.so.6 succeeded
+found ld-linux-x86-64.so.2 at /lib/ld-linux-x86-64.so.2
+SEARCH_DIR("/usr/x86_64-pc-linux-gnu/lib64")
+SEARCH_DIR("/usr/x86_64-pc-linux-gnu/lib")
+SEARCH_DIR("/usr/local/lib64")
+SEARCH_DIR("/usr/local/lib")
+SEARCH_DIR("/usr/lib64")
+SEARCH_DIR("/usr/lib");
+SEARCH_DIR("/lib64")
+SEARCH_DIR("/lib")
+bzip2 1.0.8-2: installed
+pkg-config 0.29.2-1: installed
+ncurses 6.1-1: installed
+attr 2.4.48-1: installed
+acl 2.2.53-3: installed
+libcap 2.27-mix-1: installed
+sed 4.7-1: installed
+psmisc 23.2-1: installed
+iana-etc 3.4-1: installed
+bison 3.4.2-mix-1: installed
+flex 2.6.4-2: installed
+grep 3.3-1: installed
+bash 5.0.11-1: installed
+libtool 2.4.6-2: installed
+gdbm 1.18.1-1: installed
+gperf 3.1-1: installed
+expat 2.2.9-1: installed
+inetutils 1.9.4-3: installed
+perl 5.30.0-mix-1: installed
+tcl 8.6.6-1: installed
+gzip: /usr/packages/expect/.footprint: No such file or directory
+expect 5.45.4-mix-1: installed
+gzip: /usr/packages/dejagnu/.footprint: No such file or directory
+dejagnu 1.6.2-mix-1: installed
+check 0.12.0-1: installed
+autoconf 2.69-2: installed
+automake 1.16.1-1: installed
+xz 5.2.4-1: installed
+kmod 26-1: installed
+gettext 0.20.1-1: installed
+elfutils 0.177-1: installed
+libffi 3.2.1-3: installed
+openssl 1.1.1d-1: installed
+python3 3.7.4-1: installed
+coreutils 8.31-1: installed
+diffutils 3.7-1: installed
+gawk 5.0.1-1: installed
+findutils 4.7.0-1: installed
+groff 1.22.4-1: installed
+# README for groff
+# 
+# REQUIREMENTS
+# 
+# PRE/POST-INSTALL
+# 
+# as of groff version 1.22.2 release 2 the default papersize for groff can 
+# be defined in /etc/papersize. Just add the required papersize like 'letter' 
+# or 'a4' here, default is 'letter'.
+# 
+# See 
+# http://www.gnu.org/software/groff/manual/html_node/DESC-File-Format.html
+# for more informations.
+# 
+less 551-1: installed
+gzip 1.10-1: installed
+kbd 2.2.0-1: installed
+libpipeline 1.5.1-1: installed
+linux-firmware 20190815-1: installed
+make 4.2.1-2: installed
+man-pages 5.03-1: installed
+patch 2.7.6.17-9c98-1: installed
+man-db 2.8.7-1: installed
+tar 1.32-1: installed
+gzip: /usr/packages/texinfo/.footprint: No such file or directory
+texinfo 6.7-mix-1: installed
+vim 8.1.2122-1: installed
+procps 3.3.15-1: installed
+util-linux 2.34-1: installed
+e2fsprogs 1.45.4-mix-1: installed
+sudo 1.8.27-2: installed
+sysklogd 1.5.1-8: installed
+sysvinit 2.96-1: installed
+eudev 3.2.8-2: installed
+base system built in /mnt
+#
+# Building boot system
+#
+gzip: /usr/packages/linux/.footprint: No such file or directory
+linux 5.3.1-mix-1: installed
+# README.local for linux
+# 
+# Local host specs
+# 
+# Hostname: burka (DEFAULT_HOSTNAME)
+# Network card: Intel E1000 PCI-E (E1000E)
+# Wireless: Intel IW LAGN (IWLWIFI)
+# Wireless extensions required (CFG80211_WEXT)
+# NT filesystem with r/w support (NTFS_FS=m, NTFS_RW=y)
+# 
+# Enabled by default
+# 
+# Graphics: Intel 9xx (DRM_I915)
+# CPU: Intel x86_64 (GENERIC_CPU)
+# Hard drive: SATA ()
+# Virtual filesystem on /dev (DEVTMPFS)
+# 
+nasm 2.14.02-1: installed
+syslinux 6.03-5: installed
+rc 2.31-3: installed
+boot system built in /mnt
+#
+# Building optional core packages
+#
+ca-certificates 20190828-1: installed
+libarchive 3.4.0-1: installed
+libnl 3.5.0-1: installed
+lzo 2.10-1: installed
+libpcre 8.43-1: installed
+popt 1.16-2: installed
+sharutils 4.15.2-mix-2: installed
+start-stop-daemon 20190310-1: installed
+sysfsutils 2.1.0-2: installed
+unzip 6.0-7: installed
+yasm 1.3.0-2: installed
+zip 3.0-2: installed
+python3-setuptools 41.2.0-1: installed
+python3-pip 19.2.3-1: installed
+ninja 1.9.0-mix-1: installed
+rsync 3.1.3-1: installed
+dbus 1.12.16-1: installed
+iptables 1.8.3-1: installed
+meson 0.51.2-1: installed
+dhcpcd 8.1.0-1: installed
+iproute2 5.3.0-1: installed
+iputils s20190709-1: installed
+wireless-tools 30.pre9-1: installed
+wpa_supplicant 2.9-1: installed
+# README for wpa_supplicant
+# 
+# 
+# REQUIREMENTS
+# 
+# Kernel driver for your wireless card, e.g. ndiswrapper or ipw2100. 
+# See the wpa_supplicant homepage for supported drivers.
+# 
+# 
+# PRE-INSTALL
+# 
+# 
+# POST-INSTALL
+# 
+# 1. Create a network setup for wpa_supplicant:
+# 
+#    wpa_passphrase <ssid> <your_secret> >> /etc/wpa.conf
+# 
+#    See the sample configuration file wpa_supplicant.conf in the
+#    sources for a complete description of the available options 
+#    for wpa_supplicant. 
+# 
+# 2. Change your wlan start script to use wpa_supplicant.
+# 
+#    Following an example for the centrino ipw2100 driver, no need 
+#    to do anything with iwconfig:
+# 
+#    /sbin/modprobe ipw2100
+#    /sbin/ifconfig eth1 xxx.xxx.xxx.xxx netmask 255.255.255.xxx
+#    /sbin/route add default gw xxx.xxx.xxx.xxx
+#    /usr/sbin/wpa_supplicant -B -Dnl80211 -ieth1 -c/etc/wpa.conf
+# 
+#    Note: the above configuration makes use of the generic nl80211
+#          wpa_supplicant driver, which is the preferred nowadays 
+#          and supersedes the wext (wireless extensions) driver.
+# 
+# PRECAUTION
+# 
+# As off version 0.6.8 the -w option of wpa_supplicant was removed.
+# See the ChangeLog for more infos. This may cause troubles because
+# using the -w option was the recommend way to start wpa_supplicant
+# until version 0.6.
+bindutils 9.14.6-1: installed
+cpio 2.12-2: installed
+curl 7.66.0-1: installed
+dcron 4.5-3: installed
+ed 1.15-1: installed
+fetchmail 6.4.1-1: installed
+git 2.23.0-1: installed
+# README for git
+# 
+# REQUIREMENTS
+# 
+# PRE-INSTALL
+# 
+# POST-INSTALL
+# 
+# 1. The git-gui and gitk programs require tcl/tk to be installed.
+#    Otherwise they will just abort with an error saying:
+#      exec: wish: not found
+# 
+# 2. If you want to run gitd for serving git repos, make sure to create a
+#    dedicated user like, first.
+# 
+# PRECAUTION
+# 
+lynx 2.8.8-p2-2: installed
+time 1.9-1: installed
+wget 1.20.3-1: installed
+which 2.21-2: installed
+cmake 3.15.4-1: installed
+gzip: /usr/packages/pkz/.footprint: No such file or directory
+pkz 0.2-mix-5: installed
+install: creating directory '/var/lib/sshd'
+core system built in /mnt
+removed '/tools'
+umount: /mnt/dev/pts unmounted
+umount: /mnt/dev unmounted
+umount: /mnt/run unmounted
+umount: /mnt/proc unmounted
+umount: /mnt/sys unmounted
+#
+# ./install.sh done.

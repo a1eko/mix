@@ -1,3 +1,5 @@
+README.local for linux
+
 Local host specs
 
 Hostname: burka (DEFAULT_HOSTNAME)
@@ -12,3 +14,4 @@ Graphics: Intel 9xx (DRM_I915)
 CPU: Intel x86_64 (GENERIC_CPU)
 Hard drive: SATA ()
 Virtual filesystem on /dev (DEVTMPFS)
+
