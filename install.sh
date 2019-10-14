@@ -240,6 +240,7 @@ $chrootsh "
 "
 
 $chrootsh "pkz install filesystem"
+$chrootsh "pkz clean   filesystem"
 $chrootsh "rm /etc/issue /usr/bin/crux"
 $chrootsh "ln -sv share/man /usr/man"
 

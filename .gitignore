@@ -2,7 +2,7 @@ TODO
 *~
 *.bak
 files
-.footprint
 .signature
+tools/**/.footprint
 sources/*
 !sources/*.mix
