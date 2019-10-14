@@ -1,9 +1,11 @@
 #!/bin/bash -e
 
 cat > /dev/stdout << EOF
+
 #
 # MiX Installation
 #
+
 EOF
 
 test -n "$MIX"
@@ -46,9 +48,11 @@ BASE3="bzip2 pkg-config ncurses attr acl libcap sed psmisc iana-etc bison \
 BOOT="linux nasm syslinux rc"
 
 cat > /dev/stdout << EOF
+
 #
 # Toolchain building environment
 #
+
 EOF
 
 sudo chown $USER $MIX
@@ -89,9 +93,11 @@ if [ "$MIX_DIST" != yes ]; then
 fi
 
 cat > /dev/stdout << EOF
+
 #
 # Making tools
 #
+
 EOF
 
 if [ "$MIX_TOOLS" = yes ]; then  # MIX_TOOLS [
@@ -188,9 +194,11 @@ sudo rm -r $MIX/usr/packages/*-mixtool{,-*}
 sudo rm $MIX/var/log/packages/dummy.gz
 
 cat > /dev/stdout << EOF
+
 #
 # Base system building environment
 #
+
 EOF
 
 if [ "$MIX_CORE" = yes ]; then  # MIX_CORE [
@@ -255,9 +263,11 @@ $chrootsh "
 "
 
 cat > /dev/stdout << EOF
+
 #
 # Building base system
 #
+
 EOF
 
 $chrootsh "pkz -f install $BASE1"
@@ -328,9 +338,11 @@ $chrootsh "pkz clean $BASE3"
 echo base system built in $MIX
 
 cat > /dev/stdout << EOF
+
 #
 # Building boot system
 #
+
 EOF
 
 $chrootsh "pkz -f install $BOOT"
@@ -339,9 +351,11 @@ $chrootsh "pkz clean $BOOT"
 echo boot system built in $MIX
 
 cat > /dev/stdout << EOF
+
 #
 # Building optional core packages
 #
+
 EOF
 
 $chrootsh "pkz -f install include /usr/sources/coreopt.mix"
@@ -373,6 +387,8 @@ sudo umount -v $MIX/sys
 fi  # MIX_CORE ]
 
 cat > /dev/stdout << EOF
+
 #
 # $0 done.
+
 EOF
