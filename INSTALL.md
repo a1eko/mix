@@ -4,8 +4,7 @@ MiX Installation Manual
 System requirements
 -------------------
 
-* A 32-bit CPU i686 or higher is required. MiX is tested on x86_64
-architecture.
+* MiX is tested on x86_64 architecture.
 
 * The core system is about 2.4 GB (3.7 GB with sources) and needs over
 10 GB of the disk space to build.
@@ -27,8 +26,7 @@ Mount Linux partition on `/mnt`. Set target directory `MIX`. Optionally
 disable running test suites. Build and install the base system.
 
 	export MIX=/mnt
-	export MIX_TST=no
-	./install.sh
+	MIX_TST=no ./install.sh
 
 Mount virtual file systems and enter `chroot`.
 

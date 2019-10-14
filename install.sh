@@ -388,7 +388,6 @@ fi  # MIX_CORE ]
 
 cat > /dev/stdout << EOF
 
-#
-# $0 done.
+$0 done.
 
 EOF
