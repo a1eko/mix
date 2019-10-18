@@ -74,6 +74,8 @@ Command:
   remove		uninstall binary package
   upgrade		upgrade binary package
   list			show packages
+  provide		show provided packages
+  depend		show dependencies
   resolve		show unresolved dependencies
 
 Packages:
@@ -352,6 +354,50 @@ do_resolve()
   rm -f $dep $dep.{db,in,out}
 }
 
+_dep()
+{
+  required='Depends on:'
+  if [ $suggest_pkgs == yes ]; then
+    opt1='Nice to have:'
+    opt2='Optional:'
+  else
+    opt1=$$$$$$
+    opt2=$$$$$$
+  fi
+  for f in $(grep -e "$required" -e "$opt1" -e "$opt2" $zpackages/$1/Pkgfile \
+    | cut -d: -f2 | sed 's/,/ /g'); do echo $f; done
+}
+
+_deps() { for f in $(_dep $1); do echo $f; _dep $f; done }
+
+do_depend()
+{
+  lst=$(_deps $name)
+  lst=$(echo $lst | sed 's/ /\n/g' | sort -u | sed 's/\n/ /')
+  echo $name: $lst
+}
+
+_prov()
+{
+  required='Depends on:'
+  if [ $suggest_pkgs == yes ]; then
+    opt1='Nice to have:'
+    opt2='Optional:'
+  else
+    opt1=$$$$$$
+    opt2=$$$$$$
+  fi
+  find $zpackages -name Pkgfile | xargs grep -e "$required" -e "$opt1" -e "$opt2" \
+    | grep -e " $1 " -e " $1$" | sed -E 's/.*\/(.*)\/Pkgfile:.*/\1/'
+}
+
+do_provide()
+{
+  lst=$(_prov $name)
+  lst=$(echo $lst | sed -e "s/ $name / /g" -e "s/ ${name}$//g")
+  lst=$(echo $lst | sed 's/ /\n/g' | sort -u | sed 's/\n/ /')
+  echo $name: $lst
+}
 
 test $# -eq 0 && usage && exit
 while true; do
@@ -373,7 +419,7 @@ while true; do
 done
 
 case $1 in 
-  source | clean | build | install | remove | upgrade | list | resolve) cmd=$1; shift ;;
+  source | clean | build | install | remove | upgrade | list | provide | depend | resolve) cmd=$1; shift ;;
   *) error "unknown command $1" ;;
 esac
 
