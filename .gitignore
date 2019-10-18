@@ -1,8 +1,9 @@
 TODO
 *~
 *.bak
+*.log
 files
-.footprint
 .signature
+tools/**/.footprint
 sources/*
 !sources/*.mix

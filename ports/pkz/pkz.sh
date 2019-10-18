@@ -142,7 +142,7 @@ strip_objects() {
 
 do_clean() {
   rm -rf $pkgwork
-  test "$clean_pkgbin" = yes && rm -rf $pkgbin
+  test "$clean_pkgbin" = yes && rm -f $pkgbin
 }
 
 do_source() {
@@ -215,7 +215,7 @@ do_install() {
   cd $pkgwork
   if [ ! -f $pkgreg.gz -o $forced_exec = yes ]; then
     if [ ! -f $zregs/$name#*.gz -o $forced_exec = yes ]; then
-      test -f $pkgbin -a $pkgcont || do_build
+      test -f $pkgbin -a -f $pkgcont || do_build
       if [ ! $forced_exec = yes ]; then
         cat  $pkgcont    | grep -v "^d" | awk '{print $3}' | sort -u > package_files$$
         zcat $zregs/*.gz | grep -v "^d" | awk '{print $3}' | sort -u > installed_files$$
