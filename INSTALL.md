@@ -22,11 +22,10 @@ should be available too.
 Installing MiX
 --------------
 
-Mount Linux partition on `/mnt`. Set target directory `MIX`. Optionally
-disable running test suites. Build and install the base system.
+Mount Linux partition on `/mnt`. Set target directory `MIX`. Build and
+install the base system.
 
-	export MIX=/mnt
-	MIX_TST=no ./install.sh
+	./install.sh
 
 Mount virtual file systems and enter `chroot`.
 

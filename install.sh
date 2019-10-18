@@ -14,7 +14,7 @@ test $(id -u) != 0
 sudo -v
 
 MIX_TGT=$(uname -m)-mix-linux-gnu
-MIX_TST=${MIX_TST-yes}
+MIX_TST=${MIX_TST-no}
 MIX_DIST=${MIX_DIST-no}
 if [ "$MIX_DIST" = yes ]; then
   MIX_TOOLS=no
