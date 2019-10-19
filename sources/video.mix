@@ -25,6 +25,7 @@ nettle
 libidn
 
 libtasn1 
+make-ca
 p11-kit
 
 gnutls

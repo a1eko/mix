@@ -10,14 +10,5 @@ nss
 lftp
 rsync
 
-#autoconf-2.13
-#at-spi2-core
-#at-spi2-atk
-#gtk3
-
-#llvm
-#rust
-#firefox
-
 dbus-glib
 firefox-bin

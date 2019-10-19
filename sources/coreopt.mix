@@ -5,6 +5,7 @@
 #
 
 ca-certificates
+chrpath
 libarchive
 libnl
 lzo
