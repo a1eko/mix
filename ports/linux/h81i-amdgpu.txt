@@ -1,0 +1,6 @@
+README for config.local
+
+Network integrated card: Realtek rtl8111g (R8169)
+HD Audio codec: Realtek hdaudioC1D0 (SND_HDA_CODEC_REALTEK)
+Grapics card: AMD RX570 (DRM_AMDGPU)
+
