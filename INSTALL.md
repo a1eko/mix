@@ -25,6 +25,7 @@ Installing MiX
 Mount Linux partition on `/mnt`. Set target directory `MIX`. Build and
 install the base system.
 
+	export MIX=/mnt
 	./install.sh
 
 Mount virtual file systems and enter `chroot`.
