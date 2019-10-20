@@ -1,4 +1,4 @@
-README for config.local
+README for config.local -> h81i-amdgpu.txt
 
 Network integrated card: Realtek rtl8111g (R8169)
 HD Audio codec: Realtek hdaudioC1D0 (SND_HDA_CODEC_REALTEK)

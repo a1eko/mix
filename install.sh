@@ -19,7 +19,6 @@ MIX_DIST=${MIX_DIST-no}
 if [ "$MIX_DIST" = yes ]; then
   MIX_TOOLS=no
   MIX_CORE=yes
-  MIX_CORE_CLEAN=yes
 fi
 MIX_TOOLS=${MIX_TOOLS-yes}
 MIX_CORE=${MIX_CORE-yes}
@@ -191,7 +190,6 @@ echo tool system built in $MIX
 fi  # MIX_TOOLS ]
 
 sudo rm -r $MIX/usr/packages/*-mixtool{,-*}
-sudo rm $MIX/var/log/packages/dummy.gz
 
 cat > /dev/stdout << EOF
 
@@ -251,6 +249,7 @@ $chrootsh "pkz install filesystem"
 $chrootsh "pkz clean   filesystem"
 $chrootsh "rm /etc/issue /usr/bin/crux"
 $chrootsh "ln -sv share/man /usr/man"
+$chrootsh "rm -f /var/log/packages/dummy.gz"
 
 $chrootsh "
   touch /var/log/{btmp,lastlog,faillog,wtmp}

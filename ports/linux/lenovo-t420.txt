@@ -1,4 +1,4 @@
-README.local for linux
+README for config.local -> lenovo-t420.txt
 
 Local host specs
 
