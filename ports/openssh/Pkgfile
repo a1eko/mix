@@ -2,8 +2,8 @@
 # Depends on: openssl krb5
 
 name=openssh
-version=8.0p1
-deb=4
+version=8.1p1
+deb=1
 release=gssapi-deb$deb-mix-1
 source=(http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-$version.tar.gz
         http://ftp.debian.org/debian/pool/main/o/openssh/openssh_$version-$deb.debian.tar.xz
@@ -14,6 +14,7 @@ build() {
   tar xvf ../openssh_$version-$deb.debian.tar.xz debian/patches/gssapi.patch
   patch -Np1 -i debian/patches/gssapi.patch
 
+  autoreconf -fi
   ./configure --prefix=/usr \
     --libexecdir=/usr/lib/openssh \
     --sysconfdir=/etc/ssh \

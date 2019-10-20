@@ -5,14 +5,14 @@
 # Depends on: rpm2targz
 
 name=flash-player-plugin
-version=32.0.0.207
+version=32.0.0.270
 release=mix-1
 source=(https://fpdownload.adobe.com/pub/flashplayer/pdc/$version/flash-player-npapi-$version-release.x86_64.rpm)
 
 build() {
-#  wget https://fpdownload.adobe.com/pub/flashplayer/pdc/$version/flash-player-npapi-$version-release.x86_64.rpm
   rpm2targz flash-player-npapi-$version-release.x86_64.rpm
   tar xf flash-player-npapi-$version-release.x86_64.tar.gz
+
   install -D -m 0755 usr/lib64/flash-plugin/libflashplayer.so \
     $PKG/usr/lib/mozilla/plugins/libflashplayer.so
 }

@@ -200,7 +200,7 @@ do_build() {
   test -n "$strip_shared""$strip_static""$strip_binaries" -a ! -e $pkgdir/.nostrip && strip_objects
   ( cd $PKG; tar cf - . | gzip -3 -c > $SRC/pkgbin ) || error "packaging failed"
   tar tvvf pkgbin | awk '{if(NR>1) print $1, $2, $6, $7, $8, $9}' \
-    | sed -e 's/ /\t/' -e 's/ \.\//\t/' > pkgcont
+    | sed -e 's/ /\t/' -e 's/ \.\//\t/' -e 's/  *$//' > pkgcont
   mv -f pkgbin $pkgbin && mv -f pkgcont $pkgcont || error "package placement failed"
   echo \ done
   zcat $pkgbuild.gz | tail -n4 | grep -e real -e size \
