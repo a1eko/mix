@@ -94,8 +94,8 @@ Create configuration file `extlinux.conf`.
 
 	cat > /boot/extlinux/extlinux.conf << EOF
 	prompt 1
-	timeout 30
-	totaltimeout 3000
+	timeout 50
+	totaltimeout 9000
 	default mix
 	label mix
 	      kernel /vmlinuz-mix
