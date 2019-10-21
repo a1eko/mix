@@ -64,7 +64,7 @@ Options:
   -i			show installed packages (list)
   -n			show not-installed packages (list)
   -u			show updated packages (list)
-  -o			include optional dependencies (resolve)
+  -o			include optional dependencies (resolve, provide, depend)
 
 Command:
   clean			delete working directory

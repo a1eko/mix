@@ -1,5 +1,6 @@
 # Description: lightweight system monitor
-# Depends on:  cmake curl imlib2 lua ncurses wireless_tools xorg-libxdamage xorg-libxft xorg-libxinerama
+# Depends on:  cmake curl imlib2 lua ncurses xorg-libxdamage xorg-libxft xorg-libxinerama
+# Nice to have: wireless_tools
 
 name=conky
 version=1.11.5
