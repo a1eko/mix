@@ -1,0 +1,102 @@
+Parser Options
+  Input file: /tmp/pov21702.pov (compatible to version 3.80)
+  Remove bounds........On 
+  Split unions.........Off
+  Library paths:
+    /usr/share/povray-3.8/include
+  Clock value:    0.000  (Animation off)
+Image Output Options
+  Image resolution.....512 by 512 (rows 1 to 512, columns 1 to 512).
+  Output file: Disabled
+  Graphic display......Off
+  Mosaic preview.......Off
+  Continued trace......Off
+Information Output Options
+  All Streams to console..........On 
+  Debug Stream to console.........On 
+  Fatal Stream to console.........On 
+  Render Stream to console........On 
+  Statistics Stream to console....On 
+  Warning Stream to console.......On 
+
+
+ Building mesh2: 
+   - vertex_vectors
+   - normal_vectors
+   - uv_vectors
+   - face_indices
+----------------------------------------------------------------------------
+Parser Statistics
+----------------------------------------------------------------------------
+Finite Objects:          175
+Infinite Objects:          3
+Light Sources:             2
+Total:                   180
+----------------------------------------------------------------------------
+Parser Time
+  Parse Time:       0 hours  0 minutes  0 seconds (0.422 seconds)
+              using 1 thread(s) with 0.421 CPU-seconds total
+  Bounding Time:    0 hours  0 minutes  0 seconds (0.000 seconds)
+              using 1 thread(s) with 0.000 CPU-seconds total
+----------------------------------------------------------------------------
+Render Options
+  Quality:  9
+  Bounding boxes.......On   Bounding threshold: 3
+  Antialiasing.........On  (Method 1, Threshold 0.300, Depth 3, Jitter 0.30,
+ Gamma 2.50)
+----------------------------------------------------------------------------
+Render Statistics
+Image Resolution 512 x 512
+----------------------------------------------------------------------------
+Pixels:           294912   Samples:          781272   Smpls/Pxl: 2.65
+Rays:            8109837   Saved:             66081   Max Level: 12/12
+----------------------------------------------------------------------------
+Ray->Shape Intersection          Tests       Succeeded  Percentage
+----------------------------------------------------------------------------
+Box                          170548782        64242177     37.67
+Cone/Cylinder                242990410        61174169     25.18
+CSG Intersection            1025114091       508239265     49.58
+CSG Merge                       613769           77539     12.63
+Fractal                        1094069          205919     18.82
+Height Field                   1897174          243317     12.83
+Height Field Box               1897174         1465226     77.23
+Height Field Triangle          7479513          251626      3.36
+Height Field Block            11854899         3626209     30.59
+Height Field Cell             48453376         4121307      8.51
+Isosurface                    62594208         1984950      3.17
+Isosurface Container          62595560        62595555    100.00
+Isosurface Cache                623465          145020     23.26
+Mesh                           1259562          142145     11.29
+Plane                        824673897         4227569      0.51
+Sphere                      1661861108       530325067     31.91
+Superellipsoid                  384024          114691     29.87
+Torus                          9556081         1006460     10.53
+Torus Bound                    9556081         1196104     12.52
+True Type Font                  629760          247613     39.32
+Clipping Object               11529092         3946675     34.23
+Bounding Box                3417848661       833126111     24.38
+----------------------------------------------------------------------------
+Isosurface roots:          62476258
+Function VM calls:        670027254
+----------------------------------------------------------------------------
+Crackle Cache Queries:         2524882
+Crackle Cache Hits:            2517617 (100 percent)
+----------------------------------------------------------------------------
+Roots tested:               1196104   eliminated:               640029
+Media Intervals:          365998880   Media Samples:        3303131868 (9.02)
+Shadow Ray Tests:         833509495   Succeeded:             447099950
+Shadow Cache Hits:         16879197
+Reflected Rays:              583158   Total Internal:               14
+Refracted Rays:             6341517
+----------------------------------------------------------------------------
+Number of photons shot:           36326
+Surface photons stored:           51125
+Gather function called:         4125116
+----------------------------------------------------------------------------
+----------------------------------------------------------------------------
+Render Time:
+  Photon Time:      0 hours  0 minutes  1 seconds (1.428 seconds)
+              using 7 thread(s) with 2.146 CPU-seconds total
+  Radiosity Time:   No radiosity
+  Trace Time:       0 hours 14 minutes 52 seconds (892.752 seconds)
+              using 4 thread(s) with 3557.046 CPU-seconds total
