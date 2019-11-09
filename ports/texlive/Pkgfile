@@ -9,7 +9,6 @@ release=mix-1
 source=(ftp://tug.org/historic/systems/texlive/${version:0:4}/$name-$version-texmf.tar.xz
         ftp://tug.org/historic/systems/texlive/${version:0:4}/$name-$version-source.tar.xz
         http://download.savannah.gnu.org/releases/texi2html/texi2html-5.0.tar.bz2
-	texlive-20190410-source-upstream_fixes-1.patch
         pdftex-poppler0.76.patch)
 
 build() {
@@ -27,8 +26,6 @@ build() {
   patch -Np1 < $SRC/pdftex-poppler0.76.patch
   cp -pv texk/web2c/pdftexdir/pdftoepdf{-poppler0.76.0,}.cc
   cp -pv texk/web2c/pdftexdir/pdftosrc{-poppler0.76.0,}.cc
-
-  patch -Np1 -i ../texlive-20190410-source-upstream_fixes-1.patch
 
   # Fix some paths
   sed -i 's|TEXMFROOT = .*|TEXMFROOT = $SELFAUTODIR/share|g' texk/kpathsea/texmf.cnf
