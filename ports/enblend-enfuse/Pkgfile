@@ -1,0 +1,23 @@
+# Description: Enblend combines images with smaller overlap into a single large image with no seams. Enfuse combines images with large overlap into a single image with good exposure and good focus.
+# URL: http://enblend.sourceforge.net/
+# Maintainer: Erich Eckner, crux at eckner dot net
+# Depends on: vigra lcms2 gsl libtiff openexr glu boost help2man
+# MiX dependencies
+# Depends on: openmp texlive
+
+name=enblend-enfuse
+version=4.2
+release=mix-1
+source=("http://downloads.sourceforge.net/sourceforge/enblend/${name}-${version}.tar.gz")
+
+build() {
+
+ls -la
+	cd "${SRC}/${name}-${version}"
+
+	./configure --prefix=/usr --enable-openmp --enable-opencl --disable-nls
+	make
+	make DESTDIR="${PKG}" install
+	rm -rf ${PKG}/usr/share/info
+
+}

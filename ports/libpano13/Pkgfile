@@ -1,0 +1,17 @@
+# Description: The PanoTools library for panoramic imaging 
+# Maintainer:  Aaron Ball, nullspoon at oper dot io
+# Depends on:  libpng libtiff
+
+name=libpano13
+version=2.9.19
+release=1
+source=("http://downloads.sourceforge.net/sourceforge/panotools/${name}-${version}.tar.gz")
+
+build() {
+  cd ${name}-${version}
+
+  ./configure --prefix=/usr
+
+  make
+  make DESTDIR="${PKG}" install
+}

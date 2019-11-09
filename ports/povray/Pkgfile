@@ -10,10 +10,8 @@ source=()
 build() {
   git clone https://github.com/POV-Ray/povray.git
   cd $name
-
   ( cd unix; ./prebuild.sh )
   ./bootstrap
-
   ./configure --prefix=/usr --sysconfdir=/etc COMPILED_BY='MiX'
   make
 

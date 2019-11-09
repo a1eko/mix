@@ -1,0 +1,113 @@
+# Description: TeX distribution for UNIX compatible systems.
+# URL:         http://www.tug.org/tetex/
+# Maintainer:  Thomas Penteker, tek at serverop dot de
+# Depends on:  clisp icu libgd poppler t1lib util-linux xorg-libxi ghostscript
+
+name=texlive
+version=20190410
+release=mix-1
+source=(ftp://tug.org/historic/systems/texlive/${version:0:4}/$name-$version-texmf.tar.xz
+        ftp://tug.org/historic/systems/texlive/${version:0:4}/$name-$version-source.tar.xz
+        http://download.savannah.gnu.org/releases/texi2html/texi2html-5.0.tar.bz2
+	texlive-20190410-source-upstream_fixes-1.patch
+        pdftex-poppler0.76.patch)
+
+build() {
+  cd $name-$version-source
+
+  chmod -R a-s $SRC
+
+  find $SRC \
+    \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
+    -exec chmod 755 {} \; -o \
+    \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
+    -exec chmod 644 {} \;
+
+  # Fix build with poppler
+  patch -Np1 < $SRC/pdftex-poppler0.76.patch
+  cp -pv texk/web2c/pdftexdir/pdftoepdf{-poppler0.76.0,}.cc
+  cp -pv texk/web2c/pdftexdir/pdftosrc{-poppler0.76.0,}.cc
+
+  patch -Np1 -i ../texlive-20190410-source-upstream_fixes-1.patch
+
+  # Fix some paths
+  sed -i 's|TEXMFROOT = .*|TEXMFROOT = $SELFAUTODIR/share|g' texk/kpathsea/texmf.cnf
+  sed -i 's|TEXMFLOCAL = .*|TEXMFLOCAL = $TEXMFROOT/texmf-local|g' texk/kpathsea/texmf.cnf
+
+  export TEXMFCNF=""
+  export KPATHSEA_WARNING=0
+
+  mkdir build
+  cd build
+
+  CONFIG_SHELL=/bin/bash \
+  ../configure \
+    --prefix=/usr \
+    --with-banner-add=" MiX" \
+    --disable-native-texlive-build \
+    --disable-multiplatform \
+    --disable-debug \
+    --disable-dvisvgm \
+    --disable-missing \
+    --disable-static \
+    --enable-shared \
+    --enable-largefile \
+    --with-x \
+    --with-xdvi-x-toolkit=xaw \
+    --disable-xindy \
+    --disable-xindy-docs \
+    --disable-xindy-rules \
+    --with-clisp-runtime=system \
+    --with-system-poppler \
+    --with-system-cairo \
+    --with-system-pixman \
+    --with-system-xpdf \
+    --with-system-ncurses \
+    --with-system-zlib \
+    --with-system-libpng \
+    --with-system-t1lib \
+    --with-system-gd \
+    --with-system-freetype2 \
+    --with-system-gmp \
+    --with-system-mpfr \
+    --with-system-icu
+
+  make
+  make DESTDIR=$PKG install
+
+  cd ..
+
+  PERLVER="$(perl -v |sed -nre '2{s/^.*\(v(5\.[0-9]+).*\).*$/\1/;p}')"
+  install -d $PKG/usr/lib/perl5/site_perl/${PERLVER}/TeXLive
+  install texk/tests/TeXLive/TL{Config,Utils}.pm $PKG/usr/lib/perl5/site_perl/${PERLVER}/TeXLive
+
+  # Create symlinks
+  PATH="$PKG/usr/bin:$PATH" LD_LIBRARY_PATH="$PKG/usr/lib:$LD_LIBRARY_PATH" \
+    texlinks -f $PKG/usr/share/texmf-dist/web2c/fmtutil.cnf $PKG/usr/bin
+
+  cd $SRC/$name-$version-texmf
+
+  # Fix some paths
+  sed -i 's|TEXMFROOT = .*|TEXMFROOT = $SELFAUTODIR/share|g'  texmf-dist/web2c/texmf.cnf
+  sed -i 's|TEXMFLOCAL = .*|TEXMFLOCAL = $TEXMFROOT/texmf-local|g'  texmf-dist/web2c/texmf.cnf
+
+  mv $PKG/usr/share/texmf-dist $PKG/usr/share/texmf-dist.tmp
+  mv texmf-dist $PKG/usr/share
+
+  # sub-optimal but better than copying texmf-dist!
+  cp -a $PKG/usr/share/texmf-dist.tmp/* $PKG/usr/share/texmf-dist
+  rm -r $PKG/usr/share/texmf-dist.tmp
+
+  cd $SRC/texi2html-5.0
+
+  ./configure --prefix=/usr
+
+  make
+  make DESTDIR=$PKG install
+
+  rm -r $PKG/usr/share/{info,locale}
+  rm -r $PKG/usr/share/texmf-dist/doc
+  find  $PKG/usr/share/texmf-dist \
+    -regex '.*/\(COPYING\|README\|AUTHORS\|INSTALL\|ChangeLog\|NEWS\|TODO\).*' \
+    -delete
+}

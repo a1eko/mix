@@ -1,0 +1,26 @@
+# Description: An image processing and analysis library
+# URL:         https://ukoethe.github.io/vigra/
+# Maintainer:  Aaron Ball, nullspoon at oper dot io
+# Depends on:  openexr zlib libpng libjpeg-turbo libtiff
+
+name=vigra
+version=1-11-1
+release=1
+source=(https://github.com/ukoethe/${name}/archive/Version-${version}.tar.gz)
+
+build() {
+  cd ${name}-Version-${version}
+
+  # mkdir build
+  # cd build
+
+  # cmake ../
+  cmake -DCMAKE_INSTALL_PREFIX=/usr \
+        -DPYTHON_EXECUTABLE=/usr/bin/python \
+        -DWITH_OPENEXR=true \
+        -DWITH_VIGRANUMPY=1 \
+        -DDOCINSTALL=share/doc
+
+  make
+  make DESTDIR=${PKG} install
+}

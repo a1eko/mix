@@ -1,5 +1,5 @@
 # Description: LLVM OpenMP Runtime Library
-# Depends on:  cmake libelf libffi ninja
+# Depends on:  cmake elfutils libffi ninja
 
 name=openmp
 version=9.0.0

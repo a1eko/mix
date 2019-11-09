@@ -1,0 +1,31 @@
+# Description: A panorama stitcher and more!
+# Maintainer:  Aaron Ball, nullspoon at oper dot io
+# URL:         http://hugin.sourceforge.net/
+# Depends on:  wxgtk openexr vigra exiv2 glew libpano13 swig
+# MiX add-on
+# Nice to have: openmp boost libtiff libjpeg-turbo libpng glu xorg-libxi xorg-libxmu python3 cmake sqlite3 enblend-enfuse
+
+name=hugin
+version=2019.0.0
+release=1
+source=(https://downloads.sourceforge.net/project/${name}/${name}/${name}-${version%.*}/${name}-${version}.tar.bz2
+	hugin-exiv2-0.27.1.patch)
+
+build() {
+  cd ${name}-${version}
+  patch -p1 -i ../hugin-exiv2-0.27.1.patch
+
+  mkdir build
+  cd build
+
+  cmake \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DVIGRA_INCLUDE_DIR=/usr/include \
+    ../
+
+  make
+  make DESTDIR="${PKG}" install
+
+  rm -rf ${PKG}/usr/share/locale
+  find "${PKG}" \( -name '*README*' -o -name '*COPYING*' \) -delete
+}
