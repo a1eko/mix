@@ -1,0 +1,17 @@
+# Description: decodes raw images
+# URL: http://www.cybercom.net/~dcoffin/dcraw/
+# Maintainer: #teatime (irc.kyber.io), teatime at kyber dot io
+# depends on: lcms2 jasper
+
+name=dcraw
+version=9.28.0
+release=2
+#source=(http://www.cybercom.net/~dcoffin/dcraw/archive/$name-$version.tar.gz)
+source=(http://distfiles.gentoo.org/distfiles/$name-$version.tar.gz)
+
+build() {
+	cd $name
+	cc $CFLAGS -o dcraw dcraw.c -lm -ljasper -ljpeg -llcms2
+	install -m 644 -D dcraw.1 $PKG/usr/share/man/man1/dcraw.1
+	install -m 755 -D dcraw $PKG/usr/bin/dcraw
+}
