@@ -7,7 +7,7 @@
 
 name=hugin
 version=2019.0.0
-release=1
+release=mix-1
 source=(https://downloads.sourceforge.net/project/${name}/${name}/${name}-${version%.*}/${name}-${version}.tar.bz2
 	hugin-exiv2-0.27.1.patch)
 

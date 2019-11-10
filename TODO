@@ -1,0 +1,10 @@
+o wifi (eduroam): update KTH certificate
+o openvpn: enable VPN (CONFIG_TUN, etc)
+o ports: prefer pip over ports for python packages 
+o misc ports: to reset site default flags run "sudo CONFIG_SITE='' pkz build <pkg>"
+o ports (crux): replace 'pkginfo -i' with 'pkz -i list'
+o linux kernel: "syncconfig" replaces "silentoldconfig"
+o crux (ports): .signature replaces .md5sum (see core/signify)
+- pkz: fix 'list' behavior (multiple patterns, eg: gcc gtk)
+- pkz: resolve doesn't work with -p
+- ports: new binutils-2.33.1

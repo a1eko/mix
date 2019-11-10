@@ -2,7 +2,7 @@
 # URL: http://enblend.sourceforge.net/
 # Maintainer: Erich Eckner, crux at eckner dot net
 # Depends on: vigra lcms2 gsl libtiff openexr glu boost help2man
-# MiX dependencies
+# MiX add-on
 # Depends on: openmp texlive
 
 name=enblend-enfuse
