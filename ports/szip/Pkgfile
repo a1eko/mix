@@ -1,0 +1,24 @@
+# Description: Compression software, providing lossless compression of scientific data (HDF4, HDF5).
+# URL: http://hdf.ncsa.uiuc.edu/doc_resource/SZIP/
+# Maintainer: Erich Eckner, crux at eckner dot net
+# Contributor: Danny Rawlins, crux at romster dot me
+# Packager: Younes Hafri, ycrux at club-internet dot fr
+# Depends on:
+
+name=szip
+version=2.1.1
+release=1
+source=(ftp://ftp.hdfgroup.org/lib-external/szip/$version/src/szip-$version.tar.gz)
+
+build() {
+	cd szip-$version
+	sed -i -e '/^SUBDIRS = /s/src test examples/src/' Makefile.in
+
+	./configure \
+		--prefix=/usr \
+		--disable-static
+
+	make
+	make prefix=$PKG/usr install
+}
+

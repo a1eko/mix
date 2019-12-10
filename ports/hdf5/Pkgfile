@@ -1,0 +1,34 @@
+# Description: A general purpose library and file format for storing scientific data.
+# URL: http://www.hdfgroup.org/
+# Maintainer: Erich Eckner, crux at eckner dot net
+# Contributor: Danny Rawlins, crux at romster dot me
+# Packager: acrux, acrux at linuxmail dot org
+# Depends on: szip zlib openssl
+
+name=hdf5
+version=1.10.5
+release=1
+source=(https://support.hdfgroup.org/ftp/HDF5/current/src/$name-$version.tar.gz)
+
+build() {
+ls -A
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=$PKG/usr/share/man \
+		--disable-static \
+		--disable-hl \
+		--enable-threadsafe \
+		--with-ssl \
+		--with-pthread \
+		--with-zlib
+	 
+	make
+	make DESTDIR=$PKG install
+
+	rm -rf $PKG/usr/share/hdf5_examples
+	rmdir --ignore-fail-on-non-empty -p $PKG/usr/share
+
+	find $PKG -type f -name README -delete
+}
