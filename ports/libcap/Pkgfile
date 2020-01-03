@@ -4,13 +4,15 @@
 # Depends on:  attr linux-pam
 
 name=libcap
-version=2.28
+version=2.29
 release=mix-2
-source=(https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/$name-$version.tar.xz)
+source=(https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/$name-$version.tar.xz
+        libcap-2.29-libpsx_pkgconfig.patch)
 
 build () {
     cd $name-$version
 
+    patch -p1 -i $SRC/libcap-2.29-libpsx_pkgconfig.patch
     sed -i "/^CFLAGS/s/-O2/$CFLAGS/" Make.Rules 
 
     make GOLANG=no RAISE_SETFCAP=no DESTDIR=$PKG install
