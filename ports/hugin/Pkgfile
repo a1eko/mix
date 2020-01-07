@@ -3,7 +3,7 @@
 # URL:         http://hugin.sourceforge.net/
 # Depends on:  wxgtk openexr vigra exiv2 glew libpano13 swig
 # MiX add-on
-# Nice to have: openmp boost libtiff libjpeg-turbo libpng glu xorg-libxi xorg-libxmu python3 cmake sqlite3 enblend-enfuse
+# Nice to have: openmp boost libtiff libjpeg-turbo libpng glu xorg-libxi xorg-libxmu python3 cmake sqlite3 enblend-enfuse exiftool
 
 name=hugin
 version=2019.0.0
