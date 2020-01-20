@@ -4,8 +4,8 @@
 # Depends on:  attr linux-pam
 
 name=libcap
-version=2.30
-release=mix-2
+version=2.31
+release=mix-1
 source=(https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/$name-$version.tar.xz)
 
 build () {
