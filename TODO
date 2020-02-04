@@ -9,3 +9,4 @@ o libreoffice: presentation and spreadsheets depend on avahi to be installed
 - pkz: fix 'list' behavior (multiple patterns, eg: gcc gtk)
 - pkz: resolve doesn't work with -p
 - ports: new binutils-2.33.1
+- util-linux: build error SYS_pidfd_open undeclared

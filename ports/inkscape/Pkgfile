@@ -1,0 +1,89 @@
+# Description: An open source SVG editor.
+# URL: https://www.inkscape.org/
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Depends on: boehm-gc boost gsl gtkmm poppler-glib popt
+# Optional: rtmpdump openldap libexif openjade gtk-doc gtkspell brotli imagemagick-compat
+
+name=inkscape
+version=0.92.4
+release=mix-4
+source=(https://media.inkscape.org/dl/resources/file/$name-$version.tar.bz2
+	https://poppler.freedesktop.org/poppler-0.85.0.tar.xz
+	inkscape-0.92.4-poppler_0_83_0_fixes-1.patch
+	inkscape-0.92.4-use_versioned_ImageMagick6-1.patch
+	inkscape-0.92.4-upstream_fixes-1.patch)
+
+poppler() {
+#-boehm-gc boost gsl gtkmm poppler-glib popt
+#+cmake cairo lcms2 boehm-gc boost gsl gtkmm popt
+	cd poppler-0.85.0
+	cmake . \
+        -DCMAKE_INSTALL_PREFIX=$SRC/poppler \
+	-DCMAKE_INSTALL_LIBDIR=$SRC/poppler/lib \
+        -DENABLE_UNSTABLE_API_ABI_HEADERS=ON \
+	-DENABLE_UTILS=ON \
+        -DENABLE_SPLASH=ON \
+        -DENABLE_CPP=ON \
+        -DENABLE_GLIB=ON \
+        -DENABLE_QT5=OFF \
+        -DENABLE_ZLIB=ON \
+        -DENABLE_CMS=lcms2 \
+        -DENABLE_LIBOPENJPEG=none \
+	-DWITH_NSS3=OFF
+
+	make
+	make install
+
+	install -D -t $PKG/usr/lib/ $SRC/poppler/lib/libpoppler.so.95
+
+	export CXXFLAGS+=" -I$SRC/poppler/include -I$SRC/poppler/include/poppler"
+	export PKG_CONFIG_PATH="$SRC/poppler/lib/pkgconfig:$PKG_CONFIG_PATH"
+}
+
+build() {
+	poppler
+
+	cd $SRC/$name-$version
+
+	# fix a problem introduced by Poppler-0.76.1
+	sed -e 's|new Lexer(xref, obj)|obj|g' -i src/extension/internal/pdfinput/pdf-parser.cpp
+
+	# fix Inkscape to be able to build with poppler-0.82.0 and higher
+	sed -e 's|Unicode \*u|Unicode const *u|g' -i src/extension/internal/pdfinput/*
+
+	patch -p1 -i $SRC/inkscape-0.92.4-poppler_0_83_0_fixes-1.patch
+	patch -p1 -i $SRC/inkscape-0.92.4-use_versioned_ImageMagick6-1.patch
+	patch -p1 -i $SRC/inkscape-0.92.4-upstream_fixes-1.patch
+
+
+	CXXFLAGS+=' -std=c++11'
+
+	./autogen.sh
+
+	export PKG_CONFIG_PATH="/usr/lib/imagemagick6/pkgconfig:$PKG_CONFIG_PATH"
+	export FREETYPE_CONFIG="/usr/bin/pkg-config freetype2"
+
+	./configure \
+		--prefix=/usr \
+		--disable-nls \
+		--with-python \
+		--with-perl \
+		--enable-lcms \
+		--enable-poppler-cairo \
+		--disable-strict-build
+
+	make
+	make DESTDIR=$PKG install
+
+	rm \
+		$PKG/usr/share/man/man1/inkscape.??.1 \
+		$PKG/usr/share/man/man1/inkscape.zh_TW.1
+
+	rm -r \
+		$PKG/usr/share/man/?? \
+		$PKG/usr/share/man/zh_TW
+
+	find $PKG/usr/share/inkscape -name README -exec rm -f {} +
+	/usr/bin/python -mcompileall $PKG
+	rm -v $PKG/usr/lib/libpoppler.so.95
+}
