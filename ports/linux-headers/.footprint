@@ -922,7 +922,6 @@ drwxr-xr-x	root/root	usr/include/sound/sof/
 drwxr-xr-x	root/root	usr/include/rdma/
 -rw-r--r--	root/root	usr/include/rdma/bnxt_re-abi.h
 -rw-r--r--	root/root	usr/include/rdma/cxgb4-abi.h
--rw-r--r--	root/root	usr/include/rdma/cxgb3-abi.h
 -rw-r--r--	root/root	usr/include/rdma/ib_user_sa.h
 -rw-r--r--	root/root	usr/include/rdma/ib_user_mad.h
 -rw-r--r--	root/root	usr/include/rdma/qedr-abi.h
