@@ -8,5 +8,5 @@ o crux (ports): .signature replaces .md5sum (see core/signify)
 o libreoffice: presentation and spreadsheets depend on avahi to be installed
 - pkz: fix 'list' behavior (multiple patterns, eg: gcc gtk)
 - pkz: resolve doesn't work with -p
-- ports: new binutils-2.34, glibc-2.31
-. util-linux: build error SYS_pidfd_open undeclared (not reproducible?)
+- ports: new binutils-2.34, glibc-2.31, gcc-9.3.0
+- util-linux: build error SYS_pidfd_open undeclared (on older builds)
