@@ -1,5 +1,5 @@
 # Description: neural simulator
-# Depends on: python3 python3-cython numpy gsl
+# Depends on: cmake python3 python3-cython numpy gsl
 # Nice to have: mpich
 
 name=nest-simulator
