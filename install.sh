@@ -31,7 +31,7 @@ P=$MIX/usr/packages
 
 BASE1="linux-headers glibc lzip tzdata"
 BASE2="zlib bzip2 xz file readline m4 bc binutils libgmp libmpfr libmpc \
-  attr acl shadow gcc"
+  attr acl linux-pam shadow gcc"
 BASE3="pkg-config ncurses libcap sed psmisc iana-etc bison \
   flex grep bash libtool gdbm gperf expat inetutils perl tcl expect \
   dejagnu check autoconf automake kmod gettext elfutils libffi openssl \
