@@ -1,1 +1,5 @@
-config.h81i-amdgpu
+#
+# User-defined file config.local
+# Provides local hardware-specific modifications to default .config
+# Linux/x86 Kernel Configuration
+#
