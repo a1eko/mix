@@ -4,7 +4,7 @@
 # Depends on:  ncurses
 
 name=readline
-version=8.0.1
+version=8.0.4
 release=mix-1
 source=(http://ftpmirror.gnu.org/gnu/$name/$name-${version:0:3}.tar.gz \
         $name-$version.patch.gz inputrc)
@@ -22,10 +22,6 @@ build() {
     mv $PKG/usr/lib/lib*.so.* $PKG/lib
     ln -sf ../../lib/libhistory.so.${version:0:3} $PKG/usr/lib/libhistory.so
     ln -sf ../../lib/libreadline.so.${version:0:3} $PKG/usr/lib/libreadline.so
-
-    # Compatibility symlinks, remove later
-    ln -s libreadline.so.8.0 $PKG/lib/libreadline.so.7
-    ln -s libhistory.so.8.0 $PKG/lib/libhistory.so.7
 
     install -D -m 644 $SRC/inputrc $PKG/etc/inputrc
     rm -r $PKG/usr/share/{doc,info}

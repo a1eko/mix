@@ -47,6 +47,7 @@ lynx
 time
 wget
 which
+zstd
 
 cmake
 

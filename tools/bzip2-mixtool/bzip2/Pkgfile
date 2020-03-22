@@ -7,7 +7,12 @@ source=(https://www.sourceware.org/pub/bzip2/bzip2-$version.tar.gz)
 
 build() {
   cd $name-$version
+  make -f Makefile-libbz2_so
+  make clean
   make
   make PREFIX=$PKG/tools install
+  cp -v bzip2-shared $PKZ/tools/bin/bzip2
+  cp -av libbz2.so* $PKZ/tools/lib
+  ln -sv libbz2.so.1.0 $PKZ/tools/lib/libbz2.so
   rm -rv $PKG/tools/man
 }

@@ -15,36 +15,32 @@ sudo -v
 
 MIX_TGT=$(uname -m)-mix-linux-gnu
 MIX_TST=${MIX_TST-no}
-MIX_DIST=${MIX_DIST-no}
-if [ "$MIX_DIST" = yes ]; then
-  MIX_TOOLS=no
-  MIX_CORE=yes
-fi
 MIX_TOOLS=${MIX_TOOLS-yes}
 MIX_CORE=${MIX_CORE-yes}
-MIX_CORE_CLEAN=${MIX_CORE_CLEAN-yes}
+MIX_CORE_CLEAN=${MIX_CORE_CLEAN-${MIX_CORE}}
 
 echo MIX_TGT=$MIX_TGT
 echo MIX_TST=$MIX_TST
 echo MIX_TOOLS=$MIX_TOOLS
 echo MIX_CORE=$MIX_CORE
 echo MIX_CORE_CLEAN=$MIX_CORE_CLEAN
-echo MIX_DIST=$MIX_DIST
 
 test "$MIX_TST" = no && export TST=:
 
 P=$MIX/usr/packages
 
 BASE1="linux-headers glibc lzip tzdata"
-BASE2="zlib file readline m4 bc binutils libgmp libmpfr libmpc shadow gcc"
-BASE3="bzip2 pkg-config ncurses attr acl libcap sed psmisc iana-etc bison \
+BASE2="zlib bzip2 xz file readline m4 bc binutils libgmp libmpfr libmpc \
+  attr acl shadow gcc"
+BASE3="pkg-config ncurses libcap sed psmisc iana-etc bison \
   flex grep bash libtool gdbm gperf expat inetutils perl tcl expect \
-  dejagnu check autoconf automake xz kmod gettext elfutils libffi openssl python3 \
-  coreutils diffutils gawk findutils groff less gzip kbd libpipeline linux-firmware \
-  make man-pages patch man-db tar texinfo vim procps util-linux e2fsprogs \
-  sudo sysklogd sysvinit eudev"
+  dejagnu check autoconf automake kmod gettext elfutils libffi openssl \
+  python3 coreutils diffutils gawk findutils groff less gzip kbd \
+  libpipeline linux-firmware make man-pages patch man-db tar texinfo \
+  vim procps util-linux e2fsprogs sudo sysklogd sysvinit eudev"
 
-BOOT="linux nasm syslinux rc"
+KERNEL=linux
+BOOT="nasm syslinux rc"
 
 cat > /dev/stdout << EOF
 
@@ -70,7 +66,7 @@ sudo ln -sfv $MIX/tools /
 echo | gzip -c > $MIX/var/log/packages/dummy.gz
 
 sudo install -v -m 755 -D $MIX/usr/packages/pkz/pkz.sh $MIX/usr/bin/pkz
-ln -sv ../../usr/bin/pkz $MIX/tools/bin/
+ln -sfv ../../usr/bin/pkz $MIX/tools/bin/
 
 cat > $MIX/usr/sources/pkz.conf << EOF
 TST="$TST"
@@ -86,8 +82,8 @@ toolsh="env -i MIX=$MIX PKZ=$MIX PKZCONF=$MIX/usr/sources/pkz.conf \
   PATH=/tools/bin:/bin:/usr/bin \
   /bin/bash -e +h -c"
 
-if [ "$MIX_DIST" != yes ]; then
-  $toolsh "pkz source $BASE1 $BASE2 $BASE3 $BOOT"
+if [ "$MIX_CORE" = yes ]; then
+  $toolsh "pkz source $BASE1 $BASE2 $BASE3 $KERNEL $BOOT"
   $toolsh "pkz source include $MIX/usr/sources/coreopt.mix"
 fi
 
@@ -189,7 +185,7 @@ echo tool system built in $MIX
 
 fi  # MIX_TOOLS ]
 
-sudo rm -r $MIX/usr/packages/*-mixtool{,-*}
+sudo rm -rf $MIX/usr/packages/*-mixtool{,-*}
 
 cat > /dev/stdout << EOF
 
@@ -201,7 +197,7 @@ EOF
 
 if [ "$MIX_CORE" = yes ]; then  # MIX_CORE [
 
-if [ "$MIX_DIST" = yes ]; then
+if [ "$MIX_TOOLS" = no ]; then
     sudo tar -C $MIX -xf $MIX/usr/sources/tools.tar.gz
 fi
 
@@ -383,10 +379,10 @@ sudo umount -v $MIX/run
 sudo umount -v $MIX/proc
 sudo umount -v $MIX/sys
 
-fi  # MIX_CORE ]
-
 cat > /dev/stdout << EOF
 
 $0 done.
 
 EOF
+
+fi  # MIX_CORE ]

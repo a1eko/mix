@@ -11,5 +11,5 @@ build() {
   make
   make DESTDIR=$PKG install
   rm -rv $PKG/tools/share/{doc,info,man}
-  rm -v  $PKG/tools/share/bison/README.md
+  rm -v $PKG/tools/share/bison/{README.md,skeletons/README-D.txt}
 }

@@ -52,6 +52,8 @@ if necessary).
 	useradd -m -g users -G floppy,audio,video,cdrom,wheel -s /bin/bash build
 	passwd build
 
+Make user *build* an owner of the build sources.
+
 	sudo chown -R build {/usr,/var/log}/sources
 
 Add regular users.
@@ -77,9 +79,10 @@ Edit `/etc/host.conf`, `/etc/hosts` and `/etc/resolv.conf` files. File
 
 ### Making the system bootable ###
 
-Inspect package *linux*. A default kernel has been installed already. If
-necessary, adjust configuration in `local.config` and reinstall the
-kernel.
+Inspect package *linux* in `/usr/packages`. Default kernel configuration
+will be created at build time. To adjust kernel to the local hardware,
+a user-defined file `config.local` is used. Edit `config.local` and
+install the kernel.
 
 	pkz build linux
 	pkz -f install linux

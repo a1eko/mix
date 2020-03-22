@@ -1,7 +1,7 @@
 # Description: compiler collection
 
 name=gcc
-version=9.2.0
+version=9.3.0
 release=0libstdcxx
 source=(http://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz)
 
@@ -16,7 +16,6 @@ build() {
     --host=$MIX_TGT \
     --disable-multilib \
     --disable-nls \
-    --disable-libstdcxx-threads \
     --disable-libstdcxx-pch \
     --with-gxx-include-dir=/tools/$MIX_TGT/include/c++/$version
   make

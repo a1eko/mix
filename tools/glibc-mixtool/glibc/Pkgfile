@@ -1,7 +1,7 @@
 # Description: system C library
 
 name=glibc
-version=2.30
+version=2.31
 release=0
 source=(http://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz)
 

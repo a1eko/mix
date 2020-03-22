@@ -1,7 +1,7 @@
 # Description: compiler collection
 
 name=gcc
-version=9.2.0
+version=9.3.0
 release=mix-1
 source=(http://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz)
 
@@ -33,16 +33,16 @@ build()
   $TST ../contrib/test_summary
   make DESTDIR=$PKG install
 
-  mkdir -v $PKG/lib
-  ln -sv ../usr/bin/cpp $PKG/lib/
-  ln -sv gcc $PKG/usr/bin/cc
-
   # remove unneeded directory
   rm -rf $PKG/usr/lib/gcc/$(gcc -dumpmachine)/$version/include-fixed/bits/
 
   # fix ownership, if necessary
   chown -v -R root:root \
     $PKG/usr/lib/gcc/*linux-gnu/$version/include{,-fixed}
+
+  mkdir -v $PKG/lib
+  ln -sv ../usr/bin/cpp $PKG/lib/
+  ln -sv gcc $PKG/usr/bin/cc
 
   # enable building programs with Link Time Optimization (LTO)
   install -dm755 $PKG/usr/lib/bfd-plugins

@@ -1,8 +1,8 @@
 # Description: system C library
 
 name=glibc
-version=2.30
-gccver=9.2.0
+version=2.31
+gccver=9.3.0
 release=mix-1
 source=(ftp://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz
 	http://www.linuxfromscratch.org/patches/downloads/glibc/glibc-$version-fhs-1.patch
@@ -12,10 +12,6 @@ build()
 {
   cd $name-$version
   patch -Np1 -i ../glibc-$version-fhs-1.patch
-
-  # fix error with linux v5.2+
-  sed -i '/asm.socket.h/a# include <linux/sockios.h>' \
-    sysdeps/unix/sysv/linux/bits/socket.h
 
   # create compatibility links
   case $(uname -m) in
@@ -39,7 +35,6 @@ build()
     --with-headers=/usr/include \
     libc_cv_slibdir=/lib
   make
-  # FIXME $TST <ld-linux links>
   $TST TIMEOUTFACTOR=16 make -k check || true
   install -Dv -m 644 $SRC/ld.so.conf $PKG/etc/ld.so.conf
 
@@ -67,7 +62,7 @@ build()
   rm -v $PKG/usr/bin/tzselect
   rm -v $PKG/usr/sbin/{zdump,zic}
 
-  for file in nsswitch.conf ld.so.conf hosts host.conf resolv.conf; do
-    mv -v $PKG/etc/$file{,.new}
-  done
+  #for file in nsswitch.conf ld.so.conf hosts host.conf resolv.conf; do
+  #  mv -v $PKG/etc/$file{,.new}
+  #done
 }

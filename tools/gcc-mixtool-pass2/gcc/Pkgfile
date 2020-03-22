@@ -1,11 +1,11 @@
 # Description: compiler collection
 
 name=gcc
-version=9.2.0
+version=9.3.0
 release=0pass2
 source=(http://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz
 	http://www.mpfr.org/mpfr-current/mpfr-4.0.2.tar.xz
-	http://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.xz
+	http://ftp.gnu.org/gnu/gmp/gmp-6.2.0.tar.xz
 	https://ftp.gnu.org/gnu/mpc/mpc-1.1.0.tar.gz)
 
 : ${MIX_TGT:=$(uname -m)-mix-linux-gnu}
@@ -13,9 +13,10 @@ source=(http://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz
 build() {
   cd $name-$version
 
-  # restore internal header
-  cat gcc/limitx.h gcc/glimits.h gcc/limity.h > \
-    `dirname $($MIX_TGT-gcc -print-libgcc-file-name)`/include-fixed/limits.h
+  mkdir -v mpfr gmp mpc
+  tar -C mpfr --strip-components=1 -xf ../mpfr-4.0.2.tar.xz
+  tar -C gmp --strip-components=1 -xf ../gmp-6.2.0.tar.xz
+  tar -C mpc --strip-components=1 -xf ../mpc-1.1.0.tar.gz
 
   # change paths for pass2 temporary build
   for file in gcc/config/{linux,i386/linux{,64}}.h
@@ -39,10 +40,9 @@ build() {
     ;;
   esac
 
-  mkdir -v mpfr gmp mpc
-  tar -C mpfr --strip-components=1 -xf ../mpfr-4.0.2.tar.xz
-  tar -C gmp --strip-components=1 -xf ../gmp-6.1.2.tar.xz
-  tar -C mpc --strip-components=1 -xf ../mpc-1.1.0.tar.gz
+  # restore internal header
+  cat gcc/limitx.h gcc/glimits.h gcc/limity.h > \
+    `dirname $($MIX_TGT-gcc -print-libgcc-file-name)`/include-fixed/limits.h
 
   mkdir -v build
   cd build
@@ -63,7 +63,7 @@ build() {
   make
   make DESTDIR=$PKG install
 
-  ln -vs gcc $PKG/tools/bin/cc
+  ln -sv gcc $PKG/tools/bin/cc
   rm -rv $PKG/tools/share/{info,man}
   find $PKG -name "README*" -delete
 }

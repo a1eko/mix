@@ -5,8 +5,6 @@ o misc ports: to reset site default flags run "sudo CONFIG_SITE='' pkz build <pk
 o ports (crux): replace 'pkginfo -i' with 'pkz -i list'
 o linux kernel: "syncconfig" replaces "silentoldconfig"
 o crux (ports): .signature replaces .md5sum (see core/signify)
-o libreoffice: presentation and spreadsheets depend on avahi to be installed
+o libreoffice: presentation and spreadsheets depend on avahi at runtime
 - pkz: fix 'list' behavior (multiple patterns, eg: gcc gtk)
 - pkz: resolve doesn't work with -p
-- ports: new binutils-2.34, glibc-2.31, gcc-9.3.0
-- util-linux: build error SYS_pidfd_open undeclared (on older builds)
