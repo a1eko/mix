@@ -14,12 +14,12 @@ libmpeg2
 libvpx
 libtheora
 libquicktime
-lzo
+#lzo
 x264
 libxvid
 mjpegtools
 
-cmake
+#cmake
 docutils
 nettle
 libidn
@@ -30,7 +30,7 @@ p11-kit
 
 gnutls
 faac
-fribidi
+#fribidi
 libass
 libcdio
 libdvdnav

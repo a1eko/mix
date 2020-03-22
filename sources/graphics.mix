@@ -36,6 +36,9 @@ t1lib
 
 gtk
 
+libusb
+cups
+
 p5-xml-parser
 feh
 libgd
