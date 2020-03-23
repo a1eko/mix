@@ -6,7 +6,7 @@ System requirements
 
 * MiX is tested on x86_64 architecture.
 
-* The core system is about 2.4 GB (3.7 GB with sources) and needs over
+* The core system is about 2.4 GB (3.9 GB with sources) and needs over
 10 GB of the disk space to build.
 
 * Host system should be relatively up-to-date. This distribution is
@@ -45,12 +45,15 @@ Set password for user *root*.
 
 	passwd root
 
-Add user *build*. User *build* must be a member of the group *wheel*
-to be able to execute `sudo` commands (run `visudo` to configure *sudo*
-if necessary).
+Add user *build*. 
 
 	useradd -m -g users -G floppy,audio,video,cdrom,wheel -s /bin/bash build
 	passwd build
+
+User *build* must be a member of the group *wheel* to be able to execute
+`sudo` commands. Run `visudo` to configure *sudo*.
+
+	visudo
 
 Make user *build* an owner of the build sources.
 
