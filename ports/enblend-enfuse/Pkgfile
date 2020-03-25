@@ -15,7 +15,7 @@ build() {
 ls -la
 	cd "${SRC}/${name}-${version}"
 
-	./configure --prefix=/usr --enable-openmp --enable-opencl --disable-nls
+	./configure --prefix=/usr --disable-nls --enable-openmp --enable-opencl
 	make
 	make DESTDIR="${PKG}" install
 	rm -rf ${PKG}/usr/share/info

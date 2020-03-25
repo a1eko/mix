@@ -2,9 +2,9 @@
 # Depends on: zathura girara djvulibre
 
 name=zathura-djvu
-version=0.2.8
-release=mix-2
-source=(https://github.com/pwmt/zathura-djvu/archive/$version.tar.gz)
+version=0.2.9
+release=mix-1
+source=(https://pwmt.org/projects/$name/download/$name-$version.tar.xz)
  
 build() {
   cd $name-$version

@@ -3,9 +3,8 @@
 
 name=zathura-ps
 version=0.2.6
-release=mix-2
-
-source=(https://github.com/pwmt/zathura-ps/archive/$version.tar.gz)
+release=mix-3
+source=(https://pwmt.org/projects/$name/download/$name-$version.tar.xz)
  
 build() {
   cd $name-$version

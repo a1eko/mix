@@ -1,6 +1,5 @@
 # Description: Neuron simulation environment
-# Depends on: iv python3 git
-# Nice to have: mpich
+# Depends on: iv python3 git mpich
 
 name=nrn
 version=git
@@ -11,9 +10,8 @@ build() {
   git clone https://github.com/nrnhines/nrn
   cd $name
   ./build.sh
-  if which mpirun &>/dev/null; then WITH_MPI=--with-mpi; fi
   ./configure --prefix=/usr --exec-prefix=/usr --with-iv=/usr \
-    --with-pyexe=python3 --with-nrnpython --with-paranrn $WITH_MPI
+    --with-pyexe=python3 --with-nrnpython --with-paranrn --with-mpi
   make
   make DESTDIR=$PKG install
   rm -rv $PKG/usr/share/nrn/{demo,examples}

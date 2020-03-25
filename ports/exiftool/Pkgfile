@@ -4,7 +4,7 @@
 # Depends on:
 
 name=exiftool
-version=11.81
+version=11.92
 release=mix-1
 source=(http://www.sno.phy.queensu.ca/~phil/exiftool/Image-ExifTool-$version.tar.gz)
 

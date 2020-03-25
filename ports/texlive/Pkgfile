@@ -1,17 +1,23 @@
 # Description: TeX distribution for UNIX compatible systems.
 # URL:         http://www.tug.org/tetex/
-# Maintainer:  Thomas Penteker, tek at serverop dot de
-# Depends on:  clisp icu libgd poppler t1lib util-linux xorg-libxi ghostscript
+# Maintainer:  John Vogel, jvogel4 at stny dot rr dot com
+# Depends on:  clisp ghostscript icu libgd libmpfr poppler xorg-libxaw xorg-libxi zziplib
 
 name=texlive
 version=20190410
-release=mix-1
-source=(ftp://tug.org/historic/systems/texlive/${version:0:4}/$name-$version-texmf.tar.xz
-        ftp://tug.org/historic/systems/texlive/${version:0:4}/$name-$version-source.tar.xz
+slackver=190626
+release=mix-2
+source=(ftp://tug.org/historic/systems/texlive/${version:0:4}/$name-$version-source.tar.xz
+	http://slackware.schoepfer.info/slackbuilds/texlive/${version:0:4}/$name/$name-base-${version:0:4}.$slackver.tar.xz
+	http://www.linuxfromscratch.org/patches/blfs/svn/texlive-$version-source-upstream_fixes-1.patch
         http://download.savannah.gnu.org/releases/texi2html/texi2html-5.0.tar.bz2
-        pdftex-poppler0.76.patch)
+        reinstate-setting-HAVE_LIBGS-for-non-TL-builds.patch)
 
 build() {
+  # remove broken symlinks
+  # -exec rm '{}' \+ was a tip I got from romster, it will batch to rm and perform better on large quantities
+  find $SRC -type l -xtype l -exec rm '{}' \+
+
   cd $name-$version-source
 
   chmod -R a-s $SRC
@@ -22,14 +28,22 @@ build() {
     \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
     -exec chmod 644 {} \;
 
-  # Fix build with poppler
-  patch -Np1 < $SRC/pdftex-poppler0.76.patch
-  cp -pv texk/web2c/pdftexdir/pdftoepdf{-poppler0.76.0,}.cc
-  cp -pv texk/web2c/pdftexdir/pdftosrc{-poppler0.76.0,}.cc
+  # apply upstream fixes
+  patch -Np1 -i ../texlive-20190410-source-upstream_fixes-1.patch
+
+  # fix libgs linking issue with dvisvgm (upstream patch, cherry-picked from git-svn)
+  patch -Np1 -i $SRC/reinstate-setting-HAVE_LIBGS-for-non-TL-builds.patch
 
   # Fix some paths
+  sed -i 's/SELFAUTOPARENT/TEXMFROOT/' texk/tex4htk/t4ht.c
   sed -i 's|TEXMFROOT = .*|TEXMFROOT = $SELFAUTODIR/share|g' texk/kpathsea/texmf.cnf
   sed -i 's|TEXMFLOCAL = .*|TEXMFLOCAL = $TEXMFROOT/texmf-local|g' texk/kpathsea/texmf.cnf
+  # taken from archs texlive-bin PKGBUILD
+  # https://git.archlinux.org/svntogit/packages.git/tree/trunk/PKGBUILD?h=packages/texlive-bin
+  # line 116
+  find utils/xindy -name Makefile -exec sed -i -e "s|^prefix =.\+$|prefix = $pkgdir/usr|" \
+    -e "s|^mandir =.\+$|mandir = \${prefix}/share/man|" -e "s|^datadir =.\+$|datadir = \${datarootdir}/texmf|" \
+    -e "s|^docdir =.\+$|docdir = \${datadir}/doc/xindy|" '{}' \;
 
   export TEXMFCNF=""
   export KPATHSEA_WARNING=0
@@ -37,52 +51,39 @@ build() {
   mkdir build
   cd build
 
-  CONFIG_SHELL=/bin/bash \
+  # consider disabling parts that conflict with other ports, like psutils
+  # some options included seem to be the default, remove them?
+  #  (--disable-multiplatform, enable-largefile, ...)
+  # what is required to enable xindy? is it worth the trouble?
+  # # no idea about xindy, never really needed it until now and I am not sure what the benefits are.
+  # # I have to say though that I like to keep this beast at least a bit slim .footprint-wise, so if it's not needed right now, I wouldn't bother
+  # # I went ahead and tried to cluster everything to make it a bit more readable
+  # # also I attempt to provide a working xindy and luatex env
+
   ../configure \
     --prefix=/usr \
-    --with-banner-add=" MiX" \
-    --disable-native-texlive-build \
-    --disable-multiplatform \
-    --disable-debug \
-    --disable-dvisvgm \
-    --disable-missing \
-    --disable-static \
-    --enable-shared \
-    --enable-largefile \
+    --with-banner-add="/MiX" \
+    --with-clisp-runtime=system \
+    --enable-{libtool-hack,luatex,shared,xindy} \
+    --with-system-{cairo,freetype2,gd,gmp,icu,libgs,libpng,mpfr,ncurses,pixman,t1lib,zlib,zziplib} \
     --with-x \
     --with-xdvi-x-toolkit=xaw \
-    --disable-xindy \
-    --disable-xindy-docs \
-    --disable-xindy-rules \
-    --with-clisp-runtime=system \
-    --with-system-poppler \
-    --with-system-cairo \
-    --with-system-pixman \
-    --with-system-xpdf \
-    --with-system-ncurses \
-    --with-system-zlib \
-    --with-system-libpng \
-    --with-system-t1lib \
-    --with-system-gd \
-    --with-system-freetype2 \
-    --with-system-gmp \
-    --with-system-mpfr \
-    --with-system-icu
+    --disable-{bibtexu,debug,dialog,missing,native-texlive-build,psutils,poppler,xpdf,static,xindy-doc,xindy-rules}
 
   make
   make DESTDIR=$PKG install
 
   cd ..
 
-  PERLVER="$(perl -v |sed -nre '2{s/^.*\(v(5\.[0-9]+).*\).*$/\1/;p}')"
-  install -d $PKG/usr/lib/perl5/site_perl/${PERLVER}/TeXLive
-  install texk/tests/TeXLive/TL{Config,Utils}.pm $PKG/usr/lib/perl5/site_perl/${PERLVER}/TeXLive
+  perl_sitelib=$(perl -V:sitelib | sed -e "s|sitelib=[']\(.*\)['].*$|\1|")
+  install -d $PKG/$perl_sitelib/TeXLive
+  install texk/tests/TeXLive/TL{Config,Utils}.pm $PKG/$perl_sitelib/TeXLive
 
   # Create symlinks
-  PATH="$PKG/usr/bin:$PATH" LD_LIBRARY_PATH="$PKG/usr/lib:$LD_LIBRARY_PATH" \
+  PATH="$PKG/usr/bin:$PATH" LD_LIBRARY_PATH+="$PKG/usr/lib:$LD_LIBRARY_PATH" \
     texlinks -f $PKG/usr/share/texmf-dist/web2c/fmtutil.cnf $PKG/usr/bin
 
-  cd $SRC/$name-$version-texmf
+  cd $SRC
 
   # Fix some paths
   sed -i 's|TEXMFROOT = .*|TEXMFROOT = $SELFAUTODIR/share|g'  texmf-dist/web2c/texmf.cnf
@@ -100,11 +101,12 @@ build() {
   ./configure --prefix=/usr
 
   make
-  make DESTDIR=$PKG install
+  make install DESTDIR=$PKG
 
-  rm -r $PKG/usr/share/{info,locale}
-  rm -r $PKG/usr/share/texmf-dist/doc
+  rm -r $PKG/usr/share/{info,locale,texmf-dist/doc}
+  rm -r $PKG/usr/bin/tlmgr
+  rm -rf $PKG/usr/share/texmf-dist/scripts/texlive/tlmgr{,gui}.pl
   find  $PKG/usr/share/texmf-dist \
     -regex '.*/\(COPYING\|README\|AUTHORS\|INSTALL\|ChangeLog\|NEWS\|TODO\).*' \
-    -delete
+    -exec rm '{}' \+
 }

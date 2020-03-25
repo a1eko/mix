@@ -1,14 +1,13 @@
 # Description: Lightweight Directory Access Protocol (LDAP) Toolkit
-# URL: http://www.openldap.org/
+# URL: https://www.openldap.org/
 # Packager: Daniel Mueller, daniel at danm dot de
 # Maintainer: Jose V Beneyto, sepen at crux dot nu
-# Depends on: perl, openssl, cyrus-sasl
-# NOTE: CRUX original
+# Depends on: cyrus-sasl libtool perl util-linux
 
 name=openldap
-version=2.4.42
+version=2.4.45
 release=mix-1
-source=(ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/$name-$version.tgz \
+source=(https://www.openldap.org/software/download/OpenLDAP/openldap-release/$name-$version.tgz
 	$name-config.patch slapd)
 
 build() {
@@ -16,7 +15,6 @@ build() {
 	patch -p0 -i $SRC/$name-config.patch
 
 	./configure --prefix=/usr \
-                --mandir=/usr/man \
 		--sysconfdir=/etc \
 		--libexecdir=/usr/sbin \
 		--localstatedir=/var/openldap \
@@ -30,15 +28,15 @@ build() {
 		--enable-modules \
 		--enable-crypt \
 		--enable-rewrite \
-		--enable-bdb \
-		--enable-hdb \
+		--disable-bdb \
+		--disable-hdb \
+		--disable-ndb \
 		--enable-ldap \
 		--enable-meta \
 		--enable-monitor \
 		--enable-dnssrv \
 		--enable-null \
 		--enable-perl \
-		--enable-wrappers \
 		--enable-aci \
 		--enable-shared
 

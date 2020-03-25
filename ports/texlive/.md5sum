@@ -1,3 +1,5 @@
-586bb6cb6c30ce7efba256b956df6bc2  texlive-20190410-texmf.tar.xz
 be4b20aa60861bc510bcbc5b228bcb51  texlive-20190410-source.tar.xz
-f38b46eae0e2cdaa66e953791d2b5990  pdftex-poppler0.76.patch
+8cdce6f22872b261eb0695897a9ece23  texlive-20190410-source-upstream_fixes-1.patch
+0a6a69d6e921989287a8a24471150b28  texlive-base-2019.190626.tar.xz
+f15ac876fcdc8be865b16535f480aa54  texi2html-5.0.tar.bz2
+67f050ef54e585a6f86dd648108c818b  reinstate-setting-HAVE_LIBGS-for-non-TL-builds.patch

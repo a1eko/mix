@@ -2,8 +2,8 @@
 # Depends on: pango
 
 name=paps
-version=0.6.8
-release=mix-2
+version=0.7.1
+release=mix-1
 
 source=(http://downloads.sourceforge.net/paps/paps-$version.tar.gz)
 

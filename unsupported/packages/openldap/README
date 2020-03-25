@@ -1,3 +1,5 @@
+README for openldap
+
 UPDATE:
 
 When updateing openldap you should first create a backup of all your data with
@@ -8,3 +10,4 @@ slapcat, like:
 Then you upgrade openldap and restore your data with slapadd:
 
   slapadd -l backup.ldif
+

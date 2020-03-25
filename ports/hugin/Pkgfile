@@ -1,31 +1,26 @@
-# Description: A panorama stitcher and more!
-# Maintainer:  Aaron Ball, nullspoon at oper dot io
-# URL:         http://hugin.sourceforge.net/
-# Depends on:  wxgtk openexr vigra exiv2 glew libpano13 swig
-# MiX add-on
-# Nice to have: openmp boost libtiff libjpeg-turbo libpng glu xorg-libxi xorg-libxmu python3 cmake sqlite3 enblend-enfuse exiftool
+# Description: Panorama photo stitcher
+# URL: http://hugin.sourceforge.net/
+# Maintainer: Erich Eckner, crux at eckner dot net
+# Depends on: wxgtk enblend-enfuse exiv2 libpano13 python glew desktop-file-utils swig
 
 name=hugin
-version=2019.0.0
-release=mix-1
-source=(https://downloads.sourceforge.net/project/${name}/${name}/${name}-${version%.*}/${name}-${version}.tar.bz2
-	hugin-exiv2-0.27.1.patch)
+version=2019.2.0
+release=1
+source=("https://downloads.sourceforge.net/project/${name}/${name}/${name}-${version%.*}/${name}-${version}.tar.bz2")
 
 build() {
-  cd ${name}-${version}
-  patch -p1 -i ../hugin-exiv2-0.27.1.patch
 
-  mkdir build
-  cd build
+	cd "${SRC}/${name}-${version}"
+	install -d build
+	cd build
+	cmake .. \
+		-DCMAKE_BUILD_TYPE=Release \
+		-DCMAKE_INSTALL_PREFIX=/usr \
+		-DENABLE_LAPACK=yes
 
-  cmake \
-    -DCMAKE_INSTALL_PREFIX=/usr \
-    -DVIGRA_INCLUDE_DIR=/usr/include \
-    ../
+	make
+	make DESTDIR="${PKG}" install
+        rm -rf ${PKG}/usr/share/locale
+	find "${PKG}" \( -name '*README*' -o -name '*COPYING*' \) -delete
 
-  make
-  make DESTDIR="${PKG}" install
-
-  rm -rf ${PKG}/usr/share/locale
-  find "${PKG}" \( -name '*README*' -o -name '*COPYING*' \) -delete
 }
