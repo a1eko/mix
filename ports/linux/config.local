@@ -1,5 +1,11 @@
-#
-# User-defined file config.local
-# Provides local hardware-specific modifications to default .config
-# Linux/x86 Kernel Configuration
-#
+CONFIG_E1000E=y
+CONFIG_IWLWIFI=m
+CONFIG_IWLDVM=m
+CONFIG_CFG80211_WEXT=y
+CONFIG_NTFS_FS=m
+CONFIG_NTFS_RW=y
+CONFIG_FUSE_FS=m
+CONFIG_SND_HDA_CODEC_CONEXANT=y
+CONFIG_SND_HDA_GENERIC=y
+#CONFIG_TUN=m
+CONFIG_UNWINDER_FRAME_POINTER=y
