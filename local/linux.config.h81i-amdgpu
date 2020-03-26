@@ -1,3 +1,4 @@
+# H81i motherboard, AMD GPU
 CONFIG_R8169=m
 CONFIG_NTFS_FS=m
 CONFIG_NTFS_RW=y
