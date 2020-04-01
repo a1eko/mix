@@ -9,4 +9,4 @@ o crux (ports): .signature replaces .md5sum (see core/signify)
 o libreoffice: presentation and spreadsheets depend on avahi at runtime
 - pkz: fix 'list' behavior (multiple patterns, eg: gcc gtk)
 - pkz: resolve doesn't work with -p
-- ports (zoom, skype): fix sandbox permissions, add skype dependencies
+- ffmpeg: ffplay?
