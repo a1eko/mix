@@ -37,6 +37,7 @@ drwxr-xr-x	root/root	usr/include/xen/
 drwxr-xr-x	root/root	usr/include/misc/
 -rw-r--r--	root/root	usr/include/misc/fastrpc.h
 -rw-r--r--	root/root	usr/include/misc/ocxl.h
+-rw-r--r--	root/root	usr/include/misc/pvpanic.h
 -rw-r--r--	root/root	usr/include/misc/cxl.h
 -rw-r--r--	root/root	usr/include/misc/habanalabs.h
 -rw-r--r--	root/root	usr/include/misc/xilinx_sdfec.h
@@ -219,6 +220,7 @@ drwxr-xr-x	root/root	usr/include/linux/
 -rw-r--r--	root/root	usr/include/linux/atm.h
 -rw-r--r--	root/root	usr/include/linux/auto_dev-ioctl.h
 -rw-r--r--	root/root	usr/include/linux/swab.h
+-rw-r--r--	root/root	usr/include/linux/idxd.h
 -rw-r--r--	root/root	usr/include/linux/reboot.h
 -rw-r--r--	root/root	usr/include/linux/aspeed-lpc-ctrl.h
 -rw-r--r--	root/root	usr/include/linux/auto_fs.h
@@ -228,6 +230,7 @@ drwxr-xr-x	root/root	usr/include/linux/
 -rw-r--r--	root/root	usr/include/linux/cec-funcs.h
 -rw-r--r--	root/root	usr/include/linux/atmbr2684.h
 -rw-r--r--	root/root	usr/include/linux/timerfd.h
+-rw-r--r--	root/root	usr/include/linux/dma-heap.h
 -rw-r--r--	root/root	usr/include/linux/coff.h
 -rw-r--r--	root/root	usr/include/linux/psample.h
 -rw-r--r--	root/root	usr/include/linux/ipmi_bmc.h
@@ -541,6 +544,7 @@ drwxr-xr-x	root/root	usr/include/linux/netfilter_bridge/
 -rw-r--r--	root/root	usr/include/linux/nfs_idmap.h
 -rw-r--r--	root/root	usr/include/linux/apm_bios.h
 -rw-r--r--	root/root	usr/include/linux/elf.h
+-rw-r--r--	root/root	usr/include/linux/ethtool_netlink.h
 -rw-r--r--	root/root	usr/include/linux/if_infiniband.h
 -rw-r--r--	root/root	usr/include/linux/rio_cm_cdev.h
 -rw-r--r--	root/root	usr/include/linux/uio.h
@@ -564,7 +568,6 @@ drwxr-xr-x	root/root	usr/include/linux/hsi/
 -rw-r--r--	root/root	usr/include/linux/hsi/hsi_char.h
 -rw-r--r--	root/root	usr/include/linux/hsi/cs-protocol.h
 -rw-r--r--	root/root	usr/include/linux/module.h
--rw-r--r--	root/root	usr/include/linux/b1lli.h
 -rw-r--r--	root/root	usr/include/linux/pg.h
 -rw-r--r--	root/root	usr/include/linux/i8k.h
 -rw-r--r--	root/root	usr/include/linux/mroute.h
@@ -572,7 +575,6 @@ drwxr-xr-x	root/root	usr/include/linux/hsi/
 -rw-r--r--	root/root	usr/include/linux/coresight-stm.h
 -rw-r--r--	root/root	usr/include/linux/nbd.h
 -rw-r--r--	root/root	usr/include/linux/pps.h
--rw-r--r--	root/root	usr/include/linux/gigaset_dev.h
 -rw-r--r--	root/root	usr/include/linux/securebits.h
 -rw-r--r--	root/root	usr/include/linux/tipc.h
 -rw-r--r--	root/root	usr/include/linux/gfs2_ondisk.h
@@ -614,7 +616,6 @@ drwxr-xr-x	root/root	usr/include/linux/spi/
 -rw-r--r--	root/root	usr/include/linux/jffs2.h
 -rw-r--r--	root/root	usr/include/linux/quota.h
 -rw-r--r--	root/root	usr/include/linux/atm_idt77105.h
--rw-r--r--	root/root	usr/include/linux/hysdn_if.h
 -rw-r--r--	root/root	usr/include/linux/pmu.h
 -rw-r--r--	root/root	usr/include/linux/posix_types.h
 drwxr-xr-x	root/root	usr/include/linux/netfilter_ipv4/
@@ -643,6 +644,7 @@ drwxr-xr-x	root/root	usr/include/linux/sunrpc/
 -rw-r--r--	root/root	usr/include/linux/atmioc.h
 -rw-r--r--	root/root	usr/include/linux/nfs_fs.h
 -rw-r--r--	root/root	usr/include/linux/limits.h
+-rw-r--r--	root/root	usr/include/linux/wireguard.h
 -rw-r--r--	root/root	usr/include/linux/if_hippi.h
 -rw-r--r--	root/root	usr/include/linux/fib_rules.h
 -rw-r--r--	root/root	usr/include/linux/signal.h
@@ -745,6 +747,7 @@ drwxr-xr-x	root/root	usr/include/linux/cifs/
 -rw-r--r--	root/root	usr/include/linux/kernel.h
 -rw-r--r--	root/root	usr/include/linux/cuda.h
 -rw-r--r--	root/root	usr/include/linux/fsverity.h
+-rw-r--r--	root/root	usr/include/linux/openat2.h
 -rw-r--r--	root/root	usr/include/linux/if_bridge.h
 -rw-r--r--	root/root	usr/include/linux/blkzoned.h
 -rw-r--r--	root/root	usr/include/linux/smc.h
