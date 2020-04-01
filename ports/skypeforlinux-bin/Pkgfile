@@ -1,0 +1,12 @@
+# Description: video conferencing Skype client
+
+name=skypeforlinux-bin
+version=latest
+release=mix-1
+source=(https://go.skype.com/skypeforlinux-64.deb)
+
+build() {
+  ar x skypeforlinux-64.deb
+  tar -C $PKG -xvf data.tar.xz
+  chmod -v 4755 $PKG/usr/share/skypeforlinux/chrome-sandbox
+}
