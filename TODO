@@ -7,6 +7,8 @@ o ports (crux): replace 'pkginfo -i' with 'pkz -i list'
 o linux kernel: "syncconfig" replaces "silentoldconfig"
 o crux (ports): .signature replaces .md5sum (see core/signify)
 o libreoffice: presentation and spreadsheets depend on avahi at runtime
+o gimp: seg fault, fixed in v2.10.18
+o gegl: gimp dep ver >= 0.4.22
+O ffmpeg (ffplay) depends on sdl2 lib
 - pkz: fix 'list' behavior (multiple patterns, eg: gcc gtk)
 - pkz: resolve doesn't work with -p
-- ffmpeg: ffplay?
