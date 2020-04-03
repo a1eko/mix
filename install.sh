@@ -18,12 +18,14 @@ MIX_TST=${MIX_TST-no}
 MIX_TOOLS=${MIX_TOOLS-yes}
 MIX_CORE=${MIX_CORE-yes}
 MIX_CORE_CLEAN=${MIX_CORE_CLEAN-${MIX_CORE}}
+MIX_CORE_SRC=${MIX_CORE_SRC-${MIX_CORE}}
 
 echo MIX_TGT=$MIX_TGT
 echo MIX_TST=$MIX_TST
 echo MIX_TOOLS=$MIX_TOOLS
 echo MIX_CORE=$MIX_CORE
 echo MIX_CORE_CLEAN=$MIX_CORE_CLEAN
+echo MIX_CORE_SRC=$MIX_CORE_SRC
 
 test "$MIX_TST" = no && export TST=:
 
@@ -82,7 +84,7 @@ toolsh="env -i MIX=$MIX PKZ=$MIX PKZCONF=$MIX/usr/sources/pkz.conf \
   PATH=/tools/bin:/bin:/usr/bin \
   /bin/bash -e +h -c"
 
-if [ "$MIX_CORE" = yes ]; then
+if [ "$MIX_CORE" = yes -a "$MIX_CORE_SRC" = yes ]; then
   $toolsh "pkz source $BASE1 $BASE2 $BASE3 $KERNEL $BOOT"
   $toolsh "pkz source include $MIX/usr/sources/coreopt.mix"
 fi

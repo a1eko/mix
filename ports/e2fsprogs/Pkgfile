@@ -4,7 +4,7 @@
 # Depends on:  util-linux
 
 name=e2fsprogs
-version=1.45.5
+version=1.45.6
 release=mix-1
 source=(https://www.kernel.org/pub/linux/kernel/people/tytso/$name/v$version/$name-$version.tar.xz)
 
@@ -12,6 +12,7 @@ build() {
     cd $name-$version
 
     ./configure --prefix=/usr \
+                --bindir=/bin \
                 --with-root-prefix= \
                 --enable-symlink-install \
                 --enable-elf-shlibs \
