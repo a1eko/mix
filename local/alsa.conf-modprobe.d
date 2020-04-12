@@ -1,1 +1,1 @@
-    options snd_hda_intel index=1
+options snd_hda_intel index=1
