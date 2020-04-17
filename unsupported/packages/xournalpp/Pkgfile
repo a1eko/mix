@@ -1,0 +1,16 @@
+# Description: Handwriting notetaking software with PDF annotation support
+# Depends on: gtk3 poppler-glib libxml2 portaudio libsndfile lua libzip texlive git cmake
+
+name=xournalpp
+version=git
+release=mix-1
+source=()
+
+build() {
+  git clone https://github.com/xournalpp/xournalpp.git
+  cd $name
+  cmake -DCMAKE_INSTALL_PREFIX=/usr
+  make
+  make DESTDIR=$PKG install
+  rm -rv $PKG/usr/share/locale
+}
