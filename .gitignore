@@ -6,3 +6,5 @@ files
 tools/**/.footprint
 sources/*
 !sources/*.mix
+ports/linux/.footprint
+ports/linux-headers/.footprint
