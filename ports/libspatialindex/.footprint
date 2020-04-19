@@ -1,0 +1,49 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/spatialindex/
+-rw-r--r--	root/root	usr/include/spatialindex/RTree.h
+-rw-r--r--	root/root	usr/include/spatialindex/MovingPoint.h
+-rw-r--r--	root/root	usr/include/spatialindex/LineSegment.h
+-rw-r--r--	root/root	usr/include/spatialindex/Region.h
+drwxr-xr-x	root/root	usr/include/spatialindex/tools/
+-rw-r--r--	root/root	usr/include/spatialindex/tools/rand48.h
+-rw-r--r--	root/root	usr/include/spatialindex/tools/SmartPointer.h
+-rw-r--r--	root/root	usr/include/spatialindex/tools/PointerPool.h
+-rw-r--r--	root/root	usr/include/spatialindex/tools/PoolPointer.h
+-rw-r--r--	root/root	usr/include/spatialindex/tools/Tools.h
+-rw-r--r--	root/root	usr/include/spatialindex/Point.h
+-rw-r--r--	root/root	usr/include/spatialindex/MovingRegion.h
+-rw-r--r--	root/root	usr/include/spatialindex/TPRTree.h
+drwxr-xr-x	root/root	usr/include/spatialindex/capi/
+-rw-r--r--	root/root	usr/include/spatialindex/capi/IdVisitor.h
+-rw-r--r--	root/root	usr/include/spatialindex/capi/sidx_api.h
+-rw-r--r--	root/root	usr/include/spatialindex/capi/Index.h
+-rw-r--r--	root/root	usr/include/spatialindex/capi/Utility.h
+-rw-r--r--	root/root	usr/include/spatialindex/capi/BoundsQuery.h
+-rw-r--r--	root/root	usr/include/spatialindex/capi/sidx_config.h
+-rw-r--r--	root/root	usr/include/spatialindex/capi/LeafQuery.h
+-rw-r--r--	root/root	usr/include/spatialindex/capi/CustomStorage.h
+-rw-r--r--	root/root	usr/include/spatialindex/capi/DataStream.h
+-rw-r--r--	root/root	usr/include/spatialindex/capi/ObjVisitor.h
+-rw-r--r--	root/root	usr/include/spatialindex/capi/CountVisitor.h
+-rw-r--r--	root/root	usr/include/spatialindex/capi/Error.h
+-rw-r--r--	root/root	usr/include/spatialindex/capi/sidx_export.h
+-rw-r--r--	root/root	usr/include/spatialindex/capi/sidx_impl.h
+-rw-r--r--	root/root	usr/include/spatialindex/Version.h
+-rw-r--r--	root/root	usr/include/spatialindex/MVRTree.h
+-rw-r--r--	root/root	usr/include/spatialindex/TimePoint.h
+-rw-r--r--	root/root	usr/include/spatialindex/TimeRegion.h
+-rw-r--r--	root/root	usr/include/spatialindex/SpatialIndex.h
+drwxr-xr-x	root/root	usr/lib/
+lrwxrwxrwx	root/root	usr/lib/libspatialindex_c.so -> libspatialindex_c.so.4.0.1
+-rwxr-xr-x	root/root	usr/lib/libspatialindex_c.so.4.0.1
+-rwxr-xr-x	root/root	usr/lib/libspatialindex_c.la
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/libspatialindex.pc
+lrwxrwxrwx	root/root	usr/lib/libspatialindex.so -> libspatialindex.so.4.0.1
+-rwxr-xr-x	root/root	usr/lib/libspatialindex.la
+-rw-r--r--	root/root	usr/lib/libspatialindex_c.a
+lrwxrwxrwx	root/root	usr/lib/libspatialindex.so.4 -> libspatialindex.so.4.0.1
+lrwxrwxrwx	root/root	usr/lib/libspatialindex_c.so.4 -> libspatialindex_c.so.4.0.1
+-rw-r--r--	root/root	usr/lib/libspatialindex.a
+-rwxr-xr-x	root/root	usr/lib/libspatialindex.so.4.0.1

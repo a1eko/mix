@@ -1,0 +1,18 @@
+# Description: library of spatial indexing methods
+# URL: http://libspatialindex.github.com/
+# Maintainer: Daryl Fonseca, wyatt at prairieturtle dot ca
+# Packager:
+# Depends on:
+
+name=libspatialindex
+version=1.8.5
+release=1
+source=(http://download.osgeo.org/$name/spatialindex-src-$version.tar.gz)
+
+build() {
+    cd spatialindex-src-$version
+    ./configure --prefix=/usr         --mandir=/usr/man        
+
+    make
+    make DESTDIR=$PKG install
+}
