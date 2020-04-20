@@ -10,4 +10,3 @@ o libreoffice: presentation and spreadsheets depend on avahi at runtime
 o gimp: segfault, fixed in v2.10.18
 o gegl: gimp dep, ver >= 0.4.22
 - pkz: fix 'list' behavior (multiple patterns, eg: gcc gtk)
-- ports: add xournalpp to replace xournal
