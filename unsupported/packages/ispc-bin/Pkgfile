@@ -1,0 +1,13 @@
+# Description: A compiler for high-performance SIMD programming on the CPU
+# Depends on: llvm clang ncurses zlib
+
+name=ispc-bin
+version=1.13.0
+release=mix-1
+source=(https://github.com/ispc/ispc/releases/download/v$version/ispc-v$version-linux.tar.gz)
+
+build() {
+  cd ispc-v$version-linux
+  mkdir -pv $PKG/usr
+  cp -av bin $PKG/usr
+}
