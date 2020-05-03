@@ -1,0 +1,21 @@
+# Description: Collection of high-performance ray tracing kernels
+# Depends on: cmake ispc-bin freeglut libxmu openexr intel-tbb
+
+name=embree
+version=2.17.6
+release=mix-1
+source=(https://github.com/$name/$name/archive/v$version/$name-$version.tar.gz)
+
+build() {
+  cmake -B build -S $name-$version \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_INSTALL_LIBDIR=lib \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DEMBREE_TUTORIALS=OFF \
+    -DEMBREE_MAX_ISA="AVX512SKX"
+    # Embree detects actual ISA at runtime
+  make -C build
+  make -C build DESTDIR=$PKG install
+  rm -rv $PKG/usr/share/doc
+  rmdir -v $PKG/usr/share
+}
