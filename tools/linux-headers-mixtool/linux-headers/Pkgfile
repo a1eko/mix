@@ -1,11 +1,7 @@
 # Description: linux kernel headers
 
 name=linux-headers
-<<<<<<< HEAD
 version=5.6.10
-=======
-version=5.6.9
->>>>>>> d47d8dd238fba331ab97c54232f5b3a2506fb450
 release=0
 source=(https://www.kernel.org/pub/linux/kernel/v5.x/linux-$version.tar.xz)
 
