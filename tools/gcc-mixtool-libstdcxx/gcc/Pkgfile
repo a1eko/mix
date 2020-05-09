@@ -1,7 +1,7 @@
 # Description: compiler collection
 
 name=gcc
-version=9.3.0
+version=10.1.0
 release=0libstdcxx
 source=(http://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz)
 

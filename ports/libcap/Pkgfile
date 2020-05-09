@@ -4,21 +4,25 @@
 # Depends on:  attr linux-pam
 
 name=libcap
-version=2.33
+version=2.34
 release=mix-1
 source=(https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/$name-$version.tar.xz)
 
 build () {
-    cd $name-$version
+	cd $name-$version
 
-    sed -i "/^CFLAGS/s/-O2/$CFLAGS/" Make.Rules 
+	sed -i "/^CFLAGS/s/-O2/$CFLAGS/" Make.Rules 
 
-    make GOLANG=no RAISE_SETFCAP=no DESTDIR=$PKG install
+	make install \
+		GOLANG=no \
+		RAISE_SETFCAP=no \
+		PKGCONFIGDIR=/usr/lib/pkgconfig \
+		DESTDIR=$PKG
 
-    install -d $PKG/usr/lib
-    mv $PKG/lib*/lib{cap,psx}.a $PKG/usr/lib
-    rm $PKG/lib*/libcap.so
-    ln -s ../../lib/libcap.so.$version $PKG/usr/lib/libcap.so
+	install -d $PKG/usr/lib
+	mv $PKG/lib*/lib{cap,psx}.a $PKG/usr/lib
+	rm $PKG/lib*/libcap.so
+	ln -s ../../lib/libcap.so.$version $PKG/usr/lib/libcap.so
 
-    sed '/^libdir/s|/lib|/usr/lib|' -i $PKG/usr/lib*/pkgconfig/*.pc
+	sed '/^libdir/s|/lib|/usr/lib|' -i $PKG/usr/lib/pkgconfig/*.pc
 }
