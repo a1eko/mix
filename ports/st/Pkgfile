@@ -1,0 +1,28 @@
+# Description: simple terminal implementation for X
+# Depends on:  xorg-libxext xorg-libxft
+
+name=st
+version=0.8.2
+release=mix-1
+source=(https://dl.suckless.org/st/$name-$version.tar.gz
+	https://st.suckless.org/patches/scrollback/st-scrollback-$version.diff
+	https://st.suckless.org/patches/scrollback/st-scrollback-mouse-$version.diff
+	https://st.suckless.org/patches/clipboard/st-clipboard-$version.diff
+)
+
+build () {
+  cd $name-$version
+
+  patch -Np1 -i ../st-scrollback-$version.diff
+  patch -Np1 -i ../st-scrollback-mouse-$version.diff
+  patch -Np1 -i ../st-clipboard-$version.diff
+
+  sed -i "s/Liberation Mono:pixelsize=12/Mono:size=10/" config.def.h
+  sed -i "s/gray90/gray70/" config.def.h
+
+  make CC=gcc
+  make DESTDIR=$PKG PREFIX=/usr TERMINFO=$PKG/usr/share/terminfo install
+
+  # Remove duplicates of files from ncurses
+  rm -fv $PKG/usr/share/terminfo/s/{st,st-256color}
+}
