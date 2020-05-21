@@ -17,7 +17,8 @@ monitor() {
     | grep 'href="/pypi/' | cut -d'"' -f2 \
     | sed -e 's,/pypi/,,'i -e 's,/,-,' \
     >> .listing-tmp
-  for f in $(wget -qO- http://www.linuxfromscratch.org/lfs/downloads/development/wget-list); do
+  lynx -source "http://www.linuxfromscratch.org/lfs/downloads/development/wget-list" > wget-list
+  for f in $(cat wget-list); do
       basename $f >> .listing-tmp
   done
   sort -u .listing-tmp > .listing-files
