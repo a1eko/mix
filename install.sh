@@ -210,7 +210,7 @@ sudo mkdir -pv $MIX/{dev,proc,sys,run}
 sudo mknod -m 600 $MIX/dev/console c 5 1
 sudo mknod -m 666 $MIX/dev/null c 1 3
 sudo mount -v --bind /dev $MIX/dev
-sudo mount -vt devpts devpts $MIX/dev/pts -o gid=5,mode=620
+sudo mount -v --bind /dev/pts $MIX/dev/pts
 sudo mount -vt proc proc $MIX/proc
 sudo mount -vt sysfs sysfs $MIX/sys
 sudo mount -vt tmpfs tmpfs $MIX/run
