@@ -9,4 +9,4 @@ o crux (ports): .signature replaces .md5sum (see core/signify)
 o libreoffice: presentation and spreadsheets depend on avahi at runtime
 o gcc: update .footprint for v10.x
 - pkz: fix 'list' behavior (multiple patterns, eg: gcc gtk)
-- st: fix DELETE key
+- gcc (v10): binutils-2.34-gcc10_gold_test_fix-1.patch
