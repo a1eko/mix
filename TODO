@@ -10,3 +10,5 @@ o libreoffice: presentation and spreadsheets depend on avahi at runtime
 o gcc: update .footprint for v10.x
 - pkz: fix 'list' behavior (multiple patterns, eg: gcc gtk)
 - gcc (v10): binutils-2.34-gcc10_gold_test_fix-1.patch
+- gcc (v10.1): gcc-10.1.0-cet_fix-1.patch
+! mix (ports, install.sh): refactor toolchain build (see new lfs post June 16)
