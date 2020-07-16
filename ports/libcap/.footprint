@@ -4,15 +4,15 @@ drwxr-xr-x	root/root	sbin/
 -rwxr-xr-x	root/root	sbin/getcap
 -rwxr-xr-x	root/root	sbin/getpcaps
 drwxr-xr-x	root/root	lib64/
-lrwxrwxrwx	root/root	lib64/libcap.so.2 -> libcap.so.2.38
+lrwxrwxrwx	root/root	lib64/libcap.so.2 -> libcap.so.2.39
+-rw-r--r--	root/root	lib64/libcap.so.2.39
 drwxr-xr-x	root/root	lib64/security/
 -rwxr-xr-x	root/root	lib64/security/pam_cap.so
--rw-r--r--	root/root	lib64/libcap.so.2.38
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/lib/
 -rw-r--r--	root/root	usr/lib/libcap.a
 -rw-r--r--	root/root	usr/lib/libpsx.a
-lrwxrwxrwx	root/root	usr/lib/libcap.so -> ../../lib/libcap.so.2.38
+lrwxrwxrwx	root/root	usr/lib/libcap.so -> ../../lib/libcap.so.2.39
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/libcap.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/libpsx.pc
@@ -29,7 +29,6 @@ drwxr-xr-x	root/root	usr/share/man/man3/
 -rw-r--r--	root/root	usr/share/man/man3/cap_get_bound.3.gz
 -rw-r--r--	root/root	usr/share/man/man3/psx_syscall3.3.gz
 -rw-r--r--	root/root	usr/share/man/man3/cap_set_mode.3.gz
--rw-r--r--	root/root	usr/share/man/man3/psx_register.3.gz
 -rw-r--r--	root/root	usr/share/man/man3/cap_set_flag.3.gz
 -rw-r--r--	root/root	usr/share/man/man3/cap_clear.3.gz
 -rw-r--r--	root/root	usr/share/man/man3/cap_get_file.3.gz
