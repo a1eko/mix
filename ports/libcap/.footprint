@@ -3,16 +3,16 @@ drwxr-xr-x	root/root	sbin/
 -rwxr-xr-x	root/root	sbin/capsh
 -rwxr-xr-x	root/root	sbin/getcap
 -rwxr-xr-x	root/root	sbin/getpcaps
-drwxr-xr-x	root/root	lib64/
-lrwxrwxrwx	root/root	lib64/libcap.so.2 -> libcap.so.2.40
-drwxr-xr-x	root/root	lib64/security/
--rwxr-xr-x	root/root	lib64/security/pam_cap.so
--rw-r--r--	root/root	lib64/libcap.so.2.40
+drwxr-xr-x	root/root	lib/
+-rw-r--r--	root/root	lib/libcap.so.2.42
+lrwxrwxrwx	root/root	lib/libcap.so.2 -> libcap.so.2.42
+drwxr-xr-x	root/root	lib/security/
+-rwxr-xr-x	root/root	lib/security/pam_cap.so
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/lib/
 -rw-r--r--	root/root	usr/lib/libcap.a
 -rw-r--r--	root/root	usr/lib/libpsx.a
-lrwxrwxrwx	root/root	usr/lib/libcap.so -> ../../lib/libcap.so.2.40
+lrwxrwxrwx	root/root	usr/lib/libcap.so -> ../../lib/libcap.so.2.42
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/libcap.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/libpsx.pc
