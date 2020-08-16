@@ -7,8 +7,10 @@ source=(http://ftp.gnu.org/gnu/patch/patch-$version.tar.xz)
 
 build() {
   cd $name-$version
-  ./configure --prefix=/tools
+  ./configure --prefix=/usr \
+    --host=$MIX_TGT \
+    --build=$(build-aux/config.guess)
   make
-  make prefix=$PKG/tools install
-  rm -rv $PKG/tools/share/man
+  make DESTDIR=$PKG install
+  rm -rv $PKG/usr/share/man
 }

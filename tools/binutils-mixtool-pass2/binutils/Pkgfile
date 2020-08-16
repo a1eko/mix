@@ -1,32 +1,23 @@
 # Description: linker, assembler and other development tools
 
 name=binutils
-version=2.34
+version=2.35
 release=0pass2
-source=(http://ftp.gnu.org/gnu/binutils/binutils-$version.tar.bz2)
-
-: ${MIX_TGT:=$(uname -m)-mix-linux-gnu}
+source=(http://ftp.gnu.org/gnu/binutils/binutils-$version.tar.xz)
 
 build() {
   cd $name-$version
   mkdir -v build
   cd build
 
-  # make linker using cross compiler and linker
-  CC=$MIX_TGT-gcc \
-  AR=$MIX_TGT-ar \
-  RANLIB=$MIX_TGT-ranlib \
-  ../configure --prefix=/tools \
+  ../configure --prefix=/usr \
+    --build=$(../config.guess) \
+    --host=$MIX_TGT \
     --disable-nls \
+    --enable-shared \
     --disable-werror \
-    --with-lib-path=/tools/lib \
-    --with-sysroot
+    --enable-64-bit-bfd
   make
   make DESTDIR=$PKG install
-  rm -rv $PKG/tools/share/{info,man}
-
-  # prepare linker for adjusting
-  make -C ld clean
-  make -C ld LIB_PATH=/usr/lib:/lib
-  cp -v ld/ld-new $PKG/tools/bin/
+  rm -rv $PKG/usr/share/{info,man}
 }

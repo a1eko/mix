@@ -1,0 +1,28 @@
+# Description: miscellaneous utility programs
+
+name=util-linux
+version=2.36
+release=0
+source=(https://www.kernel.org/pub/linux/utils/$name/v${version:0:4}/$name-$version.tar.xz)
+
+build() {
+    cd $name-$version
+
+    # crux compatible
+    ./configure --prefix=/usr \
+                --disable-nls \
+                --disable-{login,su,sulogin,nologin,runuser} \
+                --disable-chfn-chsh \
+                --enable-{write,raw,kill} \
+                --without-python
+
+    make
+    make DESTDIR=$PKG install
+
+    install -d $PKG/{etc,var/{lib/{hwclock,libuuid},run/uuidd}}
+    touch $PKG/etc/adjtime
+
+    rm -rv $PKG/usr/share/{doc,bash-completion}
+    rm -v  $PKG/sbin/{mkfs.bfs,mkfs.minix,fsck.minix}
+    rm -rv $PKG/usr/share/man
+}

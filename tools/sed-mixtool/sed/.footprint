@@ -1,0 +1,4 @@
+drwxr-xr-x	build/users	bin/
+-rwxr-xr-x	build/users	bin/sed
+drwxr-xr-x	build/users	usr/
+drwxr-xr-x	build/users	usr/share/

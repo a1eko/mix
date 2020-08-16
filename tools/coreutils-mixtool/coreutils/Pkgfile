@@ -7,8 +7,17 @@ source=(http://ftp.gnu.org/gnu/coreutils/coreutils-$version.tar.xz)
 
 build() {
   cd $name-$version
-  ./configure --prefix=/tools --enable-install-program=hostname
+
+  # crux compatible
+  ./configure --prefix=/usr \
+    --host=$MIX_TGT \
+    --build=$(build-aux/config.guess) \
+    --enable-no-install-program=uptime,kill,chcon,runcon,groups
   make
   make DESTDIR=$PKG install
-  rm -rv $PKG/tools/share
+
+  install -d $PKG/bin
+  mv -v $PKG/usr/bin/{cat,chgrp,chmod,chown,cp,date,dd,df,echo,false,ln,ls,mkdir,sleep} $PKG/bin
+  mv -v $PKG/usr/bin/{mknod,mv,pwd,readlink,rm,rmdir,stty,sync,touch,true,uname} $PKG/bin
+  rm -rv $PKG/usr/share/{info,man}
 }

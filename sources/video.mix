@@ -9,17 +9,14 @@ libdv
 libdvdcss
 libdvdread
 libmng
-libmp4v2
 libmpeg2
 libvpx
 libtheora
 libquicktime
-#lzo
 x264
 libxvid
 mjpegtools
 
-#cmake
 docutils
 nettle
 libidn
@@ -30,7 +27,6 @@ p11-kit
 
 gnutls
 faac
-#fribidi
 libass
 libcdio
 libdvdnav
@@ -39,9 +35,7 @@ libmpcdec
 opencore-amr
 opus
 orc
-#rtmpdump
 schroedinger
-#vcdimager
 x265
 
 ffmpeg

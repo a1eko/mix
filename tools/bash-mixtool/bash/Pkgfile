@@ -7,9 +7,14 @@ source=(http://ftp.gnu.org/gnu/bash/bash-$version.tar.gz)
 
 build() {
   cd $name-$version
-  ./configure --prefix=/tools --without-bash-malloc
+  ./configure --prefix=/usr \
+    --build=$(support/config.guess) \
+    --host=$MIX_TGT \
+    --without-bash-malloc
   make
   make DESTDIR=$PKG install
-  ln -sv bash $PKG/tools/bin/sh
-  rm -rv $PKG/tools/share/{doc,man,info}
+  mkdir -v $PKG/bin
+  mv -v $PKG/usr/bin/bash $PKG/bin/
+  ln -sv bash $PKG/bin/sh
+  rm -rv $PKG/usr/share/{doc,man,info}
 }

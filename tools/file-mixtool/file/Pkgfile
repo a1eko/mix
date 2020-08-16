@@ -1,14 +1,14 @@
 # Description: file type identification utility
 
 name=file
-version=5.38
+version=5.39
 release=0
 source=(ftp://ftp.astron.com/pub/file/file-$version.tar.gz)
 
 build() {
   cd $name-$version
-  ./configure --prefix=/tools
+  ./configure --prefix=/usr --host=$MIX_TGT
   make
   make DESTDIR=$PKG install
-  rm -rv $PKG/tools/share/man
+  rm -rv $PKG/usr/share/man
 }

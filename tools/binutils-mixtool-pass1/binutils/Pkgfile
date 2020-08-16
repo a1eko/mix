@@ -1,25 +1,18 @@
 # Description: linker, assembler and other development tools
 
 name=binutils
-version=2.34
+version=2.35
 release=0pass1
-source=(http://ftp.gnu.org/gnu/binutils/binutils-$version.tar.bz2)
-
-: ${MIX_TGT:=$(uname -m)-mix-linux-gnu}
+source=(http://ftp.gnu.org/gnu/binutils/binutils-$version.tar.xz)
 
 build() {
   cd $name-$version
+
   mkdir -v build
   cd build
 
-  case $(uname -m) in
-    x86_64) mkdir -pv $PKG/tools/lib && ln -sv lib $PKG/tools/lib64 ;;
-  esac
-
-  # build cross linker
   ../configure --prefix=/tools \
     --with-sysroot=$MIX \
-    --with-lib-path=/tools/lib \
     --target=$MIX_TGT \
     --disable-nls \
     --disable-werror

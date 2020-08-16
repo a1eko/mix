@@ -1,29 +1,36 @@
 # Description: Perl programming language
+# URL:         https://www.perl.org/
+# Maintainer:  CRUX System Team, core-ports at crux dot nu
+# Depends on:  db gdbm
 
 name=perl
-version=5.30.3
+version=5.32.0
 release=mix-1
 source=(http://www.cpan.org/src/5.0/$name-$version.tar.xz)
 
 build() {
     cd $name-$version
 
-    # use system libs
-    export BUILD_ZLIB=False
-    export BUILD_BZIP2=0
-
-    sh Configure -des -Dprefix=/usr \
-                  -Dvendorprefix=/usr \
-                  -Dman1dir=/usr/share/man/man1 \
-                  -Dman3dir=/usr/share/man/man3 \
-                  -Dpager="/usr/bin/less -isR" \
-                  -Duseshrplib \
-		  -Dusethreads
+    ./Configure -des \
+                -Dprefix=/usr \
+                -Dvendorprefix=/usr \
+                -Dprivlib=/usr/lib/perl5/${version%.*} \
+                -Dsitelib=/usr/lib/perl5/site_perl/${version%.*} \
+                -Dvendorlib=/usr/lib/perl5/site_perl/${version%.*} \
+                -Darchname=linux \
+                -Dman1ext=1pm \
+                -Dman3ext=3pm \
+                -Di_gdbm \
+                -Di_db \
+                -Duseshrplib \
+                -Dusethreads \
+                -Doptimize="$CFLAGS"
     make
-    $TST make -k test
-    make DESTDIR=$PKG install
+    make DESTDIR=$PKG install.perl
 
-    rm -rv $PKG/usr/share/man/man3
+    ln -sf perl${version%-*} $PKG/usr/bin/perl
+    #ln -sf perlbug.1pm $PKG/usr/share/man/man1/perlthanks.1pm
+
     find $PKG \
          -iname 'TODO*' -or \
          -iname 'Change*' -or \
@@ -31,6 +38,7 @@ build() {
          -name '*.bs' -or \
          -name '.packlist' -or \
          -name 'perllocal.pod' | xargs rm
+    
     find $PKG -depth -empty -exec rmdir {} \;
     chmod -R +w $PKG
 }

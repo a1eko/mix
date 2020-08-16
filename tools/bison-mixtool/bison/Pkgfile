@@ -1,15 +1,15 @@
 # Description: parser generator
 
 name=bison
-version=3.5.3
+version=3.7.1
 release=0
 source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.xz)
 
 build() {
   cd $name-$version
-  ./configure --prefix=/tools
+  ./configure --prefix=/usr --disable-nls
   make
   make DESTDIR=$PKG install
-  rm -rv $PKG/tools/share/{doc,info,man}
-  rm -v $PKG/tools/share/bison/{README.md,skeletons/README-D.txt}
+  rm -rv $PKG/usr/share/{doc,info,man}
+  find $PKG -name "README*" -delete
 }

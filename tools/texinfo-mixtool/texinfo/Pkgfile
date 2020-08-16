@@ -3,12 +3,12 @@
 name=texinfo
 version=6.7
 release=0
-source=(http://ftp.gnu.org/gnu/texinfo/texinfo-$version.tar.gz)
+source=(http://ftp.gnu.org/gnu/texinfo/texinfo-$version.tar.xz)
 
 build() {
   cd $name-$version
-  ./configure --prefix=/tools
+  ./configure --prefix=/usr
   make
   make DESTDIR=$PKG install
-  rm -rv $PKG/tools/share/{man,info}
+  rm -rv $PKG/usr/share/{man,info}
 }

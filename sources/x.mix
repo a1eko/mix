@@ -84,7 +84,7 @@ llvm
 
 libdrm
 libvdpau
-mesa3d
+mesa
 
 xorg-xbitmaps
 
@@ -165,3 +165,4 @@ libjpeg-turbo
 xterm
 dmenu
 dwm
+st

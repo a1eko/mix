@@ -9,6 +9,8 @@ build() {
   cd linux-$version
   make mrproper
   make headers
-  mkdir -pv $PKG/tools/include
-  cp -rv usr/include/* $PKG/tools/include/
+  find usr/include -name '.*' -delete
+  rm -v usr/include/Makefile
+  mkdir -pv $PKG/usr/include
+  cp -rv usr/include/* $PKG/usr/include/
 }

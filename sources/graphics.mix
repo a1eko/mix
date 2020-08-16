@@ -3,11 +3,8 @@
 # NOTE: installs after x.mix
 #
 
-#libjpeg-turbo
-#libpng
 openjpeg
 
-#cairo
 giflib
 gobject-introspection
 jasper
@@ -17,18 +14,12 @@ libtiff
 shared-mime-info
 
 atk
-cairo
 gdk-pixbuf
 giblib
-#harfbuzz
 hicolor-icon-theme
 lcms2
 
-#freetype
 fribidi
-#libtirpc
-#mpdecimal
-#sqlite3
 
 pango
 poppler-data
@@ -39,12 +30,9 @@ gtk
 libusb
 cups
 
-p5-xml-parser
 feh
 libgd
 ghostscript
-libxml2
-libxslt
 poppler
 
 at-spi2-core
@@ -57,16 +45,11 @@ libcroco
 librsvg
 neon
 
-#babl
-#gegl
 libexif
-subversion
 
 enscript
 exiv2
-#gimp
 gnuplot
 libwmf
-#popt
 
 imagemagick

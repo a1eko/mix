@@ -6,7 +6,7 @@ System requirements
 
 * MiX is tested on x86_64 architecture.
 
-* The core system is about 2.4 GB (3.9 GB with sources) and needs over
+* The core system is about 3.5 GB (4.2 GB with sources) and needs over
 10 GB of the disk space to build.
 
 * Host system should be relatively up-to-date. This distribution is
@@ -22,7 +22,7 @@ should be available too.
 Installing MiX
 --------------
 
-Mount Linux partition on `/mnt`. Set target directory `MIX`. Build and
+Mount Linux partition on `/mnt`. Set the target directory `MIX`. Build and
 install the base system.
 
 	export MIX=/mnt
@@ -37,7 +37,7 @@ Mount virtual file systems and enter `chroot`.
 	sudo mount -vt tmpfs tmpfs $MIX/run
 
 	sudo chroot "$MIX" /usr/bin/env -i \
-	  HOME=/root TERM=linux PS1='\u-in-chroot:\w\$ ' \
+	  HOME=/root TERM=$TERM PS1='\u-in-chroot:\w\$ ' \
 	  PATH=/bin:/usr/bin:/sbin:/usr/sbin \
 	  /bin/bash --login
 
@@ -55,7 +55,7 @@ User *build* must be a member of the group *wheel* to be able to execute
 
 	visudo
 
-Make user *build* an owner of the build sources.
+Make user *build* the owner of the build sources.
 
 	sudo chown -R build {/usr,/var/log}/sources
 
@@ -82,10 +82,9 @@ Edit `/etc/host.conf`, `/etc/hosts` and `/etc/resolv.conf` files. File
 
 ### Making the system bootable ###
 
-Inspect package *linux* in `/usr/packages`. Default kernel configuration
-will be created at build time. To adjust kernel to the local hardware,
-a user-defined file `config.local` is used. Edit `config.local` and
-install the kernel.
+Inspect package *linux* in `/usr/packages`. To adjust kernel to the local
+hardware, a user-defined file `config.local` is used. Edit `config.local`
+and install the kernel.
 
 	pkz build linux
 	pkz -f install linux
@@ -184,14 +183,20 @@ Clean up the package trees.
 
 	sudo pkz clean
 
-Delete unneeded files in `/usr/sources`.
+Delete unneeded files in `/usr/sources` (nothing is required by the system).
 
-Get the CRUX ports and build the rest of the system. Use `*.mix` files
-in `/usr/sources` for building optional packages in proper order. Be
-careful with toolchain packages, i.e. *binutils*, *gcc*, *glibc*,
-and *linux-headers*, they don't need to be upgraded.  In CRUX ports
-that use *pkgutils* during the build, replace string "`pkginfo -i`" with
-"`pkz -i list`". MiX packages from the `ports/` directory overwrite
-corresponding CRUX ports.
+Get the CRUX ports and build the rest of the system. Ports can be copied
+to `/usr/packages` without the leading subdirectories `core/`, `opt/`
+etc. Use `*.mix` files from `mix/sources/` for building optional packages
+in proper order. Be careful with toolchain packages, i.e. *binutils*,
+*gcc*, *glibc*, and *linux-headers* don't need to be upgraded. Often
+*perl* is difficult to upgrade too and it is better to keep the
+installation version of it. In CRUX ports which use *pkgutils* during
+the build, replace the string "`pkginfo -i`" with "`pkz -i list`". MiX
+packages from the `mix/ports/` directory should replace corresponding
+CRUX ports. It is recommended to overwrite them in `/usr/packages` to
+avoid confusion.  MiX and CRUX packages are to be upgraded regularly to
+keep the system up-to-date.
 
 Alexander Kozlov <akozlov@kth.se>  
+

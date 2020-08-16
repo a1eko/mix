@@ -1,0 +1,6 @@
+drwxr-xr-x	build/users	usr/
+drwxr-xr-x	build/users	usr/bin/
+-rwxr-xr-x	build/users	usr/bin/fgrep
+-rwxr-xr-x	build/users	usr/bin/egrep
+-rwxr-xr-x	build/users	usr/bin/grep
+drwxr-xr-x	build/users	usr/share/

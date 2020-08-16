@@ -1,0 +1,22 @@
+# Description: compiler collection
+
+name=gcc
+version=10.2.0
+release=0libstdcxx-pass1
+source=(http://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz)
+
+build() {
+  cd $name-$version
+  mkdir -v build
+  cd build
+
+  ../libstdc++-v3/configure --prefix=/usr \
+    --host=$MIX_TGT \
+    --build=$(../config.guess) \
+    --disable-multilib \
+    --disable-nls \
+    --disable-libstdcxx-pch \
+    --with-gxx-include-dir=/tools/$MIX_TGT/include/c++/$version
+  make
+  make DESTDIR=$PKG install
+}

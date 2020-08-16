@@ -1,14 +1,17 @@
 # Description: text processing language interpreter
 
 name=gawk
-version=5.0.1
+version=5.1.0
 release=0
 source=(http://ftp.gnu.org/gnu/gawk/gawk-$version.tar.xz)
 
 build() {
   cd $name-$version
-  ./configure --prefix=/tools
+  sed -i 's/extras//' Makefile.in
+  ./configure --prefix=/usr \
+    --host=$MIX_TGT \
+    --build=$(./config.guess)
   make
   make DESTDIR=$PKG install
-  rm -rv $PKG/tools/share/{info,man}
+  rm -rv $PKG/usr/share/{info,man}
 }

@@ -1,24 +1,37 @@
 # Description: system C library
 
 name=glibc
-version=2.31
+version=2.32
 release=0
-source=(http://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz)
-
-: ${MIX_TGT:=$(uname -m)-mix-linux-gnu}
+source=(http://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz
+	http://www.linuxfromscratch.org/patches/downloads/glibc/glibc-$version-fhs-1.patch)
 
 build() {
   cd $name-$version
+  patch -Np1 -i ../glibc-$version-fhs-1.patch
+
+  # create compatibility symbolic links
+  case $(uname -m) in
+    i?86) ln -sfv ld-linux.so.2 $MIX/lib/ld-lsb.so.3
+    ;;
+    x86_64) ln -sfv ../lib/ld-linux-x86-64.so.2 $MIX/lib64
+            ln -sfv ../lib/ld-linux-x86-64.so.2 $MIX/lib64/ld-lsb-x86-64.so.3
+    ;;
+  esac
 
   mkdir -v build
   cd build
 
-  ../configure --prefix=/tools \
+  ../configure --prefix=/usr \
     --host=$MIX_TGT \
     --build=$(../scripts/config.guess) \
     --enable-kernel=3.2 \
-    --with-headers=/tools/include
+    --with-headers=$MIX/usr/include \
+    libc_cv_slibdir=/lib
   make
-  make install_root=$PKG install
-  rm -rv $PKG/tools/share/info
+  make DESTDIR=$PKG install
+
+  rm -rv $PKG/usr/share/{info,locale} \
+    $PKG/usr/bin/tzselect \
+    $PKG/usr/sbin/z{dump,ic}
 }

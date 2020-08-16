@@ -7,8 +7,11 @@ source=(http://ftp.gnu.org/gnu/gzip/gzip-$version.tar.xz)
 
 build() {
   cd $name-$version
-  ./configure --prefix=/tools
+  ./configure --prefix=/usr --host=$MIX_TGT
   make
-  make prefix=$PKG/tools install
-  rm -rv $PKG/tools/share/{info,man}
+  make DESTDIR=$PKG install
+  install -d $PKG/bin
+  #mv -v $PKG/usr/bin/gzip $PKG/bin  # crux compat
+  mv $PKG/usr/bin/{gzip,gunzip,zcat} $PKG/bin
+  rm -rv $PKG/usr/share/{info,man}
 }

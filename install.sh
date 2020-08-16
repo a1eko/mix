@@ -15,34 +15,45 @@ sudo -v
 
 MIX_TGT=$(uname -m)-mix-linux-gnu
 MIX_TST=${MIX_TST-no}
-MIX_TOOLS=${MIX_TOOLS-yes}
-MIX_CORE=${MIX_CORE-yes}
-MIX_CORE_CLEAN=${MIX_CORE_CLEAN-${MIX_CORE}}
-MIX_CORE_SRC=${MIX_CORE_SRC-${MIX_CORE}}
+MIX_SRC=${MIX_SRC-yes}
+MIX_CLEAN=${MIX_CLEAN-yes}
 
 echo MIX_TGT=$MIX_TGT
 echo MIX_TST=$MIX_TST
-echo MIX_TOOLS=$MIX_TOOLS
-echo MIX_CORE=$MIX_CORE
-echo MIX_CORE_CLEAN=$MIX_CORE_CLEAN
-echo MIX_CORE_SRC=$MIX_CORE_SRC
+echo MIX_SRC=$MIX_SRC
+echo MIX_CLEAN=$MIX_CLEAN
 
 test "$MIX_TST" = no && export TST=:
 
 P=$MIX/usr/packages
 
-BASE1="linux-headers glibc lzip tzdata"
-BASE2="zlib bzip2 xz file readline m4 bc binutils libgmp libmpfr libmpc \
-  attr acl linux-pam shadow gcc"
-BASE3="pkg-config ncurses libcap sed psmisc iana-etc bison \
-  flex grep bash libtool gdbm gperf expat inetutils perl tcl expect \
-  dejagnu check autoconf automake kmod gettext elfutils libffi openssl \
-  python3 coreutils diffutils gawk findutils groff less gzip kbd \
-  libpipeline linux-firmware make man-pages patch man-db tar texinfo \
-  vim procps util-linux e2fsprogs sudo sysklogd sysvinit eudev"
+BASE1="tcl expect dejagnu iana-etc glibc zlib bzip2 xz zstd file readline \
+  m4 bc flex binutils libgmp libmpfr libmpc linux-firmware \
+  attr acl libcap shadow gcc"
 
-KERNEL=linux
+BASE2="pkg-config ncurses sed psmisc gettext bison grep bash libtool gdbm \
+  gperf lzip tar expat inetutils perl autoconf automake kmod elfutils \
+  libffi openssl python3 coreutils check diffutils gawk findutils groff \
+  less gzip kbd libpipeline make patch man-pages man-db texinfo vim \
+  eudev procps util-linux e2fsprogs sysklogd sysvinit linux-pam sudo"
+
 BOOT="nasm syslinux rc"
+KERNEL=linux
+
+toolsh="env -i MIX=$MIX PKZ=$MIX PKZCONF=$MIX/usr/sources/pkz.conf \
+  CONFIG_SITE=$MIX/usr/sources/config.site \
+  MIX_TGT=$MIX_TGT HOME=$HOME TERM=linux LC_ALL=C \
+  PATH=$MIX/tools/bin:/bin:/usr/bin \
+  /bin/bash -e +h -c"
+
+MAKEFLAGS="-j$(getconf _NPROCESSORS_ONLN)"
+
+chrootsh="sudo chroot $MIX /usr/bin/env -i \
+  PKZCONF=/usr/sources/pkz.conf HOME=/root TERM=linux LC_ALL=C \
+  CONFIG_SITE=$MIX/usr/sources/config.site \
+  ${MAKEFLAGS+"MAKEFLAGS=$MAKEFLAGS"} \
+  PATH=/bin:/usr/bin:/sbin:/usr/sbin \
+  /bin/bash -e +h -c"
 
 cat > /dev/stdout << EOF
 
@@ -53,39 +64,51 @@ cat > /dev/stdout << EOF
 EOF
 
 sudo chown $USER $MIX
-mkdir -pv sources
+sudo chown -Rf $USER $MIX/[a-km-z]* $MIX/lib* || true
+
+mkdir -pv $MIX/{bin,etc,lib,sbin,usr,var}
+case $(uname -m) in
+  x86_64)
+    mkdir -pv $MIX{,/usr}/lib
+    test -h $MIX/lib64 || ln -sv lib $MIX/lib64
+    test -h $MIX/usr/lib64 || ln -sv lib $MIX/usr/lib64
+    ;;
+esac
+mkdir -pv $MIX/tools
+
 mkdir -pv $MIX/usr/{packages,sources}
 mkdir -pv $MIX/{tools/bin,var/log/{packages,sources}}
 cp -r sources $MIX/usr/
-rsync -rqz crux.nu::ports/crux-3.5/core/ $MIX/usr/packages
-rsync -rqz crux.nu::ports/crux-3.5/opt/ $MIX/usr/packages
-rsync -rqz crux.nu::ports/crux-3.5/contrib/tcl $MIX/usr/packages
-rsync -rqz crux.nu::ports/crux-3.5/contrib/lynx $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.6/core/ $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.6/opt/ $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.6/contrib/tcl $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.6/contrib/tcl $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.6/contrib/lynx $MIX/usr/packages
 cp -r {ports,tools}/* $MIX/usr/packages/
 rm -f $MIX/usr/packages/C*
 
 sudo ln -sfv $MIX/tools /
 echo | gzip -c > $MIX/var/log/packages/dummy.gz
 
-sudo install -v -m 755 -D $MIX/usr/packages/pkz/pkz.sh $MIX/usr/bin/pkz
+install -v -m 755 -D $MIX/usr/packages/pkz/pkz.sh $MIX/usr/bin/pkz
 ln -sfv ../../usr/bin/pkz $MIX/tools/bin/
-
-cat > $MIX/usr/sources/pkz.conf << EOF
-TST="$TST"
-EOF
 
 cat > $MIX/usr/sources/config.site << EOF
 enable_nls=no
 EOF
 
-toolsh="env -i MIX=$MIX PKZ=$MIX PKZCONF=$MIX/usr/sources/pkz.conf \
-  CONFIG_SITE=$MIX/usr/sources/config.site \
-  MIX_TGT=$MIX_TGT HOME=$HOME TERM=linux LC_ALL=C \
-  PATH=/tools/bin:/bin:/usr/bin \
-  /bin/bash -e +h -c"
+cat > $MIX/usr/sources/pkz.conf << EOF
+TST="$TST"
+EOF
 
-if [ "$MIX_CORE" = yes -a "$MIX_CORE_SRC" = yes ]; then
-  $toolsh "pkz source $BASE1 $BASE2 $BASE3 $KERNEL $BOOT"
+if [ "$MIX_CLEAN" = no ]; then
+  cat >> $MIX/usr/sources/pkz.conf << EOF
+clean_pkgbin=no
+EOF
+fi
+
+if [ "$MIX_SRC" = yes ]; then
+  $toolsh "pkz source $BASE1 $BASE2 $KERNEL $BOOT"
   $toolsh "pkz source include $MIX/usr/sources/coreopt.mix"
 fi
 
@@ -96,8 +119,6 @@ cat > /dev/stdout << EOF
 #
 
 EOF
-
-if [ "$MIX_TOOLS" = yes ]; then  # MIX_TOOLS [
 
 $toolsh "pkz -p $P/binutils-mixtool-pass1 -f install binutils"
 $toolsh "pkz -p $P/gcc-mixtool-pass1      -f install gcc"
@@ -110,98 +131,55 @@ $toolsh "pkz -p $P/linux-headers-mixtool  clean linux-headers"
 $toolsh "pkz -p $P/glibc-mixtool          clean glibc"
 
 $toolsh "
-  echo 'main(){}' | $MIX_TGT-gcc -x c -
-  readelf -l a.out | grep ': /tools'
+  echo 'int main(){}' | $MIX_TGT-gcc -x c -
+  readelf -l a.out | grep '/ld-linux'
   rm a.out
 "
-
-$toolsh "pkz -p $P/gcc-mixtool-libstdcxx  -f install gcc"
-$toolsh "pkz -p $P/binutils-mixtool-pass2 -f install binutils"
-$toolsh "pkz -p $P/gcc-mixtool-pass2      -f install gcc"
-
-$toolsh "pkz -p $P/gcc-mixtool-libstdcxx  clean gcc"
-$toolsh "pkz -p $P/binutils-mixtool-pass2 clean binutils"
-$toolsh "pkz -p $P/gcc-mixtool-pass2      clean gcc"
 
 $toolsh "
-  echo 'main(){}' | cc -x c -
-  readelf -l a.out | grep ': /tools'
-  rm a.out
+  $MIX/tools/libexec/gcc/$MIX_TGT/*/install-tools/mkheaders
 "
 
-$toolsh "pkz -p $P/tcl-mixtool     -f install tcl"
-$toolsh "pkz -p $P/expect-mixtool  -f install expect"
-$toolsh "pkz -p $P/dejagnu-mixtool -f install dejagnu"
-
-$toolsh "pkz -p $P/tcl-mixtool     clean tcl"
-$toolsh "pkz -p $P/expect-mixtool  clean expect"
-$toolsh "pkz -p $P/dejagnu-mixtool clean dejagnu"
+$toolsh "pkz -p $P/gcc-mixtool-libstdcxx-pass1  -f install gcc"
+$toolsh "pkz -p $P/gcc-mixtool-libstdcxx-pass1  clean gcc"
 
 $toolsh "pkz -p $P/m4-mixtool         -f install m4"
 $toolsh "pkz -p $P/ncurses-mixtool    -f install ncurses"
 $toolsh "pkz -p $P/bash-mixtool       -f install bash"
-$toolsh "pkz -p $P/bison-mixtool      -f install bison"
-$toolsh "pkz -p $P/bzip2-mixtool      -f install bzip2"
 $toolsh "pkz -p $P/coreutils-mixtool  -f install coreutils"
 $toolsh "pkz -p $P/diffutils-mixtool  -f install diffutils"
 $toolsh "pkz -p $P/file-mixtool       -f install file"
 $toolsh "pkz -p $P/findutils-mixtool  -f install findutils"
 $toolsh "pkz -p $P/gawk-mixtool       -f install gawk"
-$toolsh "pkz -p $P/gettext-mixtool    -f install gettext"
 $toolsh "pkz -p $P/grep-mixtool       -f install grep"
 $toolsh "pkz -p $P/gzip-mixtool       -f install gzip"
 $toolsh "pkz -p $P/make-mixtool       -f install make"
 $toolsh "pkz -p $P/patch-mixtool      -f install patch"
-$toolsh "pkz -p $P/perl-mixtool       -f install perl"
-$toolsh "pkz -p $P/python3-mixtool    -f install python3"
 $toolsh "pkz -p $P/sed-mixtool        -f install sed"
 $toolsh "pkz -p $P/tar-mixtool        -f install tar"
-$toolsh "pkz -p $P/texinfo-mixtool    -f install texinfo"
 $toolsh "pkz -p $P/xz-mixtool         -f install xz"
 
+$toolsh "pkz -p $P/m4-mixtool         clean m4"
 $toolsh "pkz -p $P/ncurses-mixtool    clean ncurses"
 $toolsh "pkz -p $P/bash-mixtool       clean bash"
-$toolsh "pkz -p $P/bison-mixtool      clean bison"
-$toolsh "pkz -p $P/bzip2-mixtool      clean bzip2"
 $toolsh "pkz -p $P/coreutils-mixtool  clean coreutils"
 $toolsh "pkz -p $P/diffutils-mixtool  clean diffutils"
 $toolsh "pkz -p $P/file-mixtool       clean file"
 $toolsh "pkz -p $P/findutils-mixtool  clean findutils"
 $toolsh "pkz -p $P/gawk-mixtool       clean gawk"
-$toolsh "pkz -p $P/gettext-mixtool    clean gettext"
 $toolsh "pkz -p $P/grep-mixtool       clean grep"
 $toolsh "pkz -p $P/gzip-mixtool       clean gzip"
-$toolsh "pkz -p $P/m4-mixtool         clean m4"
 $toolsh "pkz -p $P/make-mixtool       clean make"
 $toolsh "pkz -p $P/patch-mixtool      clean patch"
-$toolsh "pkz -p $P/perl-mixtool       clean perl"
-$toolsh "pkz -p $P/python3-mixtool    clean python3"
 $toolsh "pkz -p $P/sed-mixtool        clean sed"
 $toolsh "pkz -p $P/tar-mixtool        clean tar"
-$toolsh "pkz -p $P/texinfo-mixtool    clean texinfo"
 $toolsh "pkz -p $P/xz-mixtool         clean xz"
 
-( cd / && tar czf $MIX/usr/sources/tools.tar.gz tools/* )
+$toolsh "pkz -p $P/binutils-mixtool-pass2 -f install binutils"
+$toolsh "pkz -p $P/gcc-mixtool-pass2      -f install gcc"
 
-echo tool system built in $MIX
-
-fi  # MIX_TOOLS ]
-
-sudo rm -rf $MIX/usr/packages/*-mixtool{,-*}
-
-cat > /dev/stdout << EOF
-
-#
-# Base system building environment
-#
-
-EOF
-
-if [ "$MIX_CORE" = yes ]; then  # MIX_CORE [
-
-if [ "$MIX_TOOLS" = no ]; then
-    sudo tar -C $MIX -xf $MIX/usr/sources/tools.tar.gz
-fi
+$toolsh "pkz -p $P/binutils-mixtool-pass2 clean binutils"
+$toolsh "pkz -p $P/gcc-mixtool-pass2      clean gcc"
 
 sudo chown -R root:root $MIX
 sudo chown -R $USER $MIX/{usr,var/log}/sources
@@ -218,36 +196,13 @@ if [ -h $MIX/dev/shm ]; then
   sudo mkdir -pv $MIX/$(readlink $MIX/dev/shm)
 fi
 
-MAKEFLAGS="-j$(getconf _NPROCESSORS_ONLN)"
-
-chrootsh="sudo chroot $MIX /tools/bin/env -i \
-  PKZCONF=/usr/sources/pkz.conf HOME=/root TERM=linux LC_ALL=C \
-  ${MAKEFLAGS+"MAKEFLAGS=$MAKEFLAGS"} \
-  PATH=/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin \
-  /tools/bin/bash -e +h -c"
-
-if [ "$MIX_CORE_CLEAN" != yes ]; then
-    $chrootsh "echo clean_pkgbin=no >> /usr/sources/pkz.conf"
-fi
-
-$chrootsh "
-  mkdir -pv /bin
-  mkdir -pv /usr/lib
-"
-
-$chrootsh "
-  ln -sv /tools/bin/{bash,cat,chmod,dd,echo,ln,imkdir,pwd,rm,stty,touch} /bin
-  ln -sv /tools/bin/{env,install,perl} /usr/bin
-  ln -sv /tools/lib/libgcc_s.so{,.1} /usr/lib
-  ln -sv /tools/lib/libstdc++.so{,.6} /usr/lib
-  ln -sv bash /bin/sh
-"
+sudo bash -c "echo 127.0.0.1 localhost $(hostname) > $MIX/etc/hosts"
 
 $chrootsh "pkz install filesystem"
 $chrootsh "pkz clean   filesystem"
-$chrootsh "rm /etc/issue /usr/bin/crux"
+$chrootsh "rm -v /etc/issue /usr/bin/crux"
 $chrootsh "ln -sv share/man /usr/man"
-$chrootsh "rm -f /var/log/packages/dummy.gz"
+$chrootsh "rm -v /var/log/packages/dummy.gz"
 
 $chrootsh "
   touch /var/log/{btmp,lastlog,faillog,wtmp}
@@ -255,9 +210,36 @@ $chrootsh "
   chmod -v 600 /var/log/btmp
 "
 
-$chrootsh "
-  echo 127.0.0.1 localhost $(hostname) > /etc/hosts
-"
+$chrootsh "pkz -p /usr/packages/gcc-mixtool-libstdcxx-pass2  -f install gcc"
+$chrootsh "pkz -p /usr/packages/gcc-mixtool-libstdcxx-pass2  clean gcc"
+
+$chrootsh "pkz -p /usr/packages/gettext-mixtool    -f install gettext"
+$chrootsh "pkz -p /usr/packages/bison-mixtool      -f install bison"
+$chrootsh "pkz -p /usr/packages/perl-mixtool       -f install perl"
+$chrootsh "pkz -p /usr/packages/python3-mixtool    -f install python3"
+$chrootsh "pkz -p /usr/packages/texinfo-mixtool    -f install texinfo"
+$chrootsh "pkz -p /usr/packages/util-linux-mixtool -f install util-linux"
+
+$chrootsh "pkz -p /usr/packages/gettext-mixtool    clean gettext"
+$chrootsh "pkz -p /usr/packages/bison-mixtool      clean bison"
+$chrootsh "pkz -p /usr/packages/perl-mixtool       clean perl"
+$chrootsh "pkz -p /usr/packages/python3-mixtool    clean python3"
+$chrootsh "pkz -p /usr/packages/texinfo-mixtool    clean texinfo"
+$chrootsh "pkz -p /usr/packages/util-linux-mixtool clean util-linux"
+
+$chrootsh "find /usr/{lib,libexec} -name \*.la -delete"
+
+echo tool system built in $MIX
+
+sudo rm -rf $MIX/usr/packages/*-mixtool{,-*}
+
+cat > /dev/stdout << EOF
+
+#
+# Base system building environment
+#
+
+EOF
 
 cat > /dev/stdout << EOF
 
@@ -271,38 +253,6 @@ $chrootsh "pkz -f install $BASE1"
 $chrootsh "pkz clean $BASE1"
 
 $chrootsh "
-  mv -v /tools/bin/{ld,ld-old}
-  mv -v /tools/$($chrootsh 'uname -m')-pc-linux-gnu/bin/{ld,ld-old}
-  mv -v /tools/bin/{ld-new,ld}
-  ln -sv /tools/bin/ld /tools/$($chrootsh 'uname -m')-pc-linux-gnu/bin/ld
-"
-
-SPECS=$(dirname $($chrootsh 'gcc --print-libgcc-file-name'))/specs
-$chrootsh "gcc -dumpspecs" | sed -e 's@/tools@@g' \
-  -e '/\*startfile_prefix_spec:/{n;s@.*@/usr/lib/ @}' \
-  -e '/\*cpp:/{n;s@$@ -isystem /usr/include@}' \
-  > $MIX/tmp/specs
-$chrootsh "cd /tmp; cp -v specs $SPECS"
-unset SPECS
-
-$chrootsh "
-  cd /usr/sources
-  echo 'main(){}' | cc -v -x c -Wl,--verbose - &> dummy.log
-  readelf -l a.out | grep ': /lib'
-  grep -o '/usr/lib.*/crt[1in].*succeeded' dummy.log
-  grep -B1 '^ /usr/include' dummy.log
-  grep ' /lib.*/libc.so.6 succeeded' dummy.log
-  grep 'found ld-linux.*.so.2 at /lib.*/ld-linux.*.so.2' dummy.log
-  grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g' > dummy2.log
-  grep 'SEARCH_DIR(\"/usr/lib\")' dummy2.log
-  grep 'SEARCH_DIR(\"/lib\")' dummy2.log
-  rm -f a.out dummy{,2}.log
-"
-
-$chrootsh "pkz -f install $BASE2"
-$chrootsh "pkz clean $BASE2"
-
-$chrootsh "
   cd /usr/sources
   echo 'main(){}' | cc -v -x c -Wl,--verbose - &> dummy.log
   readelf -l a.out | grep ': /lib'
@@ -311,17 +261,15 @@ $chrootsh "
   grep ' /lib.*/libc.so.6 succeeded' dummy.log
   grep 'found ld-linux.*.so.2 at /lib.*/ld-linux.*.so.2' dummy.log
   grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g' > dummy2.log
-  grep 'SEARCH_DIR(\"/usr/.*-linux-gnu/lib.*\")' dummy2.log
-  grep 'SEARCH_DIR(\"/usr/local/lib.*\")' dummy2.log
-  grep 'SEARCH_DIR(\"/usr/lib.*\")' dummy2.log
-  grep 'SEARCH_DIR(\"/lib.*\")' dummy2.log
+  grep 'SEARCH_DIR(\"/usr/lib\")' dummy2.log
+  grep 'SEARCH_DIR(\"/lib\")' dummy2.log
   rm -f a.out dummy{,2}.log
 "
 
 cat >> $MIX/usr/sources/pkz.conf << EOF
-strip_shared=--strip-debug
 strip_static=--strip-debug
-strip_binaries=--strip-unneeded
+strip_shared=--strip-unneeded
+strip_binaries=--strip-all
 EOF
 
 cat >> $MIX/usr/sources/config.site << 'EOF'
@@ -329,8 +277,8 @@ test -z "$CFLAGS" && export CFLAGS="-O2 -pipe -mtune=native" || true
 test -z "$CXXFLAGS" && export CXXFLAGS="$CFLAGS" || true
 EOF
 
-$chrootsh "pkz -f install $BASE3"
-$chrootsh "pkz clean $BASE3"
+$chrootsh "pkz -f install $BASE2"
+$chrootsh "pkz clean $BASE2"
 
 echo base system built in $MIX
 
@@ -358,12 +306,6 @@ EOF
 $chrootsh "pkz -f install include /usr/sources/coreopt.mix"
 $chrootsh "pkz clean include /usr/sources/coreopt.mix"
 
-$chrootsh "
-  install -v -m 700 -o root -g sys -d /var/lib/sshd
-  groupadd -g 50 sshd
-  useradd -c 'privacy separation' -d /var/lib/sshd -g sshd -s /bin/false -u 50 sshd
-"
-
 $chrootsh "cat > /etc/config.site << 'EOF'
 test -z \"\$CFLAGS\" && export CFLAGS=\"-O2 -pipe -mtune=native\" || true
 test -z \"\$CXXFLAGS\" && export CXXFLAGS=\"\$CFLAGS\" || true
@@ -373,13 +315,10 @@ EOF
 
 echo core system built in $MIX
 
-sudo rm -v /tools
+sudo umount -v $MIX/dev{/pts,}
+sudo umount -v $MIX/{sys,proc,run}
 sudo rm -r $MIX/tools
-sudo umount -v $MIX/dev/pts
-sudo umount -v $MIX/dev
-sudo umount -v $MIX/run
-sudo umount -v $MIX/proc
-sudo umount -v $MIX/sys
+sudo rm -v /tools
 
 cat > /dev/stdout << EOF
 
@@ -387,4 +326,3 @@ $0 done.
 
 EOF
 
-fi  # MIX_CORE ]

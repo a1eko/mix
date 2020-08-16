@@ -41,6 +41,7 @@ list_notinstalled=no
 list_installed=no
 list_updated=no
 list_all=yes
+list_url=no
 
 usage() {
   cat << EOF 
@@ -313,7 +314,11 @@ do_list() {
     $list_installed = yes -a "$(installed)" = '(installed)' \
     -o $list_updated = yes -a "$(installed)" != '(installed)' -a "$(installed)" != '' \
     -o $list_notinstalled = yes -a "$(installed)" = '' ]; then
-     echo $name $version-$release $(eval installed) -$(grep Description: $pkgfile | cut -d: -f2)
+    if [ $list_url = no ]; then
+      echo $name $version-$release $(eval installed) -$(grep Description: $pkgfile | cut -d: -f2)
+    else
+      echo $name $version-$release $(eval installed) URL:$(echo $source | cut -d' ' -f1)
+    fi
   fi
 }
 
@@ -413,6 +418,7 @@ while true; do
     -i) list_installed=yes; list_all=no ;;
     -u) list_updated=yes; list_all=no ;;
     -a) list_all=yes ;;
+    -l) list_url=yes ;;
     *) break ;;
   esac
   shift
@@ -441,11 +447,9 @@ while [ $# -gt 0 ]; do
         revision=$version-$release
         pkgreg=$zregs/$name#$revision
         do_$cmd
-        shift
       done
-    else
-      shift
     fi
+    shift
   else
     pkgdir=$zpackages/$1
     pkgfile=$pkgdir/Pkgfile

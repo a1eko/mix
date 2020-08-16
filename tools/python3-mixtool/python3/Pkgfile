@@ -1,17 +1,17 @@
 # Description: programming language and script interpreter
 
 name=python3
-version=3.8.2
+version=3.8.5
 release=0
 source=(https://www.python.org/ftp/python/$version/Python-$version.tar.xz)
 
 build() {
   cd Python-$version
-  sed -i '/def add_multiarch_paths/a \        return' setup.py
-  ./configure --prefix=/tools --without-ensurepip
+  ./configure --prefix=/usr \
+    --enable-shared \
+    --without-ensurepip
   make
   make -j1 DESTDIR=$PKG install
-  rm -rfv $PKG/tools/{,share}/man
-  #find $PKG -name README* -delete
-  find $PKG -name "README*" -o -name ChangeLog -o -name "NEWS*" -o -name TODO | xargs rm -v
+  rm -rv $PKG/usr/share/man
+  find $PKG -name "README*" -o -name ChangeLog -o -name "NEWS*" -o -name "TODO*" | xargs rm -v
 }

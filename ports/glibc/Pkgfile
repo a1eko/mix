@@ -1,8 +1,7 @@
 # Description: system C library
 
 name=glibc
-version=2.31
-gccver=9.3.0
+version=2.32
 release=mix-1
 source=(ftp://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz
 	http://www.linuxfromscratch.org/patches/downloads/glibc/glibc-$version-fhs-1.patch
@@ -13,21 +12,9 @@ build()
   cd $name-$version
   patch -Np1 -i ../glibc-$version-fhs-1.patch
 
-  # create compatibility links
-  case $(uname -m) in
-    i?86)
-      ln -s ld-linux.so.2 /lib/ld-lsb.so.3
-      ;;
-    x86_64)
-      ln -s ../lib/ld-linux-x86-64.so.2 /lib64
-      ln -s ../lib/ld-linux-x86-64.so.2 /lib64/ld-lsb-x86-64.so.3
-      ;;
-  esac
-
   mkdir -v build
   cd build
 
-  CC="gcc -ffile-prefix-map=/tools=/usr" \
   ../configure --prefix=/usr \
     --disable-werror \
     --enable-kernel=3.2 \
@@ -35,6 +22,13 @@ build()
     --with-headers=/usr/include \
     libc_cv_slibdir=/lib
   make
+
+  # create links for running tests (to be overwritten by forced install)
+  case $(uname -m) in
+    i?86) ln -sfnv $PWD/elf/ld-linux.so.2 /lib ;;
+    x86_64) ln -sfnv $PWD/elf/ld-linux-x86-64.so.2 /lib ;;
+  esac
+
   $TST TIMEOUTFACTOR=16 make -k check || true
   install -Dv -m 644 $SRC/ld.so.conf $PKG/etc/ld.so.conf
 
@@ -43,6 +37,8 @@ build()
 
   make install_root=$PKG install
   rm -rv $PKG/usr/share/info
+  find $PKG -name "*install.cmd" -delete
+  find $PKG -name ".\install" -delete
 
   # install nscd
   cp -v ../nscd/nscd.conf $PKG/etc/nscd.conf
@@ -61,8 +57,4 @@ build()
   # conflicts with tzdata
   rm -v $PKG/usr/bin/tzselect
   rm -v $PKG/usr/sbin/{zdump,zic}
-
-  #for file in nsswitch.conf ld.so.conf hosts host.conf resolv.conf; do
-  #  mv -v $PKG/etc/$file{,.new}
-  #done
 }

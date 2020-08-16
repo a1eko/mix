@@ -11,15 +11,30 @@ build() {
   # ensure gawk is found
   sed -i s/mawk// configure
 
-  ./configure --prefix=/tools \
-    --with-install-prefix=$PKG \
+  mkdir build
+  pushd build
+    ../configure
+    make -C include
+    make -C progs tic
+  popd
+
+  ./configure --prefix=/usr \
+    --host=$MIX_TGT \
+    --build=$(./config.guess) \
+    --mandir=/usr/share/man \
+    --with-manpage-format=normal \
     --with-shared \
     --without-debug \
     --without-ada \
-    --enable-widec \
-    --enable-overwrite
+    --without-normal \
+    --enable-widec
   make
-  make install
-  ln -sv libncursesw.so $PKG/tools/lib/libncurses.so
-  rm -rv $PKG/tools/share/man
+  make DESTDIR=$PKG TIC_PATH=$(pwd)/build/progs/tic install
+
+  install -d $PKG/lib
+
+  echo "INPUT(-lncursesw)" > $PKG/usr/lib/libncurses.so
+  mv -v $PKG/usr/lib/libncursesw.so.6* $PKG/lib
+  ln -sfv ../../lib/libncursesw.so.$version $PKG/usr/lib/libncursesw.so
+  rm -rv $PKG/usr/share/man
 }

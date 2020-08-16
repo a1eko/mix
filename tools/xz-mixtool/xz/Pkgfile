@@ -1,14 +1,22 @@
 # Description: data compression utilities
 
 name=xz
-version=5.2.4
+version=5.2.5
 release=0
 source=(http://tukaani.org/xz/xz-$version.tar.xz)
 
 build() {
   cd $name-$version
-  ./configure --prefix=/tools
+  ./configure --prefix=/usr \
+    --host=$MIX_TGT \
+    --build=$(build-aux/config.guess) \
+    --disable-static 
   make
   make DESTDIR=$PKG install
-  rm -rv $PKG/tools/share/{doc,man}
+
+  # crux compatible
+  #mv -v $PKG/usr/bin/{lzma,unlzma,lzcat,xz,unxz,xzcat} $PKG/bin
+  #mv -v $PKG/usr/lib/liblzma.so.* $PKG/lib
+  #ln -svf ../../lib/$(readlink $PKG/usr/lib/liblzma.so) $PKG/usr/lib/liblzma.so
+  rm -rv $PKG/usr/share/{doc,man}
 }

@@ -12,8 +12,10 @@ build() {
   sed -i 's/IO_ftrylockfile/IO_EOF_SEEN/' lib/*.c
   echo "#define _IO_IN_BACKUP 0x100" >> lib/stdio-impl.h
 
-  ./configure --prefix=/tools
+  ./configure --prefix=/usr \
+     --host=$MIX_TGT \
+     --build=$(build-aux/config.guess)
   make
-  make prefix=$PKG/tools install
-  rm -rv $PKG/tools/share/{info,man}
+  make DESTDIR=$PKG install
+  rm -rv $PKG/usr/share/{info,man}
 }

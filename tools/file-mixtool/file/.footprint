@@ -1,0 +1,15 @@
+drwxr-xr-x	build/users	usr/
+drwxr-xr-x	build/users	usr/lib/
+lrwxrwxrwx	build/users	usr/lib/libmagic.so.1 -> libmagic.so.1.0.0
+-rwxr-xr-x	build/users	usr/lib/libmagic.so.1.0.0
+drwxr-xr-x	build/users	usr/lib/pkgconfig/
+-rw-r--r--	build/users	usr/lib/pkgconfig/libmagic.pc
+-rwxr-xr-x	build/users	usr/lib/libmagic.la
+lrwxrwxrwx	build/users	usr/lib/libmagic.so -> libmagic.so.1.0.0
+drwxr-xr-x	build/users	usr/include/
+-rw-r--r--	build/users	usr/include/magic.h
+drwxr-xr-x	build/users	usr/bin/
+-rwxr-xr-x	build/users	usr/bin/file
+drwxr-xr-x	build/users	usr/share/
+drwxr-xr-x	build/users	usr/share/misc/
+-rw-r--r--	build/users	usr/share/misc/magic.mgc

@@ -1,0 +1,18 @@
+drwxr-xr-x	build/users	bin/
+-rwxr-xr-x	build/users	bin/gunzip
+-rwxr-xr-x	build/users	bin/gzip
+-rwxr-xr-x	build/users	bin/zcat
+drwxr-xr-x	build/users	usr/
+drwxr-xr-x	build/users	usr/bin/
+-rwxr-xr-x	build/users	usr/bin/zegrep
+-rwxr-xr-x	build/users	usr/bin/zdiff
+-rwxr-xr-x	build/users	usr/bin/zforce
+-rwxr-xr-x	build/users	usr/bin/zmore
+hrwxr-xr-x	build/users	usr/bin/uncompress link to ./bin/gunzip
+-rwxr-xr-x	build/users	usr/bin/zfgrep
+-rwxr-xr-x	build/users	usr/bin/gzexe
+-rwxr-xr-x	build/users	usr/bin/zless
+-rwxr-xr-x	build/users	usr/bin/zcmp
+-rwxr-xr-x	build/users	usr/bin/znew
+-rwxr-xr-x	build/users	usr/bin/zgrep
+drwxr-xr-x	build/users	usr/share/

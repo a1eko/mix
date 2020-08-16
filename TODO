@@ -1,5 +1,3 @@
-o wifi (eduroam): update KTH certificate
-o openvpn: enable VPN (CONFIG_TUN, etc)
 o ports: prefer pip over ports for python packages 
 o ports: to reset site default flags run "sudo CONFIG_SITE='' pkz build <pkg>"
 o ports (linux-firmware): to disable stripping run "sudo pkz -c /dev/null build linux-firmware"
@@ -7,10 +5,3 @@ o ports (crux): replace 'pkginfo -i' with 'pkz -i list'
 o linux kernel: "syncconfig" replaces "silentoldconfig"
 o crux (ports): .signature replaces .md5sum (see core/signify)
 o libreoffice: presentation and spreadsheets depend on avahi at runtime
-o libcap: v2.42 is ahead of crux (watch 'make lib=lib' adoption)
-- pkz: fix 'list' behavior (multiple patterns, eg: gcc gtk)
-! mix (ports, install.sh): refactor toolchain build (see lfs-dev post June 16 or lfs-10.x, also crux-3.6)
-- pkz (source): [add option for alternative location as first choice] alt: pre-fetch sources
-- mix (ports): disable tests, avoid expect/check, move tcl/tk to coreopt
-- mix (ports): update .footrpint for local pkgs
-- mix (install.sh, INSTALL.md): move building coreopt to instructions

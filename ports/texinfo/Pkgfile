@@ -3,13 +3,12 @@
 name=texinfo
 version=6.7
 release=mix-1
-source=(ftp://ftp.gnu.org/gnu/texinfo/texinfo-$version.tar.gz)
+source=(ftp://ftp.gnu.org/gnu/texinfo/texinfo-$version.tar.xz)
 
 build() {
   cd $name-$version
-  ./configure --prefix=/usr --disable-nls --disable-static
+  ./configure --prefix=/usr
   make
-  $TST make -k check || true
   make DESTDIR=$PKG install
   rm -rv $PKG/usr/share/info
 }

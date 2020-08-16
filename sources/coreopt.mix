@@ -11,7 +11,6 @@ libnl
 lzo
 libpcre
 popt
-sharutils
 start-stop-daemon
 sysfsutils
 unzip
@@ -24,13 +23,13 @@ ninja
 rsync
 
 dbus
-#exim
 iptables
 meson
 
 dhcpcd
 iproute2
 iputils
+libuv
 wireless-tools
 wpa_supplicant
 
@@ -42,12 +41,9 @@ ed
 fetchmail
 git
 lynx
-#mailx
-#openssh
 time
 wget
 which
-zstd
 
 cmake
 

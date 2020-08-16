@@ -1,0 +1,25 @@
+# Description: compiler collection
+
+name=gcc
+version=10.2.0
+release=0libstdcxx-pass2
+source=(http://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz)
+
+build() {
+  cd $name-$version
+
+  # restore link which exists when building libstdc++ in the gcc tree
+  ln -sv gthr-posix.h libgcc/gthr-default.h
+
+  mkdir -v build
+  cd build
+
+  ../libstdc++-v3/configure --prefix=/usr \
+    CXXFLAGS="-g -O2 -D_GNU_SOURCE" \
+    --disable-multilib \
+    --disable-nls \
+    --host=$MIX_TGT \
+    --disable-libstdcxx-pch
+  make
+  make DESTDIR=$PKG install
+}

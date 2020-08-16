@@ -6,9 +6,6 @@
 libidl
 nspr
 nss
-
 lftp
-rsync
-
 dbus-glib
 firefox-bin

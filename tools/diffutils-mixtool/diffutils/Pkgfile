@@ -7,8 +7,8 @@ source=(http://ftp.gnu.org/gnu/diffutils/diffutils-$version.tar.xz)
 
 build() {
   cd $name-$version
-  ./configure --prefix=/tools
+  ./configure --prefix=/usr --host=$MIX_TGT
   make
-  make prefix=$PKG/tools install
-  rm -rv $PKG/tools/share/{info,man}
+  make DESTDIR=$PKG install
+  rm -rv $PKG/usr/share/{info,man}
 }
