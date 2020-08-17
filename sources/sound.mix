@@ -5,10 +5,8 @@
 
 libsdl
 libmad
-libid3tag
 libogg
 libsndfile
-libxslt
 speex
 
 alsa-lib
@@ -22,5 +20,3 @@ moc
 mpg123
 vorbis-tools
 wavpack
-
-#cdparanoia
