@@ -1,5 +1,5 @@
 # Description: photographic raw image manipulation tool
-# Depends on: gtk3 cmake libxml2 pugixml libxslt json-glib libpng libjpeg-turbo libtiff librsvg sqlite3 exiv2 lensfun lcms2 curl mesa3d openexr libgphoto2 dbus-glib libwebp llvm clang
+# Depends on: gtk3 cmake libxml2 pugixml libxslt json-glib libpng libjpeg-turbo libtiff librsvg sqlite3 exiv2 lensfun lcms2 curl mesa openexr libgphoto2 dbus-glib libwebp llvm clang libsoup
 # Nice to have: openmp
 
 name=darktable

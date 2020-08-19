@@ -1,7 +1,7 @@
 o ports: prefer pip over ports for python packages 
-o ports: to reset site default flags run "sudo CONFIG_SITE='' pkz build <pkg>"
-o ports (linux-firmware): to disable stripping run "sudo pkz -c /dev/null build linux-firmware"
+o ports (linux-firmware): disable stripping "sudo pkz -c /dev/null build linux-firmware"
 o ports (crux): replace 'pkginfo -i' with 'pkz -i list'
 o linux kernel: "syncconfig" replaces "silentoldconfig"
 o crux (ports): .signature replaces .md5sum (see core/signify)
 o libreoffice: presentation and spreadsheets depend on avahi at runtime
+- pkz (pkz.sh): fetch to tmpdir, move to dest if success
