@@ -1,5 +1,3 @@
-be4b20aa60861bc510bcbc5b228bcb51  texlive-20190410-source.tar.xz
-8cdce6f22872b261eb0695897a9ece23  texlive-20190410-source-upstream_fixes-1.patch
-0a6a69d6e921989287a8a24471150b28  texlive-base-2019.190626.tar.xz
-f15ac876fcdc8be865b16535f480aa54  texi2html-5.0.tar.bz2
-67f050ef54e585a6f86dd648108c818b  reinstate-setting-HAVE_LIBGS-for-non-TL-builds.patch
+a5d992e3cb8554ce92c55adde03958ba  texlive-20200406-source.tar.xz
+448c337b359fdfc44321cd7928176b74  texlive-base-2020.200608.tar.xz
+85d9a28badf0967c2b3a29aa5a320e4f  tabu.sty.diff

@@ -7,29 +7,29 @@ name=texlive
 version=20200406
 release=mix-1
 source=(ftp://tug.org/historic/systems/texlive/${version:0:4}/$name-$version-source.tar.xz
-    	tabu.sty.diff)
+  http://slackware.schoepfer.info/slackbuilds/texlive/texlive-base-2020.200608.tar.xz
+  https://download.savannah.gnu.org/releases/texi2html/texi2html-5.0.tar.bz2
+  tabu.sty.diff)
 
-unpack_source() {
-  source=(ftp://tug.org/historic/systems/texlive/${version:0:4}/$name-$version-texmf.tar.xz
-    	https://download.savannah.gnu.org/releases/texi2html/texi2html-5.0.tar.bz2)
+unpack_source() {  # not executed by pkz, ignored
   for file in ${source[@]}; do
-    wget $file || true
     case ${file##*/} in
       $name-$version-source.tar.xz)
-        bsdtar -v -p -o -C $SRC -xf $(basename $file) ;;
+        bsdtar -p -o -C $SRC -xf $(get_filename $file) ;;
       $name-$version-texmf.tar.xz)
-        mkdir -v -p $PKG/usr/share
-        bsdtar -p -o -C $PKG/usr/share -xf $(basename $file) --strip-components 1 ;;
+        mkdir -p $PKG/usr/share
+        bsdtar -p -o -C $PKG/usr/share -xf $(get_filename $file) --strip-components 1 ;;
       texi2html-5.0.tar.bz2)
-        bsdtar -v -p -o -C $SRC -xf $(basename $file) ;;
-      #*)
-      #  cp $(basename $file) $SRC ;;
+        bsdtar -p -o -C $SRC -xf $(get_filename $file) ;;
+      *)
+        cp $(get_filename $file) $SRC ;;
     esac
   done
 }
 
 build() {
-  unpack_source
+  mkdir -pv $PKG/usr/share
+  mv texmf-dist $PKG/usr/share/
 
   # remove broken symlinks
   find $SRC -type l -xtype l -exec rm '{}' \+
@@ -68,7 +68,7 @@ build() {
   cd build
   ../configure \
     --prefix=/usr \
-    --with-banner-add=" MiX" \
+    --with-banner-add=" $(crux)" \
     --with-clisp-runtime=system \
     --enable-{dvipdfm-x,gc=system,libtool-hack,luatex,pdftex,pdftex-syncex,shared,makeindexk,tex,texlive,tex-synctex,web2c,xindy} \
     --with-system-{cairo,freetype2,gd,graphite2,gmp,harfbuzz,icu,libpaper,libpng,mpfr,ncurses,pixman,poppler,potrace,t1lib,zlib,zziplib} \
