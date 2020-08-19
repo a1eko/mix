@@ -1,22 +1,47 @@
-# Description: TeX distribution for UNIX compatible systems.
-# URL:         http://www.tug.org/tetex/
-# Maintainer:  John Vogel, jvogel4 at stny dot rr dot com
-# Depends on:  clisp ghostscript icu libgd libmpfr poppler xorg-libxaw xorg-libxi zziplib
+# Description: TeX distribution for UNIX compatible systems, including luatex and xindy support
+# URL: https://www.tug.org/tetex/
+# Maintainer: Tim Biermann, tbier at posteo dot de
+# Depends on: clisp ghostscript graphite2 harfbuzz-icu libgd libmpfr libpaper poppler xorg-libxaw xorg-libxi zziplib
 
 name=texlive
-version=20190410
-slackver=190626
-release=mix-2
+version=20200406
+release=mix-1
 source=(ftp://tug.org/historic/systems/texlive/${version:0:4}/$name-$version-source.tar.xz
-	http://slackware.schoepfer.info/slackbuilds/texlive/${version:0:4}/$name/$name-base-${version:0:4}.$slackver.tar.xz
-	http://www.linuxfromscratch.org/patches/blfs/svn/texlive-$version-source-upstream_fixes-1.patch
-        http://download.savannah.gnu.org/releases/texi2html/texi2html-5.0.tar.bz2
-        reinstate-setting-HAVE_LIBGS-for-non-TL-builds.patch)
+    	tabu.sty.diff)
+
+unpack_source() {
+  source=(ftp://tug.org/historic/systems/texlive/${version:0:4}/$name-$version-texmf.tar.xz
+    	https://download.savannah.gnu.org/releases/texi2html/texi2html-5.0.tar.bz2)
+  for file in ${source[@]}; do
+    wget $file || true
+    case ${file##*/} in
+      $name-$version-source.tar.xz)
+        bsdtar -v -p -o -C $SRC -xf $(basename $file) ;;
+      $name-$version-texmf.tar.xz)
+        mkdir -v -p $PKG/usr/share
+        bsdtar -p -o -C $PKG/usr/share -xf $(basename $file) --strip-components 1 ;;
+      texi2html-5.0.tar.bz2)
+        bsdtar -v -p -o -C $SRC -xf $(basename $file) ;;
+      #*)
+      #  cp $(basename $file) $SRC ;;
+    esac
+  done
+}
 
 build() {
+  unpack_source
+
   # remove broken symlinks
-  # -exec rm '{}' \+ was a tip I got from romster, it will batch to rm and perform better on large quantities
   find $SRC -type l -xtype l -exec rm '{}' \+
+  find $PKG -type l -xtype l -exec rm '{}' \+
+
+  # make ConTeXt work, and remove unused settings
+  sed -i \
+    -e 's|selfautoparent:|/usr/share/|g' \
+    -e 's|\(TEXMFLOCAL[ ]*=[ ]*\)[^,]*|\1"/usr/share/texmf-local"|' \
+    -e '/selfautodir/d' \
+    -e '/texmflocal/d' \
+    $PKG/usr/share/texmf-dist/web2c/texmfcnf.lua
 
   cd $name-$version-source
 
@@ -28,85 +53,110 @@ build() {
     \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
     -exec chmod 644 {} \;
 
-  # apply upstream fixes
-  patch -Np1 -i ../texlive-20190410-source-upstream_fixes-1.patch
-
-  # fix libgs linking issue with dvisvgm (upstream patch, cherry-picked from git-svn)
-  patch -Np1 -i $SRC/reinstate-setting-HAVE_LIBGS-for-non-TL-builds.patch
-
   # Fix some paths
   sed -i 's/SELFAUTOPARENT/TEXMFROOT/' texk/tex4htk/t4ht.c
   sed -i 's|TEXMFROOT = .*|TEXMFROOT = $SELFAUTODIR/share|g' texk/kpathsea/texmf.cnf
   sed -i 's|TEXMFLOCAL = .*|TEXMFLOCAL = $TEXMFROOT/texmf-local|g' texk/kpathsea/texmf.cnf
-  # taken from archs texlive-bin PKGBUILD
-  # https://git.archlinux.org/svntogit/packages.git/tree/trunk/PKGBUILD?h=packages/texlive-bin
-  # line 116
-  find utils/xindy -name Makefile -exec sed -i -e "s|^prefix =.\+$|prefix = $pkgdir/usr|" \
-    -e "s|^mandir =.\+$|mandir = \${prefix}/share/man|" -e "s|^datadir =.\+$|datadir = \${datarootdir}/texmf|" \
-    -e "s|^docdir =.\+$|docdir = \${datadir}/doc/xindy|" '{}' \;
 
   export TEXMFCNF=""
   export KPATHSEA_WARNING=0
 
+  # prevent compiling Xdvi with libXp
+  sed -i 's|-lXp ||' texk/xdvik/configure
+
   mkdir build
   cd build
-
-  # consider disabling parts that conflict with other ports, like psutils
-  # some options included seem to be the default, remove them?
-  #  (--disable-multiplatform, enable-largefile, ...)
-  # what is required to enable xindy? is it worth the trouble?
-  # # no idea about xindy, never really needed it until now and I am not sure what the benefits are.
-  # # I have to say though that I like to keep this beast at least a bit slim .footprint-wise, so if it's not needed right now, I wouldn't bother
-  # # I went ahead and tried to cluster everything to make it a bit more readable
-  # # also I attempt to provide a working xindy and luatex env
-
   ../configure \
     --prefix=/usr \
-    --with-banner-add="/MiX" \
+    --with-banner-add=" MiX" \
     --with-clisp-runtime=system \
-    --enable-{libtool-hack,luatex,shared,xindy} \
-    --with-system-{cairo,freetype2,gd,gmp,icu,libgs,libpng,mpfr,ncurses,pixman,t1lib,zlib,zziplib} \
+    --enable-{dvipdfm-x,gc=system,libtool-hack,luatex,pdftex,pdftex-syncex,shared,makeindexk,tex,texlive,tex-synctex,web2c,xindy} \
+    --with-system-{cairo,freetype2,gd,graphite2,gmp,harfbuzz,icu,libpaper,libpng,mpfr,ncurses,pixman,poppler,potrace,t1lib,zlib,zziplib} \
     --with-x \
     --with-xdvi-x-toolkit=xaw \
-    --disable-{bibtexu,debug,dialog,missing,native-texlive-build,psutils,poppler,xpdf,static,xindy-doc,xindy-rules}
+    --disable-{all-pkgs,aleph,native-texlive-build,xetex,xindy-docs,xindy-rules}
 
   make
   make DESTDIR=$PKG install
 
   cd ..
 
+  #fmtutil depends on these
   perl_sitelib=$(perl -V:sitelib | sed -e "s|sitelib=[']\(.*\)['].*$|\1|")
   install -d $PKG/$perl_sitelib/TeXLive
   install texk/tests/TeXLive/TL{Config,Utils}.pm $PKG/$perl_sitelib/TeXLive
 
+  # configure fmtutil
+  sed \
+    -e 's/^aleph/#! aleph/g' \
+    -e 's/^lamed/#! lamed/g' \
+    -e 's/^amstex/#! amstex/g' \
+    -e 's/^cont-en xetex/#! cont-en xetex/g' \
+    -e 's/^pdfcs/#! pdfcs/g' \
+    -e 's/^luacs/#! luacs/g' \
+    -e 's/^pdfcs/#! pdfcs/g' \
+    -e 's/^csplain/#! csplain/g' \
+    -e 's/^eplain/#! eplain/g' \
+    -e 's/^pdfjadetex/#! pdfjadetex/g' \
+    -e 's/^jadetex/#! jadetex/g' \
+    -e 's/^pdfmex/#! pdfmex/g' \
+    -e 's/^utf8mex/#! utf8mex/g' \
+    -e 's/^mex/#! mex/g' \
+    -e 's/^mllatex/#! mllatex/g' \
+    -e 's/^mltex/#! mltex/g' \
+    -e 's/^mptopdf/#! mptopdf/g' \
+    -e 's/^platex/#! platex/g' \
+    -e 's/^eptex/#! eptex/g' \
+    -e 's/^ptex/#! ptex/g' \
+    -e 's/^texsis/#! texsis/g' \
+    -e 's/^euptex/#! euptex/g' \
+    -e 's/^uplatex/#! uplatex/g' \
+    -e 's/^uptex/#! uptex/g' \
+    -e 's/^xelatex/#! xelatex/g' \
+    -e 's/^xetex/#! xetex/g' \
+    -e 's/^cslatex/#! cslatex/g' \
+    -e 's/^lollipop/#! lollipop/g' \
+    -i $PKG/usr/share/texmf-dist/web2c/fmtutil.cnf
+    #-e 's/^pdftex/#! pdftex/g' \
+    #-e 's/^pdflatex/#! pdflatex/g' \
+    #-e 's/^luajittex/#! luajittex/g' \
+    #-e 's/^mf/#! mf/g' \
+
   # Create symlinks
+  # this uses above configuration to create links like $PKG/usr/bin/lualatex for example
+  # without, the engines just won't work like we want
   PATH="$PKG/usr/bin:$PATH" LD_LIBRARY_PATH+="$PKG/usr/lib:$LD_LIBRARY_PATH" \
     texlinks -f $PKG/usr/share/texmf-dist/web2c/fmtutil.cnf $PKG/usr/bin
 
-  cd $SRC
+  #cd $SRC/$name-$version-texmf
 
   # Fix some paths
-  sed -i 's|TEXMFROOT = .*|TEXMFROOT = $SELFAUTODIR/share|g'  texmf-dist/web2c/texmf.cnf
-  sed -i 's|TEXMFLOCAL = .*|TEXMFLOCAL = $TEXMFROOT/texmf-local|g'  texmf-dist/web2c/texmf.cnf
-
-  mv $PKG/usr/share/texmf-dist $PKG/usr/share/texmf-dist.tmp
-  mv texmf-dist $PKG/usr/share
-
-  # sub-optimal but better than copying texmf-dist!
-  cp -a $PKG/usr/share/texmf-dist.tmp/* $PKG/usr/share/texmf-dist
-  rm -r $PKG/usr/share/texmf-dist.tmp
+  sed \
+    -e 's|TEXMFROOT = .*|TEXMFROOT = $SELFAUTODIR/share|g' \
+    -e 's|TEXMFLOCAL = .*|TEXMFLOCAL = $TEXMFROOT/texmf-local|g' \
+    -e 's|^OSFONTDIR.*|OSFONTDIR = ~/.fonts:/usr/share/fonts|' \
+    -i $PKG/usr/share/texmf-dist/web2c/texmf.cnf
 
   cd $SRC/texi2html-5.0
-
   ./configure --prefix=/usr
-
   make
   make install DESTDIR=$PKG
 
+  # final clean up
   rm -r $PKG/usr/share/{info,locale,texmf-dist/doc}
-  rm -r $PKG/usr/bin/tlmgr
-  rm -rf $PKG/usr/share/texmf-dist/scripts/texlive/tlmgr{,gui}.pl
-  find  $PKG/usr/share/texmf-dist \
-    -regex '.*/\(COPYING\|README\|AUTHORS\|INSTALL\|ChangeLog\|NEWS\|TODO\).*' \
+  rm -r $PKG/usr/bin/{tlmgr,man}
+  rm -r $PKG/usr/share/texmf-dist/scripts/texlive/tlmgr{,gui}.pl
+  find $PKG/usr/share/texmf-dist \
+    -regex '.*/\(COPYING\|README\|AUTHORS\|INSTALL\|ChangeLog\|NEWS\|TODO\|fonts_README.md\|BUGS\).*' \
     -exec rm '{}' \+
+  find $PKG/usr/share/texi2html \
+    -regex '.*/\(README\|COPYING\).*' \
+    -exec rm '{}' \+
+  # strip .la files
+  rm -f $PKG/usr/lib/*.la
+  # patch tabu.sty from https://github.com/tabu-fixed/tabu to fix
+  # breakage when compiling doxygen
+  ( cd $PKG/usr/share/texmf-dist/tex/latex/tabu
+  cat $SRC/tabu.sty.diff | patch -p1 --verbose || exit 1
+  )
 }
