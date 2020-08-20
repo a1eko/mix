@@ -160,7 +160,7 @@ do_source() {
             ln -sf $zsources/$f $SRC
   	  else
 	    message -n "fetching $s ..."
-	    (cd $zsources; wget -q -t 3 $s || (test -n "$use_mirror" && (rm -f $(basename $s); wget -nv $use_mirror/$(basename $s)))) || error "cannot fetch $(basename $s)"
+	    (cd /tmp; rm -f $(basename $s)*; (wget -q -t 3 $s && mv $(basename $s) $zsources/) || (test -n "$use_mirror" && (rm -f $(basename $s)*; (wget -nv $use_mirror/$(basename $s) && mv $(basename $s))))) || error "cannot fetch $(basename $s)"
 	    echo \ done
 	    if [ -f $pkgsum ]; then
 	      grep -qw "$(cd $zsources; md5sum $f)" $pkgsum || error "md5sum failed"
