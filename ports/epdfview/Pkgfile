@@ -1,6 +1,6 @@
 # Description: PDF viewer
 # Depends on:  gtk poppler
-# Nice to have: cups
+# Optional: cups
 
 name=epdfview
 version=0.1.8

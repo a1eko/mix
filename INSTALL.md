@@ -151,11 +151,8 @@ files from `$MIX/boot` to the actual destination `/boot`.
 
 Unmount virtual file systems and the target directory.
 
-	sudo umount -v $MIX/dev/pts
-	sudo umount -v $MIX/dev
-	sudo umount -v $MIX/run
-	sudo umount -v $MIX/proc
-	sudo umount -v $MIX/sys
+	sudo umount -v $MIX/dev{/pts,}
+	sudo umount -v $MIX/{sys,proc,run}
 
 	sudo umount -v $MIX
 	unset MIX

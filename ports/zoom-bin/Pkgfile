@@ -1,6 +1,6 @@
 # Description: video conferencing client
 # Depends on: glib xorg-libxcb fontconfig mesa xorg-libxinerama xorg-libxrender xorg-libsm xorg-libxcomposite libxslt sqlite3 xorg-xcb-util-keysyms dbus xorg-libxtst
-# Nice to have: pulseaudio
+# Optional: pulseaudio
 
 name=zoom-bin
 version=latest

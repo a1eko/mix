@@ -1,9 +1,10 @@
 # Description: package manager for scripted source-based distributions
 # Depends on: wget
+# Optional: pigz
 
 name=pkz
 version=0.4
-release=mix-2
+release=mix-3
 source=(pkz.sh pkz.conf)
 
 build() {

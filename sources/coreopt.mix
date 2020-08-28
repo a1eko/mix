@@ -10,6 +10,7 @@ libarchive
 libnl
 lzo
 libpcre
+pigz
 popt
 start-stop-daemon
 sysfsutils
@@ -17,6 +18,12 @@ unzip
 yasm
 zip
 
+db
+libtirpc
+mpdecimal
+sqlite3
+
+python3
 python3-setuptools
 python3-pip
 ninja

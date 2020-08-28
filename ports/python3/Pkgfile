@@ -1,0 +1,38 @@
+# Description: programming language and script interpreter
+# Depends on:  expat gdbm libffi
+# Optional:    libnsl libtirpc mpdecimal db openssl sqlite3 tk
+
+name=python3
+version=3.8.5
+release=mix-1
+source=(https://www.python.org/ftp/python/$version/Python-$version.tar.xz)
+
+build() {
+  cd Python-$version
+  ./configure --prefix=/usr \
+    --enable-shared \
+    --with-system-expat \
+    --with-system-ffi   \
+    --without-ensurepip
+  make
+  make -j1 DESTDIR=$PKG altinstall maninstall
+
+  #chmod -v 755 $PKG/usr/lib/libpython3.8.so
+  #chmod -v 755 $PKG/usr/lib/libpython3.so
+  #ln -sfv pip3.8 $PKG/usr/bin/pip3
+
+  ln -s 2to3-${version%.*}          $PKG/usr/bin/2to3
+  ln -s python${version%.*}         $PKG/usr/bin/python3
+  ln -s python${version%.*}-config  $PKG/usr/bin/python3-config
+  ln -s idle${version%.*}           $PKG/usr/bin/idle3
+  ln -s pydoc${version%.*}          $PKG/usr/bin/pydoc3
+  ln -s python${version%.*}         $PKG/usr/lib/$name
+  ln -s python-${version%.*}.pc     $PKG/usr/lib/pkgconfig/python3.pc
+
+  rm $PKG/usr/lib/python${version%.*}/ctypes/macholib/README.ctypes
+  rm $PKG/usr/lib/python${version%.*}/distutils/README
+  rm $PKG/usr/lib/python${version%.*}/idlelib/{ChangeLog,NEWS.txt,NEWS2x.txt}
+  rm $PKG/usr/lib/python${version%.*}/idlelib/{README,TODO,CREDITS,HISTORY}.txt
+  rm $PKG/usr/lib/python${version%.*}/idlelib/Icons/README.txt
+  rm $PKG/usr/lib/python${version%.*}/site-packages/README.txt
+}

@@ -3,6 +3,9 @@
 # NOTE: installs after x.mix
 #
 
+tk
+python3
+
 openjpeg
 
 giflib

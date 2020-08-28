@@ -70,11 +70,6 @@ xorg-xcb-util-renderutil
 xorg-xcb-util-wm
 xorg-xcb-util-cursor
 
-db
-libtirpc
-mpdecimal
-sqlite3
-
 python
 python3-markupsafe
 python3-mako

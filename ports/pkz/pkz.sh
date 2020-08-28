@@ -43,6 +43,12 @@ list_updated=no
 list_all=yes
 list_url=no
 
+if which pigz >/dev/null 2>&1 ; then
+  GZIP='pigz -3'
+else
+  GZIP='gzip -3'
+fi
+
 usage() {
   cat << EOF 
 Usage: 	pkz [options] <command> <packages>
@@ -65,6 +71,7 @@ Options:
   -i			show installed packages (list)
   -n			show not-installed packages (list)
   -u			show updated packages (list)
+  -l			show source URL of packages (list)
   -o			include optional dependencies (resolve, provide, depend)
 
 Command:
@@ -122,7 +129,7 @@ standard_dirs() {
 compress_files() {
   local d f
   for d in $(find "$1" -type d -wholename "$2"); do
-    find $d -type f | xargs gzip -3 &>/dev/null
+    find $d -type f | xargs $GZIP &>/dev/null
     for f in $(find $d -type l); do
       ln -sf $(readlink $f).gz $f.gz
       rm -f $f
@@ -196,10 +203,10 @@ do_build() {
   time -p ( build > pkgbuild ) >> pkgbuild 2>&1
   set +E; trap - ERR
   du -sk $PKG | cut -f1 | sed "s/^/size /" >> pkgbuild
-  gzip -3 -c pkgbuild > $pkgbuild.gz
+  $GZIP -c pkgbuild > $pkgbuild.gz
   test $compress_manuals = yes && compress_files $PKG '*/man/man*'
   test -n "$strip_shared""$strip_static""$strip_binaries" -a ! -e $pkgdir/.nostrip && strip_objects
-  ( cd $PKG; tar cf - . | gzip -3 -c > $SRC/pkgbin ) || error "packaging failed"
+  ( cd $PKG; tar cf - . | $GZIP -c > $SRC/pkgbin ) || error "packaging failed"
   tar tvvf pkgbin | awk '{if(NR>1) print $1, $2, $6, $7, $8, $9}' \
     | sed -e 's/ /\t/' -e 's/ \.\//\t/' -e 's/  *$//' > pkgcont
   mv -f pkgbin $pkgbin && mv -f pkgcont $pkgcont || error "package placement failed"
@@ -227,7 +234,7 @@ do_install() {
       tar xf $pkgbin -C $ROOT/ -h || error "installation failed"
       rm -f *_files$$ *_dirs$$
       rm -f $zregs/$name#*.gz
-      gzip -3 -c $pkgcont > $pkgreg.gz
+      $GZIP -c $pkgcont > $pkgreg.gz
       message "installed"
       test ! -f $pkgdir/post-install || bash -e $pkgdir/post-install || error "post-install failed"
       if ls $pkgdir/*README* &>/dev/null; then

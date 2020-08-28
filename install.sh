@@ -41,16 +41,16 @@ BOOT="nasm syslinux rc"
 KERNEL=linux
 
 toolsh="env -i MIX=$MIX PKZ=$MIX PKZCONF=$MIX/usr/sources/pkz.conf \
-  CONFIG_SITE=$MIX/usr/sources/config.site \
+  CONFIG_SITE=$MIX/usr/sources/tool-config.site \
   MIX_TGT=$MIX_TGT HOME=$HOME TERM=linux LC_ALL=C \
   PATH=$MIX/tools/bin:/bin:/usr/bin \
   /bin/bash -e +h -c"
 
-MAKEFLAGS="-j$(getconf _NPROCESSORS_ONLN)"
+MAKEFLAGS="-j$(nproc)"
 
 chrootsh="sudo chroot $MIX /usr/bin/env -i \
   PKZCONF=/usr/sources/pkz.conf HOME=/root TERM=linux LC_ALL=C \
-  CONFIG_SITE=$MIX/usr/sources/config.site \
+  CONFIG_SITE=/usr/sources/config.site \
   ${MAKEFLAGS+"MAKEFLAGS=$MAKEFLAGS"} \
   PATH=/bin:/usr/bin:/sbin:/usr/sbin \
   /bin/bash -e +h -c"
@@ -93,7 +93,7 @@ echo | gzip -c > $MIX/var/log/packages/dummy.gz
 install -v -m 755 -D $MIX/usr/packages/pkz/pkz.sh $MIX/usr/bin/pkz
 ln -sfv ../../usr/bin/pkz $MIX/tools/bin/
 
-cat > $MIX/usr/sources/config.site << EOF
+cat > $MIX/usr/sources/tool-config.site << EOF
 enable_nls=no
 EOF
 
@@ -325,4 +325,3 @@ cat > /dev/stdout << EOF
 $0 done.
 
 EOF
-
