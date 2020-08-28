@@ -13,13 +13,13 @@ build() {
     --enable-shared \
     --with-system-expat \
     --with-system-ffi   \
-    --without-ensurepip
+    --with-ensurepip=yes
   make
-  make -j1 DESTDIR=$PKG altinstall maninstall
+  make -j1 DESTDIR=$PKG install
 
-  #chmod -v 755 $PKG/usr/lib/libpython3.8.so
-  #chmod -v 755 $PKG/usr/lib/libpython3.so
-  #ln -sfv pip3.8 $PKG/usr/bin/pip3
+  chmod -v 755 $PKG/usr/lib/libpython3.8.so
+  chmod -v 755 $PKG/usr/lib/libpython3.so
+  ln -sfv pip3.8 $PKG/usr/bin/pip3
 
   ln -s 2to3-${version%.*}          $PKG/usr/bin/2to3
   ln -s python${version%.*}         $PKG/usr/bin/python3
