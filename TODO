@@ -4,4 +4,5 @@ o ports (crux): replace 'pkginfo -i' with 'pkz -i list'
 o linux kernel: "syncconfig" replaces "silentoldconfig"
 o crux (ports): .signature replaces .md5sum (see core/signify)
 o libreoffice: presentation and spreadsheets depend on avahi at runtime
-- pkz (pkz.sh): use pigz if available (gzip -3 -c)
+- pkz (pkz.sh): revert 'list <patt>' to 'list <pkg>' (full name, not pattern)
+- pkz (pkz.sh): remove any installed version of pkg with '-f remove'

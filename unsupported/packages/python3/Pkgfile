@@ -21,14 +21,6 @@ build() {
   chmod -v 755 $PKG/usr/lib/libpython3.so
   ln -sfv pip3.8 $PKG/usr/bin/pip3
 
-  ln -s 2to3-${version%.*}          $PKG/usr/bin/2to3
-  ln -s python${version%.*}         $PKG/usr/bin/python3
-  ln -s python${version%.*}-config  $PKG/usr/bin/python3-config
-  ln -s idle${version%.*}           $PKG/usr/bin/idle3
-  ln -s pydoc${version%.*}          $PKG/usr/bin/pydoc3
-  ln -s python${version%.*}         $PKG/usr/lib/$name
-  ln -s python-${version%.*}.pc     $PKG/usr/lib/pkgconfig/python3.pc
-
   rm $PKG/usr/lib/python${version%.*}/ctypes/macholib/README.ctypes
   rm $PKG/usr/lib/python${version%.*}/distutils/README
   rm $PKG/usr/lib/python${version%.*}/idlelib/{ChangeLog,NEWS.txt,NEWS2x.txt}
