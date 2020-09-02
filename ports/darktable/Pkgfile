@@ -15,7 +15,7 @@ build() {
 
   CC=clang \
   CXX=clang++ \
-  ./build.sh --prefix /usr --buildtype Release -j4
+  ./build.sh --prefix /usr --buildtype Release -j$(nproc)
 
   cd build
   make DESTDIR=$PKG install
