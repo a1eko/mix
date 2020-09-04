@@ -231,8 +231,6 @@ $chrootsh "find /usr/{lib,libexec} -name \*.la -delete"
 
 echo tool system built in $MIX
 
-sudo rm -rf $MIX/usr/packages/*-mixtool{,-*}
-
 cat > /dev/stdout << EOF
 
 #
@@ -240,6 +238,9 @@ cat > /dev/stdout << EOF
 #
 
 EOF
+
+mkdir -pv $MIX/usr/sources/tools
+sudo mv $MIX/usr/packages/*-mixtool{,-*} $MIX/usr/sources/tools/
 
 cat > /dev/stdout << EOF
 

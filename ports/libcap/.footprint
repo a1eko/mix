@@ -1,6 +1,6 @@
 drwxr-xr-x	root/root	lib/
-lrwxrwxrwx	root/root	lib/libcap.so.2 -> libcap.so.2.42
--rw-r--r--	root/root	lib/libcap.so.2.42
+lrwxrwxrwx	root/root	lib/libcap.so.2 -> libcap.so.2.43
+-rw-r--r--	root/root	lib/libcap.so.2.43
 drwxr-xr-x	root/root	sbin/
 -rwxr-xr-x	root/root	sbin/capsh
 -rwxr-xr-x	root/root	sbin/getcap
@@ -13,7 +13,7 @@ drwxr-xr-x	root/root	usr/lib/
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/libpsx.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/libcap.pc
-lrwxrwxrwx	root/root	usr/lib/libcap.so -> ../../lib/libcap.so.2.42
+lrwxrwxrwx	root/root	usr/lib/libcap.so -> ../../lib/libcap.so.2.43
 drwxr-xr-x	root/root	usr/include/
 drwxr-xr-x	root/root	usr/include/sys/
 -rw-r--r--	root/root	usr/include/sys/psx_syscall.h

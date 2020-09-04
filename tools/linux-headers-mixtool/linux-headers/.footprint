@@ -135,6 +135,7 @@ drwxr-xr-x	build/users	usr/include/linux/tc_act/
 -rw-r--r--	build/users	usr/include/linux/tc_act/tc_mirred.h
 -rw-r--r--	build/users	usr/include/linux/tc_act/tc_skbmod.h
 -rw-r--r--	build/users	usr/include/linux/tc_act/tc_bpf.h
+-rw-r--r--	build/users	usr/include/linux/tc_act/tc_gate.h
 -rw-r--r--	build/users	usr/include/linux/tc_act/tc_csum.h
 -rw-r--r--	build/users	usr/include/linux/tc_act/tc_defact.h
 -rw-r--r--	build/users	usr/include/linux/elfcore.h
@@ -264,6 +265,7 @@ drwxr-xr-x	build/users	usr/include/linux/mmc/
 -rw-r--r--	build/users	usr/include/linux/blktrace_api.h
 -rw-r--r--	build/users	usr/include/linux/loop.h
 -rw-r--r--	build/users	usr/include/linux/gfs2_ondisk.h
+-rw-r--r--	build/users	usr/include/linux/mrp_bridge.h
 -rw-r--r--	build/users	usr/include/linux/reiserfs_fs.h
 -rw-r--r--	build/users	usr/include/linux/if_xdp.h
 -rw-r--r--	build/users	usr/include/linux/socket.h
@@ -588,6 +590,7 @@ drwxr-xr-x	build/users	usr/include/linux/sched/
 -rw-r--r--	build/users	usr/include/linux/dqblk_xfs.h
 -rw-r--r--	build/users	usr/include/linux/memfd.h
 -rw-r--r--	build/users	usr/include/linux/cn_proc.h
+-rw-r--r--	build/users	usr/include/linux/virtio_mem.h
 -rw-r--r--	build/users	usr/include/linux/mei.h
 -rw-r--r--	build/users	usr/include/linux/tee.h
 -rw-r--r--	build/users	usr/include/linux/ip.h
@@ -673,6 +676,7 @@ drwxr-xr-x	build/users	usr/include/linux/byteorder/
 -rw-r--r--	build/users	usr/include/linux/sdla.h
 -rw-r--r--	build/users	usr/include/linux/coff.h
 -rw-r--r--	build/users	usr/include/linux/atm_tcp.h
+-rw-r--r--	build/users	usr/include/linux/watch_queue.h
 -rw-r--r--	build/users	usr/include/linux/udp.h
 -rw-r--r--	build/users	usr/include/linux/mtio.h
 -rw-r--r--	build/users	usr/include/linux/hdlcdrv.h
