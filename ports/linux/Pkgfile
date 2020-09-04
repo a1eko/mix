@@ -1,7 +1,7 @@
 # Description: linux kernel
 
 name=linux
-version=5.8.5
+version=5.8.6
 release=mix-1
 source=(https://www.kernel.org/pub/linux/kernel/v5.x/linux-$version.tar.xz config.local)
 
@@ -12,7 +12,7 @@ build() {
   cat .config ../config.local > all.config
   make mrproper
   KCONFIG_ALLCONFIG=all.config make allnoconfig
-  make
+  make -j$(nproc)
   mkdir -v $PKG/boot
   cp -v $(find arch/ -type f -name bzImage) $PKG/boot/vmlinuz-$version-$release
   cp -v System.map $PKG/boot/System.map-$version-$release
