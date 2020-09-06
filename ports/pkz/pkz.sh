@@ -87,7 +87,7 @@ Command:
   resolve		show unresolved dependencies
 
 Packages:
-  <name> [<name2> ...]	package name or list of packages
+  <name> [<name> ...]	package name or list of packages
   inclide <file>	file with list of packages
 EOF
 }
