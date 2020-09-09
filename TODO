@@ -5,3 +5,4 @@ o linux kernel: "syncconfig" replaces "silentoldconfig"
 o crux (ports): .signature replaces .md5sum (see core/signify)
 o libreoffice: presentation and spreadsheets depend on avahi at runtime
 o python3: rebuild with deps in coreopt and graphics
+- ports (xcb): libxcb builds if gcd patch is disabled in xcb-proto
