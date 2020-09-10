@@ -222,7 +222,7 @@ do_build() {
   test $compress_manuals = yes && compress_files $PKG '*/man/man*'
   test -n "$strip_shared""$strip_static""$strip_binaries" \
     -a ! -e $pkgdir/.nostrip && strip_objects
-  (cd $PKG; tar cf - . | $GZIP -c > $SRC/pkgbin) || error "packaging failed"
+  (cd $PKG; tar --sort=name -cf - . | $GZIP -c > $SRC/pkgbin) || error "packaging failed"
   tar tvvf pkgbin | awk '{if(NR>1) print $1, $2, $6, $7, $8, $9}' \
     | sed -e 's/ /\t/' -e 's/ \.\//\t/' -e 's/  *$//' > pkgcont
   mv -f pkgbin $pkgbin && mv -f pkgcont $pkgcont \

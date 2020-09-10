@@ -1,7 +1,7 @@
 # Description: linux kernel
 
 name=linux
-version=5.8.7
+version=5.8.8
 release=mix-1
 source=(https://www.kernel.org/pub/linux/kernel/v5.x/linux-$version.tar.xz config.local)
 
