@@ -19,7 +19,6 @@ build() {
 
   chmod -v 755 $PKG/usr/lib/libpython3.8.so
   chmod -v 755 $PKG/usr/lib/libpython3.so
-  ln -sfv pip3.8 $PKG/usr/bin/pip3
 
   rm $PKG/usr/lib/python${version%.*}/ctypes/macholib/README.ctypes
   rm $PKG/usr/lib/python${version%.*}/distutils/README

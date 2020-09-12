@@ -1,6 +1,6 @@
 # Description: photographic raw image manipulation tool
 # Depends on: gtk3 cmake libxml2 pugixml libxslt json-glib libpng libjpeg-turbo libtiff librsvg sqlite3 exiv2 lensfun lcms2 curl mesa openexr libgphoto2 dbus-glib libwebp llvm clang libsoup
-# Optional: openmp
+# Optional: openmp lua53
 
 name=darktable
 version=git
@@ -15,7 +15,7 @@ build() {
 
   CC=clang \
   CXX=clang++ \
-  ./build.sh --prefix /usr --buildtype Release -j$(nproc)
+  ./build.sh --prefix /usr --buildtype Release
 
   cd build
   make DESTDIR=$PKG install
