@@ -23,6 +23,7 @@ hicolor-icon-theme
 lcms2
 
 fribidi
+harfbuzz
 
 pango
 poppler-data
