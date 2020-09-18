@@ -176,7 +176,7 @@ do_source() {
 		  || ( test -n "$use_mirror" && \
 		       ( rm -f $(basename $s)*
 		         ( wget -nv $use_mirror/$(basename $s) \
-			     && mv $(basename $s)
+			     && mv $(basename $s) $zsources/
 		         )
 		       )
 		     )
