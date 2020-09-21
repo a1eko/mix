@@ -6,7 +6,7 @@
 
 name=rust-bin
 version=1.45.2
-release=mix-1
+release=1
 source=(https://crux.ster.zone/downloads/rust/rust-$version-$release-crux-3.6-bin.tar.xz)
 
 build() {
