@@ -3,7 +3,7 @@
 # Optional: mpich
 
 name=nest-simulator
-version=2.20.0
+version=2.18.0
 release=mix-1
 source=(http://github.com/nest/nest-simulator/archive/v$version.tar.gz)
 
