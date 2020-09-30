@@ -1,0 +1,16 @@
+# Description: Fst raw [photography] image decoding library
+# URL:         https://rawspeed.org/
+# Maintainer:  Aaron Ball, nullspoon at oper dot io
+# Depends on:  cmake pugixml libxml2 libjpeg-turbo
+name=rawspeed
+version=3.3
+release=1
+source=(https://github.com/darktable-org/${name}/archive/v${version}.tar.gz)
+
+build() {
+  cd ${name}-${version}
+  mkdir build && cd build
+  cmake -DBUILD_TESTING=no -DCMAKE_INSTALL_PREFIX=/usr ..
+  make
+  make DESTDIR=${PKG} install
+}

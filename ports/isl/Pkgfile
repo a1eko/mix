@@ -1,0 +1,15 @@
+# Description: A library for manipulating sets and relations of integer points bounded by linear constraints
+# URL:         http://isl.gforge.inria.fr/
+# Maintainer:  Aaron Ball, nullspoon at oper dot io
+# Depends on:
+name=isl
+version=0.22
+release=1
+source=(http://isl.gforge.inria.fr/${name}-${version}.tar.xz)
+
+build() {
+  cd ${name}-${version}
+  ./configure --prefix=/usr
+  make
+  make DESTDIR=${PKG} install
+}

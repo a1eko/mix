@@ -5,4 +5,5 @@ o linux kernel: "syncconfig" replaces "silentoldconfig"
 o crux (ports): .signature replaces .md5sum (see core/signify)
 o libreoffice: presentation and spreadsheets depend on avahi at runtime
 o python3: rebuild with deps in coreopt and graphics
-- linux (config.local): consider removing CONFIG_UNWINDER_FRAME_POINTER=y
++ linux (config.local): consider removing CONFIG_UNWINDER_FRAME_POINTER=y
+- openssh: upgrade to v8.4 (watch debian for gssapi patch)
