@@ -1,7 +1,7 @@
 # Description: linker, assembler and other development tools
 
 name=binutils
-version=2.35
+version=2.35.1
 release=0pass1
 source=(http://ftp.gnu.org/gnu/binutils/binutils-$version.tar.xz)
 
@@ -11,7 +11,7 @@ build() {
   mkdir -v build
   cd build
 
-  ../configure --prefix=/tools \
+  ../configure --prefix=$MIX/tools \
     --with-sysroot=$MIX \
     --target=$MIX_TGT \
     --disable-nls \
