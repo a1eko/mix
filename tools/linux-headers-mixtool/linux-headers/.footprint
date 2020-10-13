@@ -217,6 +217,7 @@ drwxr-xr-x	build/users	usr/include/linux/can/
 -rw-r--r--	build/users	usr/include/linux/chio.h
 drwxr-xr-x	build/users	usr/include/linux/cifs/
 -rw-r--r--	build/users	usr/include/linux/cifs/cifs_mount.h
+-rw-r--r--	build/users	usr/include/linux/close_range.h
 -rw-r--r--	build/users	usr/include/linux/cm4000_cs.h
 -rw-r--r--	build/users	usr/include/linux/cn_proc.h
 -rw-r--r--	build/users	usr/include/linux/coda.h
@@ -258,7 +259,6 @@ drwxr-xr-x	build/users	usr/include/linux/dvb/
 -rw-r--r--	build/users	usr/include/linux/elf-em.h
 -rw-r--r--	build/users	usr/include/linux/elf-fdpic.h
 -rw-r--r--	build/users	usr/include/linux/elf.h
--rw-r--r--	build/users	usr/include/linux/elfcore.h
 -rw-r--r--	build/users	usr/include/linux/errno.h
 -rw-r--r--	build/users	usr/include/linux/errqueue.h
 -rw-r--r--	build/users	usr/include/linux/erspan.h
@@ -681,6 +681,7 @@ drwxr-xr-x	build/users	usr/include/linux/raid/
 -rw-r--r--	build/users	usr/include/linux/reboot.h
 -rw-r--r--	build/users	usr/include/linux/reiserfs_fs.h
 -rw-r--r--	build/users	usr/include/linux/reiserfs_xattr.h
+-rw-r--r--	build/users	usr/include/linux/remoteproc_cdev.h
 -rw-r--r--	build/users	usr/include/linux/resource.h
 -rw-r--r--	build/users	usr/include/linux/rfkill.h
 -rw-r--r--	build/users	usr/include/linux/rio_cm_cdev.h
