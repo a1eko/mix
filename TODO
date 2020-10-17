@@ -11,3 +11,5 @@ o python3: rebuild with deps in coreopt and graphics
 - toolchain: install with prefix=$MIX/tools (was: /tools)
 - install.sh: no need for /tools -> $MIX/tools (?)
 - test build
+- darktable: revert to git and clang; also .nostrip to keep debug symbols
+- python: upgrade toolchain to v3.9
