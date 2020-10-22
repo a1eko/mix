@@ -11,6 +11,5 @@ build() {
   make headers
   find usr/include -name '.*' -delete
   rm -v usr/include/Makefile
-  mkdir -pv $PKG/usr/include
-  cp -rv usr/include/* $PKG/usr/include/
+  cp -rv usr/include $PKG/usr/
 }

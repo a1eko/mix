@@ -11,7 +11,7 @@ build() {
   mkdir -v build
   cd build
 
-  ../configure --prefix=$MIX/tools \
+  ../configure --prefix=/tools \
     --with-sysroot=$MIX \
     --target=$MIX_TGT \
     --disable-nls \

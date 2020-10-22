@@ -5,11 +5,8 @@ o linux kernel: "syncconfig" replaces "silentoldconfig"
 o crux (ports): .signature replaces .md5sum (see core/signify)
 o libreoffice: presentation and spreadsheets depend on avahi at runtime
 o python3: rebuild with deps in coreopt and graphics
+o crux (ports): use JOBS to control the number of processes in parallel builds
 + linux (config.local): consider removing CONFIG_UNWINDER_FRAME_POINTER=y
 - openssh: upgrade to v8.4 (watch debian for gssapi patch)
-- binutils: upgrade to v2.35.1
-- toolchain: install with prefix=$MIX/tools (was: /tools)
-- install.sh: no need for /tools -> $MIX/tools (?)
-- test build
-- darktable: revert to git and clang; also .nostrip to keep debug symbols
 - python: upgrade toolchain to v3.9
+- ports: check JOBS and MAKEFLAGS propagate

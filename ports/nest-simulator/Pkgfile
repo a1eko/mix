@@ -11,7 +11,7 @@ build() {
   cd $name-$version
   if which mpirun &>/dev/null; then WITH_MPI=-Dwith-mpi=ON; fi
   cmake . -DCMAKE_INSTALL_PREFIX=/usr -Dwith-python=3 -DPYTHON_EXECUTABLE=$(which python3) $WITH_MPI
-  make -j$(nproc)
+  make -j ${JOBS:-1}
   make DESTDIR=$PKG install
   rm -rv $PKG/usr/share/doc
 }

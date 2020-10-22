@@ -12,6 +12,6 @@ build() {
   make DESTDIR=$PKG install
   install -d $PKG/bin
   #mv -v $PKG/usr/bin/gzip $PKG/bin  # crux compat
-  mv $PKG/usr/bin/{gzip,gunzip,zcat} $PKG/bin
+  mv $PKG/usr/bin/{gzip,gunzip,zcat} $PKG/bin/
   rm -rv $PKG/usr/share/{info,man}
 }

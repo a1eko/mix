@@ -316,6 +316,8 @@ EOF
 
 echo core system built in $MIX
 
+$chrootsh "find /usr -depth -name $(uname -m)-mix-linux-gnu\* | xargs rm -rf"
+
 sudo umount -v $MIX/dev{/pts,}
 sudo umount -v $MIX/{sys,proc,run}
 sudo rm -r $MIX/tools
