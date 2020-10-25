@@ -9,4 +9,3 @@ o crux (ports): use JOBS to control the number of processes in parallel builds
 + linux (config.local): consider removing CONFIG_UNWINDER_FRAME_POINTER=y
 - openssh: upgrade to v8.4 (watch debian for gssapi patch)
 - python: upgrade toolchain to v3.9
-- ports: check JOBS and MAKEFLAGS propagate

@@ -196,6 +196,12 @@ if [ -h $MIX/dev/shm ]; then
   sudo mkdir -pv $MIX/$(readlink $MIX/dev/shm)
 fi
 
+$chrootsh "cat >> /usr/sources/pkz.conf << EOF
+: \${JOBS=$(nproc)}
+export JOBS
+EOF
+"
+
 sudo bash -c "echo 127.0.0.1 localhost $(hostname) > $MIX/etc/hosts"
 
 $chrootsh "pkz install filesystem"
