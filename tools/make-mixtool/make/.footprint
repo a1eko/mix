@@ -1,6 +1,6 @@
 drwxr-xr-x	build/users	usr/
-drwxr-xr-x	build/users	usr/include/
--rw-r--r--	build/users	usr/include/gnumake.h
 drwxr-xr-x	build/users	usr/bin/
 -rwxr-xr-x	build/users	usr/bin/make
+drwxr-xr-x	build/users	usr/include/
+-rw-r--r--	build/users	usr/include/gnumake.h
 drwxr-xr-x	build/users	usr/share/

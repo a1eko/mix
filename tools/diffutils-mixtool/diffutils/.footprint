@@ -1,7 +1,7 @@
 drwxr-xr-x	build/users	usr/
 drwxr-xr-x	build/users	usr/bin/
--rwxr-xr-x	build/users	usr/bin/diff
--rwxr-xr-x	build/users	usr/bin/sdiff
 -rwxr-xr-x	build/users	usr/bin/cmp
+-rwxr-xr-x	build/users	usr/bin/diff
 -rwxr-xr-x	build/users	usr/bin/diff3
+-rwxr-xr-x	build/users	usr/bin/sdiff
 drwxr-xr-x	build/users	usr/share/

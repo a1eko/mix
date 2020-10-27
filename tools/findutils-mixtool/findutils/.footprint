@@ -1,10 +1,10 @@
 drwxr-xr-x	build/users	usr/
-drwxr-xr-x	build/users	usr/var/
 drwxr-xr-x	build/users	usr/bin/
--rwxr-xr-x	build/users	usr/bin/xargs
 -rwxr-xr-x	build/users	usr/bin/find
 -rwxr-xr-x	build/users	usr/bin/locate
 -rwxr-xr-x	build/users	usr/bin/updatedb
-drwxr-xr-x	build/users	usr/share/
+-rwxr-xr-x	build/users	usr/bin/xargs
 drwxr-xr-x	build/users	usr/libexec/
 -rwxr-xr-x	build/users	usr/libexec/frcode
+drwxr-xr-x	build/users	usr/share/
+drwxr-xr-x	build/users	usr/var/
