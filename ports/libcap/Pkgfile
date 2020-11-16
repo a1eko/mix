@@ -4,7 +4,7 @@
 # Depends on:  attr linux-pam
 
 name=libcap
-version=2.44
+version=2.45
 release=mix-1
 source=(https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/$name-$version.tar.xz)
 
@@ -21,7 +21,7 @@ build () {
 		DESTDIR=$PKG
 
 	install -d $PKG/usr/lib
-	mv $PKG/lib/lib{cap,psx}.a $PKG/usr/lib
+	mv $PKG/lib/lib{cap.a,psx.*} $PKG/usr/lib
 	rm $PKG/lib/libcap.so
 	ln -s ../../lib/libcap.so.$version $PKG/usr/lib/libcap.so
 

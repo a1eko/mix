@@ -136,6 +136,7 @@ drwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/libmetadata_view.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/libmodule_toolbox.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/libmodulegroups.so
+-rwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/libmodulelist.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/libnavigation.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/libprint_settings.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/libratings.so
@@ -155,9 +156,20 @@ drwxr-xr-x	root/root	usr/lib64/darktable/views/
 -rwxr-xr-x	root/root	usr/lib64/darktable/views/libprint.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/views/libslideshow.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/views/libtethering.so
+drwxr-xr-x	root/root	usr/libexec/
+drwxr-xr-x	root/root	usr/libexec/darktable/
+drwxr-xr-x	root/root	usr/libexec/darktable/tools/
+-rwxr-xr-x	root/root	usr/libexec/darktable/tools/darktable-curve-tool
+-rwxr-xr-x	root/root	usr/libexec/darktable/tools/darktable-curve-tool-helper
+-rwxr-xr-x	root/root	usr/libexec/darktable/tools/darktable-gen-noiseprofile
+-rwxr-xr-x	root/root	usr/libexec/darktable/tools/darktable-noiseprofile
+-rw-r--r--	root/root	usr/libexec/darktable/tools/profiling-shot.xmp
+-rw-r--r--	root/root	usr/libexec/darktable/tools/subr.sh
 drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/appdata/
 -rw-r--r--	root/root	usr/share/appdata/darktable.appdata.xml
+drwxr-xr-x	root/root	usr/share/applications/
+-rw-r--r--	root/root	usr/share/applications/darktable.desktop
 drwxr-xr-x	root/root	usr/share/darktable/
 -rw-r--r--	root/root	usr/share/darktable/darktable.bash
 -rw-r--r--	root/root	usr/share/darktable/darktablerc
@@ -208,7 +220,6 @@ drwxr-xr-x	root/root	usr/share/darktable/lua/darktable/
 -rw-r--r--	root/root	usr/share/darktable/noiseprofiles.json
 drwxr-xr-x	root/root	usr/share/darktable/pixmaps/
 -rw-r--r--	root/root	usr/share/darktable/pixmaps/dt_logo_128x128.png
--rw-r--r--	root/root	usr/share/darktable/pixmaps/dt_text.svg
 -rw-r--r--	root/root	usr/share/darktable/pixmaps/idbutton-1.png
 -rw-r--r--	root/root	usr/share/darktable/pixmaps/idbutton-1.svg
 -rw-r--r--	root/root	usr/share/darktable/pixmaps/idbutton-2.png
@@ -369,6 +380,9 @@ drwxr-xr-x	root/root	usr/share/darktable/themes/
 -rw-r--r--	root/root	usr/share/darktable/themes/darktable-icons.css
 -rw-r--r--	root/root	usr/share/darktable/themes/darktable.css
 drwxr-xr-x	root/root	usr/share/darktable/tools/
+drwxr-xr-x	root/root	usr/share/darktable/tools/basecurve/
+-rw-r--r--	root/root	usr/share/darktable/tools/basecurve/plot.basecurve
+-rw-r--r--	root/root	usr/share/darktable/tools/basecurve/plot.tonecurve
 -rwxr-xr-x	root/root	usr/share/darktable/tools/common.sh
 -rwxr-xr-x	root/root	usr/share/darktable/tools/extract_wb_from_images.sh
 -rwxr-xr-x	root/root	usr/share/darktable/tools/purge_from_cache.sh

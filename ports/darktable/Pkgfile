@@ -1,23 +1,32 @@
-# Description: photographic raw image manipulation tool
-# Depends on: gtk3 cmake libxml2 pugixml libxslt json-glib libpng libjpeg-turbo libtiff librsvg sqlite3 exiv2 lensfun lcms2 curl mesa openexr libgphoto2 dbus-glib libwebp llvm clang libsoup
-# Optional: openmp lua53
-
+# Description: Open source photography workflow application
+# URL:         https://www.darktable.org/
+# Maintainer:  Aaron Ball, nullspoon at oper dot io
+# Depends on:  libgphoto2 cmake isl libxslt json-c libpng libtiff librsvg rawspeed lensfun openexr
 name=darktable
-version=git
-release=mix-1
-source=()
- 
+version=3.2.1
+release=1
+source=(https://github.com/darktable-org/${name}/releases/download/release-${version}/${name}-${version}.tar.xz)
+
 build() {
-  git clone git://github.com/darktable-org/darktable.git
-  cd darktable
-  git submodule init
-  git submodule update
+  cd ${name}-${version}
+  mkdir build && cd build
+  cmake \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DUSE_COLORD=false \
+    -DUSE_LIBSECRET=false \
+    -DUSE_KWALLET=false \
+    -DUSE_FLICKR=false \
+    -DUSE_OPENEXR=true \
+    -DUSE_NLS=false \
+    -DBUILD_USERMANUAL=false \
+    -DUSE_LENSFUN=true \
+    -DBUILD_CURVE_TOOLS=ON \
+    -DBUILD_NOISE_TOOLS=ON \
+    -DRAWSPEED_ENABLE_LTO=ON \
+    ..
+  make -j ${JOBS:-1}
+  make DESTDIR=${PKG} install
 
-  CC=clang \
-  CXX=clang++ \
-  ./build.sh --prefix /usr --buildtype Release
-
-  cd build
-  make DESTDIR=$PKG install
-  rm -rv $PKG/usr/share/{applications,doc,locale}
+  rm -r ${PKG}/usr/share/doc
 }
