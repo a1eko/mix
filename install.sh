@@ -316,7 +316,6 @@ $chrootsh "pkz clean include /usr/sources/coreopt.mix"
 $chrootsh "cat > /etc/config.site << 'EOF'
 test -z \"\$CFLAGS\" && export CFLAGS=\"-O2 -pipe -mtune=native\" || true
 test -z \"\$CXXFLAGS\" && export CXXFLAGS=\"\$CFLAGS\" || true
-test -z \"\$MAKEFLAGS\" && export MAKEFLAGS=\"-j$(nproc)\" || true
 EOF
 "
 
