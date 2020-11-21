@@ -1,0 +1,26 @@
+# Description: Panorama photo stitcher
+# URL: http://hugin.sourceforge.net/
+# Maintainer: Erich Eckner, crux at eckner dot net
+# Depends on: wxgtk enblend-enfuse exiv2 libpano13 python glew desktop-file-utils swig
+
+name=hugin
+version=2019.2.0
+release=1
+source=("https://downloads.sourceforge.net/project/${name}/${name}/${name}-${version%.*}/${name}-${version}.tar.bz2")
+
+build() {
+
+	cd "${SRC}/${name}-${version}"
+	install -d build
+	cd build
+	cmake .. \
+		-DCMAKE_BUILD_TYPE=Release \
+		-DCMAKE_INSTALL_PREFIX=/usr \
+		-DENABLE_LAPACK=yes
+
+	make
+	make DESTDIR="${PKG}" install
+        rm -rf ${PKG}/usr/share/locale
+	find "${PKG}" \( -name '*README*' -o -name '*COPYING*' \) -delete
+
+}
