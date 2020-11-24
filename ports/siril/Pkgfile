@@ -1,0 +1,18 @@
+# Description: astronomical image processing software
+# Depends on: gtk3 cfitsio fftw gsl libconfig opencv exiv2 intltool cmake
+# Optional: libraw libtiff libjpeg-turbo libpng ffmpeg curl gnuplot
+
+name=siril
+version=git
+release=mix-1
+
+build() {
+  git clone https://gitlab.com/free-astro/siril.git
+  cd siril
+  git submodule update --init
+
+  ./autogen.sh --prefix=/usr --disable-nls
+  make
+  make DESTDIR=$PKG install
+  rm -rv $PKG/usr/share/{applications,doc}
+}

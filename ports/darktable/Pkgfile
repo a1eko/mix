@@ -2,6 +2,7 @@
 # URL:         https://www.darktable.org/
 # Maintainer:  Aaron Ball, nullspoon at oper dot io
 # Depends on:  libgphoto2 cmake isl libxslt json-c libpng libtiff librsvg rawspeed lensfun openexr
+# Optional:    gmic
 name=darktable
 version=3.2.1
 release=1
