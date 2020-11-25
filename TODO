@@ -1,6 +1,6 @@
 o ports: prefer pip over ports for python packages 
 o ports (linux-firmware): disable stripping "sudo pkz -c /dev/null build linux-firmware"
-. ports (crux): replace 'pkginfo -i' with 'pkz -i list'
+o ports (crux): replace 'pkginfo -i' with 'pkz -i list'
 o linux kernel: "syncconfig" replaces "silentoldconfig"
 o crux (ports): .signature replaces .md5sum (see core/signify)
 o libreoffice: presentation and spreadsheets depend on avahi at runtime
@@ -8,3 +8,4 @@ o python3: rebuild with deps in coreopt and graphics
 o crux (ports): use JOBS to control the number of processes in parallel builds
 + linux (config.local): consider removing CONFIG_UNWINDER_FRAME_POINTER=y
 - rust-bin (rustc): built with llvm-10 (wait for v11)
+- gcc-fortran (Pkgfile): add to mix/ports (replace 'pkginfo -l')
