@@ -30,6 +30,7 @@ ninja
 rsync
 
 dbus
+exim
 iptables
 meson
 
