@@ -1,7 +1,7 @@
 # Description: An arbitrary precision calculator language
 
 name=bc
-version=3.2.3
+version=3.2.4
 release=mix-1
 source=(https://github.com/gavinhoward/$name/archive/$version/$name-$version.tar.gz)
 
