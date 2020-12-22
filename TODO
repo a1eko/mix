@@ -10,3 +10,4 @@ o python3: rebuild with deps in coreopt and graphics
 - rust-bin (rustc): built with llvm-10 (wait for v11)
 - gcc-fortran (Pkgfile): add to mix/ports (replace 'pkginfo -l')
 ! linux: v5.9.12 doesn't recognize USB 3.0 external WD drive (revert to v5.9.9, try 5.10 - some problems fixed)
+- mix: new release (sync w/ crux 3.6.x)
