@@ -12,7 +12,6 @@ build() {
     cd $name-$version
 
     ./configure --prefix=/usr \
-                --bindir=/bin \
                 --with-root-prefix= \
                 --enable-symlink-install \
                 --enable-elf-shlibs \

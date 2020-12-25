@@ -4,7 +4,7 @@
 # Depends on:  util-linux gtk nss libglvnd xorg-libxdamage xorg-libxt rpm2targz
 
 name=flash-player-plugin
-version=32.0.0.414
+version=32.0.0.465
 release=mix-1
 source=(https://fpdownload.adobe.com/pub/flashplayer/pdc/$version/flash-player-npapi-$version-release.x86_64.rpm)
 

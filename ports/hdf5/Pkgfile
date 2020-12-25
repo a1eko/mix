@@ -6,9 +6,9 @@
 # Depends on: szip zlib openssl
 
 name=hdf5
-version=1.10.5
-release=1
-source=(https://support.hdfgroup.org/ftp/HDF5/current/src/$name-$version.tar.gz)
+version=1.12.0
+release=mix-1
+source=(https://support.hdfgroup.org/ftp/HDF5/releases/$name-${version:0:4}/$name-$version/src/$name-$version.tar.bz2)
 
 build() {
 ls -A
@@ -26,9 +26,4 @@ ls -A
 	 
 	make
 	make DESTDIR=$PKG install
-
-	rm -rf $PKG/usr/share/hdf5_examples
-	rmdir --ignore-fail-on-non-empty -p $PKG/usr/share
-
-	find $PKG -type f -name README -delete
 }

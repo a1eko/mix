@@ -35,7 +35,7 @@ BASE2="pkg-config ncurses sed psmisc gettext bison grep bash libtool gdbm \
   gperf tar expat inetutils perl autoconf automake kmod elfutils \
   libffi openssl python3 coreutils check diffutils gawk findutils groff \
   less gzip kbd libpipeline make patch man-pages man-db texinfo vim \
-  eudev procps util-linux e2fsprogs sysklogd sysvinit linux-pam sudo"
+  eudev procps util-linux dcron e2fsprogs sysklogd sysvinit linux-pam sudo"
 
 BOOT="nasm syslinux rc"
 KERNEL=linux

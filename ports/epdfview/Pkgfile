@@ -1,17 +1,17 @@
 # Description: PDF viewer
-# Depends on:  gtk poppler
+# Depends on: gtk poppler poppler-glib
 # Optional: cups
 
 name=epdfview
 version=0.1.8
-release=mix-1
+release=mix-2
 source=(http://anduin.linuxfromscratch.org/BLFS/epdfview/epdfview-$version.tar.bz2
 	http://www.linuxfromscratch.org/patches/blfs/svn/epdfview-$version-fixes-2.patch)
 
 build () {
   cd $name-$version
 
-  patch -Np1 -i ../epdfview-$version-fixes-2.patch &&
+  patch -Np1 -i ../epdfview-$version-fixes-2.patch
 
   ./configure --prefix=/usr --disable-nls
   make
