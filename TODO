@@ -1,10 +1,8 @@
 o ports: prefer pip over ports for python packages 
 o ports (linux-firmware): disable stripping "sudo pkz -c /dev/null build linux-firmware"
-o ports (crux): replace 'pkginfo -i' with 'pkz -i list'
+[ ports (crux): replace 'pkginfo -i' with 'pkz -i list' ]
 o linux kernel: "syncconfig" replaces "silentoldconfig"
 o crux (ports): .signature replaces .md5sum (see core/signify)
 o libreoffice: presentation and spreadsheets depend on avahi at runtime
 o python3: rebuild with deps in coreopt and graphics
 + crux (ports): use JOBS to control the number of processes in parallel builds
-- gcc-fortran (Pkgfile): add to mix/ports (replace 'pkginfo -l')
-- mix: release
