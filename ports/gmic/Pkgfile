@@ -2,7 +2,7 @@
 # Depends on: cmake gimp qt5 fftw openexr opencv graphicsmagick
 
 name=gmic
-version=2.9.3
+version=2.9.4
 release=mix-1
 source=(http://gmic.eu/files/source/gmic_$version.tar.gz)
 

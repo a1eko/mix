@@ -1,0 +1,25 @@
+# Description: Computer vision library
+# URL: https://ukoethe.github.io/vigra/
+# Maintainer: Erich Eckner, crux at eckner dot net
+# Depends on: openexr zlib libpng libjpeg-turbo libtiff
+
+name=vigra
+version=1.11.1
+release=2
+source=("https://github.com/ukoethe/${name}/releases/download/Version-${version//./-}/${name}-${version}-src.tar.gz")
+
+build() {
+
+  cd "${SRC}"/${name}-${version}
+  cmake -DCMAKE_INSTALL_PREFIX=/usr \
+      -DPYTHON_EXECUTABLE=/usr/bin/python \
+      -DWITH_OPENEXR=true \
+      -DWITH_VIGRANUMPY=1 \
+      -DDOCINSTALL=share/doc
+  make
+  make DESTDIR="${PKG}" install
+
+  rm -rf "${PKG}/usr/share/doc"
+  rmdir "${PKG}/usr/share"
+
+}

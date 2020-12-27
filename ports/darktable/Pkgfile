@@ -1,11 +1,11 @@
 # Description: Open source photography workflow application
 # URL:         https://www.darktable.org/
 # Maintainer:  Aaron Ball, nullspoon at oper dot io
-# Depends on:  libgphoto2 cmake isl libxslt json-c libpng libtiff librsvg rawspeed lensfun openexr
+# Depends on:  libgphoto2 cmake isl libxslt json-c libpng libtiff librsvg lensfun openexr
 # Optional:    gmic
 name=darktable
-version=3.2.1
-release=1
+version=3.4.0
+release=mix-1
 source=(https://github.com/darktable-org/${name}/releases/download/release-${version}/${name}-${version}.tar.xz)
 
 build() {

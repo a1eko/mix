@@ -22,7 +22,7 @@ build()
 
   ../configure --prefix=/usr \
     LD=ld \
-    --enable-languages=c,c++ \
+    --enable-languages=c,c++,fortran \
     --disable-multilib \
     --disable-bootstrap \
     --with-system-zlib

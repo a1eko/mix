@@ -5,10 +5,10 @@
 # Depends on:
 
 name=szip
-version=2.1
-release=1
+version=2.1.1
+release=mix-1
 #source=(ftp://ftp.hdfgroup.org/lib-external/szip/$version/src/szip-$version.tar.gz)
-source=(http://distfiles.gentoo.org/distfiles/szip-$version.tar.gz)
+source=(https://support.hdfgroup.org/ftp/lib-external/szip/$version/src/szip-$version.tar.gz)
 
 build() {
 	cd szip-$version

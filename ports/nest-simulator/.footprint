@@ -342,10 +342,10 @@ drwxr-xr-x	root/root	usr/lib64/
 -rwxr-xr-x	root/root	usr/lib64/libsli.so
 -rwxr-xr-x	root/root	usr/lib64/libsli_readline.so
 -rwxr-xr-x	root/root	usr/lib64/libtopology.so
-drwxr-xr-x	root/root	usr/lib64/python3.8/
-drwxr-xr-x	root/root	usr/lib64/python3.8/site-packages/
-drwxr-xr-x	root/root	usr/lib64/python3.8/site-packages/nest/
--rwxr-xr-x	root/root	usr/lib64/python3.8/site-packages/nest/pynestkernel.so
+drwxr-xr-x	root/root	usr/lib64/python3.9/
+drwxr-xr-x	root/root	usr/lib64/python3.9/site-packages/
+drwxr-xr-x	root/root	usr/lib64/python3.9/site-packages/nest/
+-rwxr-xr-x	root/root	usr/lib64/python3.9/site-packages/nest/pynestkernel.so
 drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/nest/
 drwxr-xr-x	root/root	usr/share/nest/extras/

@@ -1,0 +1,18 @@
+# Description: Basic library to calculate panoramical pictures - core functions of the panotools
+# URL: https://sourceforge.net/projects/panotools/files/libpano13/
+# Maintainer: Erich Eckner, crux at eckner dot net
+# Depends on: libpng libtiff
+
+name=libpano13
+version=2.9.19
+release=1
+source=("http://downloads.sourceforge.net/sourceforge/panotools/${name}-${version}.tar.gz")
+
+build() {
+
+	cd "${SRC}/${name}-${version}"
+	./configure --prefix=/usr --mandir=/usr/share/man
+	make
+	make DESTDIR="${PKG}" install
+
+}

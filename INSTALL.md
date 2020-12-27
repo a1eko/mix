@@ -87,7 +87,7 @@ hardware, a user-defined file `config.local` is used. Edit `config.local`
 and install the kernel.
 
 	pkz build linux
-	pkz -f install linux
+	pkz install linux
 
 Set up the system bootloader.
 
