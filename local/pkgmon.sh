@@ -17,7 +17,11 @@ monitor() {
     | grep 'href="/pypi/' | cut -d'"' -f2 \
     | sed -e 's,/pypi/,,'i -e 's,/,-,' \
     >> .listing-tmp
-  lynx -source "http://www.linuxfromscratch.org/lfs/downloads/development/wget-list" > wget-list
+  if [ ! -e /tmp/wget-list ]; then
+    wget -q --timeout=5 http://www.linuxfromscratch.org/lfs/downloads/development/wget-list || echo no /tmp/wget-list && exit
+    #curl http://www.linuxfromscratch.org/lfs/downloads/development/wget-list > wget-list
+    #lynx -source "http://www.linuxfromscratch.org/lfs/view/development/wget-list" > wget-list
+  fi
   for f in $(cat wget-list); do
       basename $f >> .listing-tmp
   done
