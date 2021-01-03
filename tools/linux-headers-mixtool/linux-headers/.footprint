@@ -201,6 +201,7 @@ drwxr-xr-x	build/users	usr/include/linux/can/
 -rw-r--r--	build/users	usr/include/linux/can/bcm.h
 -rw-r--r--	build/users	usr/include/linux/can/error.h
 -rw-r--r--	build/users	usr/include/linux/can/gw.h
+-rw-r--r--	build/users	usr/include/linux/can/isotp.h
 -rw-r--r--	build/users	usr/include/linux/can/j1939.h
 -rw-r--r--	build/users	usr/include/linux/can/netlink.h
 -rw-r--r--	build/users	usr/include/linux/can/raw.h
@@ -423,8 +424,6 @@ drwxr-xr-x	build/users	usr/include/linux/isdn/
 -rw-r--r--	build/users	usr/include/linux/memfd.h
 -rw-r--r--	build/users	usr/include/linux/mempolicy.h
 -rw-r--r--	build/users	usr/include/linux/meye.h
--rw-r--r--	build/users	usr/include/linux/mic_common.h
--rw-r--r--	build/users	usr/include/linux/mic_ioctl.h
 -rw-r--r--	build/users	usr/include/linux/mii.h
 -rw-r--r--	build/users	usr/include/linux/minix_fs.h
 -rw-r--r--	build/users	usr/include/linux/mman.h
@@ -623,6 +622,7 @@ drwxr-xr-x	build/users	usr/include/linux/nfsd/
 -rw-r--r--	build/users	usr/include/linux/nfsd/stats.h
 -rw-r--r--	build/users	usr/include/linux/nilfs2_api.h
 -rw-r--r--	build/users	usr/include/linux/nilfs2_ondisk.h
+-rw-r--r--	build/users	usr/include/linux/nitro_enclaves.h
 -rw-r--r--	build/users	usr/include/linux/nl80211.h
 -rw-r--r--	build/users	usr/include/linux/nsfs.h
 -rw-r--r--	build/users	usr/include/linux/nubus.h
@@ -646,6 +646,7 @@ drwxr-xr-x	build/users	usr/include/linux/nfsd/
 -rw-r--r--	build/users	usr/include/linux/pg.h
 -rw-r--r--	build/users	usr/include/linux/phantom.h
 -rw-r--r--	build/users	usr/include/linux/phonet.h
+-rw-r--r--	build/users	usr/include/linux/pidfd.h
 -rw-r--r--	build/users	usr/include/linux/pkt_cls.h
 -rw-r--r--	build/users	usr/include/linux/pkt_sched.h
 -rw-r--r--	build/users	usr/include/linux/pktcdvd.h
@@ -842,6 +843,7 @@ drwxr-xr-x	build/users	usr/include/linux/usb/
 -rw-r--r--	build/users	usr/include/linux/veth.h
 -rw-r--r--	build/users	usr/include/linux/vfio.h
 -rw-r--r--	build/users	usr/include/linux/vfio_ccw.h
+-rw-r--r--	build/users	usr/include/linux/vfio_zdev.h
 -rw-r--r--	build/users	usr/include/linux/vhost.h
 -rw-r--r--	build/users	usr/include/linux/vhost_types.h
 -rw-r--r--	build/users	usr/include/linux/videodev2.h

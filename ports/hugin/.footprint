@@ -40,10 +40,6 @@ drwxr-xr-x	root/root	usr/lib/hugin/
 -rwxr-xr-x	root/root	usr/lib/hugin/libicpfindlib.so.0.0
 -rwxr-xr-x	root/root	usr/lib/hugin/liblocalfeatures.so.0.0
 drwxr-xr-x	root/root	usr/share/
-drwxr-xr-x	root/root	usr/share/appdata/
--rw-r--r--	root/root	usr/share/appdata/PTBatcherGUI.appdata.xml
--rw-r--r--	root/root	usr/share/appdata/calibrate_lens_gui.appdata.xml
--rw-r--r--	root/root	usr/share/appdata/hugin.appdata.xml
 drwxr-xr-x	root/root	usr/share/applications/
 -rw-r--r--	root/root	usr/share/applications/PTBatcherGUI.desktop
 -rw-r--r--	root/root	usr/share/applications/calibrate_lens_gui.desktop
@@ -539,7 +535,7 @@ drwxr-xr-x	root/root	usr/share/icons/
 drwxr-xr-x	root/root	usr/share/icons/gnome/
 drwxr-xr-x	root/root	usr/share/icons/gnome/48x48/
 drwxr-xr-x	root/root	usr/share/icons/gnome/48x48/mimetypes/
--rw-r--r--	root/root	usr/share/icons/gnome/48x48/mimetypes/gnome-mime-application-x-ptoptimizer-script.png
+-rw-r--r--	root/root	usr/share/icons/gnome/48x48/mimetypes/application-x-ptoptimizer-script.png
 drwxr-xr-x	root/root	usr/share/icons/hicolor/
 drwxr-xr-x	root/root	usr/share/icons/hicolor/128x128/
 drwxr-xr-x	root/root	usr/share/icons/hicolor/128x128/apps/
@@ -582,6 +578,7 @@ drwxr-xr-x	root/root	usr/share/man/man1/
 -rw-r--r--	root/root	usr/share/man/man1/hugin_executor.1.gz
 -rw-r--r--	root/root	usr/share/man/man1/hugin_hdrmerge.1.gz
 -rw-r--r--	root/root	usr/share/man/man1/hugin_lensdb.1.gz
+-rw-r--r--	root/root	usr/share/man/man1/hugin_stacker.1.gz
 -rw-r--r--	root/root	usr/share/man/man1/hugin_stitch_project.1.gz
 -rw-r--r--	root/root	usr/share/man/man1/icpfind.1.gz
 -rw-r--r--	root/root	usr/share/man/man1/linefind.1.gz
@@ -598,6 +595,10 @@ drwxr-xr-x	root/root	usr/share/man/man1/
 -rw-r--r--	root/root	usr/share/man/man1/tca_correct.1.gz
 -rw-r--r--	root/root	usr/share/man/man1/verdandi.1.gz
 -rw-r--r--	root/root	usr/share/man/man1/vig_optimize.1.gz
+drwxr-xr-x	root/root	usr/share/metainfo/
+-rw-r--r--	root/root	usr/share/metainfo/PTBatcherGUI.appdata.xml
+-rw-r--r--	root/root	usr/share/metainfo/calibrate_lens_gui.appdata.xml
+-rw-r--r--	root/root	usr/share/metainfo/hugin.appdata.xml
 drwxr-xr-x	root/root	usr/share/mime/
 drwxr-xr-x	root/root	usr/share/mime/packages/
 -rw-r--r--	root/root	usr/share/mime/packages/hugin.xml

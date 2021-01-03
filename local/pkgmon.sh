@@ -18,9 +18,9 @@ monitor() {
     | sed -e 's,/pypi/,,'i -e 's,/,-,' \
     >> .listing-tmp
   if [ ! -e /tmp/wget-list ]; then
-    wget -q --timeout=5 http://www.linuxfromscratch.org/lfs/downloads/development/wget-list || echo no /tmp/wget-list && exit
     #curl http://www.linuxfromscratch.org/lfs/downloads/development/wget-list > wget-list
     #lynx -source "http://www.linuxfromscratch.org/lfs/view/development/wget-list" > wget-list
+    wget -q --timeout=5 http://www.linuxfromscratch.org/lfs/downloads/development/wget-list || echo no /tmp/wget-list && exit
   fi
   for f in $(cat wget-list); do
       basename $f >> .listing-tmp
@@ -36,7 +36,8 @@ monitor() {
       fi
     done > $T
   fi
-  rm -f .listing* index.html* wget-list
+  #rm -f .listing* index.html* wget-list
+  rm -f .listing* index.html*
   touch $S
   comm -13 <(sort $S) <(sort $T)
 }
