@@ -84,7 +84,6 @@ mesa
 xorg-xbitmaps
 
 xorg-iceauth
-#xorg-mkfontdir
 xorg-mkfontscale
 xorg-rgb
 xorg-sessreg
@@ -134,6 +133,7 @@ xorg-font-bh-type1
 xorg-font-ibm-type1
 xorg-font-misc-cyrillic
 xorg-font-misc-misc
+xorg-font-dejavu-ttf
 
 xorg-server
 
