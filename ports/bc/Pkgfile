@@ -1,13 +1,13 @@
 # Description: An arbitrary precision calculator language
 
 name=bc
-version=3.2.4
+version=3.2.6
 release=mix-1
 source=(https://github.com/gavinhoward/$name/archive/$version/$name-$version.tar.gz)
 
 build() { 
   cd $name-$version
-  PREFIX=/usr CC=gcc CFLAGS="-std=c99" ./configure.sh --disable-nls -G -O3
+  PREFIX=/usr CC=gcc ./configure.sh --disable-nls -G -O3
   make
   make DESTDIR=$PKG install
 }

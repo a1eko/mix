@@ -1,7 +1,7 @@
 # Description: archiving program
 
 name=tar
-version=1.32
+version=1.33
 release=0
 source=(http://ftp.gnu.org/gnu/tar/tar-$version.tar.xz)
 
@@ -15,4 +15,5 @@ build() {
   make
   make DESTDIR=$PKG install
   rm -rv $PKG/usr/share/{info,man}
+  rmdir $PKG/usr/share
 }

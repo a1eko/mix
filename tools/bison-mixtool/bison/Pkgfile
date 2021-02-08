@@ -1,7 +1,7 @@
 # Description: parser generator
 
 name=bison
-version=3.7.4
+version=3.7.5
 release=0
 source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.xz)
 

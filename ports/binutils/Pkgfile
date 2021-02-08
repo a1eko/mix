@@ -1,7 +1,7 @@
 # Description: linker, assembler and other development tools
 
 name=binutils
-version=2.35
+version=2.36.1
 release=mix-1
 source=(http://ftp.gnu.org/gnu/binutils/binutils-$version.tar.xz)
 
@@ -25,5 +25,6 @@ build() {
   make tooldir=/usr
   $TST make -k check || true
   make tooldir=/usr DESTDIR=$PKG install
+  rm -fv $PKG/usr/lib/lib{bfd,ctf,ctf-nobfd,opcodes}.a
   rm -rv $PKG/usr/share/info
 }

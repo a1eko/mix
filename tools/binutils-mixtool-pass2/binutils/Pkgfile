@@ -1,12 +1,13 @@
 # Description: linker, assembler and other development tools
 
 name=binutils
-version=2.35.1
+version=2.36.1
 release=0pass2
 source=(http://ftp.gnu.org/gnu/binutils/binutils-$version.tar.xz)
 
 build() {
   cd $name-$version
+
   mkdir -v build
   cd build
 
@@ -19,5 +20,9 @@ build() {
     --enable-64-bit-bfd
   make
   make DESTDIR=$PKG install
+
+  # prevent libctf.so from linking against zlib from the host distribution
+  install -vm755 libctf/.libs/libctf.so.0.0.0 $PKG/usr/lib
+
   rm -rv $PKG/usr/share/{info,man}
 }

@@ -27,8 +27,8 @@ test "$MIX_TST" = no && export TST=:
 
 P=$MIX/usr/packages
 
-BASE1="tcl expect dejagnu iana-etc glibc lzip tzdata zlib bzip2 xz zstd \
-  file readline m4 bc flex binutils libgmp libmpfr libmpc linux-firmware \
+BASE1="iana-etc glibc lzip tzdata zlib bzip2 xz zstd file readline m4 \
+  bc flex tcl expect dejagnu binutils libgmp libmpfr libmpc linux-firmware \
   attr acl libcap shadow gcc"
 
 BASE2="pkg-config ncurses sed psmisc gettext bison grep bash libtool gdbm \

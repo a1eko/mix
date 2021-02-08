@@ -4,12 +4,15 @@
 # Depends on:  db gdbm
 
 name=perl
-version=5.32.0
+version=5.32.1
 release=mix-1
 source=(http://www.cpan.org/src/5.0/$name-$version.tar.xz)
 
 build() {
     cd $name-$version
+
+  export BUILD_ZLIB=False
+  export BUILD_BZIP2=0
 
     ./Configure -des \
                 -Dprefix=/usr \

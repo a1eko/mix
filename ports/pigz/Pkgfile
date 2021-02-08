@@ -1,10 +1,10 @@
 # Description: A parallel implementation of gzip and gunzip
 # URL: http://zlib.net/pigz
 # Maintainer: Erich Eckner, crux at eckner dot net
-# Depends on: zlib
+# Depends on:
 
 name=pigz
-version=2.4
+version=2.5
 release=1
 source=(http://zlib.net/$name/$name-$version.tar.gz)
 
