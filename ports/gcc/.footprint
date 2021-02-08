@@ -13,6 +13,7 @@ hrwxr-xr-x	root/root	usr/bin/g++ link to ./usr/bin/c++
 -rwxr-xr-x	root/root	usr/bin/gcov
 -rwxr-xr-x	root/root	usr/bin/gcov-dump
 -rwxr-xr-x	root/root	usr/bin/gcov-tool
+-rwxr-xr-x	root/root	usr/bin/gfortran
 -rwxr-xr-x	root/root	usr/bin/lto-dump
 hrwxr-xr-x	root/root	usr/bin/x86_64-pc-linux-gnu-c++ link to ./usr/bin/c++
 hrwxr-xr-x	root/root	usr/bin/x86_64-pc-linux-gnu-g++ link to ./usr/bin/c++
@@ -21,6 +22,7 @@ hrwxr-xr-x	root/root	usr/bin/x86_64-pc-linux-gnu-gcc-10.2.0 link to ./usr/bin/gc
 hrwxr-xr-x	root/root	usr/bin/x86_64-pc-linux-gnu-gcc-ar link to ./usr/bin/gcc-ar
 hrwxr-xr-x	root/root	usr/bin/x86_64-pc-linux-gnu-gcc-nm link to ./usr/bin/gcc-nm
 hrwxr-xr-x	root/root	usr/bin/x86_64-pc-linux-gnu-gcc-ranlib link to ./usr/bin/gcc-ranlib
+hrwxr-xr-x	root/root	usr/bin/x86_64-pc-linux-gnu-gfortran link to ./usr/bin/gfortran
 drwxr-xr-x	root/root	usr/include/
 drwxr-xr-x	root/root	usr/include/c++/
 drwxr-xr-x	root/root	usr/include/c++/10.2.0/
@@ -848,7 +850,20 @@ drwxr-xr-x	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/
 -rw-r--r--	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/crtprec32.o
 -rw-r--r--	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/crtprec64.o
 -rw-r--r--	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/crtprec80.o
+drwxr-xr-x	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/finclude/
+-rw-r--r--	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/finclude/ieee_arithmetic.mod
+-rw-r--r--	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/finclude/ieee_exceptions.mod
+-rw-r--r--	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/finclude/ieee_features.mod
+-rw-r--r--	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/finclude/omp_lib.f90
+-rw-r--r--	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/finclude/omp_lib.h
+-rw-r--r--	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/finclude/omp_lib.mod
+-rw-r--r--	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/finclude/omp_lib_kinds.mod
+-rw-r--r--	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/finclude/openacc.f90
+-rw-r--r--	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/finclude/openacc.mod
+-rw-r--r--	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/finclude/openacc_kinds.mod
+-rw-r--r--	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/finclude/openacc_lib.h
 drwxr-xr-x	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/
+-rw-r--r--	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/ISO_Fortran_binding.h
 -rw-r--r--	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/acc_prof.h
 -rw-r--r--	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/adxintrin.h
 -rw-r--r--	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/ammintrin.h
@@ -965,6 +980,7 @@ drwxr-xr-x	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include-fixed/
 drwxr-xr-x	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include-fixed/bits/
 -rw-r--r--	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include-fixed/bits/statx.h
 -rw-r--r--	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include-fixed/limits.h
+-rw-r--r--	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include-fixed/pthread.h
 -rw-r--r--	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include-fixed/syslimits.h
 drwxr-xr-x	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/install-tools/
 -rw-r--r--	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/install-tools/fixinc_list
@@ -973,6 +989,8 @@ drwxr-xr-x	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/install-tools/includ
 -rw-r--r--	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/install-tools/include/limits.h
 -rw-r--r--	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/install-tools/macro_list
 -rw-r--r--	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/install-tools/mkheaders.conf
+-rw-r--r--	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/libcaf_single.a
+-rwxr-xr-x	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/libcaf_single.la
 -rw-r--r--	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/libgcc.a
 -rw-r--r--	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/libgcc_eh.a
 -rw-r--r--	root/root	usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/libgcov.a
@@ -1447,6 +1465,12 @@ lrwxrwxrwx	root/root	usr/lib/libcc1.so.0 -> libcc1.so.0.0.0
 -rwxr-xr-x	root/root	usr/lib/libcc1.so.0.0.0
 -rw-r--r--	root/root	usr/lib/libgcc_s.so
 -rw-r--r--	root/root	usr/lib/libgcc_s.so.1
+-rw-r--r--	root/root	usr/lib/libgfortran.a
+-rwxr-xr-x	root/root	usr/lib/libgfortran.la
+lrwxrwxrwx	root/root	usr/lib/libgfortran.so -> libgfortran.so.5.0.0
+lrwxrwxrwx	root/root	usr/lib/libgfortran.so.5 -> libgfortran.so.5.0.0
+-rwxr-xr-x	root/root	usr/lib/libgfortran.so.5.0.0
+-rw-r--r--	root/root	usr/lib/libgfortran.spec
 -rw-r--r--	root/root	usr/lib/libgomp.a
 -rwxr-xr-x	root/root	usr/lib/libgomp.la
 lrwxrwxrwx	root/root	usr/lib/libgomp.so -> libgomp.so.1.0.0
@@ -1505,6 +1529,7 @@ drwxr-xr-x	root/root	usr/libexec/gcc/x86_64-pc-linux-gnu/10.2.0/
 -rwxr-xr-x	root/root	usr/libexec/gcc/x86_64-pc-linux-gnu/10.2.0/cc1
 -rwxr-xr-x	root/root	usr/libexec/gcc/x86_64-pc-linux-gnu/10.2.0/cc1plus
 -rwxr-xr-x	root/root	usr/libexec/gcc/x86_64-pc-linux-gnu/10.2.0/collect2
+-rwxr-xr-x	root/root	usr/libexec/gcc/x86_64-pc-linux-gnu/10.2.0/f951
 drwxr-xr-x	root/root	usr/libexec/gcc/x86_64-pc-linux-gnu/10.2.0/install-tools/
 -rwxr-xr-x	root/root	usr/libexec/gcc/x86_64-pc-linux-gnu/10.2.0/install-tools/fixinc.sh
 -rwxr-xr-x	root/root	usr/libexec/gcc/x86_64-pc-linux-gnu/10.2.0/install-tools/fixincl
@@ -1627,6 +1652,7 @@ drwxr-xr-x	root/root	usr/share/man/man1/
 -rw-r--r--	root/root	usr/share/man/man1/gcov-dump.1.gz
 -rw-r--r--	root/root	usr/share/man/man1/gcov-tool.1.gz
 -rw-r--r--	root/root	usr/share/man/man1/gcov.1.gz
+-rw-r--r--	root/root	usr/share/man/man1/gfortran.1.gz
 -rw-r--r--	root/root	usr/share/man/man1/lto-dump.1.gz
 drwxr-xr-x	root/root	usr/share/man/man7/
 -rw-r--r--	root/root	usr/share/man/man7/fsf-funding.7.gz

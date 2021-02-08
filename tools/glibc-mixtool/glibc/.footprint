@@ -1,47 +1,47 @@
 drwxr-xr-x	build/users	etc/
 -rw-r--r--	build/users	etc/rpc
 drwxr-xr-x	build/users	lib/
--rwxr-xr-x	build/users	lib/ld-2.32.so
-lrwxrwxrwx	build/users	lib/ld-linux-x86-64.so.2 -> ld-2.32.so
--rwxr-xr-x	build/users	lib/libBrokenLocale-2.32.so
-lrwxrwxrwx	build/users	lib/libBrokenLocale.so.1 -> libBrokenLocale-2.32.so
+-rwxr-xr-x	build/users	lib/ld-2.33.so
+lrwxrwxrwx	build/users	lib/ld-linux-x86-64.so.2 -> ld-2.33.so
+-rwxr-xr-x	build/users	lib/libBrokenLocale-2.33.so
+lrwxrwxrwx	build/users	lib/libBrokenLocale.so.1 -> libBrokenLocale-2.33.so
 -rwxr-xr-x	build/users	lib/libSegFault.so
--rwxr-xr-x	build/users	lib/libanl-2.32.so
-lrwxrwxrwx	build/users	lib/libanl.so.1 -> libanl-2.32.so
--rwxr-xr-x	build/users	lib/libc-2.32.so
-lrwxrwxrwx	build/users	lib/libc.so.6 -> libc-2.32.so
--rwxr-xr-x	build/users	lib/libcrypt-2.32.so
-lrwxrwxrwx	build/users	lib/libcrypt.so.1 -> libcrypt-2.32.so
--rwxr-xr-x	build/users	lib/libdl-2.32.so
-lrwxrwxrwx	build/users	lib/libdl.so.2 -> libdl-2.32.so
--rwxr-xr-x	build/users	lib/libm-2.32.so
-lrwxrwxrwx	build/users	lib/libm.so.6 -> libm-2.32.so
+-rwxr-xr-x	build/users	lib/libanl-2.33.so
+lrwxrwxrwx	build/users	lib/libanl.so.1 -> libanl-2.33.so
+-rwxr-xr-x	build/users	lib/libc-2.33.so
+lrwxrwxrwx	build/users	lib/libc.so.6 -> libc-2.33.so
+-rwxr-xr-x	build/users	lib/libcrypt-2.33.so
+lrwxrwxrwx	build/users	lib/libcrypt.so.1 -> libcrypt-2.33.so
+-rwxr-xr-x	build/users	lib/libdl-2.33.so
+lrwxrwxrwx	build/users	lib/libdl.so.2 -> libdl-2.33.so
+-rwxr-xr-x	build/users	lib/libm-2.33.so
+lrwxrwxrwx	build/users	lib/libm.so.6 -> libm-2.33.so
 -rwxr-xr-x	build/users	lib/libmemusage.so
--rwxr-xr-x	build/users	lib/libmvec-2.32.so
-lrwxrwxrwx	build/users	lib/libmvec.so.1 -> libmvec-2.32.so
--rwxr-xr-x	build/users	lib/libnsl-2.32.so
-lrwxrwxrwx	build/users	lib/libnsl.so.1 -> libnsl-2.32.so
--rwxr-xr-x	build/users	lib/libnss_compat-2.32.so
-lrwxrwxrwx	build/users	lib/libnss_compat.so.2 -> libnss_compat-2.32.so
--rwxr-xr-x	build/users	lib/libnss_db-2.32.so
-lrwxrwxrwx	build/users	lib/libnss_db.so.2 -> libnss_db-2.32.so
--rwxr-xr-x	build/users	lib/libnss_dns-2.32.so
-lrwxrwxrwx	build/users	lib/libnss_dns.so.2 -> libnss_dns-2.32.so
--rwxr-xr-x	build/users	lib/libnss_files-2.32.so
-lrwxrwxrwx	build/users	lib/libnss_files.so.2 -> libnss_files-2.32.so
--rwxr-xr-x	build/users	lib/libnss_hesiod-2.32.so
-lrwxrwxrwx	build/users	lib/libnss_hesiod.so.2 -> libnss_hesiod-2.32.so
+-rwxr-xr-x	build/users	lib/libmvec-2.33.so
+lrwxrwxrwx	build/users	lib/libmvec.so.1 -> libmvec-2.33.so
+-rwxr-xr-x	build/users	lib/libnsl-2.33.so
+lrwxrwxrwx	build/users	lib/libnsl.so.1 -> libnsl-2.33.so
+-rwxr-xr-x	build/users	lib/libnss_compat-2.33.so
+lrwxrwxrwx	build/users	lib/libnss_compat.so.2 -> libnss_compat-2.33.so
+-rwxr-xr-x	build/users	lib/libnss_db-2.33.so
+lrwxrwxrwx	build/users	lib/libnss_db.so.2 -> libnss_db-2.33.so
+-rwxr-xr-x	build/users	lib/libnss_dns-2.33.so
+lrwxrwxrwx	build/users	lib/libnss_dns.so.2 -> libnss_dns-2.33.so
+-rwxr-xr-x	build/users	lib/libnss_files-2.33.so
+lrwxrwxrwx	build/users	lib/libnss_files.so.2 -> libnss_files-2.33.so
+-rwxr-xr-x	build/users	lib/libnss_hesiod-2.33.so
+lrwxrwxrwx	build/users	lib/libnss_hesiod.so.2 -> libnss_hesiod-2.33.so
 -rwxr-xr-x	build/users	lib/libpcprofile.so
--rwxr-xr-x	build/users	lib/libpthread-2.32.so
-lrwxrwxrwx	build/users	lib/libpthread.so.0 -> libpthread-2.32.so
--rwxr-xr-x	build/users	lib/libresolv-2.32.so
-lrwxrwxrwx	build/users	lib/libresolv.so.2 -> libresolv-2.32.so
--rwxr-xr-x	build/users	lib/librt-2.32.so
-lrwxrwxrwx	build/users	lib/librt.so.1 -> librt-2.32.so
+-rwxr-xr-x	build/users	lib/libpthread-2.33.so
+lrwxrwxrwx	build/users	lib/libpthread.so.0 -> libpthread-2.33.so
+-rwxr-xr-x	build/users	lib/libresolv-2.33.so
+lrwxrwxrwx	build/users	lib/libresolv.so.2 -> libresolv-2.33.so
+-rwxr-xr-x	build/users	lib/librt-2.33.so
+lrwxrwxrwx	build/users	lib/librt.so.1 -> librt-2.33.so
 -rwxr-xr-x	build/users	lib/libthread_db-1.0.so
 lrwxrwxrwx	build/users	lib/libthread_db.so.1 -> libthread_db-1.0.so
--rwxr-xr-x	build/users	lib/libutil-2.32.so
-lrwxrwxrwx	build/users	lib/libutil.so.1 -> libutil-2.32.so
+-rwxr-xr-x	build/users	lib/libutil-2.33.so
+lrwxrwxrwx	build/users	lib/libutil.so.1 -> libutil-2.33.so
 drwxr-xr-x	build/users	sbin/
 -rwxr-xr-x	build/users	sbin/ldconfig
 -rwxr-xr-x	build/users	sbin/sln
@@ -203,6 +203,7 @@ drwxr-xr-x	build/users	usr/include/bits/
 -rw-r--r--	build/users	usr/include/bits/strings_fortified.h
 -rw-r--r--	build/users	usr/include/bits/struct_mutex.h
 -rw-r--r--	build/users	usr/include/bits/struct_rwlock.h
+-rw-r--r--	build/users	usr/include/bits/struct_stat.h
 -rw-r--r--	build/users	usr/include/bits/syscall.h
 -rw-r--r--	build/users	usr/include/bits/syslog-ldbl.h
 -rw-r--r--	build/users	usr/include/bits/syslog-path.h
@@ -247,6 +248,7 @@ drwxr-xr-x	build/users	usr/include/bits/types/
 -rw-r--r--	build/users	usr/include/bits/types/sigval_t.h
 -rw-r--r--	build/users	usr/include/bits/types/stack_t.h
 -rw-r--r--	build/users	usr/include/bits/types/struct_FILE.h
+-rw-r--r--	build/users	usr/include/bits/types/struct___jmp_buf_tag.h
 -rw-r--r--	build/users	usr/include/bits/types/struct_iovec.h
 -rw-r--r--	build/users	usr/include/bits/types/struct_itimerspec.h
 -rw-r--r--	build/users	usr/include/bits/types/struct_msqid_ds.h
@@ -258,6 +260,7 @@ drwxr-xr-x	build/users	usr/include/bits/types/
 -rw-r--r--	build/users	usr/include/bits/types/struct_sigstack.h
 -rw-r--r--	build/users	usr/include/bits/types/struct_statx.h
 -rw-r--r--	build/users	usr/include/bits/types/struct_statx_timestamp.h
+-rw-r--r--	build/users	usr/include/bits/types/struct_timeb.h
 -rw-r--r--	build/users	usr/include/bits/types/struct_timespec.h
 -rw-r--r--	build/users	usr/include/bits/types/struct_timeval.h
 -rw-r--r--	build/users	usr/include/bits/types/struct_tm.h
@@ -455,6 +458,8 @@ drwxr-xr-x	build/users	usr/include/sys/
 -rw-r--r--	build/users	usr/include/sys/pci.h
 -rw-r--r--	build/users	usr/include/sys/perm.h
 -rw-r--r--	build/users	usr/include/sys/personality.h
+drwxr-xr-x	build/users	usr/include/sys/platform/
+-rw-r--r--	build/users	usr/include/sys/platform/x86.h
 -rw-r--r--	build/users	usr/include/sys/poll.h
 -rw-r--r--	build/users	usr/include/sys/prctl.h
 -rw-r--r--	build/users	usr/include/sys/procfs.h
@@ -504,7 +509,6 @@ drwxr-xr-x	build/users	usr/include/sys/
 -rw-r--r--	build/users	usr/include/sys/vlimit.h
 -rw-r--r--	build/users	usr/include/sys/vm86.h
 -rw-r--r--	build/users	usr/include/sys/vt.h
--rw-r--r--	build/users	usr/include/sys/vtimes.h
 -rw-r--r--	build/users	usr/include/sys/wait.h
 -rw-r--r--	build/users	usr/include/sys/xattr.h
 -rw-r--r--	build/users	usr/include/syscall.h
@@ -806,7 +810,7 @@ lrwxrwxrwx	build/users	usr/lib/libcrypt.so -> ../../lib/libcrypt.so.1
 -rw-r--r--	build/users	usr/lib/libdl.a
 lrwxrwxrwx	build/users	usr/lib/libdl.so -> ../../lib/libdl.so.2
 -rw-r--r--	build/users	usr/lib/libg.a
--rw-r--r--	build/users	usr/lib/libm-2.32.a
+-rw-r--r--	build/users	usr/lib/libm-2.33.a
 -rw-r--r--	build/users	usr/lib/libm.a
 -rw-r--r--	build/users	usr/lib/libm.so
 -rw-r--r--	build/users	usr/lib/libmcheck.a

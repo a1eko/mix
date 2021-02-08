@@ -69,7 +69,10 @@ drwxr-xr-x	build/users	usr/include/bash/include/
 drwxr-xr-x	build/users	usr/lib/
 drwxr-xr-x	build/users	usr/lib/bash/
 -rw-r--r--	build/users	usr/lib/bash/Makefile.inc
+-rwxr-xr-x	build/users	usr/lib/bash/accept
 -rwxr-xr-x	build/users	usr/lib/bash/basename
+-rwxr-xr-x	build/users	usr/lib/bash/csv
+-rwxr-xr-x	build/users	usr/lib/bash/cut
 -rwxr-xr-x	build/users	usr/lib/bash/dirname
 -rwxr-xr-x	build/users	usr/lib/bash/fdflags
 -rwxr-xr-x	build/users	usr/lib/bash/finfo
@@ -79,12 +82,15 @@ drwxr-xr-x	build/users	usr/lib/bash/
 -rw-r--r--	build/users	usr/lib/bash/loadables.h
 -rwxr-xr-x	build/users	usr/lib/bash/logname
 -rwxr-xr-x	build/users	usr/lib/bash/mkdir
+-rwxr-xr-x	build/users	usr/lib/bash/mkfifo
+-rwxr-xr-x	build/users	usr/lib/bash/mktemp
 -rwxr-xr-x	build/users	usr/lib/bash/mypid
 -rwxr-xr-x	build/users	usr/lib/bash/pathchk
 -rwxr-xr-x	build/users	usr/lib/bash/print
 -rwxr-xr-x	build/users	usr/lib/bash/printenv
 -rwxr-xr-x	build/users	usr/lib/bash/push
 -rwxr-xr-x	build/users	usr/lib/bash/realpath
+-rwxr-xr-x	build/users	usr/lib/bash/rm
 -rwxr-xr-x	build/users	usr/lib/bash/rmdir
 -rwxr-xr-x	build/users	usr/lib/bash/seq
 -rwxr-xr-x	build/users	usr/lib/bash/setpgid
