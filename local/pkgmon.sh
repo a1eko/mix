@@ -20,7 +20,7 @@ monitor() {
   if [ ! -e /tmp/wget-list ]; then
     #curl http://www.linuxfromscratch.org/lfs/downloads/development/wget-list > wget-list
     #lynx -source "http://www.linuxfromscratch.org/lfs/downloads/development/wget-list" > wget-list
-    wget -q --timeout=5 http://www.linuxfromscratch.org/lfs/downloads/development/wget-list || echo no /tmp/wget-list && exit
+    wget -q --timeout=5 http://www.linuxfromscratch.org/lfs/downloads/development/wget-list || ( echo no /tmp/wget-list && exit )
   fi
   for f in $(cat wget-list); do
       basename $f >> .listing-tmp
