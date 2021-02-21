@@ -15,14 +15,12 @@ drwxr-xr-x	root/root	usr/lib64/darktable/plugins/imageio/
 drwxr-xr-x	root/root	usr/lib64/darktable/plugins/imageio/format/
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/imageio/format/libcopy.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/imageio/format/libexr.so
--rwxr-xr-x	root/root	usr/lib64/darktable/plugins/imageio/format/libj2k.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/imageio/format/libjpeg.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/imageio/format/libpdf.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/imageio/format/libpfm.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/imageio/format/libpng.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/imageio/format/libppm.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/imageio/format/libtiff.so
--rwxr-xr-x	root/root	usr/lib64/darktable/plugins/imageio/format/libwebp.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/imageio/format/libxcf.so
 drwxr-xr-x	root/root	usr/lib64/darktable/plugins/imageio/storage/
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/imageio/storage/libdisk.so
@@ -40,6 +38,7 @@ drwxr-xr-x	root/root	usr/lib64/darktable/plugins/imageio/storage/
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/libborders.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/libcacorrect.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/libchannelmixer.so
+-rwxr-xr-x	root/root	usr/lib64/darktable/plugins/libchannelmixerrgb.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/libclahe.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/libclipping.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/libcolisa.so
@@ -136,7 +135,6 @@ drwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/libmetadata_view.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/libmodule_toolbox.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/libmodulegroups.so
--rwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/libmodulelist.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/libnavigation.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/libprint_settings.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/libratings.so
@@ -204,6 +202,7 @@ drwxr-xr-x	root/root	usr/share/darktable/kernels/
 -rw-r--r--	root/root	usr/share/darktable/kernels/lut3d.cl
 -rw-r--r--	root/root	usr/share/darktable/kernels/negadoctor.cl
 -rw-r--r--	root/root	usr/share/darktable/kernels/nlmeans.cl
+-rw-r--r--	root/root	usr/share/darktable/kernels/noise_generator.h
 -rw-r--r--	root/root	usr/share/darktable/kernels/programs.conf
 -rw-r--r--	root/root	usr/share/darktable/kernels/retouch.cl
 -rw-r--r--	root/root	usr/share/darktable/kernels/rgb_norms.h
@@ -220,6 +219,7 @@ drwxr-xr-x	root/root	usr/share/darktable/lua/darktable/
 -rw-r--r--	root/root	usr/share/darktable/noiseprofiles.json
 drwxr-xr-x	root/root	usr/share/darktable/pixmaps/
 -rw-r--r--	root/root	usr/share/darktable/pixmaps/dt_logo_128x128.png
+-rw-r--r--	root/root	usr/share/darktable/pixmaps/dt_text.svg
 -rw-r--r--	root/root	usr/share/darktable/pixmaps/idbutton-1.png
 -rw-r--r--	root/root	usr/share/darktable/pixmaps/idbutton-1.svg
 -rw-r--r--	root/root	usr/share/darktable/pixmaps/idbutton-2.png
