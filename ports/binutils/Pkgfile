@@ -1,5 +1,4 @@
 # Description: linker, assembler and other development tools
-
 name=binutils
 version=2.36.1
 release=mix-1
@@ -24,7 +23,7 @@ build() {
     --with-system-zlib
   make tooldir=/usr
   $TST make -k check || true
-  make tooldir=/usr DESTDIR=$PKG install
+  make tooldir=/usr DESTDIR=$PKG install -j1
   rm -fv $PKG/usr/lib/lib{bfd,ctf,ctf-nobfd,opcodes}.a
   rm -rv $PKG/usr/share/info
 }
