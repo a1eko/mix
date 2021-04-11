@@ -1,0 +1,21 @@
+# Description: An open source SVG editor
+# Depends on: boost double-conversion boehm-gc gdl gsl gtkmm3 libsoup libxslt poppler-glib popt imagemagick lcms2 potrace
+
+name=inkscape
+version=git
+release=mix-1
+
+build() {
+  git clone --recurse-submodules https://gitlab.com/inkscape/inkscape.git
+  cmake -S $name -B build -G Ninja \
+	-D CMAKE_INSTALL_PREFIX=/usr \
+	-D CMAKE_BUILD_TYPE=Release \
+	-Wno-dev
+
+  cmake --build build
+  DESTDIR=$PKG cmake --install build
+
+  rm -rv $PKG/usr/share/{man,locale}
+  rm -rv $PKG/usr/share/inkscape/doc
+  find $PKG/usr/share/inkscape -name README* -exec rm -fv {} \;
+}
