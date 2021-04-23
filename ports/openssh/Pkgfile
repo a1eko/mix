@@ -3,7 +3,7 @@
 
 name=openssh
 version=8.4p1
-deb=3
+deb=5
 release=gssapi-deb$deb-mix-1
 source=(http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-$version.tar.gz
         http://ftp.debian.org/debian/pool/main/o/openssh/openssh_$version-$deb.debian.tar.xz
