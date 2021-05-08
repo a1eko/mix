@@ -6,5 +6,6 @@ o crux (ports): .signature replaces .md5sum (see core/signify)
 o libreoffice: presentation and spreadsheets depend on avahi at runtime
 o python3: rebuild with deps in coreopt and graphics
 o openssh: watch ftp debian pool for updates v8.5+
+- ports: upgrade llvm, rt-compiler, clang, rust-bin (LLVM v12)
 - crux (ports, pkz.conf): use JOBS to control the number of processes in parallel builds (also MAKEFLAGS="-j $JOBS") 
-- ports, tools (linux): consider upgrading to v5.11 (v5.10 is LTS)
+- ports, tools (linux): consider upgrading to v5.11+ (v5.10 is LTS)
