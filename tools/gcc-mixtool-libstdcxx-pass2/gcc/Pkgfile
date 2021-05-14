@@ -1,7 +1,7 @@
 # Description: compiler collection
 
 name=gcc
-version=10.2.0
+version=11.1.0
 release=0libstdcxx-pass2
 source=(http://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz)
 

@@ -35,7 +35,6 @@ drwxr-xr-x	root/root	usr/include/nest/
 -rw-r--r--	root/root	usr/include/nest/clopath_connection.h
 -rw-r--r--	root/root	usr/include/nest/common_properties_hom_w.h
 -rw-r--r--	root/root	usr/include/nest/common_synapse_properties.h
--rw-r--r--	root/root	usr/include/nest/completed_checker.h
 -rw-r--r--	root/root	usr/include/nest/compose.hpp
 -rw-r--r--	root/root	usr/include/nest/config.h
 -rw-r--r--	root/root	usr/include/nest/conn_builder.h
@@ -70,6 +69,7 @@ drwxr-xr-x	root/root	usr/include/nest/
 -rw-r--r--	root/root	usr/include/nest/diffusion_connection.h
 -rw-r--r--	root/root	usr/include/nest/doubledatum.h
 -rw-r--r--	root/root	usr/include/nest/dynamicloader.h
+-rw-r--r--	root/root	usr/include/nest/enum_bitfield.h
 -rw-r--r--	root/root	usr/include/nest/erfc_neuron.h
 -rw-r--r--	root/root	usr/include/nest/event.h
 -rw-r--r--	root/root	usr/include/nest/event_delivery_manager.h
@@ -96,6 +96,8 @@ drwxr-xr-x	root/root	usr/include/nest/
 -rw-r--r--	root/root	usr/include/nest/gif_psc_exp.h
 -rw-r--r--	root/root	usr/include/nest/gif_psc_exp_multisynapse.h
 -rw-r--r--	root/root	usr/include/nest/ginzburg_neuron.h
+-rw-r--r--	root/root	usr/include/nest/glif_cond.h
+-rw-r--r--	root/root	usr/include/nest/glif_psc.h
 -rw-r--r--	root/root	usr/include/nest/gnureadline.h
 -rw-r--r--	root/root	usr/include/nest/grid_layer.h
 -rw-r--r--	root/root	usr/include/nest/grid_mask.h
@@ -135,6 +137,7 @@ drwxr-xr-x	root/root	usr/include/nest/
 -rw-r--r--	root/root	usr/include/nest/interpret.h
 -rw-r--r--	root/root	usr/include/nest/io_manager.h
 -rw-r--r--	root/root	usr/include/nest/iostreamdatum.h
+-rw-r--r--	root/root	usr/include/nest/iterator_pair.h
 -rw-r--r--	root/root	usr/include/nest/iteratordatum.h
 -rw-r--r--	root/root	usr/include/nest/izhikevich.h
 -rw-r--r--	root/root	usr/include/nest/kernel_manager.h
@@ -179,6 +182,7 @@ drwxr-xr-x	root/root	usr/include/nest/
 -rw-r--r--	root/root	usr/include/nest/namedatum.h
 -rw-r--r--	root/root	usr/include/nest/nest.h
 -rw-r--r--	root/root	usr/include/nest/nest_datums.h
+-rw-r--r--	root/root	usr/include/nest/nest_impl.h
 -rw-r--r--	root/root	usr/include/nest/nest_names.h
 -rw-r--r--	root/root	usr/include/nest/nest_time.h
 -rw-r--r--	root/root	usr/include/nest/nest_timeconverter.h
@@ -200,6 +204,7 @@ drwxr-xr-x	root/root	usr/include/nest/
 -rw-r--r--	root/root	usr/include/nest/parrot_neuron_ps.h
 -rw-r--r--	root/root	usr/include/nest/parser.h
 -rw-r--r--	root/root	usr/include/nest/parserdatum.h
+-rw-r--r--	root/root	usr/include/nest/per_thread_bool_indicator.h
 -rw-r--r--	root/root	usr/include/nest/poisson_generator.h
 -rw-r--r--	root/root	usr/include/nest/poisson_generator_ps.h
 -rw-r--r--	root/root	usr/include/nest/poisson_randomdev.h
@@ -285,6 +290,9 @@ drwxr-xr-x	root/root	usr/include/nest/
 -rw-r--r--	root/root	usr/include/nest/stdp_connection_facetshw_hom_impl.h
 -rw-r--r--	root/root	usr/include/nest/stdp_connection_hom.h
 -rw-r--r--	root/root	usr/include/nest/stdp_dopa_connection.h
+-rw-r--r--	root/root	usr/include/nest/stdp_nn_pre-centered_connection.h
+-rw-r--r--	root/root	usr/include/nest/stdp_nn_restr_connection.h
+-rw-r--r--	root/root	usr/include/nest/stdp_nn_symm_connection.h
 -rw-r--r--	root/root	usr/include/nest/stdp_pl_connection_hom.h
 -rw-r--r--	root/root	usr/include/nest/stdp_triplet_connection.h
 -rw-r--r--	root/root	usr/include/nest/step_current_generator.h
@@ -327,6 +335,7 @@ drwxr-xr-x	root/root	usr/include/nest/
 -rw-r--r--	root/root	usr/include/nest/utils.h
 -rw-r--r--	root/root	usr/include/nest/vector_util.h
 -rw-r--r--	root/root	usr/include/nest/vogels_sprekeler_connection.h
+-rw-r--r--	root/root	usr/include/nest/voltmeter.h
 -rw-r--r--	root/root	usr/include/nest/volume_transmitter.h
 -rw-r--r--	root/root	usr/include/nest/vose.h
 -rw-r--r--	root/root	usr/include/nest/vp_manager.h
