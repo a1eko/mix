@@ -10,3 +10,4 @@ o openssh: watch ftp debian pool for updates v8.5+
 - crux (ports, pkz.conf): use JOBS to control the number of processes in parallel builds (also MAKEFLAGS="-j $JOBS") 
 - ports, tools (linux): consider upgrading to v5.11+ (v5.10 is LTS)
 - ports: sync to lfs wrt /usr no longer on a separate partition (check crux compat)
+- mix (install, rc): deprecate /var/run, link to /run
