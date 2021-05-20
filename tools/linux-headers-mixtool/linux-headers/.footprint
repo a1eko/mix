@@ -266,6 +266,7 @@ drwxr-xr-x	build/users	usr/include/linux/dvb/
 -rw-r--r--	build/users	usr/include/linux/ethtool.h
 -rw-r--r--	build/users	usr/include/linux/ethtool_netlink.h
 -rw-r--r--	build/users	usr/include/linux/eventpoll.h
+-rw-r--r--	build/users	usr/include/linux/f2fs.h
 -rw-r--r--	build/users	usr/include/linux/fadvise.h
 -rw-r--r--	build/users	usr/include/linux/falloc.h
 -rw-r--r--	build/users	usr/include/linux/fanotify.h
