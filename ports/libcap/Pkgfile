@@ -4,14 +4,15 @@
 # Depends on: attr linux-pam
 
 name=libcap
-version=2.49
+version=2.50
 release=mix-1
 source=(https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/$name-$version.tar.xz)
 
 build () {
 	cd $name-$version
 
-	sed -i "/^CFLAGS/s/-O2/$CFLAGS/" Make.Rules
+	sed "/^CFLAGS/s/-O2/$CFLAGS/" -i Make.Rules
+	sed "/^PROGS/s/$/ capsh/" -i progs/Makefile
 
 	install -d $PKG/lib
 	make lib=lib install \
