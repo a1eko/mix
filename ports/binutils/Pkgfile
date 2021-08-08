@@ -1,11 +1,15 @@
 # Description: linker, assembler and other development tools
 name=binutils
-version=2.36.1
+version=2.37
 release=mix-1
 source=(http://ftp.gnu.org/gnu/binutils/binutils-$version.tar.xz)
 
 build() {
   cd $name-$version
+
+  # remove shipped man pages
+  sed -i '63d' etc/texi2pod.pl
+  find -name \*.1 -delete
 
   # fix error in tests
   sed -i '/@\tincremental_copy/d' gold/testsuite/Makefile.in

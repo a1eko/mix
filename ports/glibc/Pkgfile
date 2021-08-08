@@ -1,8 +1,8 @@
 # Description: system C library
 
 name=glibc
-version=2.33
-release=mix-2
+version=2.34
+release=mix-1
 source=(ftp://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz
 	http://www.linuxfromscratch.org/patches/downloads/glibc/glibc-$version-fhs-1.patch
 	host.conf hosts ld.so.conf nsswitch.conf resolv.conf)
@@ -12,15 +12,11 @@ build()
   cd $name-$version
   patch -Np1 -i ../glibc-$version-fhs-1.patch
 
-  # Fix a bug that causes issues with chrooted applications
-  sed -e '402a\      *result = local->data.services[database_index];' \
-      -i nss/nss_database.c
-
-  # Fix a build issue with gcc-11.1
-  sed 's/amx_/amx-/' -i sysdeps/x86/tst-cpu-features-supports.c
-
   mkdir -v build
   cd build
+
+  # ensure installation path for ldconfig and sln
+  echo "rootsbindir=/usr/sbin" > configparms
 
   ../configure --prefix=/usr \
     --disable-werror \
@@ -30,19 +26,11 @@ build()
     libc_cv_slibdir=/lib
   make
 
-  # create links for running tests (to be overwritten by forced install)
-  case $(uname -m) in
-    i?86) ln -sfnv $PWD/elf/ld-linux.so.2 /lib ;;
-    x86_64) ln -sfnv $PWD/elf/ld-linux-x86-64.so.2 /lib ;;
-  esac
-
   $TST TIMEOUTFACTOR=16 make -k check || true
   install -Dv -m 644 $SRC/ld.so.conf $PKG/etc/ld.so.conf
 
-  # skip unneded sanity check
-  sed '/test-installation/s@$(PERL)@echo not running@' -i ../Makefile
-
   make install_root=$PKG install
+
   rm -rv $PKG/usr/share/info
   find $PKG -name "*install.cmd" -delete
   find $PKG -name ".\install" -delete

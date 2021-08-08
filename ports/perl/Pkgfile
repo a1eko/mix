@@ -6,15 +6,19 @@
 name=perl
 version=5.34.0
 release=mix-1
-source=(http://www.cpan.org/src/5.0/$name-$version.tar.xz)
+source=(http://www.cpan.org/src/5.0/$name-$version.tar.xz
+	 https://www.linuxfromscratch.org/patches/lfs/development/perl-$version-upstream_fixes-1.patch)
 
 build() {
-    cd $name-$version
+  cd $name-$version
+
+  patch -Np1 -i ../perl-$version-upstream_fixes-1.patch
 
   export BUILD_ZLIB=False
   export BUILD_BZIP2=0
 
-    ./Configure -des \
+  # crux compatible
+  ./Configure -des \
                 -Dprefix=/usr \
                 -Dvendorprefix=/usr \
                 -Dprivlib=/usr/lib/perl5/${version%.*} \

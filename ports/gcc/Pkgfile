@@ -1,13 +1,18 @@
 # Description: compiler collection
 
 name=gcc
-version=11.1.0
+version=11.2.0
 release=mix-1
 source=(http://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz)
 
 build()
 {
   cd $name-$version
+
+  # fix an issue breaking libasan.a building with glibc-2.34
+  sed -e '/static.*SIGSTKSZ/d' \
+      -e 's/return kAltStackSize/return SIGSTKSZ * 4/' \
+      -i libsanitizer/sanitizer_common/sanitizer_posix_libcdep.cpp
 
   # change default directory to lib
   case $(uname -m) in
@@ -40,7 +45,7 @@ build()
     $PKG/usr/lib/gcc/*linux-gnu/$version/include{,-fixed}
 
   mkdir -v $PKG/lib
-  ln -sv ../usr/bin/cpp $PKG/lib/
+  ln -sv /usr/bin/cpp $PKG/lib/
   ln -sv gcc $PKG/usr/bin/cc
 
   # enable building programs with Link Time Optimization (LTO)

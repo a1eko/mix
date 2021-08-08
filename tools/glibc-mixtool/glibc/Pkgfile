@@ -1,7 +1,7 @@
 # Description: system C library
 
 name=glibc
-version=2.33
+version=2.34
 release=0
 source=(http://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz
 	http://www.linuxfromscratch.org/patches/downloads/glibc/glibc-$version-fhs-1.patch)
@@ -22,6 +22,9 @@ build() {
   mkdir -v build
   cd build
 
+  # ensure installation path for ldconfig and sln
+  echo "rootsbindir=/usr/sbin" > configparms
+
   ../configure --prefix=/usr \
     --host=$MIX_TGT \
     --build=$(../scripts/config.guess) \
@@ -30,6 +33,9 @@ build() {
     libc_cv_slibdir=/lib
   make
   make DESTDIR=$PKG install
+
+  # fix hardcoded path to the executable loader in ldd
+  sed '/RTLDLIST=/s@/usr@@g' -i $PKG/usr/bin/ldd
 
   rm -rv $PKG/usr/share/{info,locale} \
     $PKG/usr/bin/{tzselect,zdump} \

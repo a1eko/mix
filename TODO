@@ -1,7 +1,8 @@
+- to do, + done, o attention/pending
+
 o ports: prefer pip over ports for python packages 
-o ports (linux-firmware): disable stripping "sudo pkz -c /dev/null build linux-firmware"
-o ports (nss): disable parallel build "sudo pkz -c /dev/null build nss"
-o ports (crux): replace 'pkginfo -i' with 'pkz -i list'
+o ports (linux-firmware): disable stripping (file .nostrip)
+o ports (crux compat): replace 'pkginfo -i' with 'pkz -i list'
 o linux kernel: "syncconfig" replaces "silentoldconfig"
 o crux (ports): .signature replaces .md5sum (see core/signify)
 o libreoffice: presentation and spreadsheets depend on avahi at runtime
@@ -9,7 +10,8 @@ o python3: rebuild with deps in coreopt and graphics
 o gcc: build with fortran support to avoid gcc-fortran
 o openssh: watch ftp debian pool for updates v8.5+
 o mix (install, rc, ports): deprecate /var/run, link to /run (watch crux > 3.6)
-- crux (ports, pkz.conf): use JOBS to control the number of processes in parallel builds (also MAKEFLAGS="-j $JOBS") 
+o ports (filesystem): never upgrade, overwrites /etc/{passwd,groups,shadow}
+- crux (ports, pkz.conf): use JOBS to control parallel builds (also MAKEFLAGS="-j $JOBS") 
 - ports, tools (linux): consider upgrading to v5.11+ (v5.10 is LTS)
 - ports: sync to lfs wrt /usr no longer on a separate partition (check crux compat)
 - libreoffice-bin: re-do packaging (unsupported by crux)

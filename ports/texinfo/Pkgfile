@@ -1,12 +1,17 @@
 # Description: programs for manipulating info pages
 
 name=texinfo
-version=6.7
+version=6.8
 release=mix-1
 source=(ftp://ftp.gnu.org/gnu/texinfo/texinfo-$version.tar.xz)
 
 build() {
   cd $name-$version
+
+  # fix compatibility issue with glibc-2.34+
+  sed -e 's/__attribute_nonnull__/__nonnull/' \
+    -i gnulib/lib/malloc/dynarray-skeleton.c
+
   ./configure --prefix=/usr
   make
   make DESTDIR=$PKG install
