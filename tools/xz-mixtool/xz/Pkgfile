@@ -10,13 +10,8 @@ build() {
   ./configure --prefix=/usr \
     --host=$MIX_TGT \
     --build=$(build-aux/config.guess) \
-    --disable-static 
+    --disable-static
   make
   make DESTDIR=$PKG install
-
-  # crux compatible
-  #mv -v $PKG/usr/bin/{lzma,unlzma,lzcat,xz,unxz,xzcat} $PKG/bin
-  #mv -v $PKG/usr/lib/liblzma.so.* $PKG/lib
-  #ln -svf ../../lib/$(readlink $PKG/usr/lib/liblzma.so) $PKG/usr/lib/liblzma.so
   rm -rv $PKG/usr/share/{doc,man}
 }

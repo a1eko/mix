@@ -11,7 +11,7 @@ build() {
   # ensure gawk is found
   sed -i s/mawk// configure
 
-  mkdir build
+  mkdir -v build
   pushd build
     ../configure
     make -C include
@@ -34,7 +34,8 @@ build() {
   install -d $PKG/lib
 
   echo "INPUT(-lncursesw)" > $PKG/usr/lib/libncurses.so
-  mv -v $PKG/usr/lib/libncursesw.so.6* $PKG/lib
-  ln -sfv ../../lib/libncursesw.so.$version $PKG/usr/lib/libncursesw.so
+  # keep usr/lib as in lfs
+  #mv -v $PKG/usr/lib/libncursesw.so.6* $PKG/lib
+  #ln -sfv ../../lib/libncursesw.so.$version $PKG/usr/lib/libncursesw.so
   rm -rv $PKG/usr/share/man
 }

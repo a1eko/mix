@@ -16,8 +16,8 @@ build() {
   make
   make DESTDIR=$PKG install
 
-  install -d $PKG/bin
-  mv -v $PKG/usr/bin/{cat,chgrp,chmod,chown,cp,date,dd,df,echo,false,ln,ls,mkdir,sleep} $PKG/bin
-  mv -v $PKG/usr/bin/{mknod,mv,pwd,readlink,rm,rmdir,stty,sync,touch,true,uname} $PKG/bin
+  #install -d $PKG/bin
+  #mv -v $PKG/usr/bin/{cat,chgrp,chmod,chown,cp,date,dd,df,echo,false,ln,ls,mkdir,sleep} $PKG/bin
+  #mv -v $PKG/usr/bin/{mknod,mv,pwd,readlink,rm,rmdir,stty,sync,touch,true,uname} $PKG/bin
   rm -rv $PKG/usr/share/{info,man}
 }

@@ -8,7 +8,7 @@ source=(http://ftp.gnu.org/gnu/texinfo/texinfo-$version.tar.xz)
 build() {
   cd $name-$version
 
-  # fix compatibility issue with glibc-2.34+
+  # fix compatibility issue with glibc v2.34+
   sed -e 's/__attribute_nonnull__/__nonnull/' \
     -i gnulib/lib/malloc/dynarray-skeleton.c
 

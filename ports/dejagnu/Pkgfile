@@ -11,7 +11,7 @@ build() {
   mkdir -v build
   cd build
 
-  ./configure --prefix=/usr
+  ../configure --prefix=/usr
   make DESTDIR=$PKG install
   rm -rv $PKG/usr/share/{info,man}
   find $PKG -name README -delete

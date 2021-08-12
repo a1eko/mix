@@ -1,20 +1,19 @@
 # Description: file searching utilities
 
 name=findutils
-version=4.7.0
+version=4.8.0
 release=0
 source=(http://ftp.gnu.org/gnu/findutils/findutils-$version.tar.xz)
 
 build() {
   cd $name-$version
+
   ./configure --prefix=/usr \
+    --localstatedir=/var/lib/locate \
     --host=$MIX_TGT \
     --build=$(build-aux/config.guess)
   make
   make DESTDIR=$PKG install
 
-  # disable for crux compat
-  #mv -v $PKG/usr/bin/find $PKG/bin
-  #sed -i 's|find:=${BINDIR}|find:=/bin|' $PKG/usr/bin/updatedb
   rm -rv $PKG/usr/share/{info,man}
 }

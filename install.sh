@@ -32,21 +32,22 @@ BASE1="iana-etc glibc lzip tzdata zlib bzip2 xz zstd file readline m4 \
   attr acl libcap shadow gcc"
 
 BASE2="pkg-config ncurses sed psmisc gettext bison grep bash libtool gdbm \
-  gperf tar expat inetutils perl autoconf automake kmod elfutils \
+  gperf tar expat inetutils less perl autoconf automake kmod elfutils \
   libffi openssl python3 coreutils check diffutils gawk findutils groff \
-  less gzip kbd libpipeline make patch man-pages man-db texinfo vim \
+  gzip kbd libpipeline make patch man-pages man-db texinfo vim \
   eudev procps util-linux dcron e2fsprogs sysklogd sysvinit linux-pam sudo"
 
 BOOT="nasm syslinux rc"
 KERNEL=linux
 
 toolsh="env -i MIX=$MIX PKZ=$MIX PKZCONF=$MIX/usr/sources/pkz.conf \
-  CONFIG_SITE=$MIX/usr/sources/tool-config.site \
+  CONFIG_SITE=$MIX/usr/sources/config.site \
   MIX_TGT=$MIX_TGT HOME=$HOME TERM=linux LC_ALL=C \
   PATH=$MIX/tools/bin:/bin:/usr/bin \
   /bin/bash -e +h -c"
 
-MAKEFLAGS="-j$(nproc)"
+JOBS=$(nproc)
+MAKEFLAGS="-j$JOBS"
 
 chrootsh="sudo chroot $MIX /usr/bin/env -i \
   PKZCONF=/usr/sources/pkz.conf HOME=/root TERM=linux LC_ALL=C \
@@ -81,7 +82,7 @@ mkdir -pv $MIX/{tools/bin,var/log/{packages,sources}}
 cp -r sources $MIX/usr/
 rsync -rqz crux.nu::ports/crux-3.6/core/ $MIX/usr/packages
 rsync -rqz crux.nu::ports/crux-3.6/opt/ $MIX/usr/packages
-rsync -rqz crux.nu::ports/crux-3.6/contrib/tcl $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.6/contrib/check $MIX/usr/packages
 rsync -rqz crux.nu::ports/crux-3.6/contrib/tcl $MIX/usr/packages
 rsync -rqz crux.nu::ports/crux-3.6/contrib/lynx $MIX/usr/packages
 cp -r {ports,tools}/* $MIX/usr/packages/
@@ -93,7 +94,8 @@ echo | gzip -c > $MIX/var/log/packages/dummy.gz
 install -v -m 755 -D $MIX/usr/packages/pkz/pkz.sh $MIX/usr/bin/pkz
 ln -sfv ../../usr/bin/pkz $MIX/tools/bin/
 
-cat > $MIX/usr/sources/tool-config.site << EOF
+#cat > $MIX/usr/sources/tool-config.site << EOF
+cat > $MIX/usr/sources/config.site << EOF
 enable_nls=no
 EOF
 
@@ -197,8 +199,7 @@ if [ -h $MIX/dev/shm ]; then
 fi
 
 $chrootsh "cat >> /usr/sources/pkz.conf << EOF
-: \${JOBS=$(nproc)}
-export JOBS
+export JOBS=$JOBS
 EOF
 "
 
@@ -206,7 +207,7 @@ sudo bash -c "echo 127.0.0.1 localhost $(hostname) > $MIX/etc/hosts"
 
 $chrootsh "pkz install filesystem"
 $chrootsh "pkz clean   filesystem"
-$chrootsh "rm -v /etc/issue /usr/bin/crux"
+$chrootsh "rm -v /etc/{issue,os-release} /usr/bin/crux"
 $chrootsh "ln -sv share/man /usr/man"
 $chrootsh "rm -v /var/log/packages/dummy.gz"
 

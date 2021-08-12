@@ -4,7 +4,7 @@
 # Depends on:
 
 name=pigz
-version=2.5
+version=2.6
 release=1
 source=(http://zlib.net/$name/$name-$version.tar.gz)
 

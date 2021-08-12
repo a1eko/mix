@@ -26,7 +26,7 @@ build() {
   mkdir -v build
   cd build
 
-  # create a simlink for posix thread support
+  # create a simlink for posix threads support
   mkdir -pv $MIX_TGT/libgcc
   ln -sv ../../../libgcc/gthr-posix.h $MIX_TGT/libgcc/gthr-default.h
 

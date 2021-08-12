@@ -54,5 +54,5 @@ build() {
     `dirname $($PKG/tools/bin/$MIX_TGT-gcc -print-libgcc-file-name)`/install-tools/include/limits.h
 
   rm -rv $PKG/tools/share/{info,man}
-  find $PKG -name "README" -delete
+  find $PKG -name README -delete
 }

@@ -6,8 +6,8 @@ System requirements
 
 * MiX is tested on x86_64 architecture.
 
-* The core system is about 3.5 GB (4.2 GB with sources) and needs over
-10 GB of the disk space to build.
+* The core system is about 3 GB (3.7 GB with sources) and needs 15 GB
+of the disk space to build.
 
 * Host system should be relatively up-to-date. This distribution is
 known to build successfully in a *stable* Debian environment, with GNU
@@ -83,18 +83,21 @@ Edit `/etc/host.conf`, `/etc/hosts` and `/etc/resolv.conf` files. File
 ### Making the system bootable ###
 
 Inspect package *linux* in `/usr/packages`. To adjust kernel to the local
-hardware, a user-defined file `config.local` is used. Edit `config.local`
-and install the kernel.
+hardware, a user-defined file `config.local` is used. This configuration
+file defines additional options or overwrites default options generated
+for the current architecture by the automatic kernel configuration
+procedure. Edit `config.local` and install the new kernel.
 
 	pkz build linux
 	pkz install linux
 
 Set up the system bootloader.
 
-**NOTE:** Instructions in this section are optional and refer to
-the first-time installation of `extlinux`. If `extlinux` or any other
-bootloader is used already, adjust its configuration files, exit *chroot*
-and skip to *Rebooting*.
+**NOTE:** Instructions in this section are optional and refer to the
+first-time installation of the bootloader. Here a non-UEFI boot loader
+`extlinux` for legacy BIOS booting is considered. If `extlinux` or any
+other bootloader on a multiboot host computer is used already, adjust
+its configuration files, exit *chroot* and skip to *Rebooting*.
 
 Create configuration file `extlinux.conf`.
 
@@ -185,13 +188,14 @@ Delete unneeded files in `/usr/sources` (nothing is required by the system).
 Get the CRUX ports and build the rest of the system. Ports can be copied
 to `/usr/packages` without the leading subdirectories `core/`, `opt/`
 etc. Use `*.mix` files from `mix/sources/` for building optional packages
-in proper order. Be careful with toolchain packages, i.e. *binutils*,
-*gcc*, *glibc*, and *linux-headers* don't need to be upgraded. Often
-*perl* is difficult to upgrade too and it is better to keep the
-installation version of it. MiX packages from the `mix/ports/` directory
-should replace corresponding CRUX ports. It is recommended to overwrite
-them in `/usr/packages` to avoid confusion.  MiX and CRUX packages are
-to be upgraded regularly to keep the system up-to-date.
+in proper order. Be careful with toolchain packages: *binutils*, *gcc*,
+*glibc*, and *linux-headers* don't need to be upgraded. CRUX package
+*filesystem* also installs only once. Often *perl* is difficult to
+upgrade too and it is better to keep the installation version of it. MiX
+packages from the `mix/ports/` directory should replace corresponding
+CRUX ports. It is recommended to overwrite them in `/usr/packages` to
+avoid confusion.  MiX and CRUX packages are to be upgraded regularly to
+keep the system up-to-date.
 
 Alexander Kozlov <akozlov@kth.se>  
 
