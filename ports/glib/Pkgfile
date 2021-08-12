@@ -1,0 +1,26 @@
+# Description: Low-level data structure handling, portability wrappers, and interfaces for runtime functionality
+# URL: https://www.gtk.org/
+# Maintainer: CRUX System Team, core-ports at crux dot nu
+# Depends on: libpcre util-linux meson ninja
+
+name=glib
+version=2.68.3
+release=mix-1
+source=(https://download.gnome.org/sources/$name/${version:0:4}/$name-$version.tar.xz \
+	gschemas.compiled)
+
+build() {
+	# error with glibc v2.34
+	sed 's/close_range (.[^)]*/&, 0/' -i $name-$version/glib/gspawn.c
+
+	meson setup build $name-$version \
+		--prefix=/usr \
+		--buildtype=plain \
+		-D nls=disabled \
+		-D gtk_doc=false
+	meson compile -C build -j ${JOBS:-1}
+	DESTDIR=$PKG meson install -C build
+
+	install -m 0644 $SRC/gschemas.compiled $PKG/usr/share/glib-2.0/schemas/gschemas.compiled
+	rm -r $PKG/usr/share/bash-completion
+}

@@ -1,0 +1,16 @@
+# Description: A fast commandline-driven image viewer for X.
+# URL: https://feh.finalrewind.org/
+# Maintainer: Tim Biermann, tbier at posteo dot de
+# Depends on: giblib harfbuzz xorg-libxinerama xorg-libxt
+
+name=feh
+version=3.7
+release=1
+source=(https://feh.finalrewind.org/feh-$version.tar.bz2)
+
+build() {
+  cd $name-$version
+  make PREFIX=/usr
+  make PREFIX=/usr DESTDIR=$PKG install
+  rm -rf $PKG/usr/share/doc
+}

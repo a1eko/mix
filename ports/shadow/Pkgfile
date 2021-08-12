@@ -4,9 +4,9 @@
 # Depends on:  acl linux-pam
 
 name=shadow
-version=4.9
-release=mix-1
-source=(https://github.com/shadow-maint/$name/releases/download/v$version/$name-$version.tar.xz \
+version=4.8.1
+release=1
+source=(https://github.com/shadow-maint/$name/releases/download/$version/$name-$version.tar.xz \
         pwck login.defs chfn chsh login groupadd groupdel \
         groupmems groupmod passwd su useradd userdel usermod)
 
@@ -14,7 +14,10 @@ build() {
     cd $name-$version
 
     ./configure --prefix=/usr \
+                --bindir=/usr/bin \
+                --sbindir=/usr/sbin \
                 --sysconfdir=/etc \
+                --disable-shared \
                 --disable-shadowgrp \
                 --disable-nls \
                 --without-selinux \
@@ -23,6 +26,9 @@ build() {
     make
     make DESTDIR=$PKG install
 
+    install -d $PKG/{bin,sbin}
+    mv $PKG/usr/bin/login $PKG/bin
+    mv $PKG/usr/sbin/nologin $PKG/sbin
     chmod -s $PKG/usr/sbin/*
 
     install -d $PKG/etc/cron/daily $PKG/var/log
@@ -30,7 +36,7 @@ build() {
     install -m 755 $SRC/pwck $PKG/etc/cron/daily
     touch $PKG/var/log/{lastlog,faillog}
 
-    rm -rf $PKG/usr/bin/gpasswd \
+    rm -r $PKG/usr/bin/gpasswd \
           $PKG/usr/share/man/man1/gpasswd.1 \
           $PKG/usr/sbin/{chpasswd,grpconv,grpunconv,logoutd} \
           $PKG/usr/sbin/{newusers,pwconv,pwunconv} \
@@ -40,7 +46,6 @@ build() {
           $PKG/usr/share/man/man3 \
           $PKG/etc/{default,pam.d/*}
 
-    install -d $PKG/etc/pam.d
     install -o root -g root -m 0644 \
         $SRC/{ch{fn,sh},login,group{add,del,mems,mod},passwd,su,user{add,del,mod}} \
         $PKG/etc/pam.d/

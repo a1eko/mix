@@ -17,7 +17,7 @@ x264
 libxvid
 mjpegtools
 
-docutils
+python3-docutils
 nettle
 libidn
 
@@ -39,5 +39,5 @@ schroedinger
 x265
 
 ffmpeg
-mplayer
+#mplayer
 mpv

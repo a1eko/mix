@@ -79,6 +79,8 @@ llvm
 
 libdrm
 libvdpau
+libnsl
+libva
 mesa
 
 xorg-xbitmaps
