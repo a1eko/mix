@@ -35,9 +35,11 @@ BASE2="pkg-config ncurses sed psmisc gettext bison grep bash libtool gdbm \
   gperf tar expat inetutils less perl autoconf automake kmod elfutils \
   libffi openssl python3 coreutils check diffutils gawk findutils groff \
   gzip kbd libpipeline make patch man-pages man-db texinfo vim \
-  eudev procps util-linux dcron e2fsprogs sysklogd sysvinit linux-pam sudo"
+  eudev procps util-linux dcron e2fsprogs sysklogd sysvinit linux-pam sudo rc"
 
-BOOT="nasm syslinux rc"
+BIOS_BOOT="nasm syslinux"
+UEFI_BOOT="libpng freetype libdevmapper grub2 grub2-efi efivar efibootmgr"
+BOOT="$BIOS_BOOT $UEFI_BOOT"
 KERNEL=linux
 
 toolsh="env -i MIX=$MIX PKZ=$MIX PKZCONF=$MIX/usr/sources/pkz.conf \
@@ -289,19 +291,6 @@ $chrootsh "pkz -f install $BASE2"
 $chrootsh "pkz clean $BASE2"
 
 echo base system built in $MIX
-
-cat > /dev/stdout << EOF
-
-#
-# Building boot system
-#
-
-EOF
-
-$chrootsh "pkz -f install $BOOT"
-$chrootsh "pkz clean $BOOT"
-
-echo boot system built in $MIX
 
 cat > /dev/stdout << EOF
 

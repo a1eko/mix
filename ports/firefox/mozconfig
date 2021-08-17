@@ -1,0 +1,34 @@
+# blfs default
+ac_add_options --disable-necko-wifi
+ac_add_options --with-system-libevent
+#ac_add_options --with-system-webp
+ac_add_options --with-system-nspr
+ac_add_options --with-system-nss
+#ac_add_options --with-system-icu
+ac_add_options --enable-official-branding
+ac_add_options --disable-debug-symbols
+ac_add_options --disable-elf-hack
+ac_add_options --prefix=/usr
+ac_add_options --enable-application=browser
+ac_add_options --disable-crashreporter
+ac_add_options --disable-updater
+ac_add_options --disable-tests
+ac_add_options --enable-optimize
+ac_add_options --enable-system-ffi
+ac_add_options --enable-system-pixman
+ac_add_options --with-system-jpeg
+ac_add_options --with-system-png
+ac_add_options --with-system-zlib
+unset MOZ_TELEMETRY_REPORTING
+mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/firefox-build-dir
+
+# crux compat
+ac_add_options --disable-debug
+ac_add_options --disable-pulseaudio
+ac_add_options --enable-alsa
+ac_add_options --enable-av1
+ac_add_options --enable-default-toolkit=cairo-gtk3
+ac_add_options --enable-extensions=default,-gnomevfs
+ac_add_options --enable-linker=lld
+ac_add_options --enable-release
+ac_add_options --enable-rust-simd

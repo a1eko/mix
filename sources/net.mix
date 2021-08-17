@@ -3,9 +3,11 @@
 # NOTE: installs after {coreopt,graphics,sound,video}.mix
 #
 
+libevent
 libidl
+links
 nspr
 nss
 lftp
 dbus-glib
-firefox-bin
+#firefox-bin

@@ -13357,7 +13357,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/skia/
 drwxr-xr-x	root/root	usr/lib/libreoffice/share/template/
 drwxr-xr-x	root/root	usr/lib/libreoffice/share/template/common/
 drwxr-xr-x	root/root	usr/lib/libreoffice/share/template/common/draw/
--rw-r--r--	root/root	usr/lib/libreoffice/share/template/common/draw/bpmn.ott
+-rw-r--r--	root/root	usr/lib/libreoffice/share/template/common/draw/bpmn.otg
 drwxr-xr-x	root/root	usr/lib/libreoffice/share/template/common/internal/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/template/common/internal/html.stw
 -rw-r--r--	root/root	usr/lib/libreoffice/share/template/common/internal/idxexample.odt

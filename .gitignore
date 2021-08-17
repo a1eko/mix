@@ -2,6 +2,7 @@
 *.bak
 files
 .signature
+.httpup*
 sources/*
 !sources/*.mix
 ports/linux/.footprint

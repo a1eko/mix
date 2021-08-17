@@ -57,6 +57,6 @@ libexif
 enscript
 exiv2
 gnuplot
-libwmf
+#libwmf
 
 imagemagick

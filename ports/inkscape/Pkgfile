@@ -1,4 +1,4 @@
-# Description: An open source SVG editor
+# Description: an open source SVG editor
 # Depends on: boost double-conversion boehm-gc gdl gsl gtkmm3 libsoup libxslt poppler-glib popt imagemagick lcms2 potrace
 
 name=inkscape

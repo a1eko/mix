@@ -1,0 +1,51 @@
+# Description: Evented I/O for V8 javascript.
+# URL: https://nodejs.org/
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Depends on: openssl libuv zlib
+# Depends on: brotli c-ares icu nghttp2-libs ninja
+
+name=nodejs
+version=16.6.1
+release=mix-1
+source=(https://nodejs.org/dist/v$version/node-v$version.tar.xz)
+
+build() {
+	cd node-v$version
+
+	#prt-get isinst brotli && PKGMK_NODEJS+=' --shared-brotli'
+	#prt-get isinst c-ares && PKGMK_NODEJS+=' --shared-cares'
+	#prt-get isinst icu && PKGMK_NODEJS+=' --with-intl=system-icu'
+	#prt-get isinst nghttp2-libs && PKGMK_NODEJS+=' --experimental-http-parser --shared-nghttp2'
+	#prt-get isinst ninja && PKGMK_NODEJS+=' --ninja'
+
+	PKGMK_NODEJS+=' --shared-brotli'
+	PKGMK_NODEJS+=' --shared-cares'
+	PKGMK_NODEJS+=' --with-intl=system-icu'
+	PKGMK_NODEJS+=' --experimental-http-parser --shared-nghttp2'
+	PKGMK_NODEJS+=' --ninja'
+
+	sed -i 's%ares_\(nameser.h\)%arpa/\1%' src/cares_wrap.h
+	ulimit -n 97816
+
+	./configure ${PKGMK_NODEJS} \
+		--prefix=/usr \
+		--enable-lto \
+		--without-npm \
+		--shared-libuv \
+		--shared-zlib \
+		--shared-openssl
+
+	make
+	make DESTDIR=$PKG install
+
+	rm -r $PKG/usr/share/doc
+
+	# clean up
+	find $PKG -type f \( \
+		-name 'README.md' -o \
+		-name 'AUTHORS.md' -o \
+		-name 'INSTALL.md' -o \
+		-name 'TODO.org' -o \
+		-name 'ChangeLog' -o \
+		-name 'NEWS' \) -delete
+}

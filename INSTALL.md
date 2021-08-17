@@ -22,10 +22,12 @@ should be available too.
 Installing MiX
 --------------
 
-Mount Linux partition on `/mnt`. Set the target directory `MIX`. Build and
-install the base system.
+Mount empty Linux partition on `/mnt`. Set the target directory `MIX`.
 
 	export MIX=/mnt
+
+Build and install the base system.
+
 	./install.sh
 
 Mount virtual file systems and enter `chroot`.
@@ -82,6 +84,8 @@ Edit `/etc/host.conf`, `/etc/hosts` and `/etc/resolv.conf` files. File
 
 ### Making the system bootable ###
 
+#### Build the kernel ####
+
 Inspect package *linux* in `/usr/packages`. To adjust kernel to the local
 hardware, a user-defined file `config.local` is used. This configuration
 file defines additional options or overwrites default options generated
@@ -91,13 +95,21 @@ procedure. Edit `config.local` and install the new kernel.
 	pkz build linux
 	pkz install linux
 
-Set up the system bootloader.
+The next step is to set up the system bootloader.
 
-**NOTE:** Instructions in this section are optional and refer to the
+**NOTE:** Instructions in the followup section are optional and refer to the
 first-time installation of the bootloader. Here a non-UEFI boot loader
 `extlinux` for legacy BIOS booting is considered. If `extlinux` or any
 other bootloader on a multiboot host computer is used already, adjust
 its configuration files, exit *chroot* and skip to *Rebooting*.
+
+
+#### Setting up the legacy BIOS boot process ####
+
+Install the boot loader (`extlinux` is a part of the collection of the
+boot loaders `syslinux`).
+
+	pkz -f install nasm syslinux
 
 Create configuration file `extlinux.conf`.
 

@@ -1,0 +1,34 @@
+# Description: Mozilla web browser
+# Depends on: autoconf-2.13 cbindgen dbus-glib gtk gtk3 libnotify llvm clang nasm nodejs nss alsa-lib python3 startup-notification unzip yasm zip
+
+name=firefox
+version=91.0
+release=mix-1
+source=(https://archive.mozilla.org/pub/firefox/releases/${version}esr/source/firefox-${version}esr.source.tar.xz
+	https://www.linuxfromscratch.org/patches/blfs/svn/firefox-${version}esr-glibc234-1.patch
+	mozconfig firefox.desktop
+)
+
+build() {
+  cd $name-$version
+
+  patch -Np1 -i ../firefox-${version}esr-glibc234-1.patch
+  cp -v $SRC/mozconfig .
+
+  export CC=clang CXX=clang++ AR=llvm-ar NM=llvm-nm RANLIB=llvm-ranlib
+  export MOZBUILD_STATE_PATH=${PWD}/mozbuild
+
+  ./mach create-mach-environment
+  ./mach configure
+  ./mach build
+  DESTDIR=$PKG ./mach install
+
+  install -d $PKG/usr/share/pixmaps
+  ln -sv /usr/lib/firefox/browser/chrome/icons/default/default48.png $PKG/usr/share/pixmaps/firefox_default48.png
+  install -D -m 0644 $SRC/firefox.desktop $PKG/usr/share/applications/firefox.desktop
+  install -d $PKG/etc/revdep.d
+  echo "/usr/lib/firefox" > $PKG/etc/revdep.d/firefox
+
+  rm -rv $PKG/usr/lib/firefox/browser/features
+  rm -v $PKG/usr/lib/firefox/removed-files
+}

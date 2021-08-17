@@ -14,5 +14,5 @@ o ports (filesystem): never upgrade, overwrites /etc/{passwd,groups,shadow}
 + crux (ports, pkz.conf): use JOBS to control parallel builds (also MAKEFLAGS="-j $JOBS") 
 - ports, tools (linux): consider upgrading to v5.11+ (v5.10 is LTS)
 o ports: /usr no longer on a separate partition (check crux compat)
-- libreoffice-bin: re-do packaging (unsupported by crux)
++ libreoffice-bin: re-do packaging (unsupported by crux)
 - syslinux (extlinux): lacks EFI support, think replacement (eg, grub2-efi/efibootmgr like in crux or host multiboot)
