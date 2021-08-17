@@ -98,7 +98,7 @@ procedure. Edit `config.local` and install the new kernel.
 The next step is to set up the system bootloader.
 
 **NOTE:** Instructions in the followup section are optional and refer to the
-first-time installation of the bootloader. Here a non-UEFI boot loader
+first-time installation of the bootloader. Here a non-UEFI bootloader
 `extlinux` for legacy BIOS booting is considered. If `extlinux` or any
 other bootloader on a multiboot host computer is used already, adjust
 its configuration files, exit *chroot* and skip to *Rebooting*.
@@ -106,8 +106,8 @@ its configuration files, exit *chroot* and skip to *Rebooting*.
 
 #### Setting up the legacy BIOS boot process ####
 
-Install the boot loader (`extlinux` is a part of the collection of the
-boot loaders `syslinux`).
+Install the bootloader (`extlinux` is a part of the collection of the
+bootloaders `syslinux`).
 
 	pkz -f install nasm syslinux
 
@@ -122,8 +122,8 @@ Create configuration file `extlinux.conf`.
 	      kernel /vmlinuz-mix
 	      append root=/dev/XXXN ro
 	label debian
-	      kernel /vmlinuz-2.6.38-2-amd64
-	      append root=/dev/YYYN initrd=/initrd.img-2.6.38-2-amd64 ro quiet
+	      kernel /vmlinuz-NNN-amd64
+	      append root=/dev/YYYN initrd=/initrd.img-NNN-amd64 ro quiet
 	EOF
 
 Edit `extlinux.conf` to specify correct values for `label`, `kernel`, `root`
