@@ -1,18 +1,16 @@
 # Description: library of spatial indexing methods
 # URL: http://libspatialindex.github.com/
 # Maintainer: Daryl Fonseca, wyatt at prairieturtle dot ca
-# Packager:
-# Depends on:
+# Depends on: cmake
 
 name=libspatialindex
-version=1.8.5
+version=1.9.3
 release=1
-source=(http://download.osgeo.org/$name/spatialindex-src-$version.tar.gz)
+source=(https://github.com/$name/$name/releases/download/$version/spatialindex-src-$version.tar.gz)
 
 build() {
-    cd spatialindex-src-$version
-    ./configure --prefix=/usr         --mandir=/usr/man        
-
-    make
-    make DESTDIR=$PKG install
+  cd spatialindex-src-$version
+  cmake . -DCMAKE_INSTALL_PREFIX=/usr
+  make
+  make DESTDIR=$PKG install
 }

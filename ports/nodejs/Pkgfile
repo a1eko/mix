@@ -2,7 +2,7 @@
 # URL: https://nodejs.org/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Depends on: openssl libuv zlib
-# Depends on: brotli c-ares icu nghttp2-libs ninja
+# Optional: brotli c-ares icu nghttp2-libs ninja
 
 name=nodejs
 version=16.6.1
@@ -12,17 +12,11 @@ source=(https://nodejs.org/dist/v$version/node-v$version.tar.xz)
 build() {
 	cd node-v$version
 
-	#prt-get isinst brotli && PKGMK_NODEJS+=' --shared-brotli'
-	#prt-get isinst c-ares && PKGMK_NODEJS+=' --shared-cares'
-	#prt-get isinst icu && PKGMK_NODEJS+=' --with-intl=system-icu'
-	#prt-get isinst nghttp2-libs && PKGMK_NODEJS+=' --experimental-http-parser --shared-nghttp2'
-	#prt-get isinst ninja && PKGMK_NODEJS+=' --ninja'
-
-	PKGMK_NODEJS+=' --shared-brotli'
-	PKGMK_NODEJS+=' --shared-cares'
-	PKGMK_NODEJS+=' --with-intl=system-icu'
-	PKGMK_NODEJS+=' --experimental-http-parser --shared-nghttp2'
-	PKGMK_NODEJS+=' --ninja'
+	[ -e '/usr/lib/pkgconfig/libbrotlicommon.pc' ] && PKGMK_NODEJS+=' --shared-brotli'
+	[ -e '/usr/lib/pkgconfig/libcares.pc' ] && PKGMK_NODEJS+=' --shared-cares'
+	[ -e '/usr/lib/pkgconfig/icu-i18n.pc' ] && PKGMK_NODEJS+=' --with-intl=system-icu'
+	[ -e '/usr/lib/pkgconfig/libnghttp2.pc' ] && PKGMK_NODEJS+=' --experimental-http-parser --shared-nghttp2'
+	[ -x '/usr/bin/ninja' ] && PKGMK_NODEJS+=' --ninja'
 
 	sed -i 's%ares_\(nameser.h\)%arpa/\1%' src/cares_wrap.h
 	ulimit -n 97816

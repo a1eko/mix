@@ -4,10 +4,10 @@
 # Depends on: clisp ghostscript graphite2 harfbuzz-icu libgd libmpfr libpaper poppler xorg-libxaw xorg-libxi zziplib
 
 name=texlive
-version=20200406
+version=20210325
 release=mix-1
-source=(ftp://tug.org/historic/systems/texlive/${version:0:4}/$name-$version-source.tar.xz
-  http://slackware.schoepfer.info/slackbuilds/texlive/texlive-base-2020.200608.tar.xz
+source=(ftp://tug.org/historic/systems/texlive/${version:0:4}/$name-$version-texmf.tar.xz
+  ftp://tug.org/historic/systems/texlive/${version:0:4}/$name-$version-source.tar.xz
   https://download.savannah.gnu.org/releases/texi2html/texi2html-5.0.tar.bz2
   tabu.sty.diff)
 
@@ -29,7 +29,7 @@ unpack_source() {  # not executed by pkz, ignored
 
 build() {
   mkdir -pv $PKG/usr/share
-  mv texmf-dist $PKG/usr/share/
+  mv $name-$version-texmf/texmf-dist $PKG/usr/share/
 
   # remove broken symlinks
   find $SRC -type l -xtype l -exec rm '{}' \+

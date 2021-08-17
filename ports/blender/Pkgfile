@@ -1,15 +1,19 @@
 # Description:  A fully integrated 3D graphics creation suite.
 # URL:          http://blender.org/
 # Packager: 
-# Maintainer:   Lin SiFuh, #crux at freenode dot net
+# Maintainer:   Lin SiFuh, #crux at irc dot libera dot chat
 # Depends on:   boost cmake desktop-file-utils ffmpeg fftw glew glu python3 git openjpeg freetype intel-tbb opus libtheora alsa-lib python3-numpy icu libsdl2
 
 name=blender
-version=2.91.2
-release=1
-source=(https://download.blender.org/source/${name}-${version}.tar.xz)
+version=2.93.2
+release=mix-1
+source=(https://download.blender.org/source/${name}-${version}.tar.xz
+	blender-openexr3.patch)
 
 build() {
+  cd $name-$version
+  patch -p1 < $SRC/blender-openexr3.patch
+  cd ..
 
   cmake -S "${name}"-"${version}" -B build -G Ninja     \
         -D WITH_CYCLES=OFF                              \

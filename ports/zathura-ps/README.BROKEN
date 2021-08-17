@@ -1,0 +1,6 @@
+Hangs when loading PS file with the error message:
+
+(libspectre) ghostscript reports: ioerror -12
+error: Rendering failed (page 1)
+
+Ghostscript opens the file just fine.

@@ -2,7 +2,7 @@
 # Depends on: gtk3 girara sqlite3 intltool meson ninja
 
 name=zathura
-version=0.4.7
+version=0.4.8
 release=mix-1
 source=(https://pwmt.org/projects/$name/download/$name-$version.tar.xz)
  
@@ -10,5 +10,5 @@ build() {
   cd $name-$version
   meson build --prefix=/usr
   DESTDIR=$PKG ninja -C build install
-  rm -rv $PKG/usr/share/locale
+  rm -rv $PKG/usr/share
 }

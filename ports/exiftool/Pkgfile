@@ -4,7 +4,7 @@
 # Depends on:
 
 name=exiftool
-version=12.12
+version=12.29
 release=1
 source=(https://exiftool.org/Image-ExifTool-$version.tar.gz)
 

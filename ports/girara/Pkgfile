@@ -1,8 +1,8 @@
 # Description: zathura interface library
-# Depends on: gtk3 intltool libnotify json-c meson ninja
+# Depends on: gtk3 glib2 pango check intltool json-c meson ninja
 
 name=girara
-version=0.3.5
+version=0.3.6
 release=mix-1
 
 source=(https://pwmt.org/projects/$name/download/$name-$version.tar.xz)
@@ -12,6 +12,5 @@ build() {
   meson build --prefix=/usr
   DESTDIR=$PKG ninja -C build install
   rm -rv $PKG/usr/share/locale
-  rmdir -v $PKG/usr/share
-  find $PKG -perm -g+w | xargs chmod g-w
+  rmdir $PKG/usr/share
 }

@@ -5,15 +5,17 @@
 # Depends on:	jasper
 
 name=libraw
-version=0.19.2
+version=0.20.2
 release=1
 source=(http://www.libraw.org/data/LibRaw-$version.tar.gz)
 
 build() {
 	cd LibRaw-$version
+	autoreconf -f -i
 	./configure \
 		--prefix=/usr \
-		--enable-lcms
+		--enable-lcms \
+		--disable-examples
 	make
 	make DESTDIR=$PKG install
 }

@@ -1,24 +1,15 @@
-# Description: Script based raytracer for creating 3D graphics
+# Description: script based raytracer for creating 3D graphics
 # Depends on: libtiff libpng boost openexr
 
 name=povray
-version=git
-_v=3.8
+version=3.8.0-beta.2
 release=mix-1
-source=()
+source=(https://github.com/POV-Ray/povray/releases/download/v$version/povunix-v${version}-src.tar.gz)
 
 build() {
-  git clone https://github.com/POV-Ray/povray.git
-  cd $name
-  ( cd unix; ./prebuild.sh )
-  ./bootstrap
+  cd povunix-v${version}-src
   ./configure --prefix=/usr --sysconfdir=/etc COMPILED_BY='MiX'
   make
-
-  mkdir -pv $PKG/usr/share/$name-$_v
-  cp -rv icons include ini scenes scripts $PKG/usr/share/$name-$_v/
-  install -Dm755 unix/povray $PKG/usr/bin/povray
-  install -Dm644 povray.conf $PKG/etc/$name/$_v/povray.conf
-  install -Dm644 povray.ini $PKG/etc/$name/$_v/povray.ini
-  install -Dm644 povray.1 $PKG/usr/share/man/man1/povray.1
+  make DESTDIR=$PKG install
+  rm -rv $PKG/usr/share/doc
 }

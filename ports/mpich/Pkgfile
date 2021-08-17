@@ -1,14 +1,14 @@
 # Description: MPI library implementation
 
 name=mpich
-version=3.3.2
+version=3.4.2
 release=mix-1
 source=(http://www.mpich.org/static/tarballs/$version/mpich-$version.tar.gz)
  
 build()
 {
   cd $name-$version
-  ./configure --prefix=/usr --disable-fortran
+  ./configure --prefix=/usr --with-device=ch3 --disable-fortran
   make 
   make DESTDIR=$PKG install
   rm -rv $PKG/usr/share/{doc,man/man3}

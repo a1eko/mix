@@ -1,15 +1,4 @@
 drwxr-xr-x	root/root	usr/
-drwxr-xr-x	root/root	usr/bin/
--rwxr-xr-x	root/root	usr/bin/4channels
--rwxr-xr-x	root/root	usr/bin/dcraw_emu
--rwxr-xr-x	root/root	usr/bin/dcraw_half
--rwxr-xr-x	root/root	usr/bin/half_mt
--rwxr-xr-x	root/root	usr/bin/mem_image
--rwxr-xr-x	root/root	usr/bin/multirender_test
--rwxr-xr-x	root/root	usr/bin/postprocessing_benchmark
--rwxr-xr-x	root/root	usr/bin/raw-identify
--rwxr-xr-x	root/root	usr/bin/simple_dcraw
--rwxr-xr-x	root/root	usr/bin/unprocessed_raw
 drwxr-xr-x	root/root	usr/include/
 drwxr-xr-x	root/root	usr/include/libraw/
 -rw-r--r--	root/root	usr/include/libraw/libraw.h
@@ -22,14 +11,14 @@ drwxr-xr-x	root/root	usr/include/libraw/
 drwxr-xr-x	root/root	usr/lib/
 -rw-r--r--	root/root	usr/lib/libraw.a
 -rwxr-xr-x	root/root	usr/lib/libraw.la
-lrwxrwxrwx	root/root	usr/lib/libraw.so -> libraw.so.19.0.0
-lrwxrwxrwx	root/root	usr/lib/libraw.so.19 -> libraw.so.19.0.0
--rwxr-xr-x	root/root	usr/lib/libraw.so.19.0.0
+lrwxrwxrwx	root/root	usr/lib/libraw.so -> libraw.so.20.0.0
+lrwxrwxrwx	root/root	usr/lib/libraw.so.20 -> libraw.so.20.0.0
+-rwxr-xr-x	root/root	usr/lib/libraw.so.20.0.0
 -rw-r--r--	root/root	usr/lib/libraw_r.a
 -rwxr-xr-x	root/root	usr/lib/libraw_r.la
-lrwxrwxrwx	root/root	usr/lib/libraw_r.so -> libraw_r.so.19.0.0
-lrwxrwxrwx	root/root	usr/lib/libraw_r.so.19 -> libraw_r.so.19.0.0
--rwxr-xr-x	root/root	usr/lib/libraw_r.so.19.0.0
+lrwxrwxrwx	root/root	usr/lib/libraw_r.so -> libraw_r.so.20.0.0
+lrwxrwxrwx	root/root	usr/lib/libraw_r.so.20 -> libraw_r.so.20.0.0
+-rwxr-xr-x	root/root	usr/lib/libraw_r.so.20.0.0
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/libraw.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/libraw_r.pc

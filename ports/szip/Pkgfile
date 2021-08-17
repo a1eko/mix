@@ -1,14 +1,14 @@
 # Description: Compression software, providing lossless compression of scientific data (HDF4, HDF5).
 # URL: http://hdf.ncsa.uiuc.edu/doc_resource/SZIP/
-# Maintainer: Danny Rawlins, crux at romster dot me
+# Maintainer: Erich Eckner, crux at eckner dot net
+# Contributor: Danny Rawlins, crux at romster dot me
 # Packager: Younes Hafri, ycrux at club-internet dot fr
 # Depends on:
 
 name=szip
 version=2.1.1
-release=mix-1
-#source=(ftp://ftp.hdfgroup.org/lib-external/szip/$version/src/szip-$version.tar.gz)
-source=(https://support.hdfgroup.org/ftp/lib-external/szip/$version/src/szip-$version.tar.gz)
+release=1
+source=(http://www.hdfgroup.org/ftp/lib-external/szip/${version}/src/szip-${version}.tar.gz)
 
 build() {
 	cd szip-$version

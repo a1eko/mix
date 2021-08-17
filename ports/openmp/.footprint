@@ -8,5 +8,3 @@ drwxr-xr-x	root/root	usr/lib/
 -rwxr-xr-x	root/root	usr/lib/libarcher.so
 lrwxrwxrwx	root/root	usr/lib/libiomp5.so -> libomp.so
 -rwxr-xr-x	root/root	usr/lib/libomp.so
--rwxr-xr-x	root/root	usr/lib/libomptarget.rtl.x86_64.so
--rwxr-xr-x	root/root	usr/lib/libomptarget.so

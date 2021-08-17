@@ -3,7 +3,7 @@
 # Maintainer:  Aaron Ball, nullspoon at oper dot io
 # Depends on:
 name=isl
-version=0.22
+version=0.23
 release=1
 source=(http://isl.gforge.inria.fr/${name}-${version}.tar.xz)
 

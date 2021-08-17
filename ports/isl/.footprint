@@ -65,9 +65,9 @@ drwxr-xr-x	root/root	usr/include/isl/
 drwxr-xr-x	root/root	usr/lib/
 -rw-r--r--	root/root	usr/lib/libisl.a
 -rwxr-xr-x	root/root	usr/lib/libisl.la
-lrwxrwxrwx	root/root	usr/lib/libisl.so -> libisl.so.22.0.0
-lrwxrwxrwx	root/root	usr/lib/libisl.so.22 -> libisl.so.22.0.0
--rwxr-xr-x	root/root	usr/lib/libisl.so.22.0.0
--rw-r--r--	root/root	usr/lib/libisl.so.22.0.0-gdb.py
+lrwxrwxrwx	root/root	usr/lib/libisl.so -> libisl.so.23.0.0
+lrwxrwxrwx	root/root	usr/lib/libisl.so.23 -> libisl.so.23.0.0
+-rwxr-xr-x	root/root	usr/lib/libisl.so.23.0.0
+-rw-r--r--	root/root	usr/lib/libisl.so.23.0.0-gdb.py
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/isl.pc

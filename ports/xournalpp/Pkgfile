@@ -1,0 +1,27 @@
+# Description: notetaking and PDF annotation software
+# URL: https://github.com/xournalpp/xournalpp
+# Maintainer: Hans Bezemer, hbezemer at kliksafe dot nl
+# Depends on: gtk3 poppler-glib libxml2 portaudio libsndfile lua53 libzip cppunit adwaita-icon-theme
+# Nice to have: libungif
+
+name=xournalpp
+#version=1.0.20-hotfix
+version=1.1.0-hotfix.1
+release=1
+source=(https://github.com/$name/$name/archive/$version/$name-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    mkdir build && cd build
+    if [ -z "$XDG_CONFIG_HOME" ]; then
+            configdir=".config"
+    else
+            configdir="$(realpath --relative-to="$HOME" "$XDG_CONFIG_HOME")"
+    fi
+    cmake -DCMAKE_INSTALL_PREFIX="/usr/" -DDEV_CONFIG_DIR="$configdir/xournalpp" \
+      -DENABLE_CPPUNIT=ON ..
+    cmake --build . --target pot
+    cmake --build . --target translations
+    cmake --build .
+    make DESTDIR=$PKG install
+}

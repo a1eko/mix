@@ -4,7 +4,7 @@
 # Depends on: libpng libtiff
 
 name=libpano13
-version=2.9.19
+version=2.9.20
 release=1
 source=("http://downloads.sourceforge.net/sourceforge/panotools/${name}-${version}.tar.gz")
 

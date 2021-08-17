@@ -5,43 +5,22 @@
 # Optional: icu
 
 name=qt5
-version=5.15.0
+version=5.15.2
 release=mix-1
 source=(https://download.qt.io/official_releases/qt/${version::4}/$version/single/qt-everywhere-src-$version.tar.xz
-	qt5-logo.png
-	qt5-base-QTBUG-82910.patch
-	qtbug-74252.patch
-	qtbug-78966.patch)
+	qt5-cflags.patch
+	qt5-logo.png)
 
 build() {
 	cd qt-everywhere-src-$version
 
-	patch -d qtbase -p1 -i $SRC/qt5-base-QTBUG-82910.patch # https://codereview.qt-project.org/c/qt/qtbase/+/299182
-	patch -d qtbase -p1 -i $SRC/qtbug-74252.patch # Fix displaying custom icons
-	patch -d qtbase -p1 -i $SRC/qtbug-78966.patch # Fix QToolButton menus on multi-screen systems
-
-	sed -i '/^#include <jasper/i #include <math.h>' qtimageformats/src/plugins/imageformats/jp2/qjp2handler.cpp
+	sed -e '1i #ifdef __cplusplus' -e '1i #include <limits>' -e '1i  #endif' -i qtbase/src/corelib/global/qglobal.h
+	patch -d qtbase -p1 -i $SRC/qt5-cflags.patch
 
 	export PYTHON='/usr/bin/python3'
 	mkdir $SRC/bin
 	ln -s /usr/bin/python3 $SRC/bin/python
 	export PATH="$SRC/bin:$PATH"
-
-	# Respect system CXX
-	[ "$CXX" ] || CXX=g++
-	sed -e "/^QMAKE_CXX\s/s|=.*|= $CXX|" \
-		-i qtbase/mkspecs/common/g++-base.conf
-
-	# Remove obsolete xorg path
-	sed -e 's|X11R6/||g' -i qtbase/mkspecs/*/*.conf
-
-	# Respect system CXXFLAGS
-	sed -e "s|^\(QMAKE_CFLAGS_RELEASE.*\)|\1 ${CXXFLAGS}|" \
-		-i qtbase/mkspecs/common/gcc-base.conf
-
-	# Respect system LDFLAGS
-	sed -e "s|^\(QMAKE_LFLAGS_RELEASE.*\)|\1 ${LDFLAGS}|" \
-		-i qtbase/mkspecs/common/g++-unix.conf
 
 	export QTDIR="$PWD"
 	export LD_LIBRARY_PATH="$QTDIR/qtbase/lib:$QTDIR/qttools/lib:$LD_LIBRARY_PATH"
@@ -82,16 +61,12 @@ build() {
 		-skip qtwebengine \
 		-silent
 
-	make -j ${JOBS:-1}
+	make
 	make -j1 INSTALL_ROOT=$PKG install
 
-	sed 's|/usr/bin/python|/usr/bin/python3|g' \
-		-i $PKG/usr/lib/qt5/mkspecs/features/uikit/devices.py
-	2to3 --write --nobackups $PKG/usr/lib/qt5/mkspecs/features/uikit/devices.py
-    
 	# Fix paths
-	find $PKG/usr/lib/ -type f -name '*.prl' \
-		-exec sed -i -e '/^QMAKE_PRL_BUILD_DIR/d;s/\(QMAKE_PRL_LIBS =\).*/\1/' {} \;
+	find "$PKG/usr/lib" -type f -name '*.prl' \
+		-exec sed -e '/^QMAKE_PRL_BUILD_DIR/d' -i {} \;
         
 	sed -e "s|$PWD/qtbase|/usr/lib/qt5|g" \
 		-i $PKG/usr/lib/qt5/mkspecs/modules/qt_lib_bootstrap_private.pri
