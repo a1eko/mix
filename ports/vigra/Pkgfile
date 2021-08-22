@@ -5,12 +5,13 @@
 
 name=vigra
 version=1.11.1
-release=2
-source=("https://github.com/ukoethe/${name}/releases/download/Version-${version//./-}/${name}-${version}-src.tar.gz")
+release=3
+source=("https://github.com/ukoethe/${name}/releases/download/Version-${version//./-}/${name}-${version}-src.tar.gz" vigra-openexr3.patch)
 
 build() {
 
   cd "${SRC}"/${name}-${version}
+  patch -p1 -i ../vigra-openexr3.patch
   cmake -DCMAKE_INSTALL_PREFIX=/usr \
       -DPYTHON_EXECUTABLE=/usr/bin/python \
       -DWITH_OPENEXR=true \

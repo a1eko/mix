@@ -1,17 +1,19 @@
 # Description: basic network utilities
 
 name=net-tools
-version=CVS_20101030
-release=mix-2
-source=(ftp://anduin.linuxfromscratch.org/BLFS/net-tools/net-tools-$version.tar.gz
-	http://linuxfromscratch.org/patches/downloads/net-tools/net-tools-$version-remove_dups-1.patch
-)
+version=2.10
+release=mix-1
+source=(https://downloads.sourceforge.net/project/$name/$name-$version.tar.xz)
 
 build() {
   cd $name-$version
-  patch -Np1 -i ../net-tools-$version-remove_dups-1.patch
-  sed -i '/#include <netinet\/ip.h>/d'  iptunnel.c
-  yes "" | make config
-  make
-  make BASEDIR=$PKG update
+
+  export BINDIR='/usr/bin' SBINDIR='/usr/bin'
+  yes "" | make -j1
+  make DESTDIR=$PKG -j1 install
+ chown -R root:root $PKG
+ rm -v $PKG/usr/bin/{nis,yp}domainname
+ rm -v $PKG/usr/bin/{hostname,dnsdomainname,domainname,ifconfig}
+ rm -rv $PKG/usr/share/man/man1
+ rm -v $PKG/usr/share/man/man8/ifconfig.8
 }

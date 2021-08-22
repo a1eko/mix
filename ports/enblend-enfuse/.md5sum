@@ -1,1 +1,4 @@
-e26751f393862cecfd1a113003787001  enblend-enfuse-4.2.tar.gz
+ba2790adec8614b62ef85209a7f93d0f  enblend-4.2-doc-install-dir-fix.patch
+cb1b8bf72bd36a1d2d9374be770a5fd1  enblend-4.2.0_p20161007-cmake.patch
+5cc2f3b57240e53001752cebf8582f73  enblend-4.2.0_p20161007-gcc-10.patch
+2a3d4ba3732db9d03a662a27ba54c602  enblend-4.2.0_p20161007.tar.xz

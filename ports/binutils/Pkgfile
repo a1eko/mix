@@ -2,7 +2,7 @@
 name=binutils
 version=2.37
 release=mix-1
-source=(http://ftp.gnu.org/gnu/binutils/binutils-$version.tar.xz)
+source=(https://ftp.gnu.org/gnu/binutils/binutils-$version.tar.xz)
 
 build() {
   cd $name-$version

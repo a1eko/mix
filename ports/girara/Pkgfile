@@ -1,5 +1,5 @@
 # Description: zathura interface library
-# Depends on: gtk3 glib2 pango check intltool json-c meson ninja
+# Depends on: gtk3 glib pango check intltool json-c meson ninja
 
 name=girara
 version=0.3.6

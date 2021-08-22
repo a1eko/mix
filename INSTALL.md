@@ -11,8 +11,8 @@ of the disk space to build.
 
 * Host system should be relatively up-to-date. This distribution is
 known to build successfully in a *stable* Debian environment, with GNU
-`awk` instead of the default `mawk` installed. Development packages
-should be available too.
+`awk` instead of the default `mawk` installed and `/bin/sh` linked to
+`bash`. Development packages should be available too.
 
 * Installation is done by a non-privileged user with `sudo` rights.
 
@@ -49,7 +49,7 @@ Set password for user *root*.
 
 Add user *build*. 
 
-	useradd -m -g users -G floppy,audio,video,cdrom,wheel -s /bin/bash build
+	useradd -m -u 1000 -g users -G floppy,audio,video,cdrom,wheel -s /bin/bash build
 	passwd build
 
 User *build* must be a member of the group *wheel* to be able to execute

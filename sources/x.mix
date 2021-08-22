@@ -145,6 +145,7 @@ xorg-xf86-input-keyboard
 xorg-xf86-input-mouse
 xorg-xf86-input-synaptics
 xorg-xf86-video-fbdev
+xorg-xf86-video-nouveau
 xorg-xf86-video-intel
 xorg-xf86-video-vesa
 

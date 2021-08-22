@@ -3,7 +3,7 @@
 name=expect
 version=5.45.4
 release=mix-1
-source=(http://prdownloads.sourceforge.net/expect/expect$version.tar.gz)
+source=(ftp://ftp.fau.de/gentoo/distfiles/expect$version.tar.gz)
 
 build() {
   cd $name$version

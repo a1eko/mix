@@ -4,7 +4,7 @@
 name=plotutils
 version=2.6
 release=mix-1
-source=(ftp://ftp.gnu.org/gnu/$name/$name-$version.tar.gz
+source=(ftp://ftp.fau.de/gentoo/distfiles/$name-$version.tar.gz
 	plotutils-2.6-libpng-1.5-gentoo.patch)
 
 build() {

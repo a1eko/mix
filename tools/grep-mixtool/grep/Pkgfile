@@ -1,7 +1,7 @@
 # Description: programs for searching through files
 
 name=grep
-version=3.6
+version=3.7
 release=0
 source=(http://ftp.gnu.org/gnu/grep/grep-$version.tar.xz)
 

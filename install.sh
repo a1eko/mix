@@ -29,7 +29,7 @@ P=$MIX/usr/packages
 
 BASE1="iana-etc glibc lzip tzdata zlib bzip2 xz zstd file readline m4 \
   bc flex tcl expect dejagnu binutils libgmp libmpfr libmpc linux-firmware \
-  attr acl libcap shadow gcc"
+  attr acl libcap linux-pam shadow gcc"
 
 BASE2="pkg-config ncurses sed psmisc gettext bison grep bash libtool gdbm \
   gperf tar expat inetutils less perl autoconf automake kmod elfutils \
@@ -49,7 +49,7 @@ toolsh="env -i MIX=$MIX PKZ=$MIX PKZCONF=$MIX/usr/sources/pkz.conf \
   /bin/bash -e +h -c"
 
 JOBS=$(nproc)
-MAKEFLAGS="-j$JOBS"
+MAKEFLAGS="-j${JOBS-1}"
 
 chrootsh="sudo chroot $MIX /usr/bin/env -i \
   PKZCONF=/usr/sources/pkz.conf HOME=/root TERM=linux LC_ALL=C \
@@ -73,12 +73,12 @@ mkdir -pv $MIX/{bin,etc,lib,sbin,usr,var}
 case $(uname -m) in
   x86_64)
     mkdir -pv $MIX{,/usr}/lib
-    test -h $MIX/lib64 || ln -sv lib $MIX/lib64
-    test -h $MIX/usr/lib64 || ln -sv lib $MIX/usr/lib64
+    ln -sv lib $MIX/lib64
+    ln -sv lib $MIX/usr/lib64
     ;;
 esac
-mkdir -pv $MIX/tools
 
+mkdir -pv $MIX/tools
 mkdir -pv $MIX/usr/{packages,sources}
 mkdir -pv $MIX/{tools/bin,var/log/{packages,sources}}
 cp -r sources $MIX/usr/
@@ -200,24 +200,22 @@ if [ -h $MIX/dev/shm ]; then
   sudo mkdir -pv $MIX/$(readlink $MIX/dev/shm)
 fi
 
-$chrootsh "cat >> /usr/sources/pkz.conf << EOF
-export JOBS=$JOBS
-EOF
-"
-
+sudo bash -c "echo export JOBS=$JOBS >> $MIX/usr/sources/pkz.conf"
 sudo bash -c "echo 127.0.0.1 localhost $(hostname) > $MIX/etc/hosts"
 
 $chrootsh "pkz install filesystem"
 $chrootsh "pkz clean   filesystem"
 $chrootsh "rm -v /etc/{issue,os-release} /usr/bin/crux"
-$chrootsh "ln -sv share/man /usr/man"
 $chrootsh "rm -v /var/log/packages/dummy.gz"
-
+$chrootsh "ln -sv share/man /usr/man"
 $chrootsh "
   touch /var/log/{btmp,lastlog,faillog,wtmp}
   chmod -v 664 /var/log/lastlog
   chmod -v 600 /var/log/btmp
 "
+$chrootsh "mv -v /var/run/* /run/"
+$chrootsh "rmdir /var/run"
+$chrootsh "ln -sfv ../run /var/run"
 
 $chrootsh "pkz -p /usr/packages/gcc-mixtool-libstdcxx-pass2  -f install gcc"
 $chrootsh "pkz -p /usr/packages/gcc-mixtool-libstdcxx-pass2  clean gcc"

@@ -2,15 +2,26 @@
 # Depends on: vigra lcms2 gsl libtiff openexr glu boost help2man openmp texlive
 
 name=enblend-enfuse
-version=4.2
+version=4.2.0_p20161007
 release=mix-1
-source=(http://downloads.sourceforge.net/sourceforge/enblend/$name-$version.tar.gz)
+source=(https://dev.gentoo.org/~soap/distfiles/enblend-$version.tar.xz
+	enblend-4.2-doc-install-dir-fix.patch
+	enblend-$version-cmake.patch
+	enblend-$version-gcc-10.patch
+)
 
 build() {
-  cd $name-$version
-  sed -i '/^#include <gsl/i #include <limits>' src/minimizer.cc
+  cd enblend-$version
+  patch -Np1 -i ../enblend-4.2-doc-install-dir-fix.patch
+  patch -Np1 -i ../enblend-$version-cmake.patch
+  patch -Np1 -i ../enblend-$version-gcc-10.patch
 
-  ./configure --prefix=/usr --disable-nls --enable-openmp --enable-opencl
+  mkdir build
+  cd build
+  cmake .. \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DENABLE_OPENMP=yes \
+    -DENABLE_OPEEXR=yes
   make
   make DESTDIR=$PKG install
 }

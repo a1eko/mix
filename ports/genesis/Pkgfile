@@ -6,8 +6,7 @@ release=git-mix-1
 source=()
 
 build() {
-  git clone http://github.com/genesis-sim/genesis-$version.git
-  rm -rf genesis-$version/genesis-binaries
+  git clone https://github.com/genesis-sim/genesis-$version.git
   cd $name-$version
   cd genesis/src
   ./configure --prefix=/usr/lib/genesis

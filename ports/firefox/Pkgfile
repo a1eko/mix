@@ -1,11 +1,12 @@
 # Description: Mozilla web browser
-# Depends on: autoconf-2.13 cbindgen dbus-glib gtk gtk3 libnotify llvm clang nasm nodejs nss alsa-lib python3 startup-notification unzip yasm zip
+# Depends on: autoconf-2.13 cbindgen dbus-glib gtk gtk3 libnotify llvm lld clang nasm nodejs nss alsa-lib python3 startup-notification unzip yasm zip
 
 name=firefox
-version=91.0
+version=91.0.1
 release=mix-1
 source=(https://archive.mozilla.org/pub/firefox/releases/${version}esr/source/firefox-${version}esr.source.tar.xz
 	https://www.linuxfromscratch.org/patches/blfs/svn/firefox-${version}esr-glibc234-1.patch
+	https://www.linuxfromscratch.org/patches/blfs/svn/firefox-${version}esr-disable_rust_test-1.patch
 	mozconfig firefox.desktop
 )
 
@@ -13,6 +14,7 @@ build() {
   cd $name-$version
 
   patch -Np1 -i ../firefox-${version}esr-glibc234-1.patch
+  patch -Np1 -i ../firefox-${version}esr-disable_rust_test-1.patch
   cp -v $SRC/mozconfig .
 
   export CC=clang CXX=clang++ AR=llvm-ar NM=llvm-nm RANLIB=llvm-ranlib

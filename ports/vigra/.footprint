@@ -163,7 +163,6 @@ drwxr-xr-x	root/root	usr/include/vigra/delegate/detail/
 -rw-r--r--	root/root	usr/include/vigra/quaternion.hxx
 -rw-r--r--	root/root	usr/include/vigra/random.hxx
 -rw-r--r--	root/root	usr/include/vigra/random_access_set.hxx
--rw-r--r--	root/root	usr/include/vigra/random_forest.hxx
 drwxr-xr-x	root/root	usr/include/vigra/random_forest/
 -rw-r--r--	root/root	usr/include/vigra/random_forest/features.hxx
 -rw-r--r--	root/root	usr/include/vigra/random_forest/rf_algorithm.hxx
@@ -178,11 +177,12 @@ drwxr-xr-x	root/root	usr/include/vigra/random_forest/
 -rw-r--r--	root/root	usr/include/vigra/random_forest/rf_split.hxx
 -rw-r--r--	root/root	usr/include/vigra/random_forest/rf_visitors.hxx
 -rw-r--r--	root/root	usr/include/vigra/random_forest/splices.hxx
--rw-r--r--	root/root	usr/include/vigra/random_forest_3.hxx
+-rw-r--r--	root/root	usr/include/vigra/random_forest.hxx
 drwxr-xr-x	root/root	usr/include/vigra/random_forest_3/
 -rw-r--r--	root/root	usr/include/vigra/random_forest_3/random_forest.hxx
 -rw-r--r--	root/root	usr/include/vigra/random_forest_3/random_forest_common.hxx
 -rw-r--r--	root/root	usr/include/vigra/random_forest_3/random_forest_visitors.hxx
+-rw-r--r--	root/root	usr/include/vigra/random_forest_3.hxx
 -rw-r--r--	root/root	usr/include/vigra/random_forest_3_hdf5_impex.hxx
 -rw-r--r--	root/root	usr/include/vigra/random_forest_deprec.hxx
 -rw-r--r--	root/root	usr/include/vigra/random_forest_hdf5_impex.hxx

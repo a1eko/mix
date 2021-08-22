@@ -4,7 +4,7 @@
 
 name=zoom-bin
 version=latest
-release=mix-1
+release=mix-2
 source=(https://zoom.us/client/latest/zoom_amd64.deb
 	zoom.conf)
 
@@ -13,4 +13,5 @@ build() {
   tar -C $PKG -xvf data.tar.xz
   install -d $PKG/etc/ld.so.conf.d
   cp -v $SRC/zoom.conf $PKG/etc/ld.so.conf.d/
+  rm -rv $PKG/usr/share/{applications,doc,pixmaps}
 }
