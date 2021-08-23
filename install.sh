@@ -204,6 +204,7 @@ sudo bash -c "echo 127.0.0.1 localhost $(hostname) > $MIX/etc/hosts"
 
 $chrootsh "pkz install filesystem"
 $chrootsh "pkz clean   filesystem"
+
 $chrootsh "rm -v /etc/{issue,os-release} /usr/bin/crux"
 $chrootsh "rm -v /var/log/packages/dummy.gz"
 $chrootsh "ln -sv share/man /usr/man"

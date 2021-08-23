@@ -63,12 +63,12 @@ Make user *build* the owner of the build sources.
 
 Add regular users.
 
-Edit `/etc/config.site`. Set default values of `CFLAGS`, `CXXFLAGS`
-and `MAKEFLAGS`.
+Edit `/etc/config.site`. Set default values of `CFLAGS`, `CXXFLAGS` and
+`MAKEFLAGS`.
 
-Edit `/etc/fstab` to set correct values for devices and filesystem
-types (for example, `/dev/sda9`, `ext3`, etc.). Uncomment `swap`
-and `/boot` instances, if applicable.
+Edit `/etc/fstab` to set correct values for devices and filesystem types
+(for example, `/dev/sda9`, `ext3`, etc.). Uncomment `swap` and `/boot`
+instances, if applicable.
 
 Inspect file `/etc/rc.conf` and set variables `FONT`, `KEYMAP`, `TIMEZONE`
 and `HOSTNAME`. The array variable `SERVICES` contains names of the
@@ -97,8 +97,8 @@ procedure. Edit `config.local` and install the new kernel.
 
 The next step is to set up the system bootloader.
 
-**NOTE:** Instructions in the followup section are optional and refer to the
-first-time installation of the bootloader. Here a non-UEFI bootloader
+**NOTE:** Instructions in the followup section are optional and refer to
+the first-time installation of the bootloader. Here a non-UEFI bootloader
 `extlinux` for legacy BIOS booting is considered. If `extlinux` or any
 other bootloader on a multiboot host computer is used already, adjust
 its configuration files, exit *chroot* and skip to *Rebooting*.
@@ -126,16 +126,16 @@ Create configuration file `extlinux.conf`.
 	      append root=/dev/YYYN initrd=/initrd.img-NNN-amd64 ro quiet
 	EOF
 
-Edit `extlinux.conf` to specify correct values for `label`, `kernel`, `root`
-and `initrd` options (`/dev/sda9`, etc.).
+Edit `extlinux.conf` to specify correct values for `label`, `kernel`,
+`root` and `initrd` options (`/dev/sda9`, etc.).
 
 Exit *chroot*.
 
 	logout
 
-**WARNING:** In this example, `extlinux` installs to the master boot record
-(MBR) of the disk. This overwrites an existing bootloader. Errors in
-the commands below can make the system unbootable.
+**WARNING:** In this example, `extlinux` installs to the master boot
+record (MBR) of the disk. This overwrites an existing bootloader. Errors
+in the commands below can make the system unbootable.
 
 Become user *root*
 
@@ -187,15 +187,16 @@ Start `net` or `wlan` script.
 **NOTE:** Inspect and configure packages *iproute2*, *dhcpcd* and
 *wpa_supplicant* to get it working. See also optional *ca-certificates*,
 *net-tools* and *wireless_tools*. Wireless network cards may require
-firmware to be loaded from `/lib/firmware` and *wpa_supplicant* get
-started before invocation of the `net` script (`wlan` starts
+firmware to be loaded from `/lib/firmware` and *wpa_supplicant*
+get started before invocation of the `net` script (`wlan` starts
 *wpa_supplicant* automaticaly).
 
 Clean up the package trees.
 
 	sudo pkz clean
 
-Delete unneeded files in `/usr/sources` (nothing is required by the system).
+Delete unneeded files in `/usr/sources` (nothing is required by the
+system).
 
 Get the CRUX ports and build the rest of the system. Ports can be copied
 to `/usr/packages` without the leading subdirectories `core/`, `opt/`
