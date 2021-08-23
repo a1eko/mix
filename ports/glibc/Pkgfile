@@ -2,7 +2,7 @@
 
 name=glibc
 version=2.34
-release=mix-1
+release=mix-2
 source=(ftp://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz
 	http://www.linuxfromscratch.org/patches/downloads/glibc/glibc-$version-fhs-1.patch
 	host.conf hosts ld.so.conf nsswitch.conf resolv.conf)
@@ -10,6 +10,8 @@ source=(ftp://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz
 build()
 {
   cd $name-$version
+  sed -e '/NOTIFY_REMOVED)/s/)/ \&\& data.attr != NULL)/' \
+    -i sysdeps/unix/sysv/linux/mq_notify.c
   patch -Np1 -i ../glibc-$version-fhs-1.patch
 
   mkdir -v build
