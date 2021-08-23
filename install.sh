@@ -96,7 +96,6 @@ echo | gzip -c > $MIX/var/log/packages/dummy.gz
 install -v -m 755 -D $MIX/usr/packages/pkz/pkz.sh $MIX/usr/bin/pkz
 ln -sfv ../../usr/bin/pkz $MIX/tools/bin/
 
-#cat > $MIX/usr/sources/tool-config.site << EOF
 cat > $MIX/usr/sources/config.site << EOF
 enable_nls=no
 EOF
