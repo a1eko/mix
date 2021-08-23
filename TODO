@@ -8,11 +8,6 @@ o crux (ports): .signature replaces .md5sum (see core/signify)
 o libreoffice: presentation and spreadsheets depend on avahi at runtime
 o python3: rebuild with deps in coreopt and graphics
 o gcc: build with fortran support to avoid gcc-fortran
-o openssh: watch ftp debian pool for updates v8.5+
-o mix (install, rc, ports): deprecate /var/run, link to /run (watch crux > 3.6)
+o openssh: watch ftp debian pool for updates
 o ports (filesystem): never upgrade, overwrites /etc/{passwd,groups,shadow}
-+ crux (ports, pkz.conf): use JOBS to control parallel builds (also MAKEFLAGS="-j ${JOBS-1}") 
-x ports, tools (linux): consider upgrading to v5.11+ (v5.10 is LTS)
-o ports: /{bin,lib{,32,64},sbin} link to /usr (lfs, deb but not crux v3.6.1)
-+ libreoffice-bin: re-do packaging (unsupported by crux)
-+ syslinux (extlinux): lacks EFI support, think replacement (eg, grub2-efi/efibootmgr like in crux or host multiboot)
+o ports: /{bin,lib{,32,64},sbin} link to /usr (lfs and deb but not crux v3.6.1)
