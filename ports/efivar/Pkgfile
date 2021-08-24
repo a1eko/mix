@@ -1,0 +1,19 @@
+# Description: Tools and library to manipulate EFI variables
+# URL:         https://github.com/rhinstaller/efivar
+# Maintainer:  CRUX System Team, core-ports at crux dot nu
+# Depends on:  popt
+
+name=efivar
+version=37
+release=mix-2
+source=(https://github.com/rhinstaller/$name/releases/download/$version/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+	sed 's/-Werror//' -i gcc.specs
+        sed "/CFLAGS.*?=/ s/$/ -flto-partition=none/" -i Make.defaults
+	make -j1
+	make libdir=/usr/lib DESTDIR=$PKG install
+	rm -rv $PKG/usr/share/man
+	rmdir $PKG/usr/share
+}
