@@ -22,8 +22,10 @@ build() {
   mkdir -v build
   cd build
 
-  # ensure installation path for ldconfig and sln
-  echo "rootsbindir=/usr/sbin" > configparms
+  # ensure installation path for ldconfig and sln (lfs compat)
+  #echo "rootsbindir=/usr/sbin" > configparms
+  # crux compat
+  echo "rootsbindir=/sbin" > configparms
 
   ../configure --prefix=/usr \
     --host=$MIX_TGT \
@@ -37,6 +39,7 @@ build() {
   # fix hardcoded path to the executable loader in ldd
   sed '/RTLDLIST=/s@/usr@@g' -i $PKG/usr/bin/ldd
 
+  # conflict with tzdata
   rm -rv $PKG/usr/share/{info,locale} \
     $PKG/usr/bin/{tzselect,zdump} \
     $PKG/usr/sbin/zic

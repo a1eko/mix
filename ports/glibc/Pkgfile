@@ -17,8 +17,10 @@ build()
   mkdir -v build
   cd build
 
-  # ensure installation path for ldconfig and sln
-  echo "rootsbindir=/usr/sbin" > configparms
+  # ensure installation path for ldconfig and sln (lfs compat)
+  #echo "rootsbindir=/usr/sbin" > configparms
+  # crux compat
+  echo "rootsbindir=/sbin" > configparms
 
   ../configure --prefix=/usr \
     --disable-werror \

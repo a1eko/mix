@@ -10,4 +10,7 @@ o python3: rebuild with deps in coreopt and graphics
 o gcc: build with fortran support to avoid gcc-fortran
 o openssh: watch ftp debian pool for updates
 o ports (filesystem): never upgrade, overwrites /etc/{passwd,groups,shadow}
-o ports: /{bin,lib{,32,64},sbin} link to /usr (lfs and deb but not crux v3.6.1)
+o ports: /{bin,lib{,32,64},sbin} link to /usr (lfs and deb but not crux <= 3.6.1)
++ ports, tools (glibc): make crux compat /sbin/{ldconfig,sln}
++ tools (coreutils, gzip, sed, tar): ensure crux compat paths in tools and ports
++ tools: update .footprint files

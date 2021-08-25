@@ -7,11 +7,12 @@ source=(http://ftp.gnu.org/gnu/tar/tar-$version.tar.xz)
 
 build() {
   cd $name-$version
-  ./configure --prefix=/usr \
+  # crux compat
+  ./configure --prefix= \
+    --libexec=/usr/lib/tar \
     --host=$MIX_TGT \
     --build=$(build-aux/config.guess)
   make
   make DESTDIR=$PKG install
-  rm -rv $PKG/usr/share/{info,man}
-  rmdir $PKG/usr/share
+  rm -rv $PKG/share/{info,man}
 }

@@ -3,7 +3,7 @@ name=binutils
 version=2.37
 release=mix-2
 source=(https://ftp.gnu.org/gnu/binutils/binutils-$version.tar.xz
-	binutils-2.37-upstream_fix-1.patch
+	https://www.linuxfromscratch.org/patches/lfs/development/binutils-2.37-upstream_fix-1.patch
 )
 
 build() {
