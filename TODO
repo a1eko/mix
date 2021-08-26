@@ -5,9 +5,9 @@ o ports: disable stripping if uneeded or fragile (file .nostrip)
 o ports (crux compat): replace 'pkginfo -i' with 'pkz -i list', etc
 o linux kernel: "syncconfig" replaces "silentoldconfig"
 o crux (ports): .signature replaces .md5sum (see core/signify)
-o libreoffice: presentation and spreadsheets depend on avahi at runtime
-o python3: rebuild with deps in coreopt and graphics
-o openssh: watch ftp debian pool for updates
+o ports (libreoffice*): presentation and spreadsheets depend on avahi at runtime
+o ports (python3): rebuild with deps in coreopt and graphics
+o ports (openssh): watch ftp debian pool for updates
 o ports (filesystem): never upgrade, overwrites /etc/{passwd,groups,shadow}
-o ports: beware lfs links /{bin,lib*,sbin} to /usr (not compat with crux <= 3.6.1)
-o ports (gcc-fortran): currently enabled in gcc
+o ports: beware lfs linking /{bin,lib*,sbin} to /usr (not compat with crux <= 3.6.1)
+o ports (gcc-fortran): currently enabled in gcc port
