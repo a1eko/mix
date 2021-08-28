@@ -7,4 +7,6 @@ drwxr-xr-x	build/users	usr/bin/
 drwxr-xr-x	build/users	usr/libexec/
 -rwxr-xr-x	build/users	usr/libexec/frcode
 drwxr-xr-x	build/users	usr/share/
-drwxr-xr-x	build/users	usr/var/
+drwxr-xr-x	build/users	var/
+drwxr-xr-x	build/users	var/lib/
+drwxr-xr-x	build/users	var/lib/locate/

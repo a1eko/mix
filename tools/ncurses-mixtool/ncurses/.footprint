@@ -1,6 +1,4 @@
 drwxr-xr-x	build/users	lib/
-lrwxrwxrwx	build/users	lib/libncursesw.so.6 -> libncursesw.so.6.2
--rwxr-xr-x	build/users	lib/libncursesw.so.6.2
 drwxr-xr-x	build/users	usr/
 drwxr-xr-x	build/users	usr/bin/
 lrwxrwxrwx	build/users	usr/bin/captoinfo -> tic
@@ -44,7 +42,9 @@ lrwxrwxrwx	build/users	usr/lib/libmenuw.so.6 -> libmenuw.so.6.2
 -rwxr-xr-x	build/users	usr/lib/libmenuw.so.6.2
 -rw-r--r--	build/users	usr/lib/libncurses++w.a
 -rw-r--r--	build/users	usr/lib/libncurses.so
-lrwxrwxrwx	build/users	usr/lib/libncursesw.so -> ../../lib/libncursesw.so.6.2
+lrwxrwxrwx	build/users	usr/lib/libncursesw.so -> libncursesw.so.6
+lrwxrwxrwx	build/users	usr/lib/libncursesw.so.6 -> libncursesw.so.6.2
+-rwxr-xr-x	build/users	usr/lib/libncursesw.so.6.2
 lrwxrwxrwx	build/users	usr/lib/libpanelw.so -> libpanelw.so.6
 lrwxrwxrwx	build/users	usr/lib/libpanelw.so.6 -> libpanelw.so.6.2
 -rwxr-xr-x	build/users	usr/lib/libpanelw.so.6.2
