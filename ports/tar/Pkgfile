@@ -1,0 +1,26 @@
+# Description: GNU tar
+# Optional: pigz lbzip2 pixz plzip
+
+name=tar
+version=1.34
+release=mix-1
+source=(http://ftpmirror.gnu.org/gnu/$name/$name-$version.tar.xz)
+
+build() {
+  cd $name-$version
+
+  [ -e '/bin/pigz' ] && PKGMK_TAR+=' --with-gzip=pigz'
+  [ -e '/usr/bin/lbzip2' ] && PKGMK_TAR+=' --with-bzip2=lbzip2'
+  [ -e '/usr/bin/pixz' ] && PKGMK_TAR+=' --with-xz=pixz'
+  [ -e '/usr/bin/plzip' ] && PKGMK_TAR+=' --with-lzip=plzip'
+
+  ./configure ${PKGMK_TAR} \
+    --prefix= \
+    --libexec=/usr/lib/tar \
+    --mandir=/usr/share/man \
+    --disable-nls \
+    FORCE_UNSAFE_CONFIGURE=1
+  make
+  make DESTDIR=$PKG install
+  rm -rv $PKG/share
+}

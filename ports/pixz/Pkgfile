@@ -1,0 +1,14 @@
+# Description: parallel, indexing version of xz
+# Depends on: libarchive
+
+name=pixz
+version=1.0.7
+release=mix-1
+source=(https://github.com/vasi/pixz/releases/download/v$version/$name-$version.tar.gz)
+
+build() {
+  cd $name-$version
+  ./configure --prefix=/usr
+  make
+  make DESTDIR=$PKG install
+}
