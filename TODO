@@ -11,5 +11,4 @@ o ports (openssh): watch ftp debian pool for updates
 o ports (filesystem): never upgrade, overwrites /etc/{passwd,groups,shadow}
 o ports: beware lfs linking /{bin,lib*,sbin} to /usr (not compat with crux <= 3.6.1)
 o ports (gcc-fortran): currently enabled in gcc port
-- ports (pkz): optionally use 'parallel' for stripping
-- ports (tar): optionally build with parallel compressors (pigz, lbzip2/pbzip2, pixz, plzip)
++ ports (tar): optionally build with parallel compressors (pigz, lbzip2/pbzip2, pixz, plzip)
