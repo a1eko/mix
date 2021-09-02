@@ -1,0 +1,19 @@
+# Description: Interface for userspace filesystems
+# URL:         https://github.com/libfuse/
+# Maintainer:  Juergen Daubert, jue at crux dot nu
+
+name=fuse
+version=2.9.9
+release=mix-1
+source=(https://github.com/libfuse/libfuse/releases/download/$name-$version/$name-$version.tar.gz
+	https://gitweb.gentoo.org/repo/gentoo.git/plain/sys-fs/fuse/files/fuse-$version-closefrom-glibc-2-34.patch)
+
+build() {
+    cd $name-$version
+    patch -Np1 -i $SRC/fuse-$version-closefrom-glibc-2-34.patch
+    autoreconf -fiv
+    ./configure --prefix=/usr
+    make
+    make DESTDIR=$PKG install
+    rm -r $PKG/{dev,etc}
+}
