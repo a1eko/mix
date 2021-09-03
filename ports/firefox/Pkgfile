@@ -3,7 +3,7 @@
 
 name=firefox
 version=91.0.1
-release=mix-1
+release=mix-2
 source=(https://archive.mozilla.org/pub/firefox/releases/${version}esr/source/firefox-${version}esr.source.tar.xz
 	https://www.linuxfromscratch.org/patches/blfs/svn/firefox-${version}esr-glibc234-1.patch
 	https://www.linuxfromscratch.org/patches/blfs/svn/firefox-${version}esr-disable_rust_test-1.patch
