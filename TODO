@@ -1,14 +1,12 @@
 - to do, + done, o attention/pending, x ignore
 
-o ports: prefer pip over ports for python packages 
 o ports: disable stripping if uneeded or fragile (file .nostrip)
-o ports (crux compat): replace 'pkginfo -i' with 'pkz -i list', etc
-o linux kernel: "syncconfig" replaces "silentoldconfig"
 o crux (ports): .signature replaces .md5sum (see core/signify)
 o ports (libreoffice*): presentation and spreadsheets depend on avahi at runtime
 o ports (python3): rebuild with deps in coreopt and graphics
-o ports (openssh): watch ftp debian pool for updates
 o ports (filesystem): never upgrade, overwrites /etc/{passwd,groups,shadow}
-o ports: beware lfs linking /{bin,lib*,sbin} to /usr (not compat with crux <= 3.6.1)
-o ports (gcc-fortran): currently enabled in gcc port
-+ ports (tar): optionally build with parallel compressors (pigz, lbzip2/pbzip2, pixz, plzip)
+o ports: beware lfs linking /{bin,lib*,sbin} to /usr is not compatible with crux <= 3.6.1
+o ports (gcc-fortran): avoided, fortran is enabled in gcc port
+o ports (crux compat): replace 'pkginfo -i' with 'pkz -i list', etc
+- ports (crux compat): emulate 'prt-get isinst'
+- ports (pkz): try to use gnu parallel for stripping
