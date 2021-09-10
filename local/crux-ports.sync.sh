@@ -1,6 +1,6 @@
 #!/bin/bash
 ver=3.6
-noupdate="filesystem"
+noupdate="filesystem rc"
 echo -n sync $ver ports: ''
 for p in core opt xorg contrib; do
   ( echo -n $p ''
@@ -11,8 +11,10 @@ for p in core opt xorg contrib; do
 done
 echo
 if [ -n "$noupdate" ]; then
+  echo -n not updated: ''
   for p in $noupdate ; do
-    echo not updated $p
-    find -name $p | xargs rm -r
+    [ -d $p ] && find -name $p | xargs rm -r
+    echo -n $p ''
   done
+  echo
 fi
