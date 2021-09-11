@@ -1,10 +1,10 @@
 # Description: POSIX.1e capabilities library
 # URL: https://sites.google.com/site/fullycapable/
 # Maintainer: CRUX System Team, core-ports at crux dot nu
-# Depends on: attr linux-pam
+# Depends on: linux-pam
 
 name=libcap
-version=2.56
+version=2.57
 release=mix-1
 source=(https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/$name-$version.tar.xz)
 
