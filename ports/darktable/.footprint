@@ -115,6 +115,7 @@ drwxr-xr-x	root/root	usr/lib64/darktable/plugins/imageio/storage/
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/libzonesystem.so
 drwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/libbackgroundjobs.so
+-rwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/libcamera.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/libcollect.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/libcolorlabels.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/libcolorpicker.so
@@ -134,6 +135,7 @@ drwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/libimport.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/libioporder.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/liblighttable_mode.so
+-rwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/liblive_view.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/libmasks.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/libmetadata.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/libmetadata_view.so
@@ -157,6 +159,7 @@ drwxr-xr-x	root/root	usr/lib64/darktable/views/
 -rwxr-xr-x	root/root	usr/lib64/darktable/views/liblighttable.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/views/libprint.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/views/libslideshow.so
+-rwxr-xr-x	root/root	usr/lib64/darktable/views/libtethering.so
 drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/applications/
 -rw-r--r--	root/root	usr/share/applications/darktable.desktop
