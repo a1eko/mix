@@ -7,6 +7,6 @@ o ports (python3): rebuild with deps in coreopt and graphics
 o ports (filesystem): never upgrade, overwrites /etc/{passwd,groups,shadow}
 o ports: beware lfs linking /{bin,lib*,sbin} to /usr is not compatible with crux <= 3.6.1
 o ports (gcc-fortran): avoided, fortran is enabled in gcc port
-o ports (crux compat): replace 'pkginfo -i' with 'pkz -i list', etc
-- ports (crux compat): emulate 'prt-get isinst package' (pkginfo -i|grep ^package)
+o ports (crux compat): replace 'pkginfo -i' with 'pkz -i list'
+- ports (crux compat): emulate 'prt-get isinst package' (pkginfo -i|grep ^package), also for multiple packages
 - ports (pkz): try to use gnu parallel for stripping
