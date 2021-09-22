@@ -1,0 +1,20 @@
+# Description: xorg driver xf86-video-fbdev
+# URL: http://xorg.freedesktop.org
+# Maintainer: CRUX Xorg Team, xorg-ports at crux dot nu
+# Depends on: xorg-server
+
+name=xorg-xf86-video-fbdev
+version=0.5.0
+release=mix-1
+source=(https://www.x.org/releases/individual/driver/xf86-video-fbdev-$version.tar.bz2
+	https://raw.githubusercontent.com/archlinux/svntogit-packages/packages/xf86-video-fbdev/trunk/gcc8.diff)
+
+build() {
+	cd xf86-video-fbdev-$version
+	patch -Np0 -i ../gcc8.diff
+
+	./configure --prefix=/usr
+
+	make
+	make DESTDIR=$PKG install
+}
