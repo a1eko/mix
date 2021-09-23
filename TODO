@@ -10,3 +10,4 @@ o ports (gcc-fortran): avoided, fortran is enabled in gcc port
 o ports (crux compat): replace 'pkginfo -i' with 'pkz -i list'
 - ports (crux compat): emulate 'prt-get isinst package' (pkginfo -i|grep ^package), also for multiple packages
 - ports (pkz): try to use gnu parallel for stripping
+- ports (linux): beware broken usb3/xhci in v5.10.67+
