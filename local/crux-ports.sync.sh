@@ -23,3 +23,8 @@ if grep -q prt-get */*/Pkgfile; then
   echo -n beware prt-get: $(grep -l prt-get */*/Pkgfile | cut -d'/' -f2 | tr '\n' ' ')
   echo
 fi
+
+if grep -q unpack_source */*/Pkgfile; then
+  echo -n beware unpack_source: $(grep -l unpack_source */*/Pkgfile | cut -d'/' -f2 | tr '\n' ' ')
+  echo
+fi
