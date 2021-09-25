@@ -43,11 +43,8 @@ list_updated=no
 list_all=yes
 list_url=no
 
-if which pigz >/dev/null 2>&1 ; then
-  GZIP='pigz -3'
-else
-  GZIP='gzip -3'
-fi
+GZIP=$(command -v pigz)
+GZIP=${GZIP:-gzip}
 
 usage() {
   cat << EOF 

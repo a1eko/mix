@@ -6,3 +6,4 @@ files
 sources/*
 !sources/*.mix
 ports/linux/.footprint
+unsupported/packages/*/.footprint

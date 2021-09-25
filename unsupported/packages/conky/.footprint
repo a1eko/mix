@@ -1,6 +1,0 @@
-drwxr-xr-x	root/root	usr/
-drwxr-xr-x	root/root	usr/lib/
--rw-r--r--	root/root	usr/lib/libconky_core.a
--rw-r--r--	root/root	usr/lib/libtcp-portmon.a
-drwxr-xr-x	root/root	usr/bin/
--rwxr-xr-x	root/root	usr/bin/conky
