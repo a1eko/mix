@@ -11,7 +11,6 @@ itstool
 openjpeg
 
 giflib
-gobject-introspection
 jasper
 libid3tag
 imlib2

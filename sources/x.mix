@@ -137,6 +137,8 @@ xorg-font-misc-cyrillic
 xorg-font-misc-misc
 xorg-font-dejavu-ttf
 
+gobject-introspection
+nettle
 xorg-server
 
 xorg-xf86-input-evdev

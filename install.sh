@@ -88,6 +88,9 @@ rsync -rqz crux.nu::ports/crux-3.6/contrib/check $MIX/usr/packages
 rsync -rqz crux.nu::ports/crux-3.6/contrib/tcl $MIX/usr/packages
 rsync -rqz crux.nu::ports/crux-3.6/contrib/lynx $MIX/usr/packages
 cp -r {ports,tools}/* $MIX/usr/packages/
+sed -e 's/pkginfo -i/pkz -i list/g' \
+    -e 's/prt-get isinst/pkz -i list/g' \
+    -i $MIX/usr/packages/*/{Pkgfile,*-install}
 rm -f $MIX/usr/packages/C*
 
 sudo ln -sfv $MIX/tools /

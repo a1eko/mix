@@ -6,7 +6,7 @@ for p in core opt xorg contrib; do
   ( echo -n $p ''
     rsync -aqz --del crux.nu::ports/crux-$ver/$p/ $p > /dev/null 2>&1 &&
     find $p \( -name COPY* -o -name contrib.pub \) -delete &&
-    sed -e 's/pkginfo -i/pkz -i list/g' -e 's/prt-get isinst/pkz -i list/g' -i */*/Pkgfile */*/*-install
+    sed -e 's/pkginfo -i/pkz -i list/g' -e 's/prt-get isinst/pkz -i list/g' -i */*/{Pkgfile,*-install}
   ) || echo -n FAIL ''
 done
 echo
