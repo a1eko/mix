@@ -3,7 +3,7 @@ mix
 
 Manually installed Linux (MiX) is a minimalist
 [GNU](http://www.gnu.org/)/[Linux](https://www.kernel.org/)
-distribution.  Packages are compatible with [CRUX](https://crux.nu/)
+distribution.  Packages are mostly compatible with [CRUX](https://crux.nu/)
 ports and binaries.  System building and installation procedure follows
 the [LFS](http://www.linuxfromscratch.org/) book.  Package management
 script `pkz` resembles [Slackware](http://www.slackware.com/) `pkgtools`.

@@ -331,13 +331,16 @@ do_upgrade() {
 }
 
 installed() {
-  local ver
+  local ver err=0
   if [ -f $pkgreg.gz ]; then
     echo "(installed)"
   elif [ -f $zregs/$name#* ]; then
     ver=$(echo $(basename $zregs/$name#* .gz) | cut -d'#' -f2)
     echo "($ver)"
+  else
+    err=1
   fi
+  return $err
 }
 
 do_list() {
@@ -354,6 +357,7 @@ do_list() {
         "URL:$(echo $source | cut -d' ' -f1)"
     fi
   fi
+  return $(installed >/dev/null)
 }
 
 do_resolve()
@@ -471,6 +475,7 @@ esac
 test \( $cmd = clean -o $cmd = list \) -a $# -eq 0 && set $(cd $zpackages; ls)
 test -r $zconf && source $zconf
 
+err=0
 while [ $# -gt 0 ]; do
   test "$1" = include -a -f "$2" && shift && set $(sed 's/#.*$//' $1)
   pkgdir=$zpackages/$1
@@ -494,6 +499,7 @@ while [ $# -gt 0 ]; do
   PKGMK_SOURCE_DIR=$SRC
   #PKGMK_WORK_DIR unset (unknown)
 
-  do_$cmd
+  do_$cmd || err=1
   shift
 done
+exit $err
