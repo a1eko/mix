@@ -47,45 +47,45 @@ GZIP=$(command -v pigz)
 GZIP=${GZIP:-gzip}
 
 usage() {
-  cat << EOF 
-Usage: 	pkz [options] <command> <packages>
-       	pkz [-h|--help]
+  cat << EOF
+Usage:          pkz [options] <command> <packages>
+                pkz [-h|--help]
 EOF
 }
 
 help() {
   usage
-  cat << EOF 
+  cat << EOF
 Package manager for scripted source-based distribution.
 
 Options:
-  -h, --help		help
-  -f			forced execution
-  -c conf		configuration file [/etc/pkz.conf]
-  -p path		packages directory [/usr/packages]
-  -s path		sources directory [/usr/sources]
-  -a			show all packages (list)
-  -i			show installed packages (list)
-  -n			show not-installed packages (list)
-  -u			show updated packages (list)
-  -l			show source URL of packages (list)
-  -o			include optional dependencies (resolve, provide, depend)
+  -h, --help    help
+  -f            forced execution
+  -c conf       configuration file [/etc/pkz.conf]
+  -p path       packages directory [/usr/packages]
+  -s path       sources directory [/usr/sources]
+  -a            show all packages (list)
+  -i            show installed packages (list)
+  -n            show not-installed packages (list)
+  -u            show updated packages (list)
+  -l            show source URL of packages (list)
+  -o            include optional dependencies (resolve, provide, depend)
 
 Command:
-  clean			delete working directory
-  source		populate source directory
-  build			make binary package
-  install		install binary package
-  remove		uninstall binary package
-  upgrade		upgrade binary package
-  list			show packages
-  provide		show provided packages
-  depend		show dependencies
-  resolve		show unresolved dependencies
+  clean         delete working directory
+  source        populate source directory
+  build         make binary package
+  install       install binary package
+  remove        uninstall binary package
+  upgrade       upgrade binary package
+  list          show packages
+  provide       show provided packages
+  depend        show dependencies
+  resolve       show unresolved dependencies
 
 Packages:
-  <name> [<name> ...]	package name or list of packages
-  inclide <file>	file with list of packages
+  <name> [<name> ...]   package name or list of packages
+  inclide <file>        file with list of packages
 EOF
 }
 
@@ -165,24 +165,24 @@ do_source() {
         else
           if [ -f $zsources/$f ]; then
             ln -sf $zsources/$f $SRC
-  	  else
-	    message -n "fetching $s ..."
-	    ( cd /tmp
-	      rm -f $(basename $s)*
-	        (wget -q -t 3 $s && mv $(basename $s) $zsources/) \
-		  || ( test -n "$use_mirror" && \
-		       ( rm -f $(basename $s)*
-		         ( wget -nv $use_mirror/$(basename $s) \
-			     && mv $(basename $s) $zsources/
-		         )
-		       )
-		     )
-	    ) || error "cannot fetch $(basename $s)"
-	    echo \ done
-	    if [ -f $pkgsum ]; then
-	      grep -qw "$(cd $zsources; md5sum $f)" $pkgsum \
-	        || error "md5sum failed"
-	    fi
+            else
+            message -n "fetching $s ..."
+            ( cd /tmp
+              rm -f $(basename $s)*
+              (wget -q -t 3 $s && mv $(basename $s) $zsources/) \
+                  || ( test -n "$use_mirror" && \
+                       ( rm -f $(basename $s)*
+                         ( wget -nv $use_mirror/$(basename $s) \
+                             && mv $(basename $s) $zsources/
+                         )
+                       )
+                     )
+            ) || error "cannot fetch $(basename $s)"
+            echo \ done
+            if [ -f $pkgsum ]; then
+              grep -qw "$(cd $zsources; md5sum $f)" $pkgsum \
+                || error "md5sum failed"
+            fi
             ln -sf $zsources/$f $SRC
           fi
         fi
@@ -191,22 +191,38 @@ do_source() {
   fi
 }
 
-do_build() { 
+# crux compatibility
+get_filename() {
+  local f
+  f=$(basename $1)
+  if [ $1 = $f ]; then
+    echo $pkgdir/$f
+  else
+    echo $zsources/$f
+  fi
+}
+
+# crux compatibility
+unpack_source() {
+  for s in ${source[*]}; do
+    f=$(basename $s)
+    case $f in
+      *.tar | *.tar.* | *.tbz2 | *.tbz | *.tgz | *.txz)
+        tar --no-same-owner -xf $f || error "corrupt source $f" ;;
+      *.zip | *.ZIP)
+        unzip -q $f ;;
+    esac
+  done
+}
+
+do_build() {
   local f
   mkdir -p $SRC $PKG
   rm -rf $SRC/* $PKG/*
   cd $SRC
   if [ ${#source[*]} -gt 0 ]; then
-    do_source 
-      for s in ${source[*]}; do
-      f=$(basename $s)
-      case $f in 
-        *.tar | *.tar.* | *.tbz2 | *.tbz | *.tgz | *.txz)
-          tar --no-same-owner -xf $f || error "corrupt source $f" ;;
-        *.zip | *.ZIP)
-          unzip -q $f ;;
-      esac
-    done
+    do_source
+    unpack_source
   fi
   test ! -f $pkgdir/pre-install || bash -e $pkgdir/pre-install \
     || error "pre-install failed"
@@ -240,12 +256,12 @@ do_install() {
       test -f $pkgbin -a -f $pkgcont || do_build
       if [ ! $forced_exec = yes ]; then
         cat  $pkgcont    | grep -v "^d" | awk '{print $3}' | sort -u \
-	  > package_files$$
+          > package_files$$
         zcat $zregs/*.gz | grep -v "^d" | awk '{print $3}' | sort -u \
-	  > installed_files$$
+          > installed_files$$
         comm -12 package_files$$ installed_files$$ > conflict_files$$
         test -s conflict_files$$ && cat conflict_files$$ \
-	  && error "package conflict"
+          && error "package conflict"
       fi
       tar tf $pkgbin &> /dev/null || error "corrupt binary"
       tar xf $pkgbin -C $ROOT/ -h || error "installation failed"
@@ -311,11 +327,11 @@ do_upgrade() {
       do_install
       if [ ! $forced_exec = yes ]; then
         mv $oldreg.gz{.bak,}
-	newreg=$pkgreg;   pkgreg=$oldreg
-	newrev=$revision; revision=$oldrev
-	do_remove
-	pkgreg=$newreg
-	revision=$newrev
+        newreg=$pkgreg;   pkgreg=$oldreg
+        newrev=$revision; revision=$oldrev
+        do_remove
+        pkgreg=$newreg
+        revision=$newrev
       else
         rm -f $zregs/$oldreg.gz.bak
       fi
@@ -463,7 +479,7 @@ while true; do
   shift
 done
 
-case $1 in 
+case $1 in
   source | clean | build | install | remove | upgrade \
     | list | provide | depend | resolve) cmd=$1; shift ;;
   *) error "unknown command $1" ;;
@@ -479,7 +495,7 @@ while [ $# -gt 0 ]; do
   pkgfile=$pkgdir/Pkgfile
   test -d $pkgdir || error "no directory $pkgdir"
   test -f $pkgfile || error "no file $pkgfile"
-  source $pkgfile 
+  source $pkgfile
   test "$name" = $1 || error "corrupt $pkgfile"
   revision=$version-$release
   pkgwork=$pkgdir/files
@@ -496,7 +512,14 @@ while [ $# -gt 0 ]; do
   PKGMK_SOURCE_DIR=$SRC
   #PKGMK_WORK_DIR unset (unknown)
 
-  do_$cmd || err=1
+  if [ $cmd = 'list' ]; then
+    do_$cmd || err=1
+  else
+    do_$cmd
+  fi
   shift
 done
-exit $err
+
+if [ $cmd = list -a $list_installed = yes ]; then
+  exit $err
+fi

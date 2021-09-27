@@ -1,0 +1,14 @@
+# Description: MPI for Python
+# Depends on: python3 mpich
+# Optional: python3-cython
+
+name=python3-mpi4py
+version=3.1.1
+release=mix-1
+source=(https://github.com/${name#*-}/${name#*-}/archive/refs/tags/$version.tar.gz)
+
+build() {
+  cd ${name#*-}-$version
+  /usr/bin/python3 setup.py build
+  /usr/bin/python3 setup.py install --root=$PKG --optimize=1 --skip-build
+}

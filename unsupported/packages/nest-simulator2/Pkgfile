@@ -1,0 +1,18 @@
+# Description: neural simulator
+# Depends on: cmake python3 python3-cython python3-numpy gsl
+# Optional: mpich
+
+name=nest-simulator2
+version=2.20.1
+release=mix-1
+source=(http://github.com/nest/nest-simulator/archive/v$version.tar.gz)
+
+build() {
+  cd nest-simulator-$version
+  if which mpirun &>/dev/null; then WITH_MPI=-Dwith-mpi=ON; fi
+  cmake . -DCMAKE_INSTALL_PREFIX=/usr -Dwith-python=3 -DPYTHON_EXECUTABLE=$(which python3) $WITH_MPI
+  make -j ${JOBS:-1}
+  make DESTDIR=$PKG install
+  rm -rv $PKG/usr/share/doc
+}
+

@@ -1,18 +1,24 @@
 # Description: neural simulator
 # Depends on: cmake python3 python3-cython python3-numpy gsl
-# Optional: mpich
+# Optional: mpich boost python3-mpi4py clang
 
 name=nest-simulator
-version=2.20.1
+version=3.1
 release=mix-1
-source=(http://github.com/nest/nest-simulator/archive/v$version.tar.gz)
+source=(http://github.com/nest/nest-simulator/archive/refs/tags/v$version.tar.gz)
 
 build() {
-  cd $name-$version
-  if which mpirun &>/dev/null; then WITH_MPI=-Dwith-mpi=ON; fi
-  cmake . -DCMAKE_INSTALL_PREFIX=/usr -Dwith-python=3 -DPYTHON_EXECUTABLE=$(which python3) $WITH_MPI
-  make -j ${JOBS:-1}
-  make DESTDIR=$PKG install
-  rm -rv $PKG/usr/share/doc
+  test -x /usr/bin/mpiexec && PKGMK_NEST+=' -Dwith-mpi=ON'
+  #test -x /usr/bin/clang && test -x /usr/bin/clang++ \
+  #  && PKGMK_NEST+=' -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++'
+
+  cmake -S $name-$version -B build $PKGMK_NEST \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DPYTHON_EXECUTABLE=/usr/bin/python3 \
+    -DCMAKE_BUILD_TYPE=Release
+  cmake --build build 
+  DESTDIR=$PKG cmake --install build
+  rm -rv $PKG/usr/share/{doc,nest/testsuite}
+  rm -v $PKG/usr/bin/nest_vars.sh
 }
 
