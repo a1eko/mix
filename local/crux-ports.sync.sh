@@ -7,7 +7,7 @@ for p in core opt xorg contrib; do
     rsync -aqz --del crux.nu::ports/crux-$ver/$p/ $p > /dev/null 2>&1 &&
     find $p \( -name COPY* -o -name contrib.pub \) -delete &&
     sed -e 's/pkginfo -i/pkz -i list/g' -e 's/prt-get isinst/pkz -i list/g' -i */*/{Pkgfile,*-install}
-  ) || echo -n [FAIL] ''
+  ) || echo -n FAIL ''
 done
 echo
 if [ -n "$noupdate" ]; then
@@ -20,11 +20,11 @@ if [ -n "$noupdate" ]; then
 fi
 
 if grep -q prt-get */*/Pkgfile */*/*-install; then
-  echo -n beware prt-get: $(grep -lw prt-get */*/Pkgfile */*/*-install | cut -d'/' -f2 | tr '\n' ' ')
+  echo -n warning prt-get: $(grep -lw prt-get */*/Pkgfile */*/*-install | cut -d'/' -f2 | tr '\n' ' ')
   echo
 fi
 
 if grep -q unpack_source */*/Pkgfile; then
-  echo -n beware unpack_source: $(grep -lw unpack_source */*/Pkgfile | cut -d'/' -f2 | tr '\n' ' ')
+  echo -n warning unpack_source: $(grep -lw unpack_source */*/Pkgfile | cut -d'/' -f2 | tr '\n' ' ')
   echo
 fi
