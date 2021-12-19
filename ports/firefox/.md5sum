@@ -1,4 +1,4 @@
 cf6971669f70b440cb6ff8df8b2722ae  firefox.desktop
 9b9d5db862baa47b41e65af1c01af649  mozconfig
-61350e551a90d199ca4a1f93e69092ee  firefox-91.1.0esr.source.tar.xz
-5a35bd2578dc20e1d9b9152a96c5ef1c  firefox-91.1.0esr-disable_rust_test-1.patch
+5a35bd2578dc20e1d9b9152a96c5ef1c  firefox-91.4.0esr-disable_rust_test-1.patch
+c6a45532322045ba54dad4b722a90f80  firefox-91.4.0esr.source.tar.xz

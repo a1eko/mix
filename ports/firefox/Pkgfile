@@ -2,7 +2,7 @@
 # Depends on: autoconf-2.13 cbindgen dbus-glib gtk gtk3 libnotify llvm lld clang nasm nodejs nss alsa-lib python3 startup-notification unzip yasm zip
 
 name=firefox
-version=91.1.0
+version=91.4.0
 release=mix-1
 source=(https://archive.mozilla.org/pub/firefox/releases/${version}esr/source/firefox-${version}esr.source.tar.xz
 	https://www.linuxfromscratch.org/patches/blfs/svn/firefox-${version}esr-disable_rust_test-1.patch
@@ -17,8 +17,10 @@ build() {
 
   export CC=clang CXX=clang++ AR=llvm-ar NM=llvm-nm RANLIB=llvm-ranlib
   export MOZBUILD_STATE_PATH=${PWD}/mozbuild
+  export MACH_USE_SYSTEM_PYTHON=1
+  export MOZ_NOSPAM=1
 
-  ./mach create-mach-environment
+  #./mach create-mach-environment
   ./mach configure
   ./mach build
   MACH_USE_SYSTEM_PYTHON=1 DESTDIR=$PKG ./mach install
