@@ -1,22 +1,22 @@
 # Description: Open Source Computer Vision Library
 # Depends on: cmake ffmpeg gst-plugins-base gtk3 libjpeg-turbo libpng libtiff
+# Optional: lapack openblas eigen3
 
 name=opencv
-version=4.5.3
+version=4.5.5
 release=mix-1
-source=(https://github.com/opencv/opencv/archive/$version/$name-$version.tar.gz
-	https://raw.githubusercontent.com/archlinux/svntogit-packages/packages/opencv/trunk/opencv-lapack-3.10.patch)
+source=(https://github.com/opencv/opencv/archive/$version/$name-$version.tar.gz)
 
 build() {
   cd $name-$version
-  patch -Np1 -i $SRC/opencv-lapack-3.10.patch
-  sed 's/dgeev_(/LAPACK_dgeev(/' -i modules/calib3d/src/usac/{dls,essential}_solver.cpp
 
   mkdir build
   cd build
 
   cmake -DCMAKE_INSTALL_PREFIX=/usr \
     -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_LIBDIR=lib \
+    -DOPENCV_GENERATE_PKGCONFIG=ON \
     -DENABLE_CXX11=ON \
     -DBUILD_PERF_TESTS=OFF \
     -DBUILD_TESTS=OFF \

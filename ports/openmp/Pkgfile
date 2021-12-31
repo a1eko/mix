@@ -2,7 +2,7 @@
 # Depends on:  cmake elfutils libffi ninja
 
 name=openmp
-version=12.0.1
+version=13.0.0
 release=mix-1
 source=(https://github.com/llvm/llvm-project/releases/download/llvmorg-$version/$name-$version.src.tar.xz)
 

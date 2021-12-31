@@ -37,6 +37,7 @@ drwxr-xr-x	root/root	usr/lib64/darktable/plugins/imageio/storage/
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/libbilat.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/libbilateral.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/libbloom.so
+-rwxr-xr-x	root/root	usr/lib64/darktable/plugins/libblurs.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/libborders.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/libcacorrect.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/libcacorrectrgb.so
@@ -62,6 +63,7 @@ drwxr-xr-x	root/root	usr/lib64/darktable/plugins/imageio/storage/
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/libdefringe.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/libdemosaic.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/libdenoiseprofile.so
+-rwxr-xr-x	root/root	usr/lib64/darktable/plugins/libdiffuse.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/libdither.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/libequalizer.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/libexposure.so
@@ -125,6 +127,7 @@ drwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/libexport.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/libfilmstrip.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/libfilter.so
+-rwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/libgamepad.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/libgeotagging.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/libglobal_toolbox.so
 -rwxr-xr-x	root/root	usr/lib64/darktable/plugins/lighttable/libhinter.so
@@ -175,6 +178,7 @@ drwxr-xr-x	root/root	usr/share/darktable/kernels/
 -rw-r--r--	root/root	usr/share/darktable/kernels/bilateral.cl
 -rw-r--r--	root/root	usr/share/darktable/kernels/blendop.cl
 -rw-r--r--	root/root	usr/share/darktable/kernels/bloom.cl
+-rw-r--r--	root/root	usr/share/darktable/kernels/blurs.cl
 -rw-r--r--	root/root	usr/share/darktable/kernels/channelmixer.cl
 -rw-r--r--	root/root	usr/share/darktable/kernels/color_conversion.h
 -rw-r--r--	root/root	usr/share/darktable/kernels/colorreconstruction.cl
@@ -187,6 +191,7 @@ drwxr-xr-x	root/root	usr/share/darktable/kernels/
 -rw-r--r--	root/root	usr/share/darktable/kernels/demosaic_rcd.cl
 -rw-r--r--	root/root	usr/share/darktable/kernels/demosaic_vng.cl
 -rw-r--r--	root/root	usr/share/darktable/kernels/denoiseprofile.cl
+-rw-r--r--	root/root	usr/share/darktable/kernels/diffuse.cl
 -rw-r--r--	root/root	usr/share/darktable/kernels/dwt.cl
 -rw-r--r--	root/root	usr/share/darktable/kernels/extended.cl
 -rw-r--r--	root/root	usr/share/darktable/kernels/filmic.cl
