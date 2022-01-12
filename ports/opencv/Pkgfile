@@ -1,6 +1,6 @@
 # Description: Open Source Computer Vision Library
-# Depends on: cmake ffmpeg gst-plugins-base gtk3 libjpeg-turbo libpng libtiff
-# Optional: lapack openblas eigen3
+# Depends on: cmake eigen3 ffmpeg gst-plugins-base gtk3 libjpeg-turbo libpng libtiff
+# Optional: lapack openblas
 
 name=opencv
 version=4.5.5
