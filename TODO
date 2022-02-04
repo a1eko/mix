@@ -12,3 +12,4 @@ o ports (python3): beware lfs switching to v3.10
 + ports (crux compat): define unpack_source() in pkz, redefine in Pkgfile's
 - ports (linux): beware broken usb3/xhci in v5.10.67+
 - ports (zathura-ps): error loading PS file with ref to libspectre/ghostscript
+- toolchain (glibc): upgrade to v2.35
