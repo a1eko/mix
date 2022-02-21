@@ -1,20 +1,20 @@
 # Description: linker, assembler and other development tools
 name=binutils
-version=2.37
-release=mix-2
+version=2.38
+release=mix-1
 source=(https://ftp.gnu.org/gnu/binutils/binutils-$version.tar.xz
-	https://www.linuxfromscratch.org/patches/lfs/development/binutils-2.37-upstream_fix-1.patch
+	https://www.linuxfromscratch.org/patches/lfs/development/binutils-2.38-lto_fix-1.patch
 )
 
 build() {
   cd $name-$version
 
   # upstream patch
-  patch -Np1 -i ../binutils-2.37-upstream_fix-1.patch
+  patch -Np1 -i ../binutils-2.38-lto_fix-1.patch
 
-  # remove shipped man pages
-  sed -i '63d' etc/texi2pod.pl
-  find -name \*.1 -delete
+  # upstream fix
+  sed -e '/R_386_TLS_LE /i \   || (TYPE) == R_386_TLS_IE \\' \
+    -i ./bfd/elfxx-x86.h
 
   mkdir -v build
   cd build

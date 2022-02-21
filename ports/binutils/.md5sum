@@ -1,2 +1,2 @@
-e78d9ff2976b745a348f4c1f27c77cb1  binutils-2.37.tar.xz
-3518fa864fe8d7ef65be4960f380b03b  binutils-2.37-upstream_fix-1.patch
+3df11b6123d5bbdb0fc83862a003827a  binutils-2.38-lto_fix-1.patch
+6e39cad1bb414add02b5b1169c18fdc5  binutils-2.38.tar.xz

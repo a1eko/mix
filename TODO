@@ -7,10 +7,12 @@ o ports (python3): rebuild with deps in coreopt and graphics
 o ports (filesystem): never upgrade, overwrites /etc/{passwd,groups,shadow}
 o ports: beware lfs linking /{bin,lib*,sbin} to /usr is not compatible with crux <= 3.6.1
 o ports (gcc-fortran): avoided, fortran is enabled in gcc port
-o ports (python3): beware lfs switching to v3.10
 o ports (crux compat): replace 'pkginfo -i' and 'prt-get isinst' with 'pkz -i list'
 o ports (crux compat): define unpack_source() in pkz, redefine in Pkgfile's
 - ports (linux): beware broken usb3/xhci in v5.10.67+
 - ports (zathura-ps): error loading PS file with ref to libspectre/ghostscript
-- toolchain (glibc): upgrade to v2.35
-- toolchain (binutils): upgrade to v2.38 (add zlib to Chap.6 LFS)
+- ports (dcron): consider removing from toolchain as in lfs (but e2fsprogs expects etc/cron.d)
+o toolchain (python3): beware lfs switching to v3.10
++ toolchain (glibc): upgrade to v2.35
++ toolchain (binutils): upgrade to v2.38
+o toolchain (binutils, zlib, install.sh): add zlib as binutils dep to chap.6 lfs (still pending in lfs)

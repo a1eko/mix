@@ -1,7 +1,7 @@
 # Description: programming language and script interpreter
 
 name=python3
-version=3.9.6
+version=3.9.10
 release=0
 source=(https://www.python.org/ftp/python/$version/Python-$version.tar.xz)
 
