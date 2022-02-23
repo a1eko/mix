@@ -15,4 +15,5 @@ o ports (crux compat): define unpack_source() in pkz, redefine in Pkgfile's
 o toolchain (python3): beware lfs switching to v3.10
 + toolchain (glibc): upgrade to v2.35
 + toolchain (binutils): upgrade to v2.38
-o toolchain (binutils, zlib, install.sh): add zlib as binutils dep to chap.6 lfs (still pending in lfs)
++ toolchain (binutils pass2): work around linking to host zlib
+- ports (qt5): try crux version
