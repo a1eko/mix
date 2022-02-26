@@ -17,3 +17,5 @@ o toolchain (python3): beware lfs switching to v3.10
 + toolchain (binutils): upgrade to v2.38
 + toolchain (binutils pass2): work around linking to host zlib
 - ports (qt5): try crux version
+o ports (babl): build error, disable babl-benchmark
+- ports (scite): try out
