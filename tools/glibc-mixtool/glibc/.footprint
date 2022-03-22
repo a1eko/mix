@@ -3,7 +3,6 @@ drwxr-xr-x	build/users	etc/
 drwxr-xr-x	build/users	lib/
 -rwxr-xr-x	build/users	lib/ld-linux-x86-64.so.2
 -rwxr-xr-x	build/users	lib/libBrokenLocale.so.1
--rwxr-xr-x	build/users	lib/libSegFault.so
 -rwxr-xr-x	build/users	lib/libanl.so.1
 -rwxr-xr-x	build/users	lib/libc.so.6
 -rwxr-xr-x	build/users	lib/libc_malloc_debug.so.0
@@ -29,11 +28,11 @@ drwxr-xr-x	build/users	sbin/
 -rwxr-xr-x	build/users	sbin/sln
 drwxr-xr-x	build/users	usr/
 drwxr-xr-x	build/users	usr/bin/
--rwxr-xr-x	build/users	usr/bin/catchsegv
 -rwxr-xr-x	build/users	usr/bin/gencat
 -rwxr-xr-x	build/users	usr/bin/getconf
 -rwxr-xr-x	build/users	usr/bin/getent
 -rwxr-xr-x	build/users	usr/bin/iconv
+lrwxrwxrwx	build/users	usr/bin/ld.so -> ../../lib/ld-linux-x86-64.so.2
 -rwxr-xr-x	build/users	usr/bin/ldd
 -rwxr-xr-x	build/users	usr/bin/locale
 -rwxr-xr-x	build/users	usr/bin/localedef
@@ -63,12 +62,14 @@ drwxr-xr-x	build/users	usr/include/arpa/
 drwxr-xr-x	build/users	usr/include/bits/
 -rw-r--r--	build/users	usr/include/bits/a.out.h
 -rw-r--r--	build/users	usr/include/bits/argp-ldbl.h
+-rw-r--r--	build/users	usr/include/bits/atomic_wide_counter.h
 -rw-r--r--	build/users	usr/include/bits/byteswap.h
 -rw-r--r--	build/users	usr/include/bits/cmathcalls.h
 -rw-r--r--	build/users	usr/include/bits/confname.h
 -rw-r--r--	build/users	usr/include/bits/cpu-set.h
 -rw-r--r--	build/users	usr/include/bits/dirent.h
 -rw-r--r--	build/users	usr/include/bits/dirent_ext.h
+-rw-r--r--	build/users	usr/include/bits/dl_find_object.h
 -rw-r--r--	build/users	usr/include/bits/dlfcn.h
 -rw-r--r--	build/users	usr/include/bits/elfclass.h
 -rw-r--r--	build/users	usr/include/bits/endian.h
@@ -106,6 +107,7 @@ drwxr-xr-x	build/users	usr/include/bits/
 -rw-r--r--	build/users	usr/include/bits/libc-header-start.h
 -rw-r--r--	build/users	usr/include/bits/libm-simd-decl-stubs.h
 -rw-r--r--	build/users	usr/include/bits/link.h
+-rw-r--r--	build/users	usr/include/bits/link_lavcurrent.h
 -rw-r--r--	build/users	usr/include/bits/local_lim.h
 -rw-r--r--	build/users	usr/include/bits/locale.h
 -rw-r--r--	build/users	usr/include/bits/long-double.h
@@ -142,6 +144,7 @@ drwxr-xr-x	build/users	usr/include/bits/platform/
 -rw-r--r--	build/users	usr/include/bits/pthreadtypes.h
 -rw-r--r--	build/users	usr/include/bits/ptrace-shared.h
 -rw-r--r--	build/users	usr/include/bits/resource.h
+-rw-r--r--	build/users	usr/include/bits/rseq.h
 -rw-r--r--	build/users	usr/include/bits/sched.h
 -rw-r--r--	build/users	usr/include/bits/select.h
 -rw-r--r--	build/users	usr/include/bits/select2.h
@@ -467,6 +470,7 @@ drwxr-xr-x	build/users	usr/include/sys/platform/
 -rw-r--r--	build/users	usr/include/sys/reboot.h
 -rw-r--r--	build/users	usr/include/sys/reg.h
 -rw-r--r--	build/users	usr/include/sys/resource.h
+-rw-r--r--	build/users	usr/include/sys/rseq.h
 -rw-r--r--	build/users	usr/include/sys/select.h
 -rw-r--r--	build/users	usr/include/sys/sem.h
 -rw-r--r--	build/users	usr/include/sys/sendfile.h
@@ -795,6 +799,7 @@ drwxr-xr-x	build/users	usr/lib/gconv/gconv-modules.d/
 -rwxr-xr-x	build/users	usr/lib/gconv/libJISX0213.so
 -rwxr-xr-x	build/users	usr/lib/gconv/libKSC.so
 -rw-r--r--	build/users	usr/lib/gcrt1.o
+-rw-r--r--	build/users	usr/lib/grcrt1.o
 -rw-r--r--	build/users	usr/lib/libBrokenLocale.a
 lrwxrwxrwx	build/users	usr/lib/libBrokenLocale.so -> ../../lib/libBrokenLocale.so.1
 -rw-r--r--	build/users	usr/lib/libanl.a
@@ -807,7 +812,7 @@ lrwxrwxrwx	build/users	usr/lib/libc_malloc_debug.so -> ../../lib/libc_malloc_deb
 lrwxrwxrwx	build/users	usr/lib/libcrypt.so -> ../../lib/libcrypt.so.1
 -rw-r--r--	build/users	usr/lib/libdl.a
 -rw-r--r--	build/users	usr/lib/libg.a
--rw-r--r--	build/users	usr/lib/libm-2.34.a
+-rw-r--r--	build/users	usr/lib/libm-2.35.a
 -rw-r--r--	build/users	usr/lib/libm.a
 -rw-r--r--	build/users	usr/lib/libm.so
 -rw-r--r--	build/users	usr/lib/libmcheck.a
@@ -822,6 +827,7 @@ lrwxrwxrwx	build/users	usr/lib/libresolv.so -> ../../lib/libresolv.so.2
 -rw-r--r--	build/users	usr/lib/librt.a
 lrwxrwxrwx	build/users	usr/lib/libthread_db.so -> ../../lib/libthread_db.so.1
 -rw-r--r--	build/users	usr/lib/libutil.a
+-rw-r--r--	build/users	usr/lib/rcrt1.o
 drwxr-xr-x	build/users	usr/libexec/
 drwxr-xr-x	build/users	usr/libexec/getconf/
 hrwxr-xr-x	build/users	usr/libexec/getconf/POSIX_V6_LP64_OFF64 link to ./usr/bin/getconf
@@ -1067,11 +1073,13 @@ drwxr-xr-x	build/users	usr/share/i18n/charmaps/
 -rw-r--r--	build/users	usr/share/i18n/charmaps/VISCII.gz
 -rw-r--r--	build/users	usr/share/i18n/charmaps/WINDOWS-31J.gz
 drwxr-xr-x	build/users	usr/share/i18n/locales/
+-rw-r--r--	build/users	usr/share/i18n/locales/C
 -rw-r--r--	build/users	usr/share/i18n/locales/POSIX
 -rw-r--r--	build/users	usr/share/i18n/locales/aa_DJ
 -rw-r--r--	build/users	usr/share/i18n/locales/aa_ER
 -rw-r--r--	build/users	usr/share/i18n/locales/aa_ER@saaho
 -rw-r--r--	build/users	usr/share/i18n/locales/aa_ET
+-rw-r--r--	build/users	usr/share/i18n/locales/ab_GE
 -rw-r--r--	build/users	usr/share/i18n/locales/af_ZA
 -rw-r--r--	build/users	usr/share/i18n/locales/agr_PE
 -rw-r--r--	build/users	usr/share/i18n/locales/ak_GH

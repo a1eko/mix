@@ -2,7 +2,7 @@ drwxr-xr-x	build/users	usr/
 drwxr-xr-x	build/users	usr/bin/
 lrwxrwxrwx	build/users	usr/bin/awk -> gawk
 -rwxr-xr-x	build/users	usr/bin/gawk
-hrwxr-xr-x	build/users	usr/bin/gawk-5.1.0 link to ./usr/bin/gawk
+hrwxr-xr-x	build/users	usr/bin/gawk-5.1.1 link to ./usr/bin/gawk
 drwxr-xr-x	build/users	usr/include/
 -rw-r--r--	build/users	usr/include/gawkapi.h
 drwxr-xr-x	build/users	usr/lib/
@@ -36,6 +36,7 @@ drwxr-xr-x	build/users	usr/share/awk/
 -rw-r--r--	build/users	usr/share/awk/have_mpfr.awk
 -rw-r--r--	build/users	usr/share/awk/inplace.awk
 -rw-r--r--	build/users	usr/share/awk/intdiv0.awk
+-rw-r--r--	build/users	usr/share/awk/isnumeric.awk
 -rw-r--r--	build/users	usr/share/awk/join.awk
 -rw-r--r--	build/users	usr/share/awk/libintl.awk
 -rw-r--r--	build/users	usr/share/awk/noassign.awk

@@ -4,15 +4,12 @@
 # Depends on:  db gdbm
 
 name=perl
-version=5.34.0
+version=5.34.1
 release=mix-1
-source=(http://www.cpan.org/src/5.0/$name-$version.tar.xz
-	 https://www.linuxfromscratch.org/patches/lfs/development/perl-$version-upstream_fixes-1.patch)
+source=(http://www.cpan.org/src/5.0/$name-$version.tar.xz)
 
 build() {
   cd $name-$version
-
-  patch -Np1 -i ../perl-$version-upstream_fixes-1.patch
 
   export BUILD_ZLIB=False
   export BUILD_BZIP2=0
@@ -44,8 +41,8 @@ build() {
          -iname 'README*' -or \
          -name '*.bs' -or \
          -name '.packlist' -or \
-         -name 'perllocal.pod' | xargs rm
+         -name 'perllocal.pod' | xargs rm -v
     
     find $PKG -depth -empty -exec rmdir {} \;
-    chmod -R +w $PKG
+    #chmod -R +w $PKG
 }

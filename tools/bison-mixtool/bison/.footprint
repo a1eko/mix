@@ -23,6 +23,7 @@ drwxr-xr-x	root/root	usr/share/bison/skeletons/
 -rw-r--r--	root/root	usr/share/bison/skeletons/d.m4
 -rw-r--r--	root/root	usr/share/bison/skeletons/glr.c
 -rw-r--r--	root/root	usr/share/bison/skeletons/glr.cc
+-rw-r--r--	root/root	usr/share/bison/skeletons/glr2.cc
 -rw-r--r--	root/root	usr/share/bison/skeletons/java-skel.m4
 -rw-r--r--	root/root	usr/share/bison/skeletons/java.m4
 -rw-r--r--	root/root	usr/share/bison/skeletons/lalr1.cc

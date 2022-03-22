@@ -22,7 +22,7 @@ build() {
     --disable-werror \
     --enable-64-bit-bfd
   make
-  make DESTDIR=$PKG install -j1
+  make DESTDIR=$PKG install
 
   rm -rv $PKG/usr/share/{info,man}
 }

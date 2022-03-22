@@ -24,7 +24,7 @@ build() {
 
   # ensure installation path for ldconfig and sln (lfs compat)
   #echo "rootsbindir=/usr/sbin" > configparms
-  # crux compat
+  # ensure installation path for ldconfig and sln (crux compat)
   echo "rootsbindir=/sbin" > configparms
 
   ../configure --prefix=/usr \

@@ -147,7 +147,7 @@ build() {
   rm -r $PKG/usr/bin/{tlmgr,man}
   rm -r $PKG/usr/share/texmf-dist/scripts/texlive/tlmgr{,gui}.pl
   find $PKG/usr/share/texmf-dist \
-    -regex '.*/\(COPYING\|README\|AUTHORS\|INSTALL\|ChangeLog\|NEWS\|TODO\|fonts_README.md\|BUGS\).*' \
+    -regex '.*/\(COPYING\|README\|AUTHORS\|INSTALL\|ChangeLog\|NEWS\|TODO\|fonts_README.md\|BUGS\|CREDITS\|HISTORY\).*' \
     -exec rm '{}' \+
   find $PKG/usr/share/texi2html \
     -regex '.*/\(README\|COPYING\).*' \

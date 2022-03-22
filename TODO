@@ -11,11 +11,8 @@ o ports (crux compat): replace 'pkginfo -i' and 'prt-get isinst' with 'pkz -i li
 o ports (crux compat): define unpack_source() in pkz, redefine in Pkgfile's
 - ports (linux): beware broken usb3/xhci in v5.10.67+
 - ports (zathura-ps): error loading PS file with ref to libspectre/ghostscript
-- ports (dcron): consider removing from toolchain as in lfs (but e2fsprogs expects etc/cron.d)
+- ports (dcron): consider removing from toolchain as in lfs (but e2fsprogs expects etc/cron.d; add to install.sh after filesystem)
 o toolchain (python3): beware lfs switching to v3.10
-+ toolchain (glibc): upgrade to v2.35
-+ toolchain (binutils): upgrade to v2.38
-+ toolchain (binutils pass2): work around linking to host zlib
-- ports (qt5): try crux version
 o ports (babl): build error, disable babl-benchmark
-- ports (scite): try out
++ toolchain (libstdc++, gcc pass2): Build libstdc++ in GCC pass 2, and remove the seperate libstdc++ pass 2 
+o tools, ports (perl): watch crux upgrade to v5.34.1

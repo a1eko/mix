@@ -2,6 +2,7 @@
 
 name=gcc
 version=11.2.0
+glibcver=2.35
 release=0pass1
 source=(http://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz
 	http://www.mpfr.org/mpfr-current/mpfr-4.1.0.tar.xz
@@ -28,7 +29,7 @@ build() {
 
   ../configure --prefix=/tools \
     --target=$MIX_TGT \
-    --with-glibc-version=2.11 \
+    --with-glibc-version=$glibcver \
     --with-sysroot=$MIX \
     --with-newlib \
     --without-headers \

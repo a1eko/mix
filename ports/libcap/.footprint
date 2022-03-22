@@ -1,8 +1,6 @@
 drwxr-xr-x	root/root	lib/
 lrwxrwxrwx	root/root	lib/libcap.so.2 -> libcap.so.2.63
 -rwxr-xr-x	root/root	lib/libcap.so.2.63
-drwxr-xr-x	root/root	lib/security/
--rwxr-xr-x	root/root	lib/security/pam_cap.so
 drwxr-xr-x	root/root	sbin/
 -rwxr-xr-x	root/root	sbin/capsh
 -rwxr-xr-x	root/root	sbin/getcap

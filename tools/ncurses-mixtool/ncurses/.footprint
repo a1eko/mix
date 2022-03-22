@@ -35,19 +35,19 @@ lrwxrwxrwx	build/users	usr/include/ncurses.h -> curses.h
 -rw-r--r--	build/users	usr/include/unctrl.h
 drwxr-xr-x	build/users	usr/lib/
 lrwxrwxrwx	build/users	usr/lib/libformw.so -> libformw.so.6
-lrwxrwxrwx	build/users	usr/lib/libformw.so.6 -> libformw.so.6.2
--rwxr-xr-x	build/users	usr/lib/libformw.so.6.2
+lrwxrwxrwx	build/users	usr/lib/libformw.so.6 -> libformw.so.6.3
+-rwxr-xr-x	build/users	usr/lib/libformw.so.6.3
 lrwxrwxrwx	build/users	usr/lib/libmenuw.so -> libmenuw.so.6
-lrwxrwxrwx	build/users	usr/lib/libmenuw.so.6 -> libmenuw.so.6.2
--rwxr-xr-x	build/users	usr/lib/libmenuw.so.6.2
+lrwxrwxrwx	build/users	usr/lib/libmenuw.so.6 -> libmenuw.so.6.3
+-rwxr-xr-x	build/users	usr/lib/libmenuw.so.6.3
 -rw-r--r--	build/users	usr/lib/libncurses++w.a
 -rw-r--r--	build/users	usr/lib/libncurses.so
 lrwxrwxrwx	build/users	usr/lib/libncursesw.so -> libncursesw.so.6
-lrwxrwxrwx	build/users	usr/lib/libncursesw.so.6 -> libncursesw.so.6.2
--rwxr-xr-x	build/users	usr/lib/libncursesw.so.6.2
+lrwxrwxrwx	build/users	usr/lib/libncursesw.so.6 -> libncursesw.so.6.3
+-rwxr-xr-x	build/users	usr/lib/libncursesw.so.6.3
 lrwxrwxrwx	build/users	usr/lib/libpanelw.so -> libpanelw.so.6
-lrwxrwxrwx	build/users	usr/lib/libpanelw.so.6 -> libpanelw.so.6.2
--rwxr-xr-x	build/users	usr/lib/libpanelw.so.6.2
+lrwxrwxrwx	build/users	usr/lib/libpanelw.so.6 -> libpanelw.so.6.3
+-rwxr-xr-x	build/users	usr/lib/libpanelw.so.6.3
 lrwxrwxrwx	build/users	usr/lib/terminfo -> ../share/terminfo
 drwxr-xr-x	build/users	usr/share/
 drwxr-xr-x	build/users	usr/share/tabset/
@@ -139,6 +139,7 @@ hrw-r--r--	build/users	usr/share/terminfo/Q/Q310-vip-H-am link to ./usr/share/te
 hrw-r--r--	build/users	usr/share/terminfo/Q/Q310-vip-w-am link to ./usr/share/terminfo/Q/Q310-vip-w
 drwxr-xr-x	build/users	usr/share/terminfo/X/
 -rw-r--r--	build/users	usr/share/terminfo/X/X-hpterm
+-rw-r--r--	build/users	usr/share/terminfo/X/X-hpterm-color2
 drwxr-xr-x	build/users	usr/share/terminfo/a/
 -rw-r--r--	build/users	usr/share/terminfo/a/a210
 -rw-r--r--	build/users	usr/share/terminfo/a/a80
@@ -191,6 +192,7 @@ hrw-r--r--	build/users	usr/share/terminfo/a/aaa-unk link to ./usr/share/terminfo
 -rw-r--r--	build/users	usr/share/terminfo/a/abm85e
 -rw-r--r--	build/users	usr/share/terminfo/a/abm85h
 -rw-r--r--	build/users	usr/share/terminfo/a/abm85h-old
+-rw-r--r--	build/users	usr/share/terminfo/a/absolute
 -rw-r--r--	build/users	usr/share/terminfo/a/act4
 -rw-r--r--	build/users	usr/share/terminfo/a/act5
 -rw-r--r--	build/users	usr/share/terminfo/a/addrinfo
@@ -284,6 +286,7 @@ hrw-r--r--	build/users	usr/share/terminfo/a/annarbor4080 link to ./usr/share/ter
 -rw-r--r--	build/users	usr/share/terminfo/a/ansi+local1
 -rw-r--r--	build/users	usr/share/terminfo/a/ansi+pp
 -rw-r--r--	build/users	usr/share/terminfo/a/ansi+rca
+-rw-r--r--	build/users	usr/share/terminfo/a/ansi+rca2
 -rw-r--r--	build/users	usr/share/terminfo/a/ansi+rep
 -rw-r--r--	build/users	usr/share/terminfo/a/ansi+sgr
 -rw-r--r--	build/users	usr/share/terminfo/a/ansi+sgrbold
@@ -425,6 +428,8 @@ hrw-r--r--	build/users	usr/share/terminfo/a/att5620 link to ./usr/share/terminfo
 -rw-r--r--	build/users	usr/share/terminfo/a/att605-pc
 -rw-r--r--	build/users	usr/share/terminfo/a/att605-w
 -rw-r--r--	build/users	usr/share/terminfo/a/att610
+-rw-r--r--	build/users	usr/share/terminfo/a/att610+cvis
+-rw-r--r--	build/users	usr/share/terminfo/a/att610+cvis0
 -rw-r--r--	build/users	usr/share/terminfo/a/att610-103k
 -rw-r--r--	build/users	usr/share/terminfo/a/att610-103k-w
 -rw-r--r--	build/users	usr/share/terminfo/a/att610-w
@@ -989,6 +994,9 @@ hrw-r--r--	build/users	usr/share/terminfo/f/f1720a link to ./usr/share/terminfo/
 -rw-r--r--	build/users	usr/share/terminfo/f/fenix
 -rw-r--r--	build/users	usr/share/terminfo/f/fenixw
 hrw-r--r--	build/users	usr/share/terminfo/f/fixterm link to ./usr/share/terminfo/c/cbblit
+-rw-r--r--	build/users	usr/share/terminfo/f/foot
+-rw-r--r--	build/users	usr/share/terminfo/f/foot+base
+-rw-r--r--	build/users	usr/share/terminfo/f/foot-direct
 -rw-r--r--	build/users	usr/share/terminfo/f/fortune
 hrw-r--r--	build/users	usr/share/terminfo/f/fos link to ./usr/share/terminfo/f/fortune
 -rw-r--r--	build/users	usr/share/terminfo/f/fox
@@ -1172,7 +1180,9 @@ hrw-r--r--	build/users	usr/share/terminfo/h/hp70092a link to ./usr/share/terminf
 -rw-r--r--	build/users	usr/share/terminfo/h/hp9837
 -rw-r--r--	build/users	usr/share/terminfo/h/hp9845
 -rw-r--r--	build/users	usr/share/terminfo/h/hp98550
+-rw-r--r--	build/users	usr/share/terminfo/h/hp98550-color
 hrw-r--r--	build/users	usr/share/terminfo/h/hp98550a link to ./usr/share/terminfo/h/hp98550
+hrw-r--r--	build/users	usr/share/terminfo/h/hp98550a-color link to ./usr/share/terminfo/h/hp98550-color
 hrw-r--r--	build/users	usr/share/terminfo/h/hp98720 link to ./usr/share/terminfo/h/hp9837
 hrw-r--r--	build/users	usr/share/terminfo/h/hp98721 link to ./usr/share/terminfo/h/hp9837
 hrw-r--r--	build/users	usr/share/terminfo/h/hpansi link to ./usr/share/terminfo/h/hp700
@@ -1182,6 +1192,9 @@ hrw-r--r--	build/users	usr/share/terminfo/h/hpgeneric link to ./usr/share/termin
 -rw-r--r--	build/users	usr/share/terminfo/h/hpsub
 hrw-r--r--	build/users	usr/share/terminfo/h/hpterm link to ./usr/share/terminfo/X/X-hpterm
 -rw-r--r--	build/users	usr/share/terminfo/h/hpterm-color
+hrw-r--r--	build/users	usr/share/terminfo/h/hpterm-color2 link to ./usr/share/terminfo/X/X-hpterm-color2
+-rw-r--r--	build/users	usr/share/terminfo/h/hterm
+-rw-r--r--	build/users	usr/share/terminfo/h/hterm-256color
 -rw-r--r--	build/users	usr/share/terminfo/h/htx11
 -rw-r--r--	build/users	usr/share/terminfo/h/hurd
 -rw-r--r--	build/users	usr/share/terminfo/h/hz1000
@@ -1259,6 +1272,7 @@ hrw-r--r--	build/users	usr/share/terminfo/i/icl6404 link to ./usr/share/terminfo
 -rw-r--r--	build/users	usr/share/terminfo/i/ims950-b
 -rw-r--r--	build/users	usr/share/terminfo/i/ims950-rv
 -rw-r--r--	build/users	usr/share/terminfo/i/infoton
+-rw-r--r--	build/users	usr/share/terminfo/i/infoton2
 -rw-r--r--	build/users	usr/share/terminfo/i/interix
 -rw-r--r--	build/users	usr/share/terminfo/i/interix-nti
 -rw-r--r--	build/users	usr/share/terminfo/i/intertec
@@ -1329,6 +1343,8 @@ hrw-r--r--	build/users	usr/share/terminfo/l/layer link to ./usr/share/terminfo/a
 hrw-r--r--	build/users	usr/share/terminfo/l/lft link to ./usr/share/terminfo/L/LFT-PC850
 hrw-r--r--	build/users	usr/share/terminfo/l/lft-pc850 link to ./usr/share/terminfo/L/LFT-PC850
 -rw-r--r--	build/users	usr/share/terminfo/l/linux
+-rw-r--r--	build/users	usr/share/terminfo/l/linux+decid
+-rw-r--r--	build/users	usr/share/terminfo/l/linux+sfkeys
 -rw-r--r--	build/users	usr/share/terminfo/l/linux-16color
 -rw-r--r--	build/users	usr/share/terminfo/l/linux-basic
 -rw-r--r--	build/users	usr/share/terminfo/l/linux-c
@@ -1341,6 +1357,7 @@ hrw-r--r--	build/users	usr/share/terminfo/l/lft-pc850 link to ./usr/share/termin
 -rw-r--r--	build/users	usr/share/terminfo/l/linux-m1b
 -rw-r--r--	build/users	usr/share/terminfo/l/linux-m2
 -rw-r--r--	build/users	usr/share/terminfo/l/linux-nic
+-rw-r--r--	build/users	usr/share/terminfo/l/linux-s
 -rw-r--r--	build/users	usr/share/terminfo/l/linux-vt
 -rw-r--r--	build/users	usr/share/terminfo/l/linux2.2
 -rw-r--r--	build/users	usr/share/terminfo/l/linux2.6
@@ -1830,12 +1847,15 @@ hrw-r--r--	build/users	usr/share/terminfo/p/pt505-24 link to ./usr/share/terminf
 -rw-r--r--	build/users	usr/share/terminfo/p/putty+fnkeys+vt100
 -rw-r--r--	build/users	usr/share/terminfo/p/putty+fnkeys+vt400
 -rw-r--r--	build/users	usr/share/terminfo/p/putty+fnkeys+xterm
+-rw-r--r--	build/users	usr/share/terminfo/p/putty+keypad
+-rw-r--r--	build/users	usr/share/terminfo/p/putty+screen
 -rw-r--r--	build/users	usr/share/terminfo/p/putty-256color
 -rw-r--r--	build/users	usr/share/terminfo/p/putty-m1
 -rw-r--r--	build/users	usr/share/terminfo/p/putty-m1b
 -rw-r--r--	build/users	usr/share/terminfo/p/putty-m2
 -rw-r--r--	build/users	usr/share/terminfo/p/putty-noapp
 -rw-r--r--	build/users	usr/share/terminfo/p/putty-sco
+-rw-r--r--	build/users	usr/share/terminfo/p/putty-screen
 -rw-r--r--	build/users	usr/share/terminfo/p/putty-vt100
 drwxr-xr-x	build/users	usr/share/terminfo/q/
 -rw-r--r--	build/users	usr/share/terminfo/q/qansi
@@ -1950,6 +1970,7 @@ hrw-r--r--	build/users	usr/share/terminfo/s/scanset link to ./usr/share/terminfo
 -rw-r--r--	build/users	usr/share/terminfo/s/screen.linux-m1
 -rw-r--r--	build/users	usr/share/terminfo/s/screen.linux-m1b
 -rw-r--r--	build/users	usr/share/terminfo/s/screen.linux-m2
+hrw-r--r--	build/users	usr/share/terminfo/s/screen.linux-s link to ./usr/share/terminfo/s/screen.linux
 -rw-r--r--	build/users	usr/share/terminfo/s/screen.minitel1
 -rw-r--r--	build/users	usr/share/terminfo/s/screen.minitel1-nb
 -rw-r--r--	build/users	usr/share/terminfo/s/screen.minitel12-80
@@ -1979,6 +2000,8 @@ hrw-r--r--	build/users	usr/share/terminfo/s/screen.xterm-xfree86 link to ./usr/s
 -rw-r--r--	build/users	usr/share/terminfo/s/screen5
 -rw-r--r--	build/users	usr/share/terminfo/s/screwpoint
 -rw-r--r--	build/users	usr/share/terminfo/s/scrhp
+-rw-r--r--	build/users	usr/share/terminfo/s/scrt
+hrw-r--r--	build/users	usr/share/terminfo/s/securecrt link to ./usr/share/terminfo/s/scrt
 -rw-r--r--	build/users	usr/share/terminfo/s/sibo
 hrw-r--r--	build/users	usr/share/terminfo/s/simpleterm link to ./usr/share/terminfo/o/old-st
 -rw-r--r--	build/users	usr/share/terminfo/s/simterm
@@ -2104,6 +2127,7 @@ hrw-r--r--	build/users	usr/share/terminfo/t/terminet300 link to ./usr/share/term
 -rw-r--r--	build/users	usr/share/terminfo/t/terminology
 -rw-r--r--	build/users	usr/share/terminfo/t/terminology-0.6.1
 -rw-r--r--	build/users	usr/share/terminfo/t/terminology-1.0.0
+-rw-r--r--	build/users	usr/share/terminfo/t/terminology-1.8.1
 -rw-r--r--	build/users	usr/share/terminfo/t/termite
 hrw-r--r--	build/users	usr/share/terminfo/t/tgtelnet link to ./usr/share/terminfo/p/pilot
 -rw-r--r--	build/users	usr/share/terminfo/t/ti700
@@ -2134,6 +2158,7 @@ hrw-r--r--	build/users	usr/share/terminfo/t/ti916-8 link to ./usr/share/terminfo
 -rw-r--r--	build/users	usr/share/terminfo/t/tkterm
 -rw-r--r--	build/users	usr/share/terminfo/t/tmux
 -rw-r--r--	build/users	usr/share/terminfo/t/tmux-256color
+-rw-r--r--	build/users	usr/share/terminfo/t/tmux-direct
 hrw-r--r--	build/users	usr/share/terminfo/t/tn1200 link to ./usr/share/terminfo/t/terminet
 hrw-r--r--	build/users	usr/share/terminfo/t/tn300 link to ./usr/share/terminfo/t/terminet
 -rw-r--r--	build/users	usr/share/terminfo/t/trs16
@@ -2403,9 +2428,14 @@ hrw-r--r--	build/users	usr/share/terminfo/v/vt200-8bit link to ./usr/share/termi
 -rw-r--r--	build/users	usr/share/terminfo/v/vt200-old
 -rw-r--r--	build/users	usr/share/terminfo/v/vt200-w
 hrw-r--r--	build/users	usr/share/terminfo/v/vt220 link to ./usr/share/terminfo/v/vt200
+-rw-r--r--	build/users	usr/share/terminfo/v/vt220+cvis
+-rw-r--r--	build/users	usr/share/terminfo/v/vt220+cvis8
 -rw-r--r--	build/users	usr/share/terminfo/v/vt220+keypad
+-rw-r--r--	build/users	usr/share/terminfo/v/vt220+pcedit
+-rw-r--r--	build/users	usr/share/terminfo/v/vt220+vtedit
 hrw-r--r--	build/users	usr/share/terminfo/v/vt220-8 link to ./usr/share/terminfo/v/vt200-8
 hrw-r--r--	build/users	usr/share/terminfo/v/vt220-8bit link to ./usr/share/terminfo/v/vt200-8
+-rw-r--r--	build/users	usr/share/terminfo/v/vt220-base
 hrw-r--r--	build/users	usr/share/terminfo/v/vt220-js link to ./usr/share/terminfo/v/vt200-js
 hrw-r--r--	build/users	usr/share/terminfo/v/vt220-nam link to ./usr/share/terminfo/v/v200-nam
 hrw-r--r--	build/users	usr/share/terminfo/v/vt220-old link to ./usr/share/terminfo/v/vt200-old
@@ -2437,6 +2467,8 @@ hrw-r--r--	build/users	usr/share/terminfo/v/vt400-24 link to ./usr/share/terminf
 -rw-r--r--	build/users	usr/share/terminfo/v/vt510pc
 -rw-r--r--	build/users	usr/share/terminfo/v/vt510pcdos
 -rw-r--r--	build/users	usr/share/terminfo/v/vt52
+-rw-r--r--	build/users	usr/share/terminfo/v/vt52+keypad
+-rw-r--r--	build/users	usr/share/terminfo/v/vt52-basic
 -rw-r--r--	build/users	usr/share/terminfo/v/vt520
 -rw-r--r--	build/users	usr/share/terminfo/v/vt520ansi
 -rw-r--r--	build/users	usr/share/terminfo/v/vt525
@@ -2763,19 +2795,26 @@ hrw-r--r--	build/users	usr/share/terminfo/x/xnuppc-m-f2 link to ./usr/share/term
 -rw-r--r--	build/users	usr/share/terminfo/x/xtalk
 -rw-r--r--	build/users	usr/share/terminfo/x/xterm
 -rw-r--r--	build/users	usr/share/terminfo/x/xterm+256color
+-rw-r--r--	build/users	usr/share/terminfo/x/xterm+256color2
 -rw-r--r--	build/users	usr/share/terminfo/x/xterm+256setaf
 -rw-r--r--	build/users	usr/share/terminfo/x/xterm+88color
+-rw-r--r--	build/users	usr/share/terminfo/x/xterm+88color2
 -rw-r--r--	build/users	usr/share/terminfo/x/xterm+alt+title
 -rw-r--r--	build/users	usr/share/terminfo/x/xterm+alt1049
 -rw-r--r--	build/users	usr/share/terminfo/x/xterm+app
 -rw-r--r--	build/users	usr/share/terminfo/x/xterm+direct
+-rw-r--r--	build/users	usr/share/terminfo/x/xterm+direct16
 -rw-r--r--	build/users	usr/share/terminfo/x/xterm+direct2
+-rw-r--r--	build/users	usr/share/terminfo/x/xterm+direct256
 -rw-r--r--	build/users	usr/share/terminfo/x/xterm+edit
 -rw-r--r--	build/users	usr/share/terminfo/x/xterm+indirect
 -rw-r--r--	build/users	usr/share/terminfo/x/xterm+kbs
 -rw-r--r--	build/users	usr/share/terminfo/x/xterm+keypad
+-rw-r--r--	build/users	usr/share/terminfo/x/xterm+meta
 -rw-r--r--	build/users	usr/share/terminfo/x/xterm+noalt
 -rw-r--r--	build/users	usr/share/terminfo/x/xterm+noapp
+-rw-r--r--	build/users	usr/share/terminfo/x/xterm+nofkeys
+-rw-r--r--	build/users	usr/share/terminfo/x/xterm+nopcfkeys
 -rw-r--r--	build/users	usr/share/terminfo/x/xterm+osc104
 -rw-r--r--	build/users	usr/share/terminfo/x/xterm+pc+edit
 -rw-r--r--	build/users	usr/share/terminfo/x/xterm+pcc0
@@ -2795,6 +2834,7 @@ hrw-r--r--	build/users	usr/share/terminfo/x/xnuppc-m-f2 link to ./usr/share/term
 -rw-r--r--	build/users	usr/share/terminfo/x/xterm+sm+1006
 -rw-r--r--	build/users	usr/share/terminfo/x/xterm+titlestack
 -rw-r--r--	build/users	usr/share/terminfo/x/xterm+tmux
+-rw-r--r--	build/users	usr/share/terminfo/x/xterm+tmux2
 -rw-r--r--	build/users	usr/share/terminfo/x/xterm+vt+edit
 -rw-r--r--	build/users	usr/share/terminfo/x/xterm+x10mouse
 -rw-r--r--	build/users	usr/share/terminfo/x/xterm+x11hilite
@@ -2812,7 +2852,9 @@ hrw-r--r--	build/users	usr/share/terminfo/x/xterm-24 link to ./usr/share/terminf
 -rw-r--r--	build/users	usr/share/terminfo/x/xterm-bold
 hrw-r--r--	build/users	usr/share/terminfo/x/xterm-color link to ./usr/share/terminfo/n/nxterm
 -rw-r--r--	build/users	usr/share/terminfo/x/xterm-direct
+-rw-r--r--	build/users	usr/share/terminfo/x/xterm-direct16
 -rw-r--r--	build/users	usr/share/terminfo/x/xterm-direct2
+-rw-r--r--	build/users	usr/share/terminfo/x/xterm-direct256
 -rw-r--r--	build/users	usr/share/terminfo/x/xterm-hp
 -rw-r--r--	build/users	usr/share/terminfo/x/xterm-mono
 -rw-r--r--	build/users	usr/share/terminfo/x/xterm-new

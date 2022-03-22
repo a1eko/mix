@@ -59,7 +59,7 @@ User *build* must be a member of the group *wheel* to be able to execute
 
 Make user *build* the owner of the build sources.
 
-	sudo chown -R build {/usr,/var/log}/sources
+	chown -R build {/usr,/var/log}/sources
 
 Add regular users.
 

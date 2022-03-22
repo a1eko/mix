@@ -1,5 +1,6 @@
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/dejagnu
 -rwxr-xr-x	root/root	usr/bin/runtest
 drwxr-xr-x	root/root	usr/include/
 -rw-r--r--	root/root	usr/include/dejagnu.h
@@ -19,6 +20,7 @@ drwxr-xr-x	root/root	usr/share/dejagnu/baseboards/
 -rw-r--r--	root/root	usr/share/dejagnu/baseboards/fr30-sim.exp
 -rw-r--r--	root/root	usr/share/dejagnu/baseboards/frv-sim.exp
 -rw-r--r--	root/root	usr/share/dejagnu/baseboards/gdbserver-sample.exp
+-rw-r--r--	root/root	usr/share/dejagnu/baseboards/generic-sim.exp
 -rw-r--r--	root/root	usr/share/dejagnu/baseboards/i386-sid.exp
 -rw-r--r--	root/root	usr/share/dejagnu/baseboards/iq2000-sim.exp
 -rw-r--r--	root/root	usr/share/dejagnu/baseboards/jmr3904-sim.exp
@@ -41,11 +43,16 @@ drwxr-xr-x	root/root	usr/share/dejagnu/baseboards/
 -rw-r--r--	root/root	usr/share/dejagnu/baseboards/mmixware-sim.exp
 -rw-r--r--	root/root	usr/share/dejagnu/baseboards/mn10200-sim.exp
 -rw-r--r--	root/root	usr/share/dejagnu/baseboards/mn10300-sim.exp
+-rw-r--r--	root/root	usr/share/dejagnu/baseboards/moxie-sim.exp
 -rw-r--r--	root/root	usr/share/dejagnu/baseboards/msp430-sim.exp
 -rw-r--r--	root/root	usr/share/dejagnu/baseboards/mt-sid.exp
 -rw-r--r--	root/root	usr/share/dejagnu/baseboards/multi-sim.exp
+-rw-r--r--	root/root	usr/share/dejagnu/baseboards/pi.exp
 -rw-r--r--	root/root	usr/share/dejagnu/baseboards/powerpc-sim.exp
 -rw-r--r--	root/root	usr/share/dejagnu/baseboards/powerpcle-sim.exp
+-rw-r--r--	root/root	usr/share/dejagnu/baseboards/pru-sim.exp
+-rw-r--r--	root/root	usr/share/dejagnu/baseboards/qemu.exp
+-rw-r--r--	root/root	usr/share/dejagnu/baseboards/riscv-sim.exp
 -rw-r--r--	root/root	usr/share/dejagnu/baseboards/rx-sim.exp
 -rw-r--r--	root/root	usr/share/dejagnu/baseboards/sh-sid.exp
 -rw-r--r--	root/root	usr/share/dejagnu/baseboards/sh-sim.exp
@@ -61,6 +68,9 @@ drwxr-xr-x	root/root	usr/share/dejagnu/baseboards/
 -rw-r--r--	root/root	usr/share/dejagnu/baseboards/vr4111-sim.exp
 -rw-r--r--	root/root	usr/share/dejagnu/baseboards/vr4300-sim.exp
 -rw-r--r--	root/root	usr/share/dejagnu/baseboards/xtensa-sim.exp
+drwxr-xr-x	root/root	usr/share/dejagnu/commands/
+-rw-r--r--	root/root	usr/share/dejagnu/commands/help.sh
+-rw-r--r--	root/root	usr/share/dejagnu/commands/report-card.awk
 drwxr-xr-x	root/root	usr/share/dejagnu/config/
 -rw-r--r--	root/root	usr/share/dejagnu/config/aarch64-fv8.exp
 -rw-r--r--	root/root	usr/share/dejagnu/config/adb.exp

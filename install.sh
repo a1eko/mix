@@ -146,8 +146,8 @@ $toolsh "
   $MIX/tools/libexec/gcc/$MIX_TGT/*/install-tools/mkheaders
 "
 
-$toolsh "pkz -p $P/gcc-mixtool-libstdcxx-pass1  -f install gcc"
-$toolsh "pkz -p $P/gcc-mixtool-libstdcxx-pass1  clean gcc"
+$toolsh "pkz -p $P/gcc-mixtool-libstdcxx -f install gcc"
+$toolsh "pkz -p $P/gcc-mixtool-libstdcxx clean gcc"
 
 $toolsh "pkz -p $P/m4-mixtool         -f install m4"
 $toolsh "pkz -p $P/ncurses-mixtool    -f install ncurses"
@@ -219,9 +219,6 @@ $chrootsh "
 $chrootsh "mv -v /var/run/* /run/"
 $chrootsh "rmdir /var/run"
 $chrootsh "ln -sfv ../run /var/run"
-
-$chrootsh "pkz -p /usr/packages/gcc-mixtool-libstdcxx-pass2  -f install gcc"
-$chrootsh "pkz -p /usr/packages/gcc-mixtool-libstdcxx-pass2  clean gcc"
 
 $chrootsh "pkz -p /usr/packages/gettext-mixtool    -f install gettext"
 $chrootsh "pkz -p /usr/packages/bison-mixtool      -f install bison"

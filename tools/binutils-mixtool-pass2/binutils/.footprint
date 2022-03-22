@@ -29,10 +29,10 @@ drwxr-xr-x	build/users	usr/include/
 drwxr-xr-x	build/users	usr/lib/
 drwxr-xr-x	build/users	usr/lib/bfd-plugins/
 -rwxr-xr-x	build/users	usr/lib/bfd-plugins/libdep.so
--rwxr-xr-x	build/users	usr/lib/libbfd-2.37.so
+-rwxr-xr-x	build/users	usr/lib/libbfd-2.38.so
 -rw-r--r--	build/users	usr/lib/libbfd.a
 -rwxr-xr-x	build/users	usr/lib/libbfd.la
-lrwxrwxrwx	build/users	usr/lib/libbfd.so -> libbfd-2.37.so
+lrwxrwxrwx	build/users	usr/lib/libbfd.so -> libbfd-2.38.so
 -rw-r--r--	build/users	usr/lib/libctf-nobfd.a
 -rwxr-xr-x	build/users	usr/lib/libctf-nobfd.la
 lrwxrwxrwx	build/users	usr/lib/libctf-nobfd.so -> libctf-nobfd.so.0.0.0
@@ -43,10 +43,10 @@ lrwxrwxrwx	build/users	usr/lib/libctf-nobfd.so.0 -> libctf-nobfd.so.0.0.0
 lrwxrwxrwx	build/users	usr/lib/libctf.so -> libctf.so.0.0.0
 lrwxrwxrwx	build/users	usr/lib/libctf.so.0 -> libctf.so.0.0.0
 -rwxr-xr-x	build/users	usr/lib/libctf.so.0.0.0
--rwxr-xr-x	build/users	usr/lib/libopcodes-2.37.so
+-rwxr-xr-x	build/users	usr/lib/libopcodes-2.38.so
 -rw-r--r--	build/users	usr/lib/libopcodes.a
 -rwxr-xr-x	build/users	usr/lib/libopcodes.la
-lrwxrwxrwx	build/users	usr/lib/libopcodes.so -> libopcodes-2.37.so
+lrwxrwxrwx	build/users	usr/lib/libopcodes.so -> libopcodes-2.38.so
 drwxr-xr-x	build/users	usr/share/
 drwxr-xr-x	build/users	usr/x86_64-mix-linux-gnu/
 drwxr-xr-x	build/users	usr/x86_64-mix-linux-gnu/bin/

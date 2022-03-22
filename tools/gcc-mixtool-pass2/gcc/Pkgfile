@@ -23,17 +23,22 @@ build() {
     ;;
   esac
 
+  # fix an issue causing failure cross-compiling libstdc++
+  sed 's/gnu++17/& -nostdinc++/' \
+      -i libstdc++-v3/src/c++17/Makefile.in
+
+  # override the building rule of libgcc and libstdc++ headers
+  sed '/thread_header =/s/@.*@/gthr-posix.h/' \
+    -i libgcc/Makefile.in libstdc++-v3/include/Makefile.in
+
   mkdir -v build
   cd build
-
-  # create a simlink for posix threads support
-  mkdir -pv $MIX_TGT/libgcc
-  ln -sv ../../../libgcc/gthr-posix.h $MIX_TGT/libgcc/gthr-default.h
 
   ../configure --prefix=/usr \
     --build=$(../config.guess) \
     --host=$MIX_TGT \
-    CC_FOR_TARGET=$MIX_TGT-gcc \
+    --target=$MIX_TGT \
+    LDFLAGS_FOR_TARGET=-L$PWD/$MIX_TGT/libgcc \
     --with-build-sysroot=$MIX \
     --enable-initfini-array \
     --disable-nls \
@@ -44,7 +49,6 @@ build() {
     --disable-libquadmath \
     --disable-libssp \
     --disable-libvtv \
-    --disable-libstdcxx \
     --enable-languages=c,c++
   make
   make DESTDIR=$PKG install
