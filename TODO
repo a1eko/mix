@@ -1,6 +1,6 @@
 - to do, + done, o attention/pending, x ignore
 
-o ports: disable stripping if uneeded or fragile (file .nostrip)
+o ports: disable stripping if unneeded or fragile (file .nostrip)
 o crux (ports): .signature replaces .md5sum (see core/signify)
 o ports (libreoffice*): presentation and spreadsheets depend on avahi at runtime
 o ports (python3): rebuild with deps in coreopt and graphics
