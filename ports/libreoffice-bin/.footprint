@@ -807,6 +807,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/help/media/icon-themes/cmd/32/ar/
 -rw-r--r--	root/root	usr/lib/libreoffice/help/media/icon-themes/cmd/32/dbnewviewsql.svg
 -rw-r--r--	root/root	usr/lib/libreoffice/help/media/icon-themes/cmd/32/dbquerydelete.svg
 -rw-r--r--	root/root	usr/lib/libreoffice/help/media/icon-themes/cmd/32/dbqueryedit.svg
+-rw-r--r--	root/root	usr/lib/libreoffice/help/media/icon-themes/cmd/32/dbqueryopen.svg
 -rw-r--r--	root/root	usr/lib/libreoffice/help/media/icon-themes/cmd/32/dbquerypropertiesdialog.svg
 -rw-r--r--	root/root	usr/lib/libreoffice/help/media/icon-themes/cmd/32/dbqueryrename.svg
 -rw-r--r--	root/root	usr/lib/libreoffice/help/media/icon-themes/cmd/32/dbrelationdesign.svg
@@ -2027,6 +2028,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/help/media/icon-themes/cmd/ko/
 -rw-r--r--	root/root	usr/lib/libreoffice/help/media/icon-themes/cmd/lc_dbnewviewsql.svg
 -rw-r--r--	root/root	usr/lib/libreoffice/help/media/icon-themes/cmd/lc_dbquerydelete.svg
 -rw-r--r--	root/root	usr/lib/libreoffice/help/media/icon-themes/cmd/lc_dbqueryedit.svg
+-rw-r--r--	root/root	usr/lib/libreoffice/help/media/icon-themes/cmd/lc_dbqueryopen.svg
 -rw-r--r--	root/root	usr/lib/libreoffice/help/media/icon-themes/cmd/lc_dbquerypropertiesdialog.svg
 -rw-r--r--	root/root	usr/lib/libreoffice/help/media/icon-themes/cmd/lc_dbqueryrename.svg
 -rw-r--r--	root/root	usr/lib/libreoffice/help/media/icon-themes/cmd/lc_dbrelationdesign.svg
@@ -3913,6 +3915,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/help/media/icon-themes/res/
 -rw-r--r--	root/root	usr/lib/libreoffice/help/media/icon-themes/res/ballred_7.svg
 -rw-r--r--	root/root	usr/lib/libreoffice/help/media/icon-themes/res/basbrk.svg
 -rw-r--r--	root/root	usr/lib/libreoffice/help/media/icon-themes/res/base128.svg
+-rw-r--r--	root/root	usr/lib/libreoffice/help/media/icon-themes/res/base_thumbnail_256.svg
 -rw-r--r--	root/root	usr/lib/libreoffice/help/media/icon-themes/res/basobj2.svg
 -rw-r--r--	root/root	usr/lib/libreoffice/help/media/icon-themes/res/baswatr.svg
 -rw-r--r--	root/root	usr/lib/libreoffice/help/media/icon-themes/res/calc128.svg
