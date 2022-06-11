@@ -16,4 +16,5 @@ o toolchain (python3): beware lfs switching to v3.10
 o ports (babl): build error, disable babl-benchmark
 + toolchain (libstdc++, gcc pass2): Build libstdc++ in GCC pass 2, and remove the seperate libstdc++ pass 2 
 o tools, ports (perl): watch crux upgrade to v5.34.1
+o ports (graphviz): PKGMK_GRAPHVIZ=" --disable-man-pdfs" pkz build graphviz
 - gcc: update to v11.3.0/12.x
