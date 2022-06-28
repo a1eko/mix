@@ -1,18 +1,21 @@
 # Description:  A fully integrated 3D graphics creation suite.
 # URL:          http://blender.org/
 # Packager: 
-# Maintainer:   Lin SiFuh, #crux at irc dot libera dot chat
+# Maintainer:   Lin SiFuh, #crux at libera dot chat
 # Depends on:   boost cmake desktop-file-utils ffmpeg fftw glew glu python3 git openjpeg freetype intel-tbb opus libtheora alsa-lib python3-numpy icu libsdl2
 
 name=blender
-version=2.93.2
+version=2.93.9
 release=mix-1
 source=(https://download.blender.org/source/${name}-${version}.tar.xz
-	blender-openexr3.patch)
+        blender-3.0.1-ffmpeg-5.0.patch
+        blender-3.0.1-openexr.patch
+)
 
 build() {
   cd $name-$version
-  patch -p1 < $SRC/blender-openexr3.patch
+  patch -p1 < $SRC/blender-3.0.1-openexr.patch
+  patch -p1 < $SRC/blender-3.0.1-ffmpeg-5.0.patch
   cd ..
 
   cmake -S "${name}"-"${version}" -B build -G Ninja     \
@@ -36,11 +39,11 @@ build() {
 
   DESTDIR="${PKG}" cmake --install build
 
-  install -Dm755 "${name}"-"${version}"/release/bin/blender-softwaregl \
+  install -Dm755 "${name}"-"${version}"/release/bin/"${name}"-softwaregl \
                  "${PKG}/usr/bin/blender-softwaregl"
 
-  python3 -m compileall "${PKG}"/usr/share/blender
-  python3 -O -m compileall "${PKG}"/usr/share/blender
+  python3 -m compileall "${PKG}"/usr/share/"${name}"
+  python3 -O -m compileall "${PKG}"/usr/share/"${name}"
 
   rm -rf "${PKG}"/usr/share/doc
   find "${PKG}" -name README.md -delete
