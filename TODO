@@ -17,7 +17,8 @@ o ports (babl): build error, disable babl-benchmark
 + toolchain (libstdc++, gcc pass2): Build libstdc++ in GCC pass 2, and remove the seperate libstdc++ pass 2 
 o tools, ports (perl): watch crux upgrade to v5.34.1
 o ports (graphviz): PKGMK_GRAPHVIZ=" --disable-man-pdfs" pkz build graphviz
-- gcc: update to v11.3.0/12.x
+- mix: prep to new release (see Release Notes for CRUX 3.7)
+- gcc: update to v12.x
 - ports (pkz): try using curl instead of wget (reliability issues)
 - toolchain, ports (glibc, rc, ...): set LC_ALL=C.UTF-8 as default (eg, post-install: 'localedef -i POSIX -f UTF-8 C.UTF-8')
 o toolchain, ports (install.sh, rc, ...): consider to replace /var/run with a symlink to /run
