@@ -169,7 +169,6 @@ drwxr-xr-x	root/root	usr/share/man/man1/
 -rw-r--r--	root/root	usr/share/man/man1/gp-display-src.1.gz
 -rw-r--r--	root/root	usr/share/man/man1/gp-display-text.1.gz
 -rw-r--r--	root/root	usr/share/man/man1/gprof.1.gz
--rw-r--r--	root/root	usr/share/man/man1/gprofng.1.gz
 -rw-r--r--	root/root	usr/share/man/man1/ld.1.gz
 -rw-r--r--	root/root	usr/share/man/man1/nm.1.gz
 -rw-r--r--	root/root	usr/share/man/man1/objcopy.1.gz
