@@ -5,7 +5,7 @@
 # Depends on:  cups dbus-glib desktop-file-utils glu gtk krb5 shared-mime-info xorg-libxaw xorg-libxi
 
 name=libreoffice-bin
-version=7.2.7
+version=7.4.0
 release=mix-1
 source=(http://download.documentfoundation.org/libreoffice/stable/$version/rpm/x86_64/LibreOffice_${version}_Linux_x86-64_rpm.tar.gz)
 

@@ -1,7 +1,7 @@
 # Description: Bourne shell compatible command language interpreter
 
 name=bash
-version=5.1.16
+version=5.2
 release=0
 source=(http://ftpmirror.gnu.org/gnu/$name/$name-$version.tar.gz)
 
@@ -9,14 +9,14 @@ build() {
   cd $name-$version
 
   ./configure --prefix=/usr \
+    --exec-prefix= \
     --build=$(support/config.guess) \
     --host=$MIX_TGT \
     --without-bash-malloc
   make
   make DESTDIR=$PKG install
 
-  mkdir -v $PKG/bin
-  mv -v $PKG/usr/bin/bash $PKG/bin/
   ln -sv bash $PKG/bin/sh
   rm -rv $PKG/usr/share/{doc,man,info}
+  rmdir -v $PKG/usr/share
 }

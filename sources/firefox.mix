@@ -1,0 +1,24 @@
+# Firefox
+#
+# NOTE: installs after net.mix
+#
+# Build takes 10h on 4 cores (4GHz)
+#
+# Requires specific version of psutil:
+#       pip3 install psutil==5.8.0
+#
+autoconf-2.13
+cbindgen
+libwebp
+nasm
+nodejs
+startup-notification
+
+libnotify
+lld
+compiler-rt
+clang
+
+icu
+
+firefox

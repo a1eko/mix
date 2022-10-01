@@ -1,25 +1,18 @@
 # Description: linker, assembler and other development tools
 name=binutils
-version=2.38
+version=2.39
 release=mix-1
 source=(https://ftp.gnu.org/gnu/binutils/binutils-$version.tar.xz
-	https://www.linuxfromscratch.org/patches/lfs/development/binutils-2.38-lto_fix-1.patch
 )
 
 build() {
   cd $name-$version
 
-  # upstream patch
-  patch -Np1 -i ../binutils-2.38-lto_fix-1.patch
-
-  # upstream fix
-  sed -e '/R_386_TLS_LE /i \   || (TYPE) == R_386_TLS_IE \\' \
-    -i ./bfd/elfxx-x86.h
-
   mkdir -v build
   cd build
 
   ../configure --prefix=/usr \
+    --sysconfdir=/etc \
     --enable-gold \
     --enable-ld=default \
     --enable-plugins \
@@ -31,5 +24,6 @@ build() {
   $TST make -k check || true
   make tooldir=/usr DESTDIR=$PKG install -j1
   rm -fv $PKG/usr/lib/lib{bfd,ctf,ctf-nobfd,opcodes}.a
+  rm -fv $PKG/usr/share/man/man1/gprofng.1
   rm -rv $PKG/usr/share/info
 }

@@ -1,18 +1,13 @@
 # Description: compiler collection
 
 name=gcc
-version=11.2.0
+version=12.2.0
 release=mix-1
 source=(http://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz)
 
 build()
 {
   cd $name-$version
-
-  # fix an issue breaking libasan.a building with glibc v2.34
-  sed -e '/static.*SIGSTKSZ/d' \
-      -e 's/return kAltStackSize/return SIGSTKSZ * 4/' \
-      -i libsanitizer/sanitizer_common/sanitizer_posix_libcdep.cpp
 
   # change default directory to lib
   case $(uname -m) in
@@ -28,6 +23,8 @@ build()
   ../configure --prefix=/usr \
     LD=ld \
     --enable-languages=c,c++,fortran \
+    --enable-default-pie \
+    --enable-default-ssp \
     --disable-multilib \
     --disable-bootstrap \
     --with-system-zlib
@@ -37,13 +34,11 @@ build()
   $TST ../contrib/test_summary
   make DESTDIR=$PKG install
 
-  # remove unneeded directory
-  rm -rf $PKG/usr/lib/gcc/$(gcc -dumpmachine)/$version/include-fixed/bits/
-
   # fix ownership, if necessary
   chown -v -R root:root \
     $PKG/usr/lib/gcc/*linux-gnu/$version/include{,-fixed}
 
+  # crux compat
   mkdir -v $PKG/lib
   ln -sv ../usr/bin/cpp $PKG/lib/
   ln -sv gcc $PKG/usr/bin/cc

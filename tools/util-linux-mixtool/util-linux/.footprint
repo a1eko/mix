@@ -3,6 +3,7 @@ drwxr-xr-x	root/root	bin/
 -rwxr-xr-x	root/root	bin/findmnt
 -rwxr-xr-x	root/root	bin/kill
 -rwxr-xr-x	root/root	bin/lsblk
+-rwxr-xr-x	root/root	bin/lsfd
 -rwxr-xr-x	root/root	bin/more
 -rwsr-xr-x	root/root	bin/mount
 -rwxr-xr-x	root/root	bin/mountpoint
@@ -40,7 +41,6 @@ drwxr-xr-x	root/root	sbin/
 -rwxr-xr-x	root/root	sbin/mkfs
 -rwxr-xr-x	root/root	sbin/mkswap
 -rwxr-xr-x	root/root	sbin/pivot_root
--rwxr-xr-x	root/root	sbin/raw
 -rwxr-xr-x	root/root	sbin/sfdisk
 -rwxr-xr-x	root/root	sbin/swaplabel
 -rwxr-xr-x	root/root	sbin/swapoff
@@ -158,5 +158,3 @@ drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	var/
 drwxr-xr-x	root/root	var/lib/
 drwxr-xr-x	root/root	var/lib/libuuid/
-drwxr-xr-x	root/root	var/run/
-drwxr-xr-x	root/root	var/run/uuidd/

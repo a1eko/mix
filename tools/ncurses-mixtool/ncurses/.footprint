@@ -40,7 +40,9 @@ lrwxrwxrwx	build/users	usr/lib/libformw.so.6 -> libformw.so.6.3
 lrwxrwxrwx	build/users	usr/lib/libmenuw.so -> libmenuw.so.6
 lrwxrwxrwx	build/users	usr/lib/libmenuw.so.6 -> libmenuw.so.6.3
 -rwxr-xr-x	build/users	usr/lib/libmenuw.so.6.3
--rw-r--r--	build/users	usr/lib/libncurses++w.a
+lrwxrwxrwx	build/users	usr/lib/libncurses++w.so -> libncurses++w.so.6
+lrwxrwxrwx	build/users	usr/lib/libncurses++w.so.6 -> libncurses++w.so.6.3
+-rwxr-xr-x	build/users	usr/lib/libncurses++w.so.6.3
 -rw-r--r--	build/users	usr/lib/libncurses.so
 lrwxrwxrwx	build/users	usr/lib/libncursesw.so -> libncursesw.so.6
 lrwxrwxrwx	build/users	usr/lib/libncursesw.so.6 -> libncursesw.so.6.3

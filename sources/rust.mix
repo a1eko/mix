@@ -1,0 +1,8 @@
+# Rust compiler
+#
+# NOTE: installs after x.mix
+#
+# Build takes 5h on 4 cores (4GHz)
+#
+libssh2
+rust

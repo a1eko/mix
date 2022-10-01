@@ -1,22 +1,22 @@
 # Description:  Versatile media player and encoder/converter
 # URL:          http://www.mplayerhq.hu/
 # Maintainer:   Lin SiFuh, #crux at irc dot libera dot chat
-# Depends on:   expat, freetype, xorg-libxinerama, xorg-libxv, xorg-libxxf86dga, xorg-libxxf86vm, yasm
+# Depends on:   expat, freetype, xorg-libxinerama, xorg-libxv, xorg-libxxf86dga, xorg-libxxf86vm, yasm, libdv
 # Nice to have: libsdl, libjpeg-turbo, libpng, lame, zlib, libogg, libvorbis, cdparanoia, win32-essential-codecs, faac, x264, libdvdnav, libdca
 
 name=mplayer
-version=2021-06-27
+version=2022-08-19
 release=1
-source=(https://raw.githubusercontent.com/SiFuh/yenjie/master/${name}/${name}-${version}.tar.bz2
+source=(https://gitlab.com/SiFuh/yenjie/-/raw/master/${name}/${name}-${version}.tar.bz2
         http://www1.mplayerhq.hu/MPlayer/releases/fonts/font-arial-iso-8859-1.tar.bz2
         mplayer.conf)
 
+# http://www.mplayerhq.hu/MPlayer/releases/mplayer-checkout-snapshot.tar.bz2
 # http://www.mplayerhq.hu/MPlayer/releases/
-# mplayer-export-snapshot.tar.bz2 
 
 build() {
 
-  cd "${name}"-export-"${version}"
+  cd "${name}"-checkout-"${version}"
 
   export CFLAGS="$(echo $CFLAGS | sed -e 's/-O[s0-3]/-O3/') -ffast-math -fomit-frame-pointer -fno-strict-aliasing"
 

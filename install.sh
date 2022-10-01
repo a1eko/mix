@@ -27,15 +27,15 @@ test "$MIX_TST" = no && export TST=:
 
 P=$MIX/usr/packages
 
-BASE1="iana-etc glibc lzip tzdata zlib bzip2 xz zstd file readline m4 \
+BASE1="iana-etc glibc lzip tzdata zlib bzip2 xz zstd readline m4 \
   bc flex tcl expect dejagnu binutils libgmp libmpfr libmpc linux-firmware \
   attr acl libcap linux-pam shadow gcc"
 
 BASE2="pkg-config ncurses sed psmisc gettext bison grep bash libtool gdbm \
-  gperf tar expat inetutils less perl autoconf automake kmod elfutils \
-  libffi openssl python3 coreutils check diffutils gawk findutils groff \
+  gperf tar expat inetutils less perl autoconf automake file openssl kmod elfutils \
+  libffi python3 coreutils check diffutils gawk findutils groff \
   gzip kbd libpipeline make patch man-pages man-db texinfo vim \
-  eudev procps util-linux dcron e2fsprogs sysklogd sysvinit linux-pam sudo rc"
+  eudev procps util-linux e2fsprogs sysklogd sysvinit sudo rc"
 
 BIOS_BOOT="nasm syslinux"
 UEFI_BOOT="libpng freetype libdevmapper grub2 grub2-efi efivar efibootmgr"
@@ -69,7 +69,7 @@ EOF
 sudo chown $USER $MIX
 sudo chown -Rf $USER $MIX/[a-km-z]* $MIX/lib* || true
 
-mkdir -pv $MIX/{bin,etc,lib,sbin,usr,var}
+mkdir -pv $MIX/{bin,etc{,/cron.d},lib,sbin,usr,var}
 case $(uname -m) in
   x86_64)
     mkdir -pv $MIX{,/usr}/lib
@@ -82,11 +82,11 @@ mkdir -pv $MIX/tools
 mkdir -pv $MIX/usr/{packages,sources}
 mkdir -pv $MIX/{tools/bin,var/log/{packages,sources}}
 cp -r sources $MIX/usr/
-rsync -rqz crux.nu::ports/crux-3.6/core/ $MIX/usr/packages
-rsync -rqz crux.nu::ports/crux-3.6/opt/ $MIX/usr/packages
-rsync -rqz crux.nu::ports/crux-3.6/contrib/check $MIX/usr/packages
-rsync -rqz crux.nu::ports/crux-3.6/contrib/tcl $MIX/usr/packages
-rsync -rqz crux.nu::ports/crux-3.6/contrib/lynx $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.7/core/ $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.7/opt/ $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.7/contrib/check $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.7/contrib/tcl $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.7/contrib/lynx $MIX/usr/packages
 cp -r {ports,tools}/* $MIX/usr/packages/
 sed -e 's/pkginfo -i/pkz -i list/g' \
     -e 's/prt-get isinst/pkz -i list/g' \
@@ -216,9 +216,6 @@ $chrootsh "
   chmod -v 664 /var/log/lastlog
   chmod -v 600 /var/log/btmp
 "
-$chrootsh "mv -v /var/run/* /run/"
-$chrootsh "rmdir /var/run"
-$chrootsh "ln -sfv ../run /var/run"
 
 $chrootsh "pkz -p /usr/packages/gettext-mixtool    -f install gettext"
 $chrootsh "pkz -p /usr/packages/bison-mixtool      -f install bison"
@@ -248,6 +245,9 @@ EOF
 
 mkdir -pv $MIX/usr/sources/tools
 sudo mv $MIX/usr/packages/*-mixtool{,-*} $MIX/usr/sources/tools/
+
+sudo rm -r $MIX/tools
+sudo rm -v /tools
 
 cat > /dev/stdout << EOF
 
@@ -313,8 +313,6 @@ $chrootsh "find /usr -depth -name $(uname -m)-mix-linux-gnu\* | xargs rm -rf"
 
 sudo umount -v $MIX/dev{/pts,}
 sudo umount -v $MIX/{sys,proc,run}
-sudo rm -r $MIX/tools
-sudo rm -v /tools
 
 cat > /dev/stdout << EOF
 

@@ -1,7 +1,7 @@
 # Description: compiler collection
 
 name=gcc
-version=11.2.0
+version=12.2.0
 release=0pass2
 source=(http://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz
 	http://www.mpfr.org/mpfr-current/mpfr-4.1.0.tar.xz
@@ -23,10 +23,6 @@ build() {
     ;;
   esac
 
-  # fix an issue causing failure cross-compiling libstdc++
-  sed 's/gnu++17/& -nostdinc++/' \
-      -i libstdc++-v3/src/c++17/Makefile.in
-
   # override the building rule of libgcc and libstdc++ headers
   sed '/thread_header =/s/@.*@/gthr-posix.h/' \
     -i libgcc/Makefile.in libstdc++-v3/include/Makefile.in
@@ -40,7 +36,8 @@ build() {
     --target=$MIX_TGT \
     LDFLAGS_FOR_TARGET=-L$PWD/$MIX_TGT/libgcc \
     --with-build-sysroot=$MIX \
-    --enable-initfini-array \
+    --enable-default-pie \
+    --enable-default-ssp \
     --disable-nls \
     --disable-multilib \
     --disable-decimal-float \

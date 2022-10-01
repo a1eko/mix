@@ -1,7 +1,7 @@
 # Description: data compression utilities
 
 name=xz
-version=5.2.5
+version=5.2.6
 release=0
 source=(http://tukaani.org/xz/xz-$version.tar.xz)
 
@@ -13,5 +13,6 @@ build() {
     --disable-static
   make
   make DESTDIR=$PKG install
+  rm -v $PKG/usr/lib/liblzma.la
   rm -rv $PKG/usr/share/{doc,man}
 }

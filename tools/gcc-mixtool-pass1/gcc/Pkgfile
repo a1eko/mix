@@ -1,8 +1,8 @@
 # Description: compiler collection
 
 name=gcc
-version=11.2.0
-glibcver=2.35
+version=12.2.0
+glibcver=2.36
 release=0pass1
 source=(http://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz
 	http://www.mpfr.org/mpfr-current/mpfr-4.1.0.tar.xz
@@ -33,7 +33,8 @@ build() {
     --with-sysroot=$MIX \
     --with-newlib \
     --without-headers \
-    --enable-initfini-array \
+    --enable-default-pie \
+    --enable-default-ssp \
     --disable-nls \
     --disable-shared \
     --disable-multilib \

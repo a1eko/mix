@@ -6,8 +6,8 @@ System requirements
 
 * MiX is tested on x86_64 architecture.
 
-* The core system is about 3 GB (3.7 GB with sources) and needs 15 GB
-of the disk space to build.
+* The core system is about 3 GB (4.3 GB with sources and tools) and
+needs 15 GB of the disk space to build.
 
 * Host system should be relatively up-to-date. This distribution is
 known to build successfully in a *stable* Debian environment, with GNU

@@ -1,0 +1,64 @@
+# Description: The Rust language with Cargo included.
+# Depends on: curl cmake libssh2 llvm
+
+name=rust
+version=1.64.0
+release=mix-1
+
+source=(https://static.rust-lang.org/dist/${name}c-$version-src.tar.xz)
+
+build() {
+  cd ${name}c-$version-src
+
+  cat <<- EOF > $SRC/config.toml
+[llvm]
+targets = "X86"
+link-shared = true
+
+[build]
+docs = false
+extended = true
+
+[install]
+prefix = "/usr"
+
+[rust]
+channel = "stable"
+rpath = false
+codegen-tests = false
+
+[target.x86_64-unknown-linux-gnu]
+llvm-config = "/usr/bin/llvm-config"
+
+[target.i686-unknown-linux-gnu]
+llvm-config = "/usr/bin/llvm-config"
+EOF
+
+  mkdir "$PKGMK_SOURCE_DIR/rust" || true
+  export CARGO_HOME="$PKGMK_SOURCE_DIR/rust"
+
+  export RUSTFLAGS+="$RUSTFLAGS -C link-args=-lffi"
+
+  /usr/bin/python3 ./x.py build --exclude src/tools/miri --config=$SRC/config.toml -j ${JOBS-1}
+
+  export LIBSSH2_SYS_USE_PKG_CONFIG=1
+  DESTDIR=$PKG /usr/bin/python3 ./x.py --config=$SRC/config.toml install
+
+  [ -e '/usr/bin/zsh' ] || rm -r $PKG/usr/share/zsh
+
+  # cleanup
+  rm -rv $PKG/usr/share/{doc,man}
+  rm -rv $PKG/etc
+  rm -v $PKG/usr/lib/rustlib/{components,manifest-rustc,rust-installer-version,uninstall.sh}
+
+  # Remove analysis data for libs that weren't installed
+  local file lib
+  while read -rd '' file; do
+    lib="${file%.json}.rlib"
+    lib="${lib/\/analysis\///lib/}"
+    if [[ ! -e $lib ]]; then
+      echo "missing '$lib'"
+      rm -v "$file"
+    fi
+  done < <(find "$PKG/usr/lib/rustlib"  -path '*/analysis/*.json' -print0)
+}

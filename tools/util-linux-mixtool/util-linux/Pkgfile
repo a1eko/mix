@@ -1,7 +1,7 @@
 # Description: miscellaneous utility programs
 
 name=util-linux
-version=2.37.4
+version=2.38.1
 release=0
 source=(https://www.kernel.org/pub/linux/utils/$name/v${version:0:4}/$name-$version.tar.xz)
 
@@ -12,15 +12,17 @@ build() {
     ./configure --prefix=/usr \
                 --disable-nls \
                 --disable-asciidoc \
-                --disable-{login,su,sulogin,nologin,runuser} \
+                --disable-{login,su,sulogin,nologin,runuser,raw} \
                 --disable-chfn-chsh \
-                --enable-{write,raw,kill} \
+                --enable-{write,kill} \
                 --without-python
 
     make
     make DESTDIR=$PKG install
 
-    install -d $PKG/{etc,var/{lib/libuuid,run/uuidd}}
+    # FIXME fix /run filesystem elsewhere (also runstatedir=/run above?)
+    #install -d $PKG/{etc,var/{lib/libuuid,run/uuidd}}
+    install -d $PKG/{etc,var/lib/libuuid}
     touch $PKG/etc/adjtime
 
     rm -rv $PKG/usr/share/{doc,bash-completion}

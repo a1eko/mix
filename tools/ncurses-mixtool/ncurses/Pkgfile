@@ -24,6 +24,7 @@ build() {
     --mandir=/usr/share/man \
     --with-manpage-format=normal \
     --with-shared \
+    --with-cxx-shared \
     --without-debug \
     --without-ada \
     --without-normal \
@@ -33,11 +34,7 @@ build() {
   make DESTDIR=$PKG TIC_PATH=$(pwd)/build/progs/tic install
 
   install -d $PKG/lib
-
-  # keep usr/lib as in lfs
   echo "INPUT(-lncursesw)" > $PKG/usr/lib/libncurses.so
-  # crux move libraries to /lib
-  #mv -v $PKG/usr/lib/libncursesw.so.6* $PKG/lib
-  #ln -sfv ../../lib/libncursesw.so.$version $PKG/usr/lib/libncursesw.so
+
   rm -rv $PKG/usr/share/man
 }

@@ -1,5 +1,7 @@
-# linux config.local
+#
+# linux/config.local
 # Lenovo T420
+#
 CONFIG_E1000E=y
 CONFIG_IWLWIFI=m
 CONFIG_IWLDVM=m

@@ -92,7 +92,7 @@ EOF
 error() {
   local err=$?
   test $err -eq 0 && err=1
-  echo pkz error: ${1-'?'}
+  echo ' ' pkz error: ${1-'?'}
   exit $err
 }
 

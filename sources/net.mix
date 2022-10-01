@@ -10,4 +10,4 @@ nspr
 nss
 lftp
 dbus-glib
-#firefox-bin
+firefox

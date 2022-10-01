@@ -1,7 +1,7 @@
 # Description: programming language and script interpreter
 
 name=python3
-version=3.9.11
+version=3.10.7
 release=0
 source=(https://www.python.org/ftp/python/$version/Python-$version.tar.xz)
 
@@ -18,5 +18,6 @@ build() {
     -o -name "NEWS*" \
     -o -name "CREDITS*" \
     -o -name "HISTORY*" \
+    -o -name "LICENSE*" \
     -o -name "TODO*" | xargs rm -v
 }

@@ -1,7 +1,7 @@
 # Description: file type identification utility
 
 name=file
-version=5.41
+version=5.43
 release=0
 source=(ftp://ftp.astron.com/pub/file/file-$version.tar.gz)
 
@@ -20,5 +20,7 @@ build() {
   ./configure --prefix=/usr --host=$MIX_TGT --build=$(./config.guess)
   make FILE_COMPILE=$(pwd)/build/src/file
   make DESTDIR=$PKG install
+
+  rm -v $PKG/usr/lib/libmagic.la
   rm -rv $PKG/usr/share/man
 }

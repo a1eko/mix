@@ -1,7 +1,7 @@
 # Description: linker, assembler and other development tools
 
 name=binutils
-version=2.38
+version=2.39
 release=0pass1
 source=(http://ftp.gnu.org/gnu/binutils/binutils-$version.tar.xz)
 
@@ -15,6 +15,7 @@ build() {
     --with-sysroot=$MIX \
     --target=$MIX_TGT \
     --disable-nls \
+    --enable-gprofng=no \
     --disable-werror
   make
   make DESTDIR=$PKG install

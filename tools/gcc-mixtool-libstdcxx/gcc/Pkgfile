@@ -1,7 +1,7 @@
 # Description: compiler collection
 
 name=gcc
-version=11.2.0
+version=12.2.0
 release=0libstdcxx
 source=(http://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz)
 
@@ -20,4 +20,5 @@ build() {
     --with-gxx-include-dir=/tools/$MIX_TGT/include/c++/$version
   make
   make DESTDIR=$PKG install
+  rm -v $PKG/usr/lib/lib{stdc++,stdc++fs,supc++}.la
 }

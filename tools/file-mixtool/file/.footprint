@@ -4,7 +4,6 @@ drwxr-xr-x	build/users	usr/bin/
 drwxr-xr-x	build/users	usr/include/
 -rw-r--r--	build/users	usr/include/magic.h
 drwxr-xr-x	build/users	usr/lib/
--rwxr-xr-x	build/users	usr/lib/libmagic.la
 lrwxrwxrwx	build/users	usr/lib/libmagic.so -> libmagic.so.1.0.0
 lrwxrwxrwx	build/users	usr/lib/libmagic.so.1 -> libmagic.so.1.0.0
 -rwxr-xr-x	build/users	usr/lib/libmagic.so.1.0.0

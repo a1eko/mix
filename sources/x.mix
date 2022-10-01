@@ -63,6 +63,8 @@ xorg-libpciaccess
 xorg-libxkbfile
 xorg-libxshmfence
 
+xorg-libxcvt
+
 xorg-xcb-util
 xorg-xcb-util-image
 xorg-xcb-util-keysyms
@@ -76,6 +78,10 @@ python3-mako
 
 libglvnd
 llvm
+
+spirv-headers
+spirv-tools
+glslang
 
 libdrm
 libvdpau

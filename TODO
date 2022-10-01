@@ -5,22 +5,21 @@ o crux (ports): .signature replaces .md5sum (see core/signify)
 o ports (libreoffice*): presentation and spreadsheets depend on avahi at runtime
 o ports (python3): rebuild with deps in coreopt and graphics
 o ports (filesystem): never upgrade, overwrites /etc/{passwd,groups,shadow}
-o ports: beware lfs linking /{bin,lib*,sbin} to /usr is not compatible with crux <= 3.6.1
+o ports: beware lfs linking of /{bin,lib*,sbin} to /usr is not compatible with crux
 o ports (gcc-fortran): avoided, fortran is enabled in gcc port
 o ports (crux compat): replace 'pkginfo -i' and 'prt-get isinst' with 'pkz -i list'
-o ports (crux compat): define unpack_source() in pkz, redefine in Pkgfile's
-- ports (linux): beware broken usb3/xhci in v5.10.67+
+o ports (crux compat): define unpack_source() in pkz, redefine in Pkgfile's if needed
 - ports (zathura-ps): error loading PS file with ref to libspectre/ghostscript
-- ports (dcron): consider removing from toolchain as in lfs (but e2fsprogs expects etc/cron.d; add to install.sh after filesystem)
-o toolchain (python3): beware lfs switching to v3.10
++ toolchain (dcron): remove from toolchain (lfs), add /etc/cron.d to filesystem (install.sh)
 o ports (babl): build error, disable babl-benchmark
-+ toolchain (libstdc++, gcc pass2): Build libstdc++ in GCC pass 2, and remove the seperate libstdc++ pass 2 
-o tools, ports (perl): watch crux upgrade to v5.34.1
 o ports (graphviz): PKGMK_GRAPHVIZ=" --disable-man-pdfs" pkz build graphviz
-- mix: prep to new release (see Release Notes for CRUX 3.7)
-- mix (toolchain): gcc v12.x, glibc v2.35 (crux) or v2.36 (lfs)
-- ports (pkz): try using curl instead of wget (reliability issues)
-- toolchain, ports (glibc, rc, ...): set LC_ALL=C.UTF-8 as default (eg, post-install: 'localedef -i POSIX -f UTF-8 C.UTF-8')
-o toolchain, ports (install.sh, rc, ...): consider to replace /var/run with a symlink to /run
-o ports (iptables): consider moving iptables to opt, nftables can translate iptable rules with just a few edge cases (crux compat)
-o ports (libpcre): move libpcre2 to core, try to build at least all core ports with it, libpcre is EOL (crux compat)
+o ports (pkz): concider using curl instead of wget (reliability issues)
++ toolchain, ports (install.sh, rc, ...): replace /var/run with a symlink to /run
+x ports (libpcre): EOL, being replaced with libpcre2 (not in crux yet)
+o toolchain (file): build depends on autoconf, moved to BUILD2 after auto-tools
+o coreopt (cmake, ninja): use local ports (circular dependency in crux)
+o toolchain (pkg-config): retain for base system as in lfs (replacement pkgconf in crux depends on meson and ninja)
+- ports (graphics.mix): build without atk and at-spi2-atk (use at-spi2-core instead)
+- ports (mesa, x.mix): mesa depends on glslang:spirv-{headers,tools}
+- locales (glibc, bashrc): default to C.UTF-8 in glibc postinstall localedef and LC_ALL=C.UTF-8; see also crux locale-gen (glibc)
+- mix release (install.sh, *.mix): sync to crux v3.7

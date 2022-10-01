@@ -120,6 +120,7 @@ drwxr-xr-x	build/users	usr/include/bits/
 -rw-r--r--	build/users	usr/include/bits/mman-map-flags-generic.h
 -rw-r--r--	build/users	usr/include/bits/mman-shared.h
 -rw-r--r--	build/users	usr/include/bits/mman.h
+-rw-r--r--	build/users	usr/include/bits/mman_ext.h
 -rw-r--r--	build/users	usr/include/bits/monetary-ldbl.h
 -rw-r--r--	build/users	usr/include/bits/mqueue.h
 -rw-r--r--	build/users	usr/include/bits/mqueue2.h
@@ -183,6 +184,7 @@ drwxr-xr-x	build/users	usr/include/bits/platform/
 -rw-r--r--	build/users	usr/include/bits/stdint-uintn.h
 -rw-r--r--	build/users	usr/include/bits/stdio-ldbl.h
 -rw-r--r--	build/users	usr/include/bits/stdio.h
+-rw-r--r--	build/users	usr/include/bits/stdio2-decl.h
 -rw-r--r--	build/users	usr/include/bits/stdio2.h
 -rw-r--r--	build/users	usr/include/bits/stdio_lim.h
 -rw-r--r--	build/users	usr/include/bits/stdlib-bsearch.h
@@ -229,6 +231,7 @@ drwxr-xr-x	build/users	usr/include/bits/types/
 -rw-r--r--	build/users	usr/include/bits/types/clockid_t.h
 -rw-r--r--	build/users	usr/include/bits/types/cookie_io_functions_t.h
 -rw-r--r--	build/users	usr/include/bits/types/error_t.h
+-rw-r--r--	build/users	usr/include/bits/types/idtype_t.h
 -rw-r--r--	build/users	usr/include/bits/types/locale_t.h
 -rw-r--r--	build/users	usr/include/bits/types/mbstate_t.h
 -rw-r--r--	build/users	usr/include/bits/types/res_state.h
@@ -456,6 +459,7 @@ drwxr-xr-x	build/users	usr/include/sys/
 -rw-r--r--	build/users	usr/include/sys/pci.h
 -rw-r--r--	build/users	usr/include/sys/perm.h
 -rw-r--r--	build/users	usr/include/sys/personality.h
+-rw-r--r--	build/users	usr/include/sys/pidfd.h
 drwxr-xr-x	build/users	usr/include/sys/platform/
 -rw-r--r--	build/users	usr/include/sys/platform/x86.h
 -rw-r--r--	build/users	usr/include/sys/poll.h
@@ -812,7 +816,7 @@ lrwxrwxrwx	build/users	usr/lib/libc_malloc_debug.so -> ../../lib/libc_malloc_deb
 lrwxrwxrwx	build/users	usr/lib/libcrypt.so -> ../../lib/libcrypt.so.1
 -rw-r--r--	build/users	usr/lib/libdl.a
 -rw-r--r--	build/users	usr/lib/libg.a
--rw-r--r--	build/users	usr/lib/libm-2.35.a
+-rw-r--r--	build/users	usr/lib/libm-2.36.a
 -rw-r--r--	build/users	usr/lib/libm.a
 -rw-r--r--	build/users	usr/lib/libm.so
 -rw-r--r--	build/users	usr/lib/libmcheck.a
@@ -1338,6 +1342,7 @@ drwxr-xr-x	build/users	usr/share/i18n/locales/
 -rw-r--r--	build/users	usr/share/i18n/locales/pt_PT@euro
 -rw-r--r--	build/users	usr/share/i18n/locales/quz_PE
 -rw-r--r--	build/users	usr/share/i18n/locales/raj_IN
+-rw-r--r--	build/users	usr/share/i18n/locales/rif_MA
 -rw-r--r--	build/users	usr/share/i18n/locales/ro_RO
 -rw-r--r--	build/users	usr/share/i18n/locales/ru_RU
 -rw-r--r--	build/users	usr/share/i18n/locales/ru_UA
@@ -1373,6 +1378,7 @@ drwxr-xr-x	build/users	usr/share/i18n/locales/
 -rw-r--r--	build/users	usr/share/i18n/locales/sv_SE
 -rw-r--r--	build/users	usr/share/i18n/locales/sw_KE
 -rw-r--r--	build/users	usr/share/i18n/locales/sw_TZ
+-rw-r--r--	build/users	usr/share/i18n/locales/syr
 -rw-r--r--	build/users	usr/share/i18n/locales/szl_PL
 -rw-r--r--	build/users	usr/share/i18n/locales/ta_IN
 -rw-r--r--	build/users	usr/share/i18n/locales/ta_LK

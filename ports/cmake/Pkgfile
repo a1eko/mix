@@ -1,0 +1,41 @@
+# Description: A cross-platform, open-source make system
+# URL: https://www.cmake.org/
+# Maintainer: CRUX System Team, core-ports at crux dot nu
+# Depends on: curl expat libarchive ncurses
+# Optional: jsoncpp librhash libuv lzlib nghttp2-libs ninja python3-sphinx
+
+name=cmake
+version=3.24.1
+release=1
+source=(https://cmake.org/files/v${version%.*}/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	sed -i Source/CMakeInstallDestinations.cmake \
+		-e 's|share/cmake-${CMake_VERSION_MAJOR}.${CMake_VERSION_MINOR}|share/cmake|'
+
+	pkz -i list ninja && PKGMK_CMAKE+=' --generator=Ninja'
+	pkz -i list jsoncpp && PKGMK_CMAKE+=' --system-jsoncpp' || PKGMK_CMAKE+=' --no-system-jsoncpp'
+	pkz -i list librhash && PKGMK_CMAKE+=' --system-librhash' || PKGMK_CMAKE+=' --no-system-librhash'
+	pkz -i list libuv && PKGMK_CMAKE+=' --system-libuv' || PKGMK_CMAKE+=' --no-system-libuv'
+	pkz -i list lzlib && PKGMK_CMAKE+=' --system-liblzma' || PKGMK_CMAKE+=' --no-system-liblzma'
+	pkz -i list nghttp2-libs && PKGMK_CMAKE+=' --system-nghttp2' || PKGMK_CMAKE+=' --no-system-nghttp2'
+
+	./bootstrap $PKGMK_CMAKE \
+		--prefix=/usr \
+		--system-curl \
+		--system-expat \
+		--system-zlib \
+		--system-bzip2 \
+		--system-libarchive \
+		--system-zstd \
+		--parallel=${JOBS:-1} \
+		$(pkz -i list python3-sphinx >/dev/null && echo --sphinx-man)
+
+	pkz -i list ninja && ninja || make
+	pkz -i list ninja && DESTDIR=$PKG ninja install || make DESTDIR=$PKG install
+	rm -r $PKG/usr/{doc,share/cmake/Help}
+
+	ln -sf $name $PKG/usr/share/$name-${version%.*}
+}

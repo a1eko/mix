@@ -1,6 +1,6 @@
 # Basic graphics tools
 #
-# NOTE: installs after x.mix
+# NOTE: installs after rust.mix
 #
 
 tk
@@ -17,9 +17,11 @@ imlib2
 libtiff
 shared-mime-info
 
-atk
+#atk
+dbus
+at-spi2-core
+
 gdk-pixbuf
-giblib
 hicolor-icon-theme
 lcms2
 
@@ -40,10 +42,9 @@ libgd
 ghostscript
 poppler
 
-at-spi2-core
-at-spi2-atk
+#at-spi2-core
+#at-spi2-atk
 gtk3
-rust-bin
 
 apr
 libcroco
@@ -56,6 +57,5 @@ libexif
 enscript
 exiv2
 gnuplot
-#libwmf
 
 imagemagick

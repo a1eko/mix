@@ -1,5 +1,7 @@
-# linux config.local
-# Dell Precision 5550
+#
+# linux/config.local
+# Dell Precision 5550, linux-5.10.66
+#
 CONFIG_DELL_LAPTOP=y
 CONFIG_DELL_SMBIOS=y
 CONFIG_DELL_SMBIOS_WMI=y

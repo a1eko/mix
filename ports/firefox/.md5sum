@@ -1,4 +1,2 @@
-cf6971669f70b440cb6ff8df8b2722ae  firefox.desktop
-9b9d5db862baa47b41e65af1c01af649  mozconfig
-5a35bd2578dc20e1d9b9152a96c5ef1c  firefox-91.9.0esr-disable_rust_test-1.patch
-afed7dd6b46abc80470d1d1bab2cd471  firefox-91.9.0esr.source.tar.xz
+dd6b04f0972a2256b8e2d66ae6b855e3  firefox-102.2.0esr.source.tar.xz
+fc5c2a4e5d4ef76ef2bb140cb9c584c0  mozconfig

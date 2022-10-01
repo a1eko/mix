@@ -1,6 +1,3 @@
-drwxr-xr-x	root/root	etc/
-drwxr-xr-x	root/root	etc/revdep.d/
--rw-r--r--	root/root	etc/revdep.d/firefox
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
 lrwxrwxrwx	root/root	usr/bin/firefox -> /usr/lib/firefox/firefox
@@ -29,6 +26,7 @@ drwxr-xr-x	root/root	usr/lib/firefox/gmp-clearkey/
 drwxr-xr-x	root/root	usr/lib/firefox/gmp-clearkey/0.1/
 -rwxr-xr-x	root/root	usr/lib/firefox/gmp-clearkey/0.1/libclearkey.so
 -rw-r--r--	root/root	usr/lib/firefox/gmp-clearkey/0.1/manifest.json
+-rwxr-xr-x	root/root	usr/lib/firefox/libipcclientcerts.so
 -rwxr-xr-x	root/root	usr/lib/firefox/liblgpllibs.so
 -rwxr-xr-x	root/root	usr/lib/firefox/libmozavcodec.so
 -rwxr-xr-x	root/root	usr/lib/firefox/libmozavutil.so
@@ -41,7 +39,5 @@ drwxr-xr-x	root/root	usr/lib/firefox/gmp-clearkey/0.1/
 -rw-r--r--	root/root	usr/lib/firefox/platform.ini
 -rwxr-xr-x	root/root	usr/lib/firefox/plugin-container
 drwxr-xr-x	root/root	usr/share/
-drwxr-xr-x	root/root	usr/share/applications/
--rw-r--r--	root/root	usr/share/applications/firefox.desktop
 drwxr-xr-x	root/root	usr/share/pixmaps/
 lrwxrwxrwx	root/root	usr/share/pixmaps/firefox_default48.png -> /usr/lib/firefox/browser/chrome/icons/default/default48.png

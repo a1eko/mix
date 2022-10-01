@@ -6,10 +6,12 @@
 
 ca-certificates
 chrpath
+dcron
 libarchive
 libnl
 lzo
 libpcre
+libpcre2
 pigz
 popt
 start-stop-daemon
@@ -26,13 +28,22 @@ sqlite3
 python3
 python3-setuptools
 python3-pip
+
+curl
+libnsl
+libnghttp2
+libuv
+lzlib
+rhash
+
+cmake
 ninja
+meson
+
 rsync
 
 dbus
 exim
-iptables
-meson
 
 dhcpcd
 iproute2
@@ -52,6 +63,11 @@ time
 wget
 which
 
-cmake
+jansson
+libedit
+libmnl
+libnftnl
+nftables
+iptables
 
 pkz
