@@ -1,14 +1,16 @@
 # Description: Open Source Computer Vision Library
-# Depends on: cmake eigen3 ffmpeg gst-plugins-base gtk3 libjpeg-turbo libpng libtiff
+# Depends on: cmake eigen ffmpeg gst-plugins-base gtk3 libjpeg-turbo libpng libtiff
 # Optional: lapack openblas
 
 name=opencv
-version=4.5.5
+version=4.6.0
 release=mix-1
-source=(https://github.com/opencv/opencv/archive/$version/$name-$version.tar.gz)
+source=(https://github.com/opencv/opencv/archive/$version/$name-$version.tar.gz
+        https://github.com/opencv/opencv/commit/496eed95.patch)
 
 build() {
   cd $name-$version
+  patch -Np1 -i ../496eed95.patch
 
   mkdir build
   cd build
@@ -25,7 +27,8 @@ build() {
     -DBUILD_WITH_DEBUG_INFO=OFF \
     -Wno-dev  ..
 
-  make -j ${JOBS-1}
+  make
   make DESTDIR=$PKG install
   rm -rv $PKG/usr/share/licenses
+  rm -v $PKG/usr/bin/setup_vars_opencv4.sh
 }

@@ -2,7 +2,7 @@
 # Depends on: lzlib
 
 name=plzip
-version=1.9
+version=1.10
 release=mix-1
 source=(http://download.savannah.gnu.org/releases/lzip/$name/$name-$version.tar.gz)
 

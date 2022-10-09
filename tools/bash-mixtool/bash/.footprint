@@ -5,13 +5,16 @@ lrwxrwxrwx	build/users	bin/sh -> bash
 drwxr-xr-x	build/users	lib/
 drwxr-xr-x	build/users	lib/bash/
 -rw-r--r--	build/users	lib/bash/Makefile.inc
+-rw-r--r--	build/users	lib/bash/Makefile.sample
 -rwxr-xr-x	build/users	lib/bash/accept
 -rwxr-xr-x	build/users	lib/bash/basename
 -rwxr-xr-x	build/users	lib/bash/csv
 -rwxr-xr-x	build/users	lib/bash/cut
 -rwxr-xr-x	build/users	lib/bash/dirname
+-rwxr-xr-x	build/users	lib/bash/dsv
 -rwxr-xr-x	build/users	lib/bash/fdflags
 -rwxr-xr-x	build/users	lib/bash/finfo
+-rwxr-xr-x	build/users	lib/bash/getconf
 -rwxr-xr-x	build/users	lib/bash/head
 -rwxr-xr-x	build/users	lib/bash/id
 -rwxr-xr-x	build/users	lib/bash/ln
@@ -31,6 +34,7 @@ drwxr-xr-x	build/users	lib/bash/
 -rwxr-xr-x	build/users	lib/bash/seq
 -rwxr-xr-x	build/users	lib/bash/setpgid
 -rwxr-xr-x	build/users	lib/bash/sleep
+-rwxr-xr-x	build/users	lib/bash/stat
 -rwxr-xr-x	build/users	lib/bash/strftime
 -rwxr-xr-x	build/users	lib/bash/sync
 -rwxr-xr-x	build/users	lib/bash/tee
@@ -65,6 +69,7 @@ drwxr-xr-x	build/users	usr/include/bash/builtins/
 -rw-r--r--	build/users	usr/include/bash/conftypes.h
 -rw-r--r--	build/users	usr/include/bash/dispose_cmd.h
 -rw-r--r--	build/users	usr/include/bash/error.h
+-rw-r--r--	build/users	usr/include/bash/execute_cmd.h
 -rw-r--r--	build/users	usr/include/bash/externs.h
 -rw-r--r--	build/users	usr/include/bash/general.h
 -rw-r--r--	build/users	usr/include/bash/hashlib.h

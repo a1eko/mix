@@ -2,7 +2,7 @@
 # Depends on: gtk3 glib pango check intltool json-c meson ninja
 
 name=girara
-version=0.3.6
+version=0.3.7
 release=mix-1
 
 source=(https://pwmt.org/projects/$name/download/$name-$version.tar.xz)

@@ -3,14 +3,12 @@
 
 name=dwm
 version=6.3
-release=1
+release=mix-1
 source=(https://dl.suckless.org/dwm/$name-$version.tar.gz)
 
 build () {
   cd $name-$version
-  if [ -f $PKGMK_ROOT/config.h ]; then
-	  cp $PKGMK_ROOT/config.h .
-  fi
+  [ -f $PKGMK_ROOT/config.h ] && cp -v $PKGMK_ROOT/config.h .
   make
   make DESTDIR=$PKG PREFIX=/usr MANPREFIX=/usr/man install
 }

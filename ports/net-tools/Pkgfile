@@ -11,9 +11,10 @@ build() {
   export BINDIR='/usr/bin' SBINDIR='/usr/bin'
   yes "" | make -j1
   make DESTDIR=$PKG -j1 install
- chown -R root:root $PKG
- rm -v $PKG/usr/bin/{nis,yp}domainname
- rm -v $PKG/usr/bin/{hostname,dnsdomainname,domainname,ifconfig}
- rm -rv $PKG/usr/share/man/man1
- rm -v $PKG/usr/share/man/man8/ifconfig.8
+  chown -R root:root $PKG
+
+  rm -v $PKG/usr/bin/{nis,yp}domainname
+  rm -v $PKG/usr/bin/{hostname,dnsdomainname,domainname,ifconfig}
+  rm -rv $PKG/usr/share/man/man1
+  rm -v $PKG/usr/share/man/man8/ifconfig.8
 }

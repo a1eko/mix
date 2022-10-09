@@ -4,17 +4,17 @@
 # Depends on:
 
 name=exiftool
-version=12.29
+version=12.46
 release=1
 source=(https://exiftool.org/Image-ExifTool-$version.tar.gz)
 
 build() {
-	cd Image-ExifTool-$version
-	perl Makefile.PL
-	make OPTIMIZE="${CFLAGS}"
-	make DESTDIR=${PKG} install
-	rm $PKG/usr/lib/perl5/site_perl/5.??/Image/ExifTool/README
-	find $PKG -name "perllocal.pod" -delete
-	find $PKG -name ".packlist" -delete
-	find $PKG -depth -type d -empty -delete
+        cd Image-ExifTool-$version
+        perl Makefile.PL
+        make OPTIMIZE="${CFLAGS}"
+        make DESTDIR=${PKG} install
+        rm $PKG/usr/lib/perl5/site_perl/5.??/Image/ExifTool/README
+        find $PKG -name "perllocal.pod" -delete
+        find $PKG -name ".packlist" -delete
+        find $PKG -depth -type d -empty -delete
 }

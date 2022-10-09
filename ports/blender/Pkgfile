@@ -1,52 +1,29 @@
-# Description:  A fully integrated 3D graphics creation suite.
-# URL:          http://blender.org/
-# Packager: 
-# Maintainer:   Lin SiFuh, #crux at libera dot chat
-# Depends on:   boost cmake desktop-file-utils ffmpeg fftw glew glu python3 git openjpeg freetype intel-tbb opus libtheora alsa-lib python3-numpy icu libsdl2
+# Description: A fully integrated 3D graphics creation suite
+# Depends on: boost cmake desktop-file-utils ffmpeg fftw freetype hicolor-icon-theme intel-tbb libpng libsdl2 libsndfile libtiff mesa ninja openexr openimageio openjpeg2 potrace python3-numpy python3-requests shared-mime-info
 
 name=blender
-version=2.93.9
+version=3.3.1
 release=mix-1
-source=(https://download.blender.org/source/${name}-${version}.tar.xz
-        blender-3.0.1-ffmpeg-5.0.patch
-        blender-3.0.1-openexr.patch
-)
+source=(https://download.blender.org/source/$name-$version.tar.xz)
 
 build() {
-  cd $name-$version
-  patch -p1 < $SRC/blender-3.0.1-openexr.patch
-  patch -p1 < $SRC/blender-3.0.1-ffmpeg-5.0.patch
-  cd ..
-
-  cmake -S "${name}"-"${version}" -B build -G Ninja     \
-        -D WITH_CYCLES=OFF                              \
-        -D PYTHON_VERSION=3.9                           \
-        -D WITH_CYCLES_EMBREE=OFF                       \
-        -D WITH_INTERNATIONAL=OFF                       \
-        -D WITH_PYTHON_INSTALL=OFF                      \
-        -D PYTHON_LIBPATH=/usr/lib                      \
-        -D CMAKE_BUILD_TYPE=Release                     \
-        -D PYTHON_LIBRARY=python3.9                     \
-        -D WITH_DOC_MANPAGE=ON                          \
-        -D CMAKE_INSTALL_PREFIX=/usr                    \
-        -D WITH_INSTALL_PORTABLE=OFF                    \
-        -D OPTIX_ROOT_DIR="${SRC}"/include              \
-        -D CMAKE_C_FLAGS_RELEASE="$CFLAGS -DNDEBUG"     \
-        -D PYTHON_INCLUDE_DIRS=/usr/include/python3.9   \
-        -D CMAKE_CXX_FLAGS_RELEASE="$CXXFLAGS -DNDEBUG"
-
+  cmake -S $name-$version -B build -G Ninja \
+    -D CMAKE_INSTALL_PREFIX=/usr \
+    -D WITH_INTERNATIONAL=OFF \
+    -D WITH_PYTHON_INSTALL=OFF \
+    -D WITH_INSTALL_PORTABLE=OFF \
+    -D WITH_CYCLES_EMBREE=OFF \
+    -D CMAKE_BUILD_TYPE=Release
   cmake --build build
+  DESTDIR=$PKG cmake --install build
 
-  DESTDIR="${PKG}" cmake --install build
+  install -Dm 755 $name-$version/release/bin/$name-softwaregl \
+    $PKG/usr/bin/blender-softwaregl
 
-  install -Dm755 "${name}"-"${version}"/release/bin/"${name}"-softwaregl \
-                 "${PKG}/usr/bin/blender-softwaregl"
+  python3 -m compileall $PKG/usr/share/$name
+  python3 -O -m compileall $PKG/usr/share/$name
 
-  python3 -m compileall "${PKG}"/usr/share/"${name}"
-  python3 -O -m compileall "${PKG}"/usr/share/"${name}"
-
-  rm -rf "${PKG}"/usr/share/doc
-  find "${PKG}" -name README.md -delete
-  find "${PKG}" -name CHANGELOG.md -delete
-
+  rm -rv $PKG/usr/share/doc
+  find $PKG -name README.md -delete
+  find $PKG -name CHANGELOG.md -delete
 }

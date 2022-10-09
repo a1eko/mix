@@ -1,0 +1,19 @@
+# Description: A lightweight header-only library that exposes C++ types in Python and vice versa
+# Depends on: boost cmake eigen python3-setuptools
+
+name=python3-pybind11
+version=2.10.0
+release=mix-1
+source=(https://github.com/pybind/pybind11/archive/v$version/pybind11-$version.tar.gz)
+
+build() {
+  cd pybind11-$version
+  python3 setup.py install --root=$PKG
+
+  _pyver=$(python3 -c 'import sys; print("%s.%s" %sys.version_info[0:2])')
+  install -v -d -m755 $PKG/usr/{include,lib/cmake}
+  ln -sv ../lib/python${_pyver}/site-packages/pybind11/include/pybind11 \
+    $PKG/usr/include/pybind11
+  ln -sv ../../lib/python${_pyver}/site-packages/pybind11/share/cmake/pybind11 \
+    $PKG/usr/lib/cmake/pybind11
+}

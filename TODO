@@ -13,7 +13,7 @@ o ports (crux compat): define unpack_source() in pkz, redefine in Pkgfile's if n
 + toolchain (dcron): remove from toolchain (lfs), add /etc/cron.d to filesystem (install.sh)
 o ports (babl): build error, disable babl-benchmark
 o ports (graphviz): PKGMK_GRAPHVIZ=" --disable-man-pdfs" pkz build graphviz
-o ports (pkz): concider using curl instead of wget (reliability issues)
+o ports (pkz): concider using curl or wget2 instead of wget (reliability issues)
 + toolchain, ports (install.sh, rc, ...): replace /var/run with a symlink to /run
 x ports (libpcre): EOL, being replaced with libpcre2 (not in crux yet)
 o toolchain (file): build depends on autoconf, moved to BUILD2 after auto-tools
@@ -21,5 +21,10 @@ o coreopt (cmake, ninja): use local ports (circular dependency in crux)
 o toolchain (pkg-config): retain for base system as in lfs (replacement pkgconf in crux depends on meson and ninja)
 - ports (graphics.mix): build without atk and at-spi2-atk (use at-spi2-core instead)
 - ports (mesa, x.mix): mesa depends on glslang:spirv-{headers,tools}
-- locales (glibc, bashrc): default to C.UTF-8 in glibc postinstall localedef and LC_ALL=C.UTF-8; see also crux locale-gen (glibc)
+- locales (glibc, bashrc): default to C.UTF-8 in glibc postinstall localedef and LC_ALL=C.UTF-8; see also crux locale-gen (glibc); but lsblk listing broken
 - mix release (install.sh, *.mix): sync to crux v3.7
+- ports (cmake, ninja, meson): consider adding to tools/base system, use crux ports afterwards
+- strip: warning "plugin needed to handle lto object"
+- tools, ports (linux{,-headers}): upgrade to latest LTS v5.15.x
+- ports (Pkgfile): simplify scripts, don't search for READMEs etc.
+- bpytop (user): replace with btop (see archlinux)

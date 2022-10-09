@@ -18,6 +18,8 @@ build() {
     -DCMAKE_BUILD_TYPE=Release
   cmake --build build 
   DESTDIR=$PKG cmake --install build
+
+  find $PKG -name *README* -o -name *LICENSE* -o -name *COPY* | xargs rm -v
   rm -rv $PKG/usr/share/{doc,nest/testsuite}
   rm -v $PKG/usr/bin/nest_vars.sh
 }

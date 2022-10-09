@@ -2,7 +2,7 @@
 #
 # NOTE: installs after x.mix
 #
-# Build takes 5h on 4 cores (4GHz)
+# Build takes 7.5 hours on 4-core 4 GHz processor
 #
 libssh2
 rust

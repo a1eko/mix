@@ -7,12 +7,9 @@ source=(http://ftp.gnu.org/gnu/dejagnu/dejagnu-$version.tar.gz)
 
 build() {
   cd $name-$version
-
   mkdir -v build
   cd build
-
   ../configure --prefix=/usr
   make DESTDIR=$PKG install
   rm -rv $PKG/usr/share/{info,man}
-  find $PKG -name README -delete
 }

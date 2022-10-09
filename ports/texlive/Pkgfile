@@ -1,31 +1,31 @@
 # Description: TeX distribution for UNIX compatible systems, including luatex and xindy support
 # URL: https://www.tug.org/tetex/
 # Maintainer: Tim Biermann, tbier at posteo dot de
-# Depends on: clisp ghostscript graphite2 harfbuzz-icu libgd libmpfr libpaper poppler xorg-libxaw xorg-libxi zziplib
+# Depends on: clisp ghostscript graphite2 harfbuzz icu libgd libmpfr paper poppler xorg-libxaw xorg-libxi zziplib
 
 name=texlive
-version=20210325
+version=20220321
 release=mix-1
 source=(ftp://tug.org/historic/systems/texlive/${version:0:4}/$name-$version-texmf.tar.xz
   ftp://tug.org/historic/systems/texlive/${version:0:4}/$name-$version-source.tar.xz
   https://download.savannah.gnu.org/releases/texi2html/texi2html-5.0.tar.bz2
   tabu.sty.diff)
 
-unpack_source() {  # not executed by pkz, ignored
-  for file in ${source[@]}; do
-    case ${file##*/} in
-      $name-$version-source.tar.xz)
-        bsdtar -p -o -C $SRC -xf $(get_filename $file) ;;
-      $name-$version-texmf.tar.xz)
-        mkdir -p $PKG/usr/share
-        bsdtar -p -o -C $PKG/usr/share -xf $(get_filename $file) --strip-components 1 ;;
-      texi2html-5.0.tar.bz2)
-        bsdtar -p -o -C $SRC -xf $(get_filename $file) ;;
-      *)
-        cp $(get_filename $file) $SRC ;;
-    esac
-  done
-}
+#unpack_source() {
+#  for file in ${source[@]}; do
+#    case ${file##*/} in
+#      $name-$version-source.tar.xz)
+#        bsdtar -p -o -C $SRC -xf $(get_filename $file) ;;
+#      $name-$version-texmf.tar.xz)
+#        mkdir -p $PKG/usr/share
+#        bsdtar -p -o -C $PKG/usr/share -xf $(get_filename $file) --strip-components 1 ;;
+#      texi2html-5.0.tar.bz2)
+#        bsdtar -p -o -C $SRC -xf $(get_filename $file) ;;
+#      *)
+#        cp $(get_filename $file) $SRC ;;
+#    esac
+#  done
+#}
 
 build() {
   mkdir -pv $PKG/usr/share
@@ -33,7 +33,6 @@ build() {
 
   # remove broken symlinks
   find $SRC -type l -xtype l -exec rm '{}' \+
-  find $PKG -type l -xtype l -exec rm '{}' \+
 
   # make ConTeXt work, and remove unused settings
   sed -i \
@@ -68,7 +67,7 @@ build() {
   cd build
   ../configure \
     --prefix=/usr \
-    --with-banner-add=" $(crux)" \
+    --with-banner-add=" MiX" \
     --with-clisp-runtime=system \
     --enable-{dvipdfm-x,gc=system,libtool-hack,luatex,pdftex,pdftex-syncex,shared,makeindexk,tex,texlive,tex-synctex,web2c,xindy} \
     --with-system-{cairo,freetype2,gd,graphite2,gmp,harfbuzz,icu,libpaper,libpng,mpfr,ncurses,pixman,poppler,potrace,t1lib,zlib,zziplib} \
@@ -147,7 +146,7 @@ build() {
   rm -r $PKG/usr/bin/{tlmgr,man}
   rm -r $PKG/usr/share/texmf-dist/scripts/texlive/tlmgr{,gui}.pl
   find $PKG/usr/share/texmf-dist \
-    -regex '.*/\(COPYING\|README\|AUTHORS\|INSTALL\|ChangeLog\|NEWS\|TODO\|fonts_README.md\|BUGS\|CREDITS\|HISTORY\).*' \
+    -regex '.*/\(COPYING\|README\|AUTHORS\|INSTALL\|ChangeLog\|NEWS\|TODO\|fonts_README.md\|BUGS\|CREDITS\|HISTORY\|LICEN\).*' \
     -exec rm '{}' \+
   find $PKG/usr/share/texi2html \
     -regex '.*/\(README\|COPYING\).*' \

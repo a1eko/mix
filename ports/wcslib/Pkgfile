@@ -2,13 +2,13 @@
 # Depends on: cfitsio gcc-fortran
 
 name=wcslib
-version=7.7
+version=7.12
 release=mix-1
 source=(ftp://ftp.atnf.csiro.au/pub/software/$name/$name-$version.tar.bz2)
 
 build() {
   cd $name-$version
-
+  export CFLAGS+=" -ffat-lto-objects"
   ./configure --prefix=/usr --without-pgplot
   make
   make DESTDIR=$PKG install

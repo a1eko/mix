@@ -1,0 +1,12 @@
+# Description: A monitor of system resources, bpytop ported to C++
+
+name=btop
+version=1.2.12
+source=(https://github.com/aristocratos/$name/archive/v$version/$name-$version.tar.gz)
+
+build() {
+  cd $name-$version
+  make all
+  make DESTDIR=$PKG PREFIX=/usr install
+  rm -v $PKG/usr/share/btop/README.md
+}

@@ -14,27 +14,27 @@ lrwxrwxrwx	root/root	usr/bin/mpirun -> mpiexec.hydra
 -rwxr-xr-x	root/root	usr/bin/parkill
 drwxr-xr-x	root/root	usr/include/
 -rw-r--r--	root/root	usr/include/mpi.h
+-rw-r--r--	root/root	usr/include/mpi_proto.h
 -rw-r--r--	root/root	usr/include/mpicxx.h
 -rw-r--r--	root/root	usr/include/mpio.h
 -rw-r--r--	root/root	usr/include/mpiof.h
 drwxr-xr-x	root/root	usr/lib/
 -rw-r--r--	root/root	usr/lib/libmpi.a
 -rwxr-xr-x	root/root	usr/lib/libmpi.la
-lrwxrwxrwx	root/root	usr/lib/libmpi.so -> libmpi.so.12.1.11
-lrwxrwxrwx	root/root	usr/lib/libmpi.so.12 -> libmpi.so.12.1.11
--rwxr-xr-x	root/root	usr/lib/libmpi.so.12.1.11
+lrwxrwxrwx	root/root	usr/lib/libmpi.so -> libmpi.so.12.2.2
+lrwxrwxrwx	root/root	usr/lib/libmpi.so.12 -> libmpi.so.12.2.2
+-rwxr-xr-x	root/root	usr/lib/libmpi.so.12.2.2
 lrwxrwxrwx	root/root	usr/lib/libmpich.so -> libmpi.so
 lrwxrwxrwx	root/root	usr/lib/libmpichcxx.so -> libmpicxx.so
 -rw-r--r--	root/root	usr/lib/libmpicxx.a
 -rwxr-xr-x	root/root	usr/lib/libmpicxx.la
-lrwxrwxrwx	root/root	usr/lib/libmpicxx.so -> libmpicxx.so.12.1.11
-lrwxrwxrwx	root/root	usr/lib/libmpicxx.so.12 -> libmpicxx.so.12.1.11
--rwxr-xr-x	root/root	usr/lib/libmpicxx.so.12.1.11
+lrwxrwxrwx	root/root	usr/lib/libmpicxx.so -> libmpicxx.so.12.2.2
+lrwxrwxrwx	root/root	usr/lib/libmpicxx.so.12 -> libmpicxx.so.12.2.2
+-rwxr-xr-x	root/root	usr/lib/libmpicxx.so.12.2.2
 lrwxrwxrwx	root/root	usr/lib/libmpl.so -> libmpi.so
 lrwxrwxrwx	root/root	usr/lib/libopa.so -> libmpi.so
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/mpich.pc
--rw-r--r--	root/root	usr/lib/pkgconfig/yaksa.pc
 drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/man/
 drwxr-xr-x	root/root	usr/share/man/man1/
@@ -44,5 +44,4 @@ drwxr-xr-x	root/root	usr/share/man/man1/
 -rw-r--r--	root/root	usr/share/man/man1/mpicc.1.gz
 -rw-r--r--	root/root	usr/share/man/man1/mpicxx.1.gz
 -rw-r--r--	root/root	usr/share/man/man1/mpiexec.1.gz
--rw-r--r--	root/root	usr/share/man/man1/mpif77.1.gz
 -rw-r--r--	root/root	usr/share/man/man1/mpifort.1.gz

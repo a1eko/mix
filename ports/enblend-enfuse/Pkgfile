@@ -1,5 +1,5 @@
 # Description: Combine images with no seams
-# Depends on: vigra lcms2 gsl libtiff openexr glu boost help2man openmp texlive
+# Depends on: vigra lcms2 gsl libtiff openexr glu boost help2man texlive
 
 name=enblend-enfuse
 version=4.2.0_p20161007

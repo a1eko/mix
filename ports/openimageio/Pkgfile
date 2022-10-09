@@ -1,0 +1,16 @@
+# Description: library for reading and writing images
+# Depends on: boost cmake freetype2 git glew hdf5 libheif libpng libraw libtiff libwebp ninja openexr openjpeg2 python3-pybind11
+
+name=openimageio
+version=2.3.19.0
+release=1
+source=(https://github.com/$name/oiio/archive/refs/tags/v$version.tar.gz)
+
+build() {
+  cmake -S oiio-$version -B build -G Ninja \
+    -DUSE_PYTHON=ON \
+    -DPYTHON_VERSION=3.10 \
+    -DCMAKE_INSTALL_PREFIX=/usr
+  DESTDIR=$PKG ninja -C build install
+  rm -rv $PKG/usr/share/fonts
+}

@@ -10,9 +10,7 @@ source=(http://anduin.linuxfromscratch.org/BLFS/epdfview/epdfview-$version.tar.b
 
 build () {
   cd $name-$version
-
   patch -Np1 -i ../epdfview-$version-fixes-2.patch
-
   ./configure --prefix=/usr --disable-nls
   make
   make DESTDIR=$PKG install

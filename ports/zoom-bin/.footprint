@@ -3,6 +3,7 @@ drwxr-xr-x	root/root	etc/ld.so.conf.d/
 -rw-r--r--	root/root	etc/ld.so.conf.d/zoom.conf
 drwxr-xr-x	root/root	opt/
 drwxrwxr-x	root/root	opt/zoom/
+-rw-rw-r--	root/root	opt/zoom/Beep-intercom.pcm
 -rwxrwxr-x	root/root	opt/zoom/Droplet.pcm
 -rw-rw-r--	root/root	opt/zoom/Embedded.properties
 drwxrwxr-x	root/root	opt/zoom/Qt/
@@ -100,10 +101,6 @@ drwxrwxr-x	root/root	opt/zoom/QtQml/Models.2/
 -rwxrwxr-x	root/root	opt/zoom/QtQml/Models.2/libmodelsplugin.so
 -rw-rw-r--	root/root	opt/zoom/QtQml/Models.2/plugins.qmltypes
 -rw-rw-r--	root/root	opt/zoom/QtQml/Models.2/qmldir
-drwxrwxr-x	root/root	opt/zoom/QtQml/RemoteObjects/
--rwxrwxr-x	root/root	opt/zoom/QtQml/RemoteObjects/libqtqmlremoteobjects.so
--rw-rw-r--	root/root	opt/zoom/QtQml/RemoteObjects/plugins.qmltypes
--rw-rw-r--	root/root	opt/zoom/QtQml/RemoteObjects/qmldir
 drwxrwxr-x	root/root	opt/zoom/QtQml/StateMachine/
 -rwxrwxr-x	root/root	opt/zoom/QtQml/StateMachine/libqtqmlstatemachine.so
 -rw-rw-r--	root/root	opt/zoom/QtQml/StateMachine/plugins.qmltypes
@@ -997,6 +994,74 @@ drwxrwxr-x	root/root	opt/zoom/bearer/
 -rwxrwxr-x	root/root	opt/zoom/bearer/libqconnmanbearer.so
 -rwxrwxr-x	root/root	opt/zoom/bearer/libqgenericbearer.so
 -rwxrwxr-x	root/root	opt/zoom/bearer/libqnmbearer.so
+drwxrwxr-x	root/root	opt/zoom/cef/
+-rwxrwxr-x	root/root	opt/zoom/cef/chrome-sandbox
+-rw-rw-r--	root/root	opt/zoom/cef/chrome_100_percent.pak
+-rw-rw-r--	root/root	opt/zoom/cef/chrome_200_percent.pak
+-rw-rw-r--	root/root	opt/zoom/cef/icudtl.dat
+-rwxrwxr-x	root/root	opt/zoom/cef/libEGL.so
+-rwxrwxr-x	root/root	opt/zoom/cef/libGLESv2.so
+-rwxrwxr-x	root/root	opt/zoom/cef/libcef.so
+drwxrwxr-x	root/root	opt/zoom/cef/locales/
+-rw-rw-r--	root/root	opt/zoom/cef/locales/am.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/ar.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/bg.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/bn.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/ca.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/cs.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/da.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/de.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/el.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/en-GB.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/en-US.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/es-419.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/es.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/et.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/fa.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/fi.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/fil.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/fr.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/gu.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/he.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/hi.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/hr.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/hu.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/id.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/it.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/ja.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/kn.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/ko.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/lt.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/lv.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/ml.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/mr.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/ms.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/nb.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/nl.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/pl.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/pt-BR.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/pt-PT.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/ro.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/ru.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/sk.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/sl.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/sr.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/sv.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/sw.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/ta.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/te.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/th.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/tr.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/uk.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/vi.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/zh-CN.pak
+-rw-rw-r--	root/root	opt/zoom/cef/locales/zh-TW.pak
+-rw-rw-r--	root/root	opt/zoom/cef/resources.pak
+-rw-rw-r--	root/root	opt/zoom/cef/snapshot_blob.bin
+drwxrwxr-x	root/root	opt/zoom/cef/swiftshader/
+-rwxrwxr-x	root/root	opt/zoom/cef/swiftshader/libEGL.so
+-rwxrwxr-x	root/root	opt/zoom/cef/swiftshader/libGLESv2.so
+-rw-rw-r--	root/root	opt/zoom/cef/v8_context_snapshot.bin
 -rw-rw-r--	root/root	opt/zoom/dingdong.pcm
 -rwxrwxr-x	root/root	opt/zoom/dingdong1.pcm
 -rw-rw-r--	root/root	opt/zoom/double_beep.pcm
@@ -1083,10 +1148,6 @@ lrwxrwxrwx	root/root	opt/zoom/libQt5QuickWidgets.so -> libQt5QuickWidgets.so.5.1
 lrwxrwxrwx	root/root	opt/zoom/libQt5QuickWidgets.so.5 -> libQt5QuickWidgets.so.5.12.10
 lrwxrwxrwx	root/root	opt/zoom/libQt5QuickWidgets.so.5.12 -> libQt5QuickWidgets.so.5.12.10
 -rwxrwxr-x	root/root	opt/zoom/libQt5QuickWidgets.so.5.12.10
-lrwxrwxrwx	root/root	opt/zoom/libQt5Script.so -> libQt5Script.so.5.12.10
-lrwxrwxrwx	root/root	opt/zoom/libQt5Script.so.5 -> libQt5Script.so.5.12.10
-lrwxrwxrwx	root/root	opt/zoom/libQt5Script.so.5.12 -> libQt5Script.so.5.12.10
--rwxrwxr-x	root/root	opt/zoom/libQt5Script.so.5.12.10
 lrwxrwxrwx	root/root	opt/zoom/libQt5Svg.so -> libQt5Svg.so.5.12.10
 lrwxrwxrwx	root/root	opt/zoom/libQt5Svg.so.5 -> libQt5Svg.so.5.12.10
 lrwxrwxrwx	root/root	opt/zoom/libQt5Svg.so.5.12 -> libQt5Svg.so.5.12.10
@@ -1113,8 +1174,7 @@ lrwxrwxrwx	root/root	opt/zoom/libQt5XcbQpa.so.5.12 -> libQt5XcbQpa.so.5.12.10
 -rwxrwxr-x	root/root	opt/zoom/libQt5XcbQpa.so.5.12.10
 -rwxrwxr-x	root/root	opt/zoom/libaomagent.so
 -rw-rw-r--	root/root	opt/zoom/libclDNN64.so
--rwxrwxr-x	root/root	opt/zoom/libfaac1.so
--rwxrwxr-x	root/root	opt/zoom/libfdkaac2.so
+-rwxr-xr-x	root/root	opt/zoom/libfdkaac2.so
 lrwxrwxrwx	root/root	opt/zoom/libicudata.so -> libicudata.so.56.1
 lrwxrwxrwx	root/root	opt/zoom/libicudata.so.56 -> libicudata.so.56.1
 -rwxrwxr-x	root/root	opt/zoom/libicudata.so.56.1
@@ -1125,10 +1185,9 @@ lrwxrwxrwx	root/root	opt/zoom/libicuuc.so -> libicuuc.so.56.1
 lrwxrwxrwx	root/root	opt/zoom/libicuuc.so.56 -> libicuuc.so.56.1
 -rwxrwxr-x	root/root	opt/zoom/libicuuc.so.56.1
 -rw-rw-r--	root/root	opt/zoom/libmkldnn.so
--rwxrwxr-x	root/root	opt/zoom/libmpg123.so
+-rwxr-xr-x	root/root	opt/zoom/libmpg123.so
 -rw-rw-r--	root/root	opt/zoom/libquazip.so
--rw-rw-r--	root/root	opt/zoom/libquazip.so.1.0.0
--rwxrwxr-x	root/root	opt/zoom/libturbojpeg.so
+-rwxr-xr-x	root/root	opt/zoom/libturbojpeg.so
 -rwxrwxr-x	root/root	opt/zoom/meeting_chat_chime.pcm
 -rw-rw-r--	root/root	opt/zoom/meeting_raisehand_chime.pcm
 drwxrwxr-x	root/root	opt/zoom/platforminputcontexts/
@@ -1167,6 +1226,42 @@ drwxrwxr-x	root/root	opt/zoom/ringtone/
 -rw-rw-r--	root/root	opt/zoom/ringtone/localization.xml
 -rwxrwxr-x	root/root	opt/zoom/ringtone/ring.pcm
 -rw-rw-r--	root/root	opt/zoom/ringtone/ringtone.xml
+drwxrwxr-x	root/root	opt/zoom/scheduler/
+-rw-r--r--	root/root	opt/zoom/scheduler/favicon.ico
+-rw-r--r--	root/root	opt/zoom/scheduler/index.html
+-rw-r--r--	root/root	opt/zoom/scheduler/map.js
+-rw-r--r--	root/root	opt/zoom/scheduler/map.json
+drwxrwxr-x	root/root	opt/zoom/scheduler/static/
+drwxrwxr-x	root/root	opt/zoom/scheduler/static/css/
+-rw-r--r--	root/root	opt/zoom/scheduler/static/css/chunk-733049a7.04a0997e.css
+-rw-r--r--	root/root	opt/zoom/scheduler/static/css/chunk-vendors.59e38391.css
+-rw-r--r--	root/root	opt/zoom/scheduler/static/css/index.884397a0.css
+-rw-r--r--	root/root	opt/zoom/scheduler/static/css/zm-tree.c01505c4.css
+drwxrwxr-x	root/root	opt/zoom/scheduler/static/fonts/
+-rw-r--r--	root/root	opt/zoom/scheduler/static/fonts/icozoom.0e52b290.woff
+-rw-r--r--	root/root	opt/zoom/scheduler/static/fonts/icozoom.1d8f0bd8.ttf
+drwxrwxr-x	root/root	opt/zoom/scheduler/static/img/
+-rw-r--r--	root/root	opt/zoom/scheduler/static/img/jpg.f78f809e.png
+-rw-r--r--	root/root	opt/zoom/scheduler/static/img/pdf.ca86e40a.png
+drwxrwxr-x	root/root	opt/zoom/scheduler/static/js/
+-rw-r--r--	root/root	opt/zoom/scheduler/static/js/chunk-2d0aaf55.14f08fd1.js
+-rw-r--r--	root/root	opt/zoom/scheduler/static/js/chunk-2d0b327b.9d24e5dd.js
+-rw-r--r--	root/root	opt/zoom/scheduler/static/js/chunk-2d0c226a.eeb1a6c4.js
+-rw-r--r--	root/root	opt/zoom/scheduler/static/js/chunk-2d0d9fc4.57e7b833.js
+-rw-r--r--	root/root	opt/zoom/scheduler/static/js/chunk-2d0de1f1.707e6bc6.js
+-rw-r--r--	root/root	opt/zoom/scheduler/static/js/chunk-2d0de375.8dadb59b.js
+-rw-r--r--	root/root	opt/zoom/scheduler/static/js/chunk-2d0e17df.341c8c26.js
+-rw-r--r--	root/root	opt/zoom/scheduler/static/js/chunk-2d20e7e6.35f326b1.js
+-rw-r--r--	root/root	opt/zoom/scheduler/static/js/chunk-2d20f516.d367a712.js
+-rw-r--r--	root/root	opt/zoom/scheduler/static/js/chunk-2d2167c6.def2c3fb.js
+-rw-r--r--	root/root	opt/zoom/scheduler/static/js/chunk-2d21b4fa.7d294b87.js
+-rw-r--r--	root/root	opt/zoom/scheduler/static/js/chunk-2d21d6ce.20710d8a.js
+-rw-r--r--	root/root	opt/zoom/scheduler/static/js/chunk-2d22258b.5e2d8fea.js
+-rw-r--r--	root/root	opt/zoom/scheduler/static/js/chunk-2d230459.e6ce2b03.js
+-rw-r--r--	root/root	opt/zoom/scheduler/static/js/chunk-733049a7.8d3e9e69.js
+-rw-r--r--	root/root	opt/zoom/scheduler/static/js/chunk-vendors.cd16d45c.js
+-rw-r--r--	root/root	opt/zoom/scheduler/static/js/index.b473de19.js
+-rw-r--r--	root/root	opt/zoom/scheduler/static/js/zm-tree.0a5b02bb.js
 drwxrwxr-x	root/root	opt/zoom/sip/
 -rw-rw-r--	root/root	opt/zoom/sip/Hangup.WAV
 -rw-rw-r--	root/root	opt/zoom/sip/dtmf_#.wav
@@ -1193,6 +1288,8 @@ drwxrwxr-x	root/root	opt/zoom/timezones/es/
 -rw-rw-r--	root/root	opt/zoom/timezones/es/timezones.txt
 drwxrwxr-x	root/root	opt/zoom/timezones/fr/
 -rw-rw-r--	root/root	opt/zoom/timezones/fr/timezones.txt
+drwxrwxr-x	root/root	opt/zoom/timezones/id/
+-rw-rw-r--	root/root	opt/zoom/timezones/id/timezones.text
 drwxrwxr-x	root/root	opt/zoom/timezones/it/
 -rw-rw-r--	root/root	opt/zoom/timezones/it/timezones.txt
 drwxrwxr-x	root/root	opt/zoom/timezones/jp/
@@ -1213,11 +1310,14 @@ drwxrwxr-x	root/root	opt/zoom/translations/
 -rw-rw-r--	root/root	opt/zoom/translations/de.qm
 -rw-rw-r--	root/root	opt/zoom/translations/es.qm
 -rw-rw-r--	root/root	opt/zoom/translations/fr.qm
+-rw-rw-r--	root/root	opt/zoom/translations/id.qm
 -rw-rw-r--	root/root	opt/zoom/translations/it.qm
 -rw-rw-r--	root/root	opt/zoom/translations/jp.qm
 -rw-rw-r--	root/root	opt/zoom/translations/ko.qm
+-rw-rw-r--	root/root	opt/zoom/translations/po.qm
 -rw-rw-r--	root/root	opt/zoom/translations/ptg.qm
 -rw-rw-r--	root/root	opt/zoom/translations/ru.qm
+-rw-rw-r--	root/root	opt/zoom/translations/tk.qm
 -rw-rw-r--	root/root	opt/zoom/translations/vi.qm
 -rw-rw-r--	root/root	opt/zoom/translations/zh_CN.qm
 -rw-rw-r--	root/root	opt/zoom/translations/zh_TW.qm
@@ -1250,7 +1350,6 @@ drwxrwxr-x	root/root	opt/zoom/xcbglintegrations/
 -rwxrwxr-x	root/root	opt/zoom/xcbglintegrations/libqxcb-egl-integration.so
 -rwxrwxr-x	root/root	opt/zoom/xcbglintegrations/libqxcb-glx-integration.so
 -rwxrwxr-x	root/root	opt/zoom/zoom
--rwxrwxr-x	root/root	opt/zoom/zoom.sh
 -rwxrwxr-x	root/root	opt/zoom/zopen
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/

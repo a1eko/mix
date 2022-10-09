@@ -5,12 +5,12 @@
 
 name=dcraw
 version=9.28.0
-release=mix-2
+release=2
 source=(http://www.cybercom.net/~dcoffin/dcraw/archive/$name-$version.tar.gz)
 
 build() {
-	cd $name
-	cc $CFLAGS -o dcraw dcraw.c -lm -ljasper -ljpeg -llcms2
-	install -m 644 -D dcraw.1 $PKG/usr/share/man/man1/dcraw.1
-	install -m 755 -D dcraw $PKG/usr/bin/dcraw
+        cd $name
+        cc $CFLAGS -o dcraw dcraw.c -lm -ljasper -ljpeg -llcms2
+        install -m 644 -D dcraw.1 $PKG/usr/share/man/man1/dcraw.1
+        install -m 755 -D dcraw $PKG/usr/bin/dcraw
 }

@@ -2,7 +2,7 @@
 #
 # NOTE: installs after net.mix
 #
-# Build takes 10h on 4 cores (4GHz)
+# Build takes over 11 hours on 4-core 4 GHz processor
 #
 # Requires specific version of psutil:
 #       pip3 install psutil==5.8.0

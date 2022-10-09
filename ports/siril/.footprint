@@ -15,6 +15,7 @@ drwxr-xr-x	root/root	usr/share/icons/hicolor/symbolic/apps/
 -rw-r--r--	root/root	usr/share/icons/hicolor/symbolic/apps/org.free_astro.siril-symbolic.svg
 drwxr-xr-x	root/root	usr/share/man/
 drwxr-xr-x	root/root	usr/share/man/man1/
+lrwxrwxrwx	root/root	usr/share/man/man1/siril-cli.1.gz -> siril.1.gz
 -rw-r--r--	root/root	usr/share/man/man1/siril.1.gz
 drwxr-xr-x	root/root	usr/share/metainfo/
 -rw-r--r--	root/root	usr/share/metainfo/org.free_astro.siril.appdata.xml
@@ -38,8 +39,17 @@ drwxr-xr-x	root/root	usr/share/siril/pixmaps/
 -rw-r--r--	root/root	usr/share/siril/pixmaps/curve.svg
 -rw-r--r--	root/root	usr/share/siril/pixmaps/export.svg
 -rw-r--r--	root/root	usr/share/siril/pixmaps/export_dark.svg
+-rw-r--r--	root/root	usr/share/siril/pixmaps/eyedropper.svg
+-rw-r--r--	root/root	usr/share/siril/pixmaps/eyedropper_dark.svg
+-rw-r--r--	root/root	usr/share/siril/pixmaps/frame.svg
+-rw-r--r--	root/root	usr/share/siril/pixmaps/frame_dark.svg
+-rw-r--r--	root/root	usr/share/siril/pixmaps/framing-cog.svg
+-rw-r--r--	root/root	usr/share/siril/pixmaps/framing-default.svg
+-rw-r--r--	root/root	usr/share/siril/pixmaps/framing-max.svg
+-rw-r--r--	root/root	usr/share/siril/pixmaps/framing-min.svg
 -rw-r--r--	root/root	usr/share/siril/pixmaps/g.svg
 -rw-r--r--	root/root	usr/share/siril/pixmaps/grid.svg
+-rw-r--r--	root/root	usr/share/siril/pixmaps/histo-orig.svg
 -rw-r--r--	root/root	usr/share/siril/pixmaps/histo.svg
 -rw-r--r--	root/root	usr/share/siril/pixmaps/list.svg
 -rw-r--r--	root/root	usr/share/siril/pixmaps/mirrorx.svg
@@ -65,6 +75,8 @@ drwxr-xr-x	root/root	usr/share/siril/pixmaps/
 -rw-r--r--	root/root	usr/share/siril/pixmaps/sum_dark.svg
 -rw-r--r--	root/root	usr/share/siril/pixmaps/tilt.svg
 -rw-r--r--	root/root	usr/share/siril/pixmaps/tilt_dark.svg
+-rw-r--r--	root/root	usr/share/siril/pixmaps/wcs-grid.svg
+-rw-r--r--	root/root	usr/share/siril/pixmaps/wcs-grid_dark.svg
 drwxr-xr-x	root/root	usr/share/siril/scripts/
 -rw-r--r--	root/root	usr/share/siril/scripts/Mono_Preprocessing.ssf
 -rw-r--r--	root/root	usr/share/siril/scripts/OSC_Extract_Ha.ssf
