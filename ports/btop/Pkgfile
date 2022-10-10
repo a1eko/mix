@@ -2,6 +2,7 @@
 
 name=btop
 version=1.2.12
+release=mix-1
 source=(https://github.com/aristocratos/$name/archive/v$version/$name-$version.tar.gz)
 
 build() {

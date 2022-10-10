@@ -10,4 +10,5 @@ build() {
   tar -C $PKG -xvf data.tar.gz
   chmod -v 4755 $PKG/usr/share/skypeforlinux/chrome-sandbox
   rm -rv $PKG/usr/share/{applications,icons,doc}
+  rm -v $PKG/usr/share/skypeforlinux/LICENSES.chromium.html
 }

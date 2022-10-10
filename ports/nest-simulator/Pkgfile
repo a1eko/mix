@@ -19,7 +19,7 @@ build() {
   cmake --build build 
   DESTDIR=$PKG cmake --install build
 
-  find $PKG -name *README* -o -name *LICENSE* -o -name *COPY* | xargs rm -v
+  find $PKG \( -name *README* -o -name *LICENSE* -o -name *COPY* \) -delete
   rm -rv $PKG/usr/share/{doc,nest/testsuite}
   rm -v $PKG/usr/bin/nest_vars.sh
 }

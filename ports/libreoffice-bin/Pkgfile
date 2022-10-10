@@ -50,7 +50,10 @@ build() {
         -name '*TODO*' -o \
         -iname '*news*' -o \
         -iname '*credits*' \
-     \) -exec rm -rf '{}' \; || true
+        -iname '*README*' \
+        -iname '*LICEN*' \
+        -iname '*COPY*' \
+     \) -delete || true
 
     # prevent crashing because of absent wayland bindings
     sed -i '$i export SAL_USE_VCLPLUGIN=gen' $PKG/usr/lib/libreoffice/program/soffice

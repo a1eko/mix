@@ -50,6 +50,7 @@ EOF
   rm -rv $PKG/usr/share/{doc,man}
   rm -rv $PKG/etc
   rm -v $PKG/usr/lib/rustlib/{components,manifest-rustc,rust-installer-version,uninstall.sh}
+  find $PKG/usr/lib/rustlib \( -name READ* -o -name COPY* -o -name LICEN* \) -delete
 
   # Remove analysis data for libs that weren't installed
   local file lib

@@ -12,5 +12,6 @@ build() {
     -DPYTHON_VERSION=3.10 \
     -DCMAKE_INSTALL_PREFIX=/usr
   DESTDIR=$PKG ninja -C build install
+  rm -v $PKG/usr/share/doc/OpenImageIO/LICENSE.md
   rm -rv $PKG/usr/share/fonts
 }
