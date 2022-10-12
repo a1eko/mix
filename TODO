@@ -10,17 +10,10 @@ o ports (gcc-fortran): avoided, fortran is enabled in gcc port
 o ports (crux compat): replace 'pkginfo -i' and 'prt-get isinst' with 'pkz -i list'
 o ports (crux compat): define unpack_source() in pkz, redefine in Pkgfile's if needed
 o ports (zathura-ps): error loading PS file with ref to libspectre/ghostscript
-+ toolchain (dcron): remove from toolchain (lfs), add /etc/cron.d to filesystem (install.sh)
-o ports (babl): build error, disable babl-benchmark
-o ports (graphviz): PKGMK_GRAPHVIZ=" --disable-man-pdfs" pkz build graphviz
-o ports (pkz): concider using curl or wget2 instead of wget (reliability issues)
-+ toolchain, ports (install.sh, rc, ...): replace /var/run with a symlink to /run
+o ports (pkz): concider using curl instead of wget (reliability issues)
 ? toolchain (file): build depends on autoconf, moved to BUILD2 after auto-tools
 ? coreopt (cmake, ninja): use local ports (circular dependency in crux)
 ? toolchain (pkg-config): retain for base system as in lfs (replacement pkgconf in crux depends on meson and ninja)
-+ ports (graphics.mix): build without atk and at-spi2-atk (use at-spi2-core instead)
-+ ports (mesa, x.mix): mesa depends on glslang:spirv-{headers,tools}
-+ locales (glibc, bashrc): default to C.UTF-8 in glibc postinstall localedef and LC_ALL=C.UTF-8; see also crux locale-gen (glibc); but lsblk listing broken
 + mix release (install.sh, *.mix): sync to crux v3.7
-- ports (cmake, ninja, meson): consider adding to tools/base system, use crux ports afterwards; see ? above
-- ports (gmic): fix build v3.0.x or v3.1.x
+- ports, tools (pkg-config): replace with pkgconf (see crux)
+- ports (cmake, ninja, meson): consider adding to tools/base system, use crux ports afterwards (see ? above)
