@@ -1,6 +1,6 @@
 #
 # linux/config.local
-# H81i motherboard, AMD GPU, linux-5.15.63
+# H81i motherboard, AMD GPU, linux-5.15.x
 #
 CONFIG_DRM_AMDGPU=m
 CONFIG_DRM_AMD_DC=y

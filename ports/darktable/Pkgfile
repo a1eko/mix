@@ -1,6 +1,6 @@
 # Description: photography workflow application
 # Depends on: gtk3 sqlite3 pango librsvg libxml2 libpng libjpeg-turbo libtiff lcms2 json-glib exiv2 pugixml curl glib isl
-# Optional: llvm clang libsoup gphoto2 openexr lensfun icu lua cups xorg libwebp openjpeg2 iso-codes libsecret graphicsmagick gmic 
+# Optional: llvm clang libsoup gphoto2 openexr lensfun icu lua cups xorg libwebp openjpeg2 iso-codes libsecret graphicsmagick
 
 name=darktable
 version=4.0.1
