@@ -26,10 +26,11 @@ mpdecimal
 sqlite3
 
 python3
-python3-setuptools
+#python3-setuptools
 python3-pip
 
 curl
+jsoncpp
 libnsl
 libnghttp2
 libuv
@@ -38,7 +39,7 @@ rhash
 
 cmake
 ninja
-meson
+#meson
 
 rsync
 

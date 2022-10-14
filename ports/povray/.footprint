@@ -276,7 +276,6 @@ drwxr-xr-x	root/root	usr/share/povray-3.8/scenes/camera/
 -rw-r--r--	root/root	usr/share/povray-3.8/scenes/camera/fisheye.pov
 -rw-r--r--	root/root	usr/share/povray-3.8/scenes/camera/focalblur.pov
 drwxr-xr-x	root/root	usr/share/povray-3.8/scenes/camera/mesh_camera/
--rw-r--r--	root/root	usr/share/povray-3.8/scenes/camera/mesh_camera/README.txt
 -rw-r--r--	root/root	usr/share/povray-3.8/scenes/camera/mesh_camera/bake.sh
 -rw-r--r--	root/root	usr/share/povray-3.8/scenes/camera/mesh_camera/baking_demo.pov
 -rw-r--r--	root/root	usr/share/povray-3.8/scenes/camera/mesh_camera/baking_repair_seams.pov
@@ -284,7 +283,6 @@ drwxr-xr-x	root/root	usr/share/povray-3.8/scenes/camera/mesh_camera/
 -rw-r--r--	root/root	usr/share/povray-3.8/scenes/camera/mesh_camera/demo_globals.inc
 -rw-r--r--	root/root	usr/share/povray-3.8/scenes/camera/mesh_camera/demo_room.inc
 drwxr-xr-x	root/root	usr/share/povray-3.8/scenes/camera/mesh_camera/ess/
--rw-r--r--	root/root	usr/share/povray-3.8/scenes/camera/mesh_camera/ess/README.txt
 -rw-r--r--	root/root	usr/share/povray-3.8/scenes/camera/mesh_camera/ess/ess-ortho-camera.pov
 -rw-r--r--	root/root	usr/share/povray-3.8/scenes/camera/mesh_camera/ess/ess-persp-camera.pov
 -rw-r--r--	root/root	usr/share/povray-3.8/scenes/camera/mesh_camera/ess/ortho-camera.pov

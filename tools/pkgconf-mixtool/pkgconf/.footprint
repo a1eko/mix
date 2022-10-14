@@ -1,0 +1,24 @@
+drwxr-xr-x	build/users	usr/
+drwxr-xr-x	build/users	usr/bin/
+-rwxr-xr-x	build/users	usr/bin/bomtool
+lrwxrwxrwx	build/users	usr/bin/pkg-config -> pkgconf
+-rwxr-xr-x	build/users	usr/bin/pkgconf
+drwxr-xr-x	build/users	usr/include/
+drwxr-xr-x	build/users	usr/include/pkgconf/
+drwxr-xr-x	build/users	usr/include/pkgconf/libpkgconf/
+-rw-r--r--	build/users	usr/include/pkgconf/libpkgconf/bsdstubs.h
+-rw-r--r--	build/users	usr/include/pkgconf/libpkgconf/iter.h
+-rw-r--r--	build/users	usr/include/pkgconf/libpkgconf/libpkgconf-api.h
+-rw-r--r--	build/users	usr/include/pkgconf/libpkgconf/libpkgconf.h
+-rw-r--r--	build/users	usr/include/pkgconf/libpkgconf/stdinc.h
+drwxr-xr-x	build/users	usr/lib/
+-rw-r--r--	build/users	usr/lib/libpkgconf.a
+-rwxr-xr-x	build/users	usr/lib/libpkgconf.la
+lrwxrwxrwx	build/users	usr/lib/libpkgconf.so -> libpkgconf.so.4.0.0
+lrwxrwxrwx	build/users	usr/lib/libpkgconf.so.4 -> libpkgconf.so.4.0.0
+-rwxr-xr-x	build/users	usr/lib/libpkgconf.so.4.0.0
+drwxr-xr-x	build/users	usr/lib/pkgconfig/
+-rw-r--r--	build/users	usr/lib/pkgconfig/libpkgconf.pc
+drwxr-xr-x	build/users	usr/share/
+drwxr-xr-x	build/users	usr/share/aclocal/
+-rw-r--r--	build/users	usr/share/aclocal/pkg.m4

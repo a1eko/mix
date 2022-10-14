@@ -29,7 +29,6 @@ lrwxrwxrwx	root/root	usr/lib/libxmi.so.0 -> libxmi.so.0.1.3
 -rwxr-xr-x	root/root	usr/lib/libxmi.so.0.1.3
 drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/libplot/
--rw-r--r--	root/root	usr/share/libplot/README
 -rw-r--r--	root/root	usr/share/libplot/colors.txt
 -rw-r--r--	root/root	usr/share/libplot/h-fonts.txt
 -rw-r--r--	root/root	usr/share/libplot/h-glyphs.txt
@@ -44,7 +43,6 @@ drwxr-xr-x	root/root	usr/share/man/man1/
 -rw-r--r--	root/root	usr/share/man/man1/spline.1.gz
 -rw-r--r--	root/root	usr/share/man/man1/tek2plot.1.gz
 drwxr-xr-x	root/root	usr/share/ode/
--rw-r--r--	root/root	usr/share/ode/README
 -rw-r--r--	root/root	usr/share/ode/atwoods.ode
 -rw-r--r--	root/root	usr/share/ode/bead.ode
 -rw-r--r--	root/root	usr/share/ode/chem.ode
@@ -62,13 +60,11 @@ drwxr-xr-x	root/root	usr/share/ode/
 -rw-r--r--	root/root	usr/share/ode/soliton.ode
 -rw-r--r--	root/root	usr/share/ode/viscous.ode
 drwxr-xr-x	root/root	usr/share/pic2plot/
--rw-r--r--	root/root	usr/share/pic2plot/README
 -rw-r--r--	root/root	usr/share/pic2plot/macros.pic
 -rw-r--r--	root/root	usr/share/pic2plot/pic0.ps
 -rw-r--r--	root/root	usr/share/pic2plot/pic1.ps
 -rw-r--r--	root/root	usr/share/pic2plot/picmacros.ps
 drwxr-xr-x	root/root	usr/share/tek2plot/
--rw-r--r--	root/root	usr/share/tek2plot/README
 -rw-r--r--	root/root	usr/share/tek2plot/aitest.tek
 -rw-r--r--	root/root	usr/share/tek2plot/dmerc.tek
 -rw-r--r--	root/root	usr/share/tek2plot/fotest.tek

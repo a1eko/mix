@@ -1,0 +1,20 @@
+# Description: A cross-platform, open-source make system
+
+name=cmake
+version=3.24.2
+release=0
+source=(https://cmake.org/files/v${version%.*}/$name-$version.tar.gz)
+
+build() {
+set +vx
+  cd $name-$version
+  sed -i '/"lib64"/s/64//' Modules/GNUInstallDirs.cmake
+  ./bootstrap --prefix=/usr \
+    --datadir=/share/cmake \
+    --no-system-libs
+  make
+  make DESTDIR=$PKG install
+  ln -sfv $name $PKG/usr/share/$name-${version%.*}
+  rm -rv $PKG/usr/{doc,share/cmake/Help}
+  rm -rv $PKG/usr/share/emacs
+}

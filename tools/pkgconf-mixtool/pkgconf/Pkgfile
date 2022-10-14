@@ -1,0 +1,16 @@
+# Description: a program which helps to configure compiler and linker flags for development libraries
+
+name=pkgconf
+version=1.9.3
+release=0
+source=(https://distfiles.dereferenced.org/pkgconf/$name-$version.tar.xz)
+
+build() {
+  cd $name-$version
+  ./configure --prefix=/usr
+  make
+  make DESTDIR=$PKG install
+  ln -sv pkgconf $PKG/usr/bin/pkg-config
+  rm -rv $PKG/usr/share/doc
+  rm -rv $PKG/usr/share/man
+}

@@ -175,9 +175,6 @@ drwxr-xr-x	root/root	usr/lib/rustlib/src/rust/library/backtrace/.github/
 drwxr-xr-x	root/root	usr/lib/rustlib/src/rust/library/backtrace/.github/workflows/
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/backtrace/.github/workflows/main.yml
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/backtrace/Cargo.toml
--rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/backtrace/LICENSE-APACHE
--rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/backtrace/LICENSE-MIT
--rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/backtrace/README.md
 drwxr-xr-x	root/root	usr/lib/rustlib/src/rust/library/backtrace/benches/
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/backtrace/benches/benchmarks.rs
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/backtrace/build.rs
@@ -705,17 +702,11 @@ drwxr-xr-x	root/root	usr/lib/rustlib/src/rust/library/portable-simd/.github/ISSU
 drwxr-xr-x	root/root	usr/lib/rustlib/src/rust/library/portable-simd/.github/workflows/
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/portable-simd/.github/workflows/ci.yml
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/portable-simd/.github/workflows/doc.yml
--rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/portable-simd/CONTRIBUTING.md
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/portable-simd/Cargo.toml
--rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/portable-simd/LICENSE-APACHE
--rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/portable-simd/LICENSE-MIT
--rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/portable-simd/README.md
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/portable-simd/beginners-guide.md
 drwxr-xr-x	root/root	usr/lib/rustlib/src/rust/library/portable-simd/crates/
 drwxr-xr-x	root/root	usr/lib/rustlib/src/rust/library/portable-simd/crates/core_simd/
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/portable-simd/crates/core_simd/Cargo.toml
--rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/portable-simd/crates/core_simd/LICENSE-APACHE
--rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/portable-simd/crates/core_simd/LICENSE-MIT
 drwxr-xr-x	root/root	usr/lib/rustlib/src/rust/library/portable-simd/crates/core_simd/examples/
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/portable-simd/crates/core_simd/examples/matrix_inversion.rs
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/portable-simd/crates/core_simd/examples/nbody.rs
@@ -833,11 +824,9 @@ drwxr-xr-x	root/root	usr/lib/rustlib/src/rust/library/rustc-std-workspace-alloc/
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/rustc-std-workspace-alloc/lib.rs
 drwxr-xr-x	root/root	usr/lib/rustlib/src/rust/library/rustc-std-workspace-core/
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/rustc-std-workspace-core/Cargo.toml
--rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/rustc-std-workspace-core/README.md
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/rustc-std-workspace-core/lib.rs
 drwxr-xr-x	root/root	usr/lib/rustlib/src/rust/library/rustc-std-workspace-std/
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/rustc-std-workspace-std/Cargo.toml
--rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/rustc-std-workspace-std/README.md
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/rustc-std-workspace-std/lib.rs
 drwxr-xr-x	root/root	usr/lib/rustlib/src/rust/library/std/
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/std/Cargo.toml
@@ -1456,10 +1445,6 @@ drwxr-xr-x	root/root	usr/lib/rustlib/src/rust/library/stdarch/
 drwxr-xr-x	root/root	usr/lib/rustlib/src/rust/library/stdarch/.github/
 drwxr-xr-x	root/root	usr/lib/rustlib/src/rust/library/stdarch/.github/workflows/
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/stdarch/.github/workflows/main.yml
--rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/stdarch/CONTRIBUTING.md
--rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/stdarch/LICENSE-APACHE
--rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/stdarch/LICENSE-MIT
--rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/stdarch/README.md
 drwxr-xr-x	root/root	usr/lib/rustlib/src/rust/library/stdarch/ci/
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/stdarch/ci/android-install-ndk.sh
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/stdarch/ci/android-install-sdk.sh
@@ -1521,10 +1506,7 @@ drwxr-xr-x	root/root	usr/lib/rustlib/src/rust/library/stdarch/crates/assert-inst
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/stdarch/crates/assert-instr-macro/src/lib.rs
 drwxr-xr-x	root/root	usr/lib/rustlib/src/rust/library/stdarch/crates/core_arch/
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/stdarch/crates/core_arch/Cargo.toml
--rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/stdarch/crates/core_arch/LICENSE-APACHE
--rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/stdarch/crates/core_arch/LICENSE-MIT
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/stdarch/crates/core_arch/MISSING.md
--rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/stdarch/crates/core_arch/README.md
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/stdarch/crates/core_arch/avx512bw.md
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/stdarch/crates/core_arch/avx512f.md
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/stdarch/crates/core_arch/build.rs
@@ -1677,9 +1659,6 @@ drwxr-xr-x	root/root	usr/lib/rustlib/src/rust/library/stdarch/crates/simd-test-m
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/stdarch/crates/simd-test-macro/src/lib.rs
 drwxr-xr-x	root/root	usr/lib/rustlib/src/rust/library/stdarch/crates/std_detect/
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/stdarch/crates/std_detect/Cargo.toml
--rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/stdarch/crates/std_detect/LICENSE-APACHE
--rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/stdarch/crates/std_detect/LICENSE-MIT
--rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/stdarch/crates/std_detect/README.md
 drwxr-xr-x	root/root	usr/lib/rustlib/src/rust/library/stdarch/crates/std_detect/src/
 drwxr-xr-x	root/root	usr/lib/rustlib/src/rust/library/stdarch/crates/std_detect/src/detect/
 drwxr-xr-x	root/root	usr/lib/rustlib/src/rust/library/stdarch/crates/std_detect/src/detect/arch/
@@ -1728,7 +1707,6 @@ drwxr-xr-x	root/root	usr/lib/rustlib/src/rust/library/stdarch/crates/std_detect/
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/stdarch/crates/std_detect/tests/x86-specific.rs
 drwxr-xr-x	root/root	usr/lib/rustlib/src/rust/library/stdarch/crates/stdarch-gen/
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/stdarch/crates/stdarch-gen/Cargo.toml
--rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/stdarch/crates/stdarch-gen/README.md
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/stdarch/crates/stdarch-gen/neon.spec
 drwxr-xr-x	root/root	usr/lib/rustlib/src/rust/library/stdarch/crates/stdarch-gen/src/
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/library/stdarch/crates/stdarch-gen/src/main.rs
@@ -1801,8 +1779,6 @@ drwxr-xr-x	root/root	usr/lib/rustlib/src/rust/src/llvm-project/
 drwxr-xr-x	root/root	usr/lib/rustlib/src/rust/src/llvm-project/libunwind/
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/src/llvm-project/libunwind/.clang-format
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/src/llvm-project/libunwind/CMakeLists.txt
--rw-r--r--	root/root	usr/lib/rustlib/src/rust/src/llvm-project/libunwind/LICENSE.TXT
--rw-r--r--	root/root	usr/lib/rustlib/src/rust/src/llvm-project/libunwind/README_RUST_SGX.md
 drwxr-xr-x	root/root	usr/lib/rustlib/src/rust/src/llvm-project/libunwind/cmake/
 drwxr-xr-x	root/root	usr/lib/rustlib/src/rust/src/llvm-project/libunwind/cmake/Modules/
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/src/llvm-project/libunwind/cmake/Modules/HandleLibunwindFlags.cmake
@@ -1810,7 +1786,6 @@ drwxr-xr-x	root/root	usr/lib/rustlib/src/rust/src/llvm-project/libunwind/cmake/M
 drwxr-xr-x	root/root	usr/lib/rustlib/src/rust/src/llvm-project/libunwind/docs/
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/src/llvm-project/libunwind/docs/BuildingLibunwind.rst
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/src/llvm-project/libunwind/docs/CMakeLists.txt
--rw-r--r--	root/root	usr/lib/rustlib/src/rust/src/llvm-project/libunwind/docs/README.txt
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/src/llvm-project/libunwind/docs/conf.py
 -rw-r--r--	root/root	usr/lib/rustlib/src/rust/src/llvm-project/libunwind/docs/index.rst
 drwxr-xr-x	root/root	usr/lib/rustlib/src/rust/src/llvm-project/libunwind/include/

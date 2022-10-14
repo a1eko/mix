@@ -191,7 +191,6 @@ drwxr-xr-x	root/root	usr/share/inkscape/examples/
 drwxr-xr-x	root/root	usr/share/inkscape/extensions/
 -rw-r--r--	root/root	usr/share/inkscape/extensions/.coveragerc
 -rw-r--r--	root/root	usr/share/inkscape/extensions/.pylintrc
--rw-r--r--	root/root	usr/share/inkscape/extensions/LICENSE.txt
 -rw-r--r--	root/root	usr/share/inkscape/extensions/MANIFEST.in
 drwxr-xr-x	root/root	usr/share/inkscape/extensions/Poly3DObjects/
 -rw-r--r--	root/root	usr/share/inkscape/extensions/Poly3DObjects/cube.obj
@@ -2757,7 +2756,6 @@ drwxr-xr-x	root/root	usr/share/inkscape/templates/
 -rw-r--r--	root/root	usr/share/inkscape/templates/default_px.svg
 -rw-r--r--	root/root	usr/share/inkscape/templates/no_layers.svg
 drwxr-xr-x	root/root	usr/share/inkscape/themes/
--rw-r--r--	root/root	usr/share/inkscape/themes/LICENSE.txt
 drwxr-xr-x	root/root	usr/share/inkscape/themes/Minwaita-Inkscape/
 drwxr-xr-x	root/root	usr/share/inkscape/themes/Minwaita-Inkscape/gtk-3.0/
 drwxr-xr-x	root/root	usr/share/inkscape/themes/Minwaita-Inkscape/gtk-3.0/assets/

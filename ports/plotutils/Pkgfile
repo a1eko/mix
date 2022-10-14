@@ -14,5 +14,5 @@ build() {
   make
   make DESTDIR=$PKG install
   rm -rv $PKG/usr/share/info
-  find $PKG -name README -delete
+  rm -v $PKG/usr/share/*/README
 }

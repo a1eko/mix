@@ -18,6 +18,7 @@ build() {
   ln -sv ../lib/genesis/genesis $PKG/usr/bin/
   rm -v $PKG/usr/lib/genesis/.*simrc
   find $PKG -type f -name ".*simrc" | xargs sed -i "s:$PKG::"
+
   rm -rv $PKG/usr/lib/genesis/{bin,man,src}
   rm -rv $PKG/usr/lib/genesis/{Hyperdoc,Libmake,Tutorials,Usermake}
 }

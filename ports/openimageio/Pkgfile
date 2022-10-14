@@ -3,15 +3,16 @@
 
 name=openimageio
 version=2.3.19.0
-release=1
+release=mix-1
 source=(https://github.com/$name/oiio/archive/refs/tags/v$version.tar.gz)
 
 build() {
   cmake -S oiio-$version -B build -G Ninja \
     -DUSE_PYTHON=ON \
     -DPYTHON_VERSION=3.10 \
-    -DCMAKE_INSTALL_PREFIX=/usr
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_INSTALL_LIBDIR=lib
   DESTDIR=$PKG ninja -C build install
-  rm -v $PKG/usr/share/doc/OpenImageIO/LICENSE.md
-  rm -rv $PKG/usr/share/fonts
+  rm -rv $PKG/usr/share/{doc,fonts}
+  rmdir -v $PKG/usr/share
 }

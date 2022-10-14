@@ -31,9 +31,9 @@ BASE1="iana-etc glibc lzip tzdata zlib bzip2 xz zstd readline m4 \
   bc flex tcl expect dejagnu binutils libgmp libmpfr libmpc linux-firmware \
   attr acl libcap linux-pam shadow gcc"
 
-BASE2="pkg-config ncurses sed psmisc gettext bison grep bash libtool gdbm \
+BASE2="ncurses sed psmisc gettext bison grep bash libtool gdbm \
   gperf tar expat inetutils less perl autoconf automake file openssl kmod elfutils \
-  libffi python3 coreutils check diffutils gawk findutils groff \
+  libffi python3 python3-setuptools meson coreutils check diffutils gawk findutils groff \
   gzip kbd libpipeline make patch man-pages man-db texinfo vim \
   eudev procps util-linux e2fsprogs sysklogd sysvinit sudo rc"
 
@@ -186,6 +186,14 @@ $toolsh "pkz -p $P/gcc-mixtool-pass2      -f install gcc"
 
 $toolsh "pkz -p $P/binutils-mixtool-pass2 clean binutils"
 $toolsh "pkz -p $P/gcc-mixtool-pass2      clean gcc"
+
+$toolsh "pkz -p $P/pkgconf-mixtool -f install pkgconf"
+$toolsh "pkz -p $P/cmake-mixtool -f install cmake"
+$toolsh "pkz -p $P/ninja-mixtool -f install ninja"
+
+$toolsh "pkz -p $P/pkgconf-mixtool clean pkgconf"
+$toolsh "pkz -p $P/cmake-mixtool clean cmake"
+$toolsh "pkz -p $P/ninja-mixtool clean ninja"
 
 sudo chown -R root:root $MIX
 sudo chown -R $USER $MIX/{usr,var/log}/sources

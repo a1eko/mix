@@ -23,6 +23,5 @@ build() {
         make
         make DESTDIR="${PKG}" install
         rm -rf ${PKG}/usr/share/locale
-        find "${PKG}" \( -name '*README*' -o -name '*COPYING*' \) -delete
-        rm -v $PKG/usr/share/hugin/xrc/data/help_en_EN/LICENCE.manual
+        find "${PKG}" \( -name '*README*' -o -name '*COPYING*' -o -name '*LICEN*' \) -delete
 }
