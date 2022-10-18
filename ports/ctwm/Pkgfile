@@ -1,0 +1,15 @@
+# Description: Claude's Tab Window Manager for the X Window System
+# Depends on: libjpeg-turbo xorg-libxmu xorg-libxpm xorg-util-macros xorg-server cmake ninja
+
+name=ctwm
+version=4.0.3
+release=mix-1
+source=(https://ctwm.org/dist/$name-$version.tar.xz)
+
+build() {
+  cmake -S $name-$version -B build -G Ninja \
+    -D CMAKE_INSTALL_PREFIX=/usr
+  cmake --build build
+  DESTDIR=$PKG cmake --install build
+  rm -rv $PKG/usr/share/{doc,examples}
+}
