@@ -6,7 +6,6 @@ release=0
 source=(https://cmake.org/files/v${version%.*}/$name-$version.tar.gz)
 
 build() {
-set +vx
   cd $name-$version
   sed -i '/"lib64"/s/64//' Modules/GNUInstallDirs.cmake
   ./bootstrap --prefix=/usr \
