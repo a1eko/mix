@@ -116,6 +116,42 @@ fi
 if [ "$MIX_SRC" = yes ]; then
   $toolsh "pkz source $BASE1 $BASE2 $KERNEL $BOOT"
   $toolsh "pkz source include $MIX/usr/sources/coreopt.mix"
+
+  $toolsh "pkz -p $P/binutils-mixtool-pass1 source binutils"
+  $toolsh "pkz -p $P/gcc-mixtool-pass1      source gcc"
+  $toolsh "pkz -p $P/linux-headers-mixtool  source linux-headers"
+  $toolsh "pkz -p $P/glibc-mixtool          source glibc"
+  $toolsh "pkz -p $P/gcc-mixtool-libstdcxx source gcc"
+
+  $toolsh "pkz -p $P/m4-mixtool         source m4"
+  $toolsh "pkz -p $P/ncurses-mixtool    source ncurses"
+  $toolsh "pkz -p $P/bash-mixtool       source bash"
+  $toolsh "pkz -p $P/coreutils-mixtool  source coreutils"
+  $toolsh "pkz -p $P/diffutils-mixtool  source diffutils"
+  $toolsh "pkz -p $P/file-mixtool       source file"
+  $toolsh "pkz -p $P/findutils-mixtool  source findutils"
+  $toolsh "pkz -p $P/gawk-mixtool       source gawk"
+  $toolsh "pkz -p $P/grep-mixtool       source grep"
+  $toolsh "pkz -p $P/gzip-mixtool       source gzip"
+  $toolsh "pkz -p $P/make-mixtool       source make"
+  $toolsh "pkz -p $P/patch-mixtool      source patch"
+  $toolsh "pkz -p $P/sed-mixtool        source sed"
+  $toolsh "pkz -p $P/tar-mixtool        source tar"
+  $toolsh "pkz -p $P/xz-mixtool         source xz"
+
+  $toolsh "pkz -p $P/binutils-mixtool-pass2 source binutils"
+  $toolsh "pkz -p $P/gcc-mixtool-pass2      source gcc"
+
+  $toolsh "pkz -p $P/pkgconf-mixtool source pkgconf"
+  $toolsh "pkz -p $P/cmake-mixtool source cmake"
+  $toolsh "pkz -p $P/ninja-mixtool source ninja"
+
+  $toolsh "pkz -p $P/gettext-mixtool    source gettext"
+  $toolsh "pkz -p $P/bison-mixtool      source bison"
+  $toolsh "pkz -p $P/perl-mixtool       source perl"
+  $toolsh "pkz -p $P/python3-mixtool    source python3"
+  $toolsh "pkz -p $P/texinfo-mixtool    source texinfo"
+  $toolsh "pkz -p $P/util-linux-mixtool source util-linux"
 fi
 
 cat > /dev/stdout << EOF

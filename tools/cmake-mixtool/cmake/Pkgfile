@@ -10,7 +10,7 @@ build() {
   sed -i '/"lib64"/s/64//' Modules/GNUInstallDirs.cmake
   ./bootstrap --prefix=/usr \
     --datadir=/share/cmake \
-    --no-system-libs
+    --no-system-libs -- -DCMAKE_USE_OPENSSL=OFF
   make
   make DESTDIR=$PKG install
   ln -sfv $name $PKG/usr/share/$name-${version%.*}
