@@ -1,0 +1,16 @@
+# Description: Three-D Athena widgets
+# Depends on: xorg-libxmu xorg-util-macros
+
+name=xaw3d
+version=1.6.4
+release=mix-1
+source=(https://xorg.freedesktop.org/archive/individual/lib/libXaw3d-$version.tar.xz)
+
+build() {
+  cd libXaw3d-$version
+  ./configure --prefix=/usr --disable-static
+  make
+  make DESTDIR=$PKG install
+  rm -rv $PKG/usr/share/doc
+  rmdir -v $PKG/usr/share
+}

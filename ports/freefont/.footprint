@@ -1,0 +1,16 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/fonts/
+drwxr-xr-x	root/root	usr/share/fonts/freefont/
+-rw-r--r--	root/root	usr/share/fonts/freefont/FreeMono.otf
+-rw-r--r--	root/root	usr/share/fonts/freefont/FreeMonoBold.otf
+-rw-r--r--	root/root	usr/share/fonts/freefont/FreeMonoBoldOblique.otf
+-rw-r--r--	root/root	usr/share/fonts/freefont/FreeMonoOblique.otf
+-rw-r--r--	root/root	usr/share/fonts/freefont/FreeSans.otf
+-rw-r--r--	root/root	usr/share/fonts/freefont/FreeSansBold.otf
+-rw-r--r--	root/root	usr/share/fonts/freefont/FreeSansBoldOblique.otf
+-rw-r--r--	root/root	usr/share/fonts/freefont/FreeSansOblique.otf
+-rw-r--r--	root/root	usr/share/fonts/freefont/FreeSerif.otf
+-rw-r--r--	root/root	usr/share/fonts/freefont/FreeSerifBold.otf
+-rw-r--r--	root/root	usr/share/fonts/freefont/FreeSerifBoldItalic.otf
+-rw-r--r--	root/root	usr/share/fonts/freefont/FreeSerifItalic.otf

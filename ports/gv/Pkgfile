@@ -1,0 +1,15 @@
+# Description: A program to view PostScript and PDF documents
+# Depends on: ghostscript xaw3d
+
+name=gv
+version=3.7.4
+release=mix-1
+source=(https://ftp.gnu.org/gnu/gv/$name-$version.tar.gz)
+
+build() {
+  cd $name-$version
+  sed -i -e "s:-dGraphicsAlphaBits=2:\0 -dAlignToPixels=0:" src/Makefile.{am,in}
+  ./configure --prefix=/usr
+  make
+  make DESTDIR=$PKG install
+}

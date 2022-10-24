@@ -8,8 +8,16 @@ source=(https://ctwm.org/dist/$name-$version.tar.xz)
 
 build() {
   cmake -S $name-$version -B build -G Ninja \
-    -D CMAKE_INSTALL_PREFIX=/usr
+    -D CMAKE_INSTALL_PREFIX=/usr \
+    -D CMAKE_INSTALL_SYSCONFDIR=/etc/ctwm
   cmake --build build
   DESTDIR=$PKG cmake --install build
-  rm -rv $PKG/usr/share/{doc,examples}
+
+  if [ -f $PKGMK_ROOT/system.ctwmrc ]; then
+    mkdir -pv $PKG/usr/etc
+    cp -v $PKGMK_ROOT/system.ctwmrc $PKG/usr/etc/
+  fi
+
+  rm -rv $PKG/usr/share/{ctwm/images,doc,examples}
+  rmdir -v $PKG/usr/share/ctwm
 }

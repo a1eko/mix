@@ -15,6 +15,7 @@ build() {
     -DUSE_NLS=false
   cmake --build build
   DESTDIR=$PKG cmake --install build
+  ln -sv darktable/libdarktable.so $PKG/usr/lib/libdarktable.so
 
   rm -rv $PKG/usr/share/doc
   find $PKG -name LICENSE -delete

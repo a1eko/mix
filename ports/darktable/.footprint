@@ -15,6 +15,7 @@ drwxr-xr-x	root/root	usr/lib/darktable/plugins/imageio/
 drwxr-xr-x	root/root	usr/lib/darktable/plugins/imageio/format/
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/imageio/format/libcopy.so
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/imageio/format/libexr.so
+-rwxr-xr-x	root/root	usr/lib/darktable/plugins/imageio/format/libj2k.so
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/imageio/format/libjpeg.so
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/imageio/format/libpdf.so
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/imageio/format/libpfm.so
@@ -159,6 +160,7 @@ drwxr-xr-x	root/root	usr/lib/darktable/views/
 -rwxr-xr-x	root/root	usr/lib/darktable/views/liblighttable.so
 -rwxr-xr-x	root/root	usr/lib/darktable/views/libprint.so
 -rwxr-xr-x	root/root	usr/lib/darktable/views/libslideshow.so
+lrwxrwxrwx	root/root	usr/lib/libdarktable.so -> darktable/libdarktable.so
 drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/applications/
 -rw-r--r--	root/root	usr/share/applications/darktable.desktop
