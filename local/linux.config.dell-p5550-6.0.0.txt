@@ -1,0 +1,84 @@
+Local hardware
+
+    Model:  	    Dell Precision 5550
+    CPU:            10th generation i9
+    Storage:        M.2 SSD NVMe, PCIe Gen3.0x4
+    Wi-Fi:          Intel Wi-Fi 6 AX201
+    Onboard sound:  Realtek ALC3281-CG
+    GPU:            NVIDIA Quadro T2000
+
+Modifications to the default Linux configuration
+
+    make mrproper
+    make defconfig
+    cp .config config.defconfig
+    make menuconfig
+
+Storage support.
+
+    Device Drivers --->
+        NVME Support --->
+	    <*> NVM Express block device
+	    [*] NVMe multipath support
+
+Network support.
+
+    [*] Networking support --->
+        -*- Wireless --->
+	    <*> cfg80211 - wireless configuration API
+	    [*] cfg80211 wireless extensions compatibility
+
+    Device Drivers --->
+        [*] Network device support --->
+            [*] Wireless LAN --->
+                <*> Intel Wireless WiFi Next Gen AGN -
+		    Wireless-N/Advanced-N/Ultimate-N (iwlwifi)
+                <*> Intel Wireless WiFi MVM Firmware support
+
+Force loading firmware microcode if kernel fails to load it.
+
+    Device Drivers --->
+        Generic Driver Options --->
+	    Firmware loader --->
+	        (iwlwifi-QuZ-a0-hr-b0-59.ucode) Build named firmware blobs
+		    into the kernel binary
+                (/lib/firmware) Firmware blobs root directory 
+
+Video support.
+
+    Device Drivers --->
+        Graphics support --->
+            <*> Nouveau (NVIDIA) cards
+
+            Frame buffer Devices --->
+                [*] EFI-based Framebuffer Support
+                <*> Support for frame buffer devices --->
+                    <*> nVidia Framebuffer Support
+                        [ ] Enable DDC Support
+
+Audio support.
+
+    Device Drivers --->
+        <*> Sound card support --->
+            <*> Advanced Linux Sound Architecture --->
+                HD Audio --->
+                    <*> Build Realtek HD-audio codec support
+
+File system configuration. Add support for Dos/Windos and FUSE.
+
+    File systems --->
+        <M> FUSE (Filesystem in Userspace) support
+        DOS/FAT/EXFAT/NT Filesystems --->
+            [*] Enable FAT UTF-8 option by default
+            <M> exFAT filesystem support
+            <M> NTFS file system support
+            [*]     NTFS write support
+
+Save changes of the default configuration to file.
+
+    cp .config config.menuconfig
+    grep -v '#' config.defconfig | sort -u > a
+    grep -v '#' config.menuconfig | sort -u > b
+    comm -13 a b > config.local
+
+Use config.local in /usr/packages/linux to build the kernel.

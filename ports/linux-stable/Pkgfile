@@ -1,12 +1,12 @@
-# Description: linux kernel, longterm line
+# Description: linux kernel, stable line
 
-name=linux
-version=5.15.74
+name=linux-stable
+version=6.0.3
 release=mix-1
 source=(https://www.kernel.org/pub/linux/kernel/v5.x/linux-$version.tar.xz config.local)
 
 build() {
-  cd $name-$version
+  cd ${name%-stable}-$version
   make mrproper
   make defconfig
   cat .config ../config.local > all.config
