@@ -31,11 +31,11 @@ Network support.
     Device Drivers --->
         [*] Network device support --->
             [*] Wireless LAN --->
-                <*> Intel Wireless WiFi Next Gen AGN -
+                <M> Intel Wireless WiFi Next Gen AGN -
 		    Wireless-N/Advanced-N/Ultimate-N (iwlwifi)
-                <*> Intel Wireless WiFi MVM Firmware support
+                <M> Intel Wireless WiFi MVM Firmware support
 
-Force loading firmware microcode if kernel fails to load it.
+Force loading firmware microcode if kernel fails to do so.
 
     Device Drivers --->
         Generic Driver Options --->
@@ -48,13 +48,13 @@ Video support.
 
     Device Drivers --->
         Graphics support --->
-            <*> Nouveau (NVIDIA) cards
+            <M> Nouveau (NVIDIA) cards
 
             Frame buffer Devices --->
-                [*] EFI-based Framebuffer Support
-                <*> Support for frame buffer devices --->
-                    <*> nVidia Framebuffer Support
+                <M> Support for frame buffer devices --->
+                    <M> nVidia Framebuffer Support
                         [ ] Enable DDC Support
+                    [*] EFI-based Framebuffer Support
 
 Audio support.
 
