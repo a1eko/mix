@@ -1,9 +1,9 @@
 # Description: linux kernel, stable line
 
 name=linux-stable
-version=6.0.3
+version=6.0.6
 release=mix-1
-source=(https://www.kernel.org/pub/linux/kernel/v5.x/linux-$version.tar.xz config.local)
+source=(https://www.kernel.org/pub/linux/kernel/v6.x/linux-$version.tar.xz config.local)
 
 build() {
   cd ${name%-stable}-$version

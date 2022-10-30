@@ -8,8 +8,7 @@ source=(https://ctwm.org/dist/$name-$version.tar.xz)
 
 build() {
   cmake -S $name-$version -B build -G Ninja \
-    -D CMAKE_INSTALL_PREFIX=/usr \
-    -D CMAKE_INSTALL_SYSCONFDIR=/etc/ctwm
+    -D CMAKE_INSTALL_PREFIX=/usr
   cmake --build build
   DESTDIR=$PKG cmake --install build
 

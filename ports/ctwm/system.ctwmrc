@@ -101,3 +101,5 @@ NoBorder    { "TWM Icon Manager" "WorkSpaceManager" }
 NoTitle     { "TWM Icon Manager" "WorkSpaceManager" }
 ShowWorkSpaceManager
 DontWarpCursorInWMap
+MapWindowCurrentWorkSpace { "rgb:2/a/9" "black" "white" }
+MapWindowDefaultWorkSpace { "black" "grey20" "white" }

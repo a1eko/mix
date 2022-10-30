@@ -1,0 +1,28 @@
+conky.config = {
+  alignment = 'top_right',
+  default_color = 'gray50',
+  color1 = 'gray',
+  color2 = 'yellow',
+  color3 = 'red',
+  color4 = 'white',
+  use_xft = true,
+  double_buffer = true,
+  draw_shades = false,
+  gap_x = 0,
+  gap_y = 2,
+};
+
+conky.text = [[
+  ${font sans-serif:normal:size=10} \
+  ${cpugraph cpu0 14,100 -l} \
+  ${color1}CPU: ${cpu cpu0}% ${color} ${freq_g} GHz, ${exec \
+    awk '{printf "%.0f C", $1/1000}' /sys/class/thermal/thermal_zone0/temp}     \
+  ${color1}RAM: ${memperc}% ${color} ${mem}     \
+  ${if_existing /sys/class/power_supply/BAT0} \
+    ${color1}BAT: ${battery_percent}% ${color} ${battery_time}  ${if_match \
+      ${battery_percent}<=15}${color3}${battery_bar 10,50}${color}${else}${if_match \
+      ${battery_percent}<=25}${color2}${battery_bar 10,50}${else}${if_match \
+      ${battery_percent}>25}${color}${battery_bar 10,50}${endif}${endif}${endif}${color}     \
+  ${endif} \
+  ${color1}${time %b %d} ${color} ${time %a} ${font sans-serif:bold:size=10} ${color4}${time %R  }
+]];

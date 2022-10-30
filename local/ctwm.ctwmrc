@@ -27,7 +27,7 @@ Color
     TitleForeground "gray85"
     MenuBackground "rgb:2/a/9"
     MenuForeground "gray85"
-    MenuBorderColor "slategrey"
+    #MenuBorderColor "slategrey"
     MenuTitleBackground "gray70"
     MenuTitleForeground "rgb:2/a/9"
     IconBackground "rgb:2/a/9"
@@ -94,7 +94,7 @@ menu "defops"
 #
 WorkSpaces { "one" "two" "three" "four" "five" "six" "seven" "eight" "nine" }
 WorkSpaceFont "-adobe-helvetica-bold-r-normal--8*"
-WorkSpaceManagerGeometry "300x19+20+0" 9
+WorkSpaceManagerGeometry "300x19+0+0" 9
 AlwaysOnTop { "WorkSpaceManager" }
 NoBorder    { "WorkSpaceManager" }
 NoTitle     { "WorkSpaceManager" }
@@ -106,9 +106,9 @@ MapWindowCurrentWorkSpace { "rgb:2/a/9" "black" "white" }
 MapWindowDefaultWorkSpace { "black" "grey20" "white" }
 
 RandomPlacement "on" "-30-30"
-UseThreeDBorders
-ThreeDBorderWidth         3
-Borderwidth               3
+#UseThreeDBorders
+#ThreeDBorderWidth         3
+Borderwidth               2
 BorderShadowDepth         1
 BorderResizeCursors
 CenterFeedbackWindow
@@ -132,14 +132,17 @@ Color
 }
 
 Function "raise-and-resize" { f.raise f.deltastop f.resize }
+
 Button1 = : f : f.function "raise-and-resize"
 Button1 = m : window|icon : f.function "move-or-raise"
 Button2 = m : window|icon : f.iconify
 Button3 = m : window|icon : f.function "move-or-lower"
 
-"KP_Enter" = m | s : all : f.exec "exec st &"
+"Return" = m | s : all : f.exec "exec st &"
 "p" = m : all : f.exec "/usr/bin/dmenu_run"
 "q" = c : window : f.delete
+"c" = m | s : window : f.delete
+"q" = m | s : all : f.quit
 "1" = m : all : f.gotoworkspace "one"
 "2" = m : all : f.gotoworkspace "two"
 "3" = m : all : f.gotoworkspace "three"
