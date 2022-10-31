@@ -25,11 +25,11 @@ Color
     #DefaultForeground "gray85"
     TitleBackground "rgb:2/a/9"
     TitleForeground "gray85"
-    MenuBackground "rgb:2/a/9"
-    MenuForeground "gray85"
+    #MenuBackground "rgb:2/a/9"
+    #MenuForeground "gray85"
     #MenuBorderColor "slategrey"
-    MenuTitleBackground "gray70"
-    MenuTitleForeground "rgb:2/a/9"
+    #MenuTitleBackground "gray70"
+    #MenuTitleForeground "rgb:2/a/9"
     IconBackground "rgb:2/a/9"
     IconForeground "gray85"
     IconBorderColor "gray85"
@@ -105,9 +105,9 @@ DontWarpCursorInWMap
 MapWindowCurrentWorkSpace { "rgb:2/a/9" "black" "white" }
 MapWindowDefaultWorkSpace { "black" "grey20" "white" }
 
+IconRegion "100x1200+10+20" North West 50 50
+
 RandomPlacement "on" "-30-30"
-#UseThreeDBorders
-#ThreeDBorderWidth         3
 Borderwidth               2
 BorderShadowDepth         1
 BorderResizeCursors
@@ -121,14 +121,12 @@ NoTitle
 Color
 {
         BorderColor "rgb:2/a/9"
-        DefaultBackground "gray70"
-        DefaultForeground "black"
-        TitleBackground "gray50"
-        TitleForeground "gray20"
         BorderTileBackground "gray20"
         IconBackground "black"
         IconForeground "white"
         IconBorderColor "gray45"
+        MenuBackground "gray"
+        MenuForeground "black"
 }
 
 Function "raise-and-resize" { f.raise f.deltastop f.resize }
@@ -140,7 +138,6 @@ Button3 = m : window|icon : f.function "move-or-lower"
 
 "Return" = m | s : all : f.exec "exec st &"
 "p" = m : all : f.exec "/usr/bin/dmenu_run"
-"q" = c : window : f.delete
 "c" = m | s : window : f.delete
 "q" = m | s : all : f.quit
 "1" = m : all : f.gotoworkspace "one"
