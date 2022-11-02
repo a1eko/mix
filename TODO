@@ -17,3 +17,7 @@ o toolchain (file): crux build depends on autoconf, moved to BASE2 after auto-to
 + ports (cmake, ninja, meson): add to tools/base system, reinstall crux ports afterwards
 o ports (linux-headers, linux): long-term support kernel line
 o ports (linux-stable): the latest stable release (conflicts with linux)
+- ports (make): new v4.4
+- ports (openssl): new v3.0.7
+- ports (linux-stable): new v6.0.6
+- ports (rust): new v1.65.0

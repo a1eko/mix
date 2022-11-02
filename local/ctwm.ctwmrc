@@ -25,8 +25,8 @@ Color
     #DefaultForeground "gray85"
     TitleBackground "rgb:2/a/9"
     TitleForeground "gray85"
-    #MenuBackground "rgb:2/a/9"
-    #MenuForeground "gray85"
+    MenuBackground "rgb:2/a/9"
+    MenuForeground "gray85"
     #MenuBorderColor "slategrey"
     #MenuTitleBackground "gray70"
     #MenuTitleForeground "rgb:2/a/9"
@@ -125,8 +125,6 @@ Color
         IconBackground "black"
         IconForeground "white"
         IconBorderColor "gray45"
-        MenuBackground "gray"
-        MenuForeground "black"
 }
 
 Function "raise-and-resize" { f.raise f.deltastop f.resize }
