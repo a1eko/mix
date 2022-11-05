@@ -1,0 +1,3 @@
+Build dependencies: harfbuzz is compiled after installing graphite2 and icu;
+xmlsec is compiled after installing nss. Run-time dependency: avahi needed for
+Impress Presentation.

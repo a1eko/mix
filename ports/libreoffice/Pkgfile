@@ -1,0 +1,94 @@
+# Description: full-featured office suite
+# Depends on: avahi boost clucene curl expat glm gpgme graphite2 harfbuzz icu lcms2 libepoxy libjpeg-turbo libpng libtiff libwebp libxml2 nss openldap openssl poppler redland unixodbc xmlsec
+
+name=libreoffice
+version=7.4.2.3
+release=mix-1
+source=(https://downloadarchive.documentfoundation.org/libreoffice/old/$version/src/$name-$version.tar.xz
+	https://download.documentfoundation.org/libreoffice/src/${version%.3}/libreoffice-dictionaries-$version.tar.xz
+	https://download.documentfoundation.org/libreoffice/src/${version%.3}/libreoffice-help-$version.tar.xz
+	https://download.documentfoundation.org/libreoffice/src/${version%.3}/libreoffice-translations-$version.tar.xz)
+
+unpack_source() { :; }
+
+build() {
+  tar -xf libreoffice-$version.tar.xz --no-overwrite-dir
+  cd $name-$version
+
+  install -dm755 external/tarballs
+  ln -sv ../../../libreoffice-dictionaries-$version.tar.xz external/tarballs/
+  ln -sv ../../../libreoffice-help-$version.tar.xz         external/tarballs/
+  ln -sv ../../../libreoffice-translations-$version.tar.xz external/tarballs/
+  ln -sv src/libreoffice-help-$version/helpcontent2/
+  ln -sv src/libreoffice-dictionaries-$version/dictionaries/
+  ln -sv src/libreoffice-translations-$version/translations/
+
+  # GPGME breaks configure due to a library change
+  export ac_cv_lib_gpgmepp_progress_callback=yes
+
+  sed -e "/gzip -f/d" \
+      -e "s|.1.gz|.1|g" \
+      -i bin/distro-install-desktop-integration
+  sed -e "/distro-install-file-lists/d" -i Makefile.in
+
+  NOCONFIGURE=1 ./autogen.sh
+  ./configure --prefix=/usr \
+    --sysconfdir=/etc \
+    --with-vendor=MiX \
+    --with-extra-buildid="built $(date +%Y%m%d)" \
+    --with-help \
+    --with-lang="" \
+    --with-myspell-dicts \
+    --without-fonts \
+    --without-java \
+    --without-junit \
+    --without-system-dicts \
+    --disable-dbus \
+    --disable-dconf \
+    --disable-firebird-sdbc \
+    --disable-gstreamer-1-0 \
+    --disable-odk \
+    --enable-release-build=yes \
+    --enable-python=system \
+    --with-system-boost \
+    --with-system-clucene \
+    --with-system-curl \
+    --with-system-epoxy \
+    --with-system-expat \
+    --with-system-glm \
+    --with-system-gpgmepp \
+    --with-system-graphite \
+    --with-system-harfbuzz \
+    --with-system-icu \
+    --with-system-jpeg \
+    --with-system-lcms2 \
+    --with-system-libatomic_ops \
+    --with-system-libpng \
+    --with-system-libxml \
+    --with-system-nss \
+    --with-system-odbc \
+    --with-system-openldap \
+    --with-system-openssl \
+    --with-system-poppler \
+    --with-system-redland \
+    --with-system-libtiff \
+    --with-system-libwebp \
+    --with-system-zlib
+
+  sed -i -e 's/check-if-root //g' Makefile
+  make build VERBOSE=yes
+  make DESTDIR=$PKG distro-pack-install
+
+  install -dm755 $PKG/usr/etc/libreoffice
+  install -m644 $PKG/usr/lib/libreoffice/program/{bootstraprc,sofficerc} \
+    $PKG/usr/etc/libreoffice/
+  install -m644 $PKG/usr/lib/libreoffice/share/psprint/psprint.conf \
+    $PKG/usr/etc/libreoffice/
+
+  ( cd $PKG/usr/lib/libreoffice/program/
+    ln -vsrf $PKG/usr/etc/libreoffice/{bootstraprc,sofficerc} .
+  )
+
+  rm -v $PKG/gid_Module_*
+  find $PKG \( -iname "readme*" -o -name "NOTICE" -o -name "LICEN*" -o -name "CREDITS*" \) -exec rm -rfv '{}' \+
+}

@@ -168,6 +168,7 @@ xorg-font-msttcorefonts
 xorg
 
 libjpeg-turbo
+slstatus
 xterm
 dmenu
 dwm

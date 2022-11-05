@@ -12,12 +12,11 @@ o ports (crux compat): define unpack_source() in pkz, redefine in Pkgfile's if n
 o ports (zathura-ps): error loading PS file with ref to libspectre/ghostscript
 o ports (pkz): concider using curl instead of wget (reliability issues)
 o toolchain (file): crux build depends on autoconf, moved to BASE2 after auto-tools
-+ mix release (install.sh, *.mix): sync to crux v3.7
 + ports, tools (pkg-config): replace with pkgconf (see crux)
 + ports (cmake, ninja, meson): add to tools/base system, reinstall crux ports afterwards
 o ports (linux-headers, linux): long-term support kernel line
-o ports (linux-stable): the latest stable release (conflicts with linux)
+o ports (linux-stable): the latest stable release (note: necessarily conflicts with linux)
++ ports (wm's): revert defaults to suckless tools
 - ports (make): new v4.4
-- ports (openssl): new v3.0.7
-- ports (linux-stable): new v6.0.6
 - ports (rust): new v1.65.0
+- toolchain, ports (install.sh, pkz): concider using fakeroot

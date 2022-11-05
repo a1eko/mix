@@ -1,0 +1,15 @@
+# Description: status bar for dwm
+# Depends on: xorg
+
+name=slstatus
+version=git
+release=mix-1
+source=()
+
+build () {
+  git clone git://git.suckless.org/$name
+  cd $name
+  [ -f $PKGMK_ROOT/config.h ] && cp -v $PKGMK_ROOT/config.h .
+  make
+  make DESTDIR=$PKG PREFIX=/usr MANPREFIX=/usr/man install
+}

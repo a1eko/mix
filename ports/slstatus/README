@@ -1,0 +1,3 @@
+The configuration of slstatus is done by creating a custom config.h and
+(re)compiling the source code. To create a custom config.h, unpack the
+tarball, copy the file config.def.h to config.h and edit it to the taste.
