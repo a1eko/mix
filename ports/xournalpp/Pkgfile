@@ -23,5 +23,5 @@ build() {
     cmake --build .
     make DESTDIR=$PKG install
     rm -rf $PKG/usr/share/locale
-    find $PKG -name README.md -exec rm -f '{}' +
+    find $PKG -name README.md -exec rm -fv '{}' \+
 }

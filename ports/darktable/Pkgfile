@@ -18,5 +18,5 @@ build() {
   ln -sv darktable/libdarktable.so $PKG/usr/lib/libdarktable.so
 
   rm -rv $PKG/usr/share/doc
-  find $PKG -name LICENSE -delete
+  find $PKG -name LICENSE -exec rm -v '{}' \+
 }

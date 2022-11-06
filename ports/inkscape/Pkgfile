@@ -17,5 +17,5 @@ build() {
 
   rm -rv $PKG/usr/share/{man,locale}
   rm -rv $PKG/usr/share/inkscape/doc
-  find $PKG/usr/share/inkscape \( -name README* -o -name LICEN* \) -delete
+  find $PKG/usr/share/inkscape \( -name "README*" -o -name "LICEN*" \) -exec rm -v '{}' \+
 }

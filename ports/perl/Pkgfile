@@ -35,13 +35,13 @@ build() {
     ln -sf perl${version%-*} $PKG/usr/bin/perl
     #ln -sf perlbug.1pm $PKG/usr/share/man/man1/perlthanks.1pm
 
-    find $PKG \
+    find $PKG \( \
          -iname 'TODO*' -or \
          -iname 'Change*' -or \
          -iname 'README*' -or \
          -name '*.bs' -or \
          -name '.packlist' -or \
-         -name 'perllocal.pod' | xargs rm -v
+         -name 'perllocal.pod' \) -exec rm -v '{}' \+
     
     find $PKG -depth -empty -exec rmdir {} \;
     #chmod -R +w $PKG

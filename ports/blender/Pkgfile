@@ -24,6 +24,5 @@ build() {
   python3 -O -m compileall $PKG/usr/share/$name
 
   rm -rv $PKG/usr/share/doc
-  find $PKG -name README.md -delete
-  find $PKG -name CHANGELOG.md -delete
+  find $PKG \( -name README.md -o -name CHANGELOG.md \) -exec rm -v '{}' \+
 }
