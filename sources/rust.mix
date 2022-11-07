@@ -2,7 +2,8 @@
 #
 # NOTE: installs after x.mix
 #
-# Build time may take up to 7.5 hours on 4-core 4 GHz processor (first-time build).
+# Build time may take up to 7.5 hours on 4-core 4 GHz processor for the first-time build.
+# Subsequent builds using old rustc are under 1 hour.
 #
 libssh2
 rust
