@@ -1,0 +1,5 @@
+#!/bin/sh
+
+update-mime-database /usr/share/mime &> /dev/null || true
+update-desktop-database &> /dev/null || true
+nohup fc-cache >/dev/null 2>&1 || true
