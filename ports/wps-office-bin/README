@@ -1,0 +1,6 @@
+Manually download WPS Office deb package from
+https://www.wps.com/office/linux/ to package directory wps-office-bin
+or /usr/sources.
+
+Installed binaries are et (spreadsheet), wpp (presentation), wps (writer) and
+wpspdf (pdf tools).
