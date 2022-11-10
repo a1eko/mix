@@ -11,6 +11,9 @@ build()
 {
   cd $name-$version
 
+  # fix an issue with parallel jobs and make-4.4 or later
+  sed '/MAKEFLAGS :=/s/)r/) -r/' -i Makerules
+
   patch -Np1 -i ../glibc-$version-fhs-1.patch
 
   mkdir -v build
