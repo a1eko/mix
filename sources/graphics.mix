@@ -1,7 +1,9 @@
 # Basic graphics tools
 #
-# NOTE: installs after rust.mix
+# NOTE: installs after x.mix
 #
+libssh2
+rust
 
 tk
 python3

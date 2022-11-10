@@ -1,0 +1,3 @@
+drwxr-xr-x	build/users	usr/
+drwxr-xr-x	build/users	usr/bin/
+-rwxr-xr-x	build/users	usr/bin/ninja

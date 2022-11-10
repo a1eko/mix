@@ -1,0 +1,21 @@
+drwxr-xr-x	build/users	usr/
+drwxr-xr-x	build/users	usr/bin/
+-rwxr-xr-x	build/users	usr/bin/type1afm
+-rwxr-xr-x	build/users	usr/bin/xglyph
+drwxr-xr-x	build/users	usr/include/
+-rw-r--r--	build/users	usr/include/t1lib.h
+-rw-r--r--	build/users	usr/include/t1libx.h
+drwxr-xr-x	build/users	usr/lib/
+-rw-r--r--	build/users	usr/lib/libt1.a
+-rwxr-xr-x	build/users	usr/lib/libt1.la
+lrwxrwxrwx	build/users	usr/lib/libt1.so -> libt1.so.5.1.2
+lrwxrwxrwx	build/users	usr/lib/libt1.so.5 -> libt1.so.5.1.2
+-rwxr-xr-x	build/users	usr/lib/libt1.so.5.1.2
+-rw-r--r--	build/users	usr/lib/libt1x.a
+-rwxr-xr-x	build/users	usr/lib/libt1x.la
+lrwxrwxrwx	build/users	usr/lib/libt1x.so -> libt1x.so.5.1.2
+lrwxrwxrwx	build/users	usr/lib/libt1x.so.5 -> libt1x.so.5.1.2
+-rw-r--r--	build/users	usr/lib/libt1x.so.5.1.2
+drwxr-xr-x	build/users	usr/share/
+drwxr-xr-x	build/users	usr/share/t1lib/
+-rw-r--r--	build/users	usr/share/t1lib/t1lib.config
