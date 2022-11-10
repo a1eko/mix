@@ -69,5 +69,6 @@ static const struct arg args[] = {
 	{ run_command, "  TEMP:%3s C  |", maxtemp },
 	{ cpu_perc,    "  CPU:%3s%% ", NULL }, { cpu_freq, "%7sHz  |", NULL },
 	{ ram_perc,    "  RAM:%3s%% ", NULL }, { ram_used, "%8sB  |", NULL },
+	{ battery_perc,"  BAT:%3s%% |", "BAT0" },
 	{ datetime,    "  %s  ", "%b %d (%a) %R" },
 };
