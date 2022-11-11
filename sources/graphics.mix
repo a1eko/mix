@@ -32,7 +32,7 @@ harfbuzz
 
 pango
 poppler-data
-t1lib
+#t1lib
 
 gtk
 
