@@ -1,0 +1,16 @@
+# Description: ncurses clock
+
+name=tty-clock
+version=git
+release=mix-1
+
+build() { 
+  git clone https://github.com/xorg62/tty-clock.git
+  cd tty-clock
+  sed -i 's/CFLAGS ?=/CFLAGS +=/' Makefile
+  sed -i 's/LDFLAGS ?=/LDFLAGS +=/' Makefile
+  sed -i 's/LDFLAGS ?=/LDFLAGS +=/' Makefile
+  sed -i 's/${SRC} -o/${SRC} -lncurses -o/' Makefile
+  make
+  install -Dm 755 tty-clock $PKG/usr/bin/tty-clock
+}
