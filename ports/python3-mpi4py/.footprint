@@ -88,9 +88,9 @@ drwxr-xr-x	root/root	usr/lib/python3.10/site-packages/mpi4py/util/__pycache__/
 -rw-rw-r--	root/root	usr/lib/python3.10/site-packages/mpi4py/util/dtlib.pyi
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/mpi4py/util/pkl5.py
 -rw-rw-r--	root/root	usr/lib/python3.10/site-packages/mpi4py/util/pkl5.pyi
-drwxr-xr-x	root/root	usr/lib/python3.10/site-packages/mpi4py-3.1.3-py3.10.egg-info/
--rw-r--r--	root/root	usr/lib/python3.10/site-packages/mpi4py-3.1.3-py3.10.egg-info/PKG-INFO
--rw-r--r--	root/root	usr/lib/python3.10/site-packages/mpi4py-3.1.3-py3.10.egg-info/SOURCES.txt
--rw-r--r--	root/root	usr/lib/python3.10/site-packages/mpi4py-3.1.3-py3.10.egg-info/dependency_links.txt
--rw-r--r--	root/root	usr/lib/python3.10/site-packages/mpi4py-3.1.3-py3.10.egg-info/not-zip-safe
--rw-r--r--	root/root	usr/lib/python3.10/site-packages/mpi4py-3.1.3-py3.10.egg-info/top_level.txt
+drwxr-xr-x	root/root	usr/lib/python3.10/site-packages/mpi4py-3.1.4-py3.10.egg-info/
+-rw-r--r--	root/root	usr/lib/python3.10/site-packages/mpi4py-3.1.4-py3.10.egg-info/PKG-INFO
+-rw-r--r--	root/root	usr/lib/python3.10/site-packages/mpi4py-3.1.4-py3.10.egg-info/SOURCES.txt
+-rw-r--r--	root/root	usr/lib/python3.10/site-packages/mpi4py-3.1.4-py3.10.egg-info/dependency_links.txt
+-rw-r--r--	root/root	usr/lib/python3.10/site-packages/mpi4py-3.1.4-py3.10.egg-info/not-zip-safe
+-rw-r--r--	root/root	usr/lib/python3.10/site-packages/mpi4py-3.1.4-py3.10.egg-info/top_level.txt

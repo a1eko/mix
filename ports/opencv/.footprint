@@ -443,25 +443,6 @@ lrwxrwxrwx	root/root	usr/lib/libopencv_videoio.so -> libopencv_videoio.so.406
 lrwxrwxrwx	root/root	usr/lib/libopencv_videoio.so.406 -> libopencv_videoio.so.4.6.0
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/opencv4.pc
-drwxr-xr-x	root/root	usr/lib/python3.10/
-drwxr-xr-x	root/root	usr/lib/python3.10/site-packages/
-drwxr-xr-x	root/root	usr/lib/python3.10/site-packages/cv2/
--rw-r--r--	root/root	usr/lib/python3.10/site-packages/cv2/__init__.py
--rw-r--r--	root/root	usr/lib/python3.10/site-packages/cv2/config-3.10.py
--rw-r--r--	root/root	usr/lib/python3.10/site-packages/cv2/config.py
-drwxr-xr-x	root/root	usr/lib/python3.10/site-packages/cv2/gapi/
--rw-r--r--	root/root	usr/lib/python3.10/site-packages/cv2/gapi/__init__.py
--rw-r--r--	root/root	usr/lib/python3.10/site-packages/cv2/load_config_py2.py
--rw-r--r--	root/root	usr/lib/python3.10/site-packages/cv2/load_config_py3.py
-drwxr-xr-x	root/root	usr/lib/python3.10/site-packages/cv2/mat_wrapper/
--rw-r--r--	root/root	usr/lib/python3.10/site-packages/cv2/mat_wrapper/__init__.py
-drwxr-xr-x	root/root	usr/lib/python3.10/site-packages/cv2/misc/
--rw-r--r--	root/root	usr/lib/python3.10/site-packages/cv2/misc/__init__.py
--rw-r--r--	root/root	usr/lib/python3.10/site-packages/cv2/misc/version.py
-drwxr-xr-x	root/root	usr/lib/python3.10/site-packages/cv2/python-3.10/
--rwxr-xr-x	root/root	usr/lib/python3.10/site-packages/cv2/python-3.10/cv2.cpython-310-x86_64-linux-gnu.so
-drwxr-xr-x	root/root	usr/lib/python3.10/site-packages/cv2/utils/
--rw-r--r--	root/root	usr/lib/python3.10/site-packages/cv2/utils/__init__.py
 drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/opencv4/
 drwxr-xr-x	root/root	usr/share/opencv4/haarcascades/

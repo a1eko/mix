@@ -2,7 +2,7 @@
 
 name=genesis
 version=2.4
-release=git-mix-1
+release=git-mix-2
 source=()
 
 build() {
@@ -10,8 +10,8 @@ build() {
   cd $name-$version
   cd genesis/src
   ./configure --prefix=/usr/lib/genesis
-  (cd diskio/interface/netcdf && make)
-  make
+  (cd diskio/interface/netcdf && make -j1)
+  make -j1
   make INSTALLDIR=$PKG/usr/lib/genesis install
 
   mkdir -pv $PKG/usr/bin

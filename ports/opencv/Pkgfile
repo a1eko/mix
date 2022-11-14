@@ -4,7 +4,7 @@
 
 name=opencv
 version=4.6.0
-release=mix-1
+release=mix-2
 source=(https://github.com/opencv/opencv/archive/$version/$name-$version.tar.gz
         https://github.com/opencv/opencv/commit/496eed95.patch)
 
@@ -25,6 +25,7 @@ build() {
     -DENABLE_PRECOMPILED_HEADERS=OFF \
     -DCMAKE_SKIP_RPATH=ON \
     -DBUILD_WITH_DEBUG_INFO=OFF \
+    -DWITH_LAPACK=OFF \
     -Wno-dev  ..
 
   make

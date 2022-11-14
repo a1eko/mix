@@ -96,6 +96,7 @@ drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.36/Image/ExifTool/Charset/
 -r--r--r--	root/root	usr/lib/perl5/site_perl/5.36/Image/ExifTool/HTML.pm
 -r--r--r--	root/root	usr/lib/perl5/site_perl/5.36/Image/ExifTool/HtmlDump.pm
 -r--r--r--	root/root	usr/lib/perl5/site_perl/5.36/Image/ExifTool/ICC_Profile.pm
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.36/Image/ExifTool/ICO.pm
 -r--r--r--	root/root	usr/lib/perl5/site_perl/5.36/Image/ExifTool/ID3.pm
 -r--r--r--	root/root	usr/lib/perl5/site_perl/5.36/Image/ExifTool/IPTC.pm
 -r--r--r--	root/root	usr/lib/perl5/site_perl/5.36/Image/ExifTool/ISO.pm
@@ -135,6 +136,7 @@ drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.36/Image/ExifTool/Lang/
 -r--r--r--	root/root	usr/lib/perl5/site_perl/5.36/Image/ExifTool/MIE.pm
 -r--r--r--	root/root	usr/lib/perl5/site_perl/5.36/Image/ExifTool/MIEUnits.pod
 -r--r--r--	root/root	usr/lib/perl5/site_perl/5.36/Image/ExifTool/MIFF.pm
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.36/Image/ExifTool/MISB.pm
 -r--r--r--	root/root	usr/lib/perl5/site_perl/5.36/Image/ExifTool/MNG.pm
 -r--r--r--	root/root	usr/lib/perl5/site_perl/5.36/Image/ExifTool/MOI.pm
 -r--r--r--	root/root	usr/lib/perl5/site_perl/5.36/Image/ExifTool/MPC.pm

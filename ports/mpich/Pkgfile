@@ -1,9 +1,9 @@
 # Description: MPI library implementation
 
 name=mpich
-version=4.0.2
+version=4.0.3
 release=mix-1
-source=(http://www.mpich.org/static/tarballs/$version/mpich-$version.tar.gz)
+source=(http://www.mpich.org/static/downloads/$version/mpich-$version.tar.gz)
  
 build()
 {
