@@ -17,3 +17,4 @@ o toolchain (file): crux build depends on autoconf, moved to BASE2 after auto-to
 o ports (meson, python3-*): remove old version when upgrading (use 'pkz upgrade', not 'pkz -f install')
 o ports (linux-headers, linux): long-term support kernel line
 o ports (linux-stable): the latest stable release (note: necessarily conflicts with linux)
+- ports (python3-setuptools): v65.6.0 removes module Log, breakes numpy build --> revert to v65.5.1
