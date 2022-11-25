@@ -1,7 +1,7 @@
 # Description: Bourne shell compatible command language interpreter
 
 name=bash
-version=5.2
+version=5.2.9
 release=0
 source=(http://ftpmirror.gnu.org/gnu/$name/$name-$version.tar.gz)
 
@@ -10,7 +10,7 @@ build() {
 
   ./configure --prefix=/usr \
     --exec-prefix= \
-    --build=$(support/config.guess) \
+    --build=$(sh support/config.guess) \
     --host=$MIX_TGT \
     --without-bash-malloc
   make

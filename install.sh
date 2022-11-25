@@ -33,7 +33,7 @@ BASE1="iana-etc glibc lzip tzdata zlib bzip2 xz zstd readline m4 \
 
 BASE2="ncurses sed psmisc gettext bison grep bash libtool gdbm \
   gperf tar expat inetutils less perl autoconf automake file openssl kmod elfutils \
-  libffi python3 python3-setuptools meson coreutils check diffutils gawk findutils groff \
+  libffi python3 python3-setuptools python3-wheel meson coreutils check diffutils gawk findutils groff \
   gzip kbd libpipeline make patch man-pages man-db texinfo vim \
   eudev procps util-linux e2fsprogs sysklogd sysvinit sudo rc"
 

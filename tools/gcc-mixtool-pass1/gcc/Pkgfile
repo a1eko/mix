@@ -5,14 +5,14 @@ version=12.2.0
 glibcver=2.36
 release=0pass1
 source=(http://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz
-	http://www.mpfr.org/mpfr-current/mpfr-4.1.0.tar.xz
+	http://www.mpfr.org/mpfr-current/mpfr-4.1.1.tar.xz
 	http://ftp.gnu.org/gnu/gmp/gmp-6.2.1.tar.xz
 	https://ftp.gnu.org/gnu/mpc/mpc-1.2.1.tar.gz)
 
 build() {
   cd $name-$version
   mkdir -v mpfr gmp mpc
-  tar -C mpfr --strip-components=1 -xf ../mpfr-4.1.0.tar.xz
+  tar -C mpfr --strip-components=1 -xf ../mpfr-4.1.1.tar.xz
   tar -C gmp --strip-components=1 -xf ../gmp-6.2.1.tar.xz
   tar -C mpc --strip-components=1 -xf ../mpc-1.2.1.tar.gz
 
@@ -38,7 +38,6 @@ build() {
     --disable-nls \
     --disable-shared \
     --disable-multilib \
-    --disable-decimal-float \
     --disable-threads \
     --disable-libatomic \
     --disable-libgomp \
