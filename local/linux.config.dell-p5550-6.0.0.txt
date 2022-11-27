@@ -51,10 +51,18 @@ Video support.
             <M> Nouveau (NVIDIA) cards
 
             Frame buffer Devices --->
-                <M> Support for frame buffer devices --->
+                <*> Support for frame buffer devices --->
                     <M> nVidia Framebuffer Support
                         [ ] Enable DDC Support
                     [*] EFI-based Framebuffer Support
+
+    Device Drivers --->
+        <M> Multimedia support --->
+	    Media device types --->
+	        [*] Cameras and video grabbers
+            Media drivers --->
+                [*] Media USB Adapters --->
+		    <M> USB Video Class (UVC)
 
 Audio support.
 
