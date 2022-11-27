@@ -24,8 +24,16 @@ Video support
     Device Drivers --->
         Graphics support --->
             <M> AMD GPU
-        Frame Buffer Devices --->
-            <*> Support for frame buffer devices --->
+            Frame Buffer Devices --->
+                <*> Support for frame buffer devices --->
+
+#    Device Drivers --->
+#        <M> Multimedia support --->
+#	    Media device types --->
+#	        [*] Cameras and video grabbers
+#            Media drivers --->
+#                [*] Media USB Adapters --->
+#		    <M> USB Video Class (UVC)
 
 Audio support
 
@@ -40,6 +48,7 @@ File system configuration. Add support for Dos/Windos and FUSE.
     File systems --->
         <M> FUSE (Filesystem in Userspace) support
         DOS/FAT/EXFAT/NT Filesystems --->
+	    [*] Enable FAT UTF-8 option by default
             <M> exFAT filesystem support
             <M> NTFS file system support
             [*]     NTFS write support
