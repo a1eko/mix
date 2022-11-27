@@ -1,7 +1,7 @@
 # Description: linux kernel, stable line
 
 name=linux-stable
-version=6.0.9
+version=6.0.10
 release=mix-1
 source=(https://www.kernel.org/pub/linux/kernel/v6.x/linux-$version.tar.xz config.local)
 
