@@ -1,0 +1,17 @@
+# Description: video conferencing client
+# Depends on: glib xorg-libxcb fontconfig mesa xorg-libxinerama xorg-libxrender xorg-libsm xorg-libxcomposite libxslt sqlite3 xorg-xcb-util-keysyms dbus xorg-libxtst
+# Optional: pulseaudio
+
+name=zoom-bin
+version=latest
+release=mix-2
+source=(https://zoom.us/client/latest/zoom_amd64.deb
+	zoom.conf)
+
+build() {
+  ar x zoom_amd64.deb
+  tar -C $PKG -xvf data.tar.xz
+  install -d $PKG/etc/ld.so.conf.d
+  cp -v $SRC/zoom.conf $PKG/etc/ld.so.conf.d/
+  rm -rv $PKG/usr/share/{applications,doc,pixmaps}
+}

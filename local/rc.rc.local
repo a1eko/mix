@@ -1,0 +1,8 @@
+#!/bin/bash
+#
+# /etc/rc.local: local multi-user startup script
+#
+
+chmod 1777 /dev/shm
+
+# End of file

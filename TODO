@@ -18,4 +18,5 @@ o ports (meson, python3-*): remove old version when upgrading (use 'pkz upgrade'
 o ports (linux-headers, linux): long-term support kernel line
 o ports (linux-stable): the latest stable release (note: necessarily conflicts with linux)
 - ports (python3-setuptools): v65.6.0 removes module Log, breakes numpy build --> revert to v65.5.1
-- ports (zoom-bin): unresolved dep libcef and libffmpeg
++ ports (zoom-bin): unresolved dep libcef and libffmpeg
+- ports (rc): restore mode 1777 of /dev/shm in rc.local
