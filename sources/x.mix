@@ -46,7 +46,6 @@ xorg-libxrender
 xorg-libxcursor
 xorg-libxdamage
 xorg-libfontenc
-#xorg-libxfont
 xorg-libxfont2
 xorg-libxft
 xorg-libxi

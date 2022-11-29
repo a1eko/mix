@@ -19,7 +19,6 @@ imlib2
 libtiff
 shared-mime-info
 
-#atk
 dbus
 at-spi2-core
 
@@ -44,8 +43,6 @@ libgd
 ghostscript
 poppler
 
-#at-spi2-core
-#at-spi2-atk
 gtk3
 
 apr
