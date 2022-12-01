@@ -12,7 +12,7 @@ libmng
 libmpeg2
 libvpx
 libtheora
-libquicktime
+#libquicktime
 x264
 libxvid
 mjpegtools

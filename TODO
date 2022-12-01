@@ -19,4 +19,3 @@ o ports (linux-headers, linux): long-term support kernel line
 o ports (linux-stable): the latest stable release (note: necessarily conflicts with linux)
 + ports (rc): restore mode 1777 of /dev/shm in rc.local, if needed
 o ports (rust): remove manually before upgrading
-- ports (libquicktime): build error, undefined FF_MAX_B_FRAMES (see gentoo)
