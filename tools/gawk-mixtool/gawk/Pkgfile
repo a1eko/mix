@@ -1,7 +1,7 @@
 # Description: text processing language interpreter
 
 name=gawk
-version=5.2.0
+version=5.2.1
 release=0
 source=(http://ftp.gnu.org/gnu/gawk/gawk-$version.tar.xz)
 
