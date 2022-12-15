@@ -1,7 +1,7 @@
 - to do, + done, o attention/pending, x ignore
 
 o ports: disable stripping if unneeded or fragile (file .nostrip)
-o crux (ports): .signature replaces .md5sum (see core/signify)
+- crux (ports): .signature replaces .md5sum (see core/signify)
 o ports (libreoffice*): presentation and spreadsheets depend on avahi at runtime
 o ports (python3): rebuild with deps in coreopt and graphics
 o ports (filesystem): never upgrade, overwrites /etc/{passwd,groups,shadow}
@@ -12,10 +12,10 @@ o ports (crux compat): define unpack_source() in pkz, redefine in Pkgfile's if n
 o ports (zathura-ps): error loading PS file with ref to libspectre/ghostscript
 o ports (pkz): concider using curl instead of wget (reliability issues)
 o toolchain (file): crux build depends on autoconf, moved to BASE2 after auto-tools
-+ ports, tools (pkg-config): replace with pkgconf (see crux)
-+ ports (cmake, ninja, meson): add to tools/base system, reinstall crux ports afterwards
+o ports, tools (pkg-config): replaced with pkgconf (see crux)
+o ports (cmake, ninja, meson): added to tools/base system, reinstalling crux ports afterwards
 o ports (meson, python3-*): remove old version when upgrading (use 'pkz upgrade', not 'pkz -f install')
 o ports (linux-headers, linux): long-term support kernel line
 o ports (linux-stable): the latest stable release (note: necessarily conflicts with linux)
 + ports (rc): restore mode 1777 of /dev/shm in rc.local, if needed
-o ports (rust): remove manually before upgrading
+o ports (rust): remove before upgrading (messes up crates)
