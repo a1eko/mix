@@ -80,6 +80,7 @@ drwxr-xr-x	root/root	usr/lib/darktable/plugins/imageio/storage/
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/libhighpass.so
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/libhotpixels.so
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/libinvert.so
+-rwxr-xr-x	root/root	usr/lib/darktable/plugins/liblens.so
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/liblevels.so
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/libliquify.so
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/liblowlight.so
@@ -102,6 +103,7 @@ drwxr-xr-x	root/root	usr/lib/darktable/plugins/imageio/storage/
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/libscalepixels.so
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/libshadhi.so
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/libsharpen.so
+-rwxr-xr-x	root/root	usr/lib/darktable/plugins/libsigmoid.so
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/libsoften.so
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/libsplittoning.so
 -rwxr-xr-x	root/root	usr/lib/darktable/plugins/libspots.so
@@ -390,7 +392,9 @@ drwxr-xr-x	root/root	usr/share/darktable/watermarks/
 -rw-r--r--	root/root	usr/share/darktable/watermarks/hasselblad.svg
 -rw-r--r--	root/root	usr/share/darktable/watermarks/metadata-template.svg
 -rw-r--r--	root/root	usr/share/darktable/watermarks/promo.svg
+-rw-r--r--	root/root	usr/share/darktable/watermarks/simple-text-shadow.svg
 -rw-r--r--	root/root	usr/share/darktable/watermarks/simple-text.svg
+-rw-r--r--	root/root	usr/share/darktable/wb_presets.json
 drwxr-xr-x	root/root	usr/share/icons/
 drwxr-xr-x	root/root	usr/share/icons/hicolor/
 drwxr-xr-x	root/root	usr/share/icons/hicolor/16x16/
