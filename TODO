@@ -1,7 +1,6 @@
 - to do, + done, o attention/pending, x ignore
 
 o ports: disable stripping if unneeded or fragile (file .nostrip)
-- crux (ports): .signature replaces .md5sum (see core/signify)
 o ports (libreoffice*): presentation and spreadsheets depend on avahi at runtime
 o ports (python3): rebuild with deps in coreopt and graphics
 o ports (filesystem): never upgrade, overwrites /etc/{passwd,groups,shadow}
@@ -20,3 +19,5 @@ o ports (linux-stable): the latest stable release (note: necessarily conflicts w
 + ports (rc): restore mode 1777 of /dev/shm in rc.local, if needed
 o ports (rust): remove before upgrading (messes up crates)
 - ports (pkz): if pkz-upgrade fails, the old package is marked not installed (copied to .bak)
+-+ ports (pkz): validate source file with signify if .signature present
+-+ mix (install.sh): put public keys from https://crux.nu/keys/{core,contrib,opt,xorg}.pub to /etc/ports/

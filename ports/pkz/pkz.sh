@@ -179,7 +179,10 @@ do_source() {
                      )
             ) || error "cannot fetch $(basename $s)"
             echo \ done
-            if [ -f $pkgsum ]; then
+            if [ -f $pkgsig ]; then
+              (cd $zsources; signify -q -C -x $pkgsig $f) \
+                || error "signify failed"
+            elif [ -f $pkgsum ]; then
               grep -qw "$(cd $zsources; md5sum $f)" $pkgsum \
                 || error "md5sum failed"
             fi
@@ -501,6 +504,7 @@ while [ $# -gt 0 ]; do
   pkgwork=$pkgdir/files
   pkgcont=$pkgdir/.footprint
   pkgsum=$pkgdir/.md5sum
+  pkgsig=$pkgdir/.signature
   pkgreg=$zregs/$name#$revision
   pkgbuild=$zbuilds/$name#$revision
   pkgbin=$zsources/$name#$revision.pkg.tar.gz

@@ -93,6 +93,10 @@ sed -e 's/pkginfo -i/pkz -i list/g' \
     -i $MIX/usr/packages/*/{Pkgfile,*-install}
 rm -f $MIX/usr/packages/C*
 
+mkdir -pv $MIX/etc/ports
+rsync -rqz crux.nu::keys/{core,opt,contrib,xorg}.pub $MIX/etc/ports
+(cd $MIX/etc/ports; wget -q https://crux.nu/keys/{core,opt,contrib,xorg}.pub)
+
 sudo ln -sfv $MIX/tools /
 echo | gzip -c > $MIX/var/log/packages/dummy.gz
 
