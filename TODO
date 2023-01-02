@@ -21,4 +21,3 @@ o ports (rust): remove before upgrading (messes up crates)
 - ports (pkz): if pkz-upgrade fails, the old package is marked not installed (copied to .bak)
 + ports (pkz): validate source file with signify if .signature present
 + mix (install.sh): put public keys from https://crux.nu/keys/{core,contrib,opt,xorg}.pub to /etc/ports/
-o tools (file): update to v5.44 (watch lfs)
