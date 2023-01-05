@@ -18,6 +18,6 @@ o ports (linux-headers, linux): long-term support kernel line
 o ports (linux-stable): the latest stable release (note: necessarily conflicts with linux)
 + ports (rc): restore mode 1777 of /dev/shm in rc.local, if needed
 o ports (rust): remove before upgrading (messes up crates)
-- ports (pkz): if pkz-upgrade fails, the old package is marked not installed (copied to .bak)
+o ports (pkz): if pkz-upgrade fails, the old package is marked not installed (copied to .bak)
 + ports (pkz): validate source file with signify if .signature present
 + mix (install.sh): put public keys from https://crux.nu/keys/{core,contrib,opt,xorg}.pub to /etc/ports/
