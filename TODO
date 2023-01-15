@@ -21,3 +21,6 @@ o ports (rust): remove before upgrading (messes up crates)
 o ports (pkz): if pkz-upgrade fails, the old package is marked not installed (copied to .bak)
 + ports (pkz): validate source file with signify if .signature present
 + mix (install.sh): put public keys from https://crux.nu/keys/{core,contrib,opt,xorg}.pub to /etc/ports/
+o mix (ports): replace /usr/libexec with /usr/lib (crux compat)
+- ports (rust): consider upgrading to v1.66
+- ports (firefox): upgrade esr, try gcc (def clang)
