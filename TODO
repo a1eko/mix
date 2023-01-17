@@ -24,3 +24,4 @@ o ports (pkz): if pkz-upgrade fails, the old package is marked not installed (co
 o mix (ports): replace /usr/libexec with /usr/lib (crux compat)
 + ports (firefox): upgrade esr, try gcc (def clang)
 - ports (linux-stable): v6.0.19 is EOL, switch to v6.1.x
+- tools (binutils, gcc, ncurses, xz): update .footprint when rebuilding

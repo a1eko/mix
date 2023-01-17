@@ -1,7 +1,7 @@
 # Description: libraries for handling of character screens
 
 name=ncurses
-version=6.3
+version=6.4
 release=0
 source=(http://ftp.gnu.org/gnu/ncurses/ncurses-$version.tar.gz)
 
