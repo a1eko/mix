@@ -1,7 +1,7 @@
 # Description: programs that show differences between files
 
 name=diffutils
-version=3.8
+version=3.9
 release=0
 source=(http://ftp.gnu.org/gnu/diffutils/diffutils-$version.tar.xz)
 
