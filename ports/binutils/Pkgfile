@@ -23,7 +23,7 @@ build() {
   make tooldir=/usr
   $TST make -k check || true
   make tooldir=/usr DESTDIR=$PKG install -j1
-  rm -fv $PKG/usr/lib/lib{bfd,ctf,ctf-nobfd,opcodes}.a
+  rm -fv $PKG/usr/lib/lib{bfd,ctf,ctf-nobfd,sframe,opcodes}.a
   rm -fv $PKG/usr/share/man/man1/gprofng.1
   rm -rv $PKG/usr/share/info
 }
