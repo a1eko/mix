@@ -1,0 +1,13 @@
+# Description: simple webkit-based browser
+# Depends on: git webkitgtk gcr3 glib gst-plugins-good xorg-xprop
+# Optional: dmenu tabbed
+
+name=surf
+version=git
+release=mix-1
+
+build() {
+  git clone https://git.suckless.org/$name $name
+  cd $name
+  make CC=gcc DESTDIR=$PKG PREFIX=/usr clean install
+}

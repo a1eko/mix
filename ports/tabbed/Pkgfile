@@ -1,0 +1,13 @@
+# Description: Simple generic tabbed fronted to xembed aware applications
+# Depends on: xorg-libxft
+
+name=tabbed
+version=git
+release=mix-1
+
+build() {
+  git clone https://git.suckless.org/$name $name
+  cd $name
+  make CC=gcc DESTDIR=$PKG PREFIX=/usr clean install
+  rm -rv $PKG/usr/share/doc
+}

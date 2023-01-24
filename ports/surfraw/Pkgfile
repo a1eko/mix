@@ -1,0 +1,18 @@
+# Description: command line interface to web search engines
+
+name=surfraw
+version=2.3.0
+release=mix-1
+source=(https://ftp.debian.org/debian/pool/main/s/$name/${name}_$version.orig.tar.gz)
+
+build ()
+{
+  cd $name-$version
+  ./configure --prefix=/usr --sysconfdir=/etc
+  make
+  make DESTDIR=$PKG install
+
+  rm -rv $PKG/usr/share/man/man1/*
+  gzip $name.1
+  cp -v $name.1.gz $PKG/usr/share/man/man1/
+}
