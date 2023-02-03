@@ -28,3 +28,6 @@ o ports (firefox): depends on dbus at runtime
 - tools (binutils, gcc, ncurses, xz, texinfo): update .footprint when rebuilding
 - ports (rust): new v1.67.0
 - ports (libetonyek, boost): libetonyek build broken by phoenix multiple definitions in boost v1.81 (see gentoo)
+- ports (libreoffice): new v7.5 (watch blfs)
+- ports (openssh): new v9.2 (watch for deb patch)
+- tools, ports (glibc): new v2.37, a low-key release with minor changes
