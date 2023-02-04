@@ -281,6 +281,7 @@ drwxr-xr-x	build/users	usr/include/bits/types/
 -rw-r--r--	build/users	usr/include/bits/waitstatus.h
 -rw-r--r--	build/users	usr/include/bits/wchar-ldbl.h
 -rw-r--r--	build/users	usr/include/bits/wchar.h
+-rw-r--r--	build/users	usr/include/bits/wchar2-decl.h
 -rw-r--r--	build/users	usr/include/bits/wchar2.h
 -rw-r--r--	build/users	usr/include/bits/wctype-wchar.h
 -rw-r--r--	build/users	usr/include/bits/wordsize.h
@@ -816,7 +817,7 @@ lrwxrwxrwx	build/users	usr/lib/libc_malloc_debug.so -> ../../lib/libc_malloc_deb
 lrwxrwxrwx	build/users	usr/lib/libcrypt.so -> ../../lib/libcrypt.so.1
 -rw-r--r--	build/users	usr/lib/libdl.a
 -rw-r--r--	build/users	usr/lib/libg.a
--rw-r--r--	build/users	usr/lib/libm-2.36.a
+-rw-r--r--	build/users	usr/lib/libm-2.37.a
 -rw-r--r--	build/users	usr/lib/libm.a
 -rw-r--r--	build/users	usr/lib/libm.so
 -rw-r--r--	build/users	usr/lib/libmcheck.a

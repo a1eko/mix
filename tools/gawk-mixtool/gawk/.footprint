@@ -2,7 +2,7 @@ drwxr-xr-x	build/users	usr/
 drwxr-xr-x	build/users	usr/bin/
 lrwxrwxrwx	build/users	usr/bin/awk -> gawk
 -rwxr-xr-x	build/users	usr/bin/gawk
-hrwxr-xr-x	build/users	usr/bin/gawk-5.2.0 link to ./usr/bin/gawk
+hrwxr-xr-x	build/users	usr/bin/gawk-5.2.1 link to ./usr/bin/gawk
 -rwxr-xr-x	build/users	usr/bin/gawkbug
 drwxr-xr-x	build/users	usr/include/
 -rw-r--r--	build/users	usr/include/gawkapi.h

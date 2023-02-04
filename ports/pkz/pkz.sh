@@ -179,12 +179,12 @@ do_source() {
                      )
             ) || error "cannot fetch $(basename $s)"
             echo \ done
-            if [ -f $pkgsig ]; then
-              (cd $zsources; signify -q -C -x $pkgsig $f) \
-                || error "signify failed"
-            elif [ -f $pkgsum ]; then
+            if [ -f $pkgsum ]; then
               grep -qw "$(cd $zsources; md5sum $f)" $pkgsum \
                 || error "md5sum failed"
+            elif [ -f $pkgsig ]; then
+              (cd $zsources; signify -q -C -x $pkgsig $f) \
+                || error "signify failed"
             fi
             ln -sf $zsources/$f $SRC
           fi

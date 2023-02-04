@@ -64,7 +64,7 @@ Make user *build* the owner of the build sources.
 Add regular users.
 
 Edit `/etc/config.site`. Set default values of `CFLAGS`, `CXXFLAGS` and
-`MAKEFLAGS`.
+`MAKEFLAGS` if needed.
 
 Edit `/etc/fstab` to set correct values for devices and filesystem types
 (for example, `/dev/sda9`, `ext3`, etc.). Uncomment `swap` and `/boot`

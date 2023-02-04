@@ -1,7 +1,7 @@
 # Description: system C library
 
 name=glibc
-version=2.36
+version=2.37
 release=0
 source=(http://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz
 	http://www.linuxfromscratch.org/patches/downloads/glibc/glibc-$version-fhs-1.patch)
@@ -24,6 +24,7 @@ build() {
 
   # ensure installation path for ldconfig and sln (lfs compat)
   #echo "rootsbindir=/usr/sbin" > configparms
+
   # ensure installation path for ldconfig and sln (crux compat)
   echo "rootsbindir=/sbin" > configparms
 
@@ -32,7 +33,8 @@ build() {
     --build=$(../scripts/config.guess) \
     --enable-kernel=3.2 \
     --with-headers=$MIX/usr/include \
-    libc_cv_slibdir=/lib
+    libc_cv_slibdir=/lib  # crux compat
+    #libc_cv_slibdir=/usr/lib  # lfs compat
   make
   make DESTDIR=$PKG install
 

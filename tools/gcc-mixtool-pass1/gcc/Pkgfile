@@ -2,7 +2,7 @@
 
 name=gcc
 version=12.2.0
-glibcver=2.36
+glibcver=2.37
 release=0pass1
 source=(http://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz
 	http://www.mpfr.org/mpfr-current/mpfr-4.2.0.tar.xz

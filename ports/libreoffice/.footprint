@@ -297,7 +297,6 @@ lrwxrwxrwx	root/root	usr/lib/libreoffice/program/bootstraprc -> ../../../etc/lib
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libsdbc2.so
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libsdbtlo.so
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libsddlo.so
--rwxr-xr-x	root/root	usr/lib/libreoffice/program/libsdfiltlo.so
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libsdlo.so
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libsduilo.so
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libsfxlo.so
@@ -433,7 +432,6 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/program/opengl/
 -rw-r--r--	root/root	usr/lib/libreoffice/program/pythonscript.py
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/pyuno.so
 -rw-r--r--	root/root	usr/lib/libreoffice/program/redirectrc
--rwxr-xr-x	root/root	usr/lib/libreoffice/program/regmerge
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/regview
 drwxr-xr-x	root/root	usr/lib/libreoffice/program/resource/
 drwxr-xr-x	root/root	usr/lib/libreoffice/program/resource/common/
@@ -728,6 +726,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/basic/ImportWizard/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/basic/ImportWizard/script.xlb
 drwxr-xr-x	root/root	usr/lib/libreoffice/share/basic/SFDatabases/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/basic/SFDatabases/SF_Database.xba
+-rw-r--r--	root/root	usr/lib/libreoffice/share/basic/SFDatabases/SF_Datasheet.xba
 -rw-r--r--	root/root	usr/lib/libreoffice/share/basic/SFDatabases/SF_Register.xba
 -rw-r--r--	root/root	usr/lib/libreoffice/share/basic/SFDatabases/__License.xba
 -rw-r--r--	root/root	usr/lib/libreoffice/share/basic/SFDatabases/dialog.xlb
@@ -982,6 +981,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/optbasicidepage.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/optchartcolorspage.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/optctlpage.ui
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/optdeeplpage.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/optemailpage.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/optfltrembedpage.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/optfltrpage.ui
@@ -1069,6 +1069,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/transparencytabpage.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/tsaurldialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/twolinespage.ui
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/widgettestdialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/wordcompletionpage.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/zoomdialog.ui
 drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/dbaccess/
@@ -1632,6 +1633,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/schart
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/schart/ui/combobox.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/schart/ui/datarangedialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/schart/ui/dlg_DataLabel.ui
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/schart/ui/dlg_InsertDataTable.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/schart/ui/dlg_InsertErrorBars.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/schart/ui/dlg_InsertLegend.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/schart/ui/imagefragment.ui
@@ -1655,6 +1657,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/schart
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/schart/ui/tp_DataLabel.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/schart/ui/tp_DataPointOption.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/schart/ui/tp_DataSource.ui
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/schart/ui/tp_DataTable.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/schart/ui/tp_ErrorBars.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/schart/ui/tp_LegendPosition.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/schart/ui/tp_PolarOptions.ui
@@ -1761,6 +1764,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/sdraw/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/sdraw/ui/insertlayer.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/sdraw/ui/insertslidesdialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/sdraw/ui/namedesign.ui
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/sdraw/ui/navigatorcontextmenu.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/sdraw/ui/notebookbar.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/sdraw/ui/notebookbar_compact.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/sdraw/ui/notebookbar_groupedbar_compact.ui
@@ -1963,6 +1967,12 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/simpre
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/optimpressgeneralpage.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/pagesfieldbox.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/photoalbum.ui
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/pmimagespage.ui
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/pminfodialog.ui
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/pmintropage.ui
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/pmobjectspage.ui
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/pmslidespage.ui
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/pmsummarypage.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/presentationdialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/prntopts.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/publishingdialog.ui
@@ -1993,7 +2003,6 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/smath/
 drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/smath/ui/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/smath/ui/alignmentdialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/smath/ui/catalogdialog.ui
--rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/smath/ui/dockingelements.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/smath/ui/editwindow.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/smath/ui/fontdialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/smath/ui/fontsizedialog.ui
@@ -2261,6 +2270,17 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swrite
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/toolbar/oleobjectbar.xml
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/toolbar/optimizetablebar.xml
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/toolbar/previewobjectbar.xml
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/toolbar/singlemode-annotation.xml
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/toolbar/singlemode-draw.xml
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/toolbar/singlemode-drawtext.xml
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/toolbar/singlemode-form.xml
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/toolbar/singlemode-frame.xml
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/toolbar/singlemode-graphic.xml
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/toolbar/singlemode-media.xml
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/toolbar/singlemode-ole.xml
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/toolbar/singlemode-printpreview.xml
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/toolbar/singlemode-table.xml
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/toolbar/singlemode-text.xml
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/toolbar/singlemode.xml
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/toolbar/standardbar.xml
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/toolbar/starshapes.xml
@@ -2306,6 +2326,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swrite
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/combobox.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/comboboxfragment.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/conditionpage.ui
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/contentcontrolaliasbutton.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/contentcontrolcalendar.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/contentcontroldlg.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/contentcontroldropdown.ui
@@ -2402,6 +2423,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swrite
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/notebookbar_online.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/notebookbar_single.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/numberingnamedialog.ui
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/numberinput.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/numparapage.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/objectdialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/optcaptionpage.ui
@@ -2441,7 +2463,6 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swrite
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/querycontinuebegindialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/querycontinueenddialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/querydefaultcompatdialog.ui
--rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/queryredlinedialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/querysavelabeldialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/readonlymenu.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/renameautotextdialog.ui
@@ -2486,6 +2507,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swrite
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/tokenwidget.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/toxbuttonwidget.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/toxentrywidget.ui
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/translationdialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/unfloatbutton.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/viewoptionspage.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/warndatasourcedialog.ui
@@ -2580,7 +2602,6 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/sfx/ui/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/sfx/ui/documentpropertiesdialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/sfx/ui/editdocumentdialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/sfx/ui/editdurationdialog.ui
--rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/sfx/ui/emojicontrol.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/sfx/ui/errorfindemaildialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/sfx/ui/extrabutton.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/sfx/ui/floatingrecord.ui
@@ -2628,6 +2649,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/simpress/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/simpress/effects.xml
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/simpress/layoutlist.xml
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/simpress/objectlist.xml
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/simpress/styles.xml
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/simpress/transitions-ogl.xml
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/simpress/transitions.xml
 drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svt/
@@ -2653,6 +2675,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svt/ui/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svt/ui/printersetupdialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svt/ui/querydeletedialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svt/ui/restartdialog.ui
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svt/ui/scrollbars.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svt/ui/spinfieldcontrol.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svt/ui/subtoolbar.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svt/ui/tabbaredit.ui
@@ -2823,6 +2846,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/vcl/ui/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/vcl/ui/interimtearableparent.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/vcl/ui/menutogglebutton3.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/vcl/ui/menutogglebutton4.ui
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/vcl/ui/openlockedquerybox.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/vcl/ui/printdialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/vcl/ui/printerdevicepage.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/vcl/ui/printerpaperpage.ui
@@ -2911,8 +2935,6 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/dtd/officedocument/1_0/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/dtd/officedocument/1_0/table.mod
 -rw-r--r--	root/root	usr/lib/libreoffice/share/dtd/officedocument/1_0/text.mod
 -rw-r--r--	root/root	usr/lib/libreoffice/share/dtd/officedocument/1_0/toolbar.dtd
-drwxr-xr-x	root/root	usr/lib/libreoffice/share/emojiconfig/
--rw-r--r--	root/root	usr/lib/libreoffice/share/emojiconfig/emoji.json
 drwxr-xr-x	root/root	usr/lib/libreoffice/share/extensions/
 drwxr-xr-x	root/root	usr/lib/libreoffice/share/extensions/dict-en/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/extensions/dict-en/English.png
@@ -3457,6 +3479,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/numbertext/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/numbertext/eo.sor
 -rw-r--r--	root/root	usr/lib/libreoffice/share/numbertext/es.sor
 -rw-r--r--	root/root	usr/lib/libreoffice/share/numbertext/et.sor
+-rw-r--r--	root/root	usr/lib/libreoffice/share/numbertext/fa.sor
 -rw-r--r--	root/root	usr/lib/libreoffice/share/numbertext/fi.sor
 -rw-r--r--	root/root	usr/lib/libreoffice/share/numbertext/fr.sor
 -rw-r--r--	root/root	usr/lib/libreoffice/share/numbertext/ga.sor
@@ -3548,6 +3571,8 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/template/common/draw/
 drwxr-xr-x	root/root	usr/lib/libreoffice/share/template/common/internal/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/template/common/internal/html.stw
 -rw-r--r--	root/root	usr/lib/libreoffice/share/template/common/internal/idxexample.odt
+drwxr-xr-x	root/root	usr/lib/libreoffice/share/template/common/l10n/
+-rw-r--r--	root/root	usr/lib/libreoffice/share/template/common/l10n/zh_CN_ott_normal.ott
 drwxr-xr-x	root/root	usr/lib/libreoffice/share/template/common/officorr/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/template/common/officorr/Modern_business_letter_sans_serif.ott
 -rw-r--r--	root/root	usr/lib/libreoffice/share/template/common/officorr/Modern_business_letter_serif.ott
@@ -3887,6 +3912,7 @@ drwxr-xr-x	root/root	usr/share/icons/hicolor/128x128/apps/
 -rw-r--r--	root/root	usr/share/icons/hicolor/128x128/apps/libreoffice-startcenter.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/128x128/apps/libreoffice-writer.png
 drwxr-xr-x	root/root	usr/share/icons/hicolor/128x128/mimetypes/
+-rw-r--r--	root/root	usr/share/icons/hicolor/128x128/mimetypes/libreoffice-extension.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/128x128/mimetypes/libreoffice-oasis-database.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/128x128/mimetypes/libreoffice-oasis-drawing-template.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/128x128/mimetypes/libreoffice-oasis-drawing.png
@@ -3901,6 +3927,12 @@ drwxr-xr-x	root/root	usr/share/icons/hicolor/128x128/mimetypes/
 -rw-r--r--	root/root	usr/share/icons/hicolor/128x128/mimetypes/libreoffice-oasis-text.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/128x128/mimetypes/libreoffice-oasis-web-template.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/128x128/mimetypes/libreoffice-oasis-web.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/128x128/mimetypes/libreoffice-presentation-template.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/128x128/mimetypes/libreoffice-presentation.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/128x128/mimetypes/libreoffice-spreadsheet-template.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/128x128/mimetypes/libreoffice-spreadsheet.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/128x128/mimetypes/libreoffice-text-template.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/128x128/mimetypes/libreoffice-text.png
 drwxr-xr-x	root/root	usr/share/icons/hicolor/16x16/
 drwxr-xr-x	root/root	usr/share/icons/hicolor/16x16/apps/
 -rw-r--r--	root/root	usr/share/icons/hicolor/16x16/apps/libreoffice-base.png
@@ -3934,35 +3966,11 @@ drwxr-xr-x	root/root	usr/share/icons/hicolor/16x16/mimetypes/
 -rw-r--r--	root/root	usr/share/icons/hicolor/16x16/mimetypes/libreoffice-spreadsheet.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/16x16/mimetypes/libreoffice-text-template.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/16x16/mimetypes/libreoffice-text.png
-drwxr-xr-x	root/root	usr/share/icons/hicolor/22x22/
-drwxr-xr-x	root/root	usr/share/icons/hicolor/22x22/apps/
--rw-r--r--	root/root	usr/share/icons/hicolor/22x22/apps/libreoffice-base.png
--rw-r--r--	root/root	usr/share/icons/hicolor/22x22/apps/libreoffice-calc.png
--rw-r--r--	root/root	usr/share/icons/hicolor/22x22/apps/libreoffice-draw.png
--rw-r--r--	root/root	usr/share/icons/hicolor/22x22/apps/libreoffice-impress.png
--rw-r--r--	root/root	usr/share/icons/hicolor/22x22/apps/libreoffice-main.png
--rw-r--r--	root/root	usr/share/icons/hicolor/22x22/apps/libreoffice-math.png
--rw-r--r--	root/root	usr/share/icons/hicolor/22x22/apps/libreoffice-startcenter.png
--rw-r--r--	root/root	usr/share/icons/hicolor/22x22/apps/libreoffice-writer.png
-drwxr-xr-x	root/root	usr/share/icons/hicolor/22x22/mimetypes/
--rw-r--r--	root/root	usr/share/icons/hicolor/22x22/mimetypes/libreoffice-oasis-database.png
--rw-r--r--	root/root	usr/share/icons/hicolor/22x22/mimetypes/libreoffice-oasis-drawing-template.png
--rw-r--r--	root/root	usr/share/icons/hicolor/22x22/mimetypes/libreoffice-oasis-drawing.png
--rw-r--r--	root/root	usr/share/icons/hicolor/22x22/mimetypes/libreoffice-oasis-empty.png
--rw-r--r--	root/root	usr/share/icons/hicolor/22x22/mimetypes/libreoffice-oasis-formula.png
--rw-r--r--	root/root	usr/share/icons/hicolor/22x22/mimetypes/libreoffice-oasis-master-document.png
--rw-r--r--	root/root	usr/share/icons/hicolor/22x22/mimetypes/libreoffice-oasis-presentation-template.png
--rw-r--r--	root/root	usr/share/icons/hicolor/22x22/mimetypes/libreoffice-oasis-presentation.png
--rw-r--r--	root/root	usr/share/icons/hicolor/22x22/mimetypes/libreoffice-oasis-spreadsheet-template.png
--rw-r--r--	root/root	usr/share/icons/hicolor/22x22/mimetypes/libreoffice-oasis-spreadsheet.png
--rw-r--r--	root/root	usr/share/icons/hicolor/22x22/mimetypes/libreoffice-oasis-text-template.png
--rw-r--r--	root/root	usr/share/icons/hicolor/22x22/mimetypes/libreoffice-oasis-text.png
--rw-r--r--	root/root	usr/share/icons/hicolor/22x22/mimetypes/libreoffice-oasis-web-template.png
--rw-r--r--	root/root	usr/share/icons/hicolor/22x22/mimetypes/libreoffice-oasis-web.png
 drwxr-xr-x	root/root	usr/share/icons/hicolor/24x24/
 drwxr-xr-x	root/root	usr/share/icons/hicolor/24x24/apps/
 -rw-r--r--	root/root	usr/share/icons/hicolor/24x24/apps/libreoffice-base.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/24x24/apps/libreoffice-calc.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/24x24/apps/libreoffice-chart.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/24x24/apps/libreoffice-draw.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/24x24/apps/libreoffice-impress.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/24x24/apps/libreoffice-main.png
@@ -3970,6 +3978,7 @@ drwxr-xr-x	root/root	usr/share/icons/hicolor/24x24/apps/
 -rw-r--r--	root/root	usr/share/icons/hicolor/24x24/apps/libreoffice-startcenter.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/24x24/apps/libreoffice-writer.png
 drwxr-xr-x	root/root	usr/share/icons/hicolor/24x24/mimetypes/
+-rw-r--r--	root/root	usr/share/icons/hicolor/24x24/mimetypes/libreoffice-extension.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/24x24/mimetypes/libreoffice-oasis-database.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/24x24/mimetypes/libreoffice-oasis-drawing-template.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/24x24/mimetypes/libreoffice-oasis-drawing.png
@@ -3984,6 +3993,12 @@ drwxr-xr-x	root/root	usr/share/icons/hicolor/24x24/mimetypes/
 -rw-r--r--	root/root	usr/share/icons/hicolor/24x24/mimetypes/libreoffice-oasis-text.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/24x24/mimetypes/libreoffice-oasis-web-template.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/24x24/mimetypes/libreoffice-oasis-web.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/24x24/mimetypes/libreoffice-presentation-template.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/24x24/mimetypes/libreoffice-presentation.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/24x24/mimetypes/libreoffice-spreadsheet-template.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/24x24/mimetypes/libreoffice-spreadsheet.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/24x24/mimetypes/libreoffice-text-template.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/24x24/mimetypes/libreoffice-text.png
 drwxr-xr-x	root/root	usr/share/icons/hicolor/256x256/
 drwxr-xr-x	root/root	usr/share/icons/hicolor/256x256/apps/
 -rw-r--r--	root/root	usr/share/icons/hicolor/256x256/apps/libreoffice-base.png
@@ -3996,6 +4011,7 @@ drwxr-xr-x	root/root	usr/share/icons/hicolor/256x256/apps/
 -rw-r--r--	root/root	usr/share/icons/hicolor/256x256/apps/libreoffice-startcenter.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/256x256/apps/libreoffice-writer.png
 drwxr-xr-x	root/root	usr/share/icons/hicolor/256x256/mimetypes/
+-rw-r--r--	root/root	usr/share/icons/hicolor/256x256/mimetypes/libreoffice-extension.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/256x256/mimetypes/libreoffice-oasis-database.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/256x256/mimetypes/libreoffice-oasis-drawing-template.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/256x256/mimetypes/libreoffice-oasis-drawing.png
@@ -4010,6 +4026,12 @@ drwxr-xr-x	root/root	usr/share/icons/hicolor/256x256/mimetypes/
 -rw-r--r--	root/root	usr/share/icons/hicolor/256x256/mimetypes/libreoffice-oasis-text.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/256x256/mimetypes/libreoffice-oasis-web-template.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/256x256/mimetypes/libreoffice-oasis-web.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/256x256/mimetypes/libreoffice-presentation-template.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/256x256/mimetypes/libreoffice-presentation.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/256x256/mimetypes/libreoffice-spreadsheet-template.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/256x256/mimetypes/libreoffice-spreadsheet.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/256x256/mimetypes/libreoffice-text-template.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/256x256/mimetypes/libreoffice-text.png
 drwxr-xr-x	root/root	usr/share/icons/hicolor/32x32/
 drwxr-xr-x	root/root	usr/share/icons/hicolor/32x32/apps/
 -rw-r--r--	root/root	usr/share/icons/hicolor/32x32/apps/libreoffice-base.png
@@ -4023,7 +4045,6 @@ drwxr-xr-x	root/root	usr/share/icons/hicolor/32x32/apps/
 -rw-r--r--	root/root	usr/share/icons/hicolor/32x32/apps/libreoffice-writer.png
 drwxr-xr-x	root/root	usr/share/icons/hicolor/32x32/mimetypes/
 -rw-r--r--	root/root	usr/share/icons/hicolor/32x32/mimetypes/libreoffice-extension.png
--rw-r--r--	root/root	usr/share/icons/hicolor/32x32/mimetypes/libreoffice-math.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/32x32/mimetypes/libreoffice-oasis-database.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/32x32/mimetypes/libreoffice-oasis-drawing-template.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/32x32/mimetypes/libreoffice-oasis-drawing.png
@@ -4081,6 +4102,7 @@ drwxr-xr-x	root/root	usr/share/icons/hicolor/512x512/
 drwxr-xr-x	root/root	usr/share/icons/hicolor/512x512/apps/
 -rw-r--r--	root/root	usr/share/icons/hicolor/512x512/apps/libreoffice-base.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/512x512/apps/libreoffice-calc.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/512x512/apps/libreoffice-chart.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/512x512/apps/libreoffice-draw.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/512x512/apps/libreoffice-impress.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/512x512/apps/libreoffice-main.png
@@ -4088,6 +4110,7 @@ drwxr-xr-x	root/root	usr/share/icons/hicolor/512x512/apps/
 -rw-r--r--	root/root	usr/share/icons/hicolor/512x512/apps/libreoffice-startcenter.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/512x512/apps/libreoffice-writer.png
 drwxr-xr-x	root/root	usr/share/icons/hicolor/512x512/mimetypes/
+-rw-r--r--	root/root	usr/share/icons/hicolor/512x512/mimetypes/libreoffice-extension.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/512x512/mimetypes/libreoffice-oasis-database.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/512x512/mimetypes/libreoffice-oasis-drawing-template.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/512x512/mimetypes/libreoffice-oasis-drawing.png
@@ -4102,10 +4125,17 @@ drwxr-xr-x	root/root	usr/share/icons/hicolor/512x512/mimetypes/
 -rw-r--r--	root/root	usr/share/icons/hicolor/512x512/mimetypes/libreoffice-oasis-text.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/512x512/mimetypes/libreoffice-oasis-web-template.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/512x512/mimetypes/libreoffice-oasis-web.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/512x512/mimetypes/libreoffice-presentation-template.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/512x512/mimetypes/libreoffice-presentation.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/512x512/mimetypes/libreoffice-spreadsheet-template.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/512x512/mimetypes/libreoffice-spreadsheet.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/512x512/mimetypes/libreoffice-text-template.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/512x512/mimetypes/libreoffice-text.png
 drwxr-xr-x	root/root	usr/share/icons/hicolor/64x64/
 drwxr-xr-x	root/root	usr/share/icons/hicolor/64x64/apps/
 -rw-r--r--	root/root	usr/share/icons/hicolor/64x64/apps/libreoffice-base.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/64x64/apps/libreoffice-calc.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/64x64/apps/libreoffice-chart.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/64x64/apps/libreoffice-draw.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/64x64/apps/libreoffice-impress.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/64x64/apps/libreoffice-main.png
@@ -4113,6 +4143,7 @@ drwxr-xr-x	root/root	usr/share/icons/hicolor/64x64/apps/
 -rw-r--r--	root/root	usr/share/icons/hicolor/64x64/apps/libreoffice-startcenter.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/64x64/apps/libreoffice-writer.png
 drwxr-xr-x	root/root	usr/share/icons/hicolor/64x64/mimetypes/
+-rw-r--r--	root/root	usr/share/icons/hicolor/64x64/mimetypes/libreoffice-extension.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/64x64/mimetypes/libreoffice-oasis-database.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/64x64/mimetypes/libreoffice-oasis-drawing-template.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/64x64/mimetypes/libreoffice-oasis-drawing.png
@@ -4127,6 +4158,12 @@ drwxr-xr-x	root/root	usr/share/icons/hicolor/64x64/mimetypes/
 -rw-r--r--	root/root	usr/share/icons/hicolor/64x64/mimetypes/libreoffice-oasis-text.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/64x64/mimetypes/libreoffice-oasis-web-template.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/64x64/mimetypes/libreoffice-oasis-web.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/64x64/mimetypes/libreoffice-presentation-template.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/64x64/mimetypes/libreoffice-presentation.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/64x64/mimetypes/libreoffice-spreadsheet-template.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/64x64/mimetypes/libreoffice-spreadsheet.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/64x64/mimetypes/libreoffice-text-template.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/64x64/mimetypes/libreoffice-text.png
 drwxr-xr-x	root/root	usr/share/icons/hicolor/scalable/
 drwxr-xr-x	root/root	usr/share/icons/hicolor/scalable/apps/
 -rw-r--r--	root/root	usr/share/icons/hicolor/scalable/apps/libreoffice-base.svg
@@ -4134,7 +4171,6 @@ drwxr-xr-x	root/root	usr/share/icons/hicolor/scalable/apps/
 -rw-r--r--	root/root	usr/share/icons/hicolor/scalable/apps/libreoffice-calc.svg
 -rw-r--r--	root/root	usr/share/icons/hicolor/scalable/apps/libreoffice-chart.svg
 -rw-r--r--	root/root	usr/share/icons/hicolor/scalable/apps/libreoffice-draw.svg
--rw-r--r--	root/root	usr/share/icons/hicolor/scalable/apps/libreoffice-extension.svg
 -rw-r--r--	root/root	usr/share/icons/hicolor/scalable/apps/libreoffice-impress.svg
 -rw-r--r--	root/root	usr/share/icons/hicolor/scalable/apps/libreoffice-main.svg
 -rw-r--r--	root/root	usr/share/icons/hicolor/scalable/apps/libreoffice-math.svg

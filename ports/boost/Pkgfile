@@ -1,0 +1,67 @@
+# Description: Free peer-reviewed portable C++ source libraries.
+# URL: https://www.boost.org/
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Depends on: bzip2 zstd
+# Optional: icu openmpi python3-numpy
+
+name=boost
+version=1.81.0
+release=mix-1
+source=(https://boostorg.jfrog.io/artifactory/main/release/$version/source/${name}_${version//./_}.tar.bz2
+	boost-ublas-c++20-iterator.patch)
+
+build() {
+	cd ${name}_${version//./_}
+
+	# fix phoenix module compatibility (see blfs)
+	sed -i '/#include.*phoenix.*tuple.hpp.*/d' \
+	  boost/phoenix/stl.hpp
+
+	# https://github.com/boostorg/ublas/pull/97
+	patch -p2 -i $SRC/boost-ublas-c++20-iterator.patch
+
+	# Boost.Build does not allow for disabling of numpy
+	# extensions, thereby leading to automagic numpy
+	# https://github.com/boostorg/python/issues/111#issuecomment-280447482
+	pkz -i list python3-numpy || sed \
+		-e 's/\[ unless \[ python\.numpy \] : <build>no \]/<build>no/g' \
+		-i libs/python/build/Jamfile
+
+	pushd tools/build
+	./bootstrap.sh --cxxflags="$CXXFLAGS $LDFLAGS"
+	./b2 install --prefix=$PKG/usr
+	ln -s b2 $PKG/usr/bin/bjam
+	popd
+
+	# Boost.Build does not allow for disabling of numpy
+	# extensions, thereby leading to automagic numpy
+	# https://github.com/boostorg/python/issues/111#issuecomment-280447482
+	pkz -i list python3-numpy || sed \
+		-e 's/\[ unless \[ python\.numpy \] : <build>no \]/<build>no/g' \
+		-i libs/python/build/Jamfile
+
+	./bootstrap.sh --with-toolset=gcc --with-python=/usr/bin/python3
+
+	# support for OpenMPI
+	pkz -i list openmpi && echo "using mpi ;" >>project-config.jam || PKGMK_BOOST+=' --without-mpi --without-graph_parallel'
+	pkz -i list icu || PKGMK_BOOST+=' --disable-icu boost.locale.icu=off'
+
+	./b2 install ${PKGMK_BOOST} \
+		--prefix=$PKG/usr \
+		--layout=system \
+		--without-stacktrace \
+		-j ${JOBS-1} \
+		variant=release \
+		debug-symbols=off \
+		threading=multi \
+		runtime-link=shared \
+		link=shared,static \
+		toolset=gcc \
+		python=$(/usr/bin/python3 -c 'import sys; print("%s.%s" % sys.version_info[:2])') \
+		cflags="$CPPFLAGS $CFLAGS -fPIC -O3 -ffat-lto-objects" \
+		cxxflags="$CPPFLAGS $CXXFLAGS -fPIC -O3 -ffat-lto-objects" \
+		linkflags="$LDFLAGS"
+
+	pkz -i list python3-numpy || rm -r $PKG/usr/include/boost/python/numpy*
+	pkz -i list openmpi || rm -r $PKG//usr/include/boost/mpi/python*
+}
