@@ -289,6 +289,7 @@ drwxr-xr-x	root/root	usr/include/bits/types/
 -rw-r--r--	root/root	usr/include/bits/waitstatus.h
 -rw-r--r--	root/root	usr/include/bits/wchar-ldbl.h
 -rw-r--r--	root/root	usr/include/bits/wchar.h
+-rw-r--r--	root/root	usr/include/bits/wchar2-decl.h
 -rw-r--r--	root/root	usr/include/bits/wchar2.h
 -rw-r--r--	root/root	usr/include/bits/wctype-wchar.h
 -rw-r--r--	root/root	usr/include/bits/wordsize.h
@@ -824,7 +825,7 @@ lrwxrwxrwx	root/root	usr/lib/libc_malloc_debug.so -> ../../lib/libc_malloc_debug
 lrwxrwxrwx	root/root	usr/lib/libcrypt.so -> ../../lib/libcrypt.so.1
 -rw-r--r--	root/root	usr/lib/libdl.a
 -rw-r--r--	root/root	usr/lib/libg.a
--rw-r--r--	root/root	usr/lib/libm-2.36.a
+-rw-r--r--	root/root	usr/lib/libm-2.37.a
 -rw-r--r--	root/root	usr/lib/libm.a
 -rw-r--r--	root/root	usr/lib/libm.so
 -rw-r--r--	root/root	usr/lib/libmcheck.a
@@ -1502,6 +1503,9 @@ drwxr-xr-x	root/root	usr/share/locale/it/LC_MESSAGES/
 drwxr-xr-x	root/root	usr/share/locale/ja/
 drwxr-xr-x	root/root	usr/share/locale/ja/LC_MESSAGES/
 -rw-r--r--	root/root	usr/share/locale/ja/LC_MESSAGES/libc.mo
+drwxr-xr-x	root/root	usr/share/locale/ka/
+drwxr-xr-x	root/root	usr/share/locale/ka/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/ka/LC_MESSAGES/libc.mo
 drwxr-xr-x	root/root	usr/share/locale/ko/
 drwxr-xr-x	root/root	usr/share/locale/ko/LC_MESSAGES/
 -rw-r--r--	root/root	usr/share/locale/ko/LC_MESSAGES/libc.mo
