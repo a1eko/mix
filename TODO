@@ -19,13 +19,11 @@ o ports (linux-stable): the latest stable release (note: necessarily conflicts w
 + ports (rc): restore mode 1777 of /dev/shm in rc.local, if needed
 o ports (rust): remove before upgrading (messes up crates)
 o ports (pkz): if pkz-upgrade fails, the old package is marked not installed (copied to .bak)
-+ ports (pkz): validate source file with signify if .signature present
 + mix (install.sh): put public keys from https://crux.nu/keys/{core,contrib,opt,xorg}.pub to /etc/ports/
-- mix (install.sh): mix ports contain crux .sigantures (default to .md5sum in pkz.sh)
++ mix (install.sh): mix ports contain crux .sigantures (change default to .md5sum in pkz.sh)
 - mix (ports): replace /usr/libexec with /usr/lib (crux compat)
 ? ports (firefox): depends on dbus at runtime
 o ports (firefox): crashes (local AMD specific); disable WebGL (about:config, webgl.disabled=true)
 - ports (linux-stable): v6.0.19 is EOL, switch to v6.1.x
-- ports (rust): new v1.67.0
 + ports (libetonyek, boost): libetonyek build broken by phoenix multiple definitions in boost v1.81 (see gentoo)
 - ports (openssh): new v9.2 (watch for deb patch)
