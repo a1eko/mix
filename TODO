@@ -1,17 +1,15 @@
 - to do, + done, o attention/pending, x ignore
 
 o ports: disable stripping if unneeded or fragile (file .nostrip)
-o ports (libreoffice*): presentation and spreadsheets depend on avahi at runtime
 o ports (python3): rebuild with deps in coreopt and graphics
 o ports (filesystem): never upgrade, overwrites /etc/{passwd,groups,shadow}
 o ports: beware lfs linking of /{bin,lib*,sbin} to /usr is not compatible with crux
-o ports (gcc-fortran): avoided, fortran is enabled in gcc port
+o ports (gcc-fortran): crux port avoided, fortran is enabled in gcc port
 o ports (crux compat): replace 'pkginfo -i' and 'prt-get isinst' with 'pkz -i list'
 o ports (crux compat): define unpack_source() in pkz, redefine in Pkgfile's if needed
-o ports (zathura-ps): error loading PS file with ref to libspectre/ghostscript
-o ports (pkz): concider using curl instead of wget (reliability issues)
+? ports (zathura-ps): error loading PS file with ref to libspectre/ghostscript
 o toolchain (file): crux build depends on autoconf, moved to BASE2 after auto-tools
-o ports, tools (pkg-config): replaced with pkgconf (see crux)
+o ports, tools (pkg-config): replaced with pkgconf (crux compat)
 o ports (cmake, ninja, meson): added to tools/base system, reinstalling crux ports afterwards
 o ports (meson, python3-*): remove old version when upgrading (use 'pkz upgrade', not 'pkz -f install')
 o ports (linux-headers, linux): long-term support kernel line
@@ -19,10 +17,10 @@ o ports (linux-stable): the latest stable release (note: necessarily conflicts w
 + ports (rc): restore mode 1777 of /dev/shm in rc.local, if needed
 o ports (rust): remove before upgrading (messes up crates)
 o ports (pkz): if pkz-upgrade fails, the old package is marked not installed (copied to .bak)
-+ mix (install.sh): put public keys from https://crux.nu/keys/{core,contrib,opt,xorg}.pub to /etc/ports/
-+ mix (install.sh): mix ports contain crux .sigantures (change default to .md5sum in pkz.sh)
-- mix (ports): replace /usr/libexec with /usr/lib (crux compat)
-? ports (firefox): depends on dbus at runtime
+o mix (install.sh): put public keys from https://crux.nu/keys/{core,contrib,opt,xorg}.pub to /etc/ports/
+o mix (install.sh): mix ports contain crux .sigantures (pkz.sh uses .md5sum if it exists)
+- tools, ports (install.sh,gcc,glibc,openssh,rust,tar): replace /usr/libexec with /usr/lib (crux compat, FHS compliant)
+? ports (firefox): runtime dependency on dbus
 o ports (firefox): crashes (local AMD specific); disable WebGL (about:config, webgl.disabled=true)
 - ports (linux-stable): v6.0.19 is EOL, switch to v6.1.x
 + ports (libetonyek, boost): libetonyek build broken by phoenix multiple definitions in boost v1.81 (see gentoo)

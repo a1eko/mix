@@ -19,7 +19,7 @@ imlib2
 libtiff
 shared-mime-info
 
-dbus
+#dbus
 at-spi2-core
 
 gdk-pixbuf

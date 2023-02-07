@@ -1,9 +1,9 @@
 # Description: full-featured office suite
-# Depends on: avahi boost clucene curl expat glm gpgme graphite2 harfbuzz icu lcms2 libepoxy libjpeg-turbo libpng libtiff libwebp libxml2 nss openldap openssl poppler redland unixodbc xmlsec
+# Depends on: boost clucene curl expat glm gpgme graphite2 harfbuzz icu lcms2 libepoxy libjpeg-turbo libpng libtiff libwebp libxml2 nss openldap openssl poppler redland unixodbc xmlsec
 
 name=libreoffice
 version=7.5.0.3
-release=mix-1
+release=mix-2
 source=(https://downloadarchive.documentfoundation.org/libreoffice/old/$version/src/$name-$version.tar.xz
 	https://download.documentfoundation.org/libreoffice/src/${version%.3}/libreoffice-dictionaries-$version.tar.xz
 	https://download.documentfoundation.org/libreoffice/src/${version%.3}/libreoffice-help-$version.tar.xz
@@ -43,6 +43,7 @@ build() {
     --without-java \
     --without-junit \
     --without-system-dicts \
+    --disable-avahi \
     --disable-dbus \
     --disable-dconf \
     --disable-firebird-sdbc \
