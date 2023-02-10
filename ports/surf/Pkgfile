@@ -10,4 +10,11 @@ build() {
   git clone https://git.suckless.org/$name $name
   cd $name
   make CC=gcc DESTDIR=$PKG PREFIX=/usr clean install
+
+  cat << EOF > surftab.sh
+#!/bin/sh
+/usr/bin/tabbed -c /usr/bin/surf -e
+EOF
+
+  install -v -D -m 0755 surftab.sh $PKG/usr/bin/surftab
 }

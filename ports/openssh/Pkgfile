@@ -2,8 +2,8 @@
 # Depends on: openssl krb5
 
 name=openssh
-version=9.0p1
-deb=1
+version=9.2p1
+deb=2
 release=gssapi-deb$deb-mix-1
 source=(http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-$version.tar.gz
         http://ftp.debian.org/debian/pool/main/o/openssh/openssh_$version-$deb.debian.tar.xz
