@@ -9,6 +9,7 @@ drwxr-xr-x	root/root	etc/grub.d/
 -rwxr-xr-x	root/root	etc/grub.d/30_uefi-firmware
 -rwxr-xr-x	root/root	etc/grub.d/40_custom
 -rwxr-xr-x	root/root	etc/grub.d/41_custom
+-rw-r--r--	root/root	etc/grub.d/README
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/grub-editenv

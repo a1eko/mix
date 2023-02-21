@@ -1,0 +1,74 @@
+diff -urN grub-2.06.orig/util/grub.d/00_header.in grub-2.06/util/grub.d/00_header.in
+--- grub-2.06.orig/util/grub.d/00_header.in	2018-11-24 11:13:02.000000000 -0600
++++ grub-2.06/util/grub.d/00_header.in	2023-01-20 20:18:25.323977639 -0600
+@@ -152,7 +152,7 @@
+ if loadfont `make_system_path_relative_to_its_root "${GRUB_FONT}"` ; then
+ EOF
+     else
+-	for dir in "${pkgdatadir}" "`echo '/@bootdirname@/@grubdirname@' | sed "s,//*,/,g"`" /usr/share/grub ; do
++	for dir in "${pkgdatadir}" "`echo '/@bootdirname@/@grubdirname@' | sed "s,//*,/,g"`" /usr/share/grub /usr/lib/grub/fonts ; do
+ 	    for basename in unicode unifont ascii; do
+ 		path="${dir}/${basename}.pf2"
+ 		if is_path_readable_by_grub "${path}" > /dev/null ; then
+diff -urN grub-2.06.orig/util/grub.d/10_hurd.in grub-2.06/util/grub.d/10_hurd.in
+--- grub-2.06.orig/util/grub.d/10_hurd.in	2019-10-21 07:02:43.000000000 -0500
++++ grub-2.06/util/grub.d/10_hurd.in	2023-01-20 20:20:15.763433153 -0600
+@@ -176,7 +176,7 @@
+   hurd_entry "$kernel" advanced
+   hurd_entry "$kernel" recovery
+ 
+-  kernels=`echo $kernels | tr ' ' '\n' | fgrep -vx "$kernel" | tr '\n' ' '`
++  kernels=`echo $kernels | tr ' ' '\n' | grep -Fvx "$kernel" | tr '\n' ' '`
+ done
+ 
+ # If at least one kernel was found, then we need to
+diff -urN grub-2.06.orig/util/grub.d/10_kfreebsd.in grub-2.06/util/grub.d/10_kfreebsd.in
+--- grub-2.06.orig/util/grub.d/10_kfreebsd.in	2019-10-21 07:02:43.000000000 -0500
++++ grub-2.06/util/grub.d/10_kfreebsd.in	2023-01-20 20:20:21.670249001 -0600
+@@ -239,7 +239,7 @@
+     kfreebsd_entry "${OS}" "${version}" recovery "-s"
+   fi
+ 
+-  list=`echo $list | tr ' ' '\n' | fgrep -vx "$kfreebsd" | tr '\n' ' '`
++  list=`echo $list | tr ' ' '\n' | grep -Fvx "$kfreebsd" | tr '\n' ' '`
+ done
+ 
+ # If at least one kernel was found, then we need to
+diff -urN grub-2.06.orig/util/grub.d/10_linux.in grub-2.06/util/grub.d/10_linux.in
+--- grub-2.06.orig/util/grub.d/10_linux.in	2020-12-22 17:24:17.000000000 -0600
++++ grub-2.06/util/grub.d/10_linux.in	2023-01-20 20:19:01.471557011 -0600
+@@ -213,6 +213,7 @@
+   initrd_real=
+   for i in "initrd.img-${version}" "initrd-${version}.img" "initrd-${version}.gz" \
+ 	   "initrd-${version}" "initramfs-${version}.img" \
++	   "initramfs-${version}.gz" \
+ 	   "initrd.img-${alt_version}" "initrd-${alt_version}.img" \
+ 	   "initrd-${alt_version}" "initramfs-${alt_version}.img" \
+ 	   "initramfs-genkernel-${version}" \
+@@ -290,7 +291,7 @@
+                 "single ${GRUB_CMDLINE_LINUX}"
+   fi
+ 
+-  list=`echo $list | tr ' ' '\n' | fgrep -vx "$linux" | tr '\n' ' '`
++  list=`echo $list | tr ' ' '\n' | grep -Fvx "$linux" | tr '\n' ' '`
+ done
+ 
+ # If at least one kernel was found, then we need to
+diff -urN grub-2.06.orig/util/grub.d/20_linux_xen.in grub-2.06/util/grub.d/20_linux_xen.in
+--- grub-2.06.orig/util/grub.d/20_linux_xen.in	2020-12-22 17:24:17.000000000 -0600
++++ grub-2.06/util/grub.d/20_linux_xen.in	2023-01-20 20:19:11.451809007 -0600
+@@ -346,12 +346,12 @@
+ 		"single ${GRUB_CMDLINE_LINUX}" "${GRUB_CMDLINE_XEN}"
+ 	fi
+ 
+-	list=`echo $list | tr ' ' '\n' | fgrep -vx "$linux" | tr '\n' ' '`
++	list=`echo $list | tr ' ' '\n' | grep -Fvx "$linux" | tr '\n' ' '`
+     done
+     if [ x"$is_top_level" != xtrue ]; then
+ 	echo '	}'
+     fi
+-    xen_list=`echo $xen_list | tr ' ' '\n' | fgrep -vx "$current_xen" | tr '\n' ' '`
++    xen_list=`echo $xen_list | tr ' ' '\n' | grep -Fvx "$current_xen" | tr '\n' ' '`
+ done
+ 
+ # If at least one kernel was found, then we need to
