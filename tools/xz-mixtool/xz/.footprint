@@ -41,9 +41,8 @@ drwxr-xr-x	build/users	usr/include/lzma/
 -rw-r--r--	build/users	usr/include/lzma/vli.h
 -rw-r--r--	build/users	usr/include/lzma.h
 drwxr-xr-x	build/users	usr/lib/
-lrwxrwxrwx	build/users	usr/lib/liblzma.so -> liblzma.so.5.4.1
-lrwxrwxrwx	build/users	usr/lib/liblzma.so.5 -> liblzma.so.5.4.1
--rwxr-xr-x	build/users	usr/lib/liblzma.so.5.4.1
+lrwxrwxrwx	build/users	usr/lib/liblzma.so -> liblzma.so.5.4.2
+lrwxrwxrwx	build/users	usr/lib/liblzma.so.5 -> liblzma.so.5.4.2
+-rwxr-xr-x	build/users	usr/lib/liblzma.so.5.4.2
 drwxr-xr-x	build/users	usr/lib/pkgconfig/
 -rw-r--r--	build/users	usr/lib/pkgconfig/liblzma.pc
-drwxr-xr-x	build/users	usr/share/
