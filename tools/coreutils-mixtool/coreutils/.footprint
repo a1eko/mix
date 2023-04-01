@@ -105,4 +105,3 @@ drwxr-xr-x	build/users	usr/bin/
 drwxr-xr-x	build/users	usr/libexec/
 drwxr-xr-x	build/users	usr/libexec/coreutils/
 -rwxr-xr-x	build/users	usr/libexec/coreutils/libstdbuf.so
-drwxr-xr-x	build/users	usr/share/
