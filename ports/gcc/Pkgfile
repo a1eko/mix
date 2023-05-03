@@ -1,7 +1,7 @@
 # Description: compiler collection
 
 name=gcc
-version=12.2.0
+version=13.1.0
 release=mix-1
 source=(http://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz)
 
@@ -27,6 +27,7 @@ build()
     --enable-default-ssp \
     --disable-multilib \
     --disable-bootstrap \
+    --disable-fixincludes \
     --with-system-zlib
   make
   $TST ulimit -s 32768
@@ -42,6 +43,7 @@ build()
   mkdir -v $PKG/lib
   ln -sv ../usr/bin/cpp $PKG/lib/
   ln -sv gcc $PKG/usr/bin/cc
+  ln -sv g++ $PKG/usr/bin/c++
 
   # enable building programs with Link Time Optimization (LTO)
   install -dm755 $PKG/usr/lib/bfd-plugins

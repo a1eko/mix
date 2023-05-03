@@ -25,3 +25,4 @@ o ports (firefox): crashes (local AMD specific); disable WebGL (about:config, we
 - ports (linux-stable): v6.0.19 is EOL, switch to v6.1.x
 + ports (libetonyek, boost): libetonyek build broken by phoenix multiple definitions in boost v1.81 (see gentoo)
 o ports (mesa): build with fakeroot (sudo build fails: ninja evoked at last step does not have root access)
+! mix (toolchain): watch development gcc v13

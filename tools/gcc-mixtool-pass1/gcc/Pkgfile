@@ -1,7 +1,7 @@
 # Description: compiler collection
 
 name=gcc
-version=12.2.0
+version=13.1.0
 glibcver=2.37
 release=0pass1
 source=(http://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz
@@ -52,7 +52,7 @@ build() {
   # create a full version of the internal header
   cd ..
   cat gcc/limitx.h gcc/glimits.h gcc/limity.h > \
-    `dirname $($PKG/tools/bin/$MIX_TGT-gcc -print-libgcc-file-name)`/install-tools/include/limits.h
+    `dirname $($PKG/tools/bin/$MIX_TGT-gcc -print-libgcc-file-name)`/include/limits.h
 
   rm -rv $PKG/tools/share/{info,man}
   find $PKG -name README -delete

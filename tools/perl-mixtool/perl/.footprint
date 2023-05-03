@@ -9,8 +9,8 @@ drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/instmodsh
 -rwxr-xr-x	root/root	usr/bin/json_pp
 -rwxr-xr-x	root/root	usr/bin/libnetcfg
-lrwxrwxrwx	root/root	usr/bin/perl -> perl5.36.0
--rwxr-xr-x	root/root	usr/bin/perl5.36.0
+lrwxrwxrwx	root/root	usr/bin/perl -> perl5.36.1
+-rwxr-xr-x	root/root	usr/bin/perl5.36.1
 -rwxr-xr-x	root/root	usr/bin/perlbug
 -rwxr-xr-x	root/root	usr/bin/perldoc
 -rwxr-xr-x	root/root	usr/bin/perlivp
@@ -849,6 +849,7 @@ drwxr-xr-x	root/root	usr/lib/perl5/5.36/pod/
 -rw-r--r--	root/root	usr/lib/perl5/5.36/pod/perl5340delta.pod
 -rw-r--r--	root/root	usr/lib/perl5/5.36/pod/perl5341delta.pod
 -rw-r--r--	root/root	usr/lib/perl5/5.36/pod/perl5360delta.pod
+-rw-r--r--	root/root	usr/lib/perl5/5.36/pod/perl5361delta.pod
 -rw-r--r--	root/root	usr/lib/perl5/5.36/pod/perl561delta.pod
 -rw-r--r--	root/root	usr/lib/perl5/5.36/pod/perl56delta.pod
 -rw-r--r--	root/root	usr/lib/perl5/5.36/pod/perl581delta.pod
@@ -1737,6 +1738,7 @@ drwxr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/Compress/Raw/
 -r--r--r--	root/root	usr/lib/perl5/5.36/x86_64-linux/Config_git.pl
 -r--r--r--	root/root	usr/lib/perl5/5.36/x86_64-linux/Config_heavy.pl
 -r--r--r--	root/root	usr/lib/perl5/5.36/x86_64-linux/Cwd.pm
+-r--r--r--	root/root	usr/lib/perl5/5.36/x86_64-linux/DB_File.pm
 drwxr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/Data/
 -r--r--r--	root/root	usr/lib/perl5/5.36/x86_64-linux/Data/Dumper.pm
 drwxr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/Devel/
@@ -1796,6 +1798,7 @@ drwxr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/File/Spec/
 drwxr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/Filter/
 drwxr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/Filter/Util/
 -r--r--r--	root/root	usr/lib/perl5/5.36/x86_64-linux/Filter/Util/Call.pm
+-r--r--r--	root/root	usr/lib/perl5/5.36/x86_64-linux/GDBM_File.pm
 drwxr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/Hash/
 drwxr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/Hash/Util/
 -r--r--r--	root/root	usr/lib/perl5/5.36/x86_64-linux/Hash/Util/FieldHash.pm
@@ -1830,7 +1833,9 @@ drwxr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/MIME/
 drwxr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/Math/
 drwxr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/Math/BigInt/
 -r--r--r--	root/root	usr/lib/perl5/5.36/x86_64-linux/Math/BigInt/FastCalc.pm
+-r--r--r--	root/root	usr/lib/perl5/5.36/x86_64-linux/NDBM_File.pm
 -r--r--r--	root/root	usr/lib/perl5/5.36/x86_64-linux/O.pm
+-r--r--r--	root/root	usr/lib/perl5/5.36/x86_64-linux/ODBM_File.pm
 -r--r--r--	root/root	usr/lib/perl5/5.36/x86_64-linux/Opcode.pm
 -r--r--r--	root/root	usr/lib/perl5/5.36/x86_64-linux/POSIX.pm
 -r--r--r--	root/root	usr/lib/perl5/5.36/x86_64-linux/POSIX.pod
@@ -1870,6 +1875,8 @@ drwxr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/auto/Compress/Raw/Zlib/
 -r-xr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/auto/Compress/Raw/Zlib/Zlib.so
 drwxr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/auto/Cwd/
 -r-xr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/auto/Cwd/Cwd.so
+drwxr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/auto/DB_File/
+-r-xr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/auto/DB_File/DB_File.so
 drwxr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/auto/Data/
 drwxr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/auto/Data/Dumper/
 -r-xr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/auto/Data/Dumper/Dumper.so
@@ -1910,6 +1917,8 @@ drwxr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/auto/Filter/
 drwxr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/auto/Filter/Util/
 drwxr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/auto/Filter/Util/Call/
 -r-xr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/auto/Filter/Util/Call/Call.so
+drwxr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/auto/GDBM_File/
+-r-xr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/auto/GDBM_File/GDBM_File.so
 drwxr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/auto/Hash/
 drwxr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/auto/Hash/Util/
 drwxr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/auto/Hash/Util/FieldHash/
@@ -1933,6 +1942,10 @@ drwxr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/auto/Math/
 drwxr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/auto/Math/BigInt/
 drwxr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/auto/Math/BigInt/FastCalc/
 -r-xr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/auto/Math/BigInt/FastCalc/FastCalc.so
+drwxr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/auto/NDBM_File/
+-r-xr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/auto/NDBM_File/NDBM_File.so
+drwxr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/auto/ODBM_File/
+-r-xr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/auto/ODBM_File/ODBM_File.so
 drwxr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/auto/Opcode/
 -r-xr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/auto/Opcode/Opcode.so
 drwxr-xr-x	root/root	usr/lib/perl5/5.36/x86_64-linux/auto/POSIX/
