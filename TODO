@@ -26,3 +26,4 @@ o ports (firefox): crashes (local AMD specific); disable WebGL (about:config, we
 + ports (libetonyek, boost): libetonyek build broken by phoenix multiple definitions in boost v1.81 (see gentoo)
 o ports (mesa): build with fakeroot (sudo build fails: ninja evoked at last step does not have root access)
 ! mix (toolchain): watch development gcc v13
+- mix (porrts): consider adding ruff
