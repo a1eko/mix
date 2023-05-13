@@ -1,4 +1,4 @@
 c2014fe25b1cfc9e339041c7ac3512a2  mozconfig
-1442929705ee299acd2a65b711946cee  firefox-102.10.0esr.source.tar.xz
-59fa4e32c27f589ee722676277de9605  /usr/sources/firefox-102.10.0-ffmpeg_6-1.patch
-379e1cf988c034b6fd3416ab454836b9  /usr/sources/firefox-102.10.0-upstream_fixes-1.patch
+482fb76836d2fcd16642a9c84e12bfb9  firefox-102.11.0esr.source.tar.xz
+59fa4e32c27f589ee722676277de9605  firefox-102.11.0-ffmpeg_6-1.patch
+379e1cf988c034b6fd3416ab454836b9  firefox-102.11.0-upstream_fixes-1.patch
