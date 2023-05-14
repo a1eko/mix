@@ -165,7 +165,7 @@ drwxr-xr-x	root/root	usr/lib/darktable/views/
 lrwxrwxrwx	root/root	usr/lib/libdarktable.so -> darktable/libdarktable.so
 drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/applications/
--rw-r--r--	root/root	usr/share/applications/darktable.desktop
+-rw-r--r--	root/root	usr/share/applications/org.darktable.darktable.desktop
 drwxr-xr-x	root/root	usr/share/darktable/
 -rw-r--r--	root/root	usr/share/darktable/darktable.bash
 -rw-r--r--	root/root	usr/share/darktable/darktablerc
@@ -432,4 +432,4 @@ drwxr-xr-x	root/root	usr/share/man/man1/
 -rw-r--r--	root/root	usr/share/man/man1/darktable-generate-cache.1.gz
 -rw-r--r--	root/root	usr/share/man/man1/darktable.1.gz
 drwxr-xr-x	root/root	usr/share/metainfo/
--rw-r--r--	root/root	usr/share/metainfo/darktable.appdata.xml
+-rw-r--r--	root/root	usr/share/metainfo/org.darktable.darktable.appdata.xml
