@@ -4,7 +4,7 @@
 # Depends on: linux-pam
 
 name=libcap
-version=2.68
+version=2.69
 release=mix-1
 source=(https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/$name-$version.tar.xz)
 
@@ -26,4 +26,5 @@ build() {
 	ln -s ../../lib/libcap.so.$version $PKG/usr/lib/libcap.so
 
 	sed '/^libdir/s|/lib|/usr/lib|' -i $PKG/usr/lib/pkgconfig/*.pc
+	rm -rv $PKG/usr/share
 }
