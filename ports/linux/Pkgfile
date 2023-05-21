@@ -1,7 +1,7 @@
 # Description: linux kernel, longterm line
 
 name=linux
-version=5.15.111
+version=5.15.112
 release=mix-1
 source=(https://www.kernel.org/pub/linux/kernel/v5.x/linux-$version.tar.xz config.local)
 
