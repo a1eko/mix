@@ -2,8 +2,8 @@
 # Depends on: curl cmake libssh2 llvm
 
 name=rust
-version=1.69.0
-release=mix-2
+version=1.70.0
+release=mix-1
 
 source=(https://static.rust-lang.org/dist/${name}c-$version-src.tar.xz)
 
@@ -11,6 +11,8 @@ build() {
   cd ${name}c-$version-src
 
   cat <<- EOF > config.toml
+changelog-seen = 2
+
 [llvm]
 targets = "X86"
 link-shared = true
