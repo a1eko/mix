@@ -31,7 +31,7 @@ build() {
   ../configure --prefix=/usr \
     --host=$MIX_TGT \
     --build=$(../scripts/config.guess) \
-    --enable-kernel=3.2 \
+    --enable-kernel=4.14 \
     --with-headers=$MIX/usr/include \
     libc_cv_slibdir=/lib  # crux compat
     #libc_cv_slibdir=/usr/lib  # lfs compat
