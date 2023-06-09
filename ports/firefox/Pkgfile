@@ -2,10 +2,10 @@
 # Depends on: autoconf-2.13 cbindgen dbus-glib gtk gtk3 libnotify llvm lld clang nasm nodejs nss alsa-lib python3 startup-notification unzip yasm zip
 
 name=firefox
-version=102.11.0
+version=102.12.0
 release=mix-1
 source=(https://archive.mozilla.org/pub/firefox/releases/${version}esr/source/firefox-${version}esr.source.tar.xz
-	https://www.linuxfromscratch.org/patches/blfs/svn/firefox-$version-upstream_fixes-1.patch
+	https://www.linuxfromscratch.org/patches/blfs/svn/firefox-$version-consolidated-1.patch
 	https://www.linuxfromscratch.org/patches/blfs/svn/firefox-$version-ffmpeg_6-1.patch
 	mozconfig)
 
@@ -15,7 +15,7 @@ build() {
   cp -v $SRC/mozconfig .
 
   # apply patches
-  patch -Np1 -i ../firefox-$version-upstream_fixes-1.patch
+  patch -Np1 -i ../firefox-$version-consolidated-1.patch
   patch -Np1 -i ../firefox-$version-ffmpeg_6-1.patch
 
   export CC=clang CXX=clang++ AR=llvm-ar NM=llvm-nm RANLIB=llvm-ranlib
