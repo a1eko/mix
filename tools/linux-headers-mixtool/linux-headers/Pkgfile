@@ -1,7 +1,7 @@
 # Description: linux kernel headers
 
 name=linux-headers
-version=5.15.117
+version=5.15.118
 release=0
 source=(https://www.kernel.org/pub/linux/kernel/v5.x/linux-$version.tar.xz)
 

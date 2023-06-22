@@ -249,7 +249,6 @@ drwxr-xr-x	build/users	usr/include/linux/cifs/
 -rw-r--r--	build/users	usr/include/linux/dm-log-userspace.h
 -rw-r--r--	build/users	usr/include/linux/dma-buf.h
 -rw-r--r--	build/users	usr/include/linux/dma-heap.h
--rw-r--r--	build/users	usr/include/linux/dn.h
 -rw-r--r--	build/users	usr/include/linux/dns_resolver.h
 -rw-r--r--	build/users	usr/include/linux/dqblk_xfs.h
 drwxr-xr-x	build/users	usr/include/linux/dvb/
@@ -587,7 +586,6 @@ drwxr-xr-x	build/users	usr/include/linux/netfilter_bridge/
 -rw-r--r--	build/users	usr/include/linux/netfilter_bridge/ebt_vlan.h
 -rw-r--r--	build/users	usr/include/linux/netfilter_bridge/ebtables.h
 -rw-r--r--	build/users	usr/include/linux/netfilter_bridge.h
--rw-r--r--	build/users	usr/include/linux/netfilter_decnet.h
 drwxr-xr-x	build/users	usr/include/linux/netfilter_ipv4/
 -rw-r--r--	build/users	usr/include/linux/netfilter_ipv4/ip_tables.h
 -rw-r--r--	build/users	usr/include/linux/netfilter_ipv4/ipt_CLUSTERIP.h

@@ -7,7 +7,7 @@ o ports: beware lfs linking of /{bin,lib*,sbin} to /usr is not compatible with c
 o ports (gcc-fortran): crux port avoided, fortran is enabled in gcc port
 o ports (crux compat): replace 'pkginfo -i' and 'prt-get isinst' with 'pkz -i list'
 o ports (crux compat): define unpack_source() in pkz, redefine in Pkgfile's if needed
-? ports (zathura-ps): error loading PS file with ref to libspectre/ghostscript
++ ports (zathura-ps): error loading PS file with ref to libspectre/ghostscript
 o toolchain (file): crux build depends on autoconf, moved to BASE2 after auto-tools
 o ports, tools (pkg-config): replaced with pkgconf (crux compat)
 o ports (cmake, ninja, meson): added to tools/base system, reinstalling crux ports afterwards
