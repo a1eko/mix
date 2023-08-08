@@ -204,7 +204,7 @@ etc. Use `*.mix` files from `mix/sources/` for building optional packages
 in proper order. Be careful with toolchain packages: *binutils*, *gcc*,
 *glibc*, and *linux-headers* don't need to be upgraded. CRUX package
 *filesystem* also installs only once. Often *perl* is difficult to
-upgrade too and it is better to keep the installation version of it. MiX
+upgrade and it is better to keep the installed version. MiX
 packages from the `mix/ports/` directory should replace corresponding
 CRUX ports. It is recommended to overwrite them in `/usr/packages` to
 avoid confusion.  MiX and CRUX packages are to be upgraded regularly to

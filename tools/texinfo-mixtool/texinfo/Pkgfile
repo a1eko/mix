@@ -7,7 +7,6 @@ source=(http://ftp.gnu.org/gnu/texinfo/texinfo-$version.tar.xz)
 
 build() {
   cd $name-$version
-
   ./configure --prefix=/usr
   make
   make DESTDIR=$PKG install

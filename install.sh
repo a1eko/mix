@@ -29,7 +29,7 @@ P=$MIX/usr/packages
 
 BASE1="iana-etc glibc lzip tzdata zlib bzip2 xz zstd readline m4 \
   bc flex tcl expect dejagnu binutils libgmp libmpfr libmpc linux-firmware \
-  attr acl libcap linux-pam shadow gcc"
+  attr acl libcap libxcrypt linux-pam shadow gcc"
 
 BASE2="ncurses sed psmisc gettext bison grep bash libtool gdbm \
   gperf tar expat inetutils less perl autoconf automake file openssl kmod elfutils \
@@ -182,9 +182,10 @@ $toolsh "
   rm a.out
 "
 
-$toolsh "
-  $MIX/tools/libexec/gcc/$MIX_TGT/*/install-tools/mkheaders
-"
+# FIXME no mkheaders anymore
+#$toolsh "
+#  $MIX/tools/libexec/gcc/$MIX_TGT/*/install-tools/mkheaders
+#"
 
 $toolsh "pkz -p $P/gcc-mixtool-libstdcxx -f install gcc"
 $toolsh "pkz -p $P/gcc-mixtool-libstdcxx clean gcc"

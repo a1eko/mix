@@ -13,6 +13,9 @@ libmpeg2
 libvpx
 libtheora
 #libquicktime
+
+nasm
+
 x264
 libxvid
 mjpegtools
@@ -30,7 +33,7 @@ libass
 libcdio
 libdvdnav
 libmodplug
-libmpcdec
+#libmpcdec
 opencore-amr
 opus
 orc
@@ -38,5 +41,5 @@ schroedinger
 x265
 
 ffmpeg
-mplayer
+#mplayer
 mpv

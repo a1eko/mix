@@ -1,17 +1,12 @@
 # Description: state-dependent file processing
 
 name=make
-version=4.4
+version=4.4.1
 release=0
 source=(http://ftp.gnu.org/gnu/make/make-$version.tar.gz)
 
 build() {
   cd $name-$version
-
-  # fix an issue identified upstream
-  sed -e '/ifdef SIGPIPE/,+2 d' \
-    -e '/undef  FATAL_SIG/i FATAL_SIG (SIGPIPE);' \
-    -i src/main.c
 
   ./configure --prefix=/usr \
     --without-guile \

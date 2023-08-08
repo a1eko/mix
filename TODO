@@ -1,33 +1,39 @@
-- to do, + done, o attention/pending, x ignore
+# - to do, + done, o attention/pending, x ignore
 
 o ports: disable stripping if unneeded or fragile (file .nostrip)
 o ports (python3): rebuild with deps in coreopt and graphics
 o ports (filesystem): never upgrade, overwrites /etc/{passwd,groups,shadow}
 o ports: beware lfs linking of /{bin,lib*,sbin} to /usr is not compatible with crux
-o ports (gcc-fortran): crux port avoided, fortran is enabled in gcc port
+o ports (gcc-fortran): crux port avoided, enable fortran in gcc port by default
 o ports (crux compat): replace 'pkginfo -i' and 'prt-get isinst' with 'pkz -i list'
 o ports (crux compat): define unpack_source() in pkz, redefine in Pkgfile's if needed
 + ports (zathura-ps): error loading PS file with ref to libspectre/ghostscript
 o toolchain (file): crux build depends on autoconf, moved to BASE2 after auto-tools
-o ports, tools (pkg-config): replaced with pkgconf (crux compat)
++ ports, tools (pkg-config): replaced with pkgconf (see lfs changes)
 o ports (cmake, ninja, meson): added to tools/base system, reinstalling crux ports afterwards
 o ports (meson, python3-*): remove old version when upgrading (use 'pkz upgrade', not 'pkz -f install')
 o ports (linux-headers, linux): long-term support kernel line
 o ports (linux-stable): the latest stable release (note: necessarily conflicts with linux)
 + ports (rc): restore mode 1777 of /dev/shm in rc.local, if needed
-o ports (rust): remove before upgrading (messes up crates)
-o ports (pkz): if pkz-upgrade fails, the old package is marked not installed (copied to .bak)
+x ports (rust): remove before upgrading (may mess up crates)
+- ports (pkz): if pkz-upgrade fails, the old package is marked not installed (copied to .bak)
 o mix (install.sh): put public keys from https://crux.nu/keys/{core,contrib,opt,xorg}.pub to /etc/ports/
 o mix (install.sh): mix ports contain crux .sigantures (pkz.sh uses .md5sum if it exists)
 - tools, ports (install.sh,gcc,glibc,openssh,rust,tar): replace /usr/libexec with /usr/lib (crux compat, FHS compliant)
 o mix (rc.conf): start dbus, runtime dependency/warnings of some X apps
 o ports (firefox): crashes (local AMD specific); disable WebGL (about:config, webgl.disabled=true)
-- ports (linux-stable): v6.0.19 is EOL, switch to v6.1.x
-+ ports (libetonyek, boost): libetonyek build broken by phoenix multiple definitions in boost v1.81 (see gentoo)
-o ports (mesa): build with fakeroot (sudo build fails: ninja evoked at last step does not have root access)
-! mix (toolchain): watch development of gcc v13
+- ports (linux-stable): v6.0.19 is EOL, switch to v6.3.x
+x ports (mesa): build with fakeroot (sudo build fails: ninja evoked at last step does not have root access)
++ mix (toolchain): gcc v13, glibc v2.38, binutils v2.41 (see lfs)
 o ports (exiv2): darktable and ansel don't build with v0.28.0 (keep v0.27.6 or see archlinux patch)
-o ports (nss): firefox crashes with v3.90, keep v3.89.1 (wait for crux patch or see blfs)
++ ports (nss): firefox crashes with v3.90, keep v3.89.1 or skip to v3.91
 - ports (lensfun): broken python module (lensfun-update-data cannot run)
-- tools, ports (util-linux): upgrade to v2.39, consider --runstatedir=/run (see lfs)
-- tools (pkgconf): see lfs switching from pkg-config
+x tools, ports (util-linux): upgrade to v2.39, consider --runstatedir=/run (see lfs but keep crux compat)
+x tools, ports (linux*): v5.15.118 breaks startx use, stick with v5.15.117
+o tools, ports (pkgconf): v2.0.0 breaks firefox build, revert to v1.9.5
+o base (*udev): beware lfs switching from eudev to udev from systemd
++ tools (libxcrypt): added pkg, replaces glibc implementation of libcrypt
++ tools (perl): lfs moves up to v5.38, stick with v5.36 (crux compat)
++ tools, port (python3): lfs moves to v3.11, stick with v3.10 (crux compat)
++ ports (install.sh): install signify in coreopt.mix
+- ports (mplayer): build broken (AVOutputFormat has no priv_data_size)

@@ -22,6 +22,7 @@ drwxr-xr-x	root/root	usr/lib/firefox/defaults/pref/
 -rwxr-xr-x	root/root	usr/lib/firefox/firefox-bin
 drwxr-xr-x	root/root	usr/lib/firefox/fonts/
 -rw-r--r--	root/root	usr/lib/firefox/fonts/TwemojiMozilla.ttf
+-rwxr-xr-x	root/root	usr/lib/firefox/glxtest
 drwxr-xr-x	root/root	usr/lib/firefox/gmp-clearkey/
 drwxr-xr-x	root/root	usr/lib/firefox/gmp-clearkey/0.1/
 -rwxr-xr-x	root/root	usr/lib/firefox/gmp-clearkey/0.1/libclearkey.so
@@ -38,6 +39,3 @@ drwxr-xr-x	root/root	usr/lib/firefox/gmp-clearkey/0.1/
 -rwxr-xr-x	root/root	usr/lib/firefox/pingsender
 -rw-r--r--	root/root	usr/lib/firefox/platform.ini
 -rwxr-xr-x	root/root	usr/lib/firefox/plugin-container
-drwxr-xr-x	root/root	usr/share/
-drwxr-xr-x	root/root	usr/share/pixmaps/
-lrwxrwxrwx	root/root	usr/share/pixmaps/firefox_default48.png -> /usr/lib/firefox/browser/chrome/icons/default/default48.png

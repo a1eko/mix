@@ -55,9 +55,9 @@ xorg-libxres
 xorg-libxtst
 xorg-libxv
 xorg-libxvmc
-xorg-libxxf86dga
+#xorg-libxxf86dga
 xorg-libxxf86vm
-xorg-libdmx
+#xorg-libdmx
 xorg-libpciaccess
 xorg-libxkbfile
 xorg-libxshmfence
@@ -148,8 +148,8 @@ xorg-server
 
 xorg-xf86-input-evdev
 xorg-xf86-input-libinput
-xorg-xf86-input-keyboard
-xorg-xf86-input-mouse
+#xorg-xf86-input-keyboard
+#xorg-xf86-input-mouse
 xorg-xf86-input-synaptics
 xorg-xf86-video-fbdev
 xorg-xf86-video-nouveau

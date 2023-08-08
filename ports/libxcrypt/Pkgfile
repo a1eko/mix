@@ -1,0 +1,21 @@
+# Description: A modern library for one-way hashing of passwords
+
+name=libxcrypt
+version=4.4.36
+release=mix-1
+source=(https://github.com/besser82/$name/releases/download/v$version/$name-$version.tar.xz)
+
+build() {
+  cd $name-$version
+
+  ./configure --prefix=/usr \
+    --enable-hashes=strong,glibc \
+    --enable-obsolete-api=no \
+    --disable-static \
+    --disable-failure-tokens
+  make
+  make DESTDIR=$PKG install
+
+  rm -r $PKG/usr/share/man
+  rmdir -v $PKG/usr/share
+}

@@ -1,6 +1,5 @@
 drwxr-xr-x	build/users	bin/
 -rwxr-xr-x	build/users	bin/tar
-drwxr-xr-x	build/users	share/
 drwxr-xr-x	build/users	usr/
 drwxr-xr-x	build/users	usr/lib/
 drwxr-xr-x	build/users	usr/lib/tar/

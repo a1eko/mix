@@ -2,7 +2,7 @@
 # Depends on: curl cmake libssh2 llvm
 
 name=rust
-version=1.70.0
+version=1.71.1
 release=mix-1
 
 source=(https://static.rust-lang.org/dist/${name}c-$version-src.tar.xz)
@@ -49,7 +49,8 @@ EOF
   rm -rv $PKG/usr/share/{doc,man}
   rmdir -v $PKG/usr/share
   rm -rv $PKG/etc
-  rm -v $PKG/usr/lib/rustlib/{components,manifest-rustc,rust-installer-version,uninstall.sh}
+  rm -v $PKG/usr/bin/*.old
+  rm -v $PKG/usr/lib/rustlib/{components,manifest-*,rust-installer-version,uninstall.sh,install.log}
   find $PKG/usr/lib/rustlib \( -name "READ*" -o -name "COPY*" -o -name "LICEN*" -o -name "CONTRIB*" \) -exec rm -v '{}' \+
 
   # Remove analysis data for libs that weren't installed

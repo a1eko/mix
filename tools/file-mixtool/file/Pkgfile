@@ -1,14 +1,14 @@
 # Description: file type identification utility
 
 name=file
-version=5.44
+version=5.45
 release=0
 source=(ftp://ftp.astron.com/pub/file/file-$version.tar.gz)
 
 build() {
   cd $name-$version
 
-  mkdir build
+  mkdir -v build
   pushd build
     ../configure --disable-bzlib \
       --disable-libseccomp \

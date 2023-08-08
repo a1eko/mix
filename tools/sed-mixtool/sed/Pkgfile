@@ -10,7 +10,8 @@ build() {
   # crux compat
   ./configure --prefix=/usr \
     --exec-prefix=/ \
-    --host=$MIX_TGT
+    --host=$MIX_TGT \
+    --build=$(./build-aux/config.guess)
   make
   make DESTDIR=$PKG install
   rm -rv $PKG/usr/share/{info,man}

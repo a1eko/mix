@@ -14,7 +14,7 @@ dbus-glib
 autoconf-2.13
 cbindgen
 libwebp
-nasm
+#nasm
 nodejs
 startup-notification
 
