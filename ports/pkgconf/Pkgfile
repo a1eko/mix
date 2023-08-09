@@ -1,0 +1,32 @@
+# Description: A system for managing library compile/link flags.
+# URL: https://github.com/pkgconf/pkgconf/
+# Maintainer: CRUX System Team, core-ports at crux dot nu
+
+name=pkgconf
+version=1.9.5
+release=mix-1
+source=(https://distfiles.ariadne.space/pkgconf/pkgconf-$version.tar.xz
+  i686-pc-linux-gnu.personality x86_64-pc-linux-gnu.personality)
+
+build() {
+	meson setup build $name-$version \
+		--prefix=/usr \
+		--buildtype=plain \
+		--wrap-mode=nodownload \
+		-D b_lto=true \
+		-D b_pie=true \
+		-D tests=disabled
+	meson compile -C build -j ${JOBS:-1}
+	DESTDIR=$PKG meson install -C build
+
+	install -Dt $PKG/usr/share/pkgconfig/personality.d -m644 \
+		i686-pc-linux-gnu.personality \
+		x86_64-pc-linux-gnu.personality
+	ln -s pkgconf $PKG/usr/bin/i686-pc-linux-gnu-pkg-config
+	ln -s pkgconf $PKG/usr/bin/x86_64-pc-linux-gnu-pkg-config
+	ln -s pkgconf $PKG/usr/bin/pkg-config
+
+	ln -s pkgconf.1 $PKG/usr/share/man/man1/pkg-config.1
+
+	rm -rf $PKG/usr/share/doc
+}
