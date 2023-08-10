@@ -21,6 +21,5 @@ o tools, ports (install.sh,gcc,glibc,openssh,rust,tar): beware crux replacing /u
 o tools, ports (perl): keep v5.36 (crux compat)
 o tools, ports (pkgconf): v2.0.0 breaks firefox build, keep v1.9.5 (watch archlinux dev)
 o tools, ports (python3): keep v3.10 (crux compat)
-- ports (exiv2): darktable and ansel don't build with v0.28.0 (keep v0.27.6 or see archlinux patch)
+- ports (exiv2): darktable and ansel may not build with v0.28.0 (use v0.27.6 or see archlinux solution)
 - ports (lensfun): broken python module (lensfun-update-data cannot run)
-- ports (mplayer): build broken (AVOutputFormat has no priv_data_size)

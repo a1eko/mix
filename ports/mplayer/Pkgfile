@@ -5,9 +5,9 @@
 # Nice to have: libsdl, libjpeg-turbo, libpng, lame, zlib, libogg, libvorbis, cdparanoia, win32-essential-codecs, faac, x264, libdvdnav, libdca
 
 name=mplayer
-version=2022-11-04
-release=1
-source=(https://gitlab.com/SiFuh/yenjie/-/raw/master/${name}/${name}-${version}.tar.bz2
+version=1.5
+release=mix-1
+source=(https://mplayerhq.hu/MPlayer/releases/MPlayer-$version.tar.xz
         http://www1.mplayerhq.hu/MPlayer/releases/fonts/font-arial-iso-8859-1.tar.bz2
         mplayer.conf)
 
@@ -16,7 +16,7 @@ source=(https://gitlab.com/SiFuh/yenjie/-/raw/master/${name}/${name}-${version}.
 
 build() {
 
-  cd "${name}"-checkout-"${version}"
+  cd MPlayer-$version
 
   export CFLAGS="$(echo $CFLAGS | sed -e 's/-O[s0-3]/-O3/') -ffast-math -fomit-frame-pointer -fno-strict-aliasing"
 
