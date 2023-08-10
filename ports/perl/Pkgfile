@@ -26,7 +26,7 @@ build() {
 		-Dusethreads \
 		-Doptimize="$CFLAGS"
 	make
-	make DESTDIR=$PKG install
+	make DESTDIR=$PKG install.perl
 
 	ln -sf perl${version%-*} $PKG/usr/bin/perl
 	#ln -sf perlbug.1pm $PKG/usr/share/man/man1/perlthanks.1pm
@@ -40,5 +40,5 @@ build() {
 		-name 'perllocal.pod' | xargs rm
 
 	find $PKG -depth -empty -exec rmdir {} \;
-	#chmod -R +w $PKG
+	chmod -R +w $PKG
 }

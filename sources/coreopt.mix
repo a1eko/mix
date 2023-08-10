@@ -69,5 +69,6 @@ libnftnl
 nftables
 iptables
 
+pkgconf
 signify
 pkz
