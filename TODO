@@ -23,3 +23,7 @@ o tools, ports (pkgconf): v2.0.0 breaks firefox build, keep v1.9.5 (watch archli
 o tools, ports (python3): keep v3.10 (crux compat)
 - ports (exiv2): darktable and ansel may not build with v0.28.0 (use v0.27.6 or see archlinux solution)
 - ports (lensfun): broken python module (lensfun-update-data cannot run)
+- mix (dist): upgrade to latest toolchain
+- mix (tools): update footprints
+- mix (ports): upgrade versions, with footprints
+- mix (dist): new release at github
