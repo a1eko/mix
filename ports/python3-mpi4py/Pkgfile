@@ -1,6 +1,5 @@
 # Description: MPI for Python
-# Depends on: python3 mpich
-# Optional: python3-cython
+# Depends on: python3 mpich python3-cython
 
 name=python3-mpi4py
 version=3.1.4

@@ -1,60 +1,54 @@
-# Description: full featured cross platform office suite (binary)
-# URL:         https://www.libreoffice.org
-# Maintainer:  Thomas Penteker, tek at serverop dot de
-# Packager:    Bartlomiej Palmowski, rotwang at crux dot org dot pl
-# Depends on:  cups dbus-glib desktop-file-utils glu gtk krb5 shared-mime-info xorg-libxaw xorg-libxi avahi
+# Description: a powerful office suite, compiled upstream
+# URL: https://www.libreoffice.org/
+# Maintainer: Erich Eckner, crux at eckner dot net
+# Contributor: John McQuah, jmcquah at disroot dot org
+# Depends on: gtk3 freetype avahi cups nss nspr
+# Optional: qt5 sane
 
 name=libreoffice-bin
-version=7.4.2
-release=mix-1
-source=(http://download.documentfoundation.org/libreoffice/stable/$version/rpm/x86_64/LibreOffice_${version}_Linux_x86-64_rpm.tar.gz)
+Name=LibreOffice
+version=7.5.5
+release=1
+source=(https://download.documentfoundation.org/${name%-bin}/stable/$version/rpm/x86_64/${Name}_${version}_Linux_x86-64_rpm.tar.gz)
 
 build() {
-    local workd="$SRC/tmp_work"
-    mkdir $workd
+  cd ${Name}*/RPMS
 
-    cd LibreOffice_${version}*/RPMS
-    for rpm in *.rpm; do
-        bsdtar -p -o -C $workd -xf $rpm
-    done
+  for RPM in *.rpm; do
+      [[ $RPM =~ "-firebird-" ]] && continue
+      [[ $RPM =~ "-report-builder-" ]] && continue
+      [[ $RPM =~ "-mediawiki-" ]] && continue
+      [[ $RPM =~ "-mediawiki-" ]] && continue
+      [[ $RPM =~ "-onlineupdate-" ]] && continue
+      [[ $RPM =~ "-kde-integration-" ]] && continue
+      [[ $RPM =~ "-postgresql-" ]] && continue
+      [[ $RPM =~ "-nlpsolver-" ]] && continue
+      [[ $RPM =~ "-ooofonts-" ]] && continue
+      [[ $RPM =~ "-ogltrans-" ]] && continue
+      [[ $RPM =~ "-javascript-" ]] && continue
+      [[ $RPM =~ "-beanshell-" ]] && continue
+      [[ $RPM =~ "-dict-" ]] && [[ ! $RPM =~ "-dict-${LANG:0:2}" ]] && continue
+      bsdtar -p -C $PKG -xf "$RPM"
+  done
 
-    bsdtar -p -o -C $workd -xf \
-        libreoffice${version%.*}-freedesktop-menus-${version%.*}*.noarch.rpm
+  mv "$PKG/opt" "$PKG/usr/lib"
+  find "$PKG" -type d -perm 700 -exec chmod 755 {} +
 
-    cd $workd
-    mkdir -p $PKG/usr/lib/libreoffice
-    mv opt/libreoffice*/* $PKG/usr/lib/libreoffice
+  rm -f "$PKG"/usr/share/applications/*.desktop
+  cd "$PKG"/usr/share/applications
+  for APP in ../../lib/libreoffice7.5/share/xdg/*.desktop; do
+      ln -sf $APP libreoffice7.5-${APP##*/}
+  done
 
-    cd $PKG/usr/lib/libreoffice
-    ln -sf basis${version%.*} basis-link
+  rm -f "$PKG"/usr/bin/*
+  cd "$PKG"/usr/bin
+  for APP in soffice; do
+      ln -sf ../lib/libreoffice*/program/$APP ${APP}
+  done
 
-    mkdir -p $PKG/usr/bin
-    local programs=(sbase scalc sdraw simpress smath soffice swriter)
-    for program in ${programs[@]}; do
-        ln -sf /usr/lib/libreoffice/program/$program $PKG/usr/bin/$program
-    done
-
-    mkdir -p $PKG/usr/share/applications
-    cd $PKG/usr/lib/libreoffice/share/xdg/
-
-    for desktop in *.desktop; do
-       sed -i '/^Exec=/s/libreoffice[^ ]*/soffice/' $desktop
-       ln -sf /usr/lib/libreoffice/share/xdg/$desktop $PKG/usr/share/applications/$desktop
-    done
-
-    mv $workd/usr/share/{mime,icons} $PKG/usr/share
-
-    find $PKG \(\
-        -iname '*changelog*' -o \
-        -name '*TODO*' -o \
-        -iname '*news*' -o \
-        -iname '*credits*' -o \
-        -iname '*README*' -o \
-        -iname '*LICEN*' -o \
-        -iname '*NOTICE*' -o \
-        -iname '*COPY*' \
-     \) -delete || true
-
-    # prevent crashing because of absent wayland bindings
-    sed -i '$i export SAL_USE_VCLPLUGIN=gen' $PKG/usr/lib/libreoffice/program/soffice
+  # clean up junk files
+  rm -rf "$PKG"/usr/lib/libreoffice7.5/readmes
+  find "$PKG" \( -name "README*" -o -name "LICENSE*" -o -name "NOTICE*" \
+              -o -name "COPYING*" \) -exec rm {} +
+  find "$PKG" -name "wininst*.exe" -exec rm {} +
 }

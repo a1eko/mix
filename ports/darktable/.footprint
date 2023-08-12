@@ -212,6 +212,7 @@ drwxr-xr-x	root/root	usr/share/darktable/kernels/
 -rw-r--r--	root/root	usr/share/darktable/kernels/rgbcurve.cl
 -rw-r--r--	root/root	usr/share/darktable/kernels/rgblevels.cl
 -rw-r--r--	root/root	usr/share/darktable/kernels/sharpen.cl
+-rw-r--r--	root/root	usr/share/darktable/kernels/sigmoid.cl
 -rw-r--r--	root/root	usr/share/darktable/kernels/soften.cl
 drwxr-xr-x	root/root	usr/share/darktable/latex/
 -rw-r--r--	root/root	usr/share/darktable/latex/photobook.cls
@@ -389,6 +390,7 @@ drwxr-xr-x	root/root	usr/share/darktable/tools/
 -rwxr-xr-x	root/root	usr/share/darktable/tools/purge_unused_tags.sh
 drwxr-xr-x	root/root	usr/share/darktable/watermarks/
 -rw-r--r--	root/root	usr/share/darktable/watermarks/darktable.svg
+-rw-r--r--	root/root	usr/share/darktable/watermarks/fixed-size-text.svg
 -rw-r--r--	root/root	usr/share/darktable/watermarks/hasselblad.svg
 -rw-r--r--	root/root	usr/share/darktable/watermarks/metadata-template.svg
 -rw-r--r--	root/root	usr/share/darktable/watermarks/promo.svg

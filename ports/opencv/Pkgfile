@@ -3,14 +3,12 @@
 # Optional: lapack openblas
 
 name=opencv
-version=4.6.0
-release=mix-2
-source=(https://github.com/opencv/opencv/archive/$version/$name-$version.tar.gz
-        https://github.com/opencv/opencv/commit/496eed95.patch)
+version=4.8.0
+release=mix-1
+source=(https://github.com/opencv/opencv/archive/$version/$name-$version.tar.gz)
 
 build() {
   cd $name-$version
-  patch -Np1 -i ../496eed95.patch
 
   mkdir build
   cd build

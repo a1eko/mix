@@ -4,9 +4,9 @@ drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/idiff
 -rwxr-xr-x	root/root	usr/bin/igrep
 -rwxr-xr-x	root/root	usr/bin/iinfo
--rwxr-xr-x	root/root	usr/bin/iv
 -rwxr-xr-x	root/root	usr/bin/maketx
 -rwxr-xr-x	root/root	usr/bin/oiiotool
+-rwxr-xr-x	root/root	usr/bin/testtex
 drwxr-xr-x	root/root	usr/include/
 drwxr-xr-x	root/root	usr/include/OpenImageIO/
 -rw-r--r--	root/root	usr/include/OpenImageIO/Imath.h
@@ -15,9 +15,6 @@ drwxr-xr-x	root/root	usr/include/OpenImageIO/
 -rw-r--r--	root/root	usr/include/OpenImageIO/atomic.h
 -rw-r--r--	root/root	usr/include/OpenImageIO/attrdelegate.h
 -rw-r--r--	root/root	usr/include/OpenImageIO/benchmark.h
--rw-r--r--	root/root	usr/include/OpenImageIO/c-deepdata.h
--rw-r--r--	root/root	usr/include/OpenImageIO/c-paramlist.h
--rw-r--r--	root/root	usr/include/OpenImageIO/c-typedesc.h
 -rw-r--r--	root/root	usr/include/OpenImageIO/color.h
 -rw-r--r--	root/root	usr/include/OpenImageIO/dassert.h
 -rw-r--r--	root/root	usr/include/OpenImageIO/deepdata.h
@@ -29,6 +26,7 @@ drwxr-xr-x	root/root	usr/include/OpenImageIO/detail/fmt/
 -rw-r--r--	root/root	usr/include/OpenImageIO/detail/fmt/format.h
 -rw-r--r--	root/root	usr/include/OpenImageIO/detail/fmt/ostream.h
 -rw-r--r--	root/root	usr/include/OpenImageIO/detail/fmt/printf.h
+-rw-r--r--	root/root	usr/include/OpenImageIO/detail/fmt/std.h
 -rw-r--r--	root/root	usr/include/OpenImageIO/detail/fmt.h
 drwxr-xr-x	root/root	usr/include/OpenImageIO/detail/pugixml/
 -rw-r--r--	root/root	usr/include/OpenImageIO/detail/pugixml/pugiconfig.hpp
@@ -41,6 +39,7 @@ drwxr-xr-x	root/root	usr/include/OpenImageIO/detail/pugixml/
 -rw-r--r--	root/root	usr/include/OpenImageIO/fmath.h
 -rw-r--r--	root/root	usr/include/OpenImageIO/fstream_mingw.h
 -rw-r--r--	root/root	usr/include/OpenImageIO/function_view.h
+-rw-r--r--	root/root	usr/include/OpenImageIO/half.h
 -rw-r--r--	root/root	usr/include/OpenImageIO/hash.h
 -rw-r--r--	root/root	usr/include/OpenImageIO/image_view.h
 -rw-r--r--	root/root	usr/include/OpenImageIO/imagebuf.h
@@ -73,6 +72,7 @@ drwxr-xr-x	root/root	usr/include/OpenImageIO/detail/pugixml/
 -rw-r--r--	root/root	usr/include/OpenImageIO/unordered_map_concurrent.h
 -rw-r--r--	root/root	usr/include/OpenImageIO/ustring.h
 -rw-r--r--	root/root	usr/include/OpenImageIO/varyingref.h
+-rw-r--r--	root/root	usr/include/OpenImageIO/vecparam.h
 -rw-r--r--	root/root	usr/include/OpenImageIO/version.h
 drwxr-xr-x	root/root	usr/lib/
 drwxr-xr-x	root/root	usr/lib/cmake/
@@ -81,12 +81,12 @@ drwxr-xr-x	root/root	usr/lib/cmake/OpenImageIO/
 -rw-r--r--	root/root	usr/lib/cmake/OpenImageIO/OpenImageIOConfigVersion.cmake
 -rw-r--r--	root/root	usr/lib/cmake/OpenImageIO/OpenImageIOTargets-release.cmake
 -rw-r--r--	root/root	usr/lib/cmake/OpenImageIO/OpenImageIOTargets.cmake
-lrwxrwxrwx	root/root	usr/lib/libOpenImageIO.so -> libOpenImageIO.so.2.3
-lrwxrwxrwx	root/root	usr/lib/libOpenImageIO.so.2.3 -> libOpenImageIO.so.2.3.19
--rwxr-xr-x	root/root	usr/lib/libOpenImageIO.so.2.3.19
-lrwxrwxrwx	root/root	usr/lib/libOpenImageIO_Util.so -> libOpenImageIO_Util.so.2.3
-lrwxrwxrwx	root/root	usr/lib/libOpenImageIO_Util.so.2.3 -> libOpenImageIO_Util.so.2.3.19
--rwxr-xr-x	root/root	usr/lib/libOpenImageIO_Util.so.2.3.19
+lrwxrwxrwx	root/root	usr/lib/libOpenImageIO.so -> libOpenImageIO.so.2.4
+lrwxrwxrwx	root/root	usr/lib/libOpenImageIO.so.2.4 -> libOpenImageIO.so.2.4.12
+-rwxr-xr-x	root/root	usr/lib/libOpenImageIO.so.2.4.12
+lrwxrwxrwx	root/root	usr/lib/libOpenImageIO_Util.so -> libOpenImageIO_Util.so.2.4
+lrwxrwxrwx	root/root	usr/lib/libOpenImageIO_Util.so.2.4 -> libOpenImageIO_Util.so.2.4.12
+-rwxr-xr-x	root/root	usr/lib/libOpenImageIO_Util.so.2.4.12
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/OpenImageIO.pc
 drwxr-xr-x	root/root	usr/lib/python3.10/

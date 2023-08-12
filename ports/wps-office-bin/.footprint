@@ -16,7 +16,6 @@ drwxr-xr-x	root/root	opt/kingsoft/wps-office/desktops/
 -rw-r--r--	root/root	opt/kingsoft/wps-office/desktops/wps-office-wpp.desktop
 -rw-r--r--	root/root	opt/kingsoft/wps-office/desktops/wps-office-wps.desktop
 drwxr-xr-x	root/root	opt/kingsoft/wps-office/office6/
--rwxr-xr-x	root/root	opt/kingsoft/wps-office/office6/EverythingDaemon
 drwxr-xr-x	root/root	opt/kingsoft/wps-office/office6/addons/
 drwxr-xr-x	root/root	opt/kingsoft/wps-office/office6/addons/cef/
 -rw-r--r--	root/root	opt/kingsoft/wps-office/office6/addons/cef/cef.pak

@@ -6,7 +6,6 @@ drwxr-xr-x	build/users	lib/
 -rwxr-xr-x	build/users	lib/libanl.so.1
 -rwxr-xr-x	build/users	lib/libc.so.6
 -rwxr-xr-x	build/users	lib/libc_malloc_debug.so.0
--rwxr-xr-x	build/users	lib/libcrypt.so.1
 -rwxr-xr-x	build/users	lib/libdl.so.2
 -rwxr-xr-x	build/users	lib/libm.so.6
 -rwxr-xr-x	build/users	lib/libmemusage.so
@@ -147,6 +146,7 @@ drwxr-xr-x	build/users	usr/include/bits/platform/
 -rw-r--r--	build/users	usr/include/bits/resource.h
 -rw-r--r--	build/users	usr/include/bits/rseq.h
 -rw-r--r--	build/users	usr/include/bits/sched.h
+-rw-r--r--	build/users	usr/include/bits/select-decl.h
 -rw-r--r--	build/users	usr/include/bits/select.h
 -rw-r--r--	build/users	usr/include/bits/select2.h
 -rw-r--r--	build/users	usr/include/bits/sem.h
@@ -198,6 +198,7 @@ drwxr-xr-x	build/users	usr/include/bits/platform/
 -rw-r--r--	build/users	usr/include/bits/struct_stat.h
 -rw-r--r--	build/users	usr/include/bits/struct_stat_time64_helper.h
 -rw-r--r--	build/users	usr/include/bits/syscall.h
+-rw-r--r--	build/users	usr/include/bits/syslog-decl.h
 -rw-r--r--	build/users	usr/include/bits/syslog-ldbl.h
 -rw-r--r--	build/users	usr/include/bits/syslog-path.h
 -rw-r--r--	build/users	usr/include/bits/syslog.h
@@ -272,6 +273,7 @@ drwxr-xr-x	build/users	usr/include/bits/types/
 -rw-r--r--	build/users	usr/include/bits/uintn-identity.h
 -rw-r--r--	build/users	usr/include/bits/uio-ext.h
 -rw-r--r--	build/users	usr/include/bits/uio_lim.h
+-rw-r--r--	build/users	usr/include/bits/unistd-decl.h
 -rw-r--r--	build/users	usr/include/bits/unistd.h
 -rw-r--r--	build/users	usr/include/bits/unistd_ext.h
 -rw-r--r--	build/users	usr/include/bits/utmp.h
@@ -289,7 +291,6 @@ drwxr-xr-x	build/users	usr/include/bits/types/
 -rw-r--r--	build/users	usr/include/byteswap.h
 -rw-r--r--	build/users	usr/include/complex.h
 -rw-r--r--	build/users	usr/include/cpio.h
--rw-r--r--	build/users	usr/include/crypt.h
 -rw-r--r--	build/users	usr/include/ctype.h
 -rw-r--r--	build/users	usr/include/dirent.h
 -rw-r--r--	build/users	usr/include/dlfcn.h
@@ -813,11 +814,9 @@ lrwxrwxrwx	build/users	usr/lib/libanl.so -> ../../lib/libanl.so.1
 -rw-r--r--	build/users	usr/lib/libc.so
 lrwxrwxrwx	build/users	usr/lib/libc_malloc_debug.so -> ../../lib/libc_malloc_debug.so.0
 -rw-r--r--	build/users	usr/lib/libc_nonshared.a
--rw-r--r--	build/users	usr/lib/libcrypt.a
-lrwxrwxrwx	build/users	usr/lib/libcrypt.so -> ../../lib/libcrypt.so.1
 -rw-r--r--	build/users	usr/lib/libdl.a
 -rw-r--r--	build/users	usr/lib/libg.a
--rw-r--r--	build/users	usr/lib/libm-2.37.a
+-rw-r--r--	build/users	usr/lib/libm-2.38.a
 -rw-r--r--	build/users	usr/lib/libm.a
 -rw-r--r--	build/users	usr/lib/libm.so
 -rw-r--r--	build/users	usr/lib/libmcheck.a

@@ -1,0 +1,5 @@
+e5fbc7797c3e7f6661db6ed710bc852d  gmic_3.2.6.tar.gz
+ed0da70cb2a2cabc9663e8c4888b1909  CMakeLists.txt
+2b0cbc638a4fe75e8fb08b2ae2c20dc9  FindCImg.cmake
+99ad0b8fd1b973675a9c90a982cc97d4  FindGMicStdlib.cmake
+a5a1730ec3fe39a30e8e799ea74735ec  FindGraphicsMagick.cmake

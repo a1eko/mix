@@ -1,9 +1,9 @@
 # Description: A library for manipulating sets and relations of integer points bounded by linear constraints
-# URL:         http://isl.gforge.inria.fr/
+# URL:         https://libisl.sourceforge.io/
 # Maintainer:  Aaron Ball, nullspoon at oper dot io
 # Depends on:
 name=isl
-version=0.25
+version=0.26
 release=1
 source=(https://libisl.sourceforge.io/isl-${version}.tar.xz)
 

@@ -861,6 +861,8 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/images_sifr_dark_svg.zip
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/images_sifr_svg.zip
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/images_sukapura.zip
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/images_sukapura_dark.zip
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/images_sukapura_dark_svg.zip
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/images_sukapura_svg.zip
 drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/
 drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/

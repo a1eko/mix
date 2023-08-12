@@ -116,18 +116,15 @@ drwxr-xr-x	root/root	usr/lib/ansel/plugins/imageio/storage/
 drwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/
 -rwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/libbackgroundjobs.so
 -rwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/libcollect.so
--rwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/libcolorlabels.so
 -rwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/libcolorpicker.so
 -rwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/libduplicate.so
 -rwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/libexport.so
 -rwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/libfilmstrip.so
 -rwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/libfilter.so
--rwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/libgamepad.so
 -rwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/libgeotagging.so
 -rwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/libhinter.so
 -rwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/libhistogram.so
 -rwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/libhistory.so
--rwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/libimage.so
 -rwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/libimage_infos.so
 -rwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/libimport.so
 -rwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/libioporder.so
@@ -142,7 +139,6 @@ drwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/
 -rwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/libmodulegroups.so
 -rwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/libnavigation.so
 -rwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/libprint_settings.so
--rwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/librecentcollect.so
 -rwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/libsnapshots.so
 -rwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/libstyles.so
 -rwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/libtagging.so
@@ -244,7 +240,6 @@ drwxr-xr-x	root/root	usr/share/ansel/style/
 -rw-r--r--	root/root	usr/share/ansel/style/thumb-1.jpg
 drwxr-xr-x	root/root	usr/share/ansel/themes/
 -rw-r--r--	root/root	usr/share/ansel/themes/ansel.css
--rw-r--r--	root/root	usr/share/ansel/themes/ansel.min.css
 drwxr-xr-x	root/root	usr/share/ansel/tools/
 -rwxr-xr-x	root/root	usr/share/ansel/tools/common.sh
 -rwxr-xr-x	root/root	usr/share/ansel/tools/extract_wb_from_images.sh

@@ -4,7 +4,7 @@
 # Depends on: clisp ghostscript graphite2 harfbuzz icu libgd libmpfr paper poppler xorg-libxaw xorg-libxi zziplib
 
 name=texlive
-version=20220321
+version=20230313
 release=mix-1
 source=(ftp://tug.org/historic/systems/texlive/${version:0:4}/$name-$version-texmf.tar.xz
   ftp://tug.org/historic/systems/texlive/${version:0:4}/$name-$version-source.tar.xz
@@ -70,10 +70,11 @@ build() {
     --with-banner-add=" MiX" \
     --with-clisp-runtime=system \
     --enable-{dvipdfm-x,gc=system,libtool-hack,luatex,pdftex,pdftex-syncex,shared,makeindexk,tex,texlive,tex-synctex,web2c,xindy} \
-    --with-system-{cairo,freetype2,gd,graphite2,gmp,harfbuzz,icu,libpaper,libpng,mpfr,ncurses,pixman,poppler,potrace,t1lib,zlib,zziplib} \
+    --with-system-{freetype2,gd,libpaper,libpng,ncurses,poppler,t1lib,zlib} \
     --with-x \
     --with-xdvi-x-toolkit=xaw \
     --disable-{all-pkgs,aleph,native-texlive-build,xetex,xindy-docs,xindy-rules}
+    #--with-system-{cairo,freetype2,gd,graphite2,gmp,harfbuzz,icu,libpaper,libpng,mpfr,ncurses,pixman,poppler,potrace,t1lib,zlib,zziplib} \
 
   make
   make DESTDIR=$PKG install

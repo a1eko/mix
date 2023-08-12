@@ -9,6 +9,10 @@ source=()
 
 build() {
   git clone --recurse-submodules --depth 1 https://github.com/aurelienpierreeng/$name.git
+
+  # archlinux patch for darktable
+  patch -Np1 -d $name -i $PKGMK_ROOT/exiv2-0.28.patch
+
   cmake -B build -S $name \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DCMAKE_INSTALL_LIBDIR=/usr/lib \

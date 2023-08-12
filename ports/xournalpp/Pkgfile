@@ -5,7 +5,7 @@
 # Nice to have: libungif texlive
 
 name=xournalpp
-version=1.1.1
+version=1.2.0
 release=1
 source=(https://github.com/$name/$name/archive/refs/tags/v${version}.tar.gz)
 renames=($name-$version.tar.gz)

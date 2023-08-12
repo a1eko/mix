@@ -2,7 +2,7 @@
 # Depends on: libjpeg-turbo xorg-libxmu xorg-libxpm xorg-util-macros xorg-server cmake ninja
 
 name=ctwm
-version=4.0.3
+version=4.1.0
 release=mix-1
 source=(https://ctwm.org/dist/$name-$version.tar.xz)
 

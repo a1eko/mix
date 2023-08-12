@@ -5,16 +5,17 @@
 
 name=grub2
 version=2.06
-release=mix-3
+release=mix-4
 source=(http://ftp.gnu.org/gnu/grub/grub-$version.tar.xz \
 	http://jaeger.morpheus.net/linux/crux/files/unifont-9.0.06.pcf.gz \
-	$name-tweaks.diff grub.cfg.sample)
+	$name-tweaks.diff grub.cfg.sample csum_seed.diff)
 
 build() {
 	export CFLAGS="${CFLAGS} -Wno-error -Os"
 	export PYTHON=python3
 	cd grub-$version
 	patch -p1 -i $SRC/$name-tweaks.diff
+	patch -p1 -i $SRC/csum_seed.diff
 
 	./configure --prefix=/usr \
 		--sysconfdir=/etc \
@@ -25,8 +26,8 @@ build() {
 	make DESTDIR=$PKG install
 	rm -rf $PKG/usr/share/{info,locale,grub/themes}
 	cp $SRC/unifont-9.0.06.pcf.gz .
-	gzip unifont-9.0.06.pcf.gz
+	gzip -d unifont-9.0.06.pcf.gz
 	install -d $PKG/usr/lib/grub/fonts
 	./grub-mkfont -o $PKG/usr/lib/grub/fonts/unifont.pf2 \
-		unifont-9.0.06.pcf
+		$SRC/unifont-9.0.06.pcf
 }

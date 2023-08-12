@@ -1,0 +1,40 @@
+# Description: framework for image processing
+# Depends on: cmake gimp qt5 fftw openexr opencv graphicsmagick
+
+name=gmic
+version=3.2.6
+release=mix-1
+source=(http://gmic.eu/files/source/gmic_$version.tar.gz
+	CMakeLists.txt FindCImg.cmake FindGMicStdlib.cmake FindGraphicsMagick.cmake)
+
+build() {
+  cp -v $SRC/CMakeLists.txt gmic-$version/
+  mkdir -pv gmic-$version/cmake
+  cp -v $SRC/FindCImg.cmake $SRC/FindGMicStdlib.cmake $SRC/FindGraphicsMagick.cmake gmic-$version/cmake/
+
+  cmake -B build -S gmic-$version \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DENABLE_DYNAMIC_LINKING=ON \
+    -DBUILD_LIB_STATIC=OFF \
+    -DENABLE_OPENCV=ON
+  cmake --build build -j ${JOBS:-1}
+
+  export LDFLAGS="$LDFLAGS -L../build"
+  cmake -B build-qt -S gmic-$version/gmic-qt \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DENABLE_DYNAMIC_LINKING=ON \
+    -DGMIC_PATH=$SRC/gmic-$version/src \
+    -DGMIC_QT_HOST=none
+  cmake --build build-qt -j ${JOBS:-1}
+
+  cmake -B build-gimp -S gmic-$version/gmic-qt \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DENABLE_DYNAMIC_LINKING=ON \
+    -DGMIC_PATH=$SRC/gmic-$version/src \
+    -DGMIC_QT_HOST=gimp
+  cmake --build build-gimp -j ${JOBS:-1}
+
+  DESTDIR=$PKG cmake --install build
+  DESTDIR=$PKG cmake --install build-qt
+  DESTDIR=$PKG cmake --install build-gimp
+}
