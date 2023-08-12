@@ -26,5 +26,5 @@ o tools, ports (python3): keep v3.10 (crux compat)
 - ports (python3-mpi4py): does not build
 + mix (dist): upgrade to latest toolchain
 + mix (tools): update footprints
-- mix (ports): upgrade versions, with footprints
-- mix (dist): new release at github
++ mix (ports): upgrade versions, with footprints
++ mix (dist): new release at github
