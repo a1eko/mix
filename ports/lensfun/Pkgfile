@@ -1,0 +1,24 @@
+# Description: Database of photographic lenses and a library that allows advanced access to the database
+# Depends on: glib
+
+name=lensfun
+version=0.3.4
+release=mix-1
+source=(https://github.com/lensfun/lensfun/archive/v$version/$name-$version.tar.gz
+	fix-python-module-install.patch)
+
+build() {
+  patch -d $name-$version -p1 -i $SRC/fix-python-module-install.patch
+  cmake -S $name-$version -B build -G Ninja \
+    -D CMAKE_INSTALL_PREFIX=/usr \
+    -D CMAKE_INSTALL_LIBDIR=lib \
+    -D CMAKE_BUILD_TYPE=None \
+    -D CMAKE_CXX_FLAGS_RELEASE="$CXXFLAGS -fno-delete-null-pointer-checks" \
+    -D CMAKE_C_FLAGS_RELEASE="$CFLAGS -fno-delete-null-pointer-checks" \
+    -D INSTALL_PYTHON_MODULE=OFF
+  cmake --build build
+  DESTDIR=$PKG cmake --install build
+  cd build/apps
+  python3 -m build --wheel --no-isolation
+  python3 -m installer --destdir=$PKG dist/*.whl
+}
