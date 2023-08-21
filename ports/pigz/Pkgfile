@@ -5,11 +5,13 @@
 
 name=pigz
 version=2.7
-release=1
-source=(http://zlib.net/$name/$name-$version.tar.gz)
+release=mix-1
+source=(http://zlib.net/$name/$name-$version.tar.gz
+	pigz-zlib13.patch)
 
 build() {
     cd $name-$version
+    patch -Np1 -i $SRC/pigz-zlib13.patch
 
     make
     gzip pigz.1
