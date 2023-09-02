@@ -24,6 +24,7 @@ python3-docutils
 libidn
 
 libtasn1 
+libunistring
 make-ca
 p11-kit
 

@@ -25,3 +25,4 @@ x ports (openssh): watch debian to adopt v9.4
 - ports (openssh): consider avoiding debian gssapi patch
 - tools (gcc): watch lfs to adopt mpfr v4.2.1
 - tools (coreutils): watch lfs to adopt v9.4
+- ports (linux): update config.local for v6.1.x

@@ -28,6 +28,8 @@ lcms2
 
 fribidi
 harfbuzz
+freetype
+fontconfig
 
 pango
 poppler-data
