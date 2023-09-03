@@ -68,8 +68,8 @@ static const char maxtemp[] = "cat /sys/class/thermal/thermal_zone*/temp | awk '
 static const struct arg args[] = {
 	{ run_command, "  TEMP:%3s C  |", maxtemp },
 	{ cpu_perc,    "  CPU:%3s%% ", NULL }, { cpu_freq, "%7sHz  |", NULL },
-	{ ram_perc,    "  RAM:%3s%% ", NULL }, { ram_used, "%8sB  |", NULL },
-	{ swap_perc,   "  SWAP:%3s%% ", NULL }, { swap_used, "%8sB  |", NULL },
+	{ ram_perc,    "  RAM:%3s%% ", NULL }, { ram_total, "%8sB  |", NULL },
+	{ swap_perc,   "  SWAP:%3s%% ", NULL }, { swap_total, "%8sB  |", NULL },
 	{ battery_perc,"  BAT:%3s%% |", "BAT0" },
 	{ datetime,    "  %s  ", "%b %d (%a) %R" },
 };
