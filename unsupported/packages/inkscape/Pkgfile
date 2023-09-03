@@ -1,20 +1,21 @@
-# Description: SVG editor
-# Depends on: cmake boehm-gc boost double-conversion gsl gtkmm3 libsoup libxslt poppler-glib popt potrace gdl
+# Description: an open source SVG editor
+# Depends on: boost boehm-gc double-conversion boehm-gc gdl gsl gtkmm3 libsoup libxslt poppler-glib popt imagemagick lcms2 potrace
 
 name=inkscape
-version=1.0
+version=git
 release=mix-1
-source=(https://media.inkscape.org/dl/resources/file/inkscape-$version.tar.xz)
 
 build() {
-  cd inkscape-1.0_2020-05-01_4035a4fb49
-  sed -i '/^#include <memory>/i #include <atomic>' src/preferences.h
+  git clone --recurse-submodules https://gitlab.com/inkscape/inkscape.git
+  cmake -S $name -B build -G Ninja \
+	-D CMAKE_INSTALL_PREFIX=/usr \
+	-D CMAKE_BUILD_TYPE=Release \
+	-Wno-dev
 
-  mkdir -v build
-  cd build
-  cmake -DCMAKE_INSTALL_PREFIX=/usr \
-        -DCMAKE_BUILD_TYPE=Release  \
-	..
-  make -j4
-  make DESTDIR=$PKG install
+  cmake --build build
+  DESTDIR=$PKG cmake --install build
+
+  rm -rv $PKG/usr/share/{man,locale}
+  rm -rv $PKG/usr/share/inkscape/doc
+  find $PKG/usr/share/inkscape \( -name "README*" -o -name "LICEN*" \) -exec rm -v '{}' \+
 }
