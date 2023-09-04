@@ -23,4 +23,5 @@ o tools, ports (python3): keep v3.10 (crux compat)
 - tools, ports (pkgconf): v2.0.0 breaks firefox build, keep v1.9.5 (watch archlinux dev)
 x ports (openssh): watch debian to adopt v9.4
 - ports (openssh): consider avoiding debian gssapi patch
-- config (passwd, group, eudev): user/group 'sgx' unknown
+- ports (eudev): remove group 'sgx' (lfs compat) or add (crux-3.8 compat)
+- tools, ports (linux*): consider switching to v6.1 longterm line
