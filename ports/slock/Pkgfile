@@ -1,0 +1,20 @@
+# Description: A simple X display locker
+# URL: https://tools.suckless.org/slock
+# Maintainer: Steffen Nurpmeso, steffen at sdaoden dot eu
+# Depends on: xorg-libxext xorg-libxrandr
+
+name=slock
+version=1.5
+release=1
+source=(https://dl.suckless.org/tools/${name}-${version}.tar.gz)
+
+build() {
+	cd ${name}-${version}
+
+	sed -i'' -Ee 's/nogroup/nobody/' config.def.h
+
+	make
+	make PREFIX=/usr DESTDIR="${PKG}" install
+}
+
+# s-sht-mode
