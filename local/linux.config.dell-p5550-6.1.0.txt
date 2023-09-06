@@ -45,6 +45,11 @@ Network support.
 # 		    into the kernel binary
 #                 (/lib/firmware) Firmware blobs root directory 
 
+    Device Drivers --->
+        [*] Network device support --->
+	    <*> USB Network Adapters --->
+	        <M> RealtekRTL8152/RTL8153 Based USB Ethernet Adapters
+
 Video support.
 
     Device Drivers --->
