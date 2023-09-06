@@ -3,6 +3,7 @@ Local hardware
     Model:  	    Dell Precision 5550
     CPU:            10th generation i9
     Storage:        M.2 SSD NVMe, PCIe Gen3.0x4
+    Ethernet:       Realtek RTL8153 Gigabit Ethernet Adapter
     Wi-Fi:          Intel Wi-Fi 6 AX201
     Onboard sound:  Realtek ALC3281-CG
     GPU:            NVIDIA Quadro T2000
