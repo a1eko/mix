@@ -1,9 +1,9 @@
 # Description: linux kernel headers
 
 name=linux-headers
-version=6.1.51
+version=6.1.53
 release=0
-source=(https://www.kernel.org/pub/linux/kernel/v5.x/linux-$version.tar.xz)
+source=(https://www.kernel.org/pub/linux/kernel/v6.x/linux-$version.tar.xz)
 
 build() {
   cd linux-$version
