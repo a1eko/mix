@@ -23,3 +23,4 @@ o tools, ports (python3): keep v3.10 (crux compat)
 x ports (openssh): watch debian to adopt v9.4
 - ports (openssh): consider avoiding debian gssapi patch
 - ports (eudev): remove group 'sgx' (lfs compat) or add to passwd/group (crux-3.8 compat)
+- ports (rust,cbindgen): upgrade
