@@ -2,7 +2,7 @@
 # Depends on: curl cmake libssh2 llvm
 
 name=rust
-version=1.72.0
+version=1.72.1
 release=mix-1
 
 source=(https://static.rust-lang.org/dist/${name}c-$version-src.tar.xz)
@@ -37,6 +37,12 @@ llvm-config = "/usr/bin/llvm-config"
 [target.i686-unknown-linux-gnu]
 llvm-config = "/usr/bin/llvm-config"
 EOF
+
+  # adapt to llvm-17
+  sed 's/FS,/"", &/' \
+    -i ./compiler/rustc_llvm/llvm-wrapper/PassWrapper.cpp &&
+  sed '/LLVMContext.h/i#include "llvm/ADT/SmallString.h"' \
+    -i compiler/rustc_llvm/llvm-wrapper/SymbolWrapper.cpp
 
   export LIBSSH2_SYS_USE_PKG_CONFIG=1
 

@@ -20,5 +20,5 @@ build() {
     --with-gxx-include-dir=/tools/$MIX_TGT/include/c++/$version
   make
   make DESTDIR=$PKG install
-  rm -v $PKG/usr/lib/lib{stdc++,stdc++fs,supc++}.la
+  rm -v $PKG/usr/lib/lib{stdc++{,exp,fs},supc++}.la
 }
