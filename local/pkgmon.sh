@@ -1,7 +1,7 @@
 #!/bin/bash
 
 M=(http://trumpetti.atm.tut.fi/gentoo/distfiles/
-   http://www.kernel.org/pub/linux/kernel/v5.x/
+   http://www.kernel.org/pub/linux/kernel/v6.x/
    http://crux.nu/files/distfiles/)
 S=/var/log/sources/pkgmon.log
 T=/tmp/pkgmon.log
