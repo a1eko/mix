@@ -12,8 +12,7 @@ build() {
   ./configure --prefix=/usr \
     --host=$MIX_TGT \
     --build=$(build-aux/config.guess) \
-    --enable-no-install-program=uptime,kill,chcon,runcon,groups \
-    gl_cv_macro_MB_CUR_MAX_good=y
+    --enable-no-install-program=uptime,kill,chcon,runcon,groups
   make
   make DESTDIR=$PKG install
 
