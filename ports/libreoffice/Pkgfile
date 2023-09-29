@@ -2,7 +2,7 @@
 # Depends on: boost clucene curl expat glm gpgme graphite2 harfbuzz icu lcms2 libepoxy libjpeg-turbo libpng libtiff libwebp libxml2 nss openldap openssl poppler redland unixodbc xmlsec
 
 name=libreoffice
-version=7.5.5.2
+version=7.6.1.2
 release=mix-1
 source=(https://downloadarchive.documentfoundation.org/libreoffice/old/$version/src/$name-$version.tar.xz
 	https://download.documentfoundation.org/libreoffice/src/${version%.2}/libreoffice-dictionaries-$version.tar.xz
@@ -25,6 +25,10 @@ build() {
 
   # GPGME breaks configure due to a library change
   export ac_cv_lib_gpgmepp_progress_callback=yes
+
+  # fix building without java
+  sed -i '940i #if HAVE_FEATURE_JAVA' cui/source/options/optjava.cxx &&
+  sed -i '966i #endif'                cui/source/options/optjava.cxx
 
   sed -e "/gzip -f/d" \
       -e "s|.1.gz|.1|g" \
