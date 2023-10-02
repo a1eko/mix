@@ -1,0 +1,18 @@
+# Description: PDF viewer
+# Depends on: gtk3 poppler poppler-glib
+# Optional: cups desktop-file-utils hicolor-icon-theme
+
+name=epdfview-gtk3
+version=20200814
+release=mix-1
+source=(http://anduin.linuxfromscratch.org/BLFS/$name/$name-$version.tar.xz)
+
+build () {
+  meson setup $name-$version build \
+    --prefix=/usr \
+    --buildtype=release \
+    -D enable-printing=true \
+    -D enable-nls=false
+  meson compile -C build -j ${JOBS:-1}
+  DESTDIR=$PKG ninja -C build install
+}
