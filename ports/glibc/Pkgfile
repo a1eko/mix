@@ -30,6 +30,7 @@ build()
     --enable-kernel=4.14 \
     --enable-stack-protector=strong \
     --with-headers=/usr/include \
+    --disable-nscd \
     libc_cv_slibdir=/lib
   make
 
@@ -44,10 +45,6 @@ build()
 
   # fix hardcoded path
   sed '/RTLDLIST=/s@/usr@@g' -i $PKG/usr/bin/ldd
-
-  # install nscd
-  cp -v ../nscd/nscd.conf $PKG/etc/nscd.conf
-  mkdir -pv $PKG/var/cache/nscd
 
   # install locales (optional)
   #make install_root=$PKG localedata/install-locales

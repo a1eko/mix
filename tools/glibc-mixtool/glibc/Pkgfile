@@ -33,6 +33,7 @@ build() {
     --build=$(../scripts/config.guess) \
     --enable-kernel=4.14 \
     --with-headers=$MIX/usr/include \
+    --disable-nscd \
     libc_cv_slibdir=/lib  # crux compat
     #libc_cv_slibdir=/usr/lib  # lfs compat
   make
