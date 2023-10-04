@@ -2,12 +2,12 @@
 # Depends on: boost clucene curl expat glm gpgme graphite2 harfbuzz icu lcms2 libepoxy libjpeg-turbo libpng libtiff libwebp libxml2 nss openldap openssl poppler redland unixodbc xmlsec
 
 name=libreoffice
-version=7.6.1.2
+version=7.6.2.1
 release=mix-1
 source=(https://downloadarchive.documentfoundation.org/libreoffice/old/$version/src/$name-$version.tar.xz
-	https://download.documentfoundation.org/libreoffice/src/${version%.2}/libreoffice-dictionaries-$version.tar.xz
-	https://download.documentfoundation.org/libreoffice/src/${version%.2}/libreoffice-help-$version.tar.xz
-	https://download.documentfoundation.org/libreoffice/src/${version%.2}/libreoffice-translations-$version.tar.xz)
+	https://download.documentfoundation.org/libreoffice/src/${version%.1}/libreoffice-dictionaries-$version.tar.xz
+	https://download.documentfoundation.org/libreoffice/src/${version%.1}/libreoffice-help-$version.tar.xz
+	https://download.documentfoundation.org/libreoffice/src/${version%.1}/libreoffice-translations-$version.tar.xz)
 
 unpack_source() { :; }
 
