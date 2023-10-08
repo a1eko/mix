@@ -21,5 +21,5 @@ o tools, ports (install.sh,gcc,glibc,openssh,rust,tar): beware crux replacing /u
 o tools, ports (perl): keep v5.36 (crux compat)
 o tools, ports (python3): keep v3.10 (crux compat)
 x ports (openssh): watch debian to adopt v9.4
-- ports (openssh): consider avoiding debian gssapi patch
++ ports (openssh): drop debian gssapi patch, switch to original openssh
 - ports (eudev): remove group 'sgx' (lfs compat) or add to passwd/group (crux-3.8 compat)

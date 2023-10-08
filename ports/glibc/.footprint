@@ -4,7 +4,6 @@ drwxr-xr-x	root/root	etc/
 -rw-r--r--	root/root	etc/ld.so.cache
 -rw-r--r--	root/root	etc/ld.so.conf
 drwxr-xr-x	root/root	etc/ld.so.conf.d/
--rw-r--r--	root/root	etc/nscd.conf
 -rw-r--r--	root/root	etc/nsswitch.conf
 -rw-r--r--	root/root	etc/resolv.conf
 -rw-r--r--	root/root	etc/rpc
@@ -849,7 +848,6 @@ hrwxr-xr-x	root/root	usr/libexec/getconf/POSIX_V7_LP64_OFF64 link to ./usr/bin/g
 hrwxr-xr-x	root/root	usr/libexec/getconf/XBS5_LP64_OFF64 link to ./usr/bin/getconf
 drwxr-xr-x	root/root	usr/sbin/
 -rwxr-xr-x	root/root	usr/sbin/iconvconfig
--rwxr-xr-x	root/root	usr/sbin/nscd
 drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/i18n/
 drwxr-xr-x	root/root	usr/share/i18n/charmaps/
@@ -1566,8 +1564,6 @@ drwxr-xr-x	root/root	usr/share/locale/zh_TW/
 drwxr-xr-x	root/root	usr/share/locale/zh_TW/LC_MESSAGES/
 -rw-r--r--	root/root	usr/share/locale/zh_TW/LC_MESSAGES/libc.mo
 drwxr-xr-x	root/root	var/
-drwxr-xr-x	root/root	var/cache/
-drwxr-xr-x	root/root	var/cache/nscd/
 drwxr-xr-x	root/root	var/lib/
 drwxr-xr-x	root/root	var/lib/nss_db/
 -rw-r--r--	root/root	var/lib/nss_db/Makefile
