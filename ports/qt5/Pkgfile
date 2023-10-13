@@ -2,14 +2,15 @@
 # URL: http://www.qt.io/
 # Maintainer: CRUX System Team, core-ports at crux dot nu
 # Depends on: dbus gdk-pixbuf gst-plugins-base libepoxy libmng libwebp libxkbcommon xorg-libxcomposite xorg-libxcursor xorg-libxi xorg-libxinerama xorg-xcb-util-image xorg-xcb-util-keysyms xorg-xcb-util-renderutil xorg-xcb-util-wm
-# Optional: assimp bluez cups double-conversion gtk3 ibus icu libinput libsdl2 mariadb mtdev openal pulseaudio unixodbc vulkan-headers wayland-protocols xkeyboard-config
+# Optional: assimp bluez cups double-conversion gtk3 ibus icu krb5 libinput libsdl2 mariadb mtdev openal pulseaudio unixodbc vulkan-headers wayland-protocols xkeyboard-config
 
 name=qt5
-version=5.15.10
+version=5.15.11
 release=mix-1
 source=(https://download.qt.io/archive/qt/5.15/$version/single/qt-everywhere-opensource-src-$version.tar.xz
 	https://www.linuxfromscratch.org/patches/blfs/svn/qt-everywhere-opensource-src-$version-kf5-1.patch
 	qtbase-5.15.8-fix-missing-qtsan-include.patch
+	qt-5.15.11-xkbcommon160.patch
 	qt5-cflags.patch
 	qt5-logo.png
 	qtbase-everywhere-src-5.14.2-no_relocatable.patch
@@ -32,6 +33,7 @@ build() {
                qtlocation/src/3rdparty/mapbox-gl-native/src/mbgl/gl/stencil_mode.hpp
 
 	patch -p1 -i $SRC/qt-everywhere-opensource-src-$version-kf5-1.patch
+	patch -p1 -i $SRC/qt-5.15.11-xkbcommon160.patch
 	patch -d qtbase -p1 -i $SRC/qt5-cflags.patch
 	patch -d qtbase -p1 -i $SRC/qtbase-everywhere-src-5.14.2-no_relocatable.patch
 	patch -d qtbase -p1 -i $SRC/qtbase-everywhere-src-5.15.2-libglvnd.patch
