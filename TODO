@@ -23,3 +23,4 @@ o tools, ports (python3): keep v3.10 (crux compat)
 x ports (openssh): watch debian to adopt v9.4
 + ports (openssh): drop debian gssapi patch, switch to original openssh
 - ports (eudev): remove group 'sgx' (lfs compat) or add to passwd/group (crux-3.8 compat)
+- ports (dhcpcd, glibc): nscd: symbol lookup error: nscd: undefined symbol: __nss_disable_nscd, version GLIBC_PRIVATE
