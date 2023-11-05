@@ -1,31 +1,31 @@
-# Description: TeX distribution for UNIX compatible systems, including luatex and xindy support
+# Description: TeX distribution for UNIX compatible systems
 # URL: https://www.tug.org/tetex/
 # Maintainer: Tim Biermann, tbier at posteo dot de
-# Depends on: clisp ghostscript graphite2 harfbuzz icu libgd libmpfr paper poppler xorg-libxaw xorg-libxi zziplib
+# Depends on: clisp ghostscript graphite2 harfbuzz icu libgd libmpfr paper potrace xorg-libxaw xorg-libxi zziplib
 
 name=texlive
 version=20230313
-release=mix-1
+release=mix-2
 source=(ftp://tug.org/historic/systems/texlive/${version:0:4}/$name-$version-texmf.tar.xz
   ftp://tug.org/historic/systems/texlive/${version:0:4}/$name-$version-source.tar.xz
   https://download.savannah.gnu.org/releases/texi2html/texi2html-5.0.tar.bz2
   tabu.sty.diff)
 
-#unpack_source() {
-#  for file in ${source[@]}; do
-#    case ${file##*/} in
-#      $name-$version-source.tar.xz)
-#        bsdtar -p -o -C $SRC -xf $(get_filename $file) ;;
-#      $name-$version-texmf.tar.xz)
-#        mkdir -p $PKG/usr/share
-#        bsdtar -p -o -C $PKG/usr/share -xf $(get_filename $file) --strip-components 1 ;;
-#      texi2html-5.0.tar.bz2)
-#        bsdtar -p -o -C $SRC -xf $(get_filename $file) ;;
-#      *)
-#        cp $(get_filename $file) $SRC ;;
-#    esac
-#  done
-#}
+# unpack_source() {
+#   for file in ${source[@]}; do
+#     case ${file##*/} in
+#       $name-$version-source.tar.xz)
+#         bsdtar -p -o -C $SRC -xf $(get_filename $file) ;;
+#       $name-$version-texmf.tar.xz)
+#         mkdir -p $PKG/usr/share
+#         bsdtar -p -o -C $PKG/usr/share -xf $(get_filename $file) --strip-components 1 ;;
+#       texi2html-5.0.tar.bz2)
+#         bsdtar -p -o -C $SRC -xf $(get_filename $file) ;;
+#       *)
+#         cp $(get_filename $file) $SRC ;;
+#     esac
+#   done
+# }
 
 build() {
   mkdir -pv $PKG/usr/share
@@ -70,11 +70,10 @@ build() {
     --with-banner-add=" MiX" \
     --with-clisp-runtime=system \
     --enable-{dvipdfm-x,gc=system,libtool-hack,luatex,pdftex,pdftex-syncex,shared,makeindexk,tex,texlive,tex-synctex,web2c,xindy} \
-    --with-system-{freetype2,gd,libpaper,libpng,ncurses,poppler,t1lib,zlib} \
+    --with-system-{cairo,freetype2,gd,graphite2,gmp,harfbuzz,icu,libpaper,libpng,mpfr,ncurses,pixman,potrace,t1lib,zlib,zziplib} \
     --with-x \
     --with-xdvi-x-toolkit=xaw \
     --disable-{all-pkgs,aleph,native-texlive-build,xetex,xindy-docs,xindy-rules}
-    #--with-system-{cairo,freetype2,gd,graphite2,gmp,harfbuzz,icu,libpaper,libpng,mpfr,ncurses,pixman,poppler,potrace,t1lib,zlib,zziplib} \
 
   make
   make DESTDIR=$PKG install
@@ -126,7 +125,7 @@ build() {
   # this uses above configuration to create links like $PKG/usr/bin/lualatex for example
   # without, the engines just won't work like we want
   PATH="$PKG/usr/bin:$PATH" LD_LIBRARY_PATH+="$PKG/usr/lib:$LD_LIBRARY_PATH" \
-    texlinks -f $PKG/usr/share/texmf-dist/web2c/fmtutil.cnf $PKG/usr/bin
+    texlinks -v -f $PKG/usr/share/texmf-dist/web2c/fmtutil.cnf $PKG/usr/bin
 
   #cd $SRC/$name-$version-texmf
 
@@ -147,7 +146,7 @@ build() {
   rm -r $PKG/usr/bin/{tlmgr,man}
   rm -r $PKG/usr/share/texmf-dist/scripts/texlive/tlmgr{,gui}.pl
   find $PKG/usr/share/texmf-dist \
-    -regex '.*/\(COPYING\|README\|AUTHORS\|INSTALL\|ChangeLog\|NEWS\|TODO\|fonts_README.md\|BUGS\|CREDITS\|HISTORY\|LICEN\).*' \
+    -regex '.*/\(COPYING\|README\|AUTHORS\|INSTALL\|ChangeLog\|NEWS\|TODO\|fonts_README.md\|BUGS\).*' \
     -exec rm '{}' \+
   find $PKG/usr/share/texi2html \
     -regex '.*/\(README\|COPYING\).*' \
