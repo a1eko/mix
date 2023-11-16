@@ -24,6 +24,5 @@ x ports (openssh): watch debian to adopt v9.4
 + ports (openssh): drop debian gssapi patch, switch to original openssh
 - ports (eudev): remove group 'sgx' (lfs compat) or add to passwd/group (crux-3.8 compat)
 - ports (dhcpcd, glibc): nscd: symbol lookup error: nscd: undefined symbol: __nss_disable_nscd, version GLIBC_PRIVATE
-o ports (xz, gawk): watch lfs to update (cf crux)
 - ports (texlive): broken install, no pdflatex etc
-? ports (rust): remove rust before upgrading
+o ports (rust): remove rust before upgrading, cleanup rust dirs manually
