@@ -25,3 +25,4 @@ x ports (openssh): watch debian to adopt v9.4
 - ports (eudev): remove group 'sgx' (lfs compat) or add to passwd/group (crux-3.8 compat)
 - ports (dhcpcd, glibc): nscd: symbol lookup error: nscd: undefined symbol: __nss_disable_nscd, version GLIBC_PRIVATE
 o ports (rust): remove rust before upgrading, cleanup rust dirs manually
+- ports (wxgtk3): broken build ('gs_alreadySetSwapInterval' was not declared)
