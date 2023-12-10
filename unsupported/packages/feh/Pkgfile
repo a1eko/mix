@@ -3,7 +3,7 @@
 # Optional: libjpeg-turbo imagemagick
 
 name=feh
-version=3.9.1
+version=3.10.2
 release=mix-1
 source=(https://feh.finalrewind.org/feh-$version.tar.bz2)
 
