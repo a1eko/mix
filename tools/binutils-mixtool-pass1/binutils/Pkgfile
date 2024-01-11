@@ -16,7 +16,8 @@ build() {
     --target=$MIX_TGT \
     --disable-nls \
     --enable-gprofng=no \
-    --disable-werror
+    --disable-werror \
+    --enable-default-hash-style=gnu
   make
   make DESTDIR=$PKG install
   rm -rv $PKG/tools/share/{info,man}

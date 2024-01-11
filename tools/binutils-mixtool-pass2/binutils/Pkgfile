@@ -21,7 +21,8 @@ build() {
     --enable-shared \
     --enable-gprofng=no \
     --disable-werror \
-    --enable-64-bit-bfd
+    --enable-64-bit-bfd \
+    --enable-default-hash-style=gnu
   make
   make DESTDIR=$PKG install
 
