@@ -20,8 +20,6 @@ o tools, ports (gcc-fortran): crux port avoided, enable fortran in base gcc by d
 o tools, ports (install.sh,gcc,glibc,openssh,rust,tar): beware crux replacing /usr/libexec with /usr/lib (FHS compliant)
 o tools, ports (perl): keep v5.36 (crux compat)
 o tools, ports (python3): keep v3.10 (crux compat)
-x ports (openssh): watch debian to adopt v9.4
-+ ports (openssh): drop debian gssapi patch, switch to original openssh
 - ports (eudev): remove group 'sgx' (lfs compat) or add to passwd/group (crux-3.8 compat)
 - ports (dhcpcd, glibc): nscd: symbol lookup error: nscd: undefined symbol: __nss_disable_nscd, version GLIBC_PRIVATE
 o ports (rust): remove rust before upgrading, cleanup rust dirs manually
