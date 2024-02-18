@@ -1,7 +1,7 @@
 # Description: system C library
 
 name=glibc
-version=2.38
+version=2.39
 release=0
 source=(http://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz
 	http://www.linuxfromscratch.org/patches/downloads/glibc/glibc-$version-fhs-1.patch)
@@ -31,7 +31,7 @@ build() {
   ../configure --prefix=/usr \
     --host=$MIX_TGT \
     --build=$(../scripts/config.guess) \
-    --enable-kernel=4.14 \
+    --enable-kernel=4.19 \
     --with-headers=$MIX/usr/include \
     --disable-nscd \
     libc_cv_slibdir=/lib  # crux compat

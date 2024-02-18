@@ -1,11 +1,10 @@
 # Description: system C library
 
 name=glibc
-version=2.38
-release=mix-6
+version=2.39
+release=mix-1
 source=(https://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz
 	https://www.linuxfromscratch.org/patches/downloads/glibc/glibc-$version-fhs-1.patch
-	https://www.linuxfromscratch.org/patches/downloads/glibc/glibc-$version-upstream_fixes-4.patch
 	host.conf hosts ld.so.conf nsswitch.conf resolv.conf)
 
 build()
@@ -27,11 +26,11 @@ build()
   # crux compat libc_cv_slibdir
   ../configure --prefix=/usr \
     --disable-werror \
-    --enable-kernel=4.14 \
+    --enable-kernel=4.19 \
     --enable-stack-protector=strong \
-    --with-headers=/usr/include \
     --disable-nscd \
     libc_cv_slibdir=/lib
+    #--with-headers=/usr/include \
   make
 
   $TST TIMEOUTFACTOR=16 make -k check || true

@@ -2,6 +2,5 @@
 5e2ac30a60de726fd39fa2a5410bb6eb  hosts
 fb3976f942e00d20efb9b6f00f893a29  nsswitch.conf
 420997b5302c3c4e44d1bf2330514112  ld.so.conf
-778cce0ea6bf7f84ca8caacf4a01f45b  glibc-2.38.tar.xz
-9a5997c3452909b1769918c759eff8a2  glibc-2.38-fhs-1.patch
-66e843b00688c641c9bdda684db45b43  glibc-2.38-upstream_fixes-4.patch
+9a5997c3452909b1769918c759eff8a2  glibc-2.39-fhs-1.patch
+be81e87f72b5ea2c0ffe2bedfeb680c6  glibc-2.39.tar.xz
