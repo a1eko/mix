@@ -24,6 +24,6 @@ o tools, ports (python3): keep v3.10 (crux compat)
 - ports (dhcpcd, glibc): nscd: symbol lookup error: nscd: undefined symbol: __nss_disable_nscd, version GLIBC_PRIVATE
 o ports (rust): remove rust before upgrading, cleanup rust dirs manually
 - ports (wxgtk3): v3.2.4 broken build without wayland ('gs_alreadySetSwapInterval' was not declared, see Issue wxWidgets#24076)
-- tools (binutils): upgrade to v2.42
-- tools (glibc): upgrade to v2.39
+o tools (binutils): upgrade to v2.42
+o tools (glibc): upgrade to v2.39
 - ports (ffmpeg): broken build in port 6.1.1-2
