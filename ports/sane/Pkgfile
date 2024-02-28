@@ -1,0 +1,40 @@
+# Description: Scanner Access Now Easy - Scanner driver for Linux
+# URL: http://www.sane-project.org/
+# Maintainer: Juergen Daubert, jue at crux dot nu
+# Depends on: autoconf-archive libusb libtiff libpng xz
+
+name=sane
+version=1.3.0
+release=mix-1
+#source=(https://gitlab.com/sane-project/backends/uploads/110fc43336d0fb5e514f1fdc7360dd87/sane-backends-$version.tar.gz)
+source=(https://gitlab.com/sane-project/backends/-/archive/$version/backends-$version.tar.bz2)
+renames=($name-backends-$version.tar.bz2)
+
+build() {
+	cd backends-$version
+
+	# archlinux fix:
+	# create version files, so that autotools macros can use them:
+  	# https://gitlab.com/sane-project/backends/-/issues/440
+  	printf "%s\n" "$version" > .tarball-version
+  	printf "%s\n" "$version" > .version
+  	autoreconf -fiv
+
+	#./autogen.sh
+	./configure \
+		--prefix=/usr \
+		--localstatedir=/var \
+		--sysconfdir=/etc \
+		--disable-translations \
+		--disable-locking \
+		--disable-latex \
+		--with-group=scanner \
+		--with-usb
+
+	make
+	make -j1 DESTDIR=$PKG install
+
+	install -D -m 644 tools/udev/libsane.rules $PKG/etc/udev/rules.d/85-libsane.rules
+
+	rm -r $PKG/usr/share/{doc,locale,sane}
+}
