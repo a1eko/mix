@@ -2,7 +2,7 @@
 # Depends on: curl cmake libssh2 llvm
 
 name=rust
-version=1.74.1
+version=1.76.0
 release=mix-1
 
 source=(https://static.rust-lang.org/dist/${name}c-$version-src.tar.xz)
@@ -11,7 +11,7 @@ build() {
   cd ${name}c-$version-src
 
   cat <<- EOF > config.toml
-changelog-seen = 2
+change-id = 118703
 
 [llvm]
 targets = "X86"
@@ -38,9 +38,15 @@ llvm-config = "/usr/bin/llvm-config"
 llvm-config = "/usr/bin/llvm-config"
 EOF
 
+  # adapt to llvm-18
+  sed 's/f[0-9][0-9]:/i128:128-&/' \
+    -i compiler/rustc_target/src/spec/targets/{i?86,x86_64}*.rs
+  sed '/static_assert_size!\((Lit|MetaItemLit|BasicBlockData|Terminator)/d' \
+    -ri compiler/{rustc_ast/src/ast.rs,rustc_middle/src/mir/mod.rs}
+
   export LIBSSH2_SYS_USE_PKG_CONFIG=1
 
-  /usr/bin/python3 ./x.py build -j ${JOBS-1}
+  /usr/bin/python3 ./x.py build
   DESTDIR=$PKG /usr/bin/python3 ./x.py install
 
   [ -e '/usr/bin/zsh' ] || rm -rv $PKG/usr/share/zsh
