@@ -29,3 +29,4 @@ o ports (rust): remove rust before upgrading, cleanup rust dirs manually
 - ports (ffmpeg): broken build in port 6.1.1-2
 o dist (pkz.conf): gentoo distfiles mirror not available
 - tools (lz4): added by lfs as zstd dep
+o tools (xz): revert to v5.4.6 (see lfs)

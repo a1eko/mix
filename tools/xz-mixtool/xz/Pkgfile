@@ -1,9 +1,10 @@
 # Description: data compression utilities
 
 name=xz
-version=5.6.1
+version=5.4.6
 release=0
-source=(http://tukaani.org/xz/xz-$version.tar.xz)
+#source=(http://tukaani.org/xz/xz-$version.tar.xz)
+source=(https://anduin.linuxfromscratch.org/LFS/xz-$version.tar.xz)
 
 build() {
   cd $name-$version
