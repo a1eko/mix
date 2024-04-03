@@ -8,12 +8,13 @@ source=(https://www.kernel.org/pub/linux/utils/$name/v${version:0:4}/$name-$vers
 build() {
     cd $name-$version
 
-    # crux compatible
+    # crux compatible (but without liblastlog2 as in lfs)
     ./configure --prefix=/usr \
                 --disable-nls \
                 --disable-asciidoc \
                 --disable-{login,su,sulogin,nologin,runuser,raw} \
                 --disable-chfn-chsh \
+		--disable-liblastlog2 \
                 --enable-{write,kill} \
                 --without-python
 
