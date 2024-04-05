@@ -30,3 +30,5 @@ o ports (rust): remove rust before upgrading, cleanup rust dirs manually
 o dist (pkz.conf): gentoo distfiles mirror not available
 - tools (lz4): added by lfs as zstd dep
 o tools (xz): revert to v5.4.6 (see lfs)
+- ports (llvm et al): upgrade to v18.1.3, update rust
+- ports (firefox): upgrade to v115.9.1esr (see blfs)
