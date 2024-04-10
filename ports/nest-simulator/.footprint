@@ -41,6 +41,7 @@ drwxr-xr-x	root/root	usr/include/nest/Random123/tests/
 -rw-r--r--	root/root	usr/include/nest/Random123/u01fixedpt.h
 -rw-r--r--	root/root	usr/include/nest/ac_generator.h
 -rw-r--r--	root/root	usr/include/nest/aeif_cond_alpha.h
+-rw-r--r--	root/root	usr/include/nest/aeif_cond_alpha_astro.h
 -rw-r--r--	root/root	usr/include/nest/aeif_cond_alpha_multisynapse.h
 -rw-r--r--	root/root	usr/include/nest/aeif_cond_beta_multisynapse.h
 -rw-r--r--	root/root	usr/include/nest/aeif_cond_exp.h
@@ -53,11 +54,13 @@ drwxr-xr-x	root/root	usr/include/nest/Random123/tests/
 -rw-r--r--	root/root	usr/include/nest/amat2_psc_exp.h
 -rw-r--r--	root/root	usr/include/nest/archiving_node.h
 -rw-r--r--	root/root	usr/include/nest/arraydatum.h
+-rw-r--r--	root/root	usr/include/nest/astrocyte_lr_1994.h
 -rw-r--r--	root/root	usr/include/nest/bernoulli_synapse.h
 -rw-r--r--	root/root	usr/include/nest/beta_normalization_factor.h
 -rw-r--r--	root/root	usr/include/nest/binary_neuron.h
 -rw-r--r--	root/root	usr/include/nest/block_vector.h
 -rw-r--r--	root/root	usr/include/nest/booldatum.h
+-rw-r--r--	root/root	usr/include/nest/buffer_resize_log.h
 -rw-r--r--	root/root	usr/include/nest/callbackdatum.h
 -rw-r--r--	root/root	usr/include/nest/charcode.h
 -rw-r--r--	root/root	usr/include/nest/clopath_archiving_node.h
@@ -130,6 +133,7 @@ drwxr-xr-x	root/root	usr/include/nest/Random123/tests/
 -rw-r--r--	root/root	usr/include/nest/ginzburg_neuron.h
 -rw-r--r--	root/root	usr/include/nest/glif_cond.h
 -rw-r--r--	root/root	usr/include/nest/glif_psc.h
+-rw-r--r--	root/root	usr/include/nest/glif_psc_double_alpha.h
 -rw-r--r--	root/root	usr/include/nest/gnureadline.h
 -rw-r--r--	root/root	usr/include/nest/grid_layer.h
 -rw-r--r--	root/root	usr/include/nest/grid_mask.h
@@ -267,6 +271,7 @@ drwxr-xr-x	root/root	usr/include/nest/Random123/tests/
 -rw-r--r--	root/root	usr/include/nest/secondary_event.h
 -rw-r--r--	root/root	usr/include/nest/send_buffer_position.h
 -rw-r--r--	root/root	usr/include/nest/sharedptrdatum.h
+-rw-r--r--	root/root	usr/include/nest/sic_connection.h
 -rw-r--r--	root/root	usr/include/nest/siegert_neuron.h
 -rw-r--r--	root/root	usr/include/nest/sigmoid_rate.h
 -rw-r--r--	root/root	usr/include/nest/sigmoid_rate_gg_1998.h
@@ -313,13 +318,13 @@ drwxr-xr-x	root/root	usr/include/nest/Random123/tests/
 -rw-r--r--	root/root	usr/include/nest/static_synapse.h
 -rw-r--r--	root/root	usr/include/nest/static_synapse_hom_w.h
 -rw-r--r--	root/root	usr/include/nest/stdp_dopamine_synapse.h
+-rw-r--r--	root/root	usr/include/nest/stdp_facetshw_synapse_hom.h
+-rw-r--r--	root/root	usr/include/nest/stdp_facetshw_synapse_hom_impl.h
 -rw-r--r--	root/root	usr/include/nest/stdp_nn_pre_centered_synapse.h
 -rw-r--r--	root/root	usr/include/nest/stdp_nn_restr_synapse.h
 -rw-r--r--	root/root	usr/include/nest/stdp_nn_symm_synapse.h
 -rw-r--r--	root/root	usr/include/nest/stdp_pl_synapse_hom.h
 -rw-r--r--	root/root	usr/include/nest/stdp_synapse.h
--rw-r--r--	root/root	usr/include/nest/stdp_synapse_facetshw_hom.h
--rw-r--r--	root/root	usr/include/nest/stdp_synapse_facetshw_hom_impl.h
 -rw-r--r--	root/root	usr/include/nest/stdp_synapse_hom.h
 -rw-r--r--	root/root	usr/include/nest/stdp_triplet_synapse.h
 -rw-r--r--	root/root	usr/include/nest/step_current_generator.h
@@ -368,14 +373,14 @@ drwxr-xr-x	root/root	usr/include/nest/Random123/tests/
 drwxr-xr-x	root/root	usr/lib64/
 drwxr-xr-x	root/root	usr/lib64/nest/
 lrwxrwxrwx	root/root	usr/lib64/nest/libnest.so -> libnest.so.3
-lrwxrwxrwx	root/root	usr/lib64/nest/libnest.so.3 -> libnest.so.3.5
--rwxr-xr-x	root/root	usr/lib64/nest/libnest.so.3.5
+lrwxrwxrwx	root/root	usr/lib64/nest/libnest.so.3 -> libnest.so.3.6.0
+-rwxr-xr-x	root/root	usr/lib64/nest/libnest.so.3.6.0
 lrwxrwxrwx	root/root	usr/lib64/nest/libsli.so -> libsli.so.3
-lrwxrwxrwx	root/root	usr/lib64/nest/libsli.so.3 -> libsli.so.3.5
--rwxr-xr-x	root/root	usr/lib64/nest/libsli.so.3.5
+lrwxrwxrwx	root/root	usr/lib64/nest/libsli.so.3 -> libsli.so.3.6.0
+-rwxr-xr-x	root/root	usr/lib64/nest/libsli.so.3.6.0
 lrwxrwxrwx	root/root	usr/lib64/nest/libsli_readline.so -> libsli_readline.so.3
-lrwxrwxrwx	root/root	usr/lib64/nest/libsli_readline.so.3 -> libsli_readline.so.3.5
--rwxr-xr-x	root/root	usr/lib64/nest/libsli_readline.so.3.5
+lrwxrwxrwx	root/root	usr/lib64/nest/libsli_readline.so.3 -> libsli_readline.so.3.6.0
+-rwxr-xr-x	root/root	usr/lib64/nest/libsli_readline.so.3.6.0
 drwxr-xr-x	root/root	usr/lib64/python3.10/
 drwxr-xr-x	root/root	usr/lib64/python3.10/site-packages/
 drwxr-xr-x	root/root	usr/lib64/python3.10/site-packages/nest/
