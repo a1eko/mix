@@ -2,7 +2,7 @@
 # Depends on: autoconf-2.13 cbindgen dbus-glib gtk gtk3 libnotify llvm lld clang nasm nodejs nss alsa-lib python3 startup-notification unzip yasm zip
 
 name=firefox
-version=115.4.0
+version=115.9.1
 release=mix-1
 source=(https://archive.mozilla.org/pub/firefox/releases/${version}esr/source/firefox-${version}esr.source.tar.xz
 	mozconfig)
@@ -11,6 +11,35 @@ build() {
   cd $name-$version
 
   cp -v $SRC/mozconfig .
+
+  # adapt line break for ICU v7.4+
+  for i in {43..47}; do
+    sed -i '/ZWJ/s/}/,CLASS_CHARACTER&/' intl/lwbrk/LineBreaker.cpp
+  done
+
+  # adapt shipped rust-bindgen copy for LLVM v18+
+  sed -e "/match cursor.kind()/a                                    \
+        CXCursor_LinkageSpec => return Err(ParseError::Recurse)," \
+    -i third_party/rust/bindgen/ir/item.rs
+
+  cat >> Cargo.toml << EOF &&
+[patch.crates-io.bindgen_0_64_0]
+package = "bindgen"
+version = "0.64.0"
+path = "third_party/rust/bindgen"
+EOF
+
+  sed -r '/name = "bindgen"/,+5 s/^source|^checksum/#&/' \
+     -i Cargo.lock
+
+  # adapt WebRTC code for Clang v18+
+  sed 's/uint32_t timestamp/uint64_t timestamp/' \
+    -i dom/media/gmp-plugin-openh264/gmp-fake-openh264.cpp \
+       dom/media/gtest/TestGMPRemoveAndDelete.cpp \
+       dom/media/webrtc/libwebrtcglue/WebrtcGmpVideoCodec.cpp
+
+  sed '/mInputImageMap/s/uint32_t/uint64_t/' \
+    -i dom/media/webrtc/libwebrtcglue/WebrtcGmpVideoCodec.h
 
   export CC=clang CXX=clang++ AR=llvm-ar NM=llvm-nm RANLIB=llvm-ranlib
   export MOZBUILD_STATE_PATH=${PWD}/mozbuild
