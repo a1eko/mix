@@ -1,7 +1,7 @@
 # Description: linux kernel, longterm line
 
 name=linux
-version=6.1.88
+version=6.1.89
 release=mix-1
 source=(https://www.kernel.org/pub/linux/kernel/v6.x/linux-$version.tar.xz config.local)
 
