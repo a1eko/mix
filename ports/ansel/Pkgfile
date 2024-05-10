@@ -10,17 +10,17 @@ source=()
 build() {
   git clone --recurse-submodules --depth 1 https://github.com/aurelienpierreeng/$name.git
 
-  # archlinux patch for darktable
-  patch -Np1 -d $name -i $PKGMK_ROOT/exiv2-0.28.patch
-
   cmake -B build -S $name \
     -DCMAKE_INSTALL_PREFIX=/usr \
-    -DCMAKE_INSTALL_LIBDIR=/usr/lib \
+    -DCMAKE_INSTALL_LIBDIR=lib \
+    -DCMAKE_INSTALL_LIBEXECDIR=lib \
     -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_SKIP_RPATH=ON \
+    -DRAWSPEED_ENABLE_LTO=ON \
     -DUSE_NLS=false
   cmake --build build
-  DESTDIR=$PKG cmake --install build
-  ln -sv ansel/libansel.so $PKG/usr/lib/libansel.so
+  #DESTDIR=$PKG cmake --install build # fails to relink libansel.so
+  DESTDIR=$PKG cmake --install build || true
 
   rm -rv $PKG/usr/share/doc
 }

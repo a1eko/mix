@@ -1,7 +1,6 @@
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/ansel
--rwxr-xr-x	root/root	usr/bin/ansel-chart
 -rwxr-xr-x	root/root	usr/bin/ansel-cli
 -rwxr-xr-x	root/root	usr/bin/ansel-cltest
 -rwxr-xr-x	root/root	usr/bin/ansel-cmstest
@@ -9,7 +8,6 @@ drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/ansel-rs-identify
 drwxr-xr-x	root/root	usr/lib/
 drwxr-xr-x	root/root	usr/lib/ansel/
--rwxr-xr-x	root/root	usr/lib/ansel/libansel.so
 drwxr-xr-x	root/root	usr/lib/ansel/plugins/
 drwxr-xr-x	root/root	usr/lib/ansel/plugins/imageio/
 drwxr-xr-x	root/root	usr/lib/ansel/plugins/imageio/format/
@@ -126,7 +124,6 @@ drwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/
 -rwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/libhistogram.so
 -rwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/libhistory.so
 -rwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/libimage_infos.so
--rwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/libimport.so
 -rwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/libioporder.so
 -rwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/liblighttable_mode.so
 -rwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/libmasks.so
@@ -148,7 +145,7 @@ drwxr-xr-x	root/root	usr/lib/ansel/views/
 -rwxr-xr-x	root/root	usr/lib/ansel/views/liblighttable.so
 -rwxr-xr-x	root/root	usr/lib/ansel/views/libprint.so
 -rwxr-xr-x	root/root	usr/lib/ansel/views/libslideshow.so
-lrwxrwxrwx	root/root	usr/lib/libansel.so -> ansel/libansel.so
+-rwxr-xr-x	root/root	usr/lib/libansel.so
 drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/ansel/
 -rw-r--r--	root/root	usr/share/ansel/ansel.bash
@@ -199,10 +196,6 @@ drwxr-xr-x	root/root	usr/share/ansel/kernels/
 -rw-r--r--	root/root	usr/share/ansel/kernels/soften.cl
 drwxr-xr-x	root/root	usr/share/ansel/latex/
 -rw-r--r--	root/root	usr/share/ansel/latex/photobook.cls
-drwxr-xr-x	root/root	usr/share/ansel/lua/
-drwxr-xr-x	root/root	usr/share/ansel/lua/ansel/
--rw-r--r--	root/root	usr/share/ansel/lua/ansel/debug.lua
--rw-r--r--	root/root	usr/share/ansel/luarc
 -rw-r--r--	root/root	usr/share/ansel/noiseprofiles.json
 drwxr-xr-x	root/root	usr/share/ansel/pixmaps/
 -rw-r--r--	root/root	usr/share/ansel/pixmaps/dt_logo_128x128.png
