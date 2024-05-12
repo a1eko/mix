@@ -1,7 +1,7 @@
 # Description: compiler collection
 
 name=gcc
-version=13.2.0
+version=14.1.0
 release=mix-1
 source=(http://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz)
 
@@ -25,6 +25,7 @@ build()
     --enable-languages=c,c++,fortran \
     --enable-default-pie \
     --enable-default-ssp \
+    --enable-host-pie \
     --disable-multilib \
     --disable-bootstrap \
     --disable-fixincludes \
