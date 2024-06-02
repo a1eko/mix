@@ -1,18 +1,18 @@
 # Description: miscellaneous utility programs
 
 name=util-linux
-version=2.40
+version=2.40.1
 release=0
 source=(https://www.kernel.org/pub/linux/utils/$name/v${version:0:4}/$name-$version.tar.xz)
 
 build() {
     cd $name-$version
 
-    # crux compatible (but without liblastlog2 as in lfs)
+    # crux compatible
     ./configure --prefix=/usr \
                 --disable-nls \
                 --disable-asciidoc \
-                --disable-{login,su,sulogin,nologin,runuser,raw} \
+                --disable-{login,su,sulogin,nologin,runuser,vipw,raw,newgrp,bfs,minix} \
                 --disable-chfn-chsh \
 		--disable-liblastlog2 \
                 --enable-{write,kill} \

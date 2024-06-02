@@ -4,7 +4,7 @@
 # Depends on: linux-pam
 
 name=libcap
-version=2.69
+version=2.70
 release=mix-1
 source=(https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/$name-$version.tar.xz)
 
@@ -13,8 +13,7 @@ build() {
 
 	sed "/^CFLAGS/s/-O2/$CFLAGS/" -i Make.Rules
 
-	install -d $PKG/lib
-	make lib=lib install \
+	make install lib=lib \
 		GOLANG=no \
 		RAISE_SETFCAP=no \
 		PKGCONFIGDIR=/usr/lib/pkgconfig \
@@ -26,5 +25,6 @@ build() {
 	ln -s ../../lib/libcap.so.$version $PKG/usr/lib/libcap.so
 
 	sed '/^libdir/s|/lib|/usr/lib|' -i $PKG/usr/lib/pkgconfig/*.pc
-	rm -rv $PKG/usr/share
+	rm -rv $PKG/usr/share/man
+	rmdir -v $PKG/usr/share
 }
