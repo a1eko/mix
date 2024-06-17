@@ -28,5 +28,5 @@ o ports (rust): remove rust before upgrading, cleanup rust dirs manually
 o dist (pkz.conf): gentoo distfiles mirror not available
 - tools (lz4): added by lfs as zstd dep
 + tools (xz): revert to v5.4.6 (see lfs)
-- ports (llvm): upgrade the bundle to v18.1.7
-- ports (libreoffice): move to v24.x
+- ports (libreoffice): upgrade to v24.x; libxml related build error
+- ports (python3-numpy): upgrade to v2; Cython version related error

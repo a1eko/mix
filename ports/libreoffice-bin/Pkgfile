@@ -1,54 +1,54 @@
-# Description: a powerful office suite, compiled upstream
+# Description: minimalist binary installation of the powerful office suite
 # URL: https://www.libreoffice.org/
-# Maintainer: Erich Eckner, crux at eckner dot net
-# Contributor: John McQuah, jmcquah at disroot dot org
+# Maintainer: John McQuah, jmcquah at disroot dot org
 # Depends on: gtk3 freetype avahi cups nss nspr
 # Optional: qt5 sane
 
 name=libreoffice-bin
-Name=LibreOffice
-version=7.5.5
-release=1
-source=(https://download.documentfoundation.org/${name%-bin}/stable/$version/rpm/x86_64/${Name}_${version}_Linux_x86-64_rpm.tar.gz)
+version=7.6.7
+release=mix-1
+source=(https://download.documentfoundation.org/${name%-bin}/stable/$version/rpm/x86_64/LibreOffice_${version}_Linux_x86-64_rpm.tar.gz)
 
 build() {
-  cd ${Name}*/RPMS
+  cd LibreOffice*/RPMS
 
   for RPM in *.rpm; do
-      [[ $RPM =~ "-firebird-" ]] && continue
-      [[ $RPM =~ "-report-builder-" ]] && continue
-      [[ $RPM =~ "-mediawiki-" ]] && continue
-      [[ $RPM =~ "-mediawiki-" ]] && continue
-      [[ $RPM =~ "-onlineupdate-" ]] && continue
-      [[ $RPM =~ "-kde-integration-" ]] && continue
-      [[ $RPM =~ "-postgresql-" ]] && continue
-      [[ $RPM =~ "-nlpsolver-" ]] && continue
-      [[ $RPM =~ "-ooofonts-" ]] && continue
-      [[ $RPM =~ "-ogltrans-" ]] && continue
-      [[ $RPM =~ "-javascript-" ]] && continue
-      [[ $RPM =~ "-beanshell-" ]] && continue
-      [[ $RPM =~ "-dict-" ]] && [[ ! $RPM =~ "-dict-${LANG:0:2}" ]] && continue
-      bsdtar -p -C $PKG -xf "$RPM"
+      case $RPM in
+          *-firebird-*)        ;;
+          *-report-builder-*)  ;;
+          *-mediawiki-*)       ;;
+          *-onlineupdate-*)    ;;
+          *-kde-integration-*) ;;
+          *-postgresql-*)      ;;
+          *-nlpsolver-*)       ;;
+          *-ooofonts-*)        ;;
+          *-ooolinguistic-*)   ;;
+          *-ogltrans-*)        ;;
+          *-javascript-*)      ;;
+          *-beanshell-*)       ;;
+          *-dict-*)
+              [[ $RPM =~ "-dict-${LANG:0:2}" ]] && bsdtar -p -C $PKG -xf "$RPM"
+              ;;
+          *)
+              bsdtar -p -C $PKG -xf "$RPM"
+              ;;
+      esac
   done
 
   mv "$PKG/opt" "$PKG/usr/lib"
   find "$PKG" -type d -perm 700 -exec chmod 755 {} +
 
+  rm -f "$PKG/usr/bin/libreoffice7.6"
+  ln -s ../lib/libreoffice7.6/program/soffice "$PKG/usr/bin/libreoffice7.6"
   rm -f "$PKG"/usr/share/applications/*.desktop
   cd "$PKG"/usr/share/applications
-  for APP in ../../lib/libreoffice7.5/share/xdg/*.desktop; do
-      ln -sf $APP libreoffice7.5-${APP##*/}
-  done
-
-  rm -f "$PKG"/usr/bin/*
-  cd "$PKG"/usr/bin
-  for APP in soffice; do
-      ln -sf ../lib/libreoffice*/program/$APP ${APP}
+  for APP in ../../lib/libreoffice7.6/share/xdg/*.desktop; do
+      ln -sf $APP libreoffice7.6-${APP##*/}
   done
 
   # clean up junk files
-  rm -rf "$PKG"/usr/lib/libreoffice7.5/readmes
+  rm -rf "$PKG"/usr/lib/libreoffice7.6/readmes
   find "$PKG" \( -name "README*" -o -name "LICENSE*" -o -name "NOTICE*" \
-              -o -name "COPYING*" \) -exec rm {} +
-  find "$PKG" -name "wininst*.exe" -exec rm {} +
+              -o -name "COPYING*" \) -delete
+  find "$PKG" -name "wininst*.exe" -delete
 }
