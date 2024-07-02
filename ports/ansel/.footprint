@@ -140,6 +140,13 @@ drwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/
 -rwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/libstyles.so
 -rwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/libtagging.so
 -rwxr-xr-x	root/root	usr/lib/ansel/plugins/lighttable/libview_toolbox.so
+drwxr-xr-x	root/root	usr/lib/ansel/tools/
+-rwxr-xr-x	root/root	usr/lib/ansel/tools/ansel-curve-tool
+-rwxr-xr-x	root/root	usr/lib/ansel/tools/ansel-curve-tool-helper
+-rwxr-xr-x	root/root	usr/lib/ansel/tools/ansel-gen-noiseprofile
+-rwxr-xr-x	root/root	usr/lib/ansel/tools/ansel-noiseprofile
+-rw-r--r--	root/root	usr/lib/ansel/tools/profiling-shot.xmp
+-rw-r--r--	root/root	usr/lib/ansel/tools/subr.sh
 drwxr-xr-x	root/root	usr/lib/ansel/views/
 -rwxr-xr-x	root/root	usr/lib/ansel/views/libdarkroom.so
 -rwxr-xr-x	root/root	usr/lib/ansel/views/liblighttable.so
@@ -196,6 +203,10 @@ drwxr-xr-x	root/root	usr/share/ansel/kernels/
 -rw-r--r--	root/root	usr/share/ansel/kernels/soften.cl
 drwxr-xr-x	root/root	usr/share/ansel/latex/
 -rw-r--r--	root/root	usr/share/ansel/latex/photobook.cls
+drwxr-xr-x	root/root	usr/share/ansel/lua/
+drwxr-xr-x	root/root	usr/share/ansel/lua/ansel/
+-rw-r--r--	root/root	usr/share/ansel/lua/ansel/debug.lua
+-rw-r--r--	root/root	usr/share/ansel/luarc
 -rw-r--r--	root/root	usr/share/ansel/noiseprofiles.json
 drwxr-xr-x	root/root	usr/share/ansel/pixmaps/
 -rw-r--r--	root/root	usr/share/ansel/pixmaps/dt_logo_128x128.png
@@ -234,6 +245,9 @@ drwxr-xr-x	root/root	usr/share/ansel/style/
 drwxr-xr-x	root/root	usr/share/ansel/themes/
 -rw-r--r--	root/root	usr/share/ansel/themes/ansel.css
 drwxr-xr-x	root/root	usr/share/ansel/tools/
+drwxr-xr-x	root/root	usr/share/ansel/tools/basecurve/
+-rw-r--r--	root/root	usr/share/ansel/tools/basecurve/plot.basecurve
+-rw-r--r--	root/root	usr/share/ansel/tools/basecurve/plot.tonecurve
 -rwxr-xr-x	root/root	usr/share/ansel/tools/common.sh
 -rwxr-xr-x	root/root	usr/share/ansel/tools/extract_wb_from_images.sh
 -rwxr-xr-x	root/root	usr/share/ansel/tools/purge_from_cache.sh
