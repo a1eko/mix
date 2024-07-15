@@ -28,3 +28,4 @@ o dist (pkz.conf): gentoo distfiles mirror not available
 - ports (libreoffice): upgrade to v24.x; libxml related build error
 - ports (python3-numpy): upgrade to v2; Cython version related error
 - tools (util-linux): upgrade to v2.40.2 (watch lfs)
+- tools (automake): upgrade to v1.17 (watch lfs)
