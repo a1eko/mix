@@ -1,7 +1,7 @@
 # Description: libraries for handling of character screens
 
 name=ncurses
-version=6.4
+version=6.5
 release=0
 source=(http://ftp.gnu.org/gnu/ncurses/ncurses-$version.tar.gz)
 
@@ -28,13 +28,15 @@ build() {
     --with-cxx-shared \
     --without-debug \
     --without-ada \
-    --disable-stripping \
-    --enable-widec
+    --disable-stripping
   make
   make DESTDIR=$PKG TIC_PATH=$(pwd)/build/progs/tic install
 
-  install -d $PKG/lib
-  echo "INPUT(-lncursesw)" > $PKG/usr/lib/libncurses.so
+  #install -d $PKG/lib
+  #echo "INPUT(-lncursesw)" > $PKG/usr/lib/libncurses.so
+  ln -sv libncursesw.so $MIX/usr/lib/libncurses.so
+  sed -e 's/^#if.*XOPEN.*$/#if 1/' \
+    -i $MIX/usr/include/curses.h
 
   rm -rv $PKG/usr/share/man
 }

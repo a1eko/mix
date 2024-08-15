@@ -47,6 +47,7 @@ exim
 dhcpcd
 iproute2
 iputils
+liburcu
 libuv
 wireless-tools
 wpa_supplicant
