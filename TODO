@@ -13,7 +13,7 @@ o ports: beware lfs linking of /{bin,lib*,sbin} to /usr is not compatible with c
 o ports: define unpack_source() in pkz, redefine in Pkgfile's if needed (crux compat)
 o ports: disable stripping if unneeded or fragile (file .nostrip)
 o ports: replace 'pkginfo -i' and 'prt-get isinst' with 'pkz -i list' (crux compat)
-o tools (file): crux build depends on autoconf, moved to BASE2 after auto-tools
+? tools (file): crux build depends on autoconf, moved to BASE2 after auto-tools <-- reverted to BASE1
 o tools, ports (*udev): beware lfs switching from eudev to udev from systemd
 o tools, ports (cmake, ninja, meson): added to tools/base system, reinstalling crux ports afterwards
 o tools, ports (gcc-fortran): crux port avoided, enable fortran in base gcc by default
@@ -27,4 +27,4 @@ o dist (pkz.conf): gentoo distfiles mirror not available
 - tools (lz4): added by lfs as zstd dep
 - ports (libreoffice): upgrade to v24.x; libxml related build error
 - ports (python3-numpy): upgrade to v2; Cython version related error
-- tools (glibc, gcc, binutils): upgrade to lfs level
++ tools (glibc, gcc, binutils): upgrade to lfs level

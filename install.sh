@@ -27,14 +27,14 @@ test "$MIX_TST" = no && export TST=:
 
 P=$MIX/usr/packages
 
-BASE1="iana-etc glibc lzip tzdata zlib bzip2 xz zstd readline m4 \
+BASE1="iana-etc glibc lzip tzdata zlib bzip2 xz lz4 zstd file readline m4 \
   bc flex tcl expect dejagnu pkgconf binutils libgmp libmpfr libmpc linux-firmware \
   attr acl libcap libxcrypt linux-pam shadow gcc"
 
 BASE2="ncurses sed psmisc gettext bison grep bash libtool gdbm \
-  gperf tar expat inetutils less perl autoconf automake file openssl kmod elfutils \
+  gperf expat inetutils less perl autoconf automake openssl kmod elfutils \
   libffi python3 python3-setuptools python3-wheel meson coreutils check diffutils gawk findutils groff \
-  gzip kbd libpipeline make patch man-pages man-db texinfo vim \
+  gzip kbd libpipeline make patch tar man-pages man-db texinfo vim \
   eudev procps util-linux e2fsprogs sysklogd sysvinit sudo rc"
 
 BIOS_BOOT="nasm syslinux"

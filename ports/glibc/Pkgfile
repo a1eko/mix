@@ -1,11 +1,10 @@
 # Description: system C library
 
 name=glibc
-version=2.39
-release=mix-4
+version=2.40
+release=mix-1
 source=(https://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz
 	https://www.linuxfromscratch.org/patches/lfs/development/glibc-$version-fhs-1.patch
-	https://www.linuxfromscratch.org/patches/lfs/development/glibc-$version-upstream_fix-2.patch
 	host.conf hosts ld.so.conf nsswitch.conf resolv.conf)
 
 build()
@@ -13,7 +12,6 @@ build()
   cd $name-$version
 
   patch -Np1 -i ../glibc-$version-fhs-1.patch
-  patch -Np1 -i ../glibc-$version-upstream_fix-2.patch
 
   mkdir -v build
   cd build
@@ -30,7 +28,8 @@ build()
     --enable-kernel=4.19 \
     --enable-stack-protector=strong \
     --disable-nscd \
-    libc_cv_slibdir=/lib
+    libc_cv_slibdir=/lib  # crux compat
+    #libc_cv_slibdir=/usr/lib  # lfs compat
   make
 
   $TST TIMEOUTFACTOR=16 make -k check || true

@@ -1,7 +1,7 @@
 # Description: compiler collection
 
 name=gcc
-version=14.1.0
+version=14.2.0
 release=mix-1
 source=(http://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz)
 
@@ -42,7 +42,7 @@ build()
 
   # crux compat
   mkdir -v $PKG/lib
-  ln -sv ../usr/bin/cpp $PKG/lib/
+  ln -sv ../usr/bin/cpp $PKG/lib/cpp
   ln -sv gcc $PKG/usr/bin/cc
   #ln -sv g++ $PKG/usr/bin/c++
 

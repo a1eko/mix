@@ -1,7 +1,7 @@
 # Description: linker, assembler and other development tools
 
 name=binutils
-version=2.42
+version=2.43.1
 release=0pass1
 source=(http://ftp.gnu.org/gnu/binutils/binutils-$version.tar.xz)
 
@@ -17,6 +17,7 @@ build() {
     --disable-nls \
     --enable-gprofng=no \
     --disable-werror \
+    --enable-new-dtags \
     --enable-default-hash-style=gnu
   make
   make DESTDIR=$PKG install
