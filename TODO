@@ -24,7 +24,7 @@ o tools, ports (python3): keep v3.10 (crux compat)
 - ports (dhcpcd, glibc): nscd: symbol lookup error: nscd: undefined symbol: __nss_disable_nscd, version GLIBC_PRIVATE
 o ports (rust): remove rust before upgrading, cleanup rust dirs manually
 o dist (pkz.conf): gentoo distfiles mirror not available
-- tools (lz4): added by lfs as zstd dep
++ tools (lz4): added by lfs as zstd dep
 - ports (libreoffice): upgrade to v24.x; libxml related build error
 - ports (python3-numpy): upgrade to v2; Cython version related error
 + tools (glibc, gcc, binutils): upgrade to lfs level
