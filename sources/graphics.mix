@@ -49,7 +49,7 @@ gtk3
 
 apr
 libcroco
-librsvg
+#librsvg
 neon
 
 adwaita-icon-theme

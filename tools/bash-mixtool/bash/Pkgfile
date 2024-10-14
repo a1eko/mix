@@ -1,9 +1,9 @@
 # Description: Bourne shell compatible command language interpreter
 
 name=bash
-version=5.2.32
+version=5.2.37
 release=0
-source=(http://ftpmirror.gnu.org/gnu/$name/$name-$version.tar.gz)
+source=(https://ftp.gnu.org/gnu/bash/bash-$version.tar.gz)
 
 build() {
   cd $name-$version
@@ -14,7 +14,7 @@ build() {
     --host=$MIX_TGT \
     --disable-nls \
     --without-bash-malloc \
-    --with-installed-readline
+    bash_cv_strtold_broken=no
   make
   make DESTDIR=$PKG install
 

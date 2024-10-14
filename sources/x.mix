@@ -71,9 +71,11 @@ xorg-xcb-util-renderutil
 xorg-xcb-util-wm
 xorg-xcb-util-cursor
 
+libyaml
 python
 python3-markupsafe
 python3-mako
+python3-pyyaml
 
 libglvnd
 llvm
