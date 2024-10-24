@@ -24,7 +24,8 @@ o tools, ports (python3): keep v3.10 (crux compat)
 - ports (dhcpcd, glibc): nscd: symbol lookup error: nscd: undefined symbol: __nss_disable_nscd, version GLIBC_PRIVATE
 o ports (rust): remove rust before upgrading, cleanup rust dirs manually
 o dist (pkz.conf): gentoo distfiles mirror not available
+o ports (inkscape): change ${name}-${version}* to ${name}-${version}_* 
 + tools (lz4): added by lfs as zstd dep
 - ports (libreoffice): upgrade to v24.x; libxml related build error
 - ports (python3-numpy): upgrade to v2; Cython version related error
-- ports (webkitgtk): build failure, ram/swap related?
+o ports (webkitgtk): needs at least 2GB of RAM per CPU vcore, limit threads usage (cmake --build -j 3)

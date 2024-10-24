@@ -1,6 +1,7 @@
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/zathura
+-rwxr-xr-x	root/root	usr/bin/zathura-sandbox
 drwxr-xr-x	root/root	usr/include/
 drwxr-xr-x	root/root	usr/include/zathura/
 -rw-r--r--	root/root	usr/include/zathura/document.h
