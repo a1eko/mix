@@ -29,3 +29,4 @@ o ports (inkscape): change ${name}-${version}* to ${name}-${version}_*
 - ports (libreoffice): upgrade to v24.x; libxml related build error
 - ports (python3-numpy): upgrade to v2; Cython version related error
 o ports (webkitgtk): needs at least 2GB of RAM per CPU vcore, limit threads usage (cmake --build -j 3)
++ tools (flit-core): added to lfs as meson/wheel dependency
