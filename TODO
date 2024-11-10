@@ -23,10 +23,10 @@ o tools, ports (python3): keep v3.10 (crux compat)
 - ports (eudev): remove group 'sgx' (lfs compat) or add to passwd/group (crux-3.8 compat)
 - ports (dhcpcd, glibc): nscd: symbol lookup error: nscd: undefined symbol: __nss_disable_nscd, version GLIBC_PRIVATE
 o ports (rust): remove rust before upgrading, cleanup rust dirs manually
-o dist (pkz.conf): gentoo distfiles mirror not available
+- tools, ports (pkz): gentoo distfiles mirror not available, drop mirror support
 o ports (inkscape): change ${name}-${version}* to ${name}-${version}_* 
 + tools (lz4): added by lfs as zstd dep
 - ports (libreoffice): upgrade to v24.x; libxml related build error
 - ports (python3-numpy): upgrade to v2; Cython version related error
-o ports (webkitgtk): needs at least 2GB of RAM per CPU vcore, limit threads usage (cmake --build -j 3)
+o ports (webkitgtk): needs at least 2GB of RAM per CPU vcore, limit threads usage (cmake --build -j 4)
 + tools (flit-core): added to lfs as meson/wheel dependency
