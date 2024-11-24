@@ -2,7 +2,7 @@
 # Depends on: autoconf-2.13 cbindgen dbus-glib gtk gtk3 libnotify llvm lld clang nasm nodejs nss alsa-lib python3 startup-notification unzip yasm zip
 
 name=firefox
-version=115.9.1
+version=128.4.0
 release=mix-1
 source=(https://archive.mozilla.org/pub/firefox/releases/${version}esr/source/firefox-${version}esr.source.tar.xz
 	mozconfig)
@@ -17,41 +17,19 @@ build() {
     sed -i '/ZWJ/s/}/,CLASS_CHARACTER&/' intl/lwbrk/LineBreaker.cpp
   done
 
-  # adapt shipped rust-bindgen copy for LLVM v18+
-  sed -e "/match cursor.kind()/a                                    \
-        CXCursor_LinkageSpec => return Err(ParseError::Recurse)," \
-    -i third_party/rust/bindgen/ir/item.rs
-
-  cat >> Cargo.toml << EOF &&
-[patch.crates-io.bindgen_0_64_0]
-package = "bindgen"
-version = "0.64.0"
-path = "third_party/rust/bindgen"
-EOF
-
-  sed -r '/name = "bindgen"/,+5 s/^source|^checksum/#&/' \
-     -i Cargo.lock
-
-  # adapt WebRTC code for Clang v18+
-  sed 's/uint32_t timestamp/uint64_t timestamp/' \
-    -i dom/media/gmp-plugin-openh264/gmp-fake-openh264.cpp \
-       dom/media/gtest/TestGMPRemoveAndDelete.cpp \
-       dom/media/webrtc/libwebrtcglue/WebrtcGmpVideoCodec.cpp
-
-  sed '/mInputImageMap/s/uint32_t/uint64_t/' \
-    -i dom/media/webrtc/libwebrtcglue/WebrtcGmpVideoCodec.h
+  sed -i 's/icu-i18n/icu-uc &/' js/moz.configure
 
   export CC=clang CXX=clang++ AR=llvm-ar NM=llvm-nm RANLIB=llvm-ranlib
-  export MOZBUILD_STATE_PATH=${PWD}/mozbuild
   export MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE=none
+  export MOZBUILD_STATE_PATH=${PWD}/mozbuild
   export MOZ_NOSPAM=1
 
   ./mach configure
   ./mach build
   DESTDIR=$PKG ./mach install
 
-  #install -d $PKG/usr/share/pixmaps
-  #ln -sv /usr/lib/firefox/browser/chrome/icons/default/default48.png $PKG/usr/share/pixmaps/firefox_default48.png
+  install -d $PKG/usr/share/pixmaps
+  ln -sv /usr/lib/firefox/browser/chrome/icons/default/default128.png $PKG/usr/share/pixmaps/firefox.png
 
   rm -rv $PKG/usr/lib/firefox/browser/features
   rm -v $PKG/usr/lib/firefox/removed-files

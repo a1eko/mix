@@ -2,18 +2,34 @@
 # Depends on: boost clucene curl expat glm gpgme graphite2 harfbuzz icu lcms2 libepoxy libjpeg-turbo libpng libtiff libwebp libxml2 nss openldap openssl poppler redland unixodbc xmlsec
 
 name=libreoffice
-version=7.6.2.1
+version=24.8.3.2
 release=mix-1
 source=(https://downloadarchive.documentfoundation.org/libreoffice/old/$version/src/$name-$version.tar.xz
-	https://download.documentfoundation.org/libreoffice/src/${version%.1}/libreoffice-dictionaries-$version.tar.xz
-	https://download.documentfoundation.org/libreoffice/src/${version%.1}/libreoffice-help-$version.tar.xz
-	https://download.documentfoundation.org/libreoffice/src/${version%.1}/libreoffice-translations-$version.tar.xz)
+	https://download.documentfoundation.org/libreoffice/src/${version%.2}/libreoffice-dictionaries-$version.tar.xz
+	https://download.documentfoundation.org/libreoffice/src/${version%.2}/libreoffice-help-$version.tar.xz
+	https://download.documentfoundation.org/libreoffice/src/${version%.2}/libreoffice-translations-$version.tar.xz
+	https://www.linuxfromscratch.org/patches/blfs/svn/libreoffice-$version-boost_fixes-1.patch
+	https://www.linuxfromscratch.org/patches/blfs/svn/libreoffice-$version-icu76_fixes-1.patch
+	https://www.linuxfromscratch.org/patches/blfs/svn/libreoffice-$version-poppler_24.10-1.patch
+)
 
 unpack_source() { :; }
 
 build() {
   tar -xf libreoffice-$version.tar.xz --no-overwrite-dir
   cd $name-$version
+
+  # patch source code
+  patch -Np1 -i ../libreoffice-$version-boost_fixes-1.patch
+  patch -Np1 -i ../libreoffice-$version-icu76_fixes-1.patch
+  patch -Np1 -i ../libreoffice-$version-poppler_24.10-1.patch
+
+  # fix misc bugs
+  sed -i '/icuuc \\/a zlib\\'           writerperfect/Library_wpftdraw.mk
+  sed -i "/distro-install-file-lists/d" Makefile.in
+  sed -e "/gzip -f/d"   \
+      -e "s|.1.gz|.1|g" \
+      -i bin/distro-install-desktop-integration
 
   install -dm755 external/tarballs
   ln -sv ../../../libreoffice-dictionaries-$version.tar.xz external/tarballs/
@@ -22,18 +38,6 @@ build() {
   ln -sv src/libreoffice-help-$version/helpcontent2/
   ln -sv src/libreoffice-dictionaries-$version/dictionaries/
   ln -sv src/libreoffice-translations-$version/translations/
-
-  # GPGME breaks configure due to a library change
-  export ac_cv_lib_gpgmepp_progress_callback=yes
-
-  # fix building without java
-  sed -i '940i #if HAVE_FEATURE_JAVA' cui/source/options/optjava.cxx &&
-  sed -i '966i #endif'                cui/source/options/optjava.cxx
-
-  sed -e "/gzip -f/d" \
-      -e "s|.1.gz|.1|g" \
-      -i bin/distro-install-desktop-integration
-  sed -e "/distro-install-file-lists/d" -i Makefile.in
 
   NOCONFIGURE=1 ./autogen.sh
   ./configure --prefix=/usr \

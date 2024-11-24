@@ -27,6 +27,7 @@ drwxr-xr-x	root/root	usr/lib/firefox/gmp-clearkey/
 drwxr-xr-x	root/root	usr/lib/firefox/gmp-clearkey/0.1/
 -rwxr-xr-x	root/root	usr/lib/firefox/gmp-clearkey/0.1/libclearkey.so
 -rw-r--r--	root/root	usr/lib/firefox/gmp-clearkey/0.1/manifest.json
+-rwxr-xr-x	root/root	usr/lib/firefox/libgkcodecs.so
 -rwxr-xr-x	root/root	usr/lib/firefox/libipcclientcerts.so
 -rwxr-xr-x	root/root	usr/lib/firefox/liblgpllibs.so
 -rwxr-xr-x	root/root	usr/lib/firefox/libmozavcodec.so
@@ -38,4 +39,7 @@ drwxr-xr-x	root/root	usr/lib/firefox/gmp-clearkey/0.1/
 -rw-r--r--	root/root	usr/lib/firefox/omni.ja
 -rwxr-xr-x	root/root	usr/lib/firefox/pingsender
 -rw-r--r--	root/root	usr/lib/firefox/platform.ini
--rwxr-xr-x	root/root	usr/lib/firefox/plugin-container
+-rwxr-xr-x	root/root	usr/lib/firefox/vaapitest
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/pixmaps/
+lrwxrwxrwx	root/root	usr/share/pixmaps/firefox.png -> /usr/lib/firefox/browser/chrome/icons/default/default128.png
