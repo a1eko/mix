@@ -1,0 +1,15 @@
+# Description: Fundamental package for array computing in Python
+# URL: https://pypi.org/project/numpy/
+# Maintainer: Daryl Fonseca-Holt, wyatt at prairieturtle dot ca
+# Depends on: python3-setuptools python3-pip python3-meson-python python3-cython
+
+name=python3-numpy
+version=2.1.3
+release=1
+source=(https://files.pythonhosted.org/packages/25/ca/1166b75c21abd1da445b97bf1fa2f14f423c6cfb4fc7c4ef31dccf9f6a94/numpy-2.1.3.tar.gz)
+
+build () {
+	cd numpy-2.1.3
+	/usr/bin/pip3 install --isolate --root=${PKG} \
+		--no-warn-script-location --ignore-installed --no-deps ${name#*3-}
+}
