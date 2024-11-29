@@ -26,5 +26,6 @@ o ports (rust): remove rust before upgrading, cleanup rust dirs manually
 - tools, ports (pkz): gentoo distfiles mirror not available, drop mirror support
 o ports (inkscape): change ${name}-${version}* to ${name}-${version}_* 
 + tools (lz4): added by lfs as zstd dep
-o ports (webkitgtk): needs at least 2GB of RAM per CPU vcore, limit threads usage (cmake --build -j 4)
+o ports (webkitgtk): needs at least 2GB of RAM per CPU vcore, limit threads usage if necessary (cmake --build -j 4)
 + tools (flit-core): added to lfs as meson/wheel dependency
+- ports (rust): watch lfs for v1.83, check build
