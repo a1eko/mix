@@ -3,17 +3,19 @@
 # Optional: alsa-lib amf-headers chromaprint cuda dav1d fontconfig gnutls gsm jack jack-audio-connection-kit ladspa lcms2 lensfun libbs2b libcaca libcdio-paranoia libdrm libmodplug libplacebo librsvg libsdl2 libsoxr libssh libtheora libva libvdpau libwebp libxml2 lv2 nv-codec-headers openal opencv openh264 openjpeg2 pulseaudio rav1e rtmpdump rubberband shaderc snappy speex svt-av1 v4l-utils 
 
 name=ffmpeg
-version=6.1.1
+version=7.1
 release=mix-1
 source=(https://ffmpeg.org/releases/$name-$version.tar.xz
-	https://www.linuxfromscratch.org/patches/blfs/svn/ffmpeg-$version-chromium_method-1.patch
-	https://www.linuxfromscratch.org/patches/blfs/svn/ffmpeg-$version-vulkan_fixes-1.patch)
+	https://www.linuxfromscratch.org/patches/blfs/svn/ffmpeg-$version-chromium_method-1.patch)
 
 build() {
   cd $name-$version
 
   patch -Np1 -i $SRC/ffmpeg-$version-chromium_method-1.patch
-  patch -Np1 -i $SRC/ffmpeg-$version-vulkan_fixes-1.patch
+
+  # fix an issue with x265 v4.1
+  sed -e 's/X265_BUILD >= 210/(&) \&\& (X265_BUILD < 213)/' \
+    -i libavcodec/libx265.c
 
   export CFLAGS="$CFLAGS -ffat-lto-objects"
   export CXXFLAGS="$CXXFLAGS -ffat-lto-objects"

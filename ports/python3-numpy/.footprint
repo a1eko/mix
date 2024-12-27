@@ -7,6 +7,7 @@ drwxr-xr-x	root/root	usr/lib/python3.10/
 drwxr-xr-x	root/root	usr/lib/python3.10/site-packages/
 drwxr-xr-x	root/root	usr/lib/python3.10/site-packages/numpy/
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/__config__.py
+-rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/__config__.pyi
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/__init__.pxd
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/__init__.py
@@ -361,9 +362,11 @@ drwxr-xr-x	root/root	usr/lib/python3.10/site-packages/numpy/_typing/__pycache__/
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/_typing/__pycache__/_dtype_like.cpython-310.pyc
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/_typing/__pycache__/_extended_precision.cpython-310.pyc
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/_typing/__pycache__/_nbit.cpython-310.pyc
+-rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/_typing/__pycache__/_nbit_base.cpython-310.pyc
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/_typing/__pycache__/_nested_sequence.cpython-310.pyc
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/_typing/__pycache__/_scalars.cpython-310.pyc
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/_typing/__pycache__/_shape.cpython-310.pyc
+-rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/_typing/__pycache__/_ufunc.cpython-310.pyc
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/_typing/_add_docstring.py
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/_typing/_array_like.py
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/_typing/_callable.pyi
@@ -371,9 +374,11 @@ drwxr-xr-x	root/root	usr/lib/python3.10/site-packages/numpy/_typing/__pycache__/
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/_typing/_dtype_like.py
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/_typing/_extended_precision.py
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/_typing/_nbit.py
+-rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/_typing/_nbit_base.py
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/_typing/_nested_sequence.py
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/_typing/_scalars.py
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/_typing/_shape.py
+-rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/_typing/_ufunc.py
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/_typing/_ufunc.pyi
 drwxr-xr-x	root/root	usr/lib/python3.10/site-packages/numpy/_utils/
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/_utils/__init__.py
@@ -711,12 +716,12 @@ drwxr-xr-x	root/root	usr/lib/python3.10/site-packages/numpy/f2py/_backends/__pyc
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/cb_rules.py
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/cfuncs.py
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/common_rules.py
--rwxr-xr-x	root/root	usr/lib/python3.10/site-packages/numpy/f2py/crackfortran.py
+-rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/crackfortran.py
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/diagnose.py
--rwxr-xr-x	root/root	usr/lib/python3.10/site-packages/numpy/f2py/f2py2e.py
+-rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/f2py2e.py
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/f90mod_rules.py
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/func2subr.py
--rwxr-xr-x	root/root	usr/lib/python3.10/site-packages/numpy/f2py/rules.py
+-rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/rules.py
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/setup.cfg
 drwxr-xr-x	root/root	usr/lib/python3.10/site-packages/numpy/f2py/src/
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/src/fortranobject.c
@@ -751,6 +756,7 @@ drwxr-xr-x	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/__pycache
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/__pycache__/test_return_integer.cpython-310.pyc
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/__pycache__/test_return_logical.cpython-310.pyc
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/__pycache__/test_return_real.cpython-310.pyc
+-rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/__pycache__/test_routines.cpython-310.pyc
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/__pycache__/test_semicolon_split.cpython-310.pyc
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/__pycache__/test_size.cpython-310.pyc
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/__pycache__/test_string.cpython-310.pyc
@@ -777,6 +783,7 @@ drwxr-xr-x	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/callb
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/callback/gh18335.f90
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/callback/gh25211.f
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/callback/gh25211.pyf
+-rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/callback/gh26681.f90
 drwxr-xr-x	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/cli/
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/cli/gh_22819.pyf
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/cli/hi77.f
@@ -798,6 +805,7 @@ drwxr-xr-x	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/crack
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/crackfortran/gh23598.f90
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/crackfortran/gh23598Warn.f90
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/crackfortran/gh23879.f90
+-rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/crackfortran/gh27697.f90
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/crackfortran/gh2848.f90
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/crackfortran/operators.f90
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/crackfortran/privatemod.f90
@@ -837,6 +845,8 @@ drwxr-xr-x	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/quote
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/quoted_character/foo.f
 drwxr-xr-x	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/regression/
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/regression/AB.inc
+-rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/regression/assignOnlyModule.f90
+-rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/regression/datonly.f90
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/regression/f77comments.f
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/regression/f77fixedform.f95
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/regression/f90continuation.f90
@@ -857,6 +867,11 @@ drwxr-xr-x	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/retur
 drwxr-xr-x	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/return_real/
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/return_real/foo77.f
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/return_real/foo90.f90
+drwxr-xr-x	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/routines/
+-rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/routines/funcfortranname.f
+-rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/routines/funcfortranname.pyf
+-rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/routines/subrout.f
+-rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/routines/subrout.pyf
 drwxr-xr-x	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/size/
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/size/foo.f90
 drwxr-xr-x	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/string/
@@ -896,6 +911,7 @@ drwxr-xr-x	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/src/value
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/test_return_integer.py
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/test_return_logical.py
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/test_return_real.py
+-rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/test_routines.py
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/test_semicolon_split.py
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/test_size.py
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/f2py/tests/test_string.py
@@ -1399,7 +1415,6 @@ drwxr-xr-x	root/root	usr/lib/python3.10/site-packages/numpy/typing/tests/data/fa
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/typing/tests/data/fail/datasource.pyi
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/typing/tests/data/fail/dtype.pyi
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/typing/tests/data/fail/einsumfunc.pyi
--rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/typing/tests/data/fail/false_positives.pyi
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/typing/tests/data/fail/flatiter.pyi
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/typing/tests/data/fail/fromnumeric.pyi
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/typing/tests/data/fail/histograms.pyi
@@ -1459,6 +1474,7 @@ drwxr-xr-x	root/root	usr/lib/python3.10/site-packages/numpy/typing/tests/data/pa
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/typing/tests/data/pass/__pycache__/ndarray_conversion.cpython-310.pyc
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/typing/tests/data/pass/__pycache__/ndarray_misc.cpython-310.pyc
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/typing/tests/data/pass/__pycache__/ndarray_shape_manipulation.cpython-310.pyc
+-rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/typing/tests/data/pass/__pycache__/nditer.cpython-310.pyc
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/typing/tests/data/pass/__pycache__/numeric.cpython-310.pyc
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/typing/tests/data/pass/__pycache__/numerictypes.cpython-310.pyc
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/typing/tests/data/pass/__pycache__/random.cpython-310.pyc
@@ -1492,6 +1508,7 @@ drwxr-xr-x	root/root	usr/lib/python3.10/site-packages/numpy/typing/tests/data/pa
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/typing/tests/data/pass/ndarray_conversion.py
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/typing/tests/data/pass/ndarray_misc.py
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/typing/tests/data/pass/ndarray_shape_manipulation.py
+-rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/typing/tests/data/pass/nditer.py
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/typing/tests/data/pass/numeric.py
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/typing/tests/data/pass/numerictypes.py
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/typing/tests/data/pass/random.py
@@ -1539,6 +1556,7 @@ drwxr-xr-x	root/root	usr/lib/python3.10/site-packages/numpy/typing/tests/data/re
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/typing/tests/data/reveal/modules.pyi
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/typing/tests/data/reveal/multiarray.pyi
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/typing/tests/data/reveal/nbit_base_example.pyi
+-rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/typing/tests/data/reveal/ndarray_assignability.pyi
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/typing/tests/data/reveal/ndarray_conversion.pyi
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/typing/tests/data/reveal/ndarray_misc.pyi
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/typing/tests/data/reveal/ndarray_shape_manipulation.pyi
@@ -1569,15 +1587,15 @@ drwxr-xr-x	root/root	usr/lib/python3.10/site-packages/numpy/typing/tests/data/re
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/typing/tests/test_typing.py
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/version.py
 -rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy/version.pyi
-drwxr-xr-x	root/root	usr/lib/python3.10/site-packages/numpy-2.1.3.dist-info/
--rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy-2.1.3.dist-info/INSTALLER
--rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy-2.1.3.dist-info/LICENSE.txt
--rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy-2.1.3.dist-info/METADATA
--rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy-2.1.3.dist-info/RECORD
--rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy-2.1.3.dist-info/REQUESTED
--rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy-2.1.3.dist-info/WHEEL
--rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy-2.1.3.dist-info/entry_points.txt
+drwxr-xr-x	root/root	usr/lib/python3.10/site-packages/numpy-2.2.1.dist-info/
+-rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy-2.2.1.dist-info/INSTALLER
+-rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy-2.2.1.dist-info/LICENSE.txt
+-rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy-2.2.1.dist-info/METADATA
+-rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy-2.2.1.dist-info/RECORD
+-rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy-2.2.1.dist-info/REQUESTED
+-rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy-2.2.1.dist-info/WHEEL
+-rw-r--r--	root/root	usr/lib/python3.10/site-packages/numpy-2.2.1.dist-info/entry_points.txt
 drwxr-xr-x	root/root	usr/lib/python3.10/site-packages/numpy.libs/
 -rwxr-xr-x	root/root	usr/lib/python3.10/site-packages/numpy.libs/libgfortran-040039e1-0352e75f.so.5.0.0
 -rwxr-xr-x	root/root	usr/lib/python3.10/site-packages/numpy.libs/libquadmath-96973f99-934c22de.so.0.0.0
--rwxr-xr-x	root/root	usr/lib/python3.10/site-packages/numpy.libs/libscipy_openblas64_-ff651d7f.so
+-rwxr-xr-x	root/root	usr/lib/python3.10/site-packages/numpy.libs/libscipy_openblas64_-6bb31eeb.so

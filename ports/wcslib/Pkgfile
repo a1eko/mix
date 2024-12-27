@@ -2,7 +2,7 @@
 # Depends on: cfitsio gcc-fortran
 
 name=wcslib
-version=8.1
+version=8.4
 release=mix-1
 source=(ftp://ftp.atnf.csiro.au/pub/software/$name/$name-$version.tar.bz2)
 

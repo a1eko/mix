@@ -2,12 +2,12 @@
 # Depends on: boost cmake freetype git glew hdf5 libheif libpng libraw libtiff libwebp ninja openexr openjpeg2 python3-pybind11
 
 name=openimageio
-version=2.4.12.0
+version=2.5.17.0
 release=mix-1
 source=(https://github.com/$name/oiio/archive/refs/tags/v$version.tar.gz)
 
 build() {
-  cmake -S oiio-$version -B build -G Ninja \
+  cmake -S OpenImageIO-$version -B build -G Ninja \
     -DUSE_PYTHON=ON \
     -DPYTHON_VERSION=3.10 \
     -DCMAKE_INSTALL_PREFIX=/usr \

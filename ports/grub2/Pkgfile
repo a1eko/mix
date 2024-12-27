@@ -4,18 +4,20 @@
 # Depends on: libdevmapper freetype python3
 
 name=grub2
-version=2.06
-release=mix-4
+version=2.12
+release=mix-1
 source=(http://ftp.gnu.org/gnu/grub/grub-$version.tar.xz \
 	http://jaeger.morpheus.net/linux/crux/files/unifont-9.0.06.pcf.gz \
-	$name-tweaks.diff grub.cfg.sample csum_seed.diff)
+	$name-tweaks.diff grub.cfg.sample csum_seed.diff extra_deps.lst)
 
 build() {
 	export CFLAGS="${CFLAGS} -Wno-error -Os"
 	export PYTHON=python3
 	cd grub-$version
 	patch -p1 -i $SRC/$name-tweaks.diff
-	patch -p1 -i $SRC/csum_seed.diff
+	#patch -p1 -i $SRC/csum_seed.diff
+
+	cp $SRC/extra_deps.lst grub-core/
 
 	./configure --prefix=/usr \
 		--sysconfdir=/etc \

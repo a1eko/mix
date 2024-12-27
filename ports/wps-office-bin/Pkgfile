@@ -1,9 +1,9 @@
 # Description: full featured office suite compatible with Microsoft Office (binary)
 
 name=wps-office-bin
-version=11.1.0.11698
+version=11.1.0.11723
 release=mix-1
-source=(https://wdl1.pcfg.cache.wpscdn.com/wpsdl/wpsoffice/download/linux/11698/wps-office_${version}.XA_amd64.deb)
+source=(https://wdl1.pcfg.cache.wpscdn.com/wpsdl/wpsoffice/download/linux/11723/wps-office_${version}.XA_amd64.deb)
 
 build() {
   ar x wps-office_${version}.XA_amd64.deb

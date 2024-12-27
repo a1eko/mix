@@ -106,8 +106,14 @@ drwxr-xr-x	root/root	usr/include/nest/Random123/tests/
 -rw-r--r--	root/root	usr/include/nest/dictutils.h
 -rw-r--r--	root/root	usr/include/nest/diffusion_connection.h
 -rw-r--r--	root/root	usr/include/nest/doubledatum.h
--rw-r--r--	root/root	usr/include/nest/dynamicloader.h
 -rw-r--r--	root/root	usr/include/nest/enum_bitfield.h
+-rw-r--r--	root/root	usr/include/nest/eprop_archiving_node.h
+-rw-r--r--	root/root	usr/include/nest/eprop_archiving_node_impl.h
+-rw-r--r--	root/root	usr/include/nest/eprop_iaf_adapt_bsshslm_2020.h
+-rw-r--r--	root/root	usr/include/nest/eprop_iaf_bsshslm_2020.h
+-rw-r--r--	root/root	usr/include/nest/eprop_learning_signal_connection_bsshslm_2020.h
+-rw-r--r--	root/root	usr/include/nest/eprop_readout_bsshslm_2020.h
+-rw-r--r--	root/root	usr/include/nest/eprop_synapse_bsshslm_2020.h
 -rw-r--r--	root/root	usr/include/nest/erfc_neuron.h
 -rw-r--r--	root/root	usr/include/nest/event.h
 -rw-r--r--	root/root	usr/include/nest/event_delivery_manager.h
@@ -165,6 +171,8 @@ drwxr-xr-x	root/root	usr/include/nest/Random123/tests/
 -rw-r--r--	root/root	usr/include/nest/iaf_psc_exp_multisynapse.h
 -rw-r--r--	root/root	usr/include/nest/iaf_psc_exp_ps.h
 -rw-r--r--	root/root	usr/include/nest/iaf_psc_exp_ps_lossless.h
+-rw-r--r--	root/root	usr/include/nest/iaf_tum_2000.h
+-rw-r--r--	root/root	usr/include/nest/ignore_and_fire.h
 -rw-r--r--	root/root	usr/include/nest/inhomogeneous_poisson_generator.h
 -rw-r--r--	root/root	usr/include/nest/integerdatum.h
 -rw-r--r--	root/root	usr/include/nest/interpret.h
@@ -194,7 +202,8 @@ drwxr-xr-x	root/root	usr/include/nest/Random123/tests/
 -rw-r--r--	root/root	usr/include/nest/model_manager_impl.h
 -rw-r--r--	root/root	usr/include/nest/modelrange.h
 -rw-r--r--	root/root	usr/include/nest/modelrange_manager.h
--rw-r--r--	root/root	usr/include/nest/modelsmodule.h
+-rw-r--r--	root/root	usr/include/nest/models.h
+-rw-r--r--	root/root	usr/include/nest/module_manager.h
 -rw-r--r--	root/root	usr/include/nest/mpi_manager.h
 -rw-r--r--	root/root	usr/include/nest/mpi_manager_impl.h
 -rw-r--r--	root/root	usr/include/nest/multimeter.h
@@ -212,6 +221,7 @@ drwxr-xr-x	root/root	usr/include/nest/Random123/tests/
 -rw-r--r--	root/root	usr/include/nest/namedatum.h
 -rw-r--r--	root/root	usr/include/nest/nest.h
 -rw-r--r--	root/root	usr/include/nest/nest_datums.h
+-rw-r--r--	root/root	usr/include/nest/nest_extension_interface.h
 -rw-r--r--	root/root	usr/include/nest/nest_impl.h
 -rw-r--r--	root/root	usr/include/nest/nest_names.h
 -rw-r--r--	root/root	usr/include/nest/nest_time.h
@@ -269,6 +279,7 @@ drwxr-xr-x	root/root	usr/include/nest/Random123/tests/
 -rw-r--r--	root/root	usr/include/nest/ring_buffer_impl.h
 -rw-r--r--	root/root	usr/include/nest/scanner.h
 -rw-r--r--	root/root	usr/include/nest/secondary_event.h
+-rw-r--r--	root/root	usr/include/nest/secondary_event_impl.h
 -rw-r--r--	root/root	usr/include/nest/send_buffer_position.h
 -rw-r--r--	root/root	usr/include/nest/sharedptrdatum.h
 -rw-r--r--	root/root	usr/include/nest/sic_connection.h
@@ -369,18 +380,19 @@ drwxr-xr-x	root/root	usr/include/nest/Random123/tests/
 -rw-r--r--	root/root	usr/include/nest/volume_transmitter.h
 -rw-r--r--	root/root	usr/include/nest/vp_manager.h
 -rw-r--r--	root/root	usr/include/nest/vp_manager_impl.h
+-rw-r--r--	root/root	usr/include/nest/weight_optimizer.h
 -rw-r--r--	root/root	usr/include/nest/weight_recorder.h
 drwxr-xr-x	root/root	usr/lib64/
 drwxr-xr-x	root/root	usr/lib64/nest/
 lrwxrwxrwx	root/root	usr/lib64/nest/libnest.so -> libnest.so.3
-lrwxrwxrwx	root/root	usr/lib64/nest/libnest.so.3 -> libnest.so.3.6.0
--rwxr-xr-x	root/root	usr/lib64/nest/libnest.so.3.6.0
+lrwxrwxrwx	root/root	usr/lib64/nest/libnest.so.3 -> libnest.so.3.7.0
+-rwxr-xr-x	root/root	usr/lib64/nest/libnest.so.3.7.0
 lrwxrwxrwx	root/root	usr/lib64/nest/libsli.so -> libsli.so.3
-lrwxrwxrwx	root/root	usr/lib64/nest/libsli.so.3 -> libsli.so.3.6.0
--rwxr-xr-x	root/root	usr/lib64/nest/libsli.so.3.6.0
+lrwxrwxrwx	root/root	usr/lib64/nest/libsli.so.3 -> libsli.so.3.7.0
+-rwxr-xr-x	root/root	usr/lib64/nest/libsli.so.3.7.0
 lrwxrwxrwx	root/root	usr/lib64/nest/libsli_readline.so -> libsli_readline.so.3
-lrwxrwxrwx	root/root	usr/lib64/nest/libsli_readline.so.3 -> libsli_readline.so.3.6.0
--rwxr-xr-x	root/root	usr/lib64/nest/libsli_readline.so.3.6.0
+lrwxrwxrwx	root/root	usr/lib64/nest/libsli_readline.so.3 -> libsli_readline.so.3.7.0
+-rwxr-xr-x	root/root	usr/lib64/nest/libsli_readline.so.3.7.0
 drwxr-xr-x	root/root	usr/lib64/python3.10/
 drwxr-xr-x	root/root	usr/lib64/python3.10/site-packages/
 drwxr-xr-x	root/root	usr/lib64/python3.10/site-packages/nest/

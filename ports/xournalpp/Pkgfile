@@ -1,27 +1,32 @@
 # Description: notetaking and PDF annotation software
 # URL: https://github.com/xournalpp/xournalpp
 # Maintainer: John McQuah, jmcquah at disroot dot org
-# Depends on: adwaita-icon-theme cppunit libsndfile libzip lua53 poppler-glib portaudio
-# Nice to have: libungif texlive
+# Depends on: libsndfile libzip lua poppler portaudio-cpp adwaita-icon-theme
+# Optional: gpgme texlive
 
 name=xournalpp
-version=1.2.0
+version=1.2.3
 release=1
-source=(https://github.com/$name/$name/archive/refs/tags/v${version}.tar.gz)
-renames=($name-$version.tar.gz)
+source=(https://github.com/$name/$name/archive/v$version/$name-$version.tar.gz
+        # and a patch from Alpine Linux to accommodate MUSL builds
+        no-execinfo.patch)
 
 build() {
-    cd $name-$version
-    mkdir build && cd build
-    if [ -z "$XDG_CONFIG_HOME" ]; then
-            configdir=".config"
-    else
-            configdir="$(realpath --relative-to="$HOME" "$XDG_CONFIG_HOME")"
-    fi
-    cmake -DCMAKE_INSTALL_PREFIX="/usr/" -DDEV_CONFIG_DIR="$configdir/xournalpp" \
-      -DENABLE_CPPUNIT=ON -DCMAKE_BUILD_TYPE=Release ..
-    cmake --build .
-    make DESTDIR=$PKG install
+    # fail the build if dependencies are not met
+    [ -e /usr/include/poppler/glib/poppler.h ] || \
+    { echo "Rebuild poppler with glib present; otherwise xournalpp will not work."; exit 1; }
+
+    pkg -i list glibc || patch -Np1 -d $name-$version < no-execinfo.patch
+
+    cmake -S $name-$version -B build -G Ninja \
+          -DCMAKE_INSTALL_PREFIX="/usr" \
+          -DCMAKE_C_FLAGS="$CFLAGS" \
+          -DCMAKE_CXX_FLAGS="$CXXFLAGS" \
+          -DCMAKE_BUILD_TYPE=Release
+
+    ninja -C build -j ${JOBS-1}
+    DESTDIR=$PKG ninja -C build install
+
     rm -rf $PKG/usr/share/locale
-    find $PKG -name README.md -exec rm -fv '{}' \+
+    find $PKG -name README.md -delete
 }

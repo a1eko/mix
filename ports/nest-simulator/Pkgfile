@@ -3,7 +3,7 @@
 # Optional: mpich boost python3-mpi4py clang
 
 name=nest-simulator
-version=3.6
+version=3.7
 release=mix-1
 source=(http://github.com/nest/nest-simulator/archive/refs/tags/v$version.tar.gz)
 

@@ -2,7 +2,7 @@
 # Depends on: boost cmake eigen python3-setuptools
 
 name=python3-pybind11
-version=2.10.0
+version=2.13.6
 release=mix-1
 source=(https://github.com/pybind/pybind11/archive/v$version/pybind11-$version.tar.gz)
 

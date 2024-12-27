@@ -1,16 +1,16 @@
 # Description: zathura interface library
-# Depends on: gtk intltool
+# Depends on: gtk3 glib pango check intltool json-glib meson ninja
 
 name=girara
-version=0.1.9
+version=0.4.4
 release=mix-1
 
-source=(http://pwmt.org/projects/girara/download/girara-$version.tar.gz)
+source=(https://pwmt.org/projects/$name/download/$name-$version.tar.xz)
  
 build() {
   cd $name-$version
-  sed '/^GIRARA_GTK/s/3$/2/' -i config.mk
-  make
-  make DESTDIR=$PKG install
-  rm -rv $PKG/usr/share
+  meson build --prefix=/usr
+  DESTDIR=$PKG ninja -C build install
+  rm -rv $PKG/usr/share/locale
+  rmdir $PKG/usr/share
 }
