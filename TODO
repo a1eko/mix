@@ -28,7 +28,4 @@ o ports (inkscape): change ${name}-${version}* to ${name}-${version}_*
 + tools (lz4): added by lfs as zstd dep
 o ports (webkitgtk): needs at least 2GB of RAM per CPU vcore, limit threads usage if necessary (cmake --build -j 4)
 + tools (flit-core): added to lfs as meson/wheel dependency
-- ports (rust): watch lfs for v1.83, check build
-- ports (blender): consider v4.3
 o tools, ports (texinfo): v7.2 is broken (Texinfo::Convert::HTML), revert to v7.1.1
-- ports (paps): upgrade to v0.8.0

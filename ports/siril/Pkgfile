@@ -3,14 +3,12 @@
 # Optional: libraw libtiff libjpeg-turbo libpng ffmpeg curl gnuplot
 
 name=siril
-version=git
+version=1.2.5
 release=mix-1
+source=(https://free-astro.org/download/$name-$version.tar.bz2)
 
 build() {
-  git clone https://gitlab.com/free-astro/siril.git
-  cd siril
-  git submodule update --init
-
+  cd $name-$version
   ./autogen.sh --prefix=/usr --disable-nls
   make
   make DESTDIR=$PKG install

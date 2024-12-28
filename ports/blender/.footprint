@@ -9,11 +9,6 @@ drwxr-xr-x	root/root	usr/share/applications/
 drwxr-xr-x	root/root	usr/share/blender/
 drwxr-xr-x	root/root	usr/share/blender/3.6/
 drwxr-xr-x	root/root	usr/share/blender/3.6/datafiles/
-drwxr-xr-x	root/root	usr/share/blender/3.6/datafiles/assets/
--rw-r--r--	root/root	usr/share/blender/3.6/datafiles/assets/LICENSE
--rw-r--r--	root/root	usr/share/blender/3.6/datafiles/assets/blender_assets.cats.txt
-drwxr-xr-x	root/root	usr/share/blender/3.6/datafiles/assets/geometry_nodes/
--rw-r--r--	root/root	usr/share/blender/3.6/datafiles/assets/geometry_nodes/procedural_hair_node_assets.blend
 drwxr-xr-x	root/root	usr/share/blender/3.6/datafiles/fonts/
 -rw-r--r--	root/root	usr/share/blender/3.6/datafiles/fonts/DejaVuSans.woff2
 -rw-r--r--	root/root	usr/share/blender/3.6/datafiles/fonts/DejaVuSansMono.woff2

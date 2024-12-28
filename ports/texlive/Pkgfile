@@ -4,35 +4,83 @@
 # Depends on: clisp ghostscript graphite2 harfbuzz icu libgd libmpfr paper potrace xorg-libxaw xorg-libxi zziplib
 
 name=texlive
-version=20230313
-release=mix-2
+version=20240312
+release=mix-1
 source=(ftp://tug.org/historic/systems/texlive/${version:0:4}/$name-$version-texmf.tar.xz
   ftp://tug.org/historic/systems/texlive/${version:0:4}/$name-$version-source.tar.xz
   https://download.savannah.gnu.org/releases/texi2html/texi2html-5.0.tar.bz2
   tabu.sty.diff)
 
-# unpack_source() {
-#   for file in ${source[@]}; do
-#     case ${file##*/} in
-#       $name-$version-source.tar.xz)
-#         bsdtar -p -o -C $SRC -xf $(get_filename $file) ;;
-#       $name-$version-texmf.tar.xz)
-#         mkdir -p $PKG/usr/share
-#         bsdtar -p -o -C $PKG/usr/share -xf $(get_filename $file) --strip-components 1 ;;
-#       texi2html-5.0.tar.bz2)
-#         bsdtar -p -o -C $SRC -xf $(get_filename $file) ;;
-#       *)
-#         cp $(get_filename $file) $SRC ;;
-#     esac
-#   done
-# }
+# mix
+#unpack_source() {
+#  for file in ${source[@]}; do
+#    case ${file##*/} in
+#      $name-$version-source.tar.xz)
+#        bsdtar -p -o -C $SRC -xf $(get_filename $file) ;;
+#      $name-$version-texmf.tar.xz)
+#        mkdir -p $PKG/usr/share
+#        bsdtar -p -o -C $PKG/usr/share -xf $(get_filename $file) --strip-components 1 ;;
+#      texi2html-5.0.tar.bz2)
+#        bsdtar -p -o -C $SRC -xf $(get_filename $file) ;;
+#      *)
+#        cp $(get_filename $file) $SRC ;;
+#    esac
+#  done
+#}
 
 build() {
+  # mix
   mkdir -pv $PKG/usr/share
   mv $name-$version-texmf/texmf-dist $PKG/usr/share/
 
-  # remove broken symlinks
-  find $SRC -type l -xtype l -exec rm '{}' \+
+  cd $name-$version-source
+
+  # Fix some paths
+  sed -i 's/SELFAUTOPARENT/TEXMFROOT/' texk/tex4htk/t4ht.c
+  sed -i -e 's|TEXMFROOT = .*|TEXMFROOT = $SELFAUTODIR/share|g' \
+    -e 's|TEXMFLOCAL = .*|TEXMFLOCAL = $TEXMFROOT/texmf-local|g' \
+    texk/kpathsea/texmf.cnf
+  sed -i '/AC_SEARCH_LIBS/a KPSE_KPATHSEA_FLAGS' texk/bibtex-x/configure.ac
+  sed -i 's|-lXp ||' texk/xdvik/configure.ac
+
+
+  export TEXMFCNF=""
+  export KPATHSEA_WARNING=0
+
+  rm -r libs/icu libs/graphite2 libs/cairo libs/freetype2 libs/gd libs/gmp libs/harfbuzz libs/libpaper libs/libpng libs/pixman libs/potrace libs/zlib libs/zziplib texk/dvisvgm
+  ./reautoconf
+
+  mkdir build
+  cd build
+
+  CFLAGS+=" -Wno-incompatible-pointer-types" \
+  ax_cv_c_float_words_bigendian=no \
+  ../configure \
+    --prefix=/usr \
+    --with-banner-add=" $(crux)" \
+    --with-clisp-runtime=system \
+    --enable-{dvipdfm-x,gc=system,ipc,libtool-hack,luatex,makeindexk,pdftex,pdftex-syncex,shared,tex,tex-synctex,texlive,web2c,xetex,xindy} \
+    --with-system-{cairo,freetype2,gd,graphite2,gmp,harfbuzz,icu,libpaper,libpng,mpfr,ncurses,pixman,potrace,t1lib,zlib,zziplib} \
+    --with-x \
+    --with-xdvi-x-toolkit=xaw \
+    --disable-{aleph,all-pkgs,bibtexu,dialog,dump-share,dvi2tty,dvisvgm,largefile,multiplatform,native-texlive-build,pdfopen,ps2pkm,xindy-docs,xindy-rules,xpdfopen,xz}
+
+  sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool
+  make
+  make DESTDIR=$PKG install
+
+  cd ..
+
+  perl_sitelib=$(perl -V:sitelib | sed -e "s|sitelib=[']\(.*\)['].*$|\1|")
+  install -d $PKG/$perl_sitelib/TeXLive
+  install texk/tests/TeXLive/TL{Config,Utils}.pm $PKG/$perl_sitelib/TeXLive
+
+  # Fix some paths
+  sed \
+    -e 's|TEXMFROOT = .*|TEXMFROOT = $SELFAUTODIR/share|g' \
+    -e 's|TEXMFLOCAL = .*|TEXMFLOCAL = $TEXMFROOT/texmf-local|g' \
+    -e 's|^OSFONTDIR.*|OSFONTDIR = ~/.fonts:/usr/share/fonts|' \
+    -i $PKG/usr/share/texmf-dist/web2c/texmf.cnf
 
   # make ConTeXt work, and remove unused settings
   sed -i \
@@ -42,51 +90,7 @@ build() {
     -e '/texmflocal/d' \
     $PKG/usr/share/texmf-dist/web2c/texmfcnf.lua
 
-  cd $name-$version-source
-
-  chmod -R a-s $SRC
-
-  find $SRC \
-    \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
-    -exec chmod 755 {} \; -o \
-    \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
-    -exec chmod 644 {} \;
-
-  # Fix some paths
-  sed -i 's/SELFAUTOPARENT/TEXMFROOT/' texk/tex4htk/t4ht.c
-  sed -i 's|TEXMFROOT = .*|TEXMFROOT = $SELFAUTODIR/share|g' texk/kpathsea/texmf.cnf
-  sed -i 's|TEXMFLOCAL = .*|TEXMFLOCAL = $TEXMFROOT/texmf-local|g' texk/kpathsea/texmf.cnf
-
-  export TEXMFCNF=""
-  export KPATHSEA_WARNING=0
-
-  # prevent compiling Xdvi with libXp
-  sed -i 's|-lXp ||' texk/xdvik/configure
-
-  mkdir build
-  cd build
-  ../configure \
-    --prefix=/usr \
-    --with-banner-add=" MiX" \
-    --with-clisp-runtime=system \
-    --enable-{dvipdfm-x,gc=system,libtool-hack,luatex,pdftex,pdftex-syncex,shared,makeindexk,tex,texlive,tex-synctex,web2c,xindy} \
-    --with-system-{cairo,freetype2,gd,graphite2,gmp,harfbuzz,icu,libpaper,libpng,mpfr,ncurses,pixman,potrace,t1lib,zlib,zziplib} \
-    --with-x \
-    --with-xdvi-x-toolkit=xaw \
-    --disable-{all-pkgs,aleph,native-texlive-build,xetex,xindy-docs,xindy-rules}
-
-  make
-  make DESTDIR=$PKG install
-
-  cd ..
-
-  #fmtutil depends on these
-  perl_sitelib=$(perl -V:sitelib | sed -e "s|sitelib=[']\(.*\)['].*$|\1|")
-  install -d $PKG/$perl_sitelib/TeXLive
-  install texk/tests/TeXLive/TL{Config,Utils}.pm $PKG/$perl_sitelib/TeXLive
-
-  # configure fmtutil
-  sed \
+  sed -i \
     -e 's/^aleph/#! aleph/g' \
     -e 's/^lamed/#! lamed/g' \
     -e 's/^amstex/#! amstex/g' \
@@ -115,28 +119,21 @@ build() {
     -e 's/^xetex/#! xetex/g' \
     -e 's/^cslatex/#! cslatex/g' \
     -e 's/^lollipop/#! lollipop/g' \
-    -i $PKG/usr/share/texmf-dist/web2c/fmtutil.cnf
-    #-e 's/^pdftex/#! pdftex/g' \
-    #-e 's/^pdflatex/#! pdflatex/g' \
-    #-e 's/^luajittex/#! luajittex/g' \
-    #-e 's/^mf/#! mf/g' \
+    $PKG/usr/share/texmf-dist/web2c/fmtutil.cnf
 
-  # Create symlinks
-  # this uses above configuration to create links like $PKG/usr/bin/lualatex for example
-  # without, the engines just won't work like we want
   PATH="$PKG/usr/bin:$PATH" LD_LIBRARY_PATH+="$PKG/usr/lib:$LD_LIBRARY_PATH" \
-    texlinks -v -f $PKG/usr/share/texmf-dist/web2c/fmtutil.cnf $PKG/usr/bin
+    texlinks -f $PKG/usr/share/texmf-dist/web2c/fmtutil.cnf $PKG/usr/bin
 
-  #cd $SRC/$name-$version-texmf
+  # context
+  chmod +x $PKG/usr/share/texmf-dist/scripts/context/lua/mtxrun.lua
+  PATH="$PKG/usr/bin:$PATH" LD_LIBRARY_PATH+="$PKG/usr/lib:$LD_LIBRARY_PATH" \
+  $PKG/usr/share/texmf-dist/scripts/context/lua/mtxrun.lua \
+    --stubpath=$PKG/usr/bin \
+    --unix \
+    --makestubs
 
-  # Fix some paths
-  sed \
-    -e 's|TEXMFROOT = .*|TEXMFROOT = $SELFAUTODIR/share|g' \
-    -e 's|TEXMFLOCAL = .*|TEXMFLOCAL = $TEXMFROOT/texmf-local|g' \
-    -e 's|^OSFONTDIR.*|OSFONTDIR = ~/.fonts:/usr/share/fonts|' \
-    -i $PKG/usr/share/texmf-dist/web2c/texmf.cnf
-
-  cd $SRC/texi2html-5.0
+  #cd $SRC/texi2html-*
+  cd $SRC/texi2html-5.0  # mix
   ./configure --prefix=/usr
   make
   make install DESTDIR=$PKG

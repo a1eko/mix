@@ -1,21 +1,42 @@
 # Description: Qt Free Edition, version 5.x.
 # URL: http://www.qt.io/
-# Maintainer: Danny Rawlins, crux at romster dot me
-# Depends on: dbus gdk-pixbuf gst-plugins-base libepoxy libmng libxkbcommon xorg-libxcomposite xorg-libxcursor xorg-libxi xorg-libxinerama xorg-xcb-util-image xorg-xcb-util-keysyms xorg-xcb-util-wm xorg-xcb-util-renderutil
-# Optional: icu
+# Maintainer: CRUX System Team, core-ports at crux dot nu
+# Depends on: dbus gdk-pixbuf gst-plugins-base libepoxy libmng libwebp libxkbcommon xorg-libxcomposite xorg-libxcursor xorg-libxi xorg-libxinerama xorg-xcb-util-image xorg-xcb-util-keysyms xorg-xcb-util-renderutil xorg-xcb-util-wm
+# Optional: assimp bluez cups double-conversion gtk3 ibus icu krb5 libinput libsdl2 mariadb mtdev openal pulseaudio unixodbc vulkan-headers wayland-protocols xkeyboard-config
 
 name=qt5
-version=5.15.2
+version=5.15.13
 release=mix-1
-source=(https://download.qt.io/official_releases/qt/${version::4}/$version/single/qt-everywhere-src-$version.tar.xz
+source=(https://download.qt.io/archive/qt/5.15/$version/single/qt-everywhere-opensource-src-$version.tar.xz
+	qt-everywhere-opensource-src-$version-kf5-1.patch
+	qtbase-5.15.8-fix-missing-qtsan-include.patch
 	qt5-cflags.patch
-	qt5-logo.png)
+	qt5-logo.png
+	qtbase-everywhere-src-5.14.2-no_relocatable.patch
+	qtbase-everywhere-src-5.15.2-libglvnd.patch
+	qtbase-use-wayland-on-gnome.patch)
 
 build() {
+	if [[ ! -e /usr/include/xkbcommon/xkbcommon-x11.h ]]; then
+		printf '\e[31m%s\e[m\n' "libxkbcommon is not built with x11 support!"
+		printf '\e[31m%s\e[m\n' "qtx11extras will not be built!"
+		printf '\e[33m%s\e[m\n' "Install xkeyboard-config and rebuild libxkbcommon if you need that"
+	fi
+
 	cd qt-everywhere-src-$version
 
-	sed -e '1i #ifdef __cplusplus' -e '1i #include <limits>' -e '1i  #endif' -i qtbase/src/corelib/global/qglobal.h
+	patch -p1 -i $SRC/qt-everywhere-opensource-src-$version-kf5-1.patch
 	patch -d qtbase -p1 -i $SRC/qt5-cflags.patch
+	patch -d qtbase -p1 -i $SRC/qtbase-everywhere-src-5.14.2-no_relocatable.patch
+	patch -d qtbase -p1 -i $SRC/qtbase-everywhere-src-5.15.2-libglvnd.patch
+	patch -d qtbase -p1 -i $SRC/qtbase-use-wayland-on-gnome.patch
+	patch -d qtbase -p1 -i $SRC/qtbase-5.15.8-fix-missing-qtsan-include.patch
+
+	# fix for building with gcc-13
+	sed -e "/pragma once/a#include <cstdint>" \
+            -i qtlocation/src/3rdparty/mapbox-gl-native/include/mbgl/util/geometry.hpp \
+               qtlocation/src/3rdparty/mapbox-gl-native/include/mbgl/util/string.hpp \
+               qtlocation/src/3rdparty/mapbox-gl-native/src/mbgl/gl/stencil_mode.hpp
 
 	export PYTHON='/usr/bin/python3'
 	mkdir $SRC/bin
@@ -26,7 +47,21 @@ build() {
 	export LD_LIBRARY_PATH="$QTDIR/qtbase/lib:$QTDIR/qttools/lib:$LD_LIBRARY_PATH"
 	export QT_PLUGIN_PATH="$QTDIR/qtbase/plugins"
 
-	prt-get isinst ccache && PKGMK_QT5+=' -ccache' && PATH="$(echo ${PATH} | awk -v RS=: -v ORS=: '/ccache/ {next} {print}' | sed 's/:*$//')"
+	pkz -i list ccache && PKGMK_QT5+=' -ccache' && \
+		PATH="$(echo ${PATH} | awk -v RS=: -v ORS=: '/ccache/ {next} {print}' | sed 's/:*$//')"
+	pkz -i list assimp && PKGMK_QT5+=' -system-assimp'
+	#pkz -i list clang && PKGMK_QT5+=' -platform linux-clang'
+	#pkz -i list clang lld && PKGMK_QT5+=' -linker lld' || PKGMK_QT5+=' -linker gold'
+
+	sed -i '/utility/a #include <limits>'     qtbase/src/corelib/global/qglobal.h
+	sed -i '/string/a #include <limits>'      qtbase/src/corelib/global/qfloat16.h
+	sed -i '/qbytearray/a #include <limits>'  qtbase/src/corelib/text/qbytearraymatcher.h
+	sed -i '/type_traits/a #include <limits>' qtdeclarative/src/qmldebug/qqmlprofilerevent_p.h
+
+	#pushd qtbase/src/3rdparty
+	#mv freetype libjpeg libpng zlib sqlite xcb pcre2 $SRC
+	#pkz -i list assimp && mv assimp $SRC
+	#popd
 
 	./configure $PKGMK_QT5 \
 		-prefix /usr/ \
@@ -40,24 +75,29 @@ build() {
 		-examplesdir /usr/share/doc/qt5/examples \
 		-headerdir /usr/include/qt5 \
 		-libdir /usr/lib \
-		-sysconfdir /usr/etc/xdg \
+		-sysconfdir /etc/xdg \
+		QMAKE_CFLAGS_RELEASE="$CFLAGS -Wno-enum-constexpr-conversion" \
+		QMAKE_CXXFLAGS_RELEASE="$CXXFLAGS -Wno-enum-constexpr-conversion" \
+		QMAKE_LFLAGS_RELEASE="${LDFLAGS} -fuse-ld=gold" \
 		-confirm-license \
-		-dbus-linked \
-		-nomake examples \
-		-no-pch \
-		-no-rpath \
-		-no-separate-debug-info \
-		-no-strip \
-		-opengl desktop \
 		-opensource \
-		-openssl-linked \
-		-optimized-qmake \
-		-reduce-relocations \
 		-release \
-		-shared \
-		-plugin-sql-sqlite \
-		-system-sqlite \
+		-dbus-linked \
+		-opengl desktop \
+		-openssl-linked \
 		-system-harfbuzz \
+		-system-libjpeg \
+		-system-libpng \
+		-system-pcre \
+		-system-sqlite \
+		-system-zlib \
+		-nomake examples \
+		-no-mimetype-database \
+		-no-rpath \
+		-no-strip \
+		-no-reduce-relocations \
+		-no-feature-relocatable \
+		-no-pch \
 		-skip qtwebengine \
 		-silent
 
@@ -67,7 +107,7 @@ build() {
 	# Fix paths
 	find "$PKG/usr/lib" -type f -name '*.prl' \
 		-exec sed -e '/^QMAKE_PRL_BUILD_DIR/d' -i {} \;
-        
+
 	sed -e "s|$PWD/qtbase|/usr/lib/qt5|g" \
 		-i $PKG/usr/lib/qt5/mkspecs/modules/qt_lib_bootstrap_private.pri
 

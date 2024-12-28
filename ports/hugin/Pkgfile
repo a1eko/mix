@@ -4,15 +4,13 @@
 # Depends on: wxgtk3 enblend-enfuse exiv2 libpano13 python glew desktop-file-utils swig
 
 name=hugin
-version=2022.0.0
+version=2024.0.1
 release=mix-1
-source=("https://downloads.sourceforge.net/project/${name}/${name}/${name}-${version%.*}/${name}-${version}.tar.bz2"
-	exiv2-0.28.patch)
+source=("https://downloads.sourceforge.net/project/${name}/${name}/${name}-${version%.*}/${name}-${version}.tar.bz2")
 
 build() {
 
 	cd "${SRC}/${name}-${version}"
-	patch -p1 -i $SRC/exiv2-0.28.patch
 	install -d build
 	cd build
 	cmake .. \
