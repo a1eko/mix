@@ -1,7 +1,7 @@
 # Description: miscellaneous utility programs
 
 name=util-linux
-version=2.40.2
+version=2.40.4
 release=0
 source=(https://www.kernel.org/pub/linux/utils/$name/v${version:0:4}/$name-$version.tar.xz)
 
@@ -32,7 +32,7 @@ build() {
     touch $PKG/etc/adjtime
 
     rm -rv $PKG/usr/share/{doc,bash-completion}
-    rm -v  $PKG/sbin/{mkfs.bfs,mkfs.minix,fsck.minix}
+    #rm -v  $PKG/sbin/{mkfs.bfs,mkfs.minix,fsck.minix}
     rm -rv $PKG/usr/share/man
     rmdir -v $PKG/usr/share
 }

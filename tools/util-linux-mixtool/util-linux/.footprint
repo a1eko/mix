@@ -1,15 +1,3 @@
-drwxr-xr-x	root/root	bin/
--rwxr-xr-x	root/root	bin/dmesg
--rwxr-xr-x	root/root	bin/findmnt
--rwxr-xr-x	root/root	bin/kill
--rwxr-xr-x	root/root	bin/lsblk
--rwxr-xr-x	root/root	bin/lsfd
--rwxr-xr-x	root/root	bin/more
--rwsr-xr-x	root/root	bin/mount
--rwxr-xr-x	root/root	bin/mountpoint
--rwxr-xr-x	root/root	bin/pipesz
--rwsr-xr-x	root/root	bin/umount
--rwxr-xr-x	root/root	bin/wdctl
 drwxr-xr-x	root/root	etc/
 -rw-r--r--	root/root	etc/adjtime
 drwxr-xr-x	root/root	lib/
@@ -36,11 +24,13 @@ drwxr-xr-x	root/root	sbin/
 -rwxr-xr-x	root/root	sbin/fdisk
 -rwxr-xr-x	root/root	sbin/findfs
 -rwxr-xr-x	root/root	sbin/fsck
+-rwxr-xr-x	root/root	sbin/fsck.cramfs
 -rwxr-xr-x	root/root	sbin/fsfreeze
 -rwxr-xr-x	root/root	sbin/fstrim
 -rwxr-xr-x	root/root	sbin/hwclock
 -rwxr-xr-x	root/root	sbin/losetup
 -rwxr-xr-x	root/root	sbin/mkfs
+-rwxr-xr-x	root/root	sbin/mkfs.cramfs
 -rwxr-xr-x	root/root	sbin/mkswap
 -rwxr-xr-x	root/root	sbin/pivot_root
 -rwxr-xr-x	root/root	sbin/sfdisk
@@ -60,10 +50,14 @@ drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/colcrt
 -rwxr-xr-x	root/root	usr/bin/colrm
 -rwxr-xr-x	root/root	usr/bin/column
+-rwxr-xr-x	root/root	usr/bin/dmesg
 -rwxr-xr-x	root/root	usr/bin/eject
+-rwxr-xr-x	root/root	usr/bin/enosys
+-rwxr-xr-x	root/root	usr/bin/exch
 -rwxr-xr-x	root/root	usr/bin/fadvise
 -rwxr-xr-x	root/root	usr/bin/fallocate
 -rwxr-xr-x	root/root	usr/bin/fincore
+-rwxr-xr-x	root/root	usr/bin/findmnt
 -rwxr-xr-x	root/root	usr/bin/flock
 -rwxr-xr-x	root/root	usr/bin/getopt
 -rwxr-xr-x	root/root	usr/bin/hardlink
@@ -75,13 +69,17 @@ lrwxrwxrwx	root/root	usr/bin/i386 -> setarch
 -rwxr-xr-x	root/root	usr/bin/ipcs
 -rwxr-xr-x	root/root	usr/bin/irqtop
 -rwxr-xr-x	root/root	usr/bin/isosize
+-rwxr-xr-x	root/root	usr/bin/kill
 -rwxr-xr-x	root/root	usr/bin/last
 lrwxrwxrwx	root/root	usr/bin/lastb -> last
 lrwxrwxrwx	root/root	usr/bin/linux32 -> setarch
 lrwxrwxrwx	root/root	usr/bin/linux64 -> setarch
 -rwxr-xr-x	root/root	usr/bin/logger
 -rwxr-xr-x	root/root	usr/bin/look
+-rwxr-xr-x	root/root	usr/bin/lsblk
+-rwxr-xr-x	root/root	usr/bin/lsclocks
 -rwxr-xr-x	root/root	usr/bin/lscpu
+-rwxr-xr-x	root/root	usr/bin/lsfd
 -rwxr-xr-x	root/root	usr/bin/lsipc
 -rwxr-xr-x	root/root	usr/bin/lsirq
 -rwxr-xr-x	root/root	usr/bin/lslocks
@@ -90,8 +88,12 @@ lrwxrwxrwx	root/root	usr/bin/linux64 -> setarch
 -rwxr-xr-x	root/root	usr/bin/lsns
 -rwxr-xr-x	root/root	usr/bin/mcookie
 -rwxr-xr-x	root/root	usr/bin/mesg
+-rwxr-xr-x	root/root	usr/bin/more
+-rwsr-xr-x	root/root	usr/bin/mount
+-rwxr-xr-x	root/root	usr/bin/mountpoint
 -rwxr-xr-x	root/root	usr/bin/namei
 -rwxr-xr-x	root/root	usr/bin/nsenter
+-rwxr-xr-x	root/root	usr/bin/pipesz
 -rwxr-xr-x	root/root	usr/bin/prlimit
 -rwxr-xr-x	root/root	usr/bin/rename
 -rwxr-xr-x	root/root	usr/bin/renice
@@ -100,11 +102,13 @@ lrwxrwxrwx	root/root	usr/bin/linux64 -> setarch
 -rwxr-xr-x	root/root	usr/bin/scriptlive
 -rwxr-xr-x	root/root	usr/bin/scriptreplay
 -rwxr-xr-x	root/root	usr/bin/setarch
+-rwxr-xr-x	root/root	usr/bin/setpgid
 -rwxr-xr-x	root/root	usr/bin/setsid
 -rwxr-xr-x	root/root	usr/bin/setterm
 -rwxr-xr-x	root/root	usr/bin/taskset
 -rwxr-xr-x	root/root	usr/bin/uclampset
 -rwxr-xr-x	root/root	usr/bin/ul
+-rwsr-xr-x	root/root	usr/bin/umount
 lrwxrwxrwx	root/root	usr/bin/uname26 -> setarch
 -rwxr-xr-x	root/root	usr/bin/unshare
 -rwxr-xr-x	root/root	usr/bin/utmpdump
@@ -112,8 +116,8 @@ lrwxrwxrwx	root/root	usr/bin/uname26 -> setarch
 -rwxr-xr-x	root/root	usr/bin/uuidparse
 -rwxr-xr-x	root/root	usr/bin/waitpid
 -rwxr-sr-x	root/tty	usr/bin/wall
+-rwxr-xr-x	root/root	usr/bin/wdctl
 -rwxr-xr-x	root/root	usr/bin/whereis
--rwxr-sr-x	root/tty	usr/bin/write
 lrwxrwxrwx	root/root	usr/bin/x86_64 -> setarch
 drwxr-xr-x	root/root	usr/include/
 drwxr-xr-x	root/root	usr/include/blkid/
@@ -127,19 +131,14 @@ drwxr-xr-x	root/root	usr/include/libsmartcols/
 drwxr-xr-x	root/root	usr/include/uuid/
 -rw-r--r--	root/root	usr/include/uuid/uuid.h
 drwxr-xr-x	root/root	usr/lib/
--rw-r--r--	root/root	usr/lib/libblkid.a
 -rwxr-xr-x	root/root	usr/lib/libblkid.la
 lrwxrwxrwx	root/root	usr/lib/libblkid.so -> ../../lib/libblkid.so.1.1.0
--rw-r--r--	root/root	usr/lib/libfdisk.a
 -rwxr-xr-x	root/root	usr/lib/libfdisk.la
 lrwxrwxrwx	root/root	usr/lib/libfdisk.so -> ../../lib/libfdisk.so.1.1.0
--rw-r--r--	root/root	usr/lib/libmount.a
 -rwxr-xr-x	root/root	usr/lib/libmount.la
 lrwxrwxrwx	root/root	usr/lib/libmount.so -> ../../lib/libmount.so.1.1.0
--rw-r--r--	root/root	usr/lib/libsmartcols.a
 -rwxr-xr-x	root/root	usr/lib/libsmartcols.la
 lrwxrwxrwx	root/root	usr/lib/libsmartcols.so -> ../../lib/libsmartcols.so.1.1.0
--rw-r--r--	root/root	usr/lib/libuuid.a
 -rwxr-xr-x	root/root	usr/lib/libuuid.la
 lrwxrwxrwx	root/root	usr/lib/libuuid.so -> ../../lib/libuuid.so.1.3.0
 drwxr-xr-x	root/root	usr/lib/pkgconfig/

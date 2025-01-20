@@ -2,7 +2,7 @@
 # Depends on: autoconf-2.13 cbindgen dbus-glib gtk gtk3 libnotify llvm lld clang nasm nodejs nss alsa-lib python3 startup-notification unzip yasm zip
 
 name=firefox
-version=128.5.1
+version=128.6.0
 release=mix-1
 source=(https://archive.mozilla.org/pub/firefox/releases/${version}esr/source/firefox-${version}esr.source.tar.xz
 	mozconfig)

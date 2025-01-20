@@ -1,0 +1,20 @@
+# Description: StarNet++ removes stars from images using neural network (binary)
+
+name=starnet-bin
+version=2.0.0
+release=mix-1
+source=(https://starnetastro.com/wp-content/uploads/2022/03/StarNetv2CLI_linux.zip)
+
+build() { 
+	N=StarNetv2CLI_linux
+	#mkdir -pv $PKG/usr/{bin,lib}
+	mkdir -pv $PKG/usr/lib
+	mv -v $SRC/$N $PKG/usr/lib/
+
+	mkdir -p $PKG/etc/ld.so.conf.d
+	echo "/usr/lib/$N" > $PKG/etc/ld.so.conf.d/$name.conf
+
+	chmod -v a+x $PKG/usr/lib/$N/starnet++
+
+	rm -v $PKG/usr/lib/$N/{LICENSE,README*,*.tif,*.sh}
+}
