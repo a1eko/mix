@@ -1,5 +1,6 @@
 *~
 *.bak
+*.swp
 files
 .signature
 .httpup*
