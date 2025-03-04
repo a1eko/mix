@@ -1,4 +1,2 @@
-ef21cb4d7bc40388ccb4dbf1816f5b98  ffmpeg-6.0-binutils_2.41-1.patch
-5948fd051c1716e13264c314b8a5794e  ffmpeg-6.0.tar.bz2
-8d01f9dc6e07549a5006967efd3622be  add-av_stream_get_first_dts-for-chromium.patch
-dae0c10c99399580c929fc100e79faef  ffmpeg-x264-10bit.sh
+623aa63a72139a82ccb99cd6ee477b94  ffmpeg-7.1.tar.xz
+e1972cc809fe72a8b8a711c8896ffa41  ffmpeg-7.1-chromium_method-1.patch

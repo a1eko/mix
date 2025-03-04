@@ -1,7 +1,7 @@
 # Description: linker, assembler and other development tools
 
 name=binutils
-version=2.43.1
+version=2.44
 release=0pass2
 source=(http://ftp.gnu.org/gnu/binutils/binutils-$version.tar.xz)
 
@@ -9,7 +9,7 @@ build() {
   cd $name-$version
 
   # fix outdated supplied libtool linking to host zlib
-  sed '6009s/$add_dir//' -i ltmain.sh
+  sed '6031s/$add_dir//' -i ltmain.sh
 
   mkdir -v build
   cd build

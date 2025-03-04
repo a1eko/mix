@@ -1,83 +1,47 @@
 # Description: Complete solution to record, convert and stream audio and video.
-# URL: https://ffmpeg.org/
-# Maintainer: Tim Biermann, tbier at posteo dot de
-# Depends on: yasm
-# Optional: alsa-lib amf-headers cuda dav1d fdk-aac freetype gnutls gsm jack jack-audio-connection-kit lame libass libsdl2 libtheora libva libvdpau libvorbis libvpx libwebp nv-codec-headers opus pulseaudio svt-av1 x264 x265
+# Depends on: yasm aom libass fdk-aac freetype lame libvorbis libvpx opus x264 x265
+# Optional: alsa-lib amf-headers chromaprint cuda dav1d fontconfig gnutls gsm jack jack-audio-connection-kit ladspa lcms2 lensfun libbs2b libcaca libcdio-paranoia libdrm libmodplug libplacebo librsvg libsdl2 libsoxr libssh libtheora libva libvdpau libwebp libxml2 lv2 nv-codec-headers openal opencv openh264 openjpeg2 pulseaudio rav1e rtmpdump rubberband shaderc snappy speex svt-av1 v4l-utils 
 
 name=ffmpeg
-version=6.0
+version=7.1
 release=mix-1
-source=(https://ffmpeg.org/releases/$name-$version.tar.bz2
-	https://www.linuxfromscratch.org/patches/blfs/svn/ffmpeg-6.0-binutils_2.41-1.patch
-	add-av_stream_get_first_dts-for-chromium.patch
-	ffmpeg-x264-10bit.sh)
+source=(https://ffmpeg.org/releases/$name-$version.tar.xz
+	https://www.linuxfromscratch.org/patches/blfs/svn/ffmpeg-$version-chromium_method-1.patch)
 
 build() {
-	cd $name-$version
+  cd $name-$version
 
-	pkz -i list clang cuda nv-codec-headers && \
-		PKGMK_FFMPEG+=' --enable-cuda-llvm --enable-nonfree --enable-cuda-nvcc --enable-libnpp' && \
-		PKGMK_FFMPEG+=' --extra-cflags=-I/opt/cuda/include --extra-ldflags=-L/opt/cuda/lib64' && \
-		PATH="$PATH:/opt/cuda/bin"
+  patch -Np1 -i $SRC/ffmpeg-$version-chromium_method-1.patch
 
-pkz -i list amf-headers && PKGMK_FFMPEG+=' --enable-amf'
-	pkz -i list dav1d && PKGMK_FFMPEG+=' --enable-libdav1d'
-	pkz -i list fdk-aac && PKGMK_FFMPEG+=' --enable-libfdk-aac --enable-nonfree'
-	pkz -i list freetype && PKGMK_FFMPEG+=' --enable-libfreetype'
-	pkz -i list gnutls && PKGMK_FFMPEG+=' --enable-gnutls' || PKGMK_FFMPEG+=' --enable-openssl --enable-nonfree'
-	pkz -i list gsm && PKGMK_FFMPEG+=' --enable-libgsm'
-	pkz -i list jack && PKGMK_FFMPEG+=' --enable-libjack'
-	pkz -i list lame && PKGMK_FFMPEG+=' --enable-libmp3lame'
-	pkz -i list libass && PKGMK_FFMPEG+=' --enable-libass'
-	pkz -i list libtheora && PKGMK_FFMPEG+=' --enable-libtheora'
-	pkz -i list libvdpau && PKGMK_FFMPEG+=' --enable-vdpau'
-	pkz -i list libvorbis && PKGMK_FFMPEG+=' --enable-libvorbis'
-	pkz -i list libvpx && PKGMK_FFMPEG+=' --enable-libvpx'
-	pkz -i list libwebp && PKGMK_FFMPEG+=' --enable-libwebp'
-	pkz -i list nv-codec-headers && PKGMK_FFMPEG+=' --enable-nvdec --enable-nvenc'
-	pkz -i list opus && PKGMK_FFMPEG+=' --enable-libopus'
-	pkz -i list pulseaudio && PKGMK_FFMPEG+=' --enable-libpulse'
-	pkz -i list svt-av1 && PKGMK_FFMPEG+=' --enable-libsvtav1'
-	pkz -i list x264 && PKGMK_FFMPEG+=' --enable-libx264'
-	pkz -i list x265 && PKGMK_FFMPEG+=' --enable-libx265'
+  # fix an issue with x265 v4.1
+  sed -e 's/X265_BUILD >= 210/(&) \&\& (X265_BUILD < 213)/' \
+    -i libavcodec/libx265.c
 
-	patch -Np1 -i $SRC/ffmpeg-6.0-binutils_2.41-1.patch
-	patch -Np1 -i $SRC/add-av_stream_get_first_dts-for-chromium.patch
+  export CFLAGS="$CFLAGS -ffat-lto-objects"
+  export CXXFLAGS="$CXXFLAGS -ffat-lto-objects"
 
-	sed -i -e '/check_cflags -fdiagnostics-color=auto/d' configure
+  ./configure --prefix=/usr \
+    --enable-gpl \
+    --enable-version3 \
+    --enable-nonfree \
+    --disable-static \
+    --enable-shared \
+    --disable-debug \
+    --enable-libaom \
+    --enable-libass \
+    --enable-libfdk-aac \
+    --enable-libfreetype \
+    --enable-libmp3lame \
+    --enable-libopus \
+    --enable-libvorbis \
+    --enable-libvpx \
+    --enable-libx264 \
+    --enable-libx265 \
+    --enable-openssl \
+    --ignore-tests=enhanced-flv-av1
 
-	./configure ${PKGMK_FFMPEG} \
-		--prefix=/usr \
-		--optflags="$CFLAGS" \
-		--cc=/usr/bin/gcc \
-		--cxx=/usr/bin/g++ \
-		--ar=/usr/bin/gcc-ar \
-		--nm=/usr/bin/gcc-nm \
-		--ranlib=/usr/bin/gcc-ranlib \
-		--strip=/usr/bin/strip \
-		--enable-gpl \
-		--enable-version3 \
-		--enable-shared \
-		--enable-pic \
-		--enable-lto \
-		--enable-ffplay \
-		--enable-avfilter \
-		--enable-postproc \
-		--enable-pthreads \
-		--enable-swresample \
-		--disable-debug \
-		--disable-doc \
-		--disable-libcelt \
-		--disable-optimizations \
-		--disable-stripping
+  make
+  make DESTDIR=$PKG install install-man
 
-	make
-	make DESTDIR=$PKG install install-man
-
-	rm -r $PKG/usr/share/ffmpeg/examples
-
-	if [ -e '/usr/lib/pkgconfig/x264.pc' ]; then
-		install -m 0755 -D $SRC/ffmpeg-x264-10bit.sh \
-			$PKG/usr/bin/ffmpeg-x264-10bit
-	fi
+  rm -r $PKG/usr/share/ffmpeg/examples
 }
