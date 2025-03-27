@@ -1,7 +1,7 @@
 # Description: data compression utilities
 
 name=xz
-version=5.6.4
+version=5.8.0
 release=0
 source=(https://github.com//tukaani-project/xz/releases/download/v$version/xz-$version.tar.gz)
 
