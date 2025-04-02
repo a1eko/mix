@@ -30,4 +30,3 @@ o ports (webkitgtk): needs at least 2GB of RAM per CPU vcore, limit threads usag
 + tools (flit-core): added to lfs as meson/wheel dependency
 o tools, ports (texinfo): v7.2 is broken (Texinfo::Convert::HTML), revert to v7.1.1
 o ports (clang): delete or comment out version checking in crux port (prt-get)
-- tools (xz): watch lfs to upgrade v5.8
