@@ -1,7 +1,7 @@
 # Description: programs that show differences between files
 
 name=diffutils
-version=3.11
+version=3.12
 release=0
 source=(http://ftp.gnu.org/gnu/diffutils/diffutils-$version.tar.xz)
 
@@ -9,6 +9,7 @@ build() {
   cd $name-$version
   ./configure --prefix=/usr \
     --host=$MIX_TGT \
+    gl_cv_func_strcasecmp_works=y \
     --build=$(./build-aux/config.guess)
   make
   make DESTDIR=$PKG install
