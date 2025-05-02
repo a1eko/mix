@@ -29,5 +29,5 @@ o ports (inkscape): change ${name}-${version}* to ${name}-${version}_*
 o ports (webkitgtk): needs at least 2GB of RAM per CPU vcore, limit threads usage if necessary (cmake --build -j 4)
 + tools (flit-core): added to lfs as meson/wheel dependency
 o tools, ports (texinfo): v7.2 is broken (Texinfo::Convert::HTML), revert to v7.1.1
-o ports (clang): delete or comment out version checking in crux port (prt-get)
-+ tools (diffutils): watch lfs to upgrade to v3.12
+o ports (clang): delete version checking in crux port (prt-get) or make pkz compatible with prt-get behavior
+- dist (tools): upgrade to crux v3.8 tools and packages (lfs glibc-1.41, gcc-14.2, etc)
