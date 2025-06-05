@@ -30,4 +30,4 @@ o ports (webkitgtk): needs at least 2GB of RAM per CPU vcore, limit threads usag
 + tools (flit-core): added to lfs as meson/wheel dependency
 o tools, ports (texinfo): v7.2 is broken (Texinfo::Convert::HTML), revert to v7.1.1
 o ports (clang): delete version checking in crux port (prt-get) or make pkz compatible with prt-get behavior
-- dist (tools): upgrade to crux v3.8 tools and packages (lfs glibc-1.41, gcc-14.2, etc)
+- dist (tools): upgrade to crux v3.8 tools and packages (lfs glibc-1.41, gcc-14.2, perl-5.40, etc)
