@@ -52,7 +52,7 @@ x ports (pkgconf): consider installing personality files (see crux/archlinux)
 - ports (surf): enable file download, eg to {$HOME,}/tmp
 - ports (tk): missing pkg
 + ports (openjpeg): missing pkg, replaced with openjpeg2
-- ports (moc): broken build
++ ports (moc): broken build, add path to m4 scripts: 'autoreconf -fvi -I /usr/share/gettext/m4'
 x ports (liba52): missing pkg
 x ports (libxvid): missing pkg
 x ports (opencore-amr): missing pkg

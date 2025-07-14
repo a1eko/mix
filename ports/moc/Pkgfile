@@ -1,0 +1,28 @@
+# Description: Console audio player.
+# URL: https://gitlab.com/tomaszg/mocp
+# Maintainer: John McQuah, jmcquah at disroot dot org
+# Depends on: autoconf-archive git curl libid3tag libmad libsndfile popt
+# Optional: faad2 ffmpeg lame libmodplug libtimidity mpg123 musepack opusfile pulseaudio sndio speex taglib wavpack
+
+name=moc
+version=2.6alpha3
+release=mix-1
+_commit=76a2ed3d6a4630122a962348ca6d52325765654d
+source=("https://gitlab.com/tomaszg/mocp/-/archive/master/mocp-master.tar.gz?sha=$_commit")
+renames=(mocp-$_commit.tar.gz)
+
+build() {
+    cd mocp-master
+
+    autoreconf -fvi -I /usr/share/gettext/m4
+    ./configure --prefix=/usr \
+                --disable-cache \
+                --disable-nls \
+                --disable-debug
+
+    make
+    make DESTDIR="$PKG" install
+    install -D -m 0644 -t "$PKG"/usr/share/moc/ config.example keymap.example
+    rm -rf "$PKG"/usr/share/doc
+    rm -f "$PKG"/usr/lib/moc/decoder_plugins/*.la
+}
