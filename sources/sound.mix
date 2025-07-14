@@ -16,7 +16,7 @@ flac
 lame
 libao
 libvorbis
-moc
+#moc
 mpg123
 vorbis-tools
 wavpack

@@ -1,7 +1,7 @@
 # Description: Bourne shell compatible command language interpreter
 
 name=bash
-version=5.2.37
+version=5.3-rc2
 release=0
 source=(https://ftp.gnu.org/gnu/bash/bash-$version.tar.gz)
 
@@ -13,8 +13,7 @@ build() {
     --build=$(sh support/config.guess) \
     --host=$MIX_TGT \
     --disable-nls \
-    --without-bash-malloc \
-    bash_cv_strtold_broken=no
+    --without-bash-malloc
   make
   make DESTDIR=$PKG install
 

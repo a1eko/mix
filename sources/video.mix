@@ -3,7 +3,7 @@
 # NOTE: installs after graphics.mix and sound.mix
 #
 
-liba52
+#liba52
 libcddb
 libdv
 libdvdcss
@@ -17,14 +17,14 @@ libtheora
 nasm
 
 x264
-libxvid
+#libxvid
 mjpegtools
 
 python3-docutils
 libidn
 
 libtasn1 
-libunistring
+#libunistring
 make-ca
 p11-kit
 
@@ -34,13 +34,14 @@ libass
 libcdio
 libdvdnav
 libmodplug
+libsdl2
 #libmpcdec
-opencore-amr
+#opencore-amr
 opus
 orc
-schroedinger
+#schroedinger
 x265
 
 ffmpeg
-mplayer
-mpv
+#mplayer
+#mpv

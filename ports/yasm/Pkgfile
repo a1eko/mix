@@ -1,0 +1,21 @@
+# Description: A complete rewrite of the NASM assembler under the new BSD License
+# URL: https://www.tortall.net/projects/yasm/
+# Maintainer: CRUX System Team, core-ports at crux dot nu
+
+name=yasm
+version=1.3.0
+release=mix-2
+source=(https://www.tortall.net/projects/yasm/releases/$name-$version.tar.gz)
+
+build () {
+    cd $name-$version
+
+    # fix a problem when building with gcc-15
+    sed -e 's/def __cplusplus/ defined(__cplusplus) || __STDC_VERSION__ >= 202311L/' \
+	    -i libyasm/bitvect.h
+
+    ./configure --prefix=/usr
+
+    make
+    make DESTDIR=$PKG install
+}

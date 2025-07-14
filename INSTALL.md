@@ -4,9 +4,9 @@ MiX Installation Manual
 System requirements
 -------------------
 
-* MiX is tested on x86_64 architecture.
+* MiX is tested on `x86_64` architecture.
 
-* The core system is about 3 GB (4.3 GB with sources and tools) and
+* The core system is 4.6 GB (6.2 GB with sources and tools) and
 needs 15 GB of the disk space to build.
 
 * Host system should be relatively up-to-date. This distribution is
@@ -32,11 +32,11 @@ Build and install the base system.
 
 Mount virtual file systems and enter `chroot`.
 
-	sudo mount --bind /dev $MIX/dev
-	sudo mount -vt devpts devpts $MIX/dev/pts -o gid=5,mode=620
-	sudo mount -vt proc proc $MIX/proc
-	sudo mount -vt sysfs sysfs $MIX/sys
-	sudo mount -vt tmpfs tmpfs $MIX/run
+    sudo mount -v --bind /dev $MIX/dev
+    sudo mount -vt devpts devpts -o gid=5,mode=0620 $MIX/dev/pts
+    sudo mount -vt proc proc $MIX/proc
+    sudo mount -vt sysfs sysfs $MIX/sys
+    sudo mount -vt tmpfs tmpfs $MIX/run
 
 	sudo chroot "$MIX" /usr/bin/env -i \
 	  HOME=/root TERM=$TERM PS1='\u-in-chroot:\w\$ ' \
@@ -167,11 +167,12 @@ files from `$MIX/boot` to the actual destination `/boot`.
 Unmount virtual file systems and the target directory.
 
     cd
-	sudo umount -v $MIX/dev{/pts,}
-	sudo umount -v $MIX/{sys,proc,run}
+    sudo umount -v $MIX/dev/pts
+    sudo mountpoint -q $MIX/dev/shm && sudo umount -v $MIX/dev/shm
+    sudo umount -v $MIX/{dev,run,proc,sys}
 
-	sudo umount -v $MIX
-	unset MIX
+    sudo umount -v $MIX
+    unset MIX
 
 Backup important files, prepare a rescue media.
 

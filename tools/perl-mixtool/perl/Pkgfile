@@ -1,9 +1,9 @@
 # Description: programming language and script interpreter
 
 name=perl
-version=5.36.1
+version=5.40.2
 release=0
-source=(http://cpan.org/src/5.0/perl-$version.tar.xz)
+source=(https://cpan.org/src/5.0/perl-$version.tar.xz)
 
 build() {
   cd $name-$version

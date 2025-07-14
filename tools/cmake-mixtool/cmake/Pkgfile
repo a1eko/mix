@@ -1,7 +1,7 @@
 # Description: A cross-platform, open-source make system
 
 name=cmake
-version=3.31.4
+version=3.31.8
 release=0
 source=(https://cmake.org/files/v${version%.*}/$name-$version.tar.gz)
 

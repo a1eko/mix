@@ -1,21 +1,19 @@
 # Description: libraries for handling of character screens
 
 name=ncurses
-version=6.5
+version=6.5-20250531
 release=0
-source=(http://ftp.gnu.org/gnu/ncurses/ncurses-$version.tar.gz)
+source=(https://invisible-mirror.net/archives/ncurses/current/ncurses-$version.tgz)
 
 build() {
   cd $name-$version
 
-  # ensure gawk is found
-  sed -i s/mawk// configure
-
   mkdir -v build
   pushd build
-    ../configure
+    ../configure --prefix=/tools AWK=gawk
     make -C include
     make -C progs tic
+    install progs/tic /tools/bin
   popd
 
   ./configure --prefix=/usr \
@@ -28,15 +26,14 @@ build() {
     --with-cxx-shared \
     --without-debug \
     --without-ada \
-    --disable-stripping
+    --disable-stripping \
+    AWK=gawk
   make
-  make DESTDIR=$PKG TIC_PATH=$(pwd)/build/progs/tic install
+  make DESTDIR=$PKG install
 
-  #install -d $PKG/lib
-  #echo "INPUT(-lncursesw)" > $PKG/usr/lib/libncurses.so
-  ln -sv libncursesw.so $MIX/usr/lib/libncurses.so
+  ln -sv libncursesw.so $PKG/usr/lib/libncurses.so
   sed -e 's/^#if.*XOPEN.*$/#if 1/' \
-    -i $MIX/usr/include/curses.h
+    -i $PKG/usr/include/curses.h
 
   rm -rv $PKG/usr/share/man
 }

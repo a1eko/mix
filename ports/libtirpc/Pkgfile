@@ -1,0 +1,27 @@
+# Description: Transport Independent RPC library
+# URL: https://git.linux-nfs.org/?p=steved/libtirpc.git;a=summary
+# Maintainer: CRUX System Team, core-ports at crux dot nu
+
+name=libtirpc
+version=1.3.6
+release=mix-1
+source=(https://downloads.sourceforge.net/project/$name/$name/$version/$name-$version.tar.bz2
+	gcc15.patch)
+
+build() {
+    cd $name-$version
+
+    # upstream fixes
+    patch -Np1 -i ../gcc15.patch
+
+    # move path for rpcbind.sock to /run
+    sed 's|/var/run|/run|' -i tirpc/rpc/rpcb_prot.h
+
+    ./configure \
+        --prefix=/usr \
+        --sysconfdir=/etc \
+        --disable-gssapi
+
+    make
+    make DESTDIR=$PKG install
+}

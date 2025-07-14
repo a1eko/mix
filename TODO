@@ -1,7 +1,7 @@
 # - to do, + done, o attention/pending, x ignore
 
 o config (rc.conf): start dbus (runtime dependency/warnings of some X apps)
-o dist (install.sh): put public keys from https://crux.nu/keys/{core,contrib,opt,xorg}.pub to /etc/ports/
++ dist (install.sh): put public keys from https://crux.nu/keys/{core,contrib,opt,xorg}.pub to /etc/ports/
 o dist (install.sh, pkz): mix ports may contain crux .sigantures, pkz.sh will use .md5sum if it exists
 o ports (filesystem): never upgrade, overwrites /etc/{passwd,groups,shadow}
 o ports (firefox): disable WebGL (about:config, webgl.disabled=true) if needed (local AMD specific)
@@ -10,25 +10,56 @@ o ports (pkz): if pkz-upgrade fails, the old package is marked not installed (co
 o ports (python3): rebuild with deps in coreopt and graphics
 o ports (rc): restore mode 1777 of /dev/shm in rc.local if needed
 o ports: beware lfs linking of /{bin,lib*,sbin} to /usr is not compatible with crux
+o tools, ports (gcc, glibc, rust): beware crux replacing /usr/libexec with /usr/lib (FHS compliant), keep lfs instructions
+o ports (tar, ...): let crux replace /usr/libexec with /usr/lib (FHS compliant)
 o ports: define unpack_source() in pkz, redefine in Pkgfile's if needed (crux compat)
 o ports: disable stripping if unneeded or fragile (file .nostrip)
 o ports: replace 'pkginfo -i' and 'prt-get isinst' with 'pkz -i list' (crux compat)
-? tools (file): crux build depends on autoconf, moved to BASE2 after auto-tools <-- reverted to BASE1
++ tools (file): crux build depends on autoconf, moved to BASE2 after auto-tools <-- reverted to BASE1
 o tools, ports (*udev): beware lfs switching from eudev to udev from systemd
 o tools, ports (cmake, ninja, meson): added to tools/base system, reinstalling crux ports afterwards
-o tools, ports (gcc-fortran): crux port avoided, enable fortran in base gcc by default
-o tools, ports (install.sh,gcc,glibc,openssh,rust,tar): beware crux replacing /usr/libexec with /usr/lib (FHS compliant)
-o tools, ports (perl): keep v5.36 (crux compat)
-o tools, ports (python3): keep v3.10 (crux compat)
-- ports (eudev): remove group 'sgx' (lfs compat) or add to passwd/group (crux-3.8 compat)
+o tools, ports (gcc-fortran): avoid crux port, enable fortran in base gcc instead
+x tools, ports (perl): keep v5.36 (crux compat)
+x tools, ports (python3): keep v3.10 (crux compat)
++ ports (eudev): add 'sgx' to /etc/group (crux compat), lfs removes it
 - ports (dhcpcd, glibc): nscd: symbol lookup error: nscd: undefined symbol: __nss_disable_nscd, version GLIBC_PRIVATE
-o ports (rust): remove rust before upgrading, cleanup rust dirs manually
+o ports (rust): remove rust before upgrading, cleanup rust dirs manually if needed
 - tools, ports (pkz): gentoo distfiles mirror not available, drop mirror support
-o ports (inkscape): change ${name}-${version}* to ${name}-${version}_* 
+- ports (inkscape): change ${name}-${version}* to ${name}-${version}_* in mix pkg
 + tools (lz4): added by lfs as zstd dep
-o ports (webkitgtk): needs at least 2GB of RAM per CPU vcore, limit threads usage if necessary ('cmake --build -j 4')
-o ports (webkitgtk): breaks surf build if compiled with gtk4 (add '-D USE_GTK4=OFF')
+- ports (webkitgtk): needs at least 2GB of RAM per CPU vcore, limit threads usage if necessary ('cmake --build -j 4') in mix pkg
+- ports (webkitgtk): breaks surf build if compiled with gtk4 (add '-D USE_GTK4=OFF')
 + tools (flit-core): added to lfs as meson/wheel dependency
-o tools, ports (texinfo): v7.2 is broken (Texinfo::Convert::HTML), revert to v7.1.1
-o ports (clang): delete version checking in crux port (prt-get) or make pkz compatible with prt-get behavior
-- dist (tools): upgrade to crux v3.8 tools and packages (lfs glibc-1.41, gcc-14.2, perl-5.40, etc)
+x tools, ports (texinfo): v7.2 is broken (Texinfo::Convert::HTML), revert to v7.1.1
+- ports (clang): delete version checking in crux port (prt-get) or make pkz compatible with prt-get behavior
++ dist (tools): upgrade to crux v3.8 tools and packages
+x ports (perl): check crux port installs to /usr, not /
+- dist (ports): signify fails for crux packages if file renaming is applied (renames=)
+x ports (pkgconf): consider installing personality files (see crux/archlinux)
++ dist (nettle, rdfind, linux-{firmware,pam}, shadow): move to BASE2, add which as dep for rdfind
++ ports (ncurses): switch to lfs build instructions and version 6.5-20250531
++ ports (psmisc): switch to lfs build instructions
++ ports (python3-setuptools): add dependencies, use crux port, disable optimization
++ ports (util-linux): build after linux-pam and sqlite3
++ ports (shadow): add libbsd and libmd dep
++ ports (unzip): broken build, add " -std=gnu99" to CFLAGS
++ ports (yasm): add gcc15 fix
++ ports (db): broken build, add " -std=gnu99" to CFLAGS
++ ports (exim): broken build, depends on db
++ ports (libtirpc): add gcc15.patch
++ ports (cpio): broken build, add " -std=gnu99" to CFLAGS
++ ports (time): broken build, add " -std=gnu99" to CFLAGS
+- ports (surf): enable file download, eg to {$HOME,}/tmp
+- ports (tk): missing pkg
++ ports (openjpeg): missing pkg, replaced with openjpeg2
+- ports (moc): broken build
+x ports (liba52): missing pkg
+x ports (libxvid): missing pkg
+x ports (opencore-amr): missing pkg
+x ports (schroedinger): missing pkg
++ ports (mjpegtools): broken build, add -Wno-template-body to CXXFLAGS
++ ports (x265): broken build
+- ports (mplayer): broken build
++ ports (ffmpeg): missing ffplay binary, add dep libsdl2 to video.mix to build it
+x ports (mpv): add dependencies to video.mix
+o ports (libpng): watch apng patch to be merged to mainline (github pull 706)

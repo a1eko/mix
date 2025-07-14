@@ -1,0 +1,21 @@
+# Description: Decompress utility for zipfiles
+# URL: https://infozip.sourceforge.net/UnZip.html
+# Maintainer: CRUX System Team, core-ports at crux dot nu
+
+name=unzip
+version=6.0
+release=mix-8
+source=(https://downloads.sourceforge.net/sourceforge/infozip/${name}${version//./}.tar.gz
+  28-cve-2022-0529-and-cve-2022-0530.patch
+  cumulative.patch)
+
+build() {
+    cd ${name}${version//./}
+    patch -Np1 -i $SRC/cumulative.patch
+    patch -p1 -F3 -i $SRC/28-cve-2022-0529-and-cve-2022-0530.patch
+
+    sed -i 's/-O3//' unix/configure
+    make -f unix/Makefile LOCAL_UNZIP="$CFLAGS -std=gnu99" unzips
+    make -f unix/Makefile prefix=$PKG/usr MANDIR=$PKG/usr/share/man/man1 install
+    ln -sf unzip $PKG/usr/bin/zipinfo
+}

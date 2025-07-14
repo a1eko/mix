@@ -1,9 +1,9 @@
 # Description: internatinalization and localization utilities
 
 name=gettext
-version=0.24
+version=0.25
 release=0
-source=(http://ftp.gnu.org/gnu/gettext/gettext-$version.tar.xz)
+source=(https://ftp.gnu.org/gnu/gettext/gettext-$version.tar.xz)
 
 build() {
   cd $name-$version

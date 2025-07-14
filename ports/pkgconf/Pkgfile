@@ -1,0 +1,14 @@
+# Description: A system for managing library compile/link flags.
+
+name=pkgconf
+version=2.5.1
+release=mix-1
+source=(https://distfiles.ariadne.space/pkgconf/pkgconf-$version.tar.xz)
+
+build() {
+  cd $name-$version
+  ./configure --prefix=/usr --disable-static
+  make
+  make DESTDIR=$PKG install
+  rm -rv $PKG/usr/share/doc
+}

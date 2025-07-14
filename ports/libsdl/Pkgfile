@@ -1,0 +1,26 @@
+# Description: SDL, Simple DirectMedia Layer
+# URL: https://www.libsdl.org/
+# Maintainer: Tim Biermann, tbier at posteo dot de
+# Depends on: alsa-lib glu
+
+name=libsdl
+version=1.2.15
+release=mix-5
+source=(https://www.libsdl.org/release/SDL-$version.tar.gz
+  $name-1.2.x-libx11.patch $name-$version-bs.patch)
+
+build() {
+  cd SDL-$version
+
+  patch -p1 -i $SRC/$name-1.2.x-libx11.patch
+  patch -p1 -i $SRC/$name-$version-bs.patch
+
+  CFLAGS="$CFLAGS --std=gnu99" \
+  ./configure \
+    --prefix=/usr \
+    --enable-alsa \
+    --disable-rpath
+
+  make
+  make DESTDIR=$PKG install
+}

@@ -1,44 +1,47 @@
 # Description: Perl programming language
 # URL: https://www.perl.org/
 # Maintainer: CRUX System Team, core-ports at crux dot nu
-# Depends on: db gdbm libnsl libtirpc
+# Depends on: db gdbm libnsl libtirpc libxcrypt
 
 name=perl
-version=5.36.1
+version=5.40.2
 release=mix-1
-source=(https://www.cpan.org/src/5.0/$name-$version.tar.xz)
+source=(https://www.cpan.org/src/5.0/$name-$version.tar.xz
+	https://www.linuxfromscratch.org/patches/lfs/development/perl-$version-upstream_fix-1.patch)
 
 build() {
-	cd $name-$version
+    cd $name-$version
 
-	./Configure -des \
-		-Dprefix=/usr \
-		-Dvendorprefix=/usr \
-		-Dprivlib=/usr/lib/perl5/${version%.*} \
-		-Dsitelib=/usr/lib/perl5/site_perl/${version%.*} \
-		-Dvendorlib=/usr/lib/perl5/site_perl/${version%.*} \
-		-Darchname=linux \
-		-Dman1ext=1pm \
-		-Dman3ext=3pm \
-		-Di_gdbm \
-		-Di_db \
-		-Duseshrplib \
-		-Dusethreads \
-		-Doptimize="$CFLAGS"
-	make
-	make DESTDIR=$PKG install.perl
+    # security patch
+    patch -Np1 -i ../perl-$version-upstream_fix-1.patch
 
-	ln -sf perl${version%-*} $PKG/usr/bin/perl
-	#ln -sf perlbug.1pm $PKG/usr/share/man/man1/perlthanks.1pm
+    ./Configure -des \
+        -Dprefix=/usr \
+        -Dvendorprefix=/usr \
+        -Dprivlib=/usr/lib/perl5/${version%.*} \
+        -Dsitelib=/usr/lib/perl5/site_perl/${version%.*} \
+        -Dvendorlib=/usr/lib/perl5/site_perl/${version%.*} \
+        -Darchname=linux \
+        -Dman1ext=1pm \
+        -Dman3ext=3pm \
+        -Di_gdbm \
+        -Di_db \
+        -Duseshrplib \
+        -Dusethreads \
+        -Doptimize="$CFLAGS"
+    make
+    make DESTDIR=$PKG install.perl
 
-	find $PKG \
-		-iname 'TODO*' -or \
-		-iname 'Change*' -or \
-		-iname 'README*' -or \
-		-name '*.bs' -or \
-		-name '.packlist' -or \
-		-name 'perllocal.pod' | xargs rm
+    ln -sf perl${version%-*} $PKG/usr/bin/perl
 
-	find $PKG -depth -empty -exec rmdir {} \;
-	chmod -R +w $PKG
+    find $PKG \
+        -iname 'TODO*' -or \
+        -iname 'Change*' -or \
+        -iname 'README*' -or \
+        -name '*.bs' -or \
+        -name '.packlist' -or \
+        -name 'perllocal.pod' | xargs rm
+
+    find $PKG -depth -empty -exec rmdir {} \;
+    chmod -R +w $PKG
 }

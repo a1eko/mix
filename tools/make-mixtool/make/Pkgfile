@@ -3,13 +3,12 @@
 name=make
 version=4.4.1
 release=0
-source=(http://ftp.gnu.org/gnu/make/make-$version.tar.gz)
+source=(https://ftp.gnu.org/gnu/make/make-$version.tar.gz)
 
 build() {
   cd $name-$version
 
   ./configure --prefix=/usr \
-    --without-guile \
     --host=$MIX_TGT \
     --build=$(build-aux/config.guess)
   make

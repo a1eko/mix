@@ -1,11 +1,11 @@
 # Description: compiler collection
 
 name=gcc
-version=14.2.0
+version=15.1.0
 release=0pass2
-source=(http://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz
-	http://www.mpfr.org/mpfr-current/mpfr-4.2.2.tar.xz
-	http://ftp.gnu.org/gnu/gmp/gmp-6.3.0.tar.xz
+source=(https://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz
+	https://www.mpfr.org/mpfr-current/mpfr-4.2.2.tar.xz
+	https://ftp.gnu.org/gnu/gmp/gmp-6.3.0.tar.xz
 	https://ftp.gnu.org/gnu/mpc/mpc-1.3.1.tar.gz)
 
 build() {
@@ -34,7 +34,6 @@ build() {
     --build=$(../config.guess) \
     --host=$MIX_TGT \
     --target=$MIX_TGT \
-    LDFLAGS_FOR_TARGET=-L$PWD/$MIX_TGT/libgcc \
     --with-build-sysroot=$MIX \
     --enable-default-pie \
     --enable-default-ssp \
@@ -46,7 +45,8 @@ build() {
     --disable-libsanitizer \
     --disable-libssp \
     --disable-libvtv \
-    --enable-languages=c,c++
+    --enable-languages=c,c++ \
+    LDFLAGS_FOR_TARGET=-L$PWD/$MIX_TGT/libgcc
   make
   make DESTDIR=$PKG install
 

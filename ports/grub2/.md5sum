@@ -3,3 +3,4 @@ bf4ac2f1ee74359bd689fe6bee82f2e9  csum_seed.diff
 43e08eb0137bd7ffafda6bf4c7a9b327  extra_deps.lst
 8459e7425bf9eea9d482e53c5b5c91c9  grub.cfg.sample
 8945d02b41013f91b44652ba5c6caee9  grub2-tweaks.diff
+fc1de0fd5ce0f235906da98aefbd9517  unifont-9.0.06.pcf.gz

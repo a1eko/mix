@@ -1,0 +1,9 @@
+b99454564d5b4479750567031d66fe24  db-5.3.28.tar.gz
+3aae61a6f51f287cd8873bc58fcde500  db-5.3.21-memp_stat-upstream-fix.patch
+b886af5bc256d3a56d9be8f998f641b4  db-5.3.21-mutex_leak.patch
+749348bf7e8e7d2227a3834215cfca89  db-5.3.28-atomic_compare_exchange.patch
+796535a80a4ffb1421773ec11cb3ae96  db-5.3.28-fcntl-mutexes-bdb4.8.patch
+cbbbdecab1948c6255c091398b8393ed  db-5.3.28-lemon_hash.patch
+015f019e2731e18c4229ed5772707feb  db-5.3.28-mmap-high-cpu-usage.patch
+3d13121d5831374a4630971491317794  db-5.3.28-tls-configure.patch
+42de24f40ae2c7ea1b4c59352962029f  db-5.3.28_cve-2019-2708.patch

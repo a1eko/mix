@@ -13,7 +13,7 @@ python3-pyparsing
 python3-six
 
 python3-appdirs
-python3-packaging
+#python3-packaging
 
 libxml2
 mtdev
@@ -57,10 +57,10 @@ xorg-libxv
 xorg-libxvmc
 #xorg-libxxf86dga
 xorg-libxxf86vm
-#xorg-libdmx
 xorg-libpciaccess
 xorg-libxkbfile
 xorg-libxshmfence
+xorg-libxpresent
 
 xorg-libxcvt
 
@@ -72,7 +72,7 @@ xorg-xcb-util-wm
 xorg-xcb-util-cursor
 
 libyaml
-python
+#python
 python3-markupsafe
 python3-mako
 python3-pyyaml
@@ -86,7 +86,7 @@ glslang
 
 libdrm
 libvdpau
-libnsl
+#libnsl
 libva
 mesa
 
@@ -94,7 +94,7 @@ xorg-xbitmaps
 
 xorg-iceauth
 xorg-mkfontscale
-xorg-rgb
+#xorg-rgb
 xorg-sessreg
 xorg-setxkbmap
 xorg-x11perf
@@ -143,15 +143,14 @@ xorg-font-ibm-type1
 xorg-font-misc-cyrillic
 xorg-font-misc-misc
 xorg-font-dejavu-ttf
+xorg-font-xfree86-type1
 
 gobject-introspection
-nettle
+#nettle
 xorg-server
 
 xorg-xf86-input-evdev
 xorg-xf86-input-libinput
-#xorg-xf86-input-keyboard
-#xorg-xf86-input-mouse
 xorg-xf86-input-synaptics
 xorg-xf86-video-fbdev
 xorg-xf86-video-nouveau
@@ -163,8 +162,8 @@ glu
 freeglut
 mesa-demos
 
-cabextract
-xorg-font-msttcorefonts
+#cabextract
+#xorg-font-msttcorefonts
 
 xorg
 

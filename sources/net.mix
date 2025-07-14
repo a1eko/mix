@@ -3,7 +3,7 @@
 # NOTE: installs after {coreopt,graphics,sound,video}.mix
 #
 
-libevent
+#libevent
 libidl
 links
 nspr
@@ -24,5 +24,6 @@ compiler-rt
 clang
 
 icu
+gsettings-desktop-schemas
 
 firefox

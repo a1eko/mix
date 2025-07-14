@@ -1,0 +1,48 @@
+# Description: Berkeley DB
+# URL: https://www.oracle.com/technetwork/database/database-technologies/berkeleydb/
+# Maintainer: CRUX System Team, core-ports at crux dot nu
+
+name=db
+version=5.3.28
+release=mix-3
+source=(https://download.oracle.com/berkeley-db/$name-$version.tar.gz
+    db-5.3.21-memp_stat-upstream-fix.patch
+    db-5.3.21-mutex_leak.patch
+    db-5.3.28-lemon_hash.patch
+    db-5.3.28-mmap-high-cpu-usage.patch
+    db-5.3.28_cve-2019-2708.patch
+    db-5.3.28-atomic_compare_exchange.patch
+    db-5.3.28-fcntl-mutexes-bdb4.8.patch
+    db-5.3.28-tls-configure.patch
+)
+
+build() {
+    cd $name-$version
+
+    patch -p1 -i $SRC/db-5.3.21-memp_stat-upstream-fix.patch
+    patch -p1 -i $SRC/db-5.3.21-mutex_leak.patch
+    patch -p1 -i $SRC/db-5.3.28-lemon_hash.patch
+    patch -p1 -i $SRC/db-5.3.28_cve-2019-2708.patch
+    patch -p1 -i $SRC/db-5.3.28-mmap-high-cpu-usage.patch
+    patch -p1 -i $SRC/db-5.3.28-atomic_compare_exchange.patch
+    patch -p1 -i $SRC/db-5.3.28-fcntl-mutexes-bdb4.8.patch
+    patch -p1 -i $SRC/db-5.3.28-tls-configure.patch
+
+    cd build_unix
+
+    CFLAGS="$CFLAGS -std=gnu99 -Wno-error=implicit-int" \
+    ../dist/configure --prefix=/usr \
+        --enable-compat185 \
+        --enable-shared \
+        --enable-static \
+        --enable-cxx
+
+    make
+    make DESTDIR=$PKG install
+
+    mkdir -pv $PKG/var/lib/pkg
+    touch $PKG/var/lib/pkg/db
+
+    rm -r $PKG/usr/docs
+    chmod -R +w $PKG
+}

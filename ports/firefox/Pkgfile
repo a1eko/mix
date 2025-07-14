@@ -2,7 +2,7 @@
 # Depends on: autoconf-2.13 cbindgen dbus-glib gtk gtk3 libnotify llvm lld clang nasm nodejs nss alsa-lib python3 startup-notification unzip yasm zip
 
 name=firefox
-version=128.8.0
+version=140.0
 release=mix-1
 source=(https://archive.mozilla.org/pub/firefox/releases/${version}esr/source/firefox-${version}esr.source.tar.xz
 	mozconfig)
@@ -31,6 +31,6 @@ build() {
   install -d $PKG/usr/share/pixmaps
   ln -sv /usr/lib/firefox/browser/chrome/icons/default/default128.png $PKG/usr/share/pixmaps/firefox.png
 
-  rm -rv $PKG/usr/lib/firefox/browser/features
-  rm -v $PKG/usr/lib/firefox/removed-files
+  rm -rfv $PKG/usr/lib/firefox/browser/features
+  rm -fv $PKG/usr/lib/firefox/removed-files
 }

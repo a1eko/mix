@@ -1,7 +1,7 @@
 # Description: system C library
 
 name=glibc
-version=2.40
+version=2.41
 release=mix-1
 source=(https://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz
 	https://www.linuxfromscratch.org/patches/lfs/development/glibc-$version-fhs-1.patch
@@ -25,9 +25,10 @@ build()
   # crux compat libc_cv_slibdir
   ../configure --prefix=/usr \
     --disable-werror \
+    --disable-nscd \
     --enable-kernel=4.19 \
     --enable-stack-protector=strong \
-    --disable-nscd \
+    --enable-kernel=5.4 \
     libc_cv_slibdir=/lib  # crux compat
     #libc_cv_slibdir=/usr/lib  # lfs compat
   make

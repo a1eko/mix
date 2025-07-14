@@ -1,0 +1,22 @@
+# Description: A tool to copy files into or out of a cpio or tar archive
+# URL: https://www.gnu.org/software/cpio/
+# Maintainer: CRUX System Team, core-ports at crux dot nu
+
+name=cpio
+version=2.15
+release=mix-1
+source=(https://ftp.gnu.org/gnu/$name/$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+
+    CFLAGS="$CFLAGS -std=gnu99" \
+    ./configure --prefix=/usr \
+        --disable-nls
+
+    make
+    make DESTDIR=$PKG install
+
+    rm -r $PKG/usr/{libexec,share/info}
+    rm -r $PKG/usr/share/man/man8
+}

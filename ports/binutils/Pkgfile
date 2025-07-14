@@ -1,14 +1,11 @@
 # Description: linker, assembler and other development tools
 name=binutils
-version=2.43.1
-release=mix-2
-source=(https://ftp.gnu.org/gnu/binutils/binutils-$version.tar.xz
-	https://www.linuxfromscratch.org/patches/lfs/development/binutils-$version-upstream_fix-1.patch)
+version=2.44
+release=mix-1
+source=(https://ftp.gnu.org/gnu/binutils/binutils-$version.tar.xz)
 
 build() {
   cd $name-$version
-
-  patch -Np1 -i ../binutils-$version-upstream_fix-1.patch
 
   mkdir -v build
   cd build

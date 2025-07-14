@@ -1,0 +1,52 @@
+# Description: A multi-platform toolkit for creating graphical user interfaces
+# URL: https://www.gtk.org/
+# Maintainer: CRUX System Team, core-ports at crux dot nu
+# Depends on: at-spi2-core gdk-pixbuf hicolor-icon-theme pango xorg-libxcomposite xorg-libxcursor xorg-libxinerama xorg-libxrandr autoconf-archive
+
+name=gtk
+version=2.24.33
+release=mix-1
+source=(https://download.gnome.org/sources/gtk+/2.24/${name}+-$version.tar.xz
+    icon-padding.patch
+    tooltip-positioning.patch
+    window-dragging.patch
+    gtk2-c99.patch
+    gtk2-c89.patch
+    gtk2-c89-2.patch
+    gtk2-c89-3.patch
+    gtk2-c89-4.patch
+    gtk2-c89-5.patch
+    gtk2-c89-6.patch
+    gtk.immodules gtk-register.sh)
+
+build() {
+    cd gtk+-$version
+
+    patch -Np1 -i $SRC/icon-padding.patch
+    patch -Np1 -i $SRC/tooltip-positioning.patch
+    patch -Np1 -i $SRC/window-dragging.patch
+    patch -Np1 -i $SRC/gtk2-c99.patch
+    patch -Np1 -i $SRC/gtk2-c89.patch
+    patch -Np1 -i $SRC/gtk2-c89-2.patch
+    patch -Np1 -i $SRC/gtk2-c89-3.patch
+    patch -Np1 -i $SRC/gtk2-c89-4.patch
+    patch -Np1 -i $SRC/gtk2-c89-5.patch
+    patch -Np1 -i $SRC/gtk2-c89-6.patch
+
+    rm -v gdk/gdkmarshalers.{c,h} gtk/gtkmarshal.{c,h} gtk/gtkmarshalers.{c,h} \
+        perf/marshalers.{c,h} gtk/gtkaliasdef.c gtk/gtkalias.h
+
+    export CFLAGS="$CFLAGS -std=gnu99 -fno-strict-aliasing"
+    ./configure --prefix=/usr \
+      --disable-papi
+    sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool
+    make
+    make DESTDIR=$PKG install
+
+    install -m 0644 -D $SRC/gtk.immodules $PKG/usr/lib/gtk-2.0/2.10.0/immodules.cache
+    install -m 0755 $SRC/gtk-register.sh $PKG/usr/bin/gtk-register
+
+    rm -r \
+        $PKG/usr/share/{locale,gtk-doc,gtk-2.0} \
+        $PKG/usr/bin/{gtk-demo,gtk-update-icon-cache}
+}

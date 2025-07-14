@@ -1,0 +1,32 @@
+# Description: Tools for recording, editing, playing and encoding mpeg video.
+# URL: https://mjpeg.sourceforge.net
+# Maintainer: Tim Biermann, tbier at posteo dot de
+# Depends on: libdv libjpeg-turbo libpng
+# Optional: v4l-utils sdl_gfx
+
+name=mjpegtools
+version=2.2.1
+release=mix-1
+source=(https://downloads.sourceforge.net/project/mjpeg/$name/$version/$name-$version.tar.gz)
+
+build() {
+  cd $name-$version
+
+  sed -i -e '/ARCHFLAGS=/s:=.*:=:' configure
+
+  export CFLAGS+=' -fPIC'
+  export CXXFLAGS+=' -fPIC -Wno-template-body'
+  export LDFLAGS+=' -fPIC'
+
+  ./configure \
+    --prefix=/usr \
+    --enable-largefile \
+    --enable-simd-accel \
+    --disable-dependency-tracking \
+    --disable-assert
+
+  make
+  make DESTDIR=$PKG install
+
+  rm -r $PKG/usr/share/info
+}

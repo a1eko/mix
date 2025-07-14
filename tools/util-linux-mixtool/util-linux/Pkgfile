@@ -1,7 +1,7 @@
 # Description: miscellaneous utility programs
 
 name=util-linux
-version=2.41
+version=2.41.1
 release=0
 source=(https://www.kernel.org/pub/linux/utils/$name/v${version:0:4}/$name-$version.tar.xz)
 
@@ -13,6 +13,7 @@ build() {
 	        --libdir=/lib \
 		--bindir=/usr/bin \
 		--sbindir=/sbin \
+	        --runstatedir=/run \
                 --disable-nls \
                 --disable-asciidoc \
                 --disable-{login,su,sulogin,nologin,runuser,vipw,raw,newgrp,bfs,minix} \
@@ -21,18 +22,22 @@ build() {
                 --disable-chfn-chsh \
 		--disable-liblastlog2 \
                 --without-python
-                #--enable-{write,kill} \
 
     make
     make DESTDIR=$PKG install
 
-    # FIXME fix /run filesystem elsewhere (also runstatedir=/run above?)
-    #install -d $PKG/{etc,var/{lib/libuuid,run/uuidd}}
     install -d $PKG/{etc,var/lib/libuuid}
     touch $PKG/etc/adjtime
 
-    rm -rv $PKG/usr/share/{doc,bash-completion}
-    #rm -v  $PKG/sbin/{mkfs.bfs,mkfs.minix,fsck.minix}
+    # crux compat
+    install -d $PKG/{bin,usr/sbin,usr/lib}
+    mv $PKG/usr/bin/{dmesg,findmnt,kill,lsblk,lsfd,more} $PKG/bin
+    mv $PKG/usr/bin/{mount,mountpoint,pipesz,umount,wdctl} $PKG/bin
+    mv $PKG/sbin/{addpart,delpart,ldattach,partx,readprofile} $PKG/usr/sbin
+    mv $PKG/sbin/{resizepart,rfkill,rtcwake,uuidd} $PKG/usr/sbin
+    mv $PKG/lib/pkgconfig $PKG/usr/lib
+
     rm -rv $PKG/usr/share/man
+    rm -rv $PKG/usr/share/{bash-completion,doc}
     rmdir -v $PKG/usr/share
 }

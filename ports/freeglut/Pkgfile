@@ -1,0 +1,30 @@
+# Description: A free alternative to the OpenGL Utility Toolkit (GLUT) library
+# URL: http://freeglut.sourceforge.net/
+# Maintainer: Tim Biermann, tbier at posteo dot de
+# Depends on: glu xorg-libxi
+
+name=freeglut
+version=3.6.0
+release=mix-1
+source=(https://downloads.sourceforge.net/$name/$name-$version.tar.gz)
+
+build() {
+  # fix a problem when building with gcc-15
+  pushd $name-$version
+  sed -e '/Context/s/()/(SFG_PlatformDisplay, SFG_WindowContextType)/' \
+      -i src/egl/fg_init_egl.h
+  popd
+
+  cmake -S $name-$version -B build -G Ninja \
+    -D CMAKE_INSTALL_PREFIX=/usr \
+    -D CMAKE_INSTALL_LIBDIR=lib \
+    -D CMAKE_BUILD_TYPE=Release \
+    -D CMAKE_CXX_FLAGS_RELEASE="$CXXFLAGS" \
+    -D CMAKE_C_FLAGS_RELEASE="$CFLAGS" \
+    -Wno-dev
+
+  cmake --build build
+  DESTDIR=$PKG cmake --install build
+
+  ln -s glut.pc $PKG/usr/lib/pkgconfig/freeglut.pc
+}

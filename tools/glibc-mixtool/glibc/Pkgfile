@@ -3,8 +3,8 @@
 name=glibc
 version=2.41
 release=0
-source=(http://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz
-	http://www.linuxfromscratch.org/patches/downloads/glibc/glibc-$version-fhs-1.patch)
+source=(https://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz
+	https://www.linuxfromscratch.org/patches/downloads/glibc/glibc-$version-fhs-1.patch)
 
 build() {
   cd $name-$version
@@ -31,9 +31,9 @@ build() {
   ../configure --prefix=/usr \
     --host=$MIX_TGT \
     --build=$(../scripts/config.guess) \
+    --disable-nscd \
     --enable-kernel=5.4 \
     --with-headers=$MIX/usr/include \
-    --disable-nscd \
     libc_cv_slibdir=/lib  # crux compat
     #libc_cv_slibdir=/usr/lib  # lfs compat
   make

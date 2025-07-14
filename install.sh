@@ -28,14 +28,14 @@ test "$MIX_TST" = no && export TST=:
 P=$MIX/usr/packages
 
 BASE1="iana-etc glibc lzip tzdata zlib bzip2 xz lz4 zstd file readline m4 \
-  bc flex tcl expect dejagnu pkgconf binutils libgmp libmpfr libmpc linux-firmware \
-  attr acl libcap libxcrypt linux-pam shadow gcc"
+  bc flex tcl expect dejagnu pkgconf binutils libgmp libmpfr libmpc \
+  attr acl libcap libxcrypt gcc"
 
 BASE2="ncurses sed psmisc gettext bison grep bash libtool gdbm \
-  gperf expat inetutils less perl autoconf automake openssl kmod elfutils \
-  libffi python3 python3-setuptools python3-flit-core python3-wheel meson coreutils check diffutils gawk findutils groff \
-  gzip kbd libpipeline make patch tar man-pages man-db texinfo vim \
-  eudev procps util-linux e2fsprogs sysklogd sysvinit sudo rc"
+  gperf expat inetutils less perl autoconf automake openssl elfutils \
+  libffi mpdecimal python3 python3-flit-core python3-installer python3-pyproject-hooks python3-packaging python3-build python3-tomli python3-wheel python3-setuptools python3-pip ninja meson kmod coreutils check diffutils gawk findutils groff \
+  gzip iproute2 kbd libpipeline make patch tar texinfo vim \
+  eudev man-pages man-db procps e2fsprogs sysklogd sysvinit nettle which rdfind linux-firmware linux-pam sqlite3 util-linux libmd libbsd shadow sudo rc"
 
 BIOS_BOOT="nasm syslinux"
 UEFI_BOOT="libpng freetype libdevmapper grub2 grub2-efi efivar efibootmgr"
@@ -49,7 +49,7 @@ toolsh="env -i MIX=$MIX PKZ=$MIX PKZCONF=$MIX/usr/sources/pkz.conf \
   /bin/bash -e +h -c"
 
 JOBS=$(nproc)
-MAKEFLAGS="-j${JOBS-1}"
+MAKEFLAGS="-j${JOBS:-1}"
 
 chrootsh="sudo chroot $MIX /usr/bin/env -i \
   PKZCONF=/usr/sources/pkz.conf HOME=/root TERM=linux LC_ALL=C \
@@ -82,11 +82,11 @@ mkdir -pv $MIX/tools
 mkdir -pv $MIX/usr/{packages,sources}
 mkdir -pv $MIX/{tools/bin,var/log/{packages,sources}}
 cp -r sources $MIX/usr/
-rsync -rqz crux.nu::ports/crux-3.7/core/ $MIX/usr/packages
-rsync -rqz crux.nu::ports/crux-3.7/opt/ $MIX/usr/packages
-rsync -rqz crux.nu::ports/crux-3.7/contrib/check $MIX/usr/packages
-rsync -rqz crux.nu::ports/crux-3.7/contrib/tcl $MIX/usr/packages
-rsync -rqz crux.nu::ports/crux-3.7/contrib/lynx $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.8/core/ $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.8/opt/ $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.8/contrib/check $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.8/contrib/lynx $MIX/usr/packages
+rsync -rqz crux.nu::ports/crux-3.8/contrib/lz4 $MIX/usr/packages
 cp -r {ports,tools}/* $MIX/usr/packages/
 sed -e 's/pkginfo -i/pkz -i list/g' \
     -e 's/prt-get isinst/pkz -i list/g' \
@@ -94,7 +94,6 @@ sed -e 's/pkginfo -i/pkz -i list/g' \
 rm -f $MIX/usr/packages/C*
 
 mkdir -pv $MIX/etc/ports
-#rsync -rqz crux.nu::keys/{core,opt,contrib,xorg}.pub $MIX/etc/ports
 (cd $MIX/etc/ports; wget -q https://crux.nu/keys/{core,opt,contrib,xorg}.pub)
 
 sudo ln -sfv $MIX/tools /
@@ -182,11 +181,6 @@ $toolsh "
   rm a.out
 "
 
-# FIXME no mkheaders anymore
-#$toolsh "
-#  $MIX/tools/libexec/gcc/$MIX_TGT/*/install-tools/mkheaders
-#"
-
 $toolsh "pkz -p $P/gcc-mixtool-libstdcxx -f install gcc"
 $toolsh "pkz -p $P/gcc-mixtool-libstdcxx clean gcc"
 
@@ -243,16 +237,20 @@ sudo mkdir -pv $MIX/{dev,proc,sys,run}
 sudo mknod -m 600 $MIX/dev/console c 5 1
 sudo mknod -m 666 $MIX/dev/null c 1 3
 sudo mount -v --bind /dev $MIX/dev
-sudo mount -v --bind /dev/pts $MIX/dev/pts
+sudo mount -vt devpts devpts -o gid=5,mode=0620 $MIX/dev/pts
 sudo mount -vt proc proc $MIX/proc
 sudo mount -vt sysfs sysfs $MIX/sys
 sudo mount -vt tmpfs tmpfs $MIX/run
+
 if [ -h $MIX/dev/shm ]; then
-  sudo mkdir -pv $MIX/$(readlink $MIX/dev/shm)
+  sudo install -v -d -m 1777 $MIX$(realpath /dev/shm)
+else
+  sudo mount -vt tmpfs -o nosuid,nodev tmpfs $MIX/dev/shm
 fi
 
 sudo bash -c "echo export JOBS=$JOBS >> $MIX/usr/sources/pkz.conf"
 sudo bash -c "echo 127.0.0.1 localhost $(hostname) > $MIX/etc/hosts"
+sudo bash -c "echo ::1 localhost >> $MIX/etc/hosts"
 
 $chrootsh "pkz install filesystem"
 $chrootsh "pkz clean   filesystem"
@@ -311,12 +309,12 @@ $chrootsh "pkz clean $BASE1"
 
 $chrootsh "
   cd /usr/sources
-  echo 'main(){}' | cc -v -x c -Wl,--verbose - &> dummy.log
+  echo 'int main(){}' | cc -x c - -v -Wl,--verbose &> dummy.log
   readelf -l a.out | grep ': /lib'
-  grep -o '/usr/lib.*/crt[1in].*succeeded' dummy.log
+  grep -E -o '/usr/lib.*/S?crt[1in].*succeeded' dummy.log
   grep -B4 '^ /usr/include' dummy.log
-  grep ' /lib.*/libc.so.6 succeeded' dummy.log
-  grep 'found ld-linux.*.so.2 at /lib.*/ld-linux.*.so.2' dummy.log
+  grep ' /lib.*/libc.so.6 ' dummy.log
+  grep 'found' dummy.log
   grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g' > dummy2.log
   grep 'SEARCH_DIR(\"/usr/lib\")' dummy2.log
   grep 'SEARCH_DIR(\"/lib\")' dummy2.log
@@ -360,8 +358,9 @@ echo core system built in $MIX
 
 $chrootsh "find /usr -depth -name $(uname -m)-mix-linux-gnu\* | xargs rm -rf"
 
-sudo umount -v $MIX/dev{/pts,}
-sudo umount -v $MIX/{sys,proc,run}
+sudo umount -v $MIX/dev/pts
+sudo mountpoint -q $MIX/dev/shm && sudo umount -v $MIX/dev/shm
+sudo umount -v $MIX/{dev,run,proc,sys}
 
 cat > /dev/stdout << EOF
 

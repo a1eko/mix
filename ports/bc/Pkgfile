@@ -7,7 +7,7 @@ source=(https://github.com/gavinhoward/$name/archive/$version/$name-$version.tar
 
 build() { 
   cd $name-$version
-  CC=gcc ./configure --prefix=/usr --disable-nls -G -O3 -r
+  CC='gcc -std=c99' ./configure --prefix=/usr --disable-nls -G -O3 -r
   make
   make DESTDIR=$PKG install
 }

@@ -1,9 +1,9 @@
 # Description: a program which helps to configure compiler and linker flags for development libraries
 
 name=pkgconf
-version=2.2.0
+version=2.5.1
 release=0
-source=(https://distfiles.dereferenced.org/pkgconf/$name-$version.tar.xz)
+source=(https://distfiles.ariadne.space/pkgconf/pkgconf-$version.tar.xz)
 
 build() {
   cd $name-$version
