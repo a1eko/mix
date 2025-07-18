@@ -94,7 +94,7 @@ xorg-xbitmaps
 
 xorg-iceauth
 xorg-mkfontscale
-#xorg-rgb
+xorg-rgb
 xorg-sessreg
 xorg-setxkbmap
 xorg-x11perf
@@ -167,6 +167,7 @@ mesa-demos
 
 xorg
 
+nasm
 libjpeg-turbo
 slstatus
 xterm

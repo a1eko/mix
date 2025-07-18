@@ -3,7 +3,7 @@
 # Maintainer:  Aaron Ball, nullspoon at oper dot io
 # Depends on:
 name=isl
-version=0.26
+version=0.27
 release=1
 source=(https://libisl.sourceforge.io/isl-${version}.tar.xz)
 

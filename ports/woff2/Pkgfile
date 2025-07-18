@@ -1,0 +1,27 @@
+# Description: Web Open Font Format 2 reference implementation
+# URL: https://github.com/google/woff2
+# Maintainer: Tim Biermann, tbier at posteo dot de
+# Depends on: brotli
+
+name=woff2
+version=1.0.2
+release=mix-3
+source=(https://github.com/google/$name/archive/v$version/$name-v$version.tar.gz)
+
+build() {
+  # fix a problem when building with gcc-15
+  sed -i '/output.h/i #include <cstdint>' $name-$version/src/woff2_out.cc
+
+  sed -i 's/NOT BUILD_SHARED_LIBS/TRUE/' $name-$version/CMakeLists.txt
+
+  cmake -S $name-$version -B build -G Ninja \
+    -D CMAKE_INSTALL_PREFIX=/usr \
+    -D CMAKE_INSTALL_LIBDIR=lib \
+    -D CMAKE_BUILD_TYPE=Release \
+    -D CMAKE_CXX_FLAGS_RELEASE="$CXXFLAGS" \
+    -D CMAKE_C_FLAGS_RELEASE="$CFLAGS" \
+    -Wno-dev
+
+  cmake --build build
+  DESTDIR=$PKG cmake --install build
+}

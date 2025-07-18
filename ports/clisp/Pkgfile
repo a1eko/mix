@@ -1,0 +1,31 @@
+# Description: GNU CLisp is an ANSI Common Lisp Implementation.
+# Depends on: libsigsegv readline libffcall
+
+name=clisp
+version=2.49.95
+release=mix-1
+_rev=afa64df1c2bd92175159e8065117ec7286c65522
+source=(
+  #https://gitlab.com/gnu-clisp/clisp#commit=$_rev
+  clisp-fix-build-with-gcc-15.1.patch
+)
+
+build() {
+  git clone https://gitlab.com/gnu-clisp/clisp.git clisp
+  cd clisp
+  git reset --hard $_rev
+
+  patch -Np1 -i ../clisp-fix-build-with-gcc-15.1.patch
+
+  FORCE_UNSAFE_CONFIGURE=1 \
+  CFLAGS+=" -ffat-lto-objects" \
+  ./configure --prefix=/usr --with-readline --with-ffcall --with-threads=POSIX_THREADS src
+
+  cd src
+  ./makemake --prefix=/usr --with-readline --with-ffcall --with-dynamic-ffi > Makefile
+  make -j1
+  make -j1 DESTDIR=$PKG install
+
+  rm -r $PKG/usr/share/{doc,locale}
+}
+

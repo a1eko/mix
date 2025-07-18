@@ -9,6 +9,7 @@ release=mix-1
 build() {
   git clone https://git.suckless.org/$name $name
   cd $name
+  sed -i 's@curl -g -L -J -O@& --output-dir $HOME/tmp@' config.def.h
   make CC=gcc DESTDIR=$PKG PREFIX=/usr clean install
 
   cat << EOF > surftab.sh

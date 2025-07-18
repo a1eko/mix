@@ -15,41 +15,28 @@ o ports (tar, ...): let crux replace /usr/libexec with /usr/lib (FHS compliant)
 o ports: define unpack_source() in pkz, redefine in Pkgfile's if needed (crux compat)
 o ports: disable stripping if unneeded or fragile (file .nostrip)
 o ports: replace 'pkginfo -i' and 'prt-get isinst' with 'pkz -i list' (crux compat)
-+ tools (file): crux build depends on autoconf, moved to BASE2 after auto-tools <-- reverted to BASE1
 o tools, ports (*udev): beware lfs switching from eudev to udev from systemd
 o tools, ports (cmake, ninja, meson): added to tools/base system, reinstalling crux ports afterwards
-o tools, ports (gcc-fortran): avoid crux port, enable fortran in base gcc instead
-x tools, ports (perl): keep v5.36 (crux compat)
-x tools, ports (python3): keep v3.10 (crux compat)
-+ ports (eudev): add 'sgx' to /etc/group (crux compat), lfs removes it
-- ports (dhcpcd, glibc): nscd: symbol lookup error: nscd: undefined symbol: __nss_disable_nscd, version GLIBC_PRIVATE
+o tools, ports (gcc-fortran): avoid crux port, enable fortran in base gcc package instead
++ ports (eudev): add 'sgx' to /etc/group (crux compat, lfs removes it)
+x ports (dhcpcd, glibc): nscd: symbol lookup error: nscd: undefined symbol: __nss_disable_nscd, version GLIBC_PRIVATE
 o ports (rust): remove rust before upgrading, cleanup rust dirs manually if needed
 - tools, ports (pkz): gentoo distfiles mirror not available, drop mirror support
 - ports (inkscape): change ${name}-${version}* to ${name}-${version}_* in mix pkg
 + tools (lz4): added by lfs as zstd dep
-- ports (webkitgtk): needs at least 2GB of RAM per CPU vcore, limit threads usage if necessary ('cmake --build -j 4') in mix pkg
-- ports (webkitgtk): breaks surf build if compiled with gtk4 (add '-D USE_GTK4=OFF')
++ ports (webkitgtk): needs at least 2GB of RAM per CPU vcore, limit threads usage if necessary ('cmake --build -j 4') in mix pkg
++ ports (webkitgtk): breaks surf build if compiled with gtk4 (add '-D USE_GTK4=OFF')
 + tools (flit-core): added to lfs as meson/wheel dependency
-x tools, ports (texinfo): v7.2 is broken (Texinfo::Convert::HTML), revert to v7.1.1
-- ports (clang): delete version checking in crux port (prt-get) or make pkz compatible with prt-get behavior
++ ports (clang): delete version checking in crux port (prt-get)
 + dist (tools): upgrade to crux v3.8 tools and packages
-x ports (perl): check crux port installs to /usr, not /
-- dist (ports): signify fails for crux packages if file renaming is applied (renames=)
-x ports (pkgconf): consider installing personality files (see crux/archlinux)
+o dist (ports): signify fails for crux packages if file renaming is applied (renames=)
 + dist (nettle, rdfind, linux-{firmware,pam}, shadow): move to BASE2, add which as dep for rdfind
 + ports (ncurses): switch to lfs build instructions and version 6.5-20250531
 + ports (psmisc): switch to lfs build instructions
 + ports (python3-setuptools): add dependencies, use crux port, disable optimization
 + ports (util-linux): build after linux-pam and sqlite3
 + ports (shadow): add libbsd and libmd dep
-+ ports (unzip): broken build, add " -std=gnu99" to CFLAGS
-+ ports (yasm): add gcc15 fix
-+ ports (db): broken build, add " -std=gnu99" to CFLAGS
-+ ports (exim): broken build, depends on db
-+ ports (libtirpc): add gcc15.patch
-+ ports (cpio): broken build, add " -std=gnu99" to CFLAGS
-+ ports (time): broken build, add " -std=gnu99" to CFLAGS
-- ports (surf): enable file download, eg to {$HOME,}/tmp
++ ports (surf): enable file download, eg to {$HOME,}/tmp
 - ports (tk): missing pkg
 + ports (openjpeg): missing pkg, replaced with openjpeg2
 + ports (moc): broken build, add path to m4 scripts: 'autoreconf -fvi -I /usr/share/gettext/m4'
@@ -59,7 +46,8 @@ x ports (opencore-amr): missing pkg
 x ports (schroedinger): missing pkg
 + ports (mjpegtools): broken build, add -Wno-template-body to CXXFLAGS
 + ports (x265): broken build
-- ports (mplayer): broken build
++ ports (mplayer): broken build, switch to latest checkout
 + ports (ffmpeg): missing ffplay binary, add dep libsdl2 to video.mix to build it
 x ports (mpv): add dependencies to video.mix
-o ports (libpng): watch apng patch to be merged to mainline (github pull 706)
+o ports (libpng): watch apng patch (dep for firefox) to be merged to mainline (github pull 706)
+- ports (gcc): rebuild after installing isl

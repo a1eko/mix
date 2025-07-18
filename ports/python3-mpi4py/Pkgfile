@@ -2,7 +2,7 @@
 # Depends on: python3 mpich python3-cython
 
 name=python3-mpi4py
-version=4.0.1
+version=4.1.0
 release=mix-1
 source=(https://github.com/${name#*-}/${name#*-}/archive/refs/tags/$version.tar.gz)
 

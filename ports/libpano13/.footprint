@@ -18,18 +18,17 @@ drwxr-xr-x	root/root	usr/include/pano13/
 -rw-r--r--	root/root	usr/include/pano13/filter.h
 -rw-r--r--	root/root	usr/include/pano13/panorama.h
 -rw-r--r--	root/root	usr/include/pano13/panotypes.h
--rw-r--r--	root/root	usr/include/pano13/pt_stdint.h
 -rw-r--r--	root/root	usr/include/pano13/pteditor.h
 -rw-r--r--	root/root	usr/include/pano13/ptutils.h
 -rw-r--r--	root/root	usr/include/pano13/queryfeature.h
 -rw-r--r--	root/root	usr/include/pano13/version.h
-drwxr-xr-x	root/root	usr/lib/
--rwxr-xr-x	root/root	usr/lib/libpano13.la
-lrwxrwxrwx	root/root	usr/lib/libpano13.so -> libpano13.so.3.0.0
-lrwxrwxrwx	root/root	usr/lib/libpano13.so.3 -> libpano13.so.3.0.0
--rwxr-xr-x	root/root	usr/lib/libpano13.so.3.0.0
-drwxr-xr-x	root/root	usr/lib/pkgconfig/
--rw-r--r--	root/root	usr/lib/pkgconfig/libpano13.pc
+drwxr-xr-x	root/root	usr/lib64/
+-rw-r--r--	root/root	usr/lib64/libpano13.a
+lrwxrwxrwx	root/root	usr/lib64/libpano13.so -> libpano13.so.3
+lrwxrwxrwx	root/root	usr/lib64/libpano13.so.3 -> libpano13.so.3.0.0
+-rwxr-xr-x	root/root	usr/lib64/libpano13.so.3.0.0
+drwxr-xr-x	root/root	usr/lib64/pkgconfig/
+-rw-r--r--	root/root	usr/lib64/pkgconfig/libpano13.pc
 drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/man/
 drwxr-xr-x	root/root	usr/share/man/man1/
@@ -45,3 +44,12 @@ drwxr-xr-x	root/root	usr/share/man/man1/
 -rw-r--r--	root/root	usr/share/man/man1/PTtiffdump.1.gz
 -rw-r--r--	root/root	usr/share/man/man1/PTuncrop.1.gz
 -rw-r--r--	root/root	usr/share/man/man1/panoinfo.1.gz
+drwxr-xr-x	root/root	usr/share/pano13/
+drwxr-xr-x	root/root	usr/share/pano13/doc/
+-rw-r--r--	root/root	usr/share/pano13/doc/AUTHORS
+-rw-r--r--	root/root	usr/share/pano13/doc/COPYING
+-rw-r--r--	root/root	usr/share/pano13/doc/Optimize.txt
+-rw-r--r--	root/root	usr/share/pano13/doc/PTblender.readme
+-rw-r--r--	root/root	usr/share/pano13/doc/PTmender.readme
+-rw-r--r--	root/root	usr/share/pano13/doc/README
+-rw-r--r--	root/root	usr/share/pano13/doc/stitch.txt

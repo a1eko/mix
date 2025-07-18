@@ -12,11 +12,10 @@ drwxr-xr-x	build/users	usr/include/pkgconf/libpkgconf/
 -rw-r--r--	build/users	usr/include/pkgconf/libpkgconf/libpkgconf.h
 -rw-r--r--	build/users	usr/include/pkgconf/libpkgconf/stdinc.h
 drwxr-xr-x	build/users	usr/lib/
--rw-r--r--	build/users	usr/lib/libpkgconf.a
 -rwxr-xr-x	build/users	usr/lib/libpkgconf.la
-lrwxrwxrwx	build/users	usr/lib/libpkgconf.so -> libpkgconf.so.4.0.0
-lrwxrwxrwx	build/users	usr/lib/libpkgconf.so.4 -> libpkgconf.so.4.0.0
--rwxr-xr-x	build/users	usr/lib/libpkgconf.so.4.0.0
+lrwxrwxrwx	build/users	usr/lib/libpkgconf.so -> libpkgconf.so.7.0.0
+lrwxrwxrwx	build/users	usr/lib/libpkgconf.so.7 -> libpkgconf.so.7.0.0
+-rwxr-xr-x	build/users	usr/lib/libpkgconf.so.7.0.0
 drwxr-xr-x	build/users	usr/lib/pkgconfig/
 -rw-r--r--	build/users	usr/lib/pkgconfig/libpkgconf.pc
 drwxr-xr-x	build/users	usr/share/

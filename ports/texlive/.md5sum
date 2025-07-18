@@ -1,3 +1,5 @@
 f15ac876fcdc8be865b16535f480aa54  texi2html-5.0.tar.bz2
-1da2f08e3ba4a3708870dd088c1d6823  texlive-20240312-source.tar.xz
-e67ce334dd0fddda5f4a87b4fcaaf48f  texlive-20240312-texmf.tar.xz
+699b3a9871885e54f35c155332d69da4  texlive-20250308-source.tar.xz
+9b3093da81e6eacf98fde86589471a22  texlive-20250308-texmf.tar.xz
+85d9a28badf0967c2b3a29aa5a320e4f  tabu.sty.diff
+61ac543e4f878648a60cf263bc544c50  texlive-20250308-source-upstream_fixes-1.patch

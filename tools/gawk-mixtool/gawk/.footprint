@@ -2,7 +2,7 @@ drwxr-xr-x	build/users	usr/
 drwxr-xr-x	build/users	usr/bin/
 lrwxrwxrwx	build/users	usr/bin/awk -> gawk
 -rwxr-xr-x	build/users	usr/bin/gawk
-hrwxr-xr-x	build/users	usr/bin/gawk-5.2.2 link to ./usr/bin/gawk
+hrwxr-xr-x	build/users	usr/bin/gawk-5.3.2 link to ./usr/bin/gawk
 -rwxr-xr-x	build/users	usr/bin/gawkbug
 drwxr-xr-x	build/users	usr/include/
 -rw-r--r--	build/users	usr/include/gawkapi.h
@@ -52,5 +52,6 @@ drwxr-xr-x	build/users	usr/share/awk/
 -rw-r--r--	build/users	usr/share/awk/round.awk
 -rw-r--r--	build/users	usr/share/awk/shellquote.awk
 -rw-r--r--	build/users	usr/share/awk/strtonum.awk
+-rw-r--r--	build/users	usr/share/awk/tocsv.awk
 -rw-r--r--	build/users	usr/share/awk/walkarray.awk
 -rw-r--r--	build/users	usr/share/awk/zerofile.awk

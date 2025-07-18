@@ -1,0 +1,44 @@
+# Description: clang compiler
+# URL: https://clang.llvm.org/
+# Maintainer: CRUX System Team, core-ports at crux dot nu
+# Depends on: compiler-rt
+
+name=clang
+version=20.1.8
+release=mix-1
+source=(https://github.com/llvm/llvm-project/releases/download/llvmorg-$version/clang-$version.src.tar.xz
+    https://github.com/llvm/llvm-project/releases/download/llvmorg-$version/clang-tools-extra-$version.src.tar.xz
+    https://github.com/llvm/llvm-project/releases/download/llvmorg-$version/llvm-$version.src.tar.xz
+    https://github.com/llvm/llvm-project/releases/download/llvmorg-$version/cmake-$version.src.tar.xz
+    )
+
+build() {
+#    llvm_version=$(prt-get current llvm)
+#    if [ ! "$llvm_version" == "$version-$release" ]; then
+#        printf '\e[31m%s\e[m\n' "llvm out-of-sync error!
+#Your current llvm version is $llvm_version, while this Pkgfile currently
+#provides $version-$release.
+#
+#The build may not fail but produce problems later on. To save your time the
+#build will exit here. Please update llvm and compiler-rt first."
+#        exit 1
+#    fi
+
+    mv clang-tools-extra-$version.src clang-$version.src/tools/extra
+    pkz -i list ccache && PKGMK_CLANG+=' -D LLVM_CCACHE_BUILD=ON'
+
+    mv cmake-$version.src cmake
+
+    cmake -S $name-$version.src -B build -G Ninja $PKGMK_CLANG \
+        -D CMAKE_INSTALL_PREFIX=/usr \
+        -D CMAKE_INSTALL_LIBEXECDIR=lib/clang \
+        -D CMAKE_BUILD_TYPE=Release \
+        -D CMAKE_C_FLAGS_RELEASE="$CFLAGS" \
+        -D CMAKE_CXX_FLAGS_RELEASE="$CXXFLAGS" \
+        -D LLVM_MAIN_SRC_DIR="$SRC/llvm-$version.src" \
+        -D LLVM_PARALLEL_COMPILE_JOBS="${JOBS:-1}" \
+        -D LLVM_INCLUDE_TESTS=OFF \
+        -Wno-dev
+    cmake --build build
+    DESTDIR=$PKG cmake --install build
+}

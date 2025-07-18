@@ -1,0 +1,201 @@
+# Description: TeX distribution for UNIX compatible systems
+# URL: https://www.tug.org/texlive
+# Maintainer: Tim Biermann, tbier at posteo dot de
+# Depends on: clisp ghostscript graphite2 harfbuzz icu libgd libmpfr paper potrace xorg-libxaw xorg-libxi zziplib
+
+name=texlive
+version=20250308
+release=mix-1
+source=(ftp://tug.org/historic/systems/texlive/${version:0:4}/$name-$version-texmf.tar.xz
+  ftp://tug.org/historic/systems/texlive/${version:0:4}/$name-$version-source.tar.xz
+  https://download.savannah.gnu.org/releases/texi2html/texi2html-5.0.tar.bz2
+  https://www.linuxfromscratch.org/patches/blfs/svn/texlive-20250308-source-upstream_fixes-1.patch
+  tabu.sty.diff)
+
+# mix
+#unpack_source() {
+#  for file in ${source[@]}; do
+#    case ${file##*/} in
+#      $name-$version-source.tar.xz)
+#        bsdtar -p -o -C $SRC -xf $(get_filename $file) ;;
+#      $name-$version-texmf.tar.xz)
+#        mkdir -p $PKG/usr/share
+#        bsdtar -p -o -C $PKG/usr/share -xf $(get_filename $file) --strip-components 1 ;;
+#      texi2html-5.0.tar.bz2)
+#        bsdtar -p -o -C $SRC -xf $(get_filename $file) ;;
+#      *)
+#        cp $(get_filename $file) $SRC ;;
+#    esac
+#  done
+#}
+
+build() {
+  # mix
+  mkdir -pv $PKG/usr/share
+  mv $name-$version-texmf/texmf-dist $PKG/usr/share/
+
+  cd $name-$version-source
+
+  # blfs patch
+  patch -Np1 -i ../texlive-20250308-source-upstream_fixes-1.patch
+
+  # Fix some paths
+  sed -i 's/SELFAUTOPARENT/TEXMFROOT/' texk/tex4htk/t4ht.c
+  sed -i -e 's|TEXMFROOT = .*|TEXMFROOT = $SELFAUTODIR/share|g' \
+    -e 's|TEXMFLOCAL = .*|TEXMFLOCAL = $TEXMFROOT/texmf-local|g' \
+    texk/kpathsea/texmf.cnf
+  sed -i '/AC_SEARCH_LIBS/a KPSE_KPATHSEA_FLAGS' texk/bibtex-x/configure.ac
+  sed -i 's|-lXp ||' texk/xdvik/configure.ac
+
+
+# crux instructions
+  export TEXMFCNF=""
+  export KPATHSEA_WARNING=0
+
+  rm -r libs/icu libs/graphite2 libs/cairo libs/freetype2 libs/gd libs/gmp libs/harfbuzz libs/libpaper libs/libpng libs/pixman libs/potrace libs/zlib libs/zziplib texk/dvisvgm
+  ./reautoconf
+
+  mkdir build
+  cd build
+
+  CFLAGS+=" -Wno-incompatible-pointer-types" \
+  ax_cv_c_float_words_bigendian=no \
+  ../configure CC="gcc -std=gnu17" -C \
+    --prefix=/usr \
+    --with-banner-add=" $(crux)" \
+    --with-clisp-runtime=system \
+    --enable-{dvipdfm-x,gc=system,ipc,libtool-hack,luatex,makeindexk,pdftex,pdftex-syncex,shared,tex,tex-synctex,texlive,web2c,xetex,xindy} \
+    --with-system-{cairo,freetype2,gd,graphite2,gmp,harfbuzz,icu,libpaper,libpng,mpfr,ncurses,pixman,potrace,t1lib,zlib,zziplib} \
+    --with-x \
+    --with-xdvi-x-toolkit=xaw \
+    --disable-{aleph,all-pkgs,bibtexu,dialog,dump-share,dvi2tty,dvisvgm,largefile,multiplatform,native-texlive-build,pdfopen,ps2pkm,xindy-docs,xindy-rules,xpdfopen,xz}
+
+  sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool
+  make
+  make DESTDIR=$PKG install
+
+# mix/blfs instructions
+#
+#  mkdir build
+#  cd build
+#
+#  # blfs
+#  #  --prefix=$TEXLIVE_PREFIX                      \
+#  #  --bindir=$TEXLIVE_PREFIX/bin/$TEXARCH         \
+#  #  --datarootdir=$TEXLIVE_PREFIX                 \
+#  #  --includedir=$TEXLIVE_PREFIX/include          \
+#  #  --infodir=$TEXLIVE_PREFIX/texmf-dist/doc/info \
+#  #  --libdir=$TEXLIVE_PREFIX/lib                  \
+#  #  --mandir=$TEXLIVE_PREFIX/texmf-dist/doc/man   \
+#  ../configure CC="gcc -std=gnu17" -C             \
+#    --prefix=/usr                                 \
+#    --disable-native-texlive-build                \
+#    --disable-static --enable-shared              \
+#    --disable-dvisvgm                             \
+#    --with-system-cairo                           \
+#    --with-system-fontconfig                      \
+#    --with-system-freetype2                       \
+#    --with-system-gmp                             \
+#    --with-system-graphite2                       \
+#    --with-system-harfbuzz                        \
+#    --with-system-icu                             \
+#    --with-system-libpaper                        \
+#    --with-system-libpng                          \
+#    --with-system-mpfr                            \
+#    --with-system-pixman                          \
+#    --with-system-zlib                            \
+#    --with-banner-add=" - MiX"
+#  make
+#  make DESTDIR=$PKG install
+
+  # crux instructions
+  cd ..
+
+  perl_sitelib=$(perl -V:sitelib | sed -e "s|sitelib=[']\(.*\)['].*$|\1|")
+  install -d $PKG/$perl_sitelib/TeXLive
+  install texk/tests/TeXLive/TL{Config,Utils}.pm $PKG/$perl_sitelib/TeXLive
+
+  # Fix some paths
+  sed \
+    -e 's|TEXMFROOT = .*|TEXMFROOT = $SELFAUTODIR/share|g' \
+    -e 's|TEXMFLOCAL = .*|TEXMFLOCAL = $TEXMFROOT/texmf-local|g' \
+    -e 's|^OSFONTDIR.*|OSFONTDIR = ~/.fonts:/usr/share/fonts|' \
+    -i $PKG/usr/share/texmf-dist/web2c/texmf.cnf
+
+  # make ConTeXt work, and remove unused settings
+  sed -i \
+    -e 's|selfautoparent:|/usr/share/|g' \
+    -e 's|\(TEXMFLOCAL[ ]*=[ ]*\)[^,]*|\1"/usr/share/texmf-local"|' \
+    -e '/selfautodir/d' \
+    -e '/texmflocal/d' \
+    $PKG/usr/share/texmf-dist/web2c/texmfcnf.lua
+
+  sed -i \
+    -e 's/^aleph/#! aleph/g' \
+    -e 's/^lamed/#! lamed/g' \
+    -e 's/^amstex/#! amstex/g' \
+    -e 's/^cont-en xetex/#! cont-en xetex/g' \
+    -e 's/^pdfcs/#! pdfcs/g' \
+    -e 's/^luacs/#! luacs/g' \
+    -e 's/^pdfcs/#! pdfcs/g' \
+    -e 's/^csplain/#! csplain/g' \
+    -e 's/^eplain/#! eplain/g' \
+    -e 's/^pdfjadetex/#! pdfjadetex/g' \
+    -e 's/^jadetex/#! jadetex/g' \
+    -e 's/^pdfmex/#! pdfmex/g' \
+    -e 's/^utf8mex/#! utf8mex/g' \
+    -e 's/^mex/#! mex/g' \
+    -e 's/^mllatex/#! mllatex/g' \
+    -e 's/^mltex/#! mltex/g' \
+    -e 's/^mptopdf/#! mptopdf/g' \
+    -e 's/^platex/#! platex/g' \
+    -e 's/^eptex/#! eptex/g' \
+    -e 's/^ptex/#! ptex/g' \
+    -e 's/^texsis/#! texsis/g' \
+    -e 's/^euptex/#! euptex/g' \
+    -e 's/^uplatex/#! uplatex/g' \
+    -e 's/^uptex/#! uptex/g' \
+    -e 's/^xelatex/#! xelatex/g' \
+    -e 's/^xetex/#! xetex/g' \
+    -e 's/^cslatex/#! cslatex/g' \
+    -e 's/^lollipop/#! lollipop/g' \
+    $PKG/usr/share/texmf-dist/web2c/fmtutil.cnf
+ 
+  #PATH="$PKG/usr/bin:$PATH" LD_LIBRARY_PATH+="$PKG/usr/lib:$LD_LIBRARY_PATH" \
+  PATH="$PKG/usr/bin:$PATH" LD_LIBRARY_PATH="$PKG/usr/lib:$LD_LIBRARY_PATH" \
+    texlinks -f $PKG/usr/share/texmf-dist/web2c/fmtutil.cnf $PKG/usr/bin
+  #PATH="$PKG/usr/bin:$PATH" LD_LIBRARY_PATH="$PKG/usr/lib:$LD_LIBRARY_PATH" texlinks -f $PKG/usr/share/texmf-dist/web2c/fmtutil.cnf $PKG/usr/bin || true
+
+  # context
+  chmod +x $PKG/usr/share/texmf-dist/scripts/context/lua/mtxrun.lua
+  PATH="$PKG/usr/bin:$PATH" LD_LIBRARY_PATH="$PKG/usr/lib:$LD_LIBRARY_PATH" \
+  $PKG/usr/share/texmf-dist/scripts/context/lua/mtxrun.lua \
+    --stubpath=$PKG/usr/bin \
+    --unix \
+    --makestubs #|| true
+
+  #cd $SRC/texi2html-*
+  cd $SRC/texi2html-5.0  # mix
+
+  ./configure --prefix=/usr
+  make
+  make install DESTDIR=$PKG
+
+  # final clean up
+  rm -r $PKG/usr/share/{info,locale,texmf-dist/doc}
+  rm -r $PKG/usr/bin/{tlmgr,man}
+  rm -r $PKG/usr/share/texmf-dist/scripts/texlive/tlmgr{,gui}.pl
+  find $PKG/usr/share/texmf-dist \
+    -regex '.*/\(COPYING\|README\|AUTHORS\|INSTALL\|ChangeLog\|NEWS\|TODO\|fonts_README.md\|BUGS\).*' \
+    -exec rm '{}' \+
+  find $PKG/usr/share/texi2html \
+    -regex '.*/\(README\|COPYING\).*' \
+    -exec rm '{}' \+
+  # strip .la files
+  rm -f $PKG/usr/lib/*.la
+  # patch tabu.sty from https://github.com/tabu-fixed/tabu to fix
+  # breakage when compiling doxygen
+  ( cd $PKG/usr/share/texmf-dist/tex/latex/tabu
+  cat $SRC/tabu.sty.diff | patch -p1 --verbose || exit 1
+  )
+}

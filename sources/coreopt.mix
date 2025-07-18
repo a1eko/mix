@@ -73,6 +73,7 @@ libnftnl
 nftables
 iptables
 
+fakeroot
 pkgconf
 signify
 pkz

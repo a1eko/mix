@@ -1,0 +1,30 @@
+# Description: a libav/ffmpeg based source library and Avisynth plugin for easy frame accurate access
+# Depends on: ffmpeg avisynthplus
+
+name=ffms2
+version=5.0
+release=mix-1
+_tag=7ed5e4d039ca9a6236bd2ebdfdd656c4304fbe04
+
+build() {
+  git clone https://github.com/FFMS/$name.git $name
+  cd $name
+  git checkout $_tag
+  mkdir -pv src/config
+  autoreconf -fiv
+  export CXXFLAGS="$CXXFLAGS $(pkg-config --cflags avisynth) -fpermissive"
+  ./configure \
+     	  --prefix=/usr \
+     	  --enable-avisynth \
+     	  --enable-shared \
+     	  --disable-static
+  make
+  make DESTDIR=$PKG install
+
+  for s in {avi,vapour}synth; do
+    install -dm 755 $PKG/usr/lib/$s
+    ln -s ../libffms2.so $PKG/usr/lib/$s/
+  done
+  rm -rv $PKG/usr/share/doc
+  rmdir -v $PKG/usr/share
+}

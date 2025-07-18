@@ -1,0 +1,15 @@
+# Description: library to load and write XISF format from PixInsight
+# Depends on: lz4 pugixml zstd
+
+name=libxisf
+version=0.2.13
+release=mix-1
+source=(https://gitea.nouspiro.space/nou/libXISF/archive/v$version.tar.gz)
+
+build() {
+  cmake -B build -S $name \
+     	  -DCMAKE_INSTALL_PREFIX=/usr \
+     	  -DUSE_BUNDLED_LIBS=OFF
+  cmake --build build
+  DESTDIR=$PKG cmake --install build
+}

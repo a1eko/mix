@@ -1,23 +1,24 @@
 # Description:	Library for reading RAW files obtained from digital photo cameras
 # URL:		http://www.libraw.org/
 # Maintainer: Wawrzek Niewodniczanski, main at wawrzek dot name
-# Packager:	Alan Mizrahi, alan at mizrahi dot com dot ve
-# Depends on:	jasper
+# Depends on: jasper lcms2
+## Based on the port in kde-plasma-6
 
 name=libraw
-version=0.21.2
+version=0.21.4
 release=1
 source=(http://www.libraw.org/data/LibRaw-$version.tar.gz)
 
 build() {
 	cd LibRaw-$version
-	autoreconf -f -i
+	autoreconf -vfi
+
 	./configure \
 		--prefix=/usr \
-		--enable-lcms \
-		--disable-examples
+		--mandir=/usr/share/man \
+		--disable-examples \
+		--disable-static
 	make
 	make DESTDIR=$PKG install
-        rm -rv $PKG/usr/share/doc
-        rmdir -v $PKG/usr/share
+	rm -rf $PKG/usr/share
 }

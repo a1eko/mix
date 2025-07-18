@@ -1,5 +1,5 @@
 # Description: PDF viewer
-# Depends on: gtk3 poppler poppler-glib
+# Depends on: gtk3 poppler
 # Optional: cups desktop-file-utils hicolor-icon-theme
 
 name=epdfview-gtk3

@@ -1,0 +1,22 @@
+# Description: C++ library that provides portable SIMD/vector intrinsics
+# URL: https://github.com/google/highway
+# Maintainer: John McQuah, jmcquah at disroot dot org
+# Depends on: 
+
+name=highway
+version=1.2.0
+release=1
+source=(https://github.com/google/$name/archive/$version/$name-$version.tar.gz)
+
+build() {
+  mkdir build
+  cmake -B build -S $name-$version -G Ninja \
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_INSTALL_LIBDIR=lib \
+        -DHWY_ENABLE_EXAMPLES=OFF \
+        -DHWY_ENABLE_TESTS=OFF \
+        -DBUILD_SHARED_LIBS=ON
+
+  ninja -C build -j ${JOBS:-1}
+  DESTDIR=$PKG ninja -C build install
+}

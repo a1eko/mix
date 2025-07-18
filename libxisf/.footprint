@@ -1,0 +1,10 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/libXISF_global.h
+-rw-r--r--	root/root	usr/include/libxisf.h
+drwxr-xr-x	root/root	usr/lib64/
+lrwxrwxrwx	root/root	usr/lib64/libXISF.so -> libXISF.so.0
+lrwxrwxrwx	root/root	usr/lib64/libXISF.so.0 -> libXISF.so.0.2.13
+-rwxr-xr-x	root/root	usr/lib64/libXISF.so.0.2.13
+drwxr-xr-x	root/root	usr/lib64/pkgconfig/
+-rw-r--r--	root/root	usr/lib64/pkgconfig/libxisf.pc

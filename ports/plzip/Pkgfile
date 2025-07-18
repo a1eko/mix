@@ -1,15 +1,25 @@
-# Description: parallel version of lzip
+# Description: Multi-threaded lzip (with non-upstream patches)
+# URL: http://www.nongnu.org/lzip/lzlib.html
+# Maintainer: Steffen Nurpmeso, steffen at sdaoden dot eu
 # Depends on: lzlib
 
 name=plzip
-version=1.10
-release=mix-1
-source=(http://download.savannah.gnu.org/releases/lzip/$name/$name-$version.tar.gz)
+version=1.12
+release=1
+projn=lzip
+source=(http://download.savannah.gnu.org/releases/${projn}/${name}/${name}-${version}.tar.lz
+	adapt-n.diff)
 
 build() {
-  cd $name-$version
-  ./configure --prefix=/usr
-  make
-  make DESTDIR=$PKG install
-  rm -rv $PKG/usr/share/info
+	cd ${name}-${version}
+
+	patch -p1 < ../adapt-n.diff
+
+	./configure --prefix=/usr
+
+	make CC="${CC:-cc}" DESTDIR="${PKG}" install
+
+	rm -rf "${PKG}"/usr/share/info
 }
+
+# s-sht-mode

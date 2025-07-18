@@ -47,6 +47,7 @@ drwxr-xr-x	build/users	usr/bin/
 -rwxr-xr-x	build/users	usr/bin/factor
 -rwxr-xr-x	build/users	usr/bin/fmt
 -rwxr-xr-x	build/users	usr/bin/fold
+-rwxr-xr-x	build/users	usr/bin/groups
 -rwxr-xr-x	build/users	usr/bin/head
 -rwxr-xr-x	build/users	usr/bin/hostid
 -rwxr-xr-x	build/users	usr/bin/id

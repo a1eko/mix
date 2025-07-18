@@ -33,11 +33,7 @@ build() {
     install -d $PKG/{bin,usr/sbin,usr/lib}
     mv $PKG/usr/bin/{dmesg,findmnt,kill,lsblk,lsfd,more} $PKG/bin
     mv $PKG/usr/bin/{mount,mountpoint,pipesz,umount,wdctl} $PKG/bin
-    mv $PKG/sbin/{addpart,delpart,ldattach,partx,readprofile} $PKG/usr/sbin
-    mv $PKG/sbin/{resizepart,rfkill,rtcwake,uuidd} $PKG/usr/sbin
-    mv $PKG/lib/pkgconfig $PKG/usr/lib
 
-    rm -rv $PKG/usr/share/man
-    rm -rv $PKG/usr/share/{bash-completion,doc}
+    rm -rv $PKG/usr/share/{bash-completion,doc,man}
     rmdir -v $PKG/usr/share
 }

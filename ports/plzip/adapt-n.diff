@@ -1,0 +1,96 @@
+diff --git a/doc/plzip.1 b/doc/plzip.1
+index 3985e5ba2c..bf5f3110a4 100644
+--- a/doc/plzip.1
++++ b/doc/plzip.1
+@@ -62,8 +62,13 @@ print (un)compressed file sizes
+ \fB\-m\fR, \fB\-\-match\-length=\fR<bytes>
+ set match length limit in bytes [36]
+ .TP
+-\fB\-n\fR, \fB\-\-threads=\fR<n>
+-set number of (de)compression threads [2]
++\fB\-n\fR, \fB\-\-threads=\fR[@]<n>
++set number of (de)compression threads [2].
++Placing a commercial at @ before <n> (that can also be 0 to keep
++automatic CPU selection) is a non-upstreamed extension that may
++adjust (decrease) \fB\-\-data\-size\fR (but not
++\fB\-\-dictionary\-size\fR) to adapt to <n> when working with
++regular filenames
+ .TP
+ \fB\-o\fR, \fB\-\-output=\fR<file>
+ write to <file>, keep input files
+diff --git a/main.cc b/main.cc
+index 548b58fea3..52dc24618d 100644
+--- a/main.cc
++++ b/main.cc
+@@ -134,7 +134,7 @@ void show_help( const long num_online )
+                "  -k, --keep                     keep (don't delete) input files\n"
+                "  -l, --list                     print (un)compressed file sizes\n"
+                "  -m, --match-length=<bytes>     set match length limit in bytes [36]\n"
+-               "  -n, --threads=<n>              set number of (de)compression threads [%ld]\n"
++               "  -n, --threads=[@]<n>           set or (with @) adapt to thread count [%ld]\n"
+                "  -o, --output=<file>            write to <file>, keep input files\n"
+                "  -q, --quiet                    suppress all messages\n"
+                "  -s, --dictionary-size=<bytes>  set dictionary size limit in bytes [8 MiB]\n"
+@@ -192,6 +192,7 @@ void show_version()
+   std::printf( "%s %s\n", program_name, PROGVERSION );
+   std::printf( "Copyright (C) 2009 Laszlo Ersek.\n" );
+   std::printf( "Copyright (C) %s Antonio Diaz Diaz.\n", program_year );
++  std::printf( "Non-upstreamed adjustments by steffen@@sdaoden.eu (-n@).\n");
+   std::printf( "License GPLv2+: GNU GPL version 2 or later <http://gnu.org/licenses/gpl.html>\n"
+                "This is free software: you are free to change and redistribute it.\n"
+                "There is NO WARRANTY, to the extent permitted by law.\n" );
+@@ -767,6 +768,7 @@ int main( const int argc, const char * const argv[] )
+   int out_slots = 64;
+   Mode program_mode = m_compress;
+   Cl_options cl_opts;		// command-line options
++  bool adapt = false;
+   bool force = false;
+   bool keep_input_files = false;
+   bool recompress = false;
+@@ -828,7 +830,7 @@ int main( const int argc, const char * const argv[] )
+     if( !code ) break;					// no more options
+     const char * const pn = parser.parsed_name( argind ).c_str();
+     const std::string & sarg = parser.argument( argind );
+-    const char * const arg = sarg.c_str();
++    const char * arg = sarg.c_str();
+     switch( code )
+       {
+       case '0': case '1': case '2': case '3': case '4':
+@@ -848,7 +850,13 @@ int main( const int argc, const char * const argv[] )
+       case 'm': encoder_options.match_len_limit =
+                   getnum( arg, pn, LZ_min_match_len_limit(),
+                                    LZ_max_match_len_limit() ); break;
+-      case 'n': num_workers = getnum( arg, pn, 1, max_workers ); break;
++      case 'n': if(*arg == '@')
++                  {
++                  adapt = true;
++                  ++arg;
++                  }
++                num_workers = getnum( arg, pn, (adapt == false), max_workers );
++                break;
+       case 'o': if( sarg == "-" ) to_stdout = true;
+                 else { default_output_filename = sarg; } break;
+       case 'q': verbosity = -1; break;
+@@ -980,9 +988,21 @@ int main( const int argc, const char * const argv[] )
+       infd_isreg ? ( in_stats.st_size + 99 ) / 100 : 0;
+     int tmp;
+     if( program_mode == m_compress )
+-      tmp = compress( cfile_size, data_size, encoder_options.dictionary_size,
++      {
++      tmp = data_size;
++      if( adapt )
++        {
++        if( cfile_size != 0 ) // TODO allow for "<FILE EXE" (not "cat FILE|EXE")
++          {
++          unsigned long long csx = cfile_size / num_workers;
++          if( csx < (unsigned)tmp )
++            tmp = std::max((int)csx, encoder_options.dictionary_size);
++          }
++        }
++      tmp = compress( cfile_size, tmp, encoder_options.dictionary_size,
+                       encoder_options.match_len_limit, num_workers,
+                       infd, outfd, pp, debug_level );
++      }
+     else
+       tmp = decompress( cfile_size, num_workers, infd, outfd, cl_opts, pp,
+                         debug_level, in_slots, out_slots, infd_isreg,

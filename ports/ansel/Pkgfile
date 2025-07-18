@@ -9,27 +9,9 @@ source=()
 
 build() {
   git clone --recurse-submodules --depth 1 https://github.com/aurelienpierreeng/$name.git
-
-  cmake -B build -S $name \
-    -DCMAKE_INSTALL_PREFIX=/usr \
-    -DCMAKE_INSTALL_LIBDIR=lib \
-    -DCMAKE_INSTALL_LIBEXECDIR=lib \
-    -DCMAKE_BUILD_TYPE=Release \
-    -DCMAKE_SKIP_RPATH=ON \
-    -DBINARY_PACKAGE_BUILD=ON \
-    -DUSE_LIBSECRET=ON \
-    -DUSE_LUA=ON \
-    -DUSE_BUNDLED_LUA=OFF \
-    -DUSE_LIBRAW=ON \
-    -DUSE_BUNDLED_LIBRAW=OFF \
-    -DUSE_COLORD=OFF \
-    -DBUILD_CURVE_TOOLS=ON \
-    -DBUILD_NOISE_TOOLS=ON \
-    -DRAWSPEED_ENABLE_LTO=ON \
-    -DUSE_NLS=false
-  cmake --build build
-  #DESTDIR=$PKG cmake --install build # fails to relink libansel.so
-  DESTDIR=$PKG cmake --install build || true
-
-  rm -rv $PKG/usr/share/doc
+  cd $name
+  sed -i 's@/opt/ansel@/usr@' build.sh
+  /bin/sh build.sh
+  DESTDIR=$PKG cmake --install build
+  rm -rv $PKG/usr/share/{doc,locale}
 }

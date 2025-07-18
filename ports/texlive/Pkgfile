@@ -1,14 +1,15 @@
 # Description: TeX distribution for UNIX compatible systems
-# URL: https://www.tug.org/tetex/
+# URL: https://www.tug.org/texlive
 # Maintainer: Tim Biermann, tbier at posteo dot de
 # Depends on: clisp ghostscript graphite2 harfbuzz icu libgd libmpfr paper potrace xorg-libxaw xorg-libxi zziplib
 
 name=texlive
-version=20240312
+version=20250308
 release=mix-1
 source=(ftp://tug.org/historic/systems/texlive/${version:0:4}/$name-$version-texmf.tar.xz
   ftp://tug.org/historic/systems/texlive/${version:0:4}/$name-$version-source.tar.xz
   https://download.savannah.gnu.org/releases/texi2html/texi2html-5.0.tar.bz2
+  https://www.linuxfromscratch.org/patches/blfs/svn/texlive-20250308-source-upstream_fixes-1.patch
   tabu.sty.diff)
 
 # mix
@@ -35,6 +36,9 @@ build() {
 
   cd $name-$version-source
 
+  # blfs patch
+  patch -Np1 -i ../texlive-20250308-source-upstream_fixes-1.patch
+
   # Fix some paths
   sed -i 's/SELFAUTOPARENT/TEXMFROOT/' texk/tex4htk/t4ht.c
   sed -i -e 's|TEXMFROOT = .*|TEXMFROOT = $SELFAUTODIR/share|g' \
@@ -55,7 +59,7 @@ build() {
 
   CFLAGS+=" -Wno-incompatible-pointer-types" \
   ax_cv_c_float_words_bigendian=no \
-  ../configure \
+  ../configure CC="gcc -std=gnu17" -C \
     --prefix=/usr \
     --with-banner-add=" $(crux)" \
     --with-clisp-runtime=system \
@@ -120,20 +124,24 @@ build() {
     -e 's/^cslatex/#! cslatex/g' \
     -e 's/^lollipop/#! lollipop/g' \
     $PKG/usr/share/texmf-dist/web2c/fmtutil.cnf
-
-  PATH="$PKG/usr/bin:$PATH" LD_LIBRARY_PATH+="$PKG/usr/lib:$LD_LIBRARY_PATH" \
+ 
+  #PATH="$PKG/usr/bin:$PATH" LD_LIBRARY_PATH+="$PKG/usr/lib:$LD_LIBRARY_PATH" \
+  PATH="$PKG/usr/bin:$PATH" LD_LIBRARY_PATH="$PKG/usr/lib:$LD_LIBRARY_PATH" \
     texlinks -f $PKG/usr/share/texmf-dist/web2c/fmtutil.cnf $PKG/usr/bin
 
   # context
   chmod +x $PKG/usr/share/texmf-dist/scripts/context/lua/mtxrun.lua
-  PATH="$PKG/usr/bin:$PATH" LD_LIBRARY_PATH+="$PKG/usr/lib:$LD_LIBRARY_PATH" \
+  #PATH="$PKG/usr/bin:$PATH" LD_LIBRARY_PATH+="$PKG/usr/lib:$LD_LIBRARY_PATH" \
+  PATH="$PKG/usr/bin:$PATH" LD_LIBRARY_PATH="$PKG/usr/lib:$LD_LIBRARY_PATH" \
   $PKG/usr/share/texmf-dist/scripts/context/lua/mtxrun.lua \
     --stubpath=$PKG/usr/bin \
     --unix \
     --makestubs
 
+  # mix
   #cd $SRC/texi2html-*
-  cd $SRC/texi2html-5.0  # mix
+  cd $SRC/texi2html-5.0
+
   ./configure --prefix=/usr
   make
   make install DESTDIR=$PKG

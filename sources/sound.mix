@@ -3,11 +3,13 @@
 # NOTE: installs before video.mix
 #
 
-libsdl
+python3-cython
+
 libmad
 libogg
-libsndfile
 speex
+
+dialog
 
 alsa-lib
 alsa-plugins
@@ -16,7 +18,14 @@ flac
 lame
 libao
 libvorbis
-#moc
-mpg123
+libsndfile
 vorbis-tools
+mpg123
+opus
 wavpack
+
+libsdl
+libsdl2
+
+autoconf-archive
+moc

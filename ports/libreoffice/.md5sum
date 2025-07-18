@@ -1,7 +1,6 @@
-e06c90099fef2682e9c74cad4f74cfc9  libreoffice-24.8.3.2-boost_fixes-1.patch
-b7d4e01f35c225a9b2f10acaeae00d03  libreoffice-24.8.3.2-icu76_fixes-1.patch
-fcb014b48ff6da2cb67bde536b57bb79  libreoffice-24.8.3.2-poppler_24.10-1.patch
-ff89c67ce6a49c966abbb2ac3ae8e26c  libreoffice-24.8.3.2.tar.xz
-ef20793b957741042d6eed7700b3a55f  libreoffice-dictionaries-24.8.3.2.tar.xz
-9e9454ed0c228b4366f88892d99fa1e2  libreoffice-help-24.8.3.2.tar.xz
-bd5007cf910c0e4c5c7a99f084ed4c8d  libreoffice-translations-24.8.3.2.tar.xz
+b7d4e01f35c225a9b2f10acaeae00d03  libreoffice-25.2.3.2-icu76_fixes-1.patch
+dbd8a28532e67c511631ee231cb66fec  libreoffice-25.2.3.2-poppler_fixes-1.patch
+19c450d4777bf169761ed190eac7c841  libreoffice-25.2.3.2.tar.xz
+770a3ad86a4c68754a611056c55cb83c  libreoffice-dictionaries-25.2.3.2.tar.xz
+43b27eae3d79f98f73c7a207bb4e0cb0  libreoffice-help-25.2.3.2.tar.xz
+8255a08a0cbbf133724a0da1d6f0d95c  libreoffice-translations-25.2.3.2.tar.xz

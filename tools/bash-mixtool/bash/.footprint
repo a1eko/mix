@@ -8,15 +8,18 @@ drwxr-xr-x	build/users	lib/bash/
 -rw-r--r--	build/users	lib/bash/Makefile.sample
 -rwxr-xr-x	build/users	lib/bash/accept
 -rwxr-xr-x	build/users	lib/bash/basename
+-rwxr-xr-x	build/users	lib/bash/chmod
 -rwxr-xr-x	build/users	lib/bash/csv
 -rwxr-xr-x	build/users	lib/bash/cut
 -rwxr-xr-x	build/users	lib/bash/dirname
 -rwxr-xr-x	build/users	lib/bash/dsv
 -rwxr-xr-x	build/users	lib/bash/fdflags
 -rwxr-xr-x	build/users	lib/bash/finfo
+-rwxr-xr-x	build/users	lib/bash/fltexpr
 -rwxr-xr-x	build/users	lib/bash/getconf
 -rwxr-xr-x	build/users	lib/bash/head
 -rwxr-xr-x	build/users	lib/bash/id
+-rwxr-xr-x	build/users	lib/bash/kv
 -rwxr-xr-x	build/users	lib/bash/ln
 -rw-r--r--	build/users	lib/bash/loadables.h
 -rwxr-xr-x	build/users	lib/bash/logname
@@ -36,6 +39,7 @@ drwxr-xr-x	build/users	lib/bash/
 -rwxr-xr-x	build/users	lib/bash/sleep
 -rwxr-xr-x	build/users	lib/bash/stat
 -rwxr-xr-x	build/users	lib/bash/strftime
+-rwxr-xr-x	build/users	lib/bash/strptime
 -rwxr-xr-x	build/users	lib/bash/sync
 -rwxr-xr-x	build/users	lib/bash/tee
 -rwxr-xr-x	build/users	lib/bash/truefalse
@@ -83,6 +87,7 @@ drwxr-xr-x	build/users	usr/include/bash/include/
 -rw-r--r--	build/users	usr/include/bash/include/ocache.h
 -rw-r--r--	build/users	usr/include/bash/include/posixdir.h
 -rw-r--r--	build/users	usr/include/bash/include/posixjmp.h
+-rw-r--r--	build/users	usr/include/bash/include/posixselect.h
 -rw-r--r--	build/users	usr/include/bash/include/posixstat.h
 -rw-r--r--	build/users	usr/include/bash/include/posixtime.h
 -rw-r--r--	build/users	usr/include/bash/include/posixwait.h
@@ -92,8 +97,10 @@ drwxr-xr-x	build/users	usr/include/bash/include/
 -rw-r--r--	build/users	usr/include/bash/include/stat-time.h
 -rw-r--r--	build/users	usr/include/bash/include/stdc.h
 -rw-r--r--	build/users	usr/include/bash/include/systimes.h
+-rw-r--r--	build/users	usr/include/bash/include/timer.h
 -rw-r--r--	build/users	usr/include/bash/include/typemax.h
 -rw-r--r--	build/users	usr/include/bash/include/unionwait.h
+-rw-r--r--	build/users	usr/include/bash/include/unlocked-io.h
 -rw-r--r--	build/users	usr/include/bash/jobs.h
 -rw-r--r--	build/users	usr/include/bash/make_cmd.h
 -rw-r--r--	build/users	usr/include/bash/pathnames.h

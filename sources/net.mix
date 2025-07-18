@@ -3,7 +3,7 @@
 # NOTE: installs after {coreopt,graphics,sound,video}.mix
 #
 
-#libevent
+libevent
 libidl
 links
 nspr
@@ -14,7 +14,6 @@ dbus-glib
 autoconf-2.13
 cbindgen
 libwebp
-#nasm
 nodejs
 startup-notification
 
@@ -24,6 +23,7 @@ compiler-rt
 clang
 
 icu
+harfbuzz
 gsettings-desktop-schemas
 
 firefox

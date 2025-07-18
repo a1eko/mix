@@ -2,7 +2,7 @@
 # Depends on: xorg-libxmu xorg-util-macros xorg-server
 
 name=twm
-version=1.0.12
+version=1.0.13.1
 release=mix-1
 source=(https://www.x.org/pub/individual/app/$name-$version.tar.xz)
 

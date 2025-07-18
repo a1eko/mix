@@ -1,0 +1,32 @@
+# Description: codec for the JPEG XL image format
+# URL: https://jpeg.org/jpegxl/
+# Maintainer: John McQuah, jmcquah at disroot dot org
+# Depends on: brotli highway libjpeg-turbo
+# Optional: libavif libpng libwebp asciidoc
+
+name=libjxl
+version=0.11.1
+release=1
+source=(https://github.com/$name/$name/archive/v$version/$name-$version.tar.gz)
+
+build() {
+  PKGMK_JXL=(-DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF
+             -DBUILD_SHARED_LIBS=true
+             -DCMAKE_INSTALL_PREFIX=/usr
+             -DCMAKE_INSTALL_LIBDIR=lib
+             -DJPEGXL_VERSION=$version
+             -DJPEGXL_ENABLE_EXAMPLES=false
+             -DJPEGXL_ENABLE_SKCMS=false
+             -DJPEGXL_ENABLE_SJPEG=false
+             -DJPEGXL_ENABLE_TCMALLOC=false
+             -DJPEGXL_FORCE_SYSTEM_BROTLI=true
+             -DJPEGXL_FORCE_SYSTEM_LCMS2=true
+             -DJPEGXL_FORCE_SYSTEM_HWY=true)
+
+  prt-get isinst asciidoc && PKGMK_JXL+=(-DJPEGXL_ENABLE_MANPAGES=ON) || PKGMK_JXL+=(-DJPEGXL_ENABLE_MANPAGES=OFF)
+
+  cmake -B build -S $name-$version -G Ninja ${PKGMK_JXL[@]}
+
+  ninja -C build -j ${JOBS:-1}
+  DESTDIR=$PKG ninja -C build install
+}

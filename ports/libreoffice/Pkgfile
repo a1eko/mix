@@ -2,15 +2,14 @@
 # Depends on: boost clucene curl expat glm gpgme graphite2 harfbuzz icu lcms2 libepoxy libjpeg-turbo libpng libtiff libwebp libxml2 nss openldap openssl poppler redland unixodbc xmlsec
 
 name=libreoffice
-version=24.8.3.2
+version=25.2.3.2
 release=mix-1
 source=(https://downloadarchive.documentfoundation.org/libreoffice/old/$version/src/$name-$version.tar.xz
 	https://download.documentfoundation.org/libreoffice/src/${version%.2}/libreoffice-dictionaries-$version.tar.xz
 	https://download.documentfoundation.org/libreoffice/src/${version%.2}/libreoffice-help-$version.tar.xz
 	https://download.documentfoundation.org/libreoffice/src/${version%.2}/libreoffice-translations-$version.tar.xz
-	https://www.linuxfromscratch.org/patches/blfs/svn/libreoffice-$version-boost_fixes-1.patch
 	https://www.linuxfromscratch.org/patches/blfs/svn/libreoffice-$version-icu76_fixes-1.patch
-	https://www.linuxfromscratch.org/patches/blfs/svn/libreoffice-$version-poppler_24.10-1.patch
+	https://www.linuxfromscratch.org/patches/blfs/svn/libreoffice-$version-poppler_fixes-1.patch
 )
 
 unpack_source() { :; }
@@ -20,9 +19,8 @@ build() {
   cd $name-$version
 
   # patch source code
-  patch -Np1 -i ../libreoffice-$version-boost_fixes-1.patch
   patch -Np1 -i ../libreoffice-$version-icu76_fixes-1.patch
-  patch -Np1 -i ../libreoffice-$version-poppler_24.10-1.patch
+  patch -Np1 -i ../libreoffice-$version-poppler_fixes-1.patch
 
   # fix misc bugs
   sed -i '/icuuc \\/a zlib\\'           writerperfect/Library_wpftdraw.mk
@@ -55,6 +53,7 @@ build() {
     --disable-dbus \
     --disable-dconf \
     --disable-firebird-sdbc \
+    --disable-gpgmepp \
     --disable-gstreamer-1-0 \
     --disable-odk \
     --enable-release-build=yes \

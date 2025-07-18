@@ -1,0 +1,30 @@
+# Description: an improved version of the AviSynth frameserver
+# Depends on: hicolor-icon-theme
+# Optional: soundtouch
+
+name=avisynthplus
+version=3.7.5
+release=mix-1
+source=(https://github.com/AviSynth/AviSynthPlus/archive/v${version}/${name}-${version}.tar.gz 
+	avisynthplus.xml)
+
+build() {
+    cmake -B build -S "AviSynthPlus-${version}" \
+        -G 'Unix Makefiles' \
+        -DCMAKE_BUILD_TYPE:STRING='None' \
+        -DCMAKE_INSTALL_PREFIX:PATH='/usr' \
+        -Wno-dev
+    cmake --build build
+    DESTDIR=$PKG cmake --install build
+
+    install -D -m644 avisynthplus.xml -t $PKG/usr/share/mime/packages
+    
+    local _icon
+    local _res
+    while read -r -d '' _icon
+    do
+        _res="$(sed 's/[[:alpha:]]*\([0-9]\+\)\.png/\1/' <<< "${_icon##*/}")"
+        [ -n "$_res" ] && install -D -m644 "$_icon" \
+            "${PKG}/usr/share/icons/hicolor/${_res}x${_res}/mimetypes/avisynthplus-script.png"
+    done < <(find "AviSynthPlus-${version}/distrib/Icons/Rastered" -type f -name 'AvsPlusIcon*.png' -print0)
+}

@@ -12,6 +12,8 @@ lrwxrwxrwx	root/root	usr/bin/mpiexec -> mpiexec.hydra
 lrwxrwxrwx	root/root	usr/bin/mpirun -> mpiexec.hydra
 -rwxr-xr-x	root/root	usr/bin/mpivars
 -rwxr-xr-x	root/root	usr/bin/parkill
+drwxr-xr-x	root/root	usr/etc/
+-rw-r--r--	root/root	usr/etc/mpixxx_opts.conf
 drwxr-xr-x	root/root	usr/include/
 -rw-r--r--	root/root	usr/include/mpi.h
 -rw-r--r--	root/root	usr/include/mpi_proto.h
@@ -21,16 +23,16 @@ drwxr-xr-x	root/root	usr/include/
 drwxr-xr-x	root/root	usr/lib/
 -rw-r--r--	root/root	usr/lib/libmpi.a
 -rwxr-xr-x	root/root	usr/lib/libmpi.la
-lrwxrwxrwx	root/root	usr/lib/libmpi.so -> libmpi.so.12.4.3
-lrwxrwxrwx	root/root	usr/lib/libmpi.so.12 -> libmpi.so.12.4.3
--rwxr-xr-x	root/root	usr/lib/libmpi.so.12.4.3
+lrwxrwxrwx	root/root	usr/lib/libmpi.so -> libmpi.so.12.5.1
+lrwxrwxrwx	root/root	usr/lib/libmpi.so.12 -> libmpi.so.12.5.1
+-rwxr-xr-x	root/root	usr/lib/libmpi.so.12.5.1
 lrwxrwxrwx	root/root	usr/lib/libmpich.so -> libmpi.so
 lrwxrwxrwx	root/root	usr/lib/libmpichcxx.so -> libmpicxx.so
 -rw-r--r--	root/root	usr/lib/libmpicxx.a
 -rwxr-xr-x	root/root	usr/lib/libmpicxx.la
-lrwxrwxrwx	root/root	usr/lib/libmpicxx.so -> libmpicxx.so.12.4.3
-lrwxrwxrwx	root/root	usr/lib/libmpicxx.so.12 -> libmpicxx.so.12.4.3
--rwxr-xr-x	root/root	usr/lib/libmpicxx.so.12.4.3
+lrwxrwxrwx	root/root	usr/lib/libmpicxx.so -> libmpicxx.so.12.5.1
+lrwxrwxrwx	root/root	usr/lib/libmpicxx.so.12 -> libmpicxx.so.12.5.1
+-rwxr-xr-x	root/root	usr/lib/libmpicxx.so.12.5.1
 lrwxrwxrwx	root/root	usr/lib/libmpl.so -> libmpi.so
 lrwxrwxrwx	root/root	usr/lib/libopa.so -> libmpi.so
 drwxr-xr-x	root/root	usr/lib/pkgconfig/

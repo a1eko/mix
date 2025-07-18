@@ -1,18 +1,21 @@
 # Description: Basic library to calculate panoramical pictures - core functions of the panotools
-# URL: https://sourceforge.net/projects/panotools/files/libpano13/
-# Maintainer: Erich Eckner, crux at eckner dot net
 # Depends on: libpng libtiff
 
 name=libpano13
-version=2.9.20
-release=1
-source=("http://downloads.sourceforge.net/sourceforge/panotools/${name}-${version}.tar.gz")
+version=2.9.22
+release=mix-1
+source=("http://downloads.sourceforge.net/sourceforge/panotools/${name}-${version}.tar.gz"
+	libpano13-$version-gcc15.patch)
 
 build() {
+	pushd ${name}-${version}
+		patch -Np1 -i $SRC/libpano13-$version-gcc15.patch
+	popd
 
-	cd "${SRC}/${name}-${version}"
-	./configure --prefix=/usr --mandir=/usr/share/man
-	make
-	make DESTDIR="${PKG}" install
-
+	cmake -B build -S ${name}-${version} \
+	   	-DCMAKE_INSTALL_PREFIX=/usr \
+	   	-DUSE_SPARSE_LEVMAR=ON
+     	make -C build
+	make -C build DESTDIR=$PKG install
 }
+
