@@ -1,0 +1,17 @@
+# Description: the reference codec for the Ultra HDR format
+# Depends on: libglvnd libjpeg-turbo cmake git
+
+name=libultrahdr
+version=1.4.0
+release=mix-1
+source=(https://github.com/google/$name/archive/refs/tags/v$version.tar.gz)
+
+build() {
+  sed -i '1i #include <cstdint>' $name-$version/lib/include/ultrahdr/ultrahdrcommon.h
+  cmake -B build -S $name-$version \
+   	-DCMAKE_INSTALL_PREFIX=/usr \
+   	-DUHDR_BUILD_TESTS=ON \
+   	-Wno-dev
+  cmake --build build
+  DESTDIR=$PKG cmake --install build
+}

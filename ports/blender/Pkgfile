@@ -1,18 +1,14 @@
-# Description: A fully integrated 3D graphics creation suite
-# Depends on: boost cmake desktop-file-utils ffmpeg fftw freetype hicolor-icon-theme onetbb libpng libsdl2 libsndfile libtiff mesa ninja openexr openimageio openjpeg2 potrace python3-numpy shared-mime-info
+# Description: a fully integrated 3D graphics creation suite
+# Depends on: boost cmake desktop-file-utils ffmpeg fftw freetype hicolor-icon-theme onetbb libpng libsdl2 libsndfile libtiff mesa ninja openexr openimageio openjpeg2 potrace python3-numpy shared-mime-info brotli
 
 name=blender
-version=3.6.18
+version=4.5.0
 release=mix-1
-source=(https://download.blender.org/source/$name-$version.tar.xz
-	ffmpeg-7-1.patch ffmpeg-7-2.patch pkt_duration.patch)
+source=(https://download.blender.org/source/$name-$version.tar.xz)
 
 build() {
-  pushd $name-$version
-    patch -p1 -i ../ffmpeg-7-1.patch
-    patch -p1 -i ../ffmpeg-7-2.patch
-    patch -p1 -i ../pkt_duration.patch
-  popd
+  # fix numpy discovery
+  sed -i "s|core/include|_core/include|g" $name-$version/CMakeLists.txt
 
   cmake -S $name-$version -B build -G Ninja \
     -D CMAKE_INSTALL_PREFIX=/usr \
@@ -21,6 +17,7 @@ build() {
     -D WITH_INSTALL_PORTABLE=OFF \
     -D WITH_CYCLES_EMBREE=OFF \
     -D WITH_AUDASPACE=OFF \
+    -D PYTHON_VERSION=3.12 \
     -D CMAKE_BUILD_TYPE=Release
   cmake --build build
   DESTDIR=$PKG cmake --install build
@@ -28,8 +25,8 @@ build() {
   install -Dm 755 $name-$version/release/bin/$name-softwaregl \
     $PKG/usr/bin/blender-softwaregl
 
-  python3 -m compileall $PKG/usr/share/$name
-  python3 -O -m compileall $PKG/usr/share/$name
+  /usr/bin/python3 -m compileall $PKG/usr/share/$name
+  /usr/bin/python3 -O -m compileall $PKG/usr/share/$name
 
   rm -rv $PKG/usr/share/doc
   find $PKG \( -name README.md -o -name CHANGELOG.md \) -exec rm -v '{}' \+

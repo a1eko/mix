@@ -1,16 +1,32 @@
-# Description: Handwriting notetaking software with PDF annotation support
-# Depends on: gtk3 poppler-glib libxml2 portaudio libsndfile lua libzip texlive git cmake
+# Description: notetaking and PDF annotation software
+# URL: https://github.com/xournalpp/xournalpp
+# Maintainer: John McQuah, jmcquah at disroot dot org
+# Depends on: libsndfile libzip lua poppler portaudio-cpp adwaita-icon-theme
+# Optional: gpgme texlive
 
 name=xournalpp
-version=git
-release=mix-1
-source=()
+version=1.2.3
+release=1
+source=(https://github.com/$name/$name/archive/v$version/$name-$version.tar.gz
+        # and a patch from Alpine Linux to accommodate MUSL builds
+        no-execinfo.patch)
 
 build() {
-  git clone https://github.com/xournalpp/xournalpp.git
-  cd $name
-  cmake -DCMAKE_INSTALL_PREFIX=/usr
-  make
-  make DESTDIR=$PKG install
-  rm -rv $PKG/usr/share/locale
+    # fail the build if dependencies are not met
+    [ -e /usr/include/poppler/glib/poppler.h ] || \
+    { echo "Rebuild poppler with glib present; otherwise xournalpp will not work."; exit 1; }
+
+    pkg -i list glibc || patch -Np1 -d $name-$version < no-execinfo.patch
+
+    cmake -S $name-$version -B build -G Ninja \
+          -DCMAKE_INSTALL_PREFIX="/usr" \
+          -DCMAKE_C_FLAGS="$CFLAGS" \
+          -DCMAKE_CXX_FLAGS="$CXXFLAGS" \
+          -DCMAKE_BUILD_TYPE=Release
+
+    ninja -C build -j ${JOBS-1}
+    DESTDIR=$PKG ninja -C build install
+
+    rm -rf $PKG/usr/share/locale
+    find $PKG -name README.md -delete
 }

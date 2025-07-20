@@ -153,6 +153,8 @@ drwxr-xr-x	root/root	usr/include/nest/Random123/tests/
 -rw-r--r--	root/root	usr/include/nest/histentry.h
 -rw-r--r--	root/root	usr/include/nest/ht_neuron.h
 -rw-r--r--	root/root	usr/include/nest/ht_synapse.h
+-rw-r--r--	root/root	usr/include/nest/iaf_bw_2001.h
+-rw-r--r--	root/root	usr/include/nest/iaf_bw_2001_exact.h
 -rw-r--r--	root/root	usr/include/nest/iaf_chs_2007.h
 -rw-r--r--	root/root	usr/include/nest/iaf_chxk_2008.h
 -rw-r--r--	root/root	usr/include/nest/iaf_cond_alpha.h
@@ -385,58 +387,58 @@ drwxr-xr-x	root/root	usr/include/nest/Random123/tests/
 drwxr-xr-x	root/root	usr/lib64/
 drwxr-xr-x	root/root	usr/lib64/nest/
 lrwxrwxrwx	root/root	usr/lib64/nest/libnest.so -> libnest.so.3
-lrwxrwxrwx	root/root	usr/lib64/nest/libnest.so.3 -> libnest.so.3.7.0
--rwxr-xr-x	root/root	usr/lib64/nest/libnest.so.3.7.0
+lrwxrwxrwx	root/root	usr/lib64/nest/libnest.so.3 -> libnest.so.3.8.0
+-rwxr-xr-x	root/root	usr/lib64/nest/libnest.so.3.8.0
 lrwxrwxrwx	root/root	usr/lib64/nest/libsli.so -> libsli.so.3
-lrwxrwxrwx	root/root	usr/lib64/nest/libsli.so.3 -> libsli.so.3.7.0
--rwxr-xr-x	root/root	usr/lib64/nest/libsli.so.3.7.0
+lrwxrwxrwx	root/root	usr/lib64/nest/libsli.so.3 -> libsli.so.3.8.0
+-rwxr-xr-x	root/root	usr/lib64/nest/libsli.so.3.8.0
 lrwxrwxrwx	root/root	usr/lib64/nest/libsli_readline.so -> libsli_readline.so.3
-lrwxrwxrwx	root/root	usr/lib64/nest/libsli_readline.so.3 -> libsli_readline.so.3.7.0
--rwxr-xr-x	root/root	usr/lib64/nest/libsli_readline.so.3.7.0
-drwxr-xr-x	root/root	usr/lib64/python3.10/
-drwxr-xr-x	root/root	usr/lib64/python3.10/site-packages/
-drwxr-xr-x	root/root	usr/lib64/python3.10/site-packages/nest/
--rw-r--r--	root/root	usr/lib64/python3.10/site-packages/nest/__init__.py
-drwxr-xr-x	root/root	usr/lib64/python3.10/site-packages/nest/lib/
--rw-r--r--	root/root	usr/lib64/python3.10/site-packages/nest/lib/__init__.py
--rw-r--r--	root/root	usr/lib64/python3.10/site-packages/nest/lib/hl_api_connection_helpers.py
--rw-r--r--	root/root	usr/lib64/python3.10/site-packages/nest/lib/hl_api_connections.py
--rw-r--r--	root/root	usr/lib64/python3.10/site-packages/nest/lib/hl_api_exceptions.py
--rw-r--r--	root/root	usr/lib64/python3.10/site-packages/nest/lib/hl_api_helper.py
--rw-r--r--	root/root	usr/lib64/python3.10/site-packages/nest/lib/hl_api_info.py
--rw-r--r--	root/root	usr/lib64/python3.10/site-packages/nest/lib/hl_api_models.py
--rw-r--r--	root/root	usr/lib64/python3.10/site-packages/nest/lib/hl_api_nodes.py
--rw-r--r--	root/root	usr/lib64/python3.10/site-packages/nest/lib/hl_api_parallel_computing.py
--rw-r--r--	root/root	usr/lib64/python3.10/site-packages/nest/lib/hl_api_simulation.py
--rw-r--r--	root/root	usr/lib64/python3.10/site-packages/nest/lib/hl_api_sonata.py
--rw-r--r--	root/root	usr/lib64/python3.10/site-packages/nest/lib/hl_api_spatial.py
--rw-r--r--	root/root	usr/lib64/python3.10/site-packages/nest/lib/hl_api_types.py
--rw-r--r--	root/root	usr/lib64/python3.10/site-packages/nest/ll_api.py
--rw-r--r--	root/root	usr/lib64/python3.10/site-packages/nest/ll_api_kernel_attributes.py
-drwxr-xr-x	root/root	usr/lib64/python3.10/site-packages/nest/logic/
--rw-r--r--	root/root	usr/lib64/python3.10/site-packages/nest/logic/__init__.py
--rw-r--r--	root/root	usr/lib64/python3.10/site-packages/nest/logic/hl_api_logic.py
-drwxr-xr-x	root/root	usr/lib64/python3.10/site-packages/nest/math/
--rw-r--r--	root/root	usr/lib64/python3.10/site-packages/nest/math/__init__.py
--rw-r--r--	root/root	usr/lib64/python3.10/site-packages/nest/math/hl_api_math.py
--rw-r--r--	root/root	usr/lib64/python3.10/site-packages/nest/pynest-init.sli
--rwxr-xr-x	root/root	usr/lib64/python3.10/site-packages/nest/pynestkernel.so
-drwxr-xr-x	root/root	usr/lib64/python3.10/site-packages/nest/random/
--rw-r--r--	root/root	usr/lib64/python3.10/site-packages/nest/random/__init__.py
--rw-r--r--	root/root	usr/lib64/python3.10/site-packages/nest/random/hl_api_random.py
--rw-r--r--	root/root	usr/lib64/python3.10/site-packages/nest/raster_plot.py
-drwxr-xr-x	root/root	usr/lib64/python3.10/site-packages/nest/server/
--rw-r--r--	root/root	usr/lib64/python3.10/site-packages/nest/server/__init__.py
--rw-r--r--	root/root	usr/lib64/python3.10/site-packages/nest/server/hl_api_server.py
-drwxr-xr-x	root/root	usr/lib64/python3.10/site-packages/nest/spatial/
--rw-r--r--	root/root	usr/lib64/python3.10/site-packages/nest/spatial/__init__.py
--rw-r--r--	root/root	usr/lib64/python3.10/site-packages/nest/spatial/hl_api_spatial.py
-drwxr-xr-x	root/root	usr/lib64/python3.10/site-packages/nest/spatial_distributions/
--rw-r--r--	root/root	usr/lib64/python3.10/site-packages/nest/spatial_distributions/__init__.py
--rw-r--r--	root/root	usr/lib64/python3.10/site-packages/nest/spatial_distributions/hl_api_spatial_distributions.py
--rw-r--r--	root/root	usr/lib64/python3.10/site-packages/nest/versionchecker.py
--rw-r--r--	root/root	usr/lib64/python3.10/site-packages/nest/visualization.py
--rw-r--r--	root/root	usr/lib64/python3.10/site-packages/nest/voltage_trace.py
+lrwxrwxrwx	root/root	usr/lib64/nest/libsli_readline.so.3 -> libsli_readline.so.3.8.0
+-rwxr-xr-x	root/root	usr/lib64/nest/libsli_readline.so.3.8.0
+drwxr-xr-x	root/root	usr/lib64/python3.12/
+drwxr-xr-x	root/root	usr/lib64/python3.12/site-packages/
+drwxr-xr-x	root/root	usr/lib64/python3.12/site-packages/nest/
+-rw-r--r--	root/root	usr/lib64/python3.12/site-packages/nest/__init__.py
+drwxr-xr-x	root/root	usr/lib64/python3.12/site-packages/nest/lib/
+-rw-r--r--	root/root	usr/lib64/python3.12/site-packages/nest/lib/__init__.py
+-rw-r--r--	root/root	usr/lib64/python3.12/site-packages/nest/lib/hl_api_connection_helpers.py
+-rw-r--r--	root/root	usr/lib64/python3.12/site-packages/nest/lib/hl_api_connections.py
+-rw-r--r--	root/root	usr/lib64/python3.12/site-packages/nest/lib/hl_api_exceptions.py
+-rw-r--r--	root/root	usr/lib64/python3.12/site-packages/nest/lib/hl_api_helper.py
+-rw-r--r--	root/root	usr/lib64/python3.12/site-packages/nest/lib/hl_api_info.py
+-rw-r--r--	root/root	usr/lib64/python3.12/site-packages/nest/lib/hl_api_models.py
+-rw-r--r--	root/root	usr/lib64/python3.12/site-packages/nest/lib/hl_api_nodes.py
+-rw-r--r--	root/root	usr/lib64/python3.12/site-packages/nest/lib/hl_api_parallel_computing.py
+-rw-r--r--	root/root	usr/lib64/python3.12/site-packages/nest/lib/hl_api_simulation.py
+-rw-r--r--	root/root	usr/lib64/python3.12/site-packages/nest/lib/hl_api_sonata.py
+-rw-r--r--	root/root	usr/lib64/python3.12/site-packages/nest/lib/hl_api_spatial.py
+-rw-r--r--	root/root	usr/lib64/python3.12/site-packages/nest/lib/hl_api_types.py
+-rw-r--r--	root/root	usr/lib64/python3.12/site-packages/nest/ll_api.py
+-rw-r--r--	root/root	usr/lib64/python3.12/site-packages/nest/ll_api_kernel_attributes.py
+drwxr-xr-x	root/root	usr/lib64/python3.12/site-packages/nest/logic/
+-rw-r--r--	root/root	usr/lib64/python3.12/site-packages/nest/logic/__init__.py
+-rw-r--r--	root/root	usr/lib64/python3.12/site-packages/nest/logic/hl_api_logic.py
+drwxr-xr-x	root/root	usr/lib64/python3.12/site-packages/nest/math/
+-rw-r--r--	root/root	usr/lib64/python3.12/site-packages/nest/math/__init__.py
+-rw-r--r--	root/root	usr/lib64/python3.12/site-packages/nest/math/hl_api_math.py
+-rw-r--r--	root/root	usr/lib64/python3.12/site-packages/nest/pynest-init.sli
+-rwxr-xr-x	root/root	usr/lib64/python3.12/site-packages/nest/pynestkernel.so
+drwxr-xr-x	root/root	usr/lib64/python3.12/site-packages/nest/random/
+-rw-r--r--	root/root	usr/lib64/python3.12/site-packages/nest/random/__init__.py
+-rw-r--r--	root/root	usr/lib64/python3.12/site-packages/nest/random/hl_api_random.py
+-rw-r--r--	root/root	usr/lib64/python3.12/site-packages/nest/raster_plot.py
+drwxr-xr-x	root/root	usr/lib64/python3.12/site-packages/nest/server/
+-rw-r--r--	root/root	usr/lib64/python3.12/site-packages/nest/server/__init__.py
+-rw-r--r--	root/root	usr/lib64/python3.12/site-packages/nest/server/hl_api_server.py
+drwxr-xr-x	root/root	usr/lib64/python3.12/site-packages/nest/spatial/
+-rw-r--r--	root/root	usr/lib64/python3.12/site-packages/nest/spatial/__init__.py
+-rw-r--r--	root/root	usr/lib64/python3.12/site-packages/nest/spatial/hl_api_spatial.py
+drwxr-xr-x	root/root	usr/lib64/python3.12/site-packages/nest/spatial_distributions/
+-rw-r--r--	root/root	usr/lib64/python3.12/site-packages/nest/spatial_distributions/__init__.py
+-rw-r--r--	root/root	usr/lib64/python3.12/site-packages/nest/spatial_distributions/hl_api_spatial_distributions.py
+-rw-r--r--	root/root	usr/lib64/python3.12/site-packages/nest/versionchecker.py
+-rw-r--r--	root/root	usr/lib64/python3.12/site-packages/nest/visualization.py
+-rw-r--r--	root/root	usr/lib64/python3.12/site-packages/nest/voltage_trace.py
 drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/nest/
 drwxr-xr-x	root/root	usr/share/nest/sli/

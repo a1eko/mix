@@ -3,14 +3,17 @@
 # Optional: mpich boost python3-mpi4py clang
 
 name=nest-simulator
-version=3.7
+version=3.8
 release=mix-1
 source=(http://github.com/nest/nest-simulator/archive/refs/tags/v$version.tar.gz)
 
 build() {
+  # fix error with Cython v3.1
+  sed -i '1i from ctypes import c_long as long' $name-$version/pynest/pynestkernel.pyx
+
   test -x /usr/bin/mpiexec && PKGMK_NEST+=' -Dwith-mpi=ON'
-  #test -x /usr/bin/clang && test -x /usr/bin/clang++ \
-  #  && PKGMK_NEST+=' -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++'
+  test -x /usr/bin/clang && test -x /usr/bin/clang++ \
+    && PKGMK_NEST+=' -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++'
 
   cmake -S $name-$version -B build $PKGMK_NEST \
     -DCMAKE_INSTALL_PREFIX=/usr \

@@ -5,7 +5,7 @@
 # Optional: gpgme texlive
 
 name=xournalpp
-version=1.2.3
+version=1.2.7
 release=1
 source=(https://github.com/$name/$name/archive/v$version/$name-$version.tar.gz
         # and a patch from Alpine Linux to accommodate MUSL builds
@@ -16,7 +16,7 @@ build() {
     [ -e /usr/include/poppler/glib/poppler.h ] || \
     { echo "Rebuild poppler with glib present; otherwise xournalpp will not work."; exit 1; }
 
-    pkg -i list glibc || patch -Np1 -d $name-$version < no-execinfo.patch
+    prt-get isinst glibc || patch -Np1 -d $name-$version < no-execinfo.patch
 
     cmake -S $name-$version -B build -G Ninja \
           -DCMAKE_INSTALL_PREFIX="/usr" \

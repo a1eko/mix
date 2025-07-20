@@ -22,7 +22,6 @@ o tools, ports (gcc-fortran): avoid crux port, enable fortran in base gcc packag
 x ports (dhcpcd, glibc): nscd: symbol lookup error: nscd: undefined symbol: __nss_disable_nscd, version GLIBC_PRIVATE
 o ports (rust): remove rust before upgrading, cleanup rust dirs manually if needed
 - tools, ports (pkz): gentoo distfiles mirror not available, drop mirror support
-- ports (inkscape): change ${name}-${version}* to ${name}-${version}_* in mix pkg
 + tools (lz4): added by lfs as zstd dep
 + ports (webkitgtk): needs at least 2GB of RAM per CPU vcore, limit threads usage if necessary ('cmake --build -j 4') in mix pkg
 + ports (webkitgtk): breaks surf build if compiled with gtk4 (add '-D USE_GTK4=OFF')
@@ -30,14 +29,14 @@ o ports (rust): remove rust before upgrading, cleanup rust dirs manually if need
 + ports (clang): delete version checking in crux port (prt-get)
 + dist (tools): upgrade to crux v3.8 tools and packages
 o dist (ports): signify fails for crux packages if file renaming is applied (renames=)
-+ dist (nettle, rdfind, linux-{firmware,pam}, shadow): move to BASE2, add which as dep for rdfind
++ dist (nettle, rdfind, linux-{firmware,pam}, shadow): move to BASE2, add which as a dep for rdfind
 + ports (ncurses): switch to lfs build instructions and version 6.5-20250531
 + ports (psmisc): switch to lfs build instructions
 + ports (python3-setuptools): add dependencies, use crux port, disable optimization
 + ports (util-linux): build after linux-pam and sqlite3
 + ports (shadow): add libbsd and libmd dep
 + ports (surf): enable file download, eg to {$HOME,}/tmp
-- ports (tk): missing pkg
++ ports (tk): missing pkg
 + ports (openjpeg): missing pkg, replaced with openjpeg2
 + ports (moc): broken build, add path to m4 scripts: 'autoreconf -fvi -I /usr/share/gettext/m4'
 x ports (liba52): missing pkg
@@ -50,4 +49,11 @@ x ports (schroedinger): missing pkg
 + ports (ffmpeg): missing ffplay binary, add dep libsdl2 to video.mix to build it
 x ports (mpv): add dependencies to video.mix
 o ports (libpng): watch apng patch (dep for firefox) to be merged to mainline (github pull 706)
-- ports (gcc): rebuild after installing isl
++ ports (gcc): rebuild after installing isl
+- ports (genesis): broken build
+- ports (hugin): broken build
++ ports (nest-simulator): build
++ ports (xournalpp): broken build
++ ports (openimageio): upgrade to v3.0
++ ports (blender): upgrade to v4.5
+- ports (inkscape): change ${name}-${version}* to ${name}-${version}_* in mix pkg

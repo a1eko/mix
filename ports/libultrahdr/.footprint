@@ -1,0 +1,12 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/ultrahdr_app
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/ultrahdr_api.h
+drwxr-xr-x	root/root	usr/lib64/
+-rw-r--r--	root/root	usr/lib64/libuhdr.a
+lrwxrwxrwx	root/root	usr/lib64/libuhdr.so -> libuhdr.so.1
+lrwxrwxrwx	root/root	usr/lib64/libuhdr.so.1 -> libuhdr.so.1.4.0
+-rwxr-xr-x	root/root	usr/lib64/libuhdr.so.1.4.0
+drwxr-xr-x	root/root	usr/lib64/pkgconfig/
+-rw-r--r--	root/root	usr/lib64/pkgconfig/libuhdr.pc
