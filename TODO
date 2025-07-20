@@ -56,4 +56,5 @@ o ports (libpng): watch apng patch (dep for firefox) to be merged to mainline (g
 + ports (xournalpp): broken build
 + ports (openimageio): upgrade to v3.0
 + ports (blender): upgrade to v4.5
-- ports (inkscape): change ${name}-${version}* to ${name}-${version}_* in mix pkg
++ ports (inkscape): change ${name}-${version}* to ${name}-${version}_* in mix pkg
+- dist (mix): make release
