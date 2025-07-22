@@ -23,7 +23,7 @@ build() {
              -DJPEGXL_FORCE_SYSTEM_LCMS2=true
              -DJPEGXL_FORCE_SYSTEM_HWY=true)
 
-  prt-get isinst asciidoc && PKGMK_JXL+=(-DJPEGXL_ENABLE_MANPAGES=ON) || PKGMK_JXL+=(-DJPEGXL_ENABLE_MANPAGES=OFF)
+  pkz -i list asciidoc && PKGMK_JXL+=(-DJPEGXL_ENABLE_MANPAGES=ON) || PKGMK_JXL+=(-DJPEGXL_ENABLE_MANPAGES=OFF)
 
   cmake -B build -S $name-$version -G Ninja ${PKGMK_JXL[@]}
 

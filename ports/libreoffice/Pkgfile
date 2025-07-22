@@ -5,11 +5,11 @@ name=libreoffice
 version=25.2.3.2
 release=mix-1
 source=(https://downloadarchive.documentfoundation.org/libreoffice/old/$version/src/$name-$version.tar.xz
-	https://download.documentfoundation.org/libreoffice/src/${version%.2}/libreoffice-dictionaries-$version.tar.xz
-	https://download.documentfoundation.org/libreoffice/src/${version%.2}/libreoffice-help-$version.tar.xz
-	https://download.documentfoundation.org/libreoffice/src/${version%.2}/libreoffice-translations-$version.tar.xz
-	https://www.linuxfromscratch.org/patches/blfs/svn/libreoffice-$version-icu76_fixes-1.patch
-	https://www.linuxfromscratch.org/patches/blfs/svn/libreoffice-$version-poppler_fixes-1.patch
+  https://download.documentfoundation.org/libreoffice/src/${version%.2}/libreoffice-dictionaries-$version.tar.xz
+  https://download.documentfoundation.org/libreoffice/src/${version%.2}/libreoffice-help-$version.tar.xz
+  https://download.documentfoundation.org/libreoffice/src/${version%.2}/libreoffice-translations-$version.tar.xz
+  https://www.linuxfromscratch.org/patches/blfs/svn/libreoffice-$version-icu76_fixes-1.patch
+  https://www.linuxfromscratch.org/patches/blfs/svn/libreoffice-$version-poppler_fixes-1.patch
 )
 
 unpack_source() { :; }
@@ -23,15 +23,15 @@ build() {
   patch -Np1 -i ../libreoffice-$version-poppler_fixes-1.patch
 
   # fix misc bugs
-  sed -i '/icuuc \\/a zlib\\'           writerperfect/Library_wpftdraw.mk
+  sed -i '/icuuc \\/a zlib\\' writerperfect/Library_wpftdraw.mk
   sed -i "/distro-install-file-lists/d" Makefile.in
-  sed -e "/gzip -f/d"   \
-      -e "s|.1.gz|.1|g" \
-      -i bin/distro-install-desktop-integration
+  sed -e "/gzip -f/d" \
+    -e "s|.1.gz|.1|g" \
+    -i bin/distro-install-desktop-integration
 
   install -dm755 external/tarballs
   ln -sv ../../../libreoffice-dictionaries-$version.tar.xz external/tarballs/
-  ln -sv ../../../libreoffice-help-$version.tar.xz         external/tarballs/
+  ln -sv ../../../libreoffice-help-$version.tar.xz external/tarballs/
   ln -sv ../../../libreoffice-translations-$version.tar.xz external/tarballs/
   ln -sv src/libreoffice-help-$version/helpcontent2/
   ln -sv src/libreoffice-dictionaries-$version/dictionaries/
@@ -93,7 +93,8 @@ build() {
   install -m644 $PKG/usr/lib/libreoffice/share/psprint/psprint.conf \
     $PKG/usr/etc/libreoffice/
 
-  ( cd $PKG/usr/lib/libreoffice/program/
+  (
+    cd $PKG/usr/lib/libreoffice/program/
     ln -vsrf $PKG/usr/etc/libreoffice/{bootstraprc,sofficerc} .
   )
 

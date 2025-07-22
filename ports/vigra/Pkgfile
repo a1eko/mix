@@ -9,9 +9,9 @@ build() {
   git clone https://github.com/ukoethe/vigra.git
   cd $name
   cmake -DCMAKE_INSTALL_PREFIX=/usr \
-      -DWITH_OPENEXR=true \
-      -DWITH_VIGRANUMPY=1 \
-      -DDOCINSTALL=share/doc
+    -DWITH_OPENEXR=true \
+    -DWITH_VIGRANUMPY=1 \
+    -DDOCINSTALL=share/doc
   make
   make DESTDIR=$PKG install
 

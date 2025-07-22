@@ -4,7 +4,7 @@ name=expect
 version=5.45.4
 release=mix-3
 source=(https://prdownloads.sourceforge.net/expect/expect$version.tar.gz
-	https://www.linuxfromscratch.org/patches/lfs/development/expect-$version-gcc15-1.patch)
+  https://www.linuxfromscratch.org/patches/lfs/development/expect-$version-gcc15-1.patch)
 
 build() {
   cd $name$version
@@ -20,6 +20,7 @@ build() {
     --with-tclinclude=/usr/include
   make
   make DESTDIR=$PKG install
+
   ln -svf expect$version/libexpect$version.so $PKG/usr/lib
   rm -rv $PKG/usr/share/man
 }

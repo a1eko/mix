@@ -14,10 +14,10 @@ build() {
   autoreconf -fiv
   export CXXFLAGS="$CXXFLAGS $(pkg-config --cflags avisynth) -fpermissive"
   ./configure \
-     	  --prefix=/usr \
-     	  --enable-avisynth \
-     	  --enable-shared \
-     	  --disable-static
+    --prefix=/usr \
+    --enable-avisynth \
+    --enable-shared \
+    --disable-static
   make
   make DESTDIR=$PKG install
 

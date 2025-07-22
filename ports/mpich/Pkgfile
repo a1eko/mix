@@ -4,12 +4,11 @@ name=mpich
 version=4.3.1
 release=mix-1
 source=(http://www.mpich.org/static/downloads/$version/mpich-$version.tar.gz)
- 
-build()
-{
+
+build() {
   cd $name-$version
   ./configure --prefix=/usr --with-device=ch3 --disable-fortran
-  make 
+  make
   make DESTDIR=$PKG install
   rm -rv $PKG/usr/share/{doc,man/man3}
 }

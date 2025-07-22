@@ -1,21 +1,18 @@
-# Description: Basic library to calculate panoramical pictures - core functions of the panotools
+# Description: basic library to calculate panoramical pictures - core functions of the panotools
 # Depends on: libpng libtiff
 
 name=libpano13
 version=2.9.22
 release=mix-1
-source=("http://downloads.sourceforge.net/sourceforge/panotools/${name}-${version}.tar.gz"
-	libpano13-$version-gcc15.patch)
+source=("http://downloads.sourceforge.net/sourceforge/panotools/$name-$version.tar.gz"
+  libpano13-$version-gcc15.patch)
 
 build() {
-	pushd ${name}-${version}
-		patch -Np1 -i $SRC/libpano13-$version-gcc15.patch
-	popd
+  patch -d $name-$version -Np1 -i $SRC/libpano13-$version-gcc15.patch
 
-	cmake -B build -S ${name}-${version} \
-	   	-DCMAKE_INSTALL_PREFIX=/usr \
-	   	-DUSE_SPARSE_LEVMAR=ON
-     	make -C build
-	make -C build DESTDIR=$PKG install
+  cmake -B build -S $name-$version \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DUSE_SPARSE_LEVMAR=ON
+  make -C build
+  make -C build DESTDIR=$PKG install
 }
-

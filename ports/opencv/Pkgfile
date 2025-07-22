@@ -24,7 +24,7 @@ build() {
     -DCMAKE_SKIP_RPATH=ON \
     -DBUILD_WITH_DEBUG_INFO=OFF \
     -DWITH_LAPACK=OFF \
-    -Wno-dev  ..
+    -Wno-dev ..
 
   make
   make DESTDIR=$PKG install

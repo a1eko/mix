@@ -1,11 +1,11 @@
-# Description: An arbitrary precision calculator language
+# Description: an arbitrary precision calculator language
 
 name=bc
 version=7.0.3
 release=mix-1
 source=(https://github.com/gavinhoward/$name/archive/$version/$name-$version.tar.gz)
 
-build() { 
+build() {
   cd $name-$version
   CC='gcc -std=c99' ./configure --prefix=/usr --disable-nls -G -O3 -r
   make

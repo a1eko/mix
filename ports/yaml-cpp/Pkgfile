@@ -12,15 +12,15 @@ build() {
   sed -i '1i #include <cstdint>' src/emitterutils.cpp
 
   cmake -GNinja \
-        -Bbuild \
-        -DYAML_CPP_BUILD_TESTS=ON \
-        -DCMAKE_INSTALL_PREFIX=/usr \
-        -DBUILD_SHARED_LIBS=ON \
-        -DYAML_BUILD_SHARED_LIBS=ON \
-        -DCMAKE_BUILD_TYPE=Release
+    -Bbuild \
+    -DYAML_CPP_BUILD_TESTS=ON \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DBUILD_SHARED_LIBS=ON \
+    -DYAML_BUILD_SHARED_LIBS=ON \
+    -DCMAKE_BUILD_TYPE=Release
   ninja -C build -j ${JOBS:-1}
   DESTDIR=$PKG ninja -C build install
 
-  rm -rf $PKG/usr/{lib,lib/pkgconfig,include}/*{gtest,gmock}*
-  rm -rf $PKG/usr/lib/cmake/GTest
+  rm -rfv $PKG/usr/{lib,lib/pkgconfig,include}/*{gtest,gmock}*
+  rm -rfv $PKG/usr/lib/cmake/GTest
 }

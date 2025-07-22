@@ -4,7 +4,7 @@ name=pystring
 version=1.1.4
 release=mix-1
 source=(https://github.com/imageworks/pystring/archive/v$version.tar.gz
-        https://github.com/imageworks/pystring/pull/42.patch)
+  https://github.com/imageworks/pystring/pull/42.patch)
 
 build() {
   cd $name-$version

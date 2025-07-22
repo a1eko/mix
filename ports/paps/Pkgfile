@@ -1,4 +1,4 @@
-# Description: UTF-8 text to PostScript converter 
+# Description: UTF-8 text to PostScript converter
 # Depends on: fmt pango
 
 name=paps
@@ -10,9 +10,9 @@ source=(https://github.com/dov/paps/releases/download/v$version/paps-$version.ta
 build() {
   cd $name-$version
   ./configure --prefix=/usr \
-	  --mandir=/usr/share/man \
-	  --disable-Werror \
-	  CXXFLAGS="-g -O2 -fpermissive"
+    --mandir=/usr/share/man \
+    --disable-Werror \
+    CXXFLAGS="-g -O2 -fpermissive"
   make
   make DESTDIR=$PKG install
 }

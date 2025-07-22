@@ -1,6 +1,6 @@
 # Description: a color management framework for visual effects and animation
 # Depends on: freeglut glew lcms2 expat yaml-cpp openexr pybind11 cmake ninja
-# Optional: minizip-ng pystring 
+# Optional: minizip-ng pystring
 
 name=opencolorio
 version=2.4.2
@@ -10,7 +10,7 @@ source=(https://github.com/AcademySoftwareFoundation/OpenColorIO/archive/v$versi
 build() {
   cd OpenColorIO-$version
 
-  CXXFLAGS="$CXXFLAGS -ffat-lto-objects" \
+  export CXXFLAGS="$CXXFLAGS -ffat-lto-objects"
   cmake \
     -GNinja \
     -Bbuild \

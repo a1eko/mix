@@ -10,7 +10,7 @@ source=(https://static.rust-lang.org/dist/${name}c-$version-src.tar.xz)
 build() {
   cd ${name}c-$version-src
 
-  cat <<- EOF > config.toml
+  cat <<-EOF >config.toml
 profile = "dist"
 change-id = 140732
 
@@ -44,10 +44,10 @@ llvm-config = "/usr/bin/llvm-config"
 llvm-config = "/usr/bin/llvm-config"
 EOF
 
-  { [ ! -e /usr/include/libssh2.h ] ||
-    export LIBSSH2_SYS_USE_PKG_CONFIG=1; }
-  { [ ! -e /usr/include/sqlite3.h ] ||
-    export LIBSQLITE3_SYS_USE_PKG_CONFIG=1; }
+  { [ ! -e /usr/include/libssh2.h ] \
+    || export LIBSSH2_SYS_USE_PKG_CONFIG=1; }
+  { [ ! -e /usr/include/sqlite3.h ] \
+    || export LIBSQLITE3_SYS_USE_PKG_CONFIG=1; }
 
   /usr/bin/python3 ./x.py build
   DESTDIR=$PKG /usr/bin/python3 ./x.py install
@@ -61,13 +61,13 @@ EOF
   # Remove analysis data for libs that weren't installed
   local file lib
   while read -rd '' file; do
-  	lib="${file%.json}.rlib"
-	lib="${lib/\/analysis\///lib/}"
-	if [[ ! -e $lib ]]; then
-		echo "missing '$lib'"
-		rm -v "$file"
-	fi
-  done < <(find "$PKG/usr/lib/rustlib"  -path '*/analysis/*.json' -print0)
+    lib="${file%.json}.rlib"
+    lib="${lib/\/analysis\///lib/}"
+    if [[ ! -e $lib ]]; then
+      echo "missing '$lib'"
+      rm -v "$file"
+    fi
+  done < <(find "$PKG/usr/lib/rustlib" -path '*/analysis/*.json' -print0)
 
   find $PKG/usr -name "*.old" -delete
   rm -v $PKG/usr/lib/rustlib/{install.log,manifest-*}

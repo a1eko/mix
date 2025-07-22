@@ -4,11 +4,10 @@ name=glibc
 version=2.41
 release=mix-1
 source=(https://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz
-	https://www.linuxfromscratch.org/patches/lfs/development/glibc-$version-fhs-1.patch
-	host.conf hosts ld.so.conf nsswitch.conf resolv.conf)
+  https://www.linuxfromscratch.org/patches/lfs/development/glibc-$version-fhs-1.patch
+  host.conf hosts ld.so.conf nsswitch.conf resolv.conf)
 
-build()
-{
+build() {
   cd $name-$version
 
   patch -Np1 -i ../glibc-$version-fhs-1.patch
@@ -20,7 +19,7 @@ build()
   #echo "rootsbindir=/usr/sbin" > configparms
 
   # ensure installation path for ldconfig and sln (crux compat)
-  echo "rootsbindir=/sbin" > configparms
+  echo "rootsbindir=/sbin" >configparms
 
   # crux compat libc_cv_slibdir
   ../configure --prefix=/usr \
@@ -29,8 +28,8 @@ build()
     --enable-kernel=4.19 \
     --enable-stack-protector=strong \
     --enable-kernel=5.4 \
-    libc_cv_slibdir=/lib  # crux compat
-    #libc_cv_slibdir=/usr/lib  # lfs compat
+    libc_cv_slibdir=/lib # crux compat
+  #libc_cv_slibdir=/usr/lib  # lfs compat
   make
 
   $TST TIMEOUTFACTOR=16 make -k check || true

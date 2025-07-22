@@ -6,7 +6,7 @@ version=6.5
 release=mix-1
 source=(https://dl.suckless.org/dwm/$name-$version.tar.gz)
 
-build () {
+build() {
   cd $name-$version
   [ -f $PKGMK_ROOT/config.h ] && cp -v $PKGMK_ROOT/config.h .
   make

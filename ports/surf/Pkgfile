@@ -9,10 +9,13 @@ release=mix-1
 build() {
   git clone https://git.suckless.org/$name $name
   cd $name
+
+  # change download directory to $HOME/tmp
   sed -i 's@curl -g -L -J -O@& --output-dir $HOME/tmp@' config.def.h
+
   make CC=gcc DESTDIR=$PKG PREFIX=/usr clean install
 
-  cat << EOF > surftab.sh
+  cat <<EOF >surftab.sh
 #!/bin/sh
 /usr/bin/tabbed -c /usr/bin/surf -e
 EOF

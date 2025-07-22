@@ -5,9 +5,9 @@ name=enblend-enfuse
 version=4.2.0_p20161007
 release=mix-1
 source=(https://dev.gentoo.org/~soap/distfiles/enblend-$version.tar.xz
-	enblend-4.2-doc-install-dir-fix.patch
-	enblend-$version-cmake.patch
-	enblend-$version-gcc-10.patch
+  enblend-4.2-doc-install-dir-fix.patch
+  enblend-$version-cmake.patch
+  enblend-$version-gcc-10.patch
 )
 
 build() {

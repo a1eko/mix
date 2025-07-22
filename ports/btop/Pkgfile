@@ -1,4 +1,4 @@
-# Description: A monitor of system resources, bpytop ported to C++
+# Description: a monitor of system resources, bpytop ported to C++
 
 name=btop
 version=1.4.0

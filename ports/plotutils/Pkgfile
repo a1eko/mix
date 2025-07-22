@@ -5,17 +5,20 @@ name=plotutils
 version=2.6
 release=mix-3
 source=(https://ftp.gnu.org/pub/gnu/$name/$name-$version.tar.gz
-	plotutils-$version-libpng-1.5.patch
-	plotutils-$version-c23.patch)
+  plotutils-$version-libpng-1.5.patch
+  plotutils-$version-c23.patch)
 
 build() {
   cd $name-$version
+
   patch -Np1 -i ../plotutils-$version-libpng-1.5.patch
   patch -Np1 -i ../plotutils-$version-c23.patch
-  CXXFLAGS+=' -std=c++11 -w' \
+
+  export CXXFLAGS+=' -std=c++11 -w'
   ./configure --prefix=/usr --enable-libplotter --enable-libxmi --disable-static --with-gnu-ld --with-x
   make
   make DESTDIR=$PKG install
+
   rm -rv $PKG/usr/share/info
   rm -v $PKG/usr/share/*/README
 }

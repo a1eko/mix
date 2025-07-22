@@ -8,8 +8,10 @@ source=(https://www.x.org/pub/individual/app/$name-$version.tar.xz)
 
 build() {
   cd $name-$version
+
   sed -e '/^rcdir =/s,^\(rcdir = \).*,\1/usr/share/X11/app-defaults,' \
       -i src/Makefile.in
+
   ./configure --prefix=/usr \
     --sysconfdir=/etc \
     --localstatedir=/var \

@@ -5,7 +5,7 @@ name=lensfun
 version=0.3.4
 release=mix-2
 source=(https://github.com/lensfun/lensfun/archive/v$version/$name-$version.tar.gz
-	fix-python-module-install.patch)
+  fix-python-module-install.patch)
 
 build() {
   patch -d $name-$version -p1 -i $SRC/fix-python-module-install.patch

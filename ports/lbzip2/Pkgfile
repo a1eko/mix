@@ -4,7 +4,7 @@ name=lbzip2
 version=2.5
 release=mix-1
 source=(http://deb.debian.org/debian/pool/main/l/$name/${name}_${version}.orig.tar.bz2
-	https://raw.githubusercontent.com/archlinux/svntogit-community/packages/lbzip2/trunk/lbzip2-gnulib-build-fix.patch)
+  https://raw.githubusercontent.com/archlinux/svntogit-community/packages/lbzip2/trunk/lbzip2-gnulib-build-fix.patch)
 
 build() {
   cd $name-$version

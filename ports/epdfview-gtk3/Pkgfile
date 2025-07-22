@@ -7,7 +7,7 @@ version=20200814
 release=mix-1
 source=(http://anduin.linuxfromscratch.org/BLFS/$name/$name-$version.tar.xz)
 
-build () {
+build() {
   meson setup $name-$version build \
     --prefix=/usr \
     --buildtype=release \

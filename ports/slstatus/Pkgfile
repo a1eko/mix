@@ -6,7 +6,7 @@ version=git
 release=mix-1
 source=()
 
-build () {
+build() {
   git clone git://git.suckless.org/$name
   cd $name
   [ -f $PKGMK_ROOT/config.h ] && cp -v $PKGMK_ROOT/config.h .

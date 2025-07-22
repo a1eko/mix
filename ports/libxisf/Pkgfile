@@ -8,8 +8,8 @@ source=(https://gitea.nouspiro.space/nou/libXISF/archive/v$version.tar.gz)
 
 build() {
   cmake -B build -S $name \
-     	  -DCMAKE_INSTALL_PREFIX=/usr \
-     	  -DUSE_BUNDLED_LIBS=OFF
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DUSE_BUNDLED_LIBS=OFF
   cmake --build build
   DESTDIR=$PKG cmake --install build
 }

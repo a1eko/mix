@@ -5,7 +5,6 @@
 name=ansel
 version=git
 release=mix-1
-source=()
 
 build() {
   git clone --recurse-submodules --depth 1 https://github.com/aurelienpierreeng/$name.git

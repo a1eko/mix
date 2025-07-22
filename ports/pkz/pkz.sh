@@ -69,6 +69,7 @@ Options:
   -n            show not-installed packages (list)
   -u            show updated packages (list)
   -l            show source URL of packages (list)
+  -m url        use mirror URL to download packages (source)
   -o            include optional dependencies (resolve, provide, depend)
 
 Command:
