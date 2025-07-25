@@ -27,3 +27,4 @@ harfbuzz
 gsettings-desktop-schemas
 
 firefox
+dbus

@@ -3,7 +3,7 @@
 # Optional: pigz
 
 name=pkz
-version=0.8
+version=0.9
 release=mix-1
 source=(pkz.sh pkz.conf)
 

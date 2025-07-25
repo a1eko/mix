@@ -1,14 +1,15 @@
-# - to do, + done, o attention/pending, x ignore
+# - to do, + done, o attention/pending, ? uncertain, x ignore
 
 o config (rc.conf): start dbus (runtime dependency/warnings of some X apps)
 o dist (install.sh): put public keys from https://crux.nu/keys/{core,contrib,opt,xorg}.pub to /etc/ports/
 o dist (install.sh, pkz): mix ports may contain crux .sigantures, pkz.sh will use .md5sum if it exists
 o ports (filesystem): never upgrade, overwrites /etc/{passwd,groups,shadow}
-o ports (firefox): disable WebGL (about:config, webgl.disabled=true) if needed (local AMD specific)
+? ports (rc): restore mode 1777 of /dev/shm in rc.local if needed
+? ports (firefox): disable WebGL (about:config, webgl.disabled=true) if needed (local AMD specific)
+o ports (dbus, firefox): rebuild dbus in net.mix for dbus-launch to work with firefox
 o ports (meson, python3-*): remove old version when upgrading (use 'pkz upgrade', not 'pkz -f install')
 o ports (pkz): if pkz-upgrade fails, the old package is marked not installed (copied to .bak)
 o ports (python3): rebuild with deps in coreopt and graphics
-o ports (rc): restore mode 1777 of /dev/shm in rc.local if needed
 o ports: beware lfs linking of /{bin,lib*,sbin} to /usr is not compatible with crux
 o tools, ports (gcc, glibc, rust): keep /usr/libexec as in lfs instructions
 o ports (tar, ...): let crux replace /usr/libexec with /usr/lib (FHS compliant)
@@ -20,7 +21,7 @@ o tools, ports (cmake, ninja, meson): added to tools/base system, reinstalling c
 o tools, ports (gcc-fortran): avoid crux port, enable fortran in base gcc package instead
 + ports (eudev): add 'sgx' to /etc/group (crux compat, lfs removes it)
 o ports (rust): remove rust before upgrading, cleanup rust dirs manually if needed
-o ports (webkitgtk): needs at least 2GB of RAM per CPU vcore, limit threads usage if necessary ('cmake --build -j 4') in mix pkg
+o ports (webkitgtk): needs at least 2GB of RAM per CPU vcore, reduce number of threads ('cmake --build -j 4')
 o ports (webkitgtk): breaks surf build if compiled with gtk4 (add '-D USE_GTK4=OFF')
 o dist (ports): signify fails for crux packages if file renaming is applied (renames=)
 + dist (nettle, rdfind, linux-{firmware,pam}, shadow): move to BASE2, add which as a dep for rdfind
@@ -29,7 +30,6 @@ o dist (ports): signify fails for crux packages if file renaming is applied (ren
 + ports (shadow): add libbsd and libmd dep
 o ports (libpng): watch apng patch (dep for firefox) to be merged to mainline (github pull 706)
 o ports (gcc): rebuild after installing isl
-- ports (genesis): broken build
-- ports (hugin): broken build
-- dist (mix): make release
-- tools, ports (pkz): gentoo distfiles mirror not available, drop mirror support
++ ports (hugin): upgrade to v2024.0.x
++ dist (mix): make release
++ tools, ports (pkz): gentoo distfiles mirror not available, disable default mirror site

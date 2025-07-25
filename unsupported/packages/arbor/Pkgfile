@@ -1,0 +1,31 @@
+# Description: multi-compartment neural network simulation library
+# Depends on: cmake python3 python3-pybind11 mpich python3-mpi4py
+
+name=arbor
+version=git-20250623
+release=mix-1
+commit="bf4c0f46f49e3d14f17d8ae60ba0810faa1952ed"
+
+build() {
+  git clone https://github.com/arbor-sim/$name.git --recurse-submodules
+  cd $name
+  git checkout $commit
+
+  mkdir build
+  cd build
+
+  cmake \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_BUILD_TYPE=release \
+    -DARB_ARCH=native \
+    -DARB_WITH_PYTHON=ON \
+    -DPYTHON_EXECUTABLE=$(which python3) \
+    -DBUILD_DOCUMENTATION=OFF \
+    -DARB_BUILD_PYTHON_STUBS=OFF \
+    -DARB_WITH_MPI=ON \
+    ..
+  make -j ${JOBS:-1}
+  DESTDIR=$PKG make install
+
+  rm -rv $PKG/usr/share/doc
+}

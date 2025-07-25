@@ -47,7 +47,7 @@ GZIP=$(command -v pigz)
 GZIP=${GZIP:-gzip}
 
 usage() {
-  cat <<EOF
+  cat << EOF
 Usage:          pkz [options] <command> <packages>
                 pkz [-h|--help]
 EOF
@@ -55,7 +55,7 @@ EOF
 
 help() {
   usage
-  cat <<EOF
+  cat << EOF
 Package manager for scripted source-based distribution.
 
 Options:
@@ -108,7 +108,7 @@ standard_files() {
     {,usr/{,local/}}lib64 etc/{group,mtab,passwd} \
     usr/{,local/}{doc,info,man} usr/local/share/man \
     var/{lock,run} var/log/{btmp,lastlog,wtmp} \
-    | tr ' ' '\n'
+  | tr ' ' '\n'
 }
 
 standard_dirs() {
@@ -121,7 +121,7 @@ standard_dirs() {
     usr/{,local/{,share/}}man/man{1..9}/ usr/share/{sgml,xml}/ \
     var/ var/{account,cache,crash,games,local,log,mail,opt,spool,tmp,yp}/ \
     var/lib/ var/lib/{color,hwclock,misc,locate}/ var/spool/{cron,lpd,rwho}/ \
-    | tr ' ' '\n'
+  | tr ' ' '\n'
 }
 
 compress_files() {
@@ -137,17 +137,14 @@ compress_files() {
 
 strip_objects() {
   local f
-  find $PKG -type f -perm -u+w 2>/dev/null | while read f; do
+  find $PKG -type f -perm -u+w 2>/dev/null | while read f ; do
     case $(file -bi $f) in
       *application/x-sharedlib*)
-        test -n "$strip_shared" && strip $strip_shared $f
-        ;;
+        test -n "$strip_shared" && strip $strip_shared $f ;;
       *application/x-archive*)
-        test -n "$strip_static" && strip $strip_static $f
-        ;;
+        test -n "$strip_static" && strip $strip_static $f ;;
       *application/x-executable*)
-        test -n "$strip_binaries" && strip $strip_binaries $f
-        ;;
+        test -n "$strip_binaries" && strip $strip_binaries $f ;;
     esac
   done
 }
@@ -169,35 +166,25 @@ do_source() {
         else
           if [ -f $zsources/$f ]; then
             ln -sf $zsources/$f $SRC
-          else
+            else
             message -n "fetching $s ..."
-            (
-              cd /tmp
+            ( cd /tmp
               rm -f $(basename $s)*
               (wget -q -t 3 $s && mv $(basename $s) $zsources/) \
-                || (
-                  test -n "$use_mirror" \
-                    && (
-                      rm -f $(basename $s)*
-                      (
-                        wget -nv $use_mirror/$(basename $s) \
-                          && mv $(basename $s) $zsources/
-                      )
-                    )
-                )
+                  || ( test -n "$use_mirror" && \
+                       ( rm -f $(basename $s)*
+                         ( wget -nv $use_mirror/$(basename $s) \
+                             && mv $(basename $s) $zsources/
+                         )
+                       )
+                     )
             ) || error "cannot fetch $(basename $s)"
             echo \ done
             if [ -f $pkgsum ]; then
-              grep -qw "$(
-                cd $zsources
-                md5sum $f
-              )" $pkgsum \
+              grep -qw "$(cd $zsources; md5sum $f)" $pkgsum \
                 || error "md5sum failed"
             elif [ -f $pkgsig ]; then
-              (
-                cd $zsources
-                signify -q -C -x $pkgsig $f
-              ) \
+              (cd $zsources; signify -q -C -x $pkgsig $f) \
                 || error "signify failed"
             fi
             ln -sf $zsources/$f $SRC
@@ -225,11 +212,9 @@ unpack_source() {
     f=$(basename $s)
     case $f in
       *.tar | *.tar.* | *.tbz2 | *.tbz | *.tgz | *.txz)
-        tar --no-same-owner -xf $f || error "corrupt source $f"
-        ;;
+        tar --no-same-owner -xf $f || error "corrupt source $f" ;;
       *.zip | *.ZIP)
-        unzip -q $f
-        ;;
+        unzip -q $f ;;
     esac
   done
 }
@@ -246,28 +231,23 @@ do_build() {
   test ! -f $pkgdir/pre-install || bash -e $pkgdir/pre-install \
     || error "pre-install failed"
   message -n "building ..."
-  set -E
-  trap 'error "build failed"' ERR
-  time -p (build >pkgbuild) >>pkgbuild 2>&1
-  set +E
-  trap - ERR
-  du -sk $PKG | cut -f1 | sed "s/^/size /" >>pkgbuild
-  $GZIP -c pkgbuild >$pkgbuild.gz
+  set -E; trap 'error "build failed"' ERR
+  time -p (build > pkgbuild) >> pkgbuild 2>&1
+  set +E; trap - ERR
+  du -sk $PKG | cut -f1 | sed "s/^/size /" >> pkgbuild
+  $GZIP -c pkgbuild > $pkgbuild.gz
   test $compress_manuals = yes && compress_files $PKG '*/man/man*'
   test -n "$strip_shared""$strip_static""$strip_binaries" \
     -a ! -e $pkgdir/.nostrip && strip_objects
-  (
-    cd $PKG
-    tar --sort=name -cf - . | $GZIP -c >$SRC/pkgbin
-  ) || error "packaging failed"
+  (cd $PKG; tar --sort=name -cf - . | $GZIP -c > $SRC/pkgbin) || error "packaging failed"
   tar tvvf pkgbin | awk '{if(NR>1) print $1, $2, $6, $7, $8, $9}' \
-    | sed -e 's/ /\t/' -e 's/ \.\//\t/' -e 's/  *$//' >pkgcont
+    | sed -e 's/ /\t/' -e 's/ \.\//\t/' -e 's/  *$//' > pkgcont
   mv -f pkgbin $pkgbin && mv -f pkgcont $pkgcont \
     || error "package placement failed"
   echo \ done
   zcat $pkgbuild.gz | tail -n4 | grep -e real -e size \
     | sed -e "s/real/$name $revision: build time/" \
-      -e "s/size/$name $revision: build &/"
+          -e "s/size/$name $revision: build &/"
   rm -rf $PKG/*
 }
 
@@ -279,19 +259,19 @@ do_install() {
     if [ ! -f $zregs/$name#*.gz -o $forced_exec = yes ]; then
       test -f $pkgbin -a -f $pkgcont || do_build
       if [ ! $forced_exec = yes ]; then
-        cat $pkgcont | grep -v "^d" | awk '{print $3}' | sort -u \
-          >package_files$$
+        cat  $pkgcont    | grep -v "^d" | awk '{print $3}' | sort -u \
+          > package_files$$
         zcat $zregs/*.gz | grep -v "^d" | awk '{print $3}' | sort -u \
-          >installed_files$$
-        comm -12 package_files$$ installed_files$$ >conflict_files$$
+          > installed_files$$
+        comm -12 package_files$$ installed_files$$ > conflict_files$$
         test -s conflict_files$$ && cat conflict_files$$ \
           && error "package conflict"
       fi
-      tar tf $pkgbin &>/dev/null || error "corrupt binary"
+      tar tf $pkgbin &> /dev/null || error "corrupt binary"
       tar xf $pkgbin -C $ROOT/ -h || error "installation failed"
       rm -f *_files$$ *_dirs$$
       rm -f $zregs/$name#*.gz
-      $GZIP -c $pkgcont >$pkgreg.gz
+      $GZIP -c $pkgcont > $pkgreg.gz
       message "installed"
       test ! -f $pkgdir/post-install || bash -e $pkgdir/post-install \
         || error "post-install failed"
@@ -313,23 +293,23 @@ do_remove() {
   cd $pkgwork
   if [ -f $pkgreg.gz ]; then
     zcat $pkgreg.gz | grep -v "^d" | awk '{print $3}' | sort -u \
-      >package_files$$
-    zcat $pkgreg.gz | grep "^d" | awk '{print $3}' | sort -u \
-      >package_dirs$$
+      > package_files$$
+    zcat $pkgreg.gz | grep    "^d" | awk '{print $3}' | sort -u \
+      > package_dirs$$
     if [ ! $forced_exec = yes ]; then
       mv $pkgreg.gz{,.bak}
-      zcat $zregs/*.gz | grep -v "^d" | awk '{print $3}' >installed_files$$
-      zcat $zregs/*.gz | grep "^d" | awk '{print $3}' >installed_dirs$$
+      zcat $zregs/*.gz | grep -v "^d" | awk '{print $3}' > installed_files$$
+      zcat $zregs/*.gz | grep    "^d" | awk '{print $3}' > installed_dirs$$
       mv $pkgreg.gz{.bak,}
     else
       touch installed_files$$ installed_dirs$$
     fi
-    standard_files >standard_files$$
-    standard_dirs >standard_dirs$$
-    cat standard_files$$ installed_files$$ | sort -u >preserve_files$$
-    cat standard_dirs$$ installed_dirs$$ | sort -u >preserve_dirs$$
-    comm -23 --nocheck-order package_files$$ preserve_files$$ >delete_files$$
-    comm -23 --nocheck-order package_dirs$$ preserve_dirs$$ >delete_dirs$$
+    standard_files > standard_files$$
+    standard_dirs  > standard_dirs$$
+    cat standard_files$$ installed_files$$ | sort -u > preserve_files$$
+    cat standard_dirs$$  installed_dirs$$  | sort -u > preserve_dirs$$
+    comm -23 --nocheck-order package_files$$ preserve_files$$ > delete_files$$
+    comm -23 --nocheck-order package_dirs$$ preserve_dirs$$ > delete_dirs$$
     cat delete_files$$ | while read f; do rm -f $ROOT/$f; done
     cat delete_dirs$$ | sort -r \
       | while read f; do rmdir --ignore-fail-on-non-empty $ROOT/$f; done
@@ -351,10 +331,8 @@ do_upgrade() {
       do_install
       if [ ! $forced_exec = yes ]; then
         mv $oldreg.gz{.bak,}
-        newreg=$pkgreg
-        pkgreg=$oldreg
-        newrev=$revision
-        revision=$oldrev
+        newreg=$pkgreg;   pkgreg=$oldreg
+        newrev=$revision; revision=$oldrev
         do_remove
         pkgreg=$newreg
         revision=$newrev
@@ -399,7 +377,8 @@ do_list() {
   return $(installed >/dev/null)
 }
 
-do_resolve() {
+do_resolve()
+{
   export LC_ALL=C
   dep=$zbuilds/$$_pkgdep
   required='Depends on:'
@@ -412,26 +391,23 @@ do_resolve() {
   fi
   find $zpackages -name Pkgfile \
     | xargs grep -e "$required" -e "$opt1" -e "$opt2" \
-    | cut -d: -f1,3 \
-    | sed -e 's/://' -e 's:.*\/\(.*\)\/Pkgfile:\1:' -e 's/,/ /g' \
-      -e 's/[ \t][ \t]*/ /g' -e "s/ $//" | sort -u >$dep.db
+      | cut -d: -f1,3 \
+      | sed -e 's/://' -e 's:.*\/\(.*\)\/Pkgfile:\1:' -e 's/,/ /g' \
+        -e 's/[ \t][ \t]*/ /g' -e "s/ $//" | sort -u > $dep.db
   rm -f $dep
   touch $dep
-  echo $name >$dep.in
+  echo $name > $dep.in
   while [ -s $dep.in ]; do
     cat $dep.in | while read n; do
       grep "^$n " $dep.db
-    done | sed 's: :\n:g' | sort -u >$dep.out
-    cat $dep.in $dep | sort -u >>$dep.tmp
+    done | sed 's: :\n:g' | sort -u > $dep.out
+    cat $dep.in $dep | sort -u >> $dep.tmp
     mv $dep.tmp $dep
-    comm -13 --nocheck-order $dep $dep.out | sort -u >$dep.in
+    comm -13 --nocheck-order $dep $dep.out | sort -u > $dep.in
   done
   if [ $resolve_deps == yes ]; then
-    (
-      cd $zregs
-      ls -1 *.gz | cut -d# -f1 | sort -u >$dep.inst
-    )
-    comm -13 --nocheck-order $dep.inst $dep >$dep.tmp
+    (cd $zregs; ls -1 *.gz | cut -d# -f1 | sort -u > $dep.inst)
+    comm -13 --nocheck-order $dep.inst $dep > $dep.tmp
     mv $dep.tmp $dep
     rm $dep.inst
   fi
@@ -439,7 +415,8 @@ do_resolve() {
   rm -f $dep $dep.{db,in,out}
 }
 
-_dep() {
+_dep()
+{
   required='Depends on:'
   if [ $suggest_pkgs == yes ]; then
     opt1='Nice to have:'
@@ -452,18 +429,17 @@ _dep() {
     | cut -d: -f2 | sed 's/,/ /g'); do echo $f; done
 }
 
-_deps() { for f in $(_dep $1); do
-  echo $f
-  _dep $f
-done; }
+_deps() { for f in $(_dep $1); do echo $f; _dep $f; done }
 
-do_depend() {
+do_depend()
+{
   lst=$(_deps $name)
   lst=$(echo $lst | sed 's/ /\n/g' | sort -u | sed 's/\n/ /')
   echo $name: $lst
 }
 
-_prov() {
+_prov()
+{
   required='Depends on:'
   if [ $suggest_pkgs == yes ]; then
     opt1='Nice to have:'
@@ -474,10 +450,11 @@ _prov() {
   fi
   find $zpackages -name Pkgfile \
     | xargs grep -e "$required" -e "$opt1" -e "$opt2" \
-    | grep -e " $1 " -e " $1$" | sed -E 's/.*\/(.*)\/Pkgfile:.*/\1/'
+      | grep -e " $1 " -e " $1$" | sed -E 's/.*\/(.*)\/Pkgfile:.*/\1/'
 }
 
-do_provide() {
+do_provide()
+{
   lst=$(_prov $name)
   lst=$(echo $lst | sed -e "s/ $name / /g" -e "s/ ${name}$//g")
   lst=$(echo $lst | sed 's/ /\n/g' | sort -u | sed 's/\n/ /')
@@ -489,43 +466,16 @@ while true; do
   case "$1" in
     -h | --help) help && exit ;;
     -f) forced_exec=yes ;;
-    -c)
-      shift
-      test -r "$1" && zconf=$1 || error "no file $1"
-      ;;
-    -p)
-      shift
-      test -d "$1" && zpackages=$(
-        cd $1
-        pwd
-      ) \
-        || error "no directory $1"
-      ;;
-    -s)
-      shift
-      test -d "$1" && zsources=$(
-        cd $1
-        pwd
-      ) \
-        || error "no directory $1"
-      ;;
-    -m)
-      shift
-      test -n "$1" && use_mirror=$1
-      ;;
-    -o) suggest_pkgs=yes ;;
-    -n)
-      list_notinstalled=yes
-      list_all=no
-      ;;
-    -i)
-      list_installed=yes
-      list_all=no
-      ;;
-    -u)
-      list_updated=yes
-      list_all=no
-      ;;
+    -c) shift; test -r "$1" && zconf=$1 || error "no file $1" ;;
+    -p) shift; test -d "$1" && zpackages=$(cd $1; pwd) \
+        || error "no directory $1" ;;
+    -s) shift; test -d "$1" && zsources=$(cd $1; pwd) \
+        || error "no directory $1" ;;
+    -m) shift; test -n "$1" && use_mirror=$1 ;;
+    -o) suggest_pkgs=yes; ;;
+    -n) list_notinstalled=yes; list_all=no ;;
+    -i) list_installed=yes; list_all=no ;;
+    -u) list_updated=yes; list_all=no ;;
     -a) list_all=yes ;;
     -l) list_url=yes ;;
     *) break ;;
@@ -534,18 +484,12 @@ while true; do
 done
 
 case $1 in
-  source | clean | build | install | remove | upgrade | \
-    list | provide | depend | resolve)
-    cmd=$1
-    shift
-    ;;
+  source | clean | build | install | remove | upgrade \
+    | list | provide | depend | resolve) cmd=$1; shift ;;
   *) error "unknown command $1" ;;
 esac
 
-test \( $cmd = clean -o $cmd = list \) -a $# -eq 0 && set $(
-  cd $zpackages
-  ls
-)
+test \( $cmd = clean -o $cmd = list \) -a $# -eq 0 && set $(cd $zpackages; ls)
 test -r $zconf && source $zconf
 
 err=0
