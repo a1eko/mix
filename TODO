@@ -23,7 +23,8 @@ o tools, ports (gcc-fortran): avoid crux port, enable fortran in base gcc packag
 o ports (rust): remove rust before upgrading, cleanup rust dirs manually if needed
 o ports (webkitgtk): needs at least 2GB of RAM per CPU vcore, reduce number of threads ('cmake --build -j 4')
 o ports (webkitgtk): breaks surf build if compiled with gtk4 (add '-D USE_GTK4=OFF')
-o dist (ports): signify fails for crux packages if file renaming is applied (renames=)
++ dist (ports): signify fails for crux packages if file renaming is applied (renames=)
++ ports (pkz): add renaming of the source files
 + dist (nettle, rdfind, linux-{firmware,pam}, shadow): move to BASE2, add which as a dep for rdfind
 + ports (python3-setuptools): add dependencies, use crux port, disable optimization
 + ports (util-linux): build after linux-pam and sqlite3

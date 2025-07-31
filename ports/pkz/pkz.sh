@@ -25,6 +25,7 @@ name=
 version=
 release=
 source=()
+renames=()
 build() { :; }
 
 forced_exec=no
@@ -157,8 +158,23 @@ do_clean() {
   test "$clean_pkgbin" = yes && rm -f $pkgbin
 }
 
+rename_file() {
+  local f g
+  f=$1
+  g=$f
+  n=${#renames[@]}
+  for i in $(seq 0 $((n - 1))); do
+    if [[ ${source[$i]} =~ $f ]]; then
+      if [ ${renames[$i]} != SKIP ]; then
+        g=${renames[$i]}
+      fi
+    fi
+  done
+  echo $g
+}
+
 do_source() {
-  local f s
+  local f g s
   mkdir -p $SRC $PKG
   if [ ${#source[*]} -gt 0 ]; then
     for s in ${source[*]}; do
@@ -187,20 +203,29 @@ do_source() {
                 )
             ) || error "cannot fetch $(basename $s)"
             echo \ done
+            if [ ${#renames[@]} -gt 0 ]; then
+              g=$(rename_file $f)
+              if [ $g != $f ]; then
+                echo $name-$version-$release: renaming $f to $g
+                mv $zsources/$f $zsources/$g
+              fi
+            else
+              g=$f
+            fi
             if [ -f $pkgsum ]; then
               grep -qw "$(
                 cd $zsources
-                md5sum $f
+                md5sum $g
               )" $pkgsum \
                 || error "md5sum failed"
             elif [ -f $pkgsig ]; then
               (
                 cd $zsources
-                signify -q -C -x $pkgsig $f
+                signify -q -C -x $pkgsig $g
               ) \
                 || error "signify failed"
             fi
-            ln -sf $zsources/$f $SRC
+            ln -sf $zsources/$g $SRC
           fi
         fi
       fi
