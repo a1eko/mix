@@ -30,7 +30,7 @@ build() {
     --disable-fixincludes \
     --with-system-zlib
   make
-  $TST ulimit -s 32768
+  $TST ulimit -s -H unlimited
   $TST make -k check || true
   $TST ../contrib/test_summary
   make DESTDIR=$PKG install

@@ -2,7 +2,7 @@
 
 name=gcc
 version=15.1.0
-glibcver=2.41
+glibcver=2.42
 release=0pass1
 source=(https://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz
 	https://www.mpfr.org/mpfr-current/mpfr-4.2.2.tar.xz

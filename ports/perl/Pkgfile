@@ -4,10 +4,9 @@
 # Depends on: db gdbm libnsl libtirpc libxcrypt
 
 name=perl
-version=5.40.2
+version=5.42.0
 release=mix-1
-source=(https://www.cpan.org/src/5.0/$name-$version.tar.xz
-	https://www.linuxfromscratch.org/patches/lfs/development/perl-$version-upstream_fix-1.patch)
+source=(https://www.cpan.org/src/5.0/$name-$version.tar.xz)
 
 build() {
     cd $name-$version
