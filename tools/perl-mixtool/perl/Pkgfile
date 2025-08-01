@@ -9,16 +9,16 @@ build() {
   cd $name-$version
 
   # crux compatible
-  ./Configure   -des \
-                -Dprefix=/usr \
-                -Dvendorprefix=/usr \
-                -Dprivlib=/usr/lib/perl5/${version%.*} \
-                -Dsitelib=/usr/lib/perl5/site_perl/${version%.*} \
-                -Dvendorlib=/usr/lib/perl5/site_perl/${version%.*} \
-                -Dvendorarch=/usr/lib/perl5/site_perl/${version%.*}
+  ./Configure -des \
+    -Dprefix=/usr \
+    -Dvendorprefix=/usr \
+    -Dprivlib=/usr/lib/perl5/${version%.*} \
+    -Dsitelib=/usr/lib/perl5/site_perl/${version%.*} \
+    -Dvendorlib=/usr/lib/perl5/site_perl/${version%.*} \
+    -Dvendorarch=/usr/lib/perl5/site_perl/${version%.*}
   make
   make DESTDIR=$PKG install.perl
-  
+
   ln -sf perl${version%-*} $PKG/usr/bin/perl
 
   find $PKG \

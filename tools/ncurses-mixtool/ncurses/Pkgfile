@@ -10,10 +10,10 @@ build() {
 
   mkdir -v build
   pushd build
-    ../configure --prefix=/tools AWK=gawk
-    make -C include
-    make -C progs tic
-    install progs/tic /tools/bin
+  ../configure --prefix=/tools AWK=gawk
+  make -C include
+  make -C progs tic
+  install progs/tic /tools/bin
   popd
 
   ./configure --prefix=/usr \

@@ -4,7 +4,7 @@ name=glibc
 version=2.42
 release=0
 source=(https://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz
-	https://www.linuxfromscratch.org/patches/downloads/glibc/glibc-$version-fhs-1.patch)
+  https://www.linuxfromscratch.org/patches/downloads/glibc/glibc-$version-fhs-1.patch)
 
 build() {
   cd $name-$version
@@ -12,11 +12,13 @@ build() {
 
   # create compatibility symbolic links
   case $(uname -m) in
-    i?86) ln -sfv ld-linux.so.2 $MIX/lib/ld-lsb.so.3
-    ;;
-    x86_64) ln -sfv ../lib/ld-linux-x86-64.so.2 $MIX/lib64
-            ln -sfv ../lib/ld-linux-x86-64.so.2 $MIX/lib64/ld-lsb-x86-64.so.3
-    ;;
+    i?86)
+      ln -sfv ld-linux.so.2 $MIX/lib/ld-lsb.so.3
+      ;;
+    x86_64)
+      ln -sfv ../lib/ld-linux-x86-64.so.2 $MIX/lib64
+      ln -sfv ../lib/ld-linux-x86-64.so.2 $MIX/lib64/ld-lsb-x86-64.so.3
+      ;;
   esac
 
   mkdir -v build
@@ -26,16 +28,16 @@ build() {
   #echo "rootsbindir=/usr/sbin" > configparms
 
   # ensure installation path for ldconfig and sln (crux compat)
-  echo "rootsbindir=/sbin" > configparms
+  echo "rootsbindir=/sbin" >configparms
 
   ../configure --prefix=/usr \
     --host=$MIX_TGT \
     --build=$(../scripts/config.guess) \
     --disable-nscd \
     --enable-kernel=5.4 \
-    libc_cv_slibdir=/lib  # crux compat
-    #libc_cv_slibdir=/usr/lib  # lfs compat
-    #--with-headers=$MIX/usr/include \  # omitted in lfs
+    libc_cv_slibdir=/lib # crux compat
+  #libc_cv_slibdir=/usr/lib  # lfs compat
+  #--with-headers=$MIX/usr/include \  # omitted in lfs
   make
   make DESTDIR=$PKG install
 

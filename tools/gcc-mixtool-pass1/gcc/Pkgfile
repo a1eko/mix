@@ -5,9 +5,9 @@ version=15.1.0
 glibcver=2.42
 release=0pass1
 source=(https://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz
-	https://www.mpfr.org/mpfr-current/mpfr-4.2.2.tar.xz
-	https://ftp.gnu.org/gnu/gmp/gmp-6.3.0.tar.xz
-	https://ftp.gnu.org/gnu/mpc/mpc-1.3.1.tar.gz)
+  https://www.mpfr.org/mpfr-current/mpfr-4.2.2.tar.xz
+  https://ftp.gnu.org/gnu/gmp/gmp-6.3.0.tar.xz
+  https://ftp.gnu.org/gnu/mpc/mpc-1.3.1.tar.gz)
 
 build() {
   cd $name-$version
@@ -20,8 +20,8 @@ build() {
   case $(uname -m) in
     x86_64)
       sed -e '/m64=/s/lib64/lib/' \
-          -i.orig gcc/config/i386/t-linux64
-   ;;
+        -i.orig gcc/config/i386/t-linux64
+      ;;
   esac
 
   mkdir -v build
@@ -52,7 +52,7 @@ build() {
   # create a full version of the internal header
   cd ..
   cat gcc/limitx.h gcc/glimits.h gcc/limity.h > \
-    `dirname $($PKG/tools/bin/$MIX_TGT-gcc -print-libgcc-file-name)`/include/limits.h
+    $(dirname $($PKG/tools/bin/$MIX_TGT-gcc -print-libgcc-file-name))/include/limits.h
 
   rm -rv $PKG/tools/share/{info,man}
   find $PKG -name README -delete

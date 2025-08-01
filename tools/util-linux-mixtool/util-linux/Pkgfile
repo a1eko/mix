@@ -6,34 +6,34 @@ release=0
 source=(https://www.kernel.org/pub/linux/utils/$name/v${version:0:4}/$name-$version.tar.xz)
 
 build() {
-    cd $name-$version
+  cd $name-$version
 
-    # crux compatible
-    ./configure --prefix=/usr \
-	        --libdir=/lib \
-		--bindir=/usr/bin \
-		--sbindir=/sbin \
-	        --runstatedir=/run \
-                --disable-nls \
-                --disable-asciidoc \
-                --disable-{login,su,sulogin,nologin,runuser,vipw,raw,newgrp,bfs,minix} \
-		--disable-pylibmount \
-                --disable-static \
-                --disable-chfn-chsh \
-		--disable-liblastlog2 \
-                --without-python
+  # crux compatible
+  ./configure --prefix=/usr \
+    --libdir=/lib \
+    --bindir=/usr/bin \
+    --sbindir=/sbin \
+    --runstatedir=/run \
+    --disable-nls \
+    --disable-asciidoc \
+    --disable-{login,su,sulogin,nologin,runuser,vipw,raw,newgrp,bfs,minix} \
+    --disable-pylibmount \
+    --disable-static \
+    --disable-chfn-chsh \
+    --disable-liblastlog2 \
+    --without-python
 
-    make
-    make DESTDIR=$PKG install
+  make
+  make DESTDIR=$PKG install
 
-    install -d $PKG/{etc,var/lib/libuuid}
-    touch $PKG/etc/adjtime
+  install -d $PKG/{etc,var/lib/libuuid}
+  touch $PKG/etc/adjtime
 
-    # crux compat
-    install -d $PKG/{bin,usr/sbin,usr/lib}
-    mv $PKG/usr/bin/{dmesg,findmnt,kill,lsblk,lsfd,more} $PKG/bin
-    mv $PKG/usr/bin/{mount,mountpoint,pipesz,umount,wdctl} $PKG/bin
+  # crux compat
+  install -d $PKG/{bin,usr/sbin,usr/lib}
+  mv $PKG/usr/bin/{dmesg,findmnt,kill,lsblk,lsfd,more} $PKG/bin
+  mv $PKG/usr/bin/{mount,mountpoint,pipesz,umount,wdctl} $PKG/bin
 
-    rm -rv $PKG/usr/share/{bash-completion,doc,man}
-    rmdir -v $PKG/usr/share
+  rm -rv $PKG/usr/share/{bash-completion,doc,man}
+  rmdir -v $PKG/usr/share
 }

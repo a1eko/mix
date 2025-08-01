@@ -10,11 +10,11 @@ build() {
 
   mkdir -v build
   pushd build
-    ../configure --disable-bzlib \
-      --disable-libseccomp \
-      --disable-xzlib \
-      --disable-zlib
-    make
+  ../configure --disable-bzlib \
+    --disable-libseccomp \
+    --disable-xzlib \
+    --disable-zlib
+  make
   popd
 
   ./configure --prefix=/usr --host=$MIX_TGT --build=$(./config.guess)
