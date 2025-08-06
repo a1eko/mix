@@ -415,10 +415,10 @@ do_list() {
     -o $list_notinstalled = yes -a "$(installed)" = '' ]; then
     if [ $list_url = no ]; then
       echo $name $version-$release $(eval installed) \
-        "-$(grep Description: $pkgfile | cut -d: -f2)"
+        "$(grep Description: $pkgfile | cut -d: -f2 | sed 's/^ //')"
     else
       echo $name $version-$release $(eval installed) \
-        "URL:$(echo $source | cut -d' ' -f1)"
+        "${source[@]}"
     fi
   fi
   return $(installed >/dev/null)

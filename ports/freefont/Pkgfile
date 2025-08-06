@@ -6,7 +6,7 @@
 name=freefont
 version=20120503
 release=3
-source=(http://ftp.gnu.org/gnu/$name/$name-otf-$version.tar.gz)
+source=(http://ftpmirror.gnu.org/gnu/$name/$name-otf-$version.tar.gz)
 
 build()
 {

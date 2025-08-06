@@ -4,7 +4,7 @@
 name=plotutils
 version=2.6
 release=mix-3
-source=(https://ftp.gnu.org/pub/gnu/$name/$name-$version.tar.gz
+source=(https://ftpmirror.gnu.org/pub/gnu/$name/$name-$version.tar.gz
   plotutils-$version-libpng-1.5.patch
   plotutils-$version-c23.patch)
 
