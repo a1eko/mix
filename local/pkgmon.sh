@@ -8,35 +8,51 @@ P=$(pwd)
 
 monitor() {
   cd /tmp
-  rm -f .listing* index.html*
+  rm -f .listing* index.html* distfiles-list
+  echo -n "monitoring "
   for m in ${M[@]}; do
+    echo -n "$m... "
     wget -qO- $m | fmt -w1 | grep href= | cut -d'"' -f2 >>.listing-tmp
   done
-  wget -qO- https://pypi.python.org/pypi?%3Aaction=index \
+  pypi=https://pypi.python.org/
+  echo -n "$pypi... "
+  wget -qO- $pypi/pypi?%3Aaction=index \
     | grep 'href="/pypi/' | cut -d'"' -f2 \
     | sed -e 's,/pypi/,,'i -e 's,/,-,' \
       >>.listing-tmp
+  lfs=http://www.linuxfromscratch.org/
+  echo -n "$lfs... "
   if [ ! -e /tmp/wget-list ]; then
-    #curl http://www.linuxfromscratch.org/lfs/downloads/development/wget-list > wget-list
-    #lynx -source "http://www.linuxfromscratch.org/lfs/downloads/development/wget-list" > wget-list
-    wget -q --timeout=5 http://www.linuxfromscratch.org/lfs/downloads/development/wget-list || (echo no /tmp/wget-list && exit)
+    wget -q --timeout=5 $lfs/lfs/downloads/development/wget-list || (echo no /tmp/wget-list && exit)
   fi
-  for f in $(cat wget-list); do
+  dist=https://distfiles.gentoo.org/distfiles/
+  echo -n "$dist..."
+  dirs=$(wget -qO- $dist | fmt -w1 | grep href= | grep -v https | cut -d'"' -f2 | grep -E '^../')
+  for d in $dirs; do
+    echo -n "."
+    files=$(wget -qO- $dist/$d | fmt -w1 | grep href= | grep -v http \
+      | grep -e "\.tar\." -e zip -e patch -e diff | cut -d'"' -f2 \
+      | grep -v -e '.asc$' -e '.sign$' -e '.sig$')
+    for f in $files; do
+      echo $dist/$d$f >>distfiles-list
+    done
+  done
+  for f in $(cat wget-list distfiles-list); do
     basename $f >>.listing-tmp
   done
   sort -u .listing-tmp >.listing-files
+  echo " done"
   if [ -d $P/ports ]; then
     for p in $P/ports/*; do
       if [ -e $p/Pkgfile ]; then
         source $p/Pkgfile
         echo $name $version-$release:
-        grep "^$name" .listing-files
+        grep "^$name[-_]" .listing-files
         echo
       fi
     done >$T
   fi
-  #rm -f .listing* index.html* wget-list
-  rm -f .listing* index.html*
+  #rm -f .listing* index.html*
   touch $S
   comm -13 <(sort $S) <(sort $T)
 }
