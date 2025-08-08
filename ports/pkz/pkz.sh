@@ -207,7 +207,7 @@ do_source() {
               g=$(rename_file $f)
               if [ $g != $f ]; then
                 echo $name-$version-$release: renaming $f to $g
-                mv $zsources/$f $zsources/$g
+                ln -sf $zsources/$f $zsources/$g
               fi
             else
               g=$f
@@ -225,6 +225,7 @@ do_source() {
               ) \
                 || error "signify failed"
             fi
+            ln -sf $zsources/$f $SRC
             ln -sf $zsources/$g $SRC
           fi
         fi
