@@ -20,25 +20,25 @@ monitor() {
   echo -n "monitoring "
 
   for m in ${M[@]}; do
-    echo -n "$m... "
+    echo -n "$m "
     wget -qO- $m | fmt -w1 | grep href= | cut -d'"' -f2 >>.listing-tmp
   done
 
   pypi=https://pypi.python.org/
-  echo -n "$pypi... "
+  echo -n "$pypi "
   wget -qO- $pypi/pypi?%3Aaction=index \
     | grep 'href="/pypi/' | cut -d'"' -f2 \
     | sed -e 's,/pypi/,,'i -e 's,/,-,' \
       >>.listing-tmp
 
   lfs=http://www.linuxfromscratch.org/
-  echo -n "$lfs... "
+  echo -n "$lfs "
   if [ ! -e /tmp/wget-list ]; then
     wget -q --timeout=5 $lfs/lfs/downloads/development/wget-list || (echo no /tmp/wget-list && exit)
   fi
 
   dist=https://distfiles.gentoo.org/distfiles/
-  echo -n "$dist..."
+  echo -n "$dist "
   dirs=$(wget -qO- $dist | fmt -w1 | grep href= | grep -v https | cut -d'"' -f2 | grep -E '^../')
   for d in $dirs; do
     dist_files $dist/$d &
@@ -47,7 +47,7 @@ monitor() {
 
   basename -a $(cat wget-list distfiles-list) >>.listing-tmp
   sort -u .listing-tmp >.listing-files
-  echo " done"
+  echo "done"
 
   if [ -d $P/ports ]; then
     for p in $P/ports/*; do
