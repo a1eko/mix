@@ -1,9 +1,9 @@
 # Description: compiler collection
 
 name=gcc
-version=15.1.0
+version=15.2.0
 release=0libstdcxx
-source=(https://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz)
+source=(https://ftpmirror.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz)
 
 build() {
   cd $name-$version

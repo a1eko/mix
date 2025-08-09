@@ -1,12 +1,15 @@
 # Description: compiler collection
 
 name=gcc
-version=15.1.0
+version=15.2.0
 release=mix-1
 source=(https://ftpmirror.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz)
 
 build() {
   cd $name-$version
+
+  # make a change required by glibc-2.42 or later
+  sed -i '/struct_termio_sz/d' libsanitizer/sanitizer_common/*
 
   # change default directory to lib
   case $(uname -m) in

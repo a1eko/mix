@@ -3,7 +3,7 @@
 name=binutils
 version=2.45
 release=0pass2
-source=(https://ftp.gnu.org/gnu/binutils/binutils-$version.tar.xz)
+source=(https://ftpmirror.gnu.org/gnu/binutils/binutils-$version.tar.xz)
 
 build() {
   cd $name-$version

@@ -3,7 +3,7 @@
 name=bash
 version=5.3-rc2
 release=0
-source=(https://ftp.gnu.org/gnu/bash/bash-$version.tar.gz)
+source=(https://ftpmirror.gnu.org/gnu/bash/bash-$version.tar.gz)
 
 build() {
   cd $name-$version

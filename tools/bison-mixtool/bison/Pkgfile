@@ -3,7 +3,7 @@
 name=bison
 version=3.8.2
 release=0
-source=(https://ftp.gnu.org/gnu/$name/$name-$version.tar.xz)
+source=(https://ftpmirror.gnu.org/gnu/$name/$name-$version.tar.xz)
 
 build() {
   cd $name-$version

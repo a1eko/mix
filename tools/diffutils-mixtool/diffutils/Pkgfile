@@ -3,7 +3,7 @@
 name=diffutils
 version=3.12
 release=0
-source=(https://ftp.gnu.org/gnu/diffutils/diffutils-$version.tar.xz)
+source=(https://ftpmirror.gnu.org/gnu/diffutils/diffutils-$version.tar.xz)
 
 build() {
   cd $name-$version
