@@ -24,7 +24,6 @@ o ports (rust): remove rust before upgrading, cleanup rust dirs manually if need
 o ports (webkitgtk): needs at least 2GB of RAM per CPU vcore, reduce number of threads ('cmake --build -j 4')
 o ports (webkitgtk): breaks surf build if compiled with gtk4 (add '-D USE_GTK4=OFF')
 + dist (ports): signify fails for crux packages if file renaming is applied (renames=)
-+ ports (pkz): add renaming of the source files
 + dist (nettle, rdfind, linux-{firmware,pam}, shadow): move to BASE2, add which as a dep for rdfind
 + ports (python3-setuptools): add dependencies, use crux port, disable optimization
 + ports (util-linux): build after linux-pam and sqlite3
@@ -34,3 +33,6 @@ o ports (gcc): rebuild after installing isl
 + ports (hugin): upgrade to v2024.0.x
 + dist (mix): make release
 + tools, ports (pkz): gentoo distfiles mirror not available, disable default mirror site
++ local (pkgmon.sh): add gentoo distfiles to monitor list
++ ports (pkz): add renaming of the source files
+- ports (pkz): simplify do_source() function, drop mirror support

@@ -185,6 +185,18 @@ do_source() {
         else
           if [ -f $zsources/$f ]; then
             ln -sf $zsources/$f $SRC
+            #
+            if [ ${#renames[@]} -gt 0 ]; then
+              g=$(rename_file $f)
+              if [ $g != $f ]; then
+                message renaming $f to $g
+                ln -sf $zsources/$f $zsources/$g
+              fi
+            else
+              g=$f
+            fi
+            ln -sf $zsources/$g $SRC
+            #
           else
             message -n "fetching $s ..."
             (
@@ -206,7 +218,7 @@ do_source() {
             if [ ${#renames[@]} -gt 0 ]; then
               g=$(rename_file $f)
               if [ $g != $f ]; then
-                echo $name-$version-$release: renaming $f to $g
+                message renaming $f to $g
                 ln -sf $zsources/$f $zsources/$g
               fi
             else
