@@ -2,12 +2,12 @@
 # Depends on: xorg-libxft
 
 name=tabbed
-version=git
+version=0.9
 release=mix-1
+source=(https://dl.suckless.org/tools/$name-$version.tar.gz)
 
 build() {
-  git clone https://git.suckless.org/$name $name
-  cd $name
+  cd $name-$version
   make CC=gcc DESTDIR=$PKG PREFIX=/usr clean install
   rm -rv $PKG/usr/share/doc
 }
