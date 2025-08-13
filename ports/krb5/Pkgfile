@@ -5,18 +5,12 @@
 # Optional: keyutils openldap
 
 name=krb5
-version=1.21.3
+version=1.22
 release=mix-1
 source=(https://kerberos.org/dist/$name/${version::4}/$name-$version.tar.gz
-	https://www.linuxfromscratch.org/patches/blfs/svn/mitkrb-1.21.3-gcc15_fixes-1.patch
     krb5)
 
 build() {
-    # make the package compatible with gcc-15
-    pushd $name-$version
-      patch -Np1 -i ../mitkrb-1.21.3-gcc15_fixes-1.patch
-    popd
-
     cd $name-$version/src
 
     sed -i "/KRB5ROOT=/s/\/local//" util/ac_check_krb5.m4
