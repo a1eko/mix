@@ -1,16 +1,16 @@
 # Description: linux kernel, longterm line
 
 name=linux
-version=6.12.41
+version=6.12.42
 release=mix-1
-source=(https://www.kernel.org/pub/linux/kernel/v6.x/linux-$version.tar.xz config.local)
+source=(https://www.kernel.org/pub/linux/kernel/v6.x/linux-$version.tar.xz)
 
 build() {
   cd $name-$version
 
   make mrproper
   make defconfig
-  cat .config ../config.local >all.config
+  cat .config $PKGMK_ROOT/config.local >all.config
   make mrproper
   KCONFIG_ALLCONFIG=all.config make allnoconfig
   make -j ${JOBS:-1}
