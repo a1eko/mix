@@ -34,4 +34,4 @@ o ports (libpng): watch apng patch (dep for firefox) to be merged with mainline 
 + tools, ports (pkz): gentoo distfiles mirror not available, disable default mirror site
 + local (pkgmon.sh): add gentoo distfiles to monitor list
 + ports (pkz): add renaming of the source files
-- ports (pkz): simplify do_source() function, drop mirror support
++ ports (pkz): simplify do_source() function, drop mirror support
