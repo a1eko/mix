@@ -33,7 +33,6 @@ compress_manuals=yes
 strip_shared=
 strip_static=
 strip_binaries=
-use_mirror=
 suggest_pkgs=no
 resolve_deps=yes
 clean_pkgbin=yes
@@ -70,7 +69,6 @@ Options:
   -n            show not-installed packages (list)
   -u            show updated packages (list)
   -l            show source URL of packages (list)
-  -m url        use mirror URL to download packages (source)
   -o            include optional dependencies (resolve, provide, depend)
 
 Command:
@@ -158,89 +156,64 @@ do_clean() {
   test "$clean_pkgbin" = yes && rm -f $pkgbin
 }
 
-rename_file() {
-  local f g
+lastname() {
+  local f g n
   f=$1
   g=$f
   n=${#renames[@]}
-  for i in $(seq 0 $((n - 1))); do
-    if [[ ${source[$i]} =~ $f ]]; then
-      if [ ${renames[$i]} != SKIP ]; then
-        g=${renames[$i]}
+  if [ $n -gt 0 ]; then
+    for i in $(seq 0 $((n - 1))); do
+      if [ $(basename ${source[$i]}) = $f ]; then
+        if [ ${renames[$i]} != SKIP ]; then
+          g=${renames[$i]}
+        fi
       fi
-    fi
-  done
+    done
+  fi
   echo $g
 }
 
+check_md5sum() {
+  local sum
+  cd $SRC
+  sum=$(md5sum $1)
+  grep -qw "$sum" $pkgsum
+}
+
+check_signify() {
+  cd $SRC
+  signify -q -C -x $pkgsig $1
+}
+
 do_source() {
-  local f g s
+  local s f g
   mkdir -p $SRC $PKG
-  if [ ${#source[*]} -gt 0 ]; then
-    for s in ${source[*]}; do
+  if [ ${#source[@]} -gt 0 ]; then
+    for s in ${source[@]}; do
       f=$(basename $s)
-      if [ ! -f $SRC/$f ]; then
+      g=$(lastname $f)
+      if [ ! -L $SRC/$g ]; then
         if [ -f $pkgdir/$f ]; then
-          ln -Lf $pkgdir/$f $SRC
+          ln -sf $pkgdir/$f $SRC/$g
         else
           if [ -f $zsources/$f ]; then
-            ln -sf $zsources/$f $SRC
-            #
-            if [ ${#renames[@]} -gt 0 ]; then
-              g=$(rename_file $f)
-              if [ $g != $f ]; then
-                message renaming $f to $g
-                ln -sf $zsources/$f $zsources/$g
-              fi
-            else
-              g=$f
-            fi
-            ln -sf $zsources/$g $SRC
-            #
+            ln -sf $zsources/$f $SRC/$g
           else
             message -n "fetching $s ..."
             (
               cd /tmp
-              rm -f $(basename $s)*
-              (wget -q -t 3 $s && mv $(basename $s) $zsources/) \
-                || (
-                  test -n "$use_mirror" \
-                    && (
-                      rm -f $(basename $s)*
-                      (
-                        wget -nv $use_mirror/$(basename $s) \
-                          && mv $(basename $s) $zsources/
-                      )
-                    )
-                )
-            ) || error "cannot fetch $(basename $s)"
-            echo \ done
-            if [ ${#renames[@]} -gt 0 ]; then
-              g=$(rename_file $f)
-              if [ $g != $f ]; then
-                message renaming $f to $g
-                ln -sf $zsources/$f $zsources/$g
-              fi
-            else
-              g=$f
-            fi
-            if [ -f $pkgsum ]; then
-              grep -qw "$(
-                cd $zsources
-                md5sum $g
-              )" $pkgsum \
-                || error "md5sum failed"
-            elif [ -f $pkgsig ]; then
-              (
-                cd $zsources
-                signify -q -C -x $pkgsig $g
-              ) \
-                || error "signify failed"
-            fi
-            ln -sf $zsources/$f $SRC
-            ln -sf $zsources/$g $SRC
+              rm -f ${f}*
+              wget -q -t 3 -O $zsources/$g $s
+              ln -sf $zsources/$g $SRC
+            ) || error "cannot fetch $f"
+            echo " done"
           fi
         fi
+      fi
+      if [ -f $pkgsum ]; then
+        check_md5sum $g || error "md5sum failed for $g"
+      elif [ -f $pkgsig ]; then
+        check_signify $g || error "signify failed for $g"
       fi
     done
   fi
@@ -259,8 +232,8 @@ get_filename() {
 
 # crux compatibility
 unpack_source() {
-  for s in ${source[*]}; do
-    f=$(basename $s)
+  for s in ${source[@]}; do
+    f=$(lastname $(basename $s))
     case $f in
       *.tar | *.tar.* | *.tbz2 | *.tbz | *.tgz | *.txz)
         tar --no-same-owner -xf $f || error "corrupt source $f"
@@ -277,7 +250,7 @@ do_build() {
   mkdir -p $SRC $PKG
   rm -rf $SRC/* $PKG/*
   cd $SRC
-  if [ ${#source[*]} -gt 0 ]; then
+  if [ ${#source[@]} -gt 0 ]; then
     do_source
     unpack_source
   fi
@@ -546,10 +519,6 @@ while true; do
         pwd
       ) \
         || error "no directory $1"
-      ;;
-    -m)
-      shift
-      test -n "$1" && use_mirror=$1
       ;;
     -o) suggest_pkgs=yes ;;
     -n)

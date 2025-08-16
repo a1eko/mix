@@ -12,6 +12,13 @@ build() {
 
   patch -Np1 -i ../glibc-$version-fhs-1.patch
 
+  # fix a security vulnerability
+  sed -e '/unistd.h/i #include <string.h>' \
+    -e '/libc_rwlock_init/c\
+  __libc_rwlock_define_initialized (, reset_lock);\
+  memcpy (&lock, &reset_lock, sizeof (lock));' \
+    -i stdlib/abort.c
+
   mkdir -v build
   cd build
 
