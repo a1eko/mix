@@ -10,7 +10,7 @@ dist_files() {
   local url=$1
   wget -qO- $url | fmt -w1 | grep href= | grep -v http \
     | grep -e "\.tar\." -e zip -e patch -e diff | cut -d'"' -f2 \
-    | grep -v -e '.asc$' -e '.sign$' -e '.sig$'
+    | grep -v -e '.asc$' -e '.sign$' -e '.sig$' | sed -e "s@^@$url@"
 }
 
 monitor() {
@@ -41,11 +41,13 @@ monitor() {
   echo -n "$dist "
   dirs=$(wget -qO- $dist | fmt -w1 | grep href= | grep -v https | cut -d'"' -f2 | grep -E '^../')
   for d in $dirs; do
-    dist_files $dist/$d &
-  done >>distfiles-list
+    dist_files ${dist}$d >distfiles-${d:0:2} &
+  done
   wait
 
-  basename -a $(cat wget-list distfiles-list) >>.listing-tmp
+  for f in wget-list distfiles-??; do 
+    basename -a $(cat $f) >>.listing-tmp
+  done
   sort -u .listing-tmp >.listing-files
   echo "done"
 
