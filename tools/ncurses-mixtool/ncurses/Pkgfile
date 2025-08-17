@@ -1,7 +1,7 @@
 # Description: libraries for handling of character screens
 
 name=ncurses
-version=6.5-20250531
+version=6.5-20250809
 release=0
 source=(https://invisible-mirror.net/archives/ncurses/current/ncurses-$version.tgz)
 

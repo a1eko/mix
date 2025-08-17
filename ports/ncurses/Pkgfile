@@ -3,7 +3,7 @@
 # Maintainer: CRUX System Team, core-ports at crux dot nu
 
 name=ncurses
-version=6.5-20250531
+version=6.5-20250809
 release=mix-1
 source=(https://invisible-mirror.net/archives/$name/current/$name-$version.tgz)
 
@@ -40,4 +40,6 @@ build() {
     # linker script for the curses library
     echo "INPUT(-lncursesw)" > $PKG/usr/lib/libcursesw.so
     ln -s libncurses.so $PKG/usr/lib/libcurses.so
+
+    rm -rv $PKG/usr/share/man/man3
 }

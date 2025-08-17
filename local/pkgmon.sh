@@ -15,7 +15,7 @@ dist_files() {
 
 monitor() {
   cd /tmp
-  rm -f .listing* index.html* distfiles-list
+  rm -rf .listing* index.html* wget-list gentoo
 
   echo -n "monitoring "
 
@@ -41,11 +41,13 @@ monitor() {
   echo -n "$dist "
   dirs=$(wget -qO- $dist | fmt -w1 | grep href= | grep -v https | cut -d'"' -f2 | grep -E '^../')
   for d in $dirs; do
-    dist_files ${dist}$d >distfiles-${d:0:2} &
+    mkdir -p gentoo
+    dist_files ${dist}$d >gentoo/distfiles-${d:0:2} &
   done
   wait
 
-  for f in wget-list distfiles-??; do 
+  sort wget-list gentoo/distfiles-?? >pkgmon-list
+  for f in wget-list gentoo/distfiles-??; do 
     basename -a $(cat $f) >>.listing-tmp
   done
   sort -u .listing-tmp >.listing-files
@@ -61,7 +63,7 @@ monitor() {
       fi
     done >$T
   fi
-  rm -f .listing* index.html*
+  rm -rf .listing* index.html* wget-list gentoo
   touch $S
   comm -13 <(sort $S) <(sort $T)
 }
