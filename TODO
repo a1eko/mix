@@ -4,7 +4,7 @@ o config (rc.conf): start dbus (runtime dependency/warnings of some X apps)
 o dist (install.sh): put public keys from https://crux.nu/keys/{core,contrib,opt,xorg}.pub to /etc/ports/
 o dist (install.sh, pkz): mix ports may contain crux .sigantures, pkz.sh will use .md5sum if it exists
 o ports (filesystem): never upgrade, overwrites /etc/{passwd,groups,shadow}
-? ports (rc): restore mode 1777 of /dev/shm in rc.local if needed
+x ports (rc): restore mode 1777 of /dev/shm in rc.local if needed
 ? ports (firefox): disable WebGL (about:config, webgl.disabled=true) if needed (local AMD specific)
 o ports (dbus, firefox): rebuild dbus in net.mix for dbus-launch to work with firefox
 o ports (meson, python3-*): remove old version when upgrading (use 'pkz upgrade', not 'pkz -f install')
@@ -23,15 +23,8 @@ o tools, ports (gcc-fortran): avoid crux port, enable fortran in base gcc packag
 o ports (rust): remove rust before upgrading, cleanup rust dirs manually if needed
 o ports (webkitgtk): needs at least 2GB of RAM per CPU vcore, reduce number of threads ('cmake --build -j 4')
 o ports (webkitgtk): breaks surf build if compiled with gtk4 (add '-D USE_GTK4=OFF')
-+ dist (ports): signify fails for crux packages if file renaming is applied (renames=)
 + dist (nettle, rdfind, linux-{firmware,pam}, shadow): move to BASE2, add which as a dep for rdfind
 + ports (python3-setuptools): add dependencies, use crux port, disable optimization
 + ports (util-linux): build after linux-pam and sqlite3
 + ports (shadow): add libbsd and libmd dep
 o ports (libpng): watch apng patch (dep for firefox) to be merged with mainline (github pull 706)
-+ ports (hugin): upgrade to v2024.0.x
-+ dist (mix): make release
-+ tools, ports (pkz): gentoo distfiles mirror not available, disable default mirror site
-+ local (pkgmon.sh): add gentoo distfiles to monitor list
-+ ports (pkz): add renaming of the source files
-+ ports (pkz): simplify do_source() function, drop mirror support

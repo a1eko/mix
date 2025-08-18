@@ -5,13 +5,14 @@
 # Optional: keyutils openldap
 
 name=krb5
-version=1.22
+version=1.21.3
 release=mix-1
 source=(https://kerberos.org/dist/$name/${version::4}/$name-$version.tar.gz
     krb5)
 
 build() {
     cd $name-$version/src
+   export CFLAGS+=" -fPIC -fno-strict-aliasing -fstack-protector-all -std=gnu17"
 
     sed -i "/KRB5ROOT=/s/\/local//" util/ac_check_krb5.m4
 

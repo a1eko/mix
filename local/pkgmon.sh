@@ -45,8 +45,8 @@ monitor() {
     dist_files ${dist}$d >gentoo/distfiles-${d:0:2} &
   done
   wait
-
   sort wget-list gentoo/distfiles-?? >pkgmon-list
+
   for f in wget-list gentoo/distfiles-??; do 
     basename -a $(cat $f) >>.listing-tmp
   done
