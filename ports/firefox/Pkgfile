@@ -2,7 +2,7 @@
 # Depends on: autoconf-2.13 cbindgen dbus-glib gtk gtk3 libnotify llvm lld clang nasm nodejs nss alsa-lib python3 startup-notification unzip yasm zip
 
 name=firefox
-version=140.1.0
+version=140.2.0
 release=mix-1
 source=(https://archive.mozilla.org/pub/firefox/releases/${version}esr/source/firefox-${version}esr.source.tar.xz
   mozconfig)
@@ -11,13 +11,6 @@ build() {
   cd $name-$version
 
   cp -v $SRC/mozconfig .
-
-#  # adapt line break for ICU v7.4+
-#  for i in {43..47}; do
-#    sed -i '/ZWJ/s/}/,CLASS_CHARACTER&/' intl/lwbrk/LineBreaker.cpp
-#  done
-#
-#  sed -i 's/icu-i18n/icu-uc &/' js/moz.configure
 
   export CC=clang CXX=clang++ AR=llvm-ar NM=llvm-nm RANLIB=llvm-ranlib
   export MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE=none

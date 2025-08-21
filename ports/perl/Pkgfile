@@ -11,9 +11,6 @@ source=(https://www.cpan.org/src/5.0/$name-$version.tar.xz)
 build() {
     cd $name-$version
 
-    # security patch
-    patch -Np1 -i ../perl-$version-upstream_fix-1.patch
-
     ./Configure -des \
         -Dprefix=/usr \
         -Dvendorprefix=/usr \

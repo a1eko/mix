@@ -5,7 +5,7 @@ o dist (install.sh): put public keys from https://crux.nu/keys/{core,contrib,opt
 o dist (install.sh, pkz): mix ports may contain crux .sigantures, pkz.sh will use .md5sum if it exists
 o ports (filesystem): never upgrade, overwrites /etc/{passwd,groups,shadow}
 x ports (rc): restore mode 1777 of /dev/shm in rc.local if needed
-? ports (firefox): disable WebGL (about:config, webgl.disabled=true) if needed (local AMD specific)
+x ports (firefox): disable WebGL (about:config, webgl.disabled=true) if needed (local AMD specific)
 o ports (dbus, firefox): rebuild dbus in net.mix for dbus-launch to work with firefox
 o ports (meson, python3-*): remove old version when upgrading (use 'pkz upgrade', not 'pkz -f install')
 o ports (pkz): if pkz-upgrade fails, the old package is marked not installed (copied to .bak)
@@ -28,3 +28,4 @@ o ports (webkitgtk): breaks surf build if compiled with gtk4 (add '-D USE_GTK4=O
 + ports (util-linux): build after linux-pam and sqlite3
 + ports (shadow): add libbsd and libmd dep
 o ports (libpng): watch apng patch (dep for firefox) to be merged with mainline (github pull 706)
+- ports (cfitsio, siril): enable multithreading in cfitsio (./configure --enable-reentrant)
