@@ -1,4 +1,4 @@
-62a0500bb932868061607cde0c01f584  clang-20.1.8.src.tar.xz
-254c99f104cd17b32ef721acaeb58a7c  clang-tools-extra-20.1.8.src.tar.xz
-78040509eb91309b4ec2edfe12cd20d8  llvm-20.1.8.src.tar.xz
-5bfb8f4b4a2b3ccffca0d2406e4cdcc6  cmake-20.1.8.src.tar.xz
+99cce39bd0a22bdfeb081c188f1c4a36  clang-21.1.0.src.tar.xz
+12dbb37f46bb27273ffa2c3037db6b21  clang-tools-extra-21.1.0.src.tar.xz
+0dfec9ebc392795599649b37bf7ceba9  llvm-21.1.0.src.tar.xz
+3d8324994acdbd2bfc0f0187db123cc1  cmake-21.1.0.src.tar.xz

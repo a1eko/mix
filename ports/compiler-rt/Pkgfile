@@ -1,0 +1,41 @@
+# Description: Compiler runtime libraries for clang
+# URL: https://compiler-rt.llvm.org/
+# Maintainer: CRUX System Team, core-ports at crux dot nu
+# Depends on: llvm
+# Optional: clang
+
+name=compiler-rt
+version=21.1.0
+release=mix-1
+source=(https://github.com/llvm/llvm-project/releases/download/llvmorg-$version/compiler-rt-$version.src.tar.xz
+    https://github.com/llvm/llvm-project/releases/download/llvmorg-$version/llvm-$version.src.tar.xz
+    https://github.com/llvm/llvm-project/releases/download/llvmorg-$version/cmake-$version.src.tar.xz
+    https://github.com/llvm/llvm-project/releases/download/llvmorg-$version/third-party-$version.src.tar.xz
+)
+
+build() {
+    mv llvm-$version.src llvm
+    mv cmake-$version.src cmake
+    mv third-party-$version.src third-party
+
+    if pkz -i list clang; then
+        if ! /usr/bin/ldd /usr/bin/clang | grep -q -E '.*not found'; then
+            export CC=clang
+            export CXX=clang++
+        fi
+    fi
+
+    cmake -S $name-$version.src -B build -G Ninja $PKGMK_COMPILER_RT \
+        -D CMAKE_INSTALL_PREFIX=/usr \
+        -D CMAKE_BUILD_TYPE=Release \
+        -D CMAKE_C_FLAGS_RELEASE="$CFLAGS" \
+        -D CMAKE_CXX_FLAGS_RELEASE="$CXXFLAGS" \
+        -D COMPILER_RT_INSTALL_PATH=/usr/lib/clang/${version:0:2} \
+        -D Python3_EXECUTABLE=/usr/bin/python3 \
+        -D COMPILER_RT_INCLUDE_TESTS=OFF \
+        -D CAN_TARGET_i386=OFF \
+        -D CAN_TARGET_x86_64=ON \
+        -Wno-dev
+    cmake --build build -j ${JOBS:-1}
+    DESTDIR=$PKG cmake --install build
+}
