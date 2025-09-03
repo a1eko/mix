@@ -2,25 +2,22 @@
 # Depends on: boost clucene curl expat glm gpgme graphite2 harfbuzz icu lcms2 libepoxy libjpeg-turbo libpng libtiff libwebp libxml2 nss openldap openssl poppler redland unixodbc xmlsec
 
 name=libreoffice
-version=25.2.3.2
+version=25.8.1.1
 release=mix-1
-source=(https://downloadarchive.documentfoundation.org/libreoffice/old/$version/src/$name-$version.tar.xz
-  https://download.documentfoundation.org/libreoffice/src/${version%.2}/libreoffice-dictionaries-$version.tar.xz
-  https://download.documentfoundation.org/libreoffice/src/${version%.2}/libreoffice-help-$version.tar.xz
-  https://download.documentfoundation.org/libreoffice/src/${version%.2}/libreoffice-translations-$version.tar.xz
-  https://www.linuxfromscratch.org/patches/blfs/svn/libreoffice-$version-icu76_fixes-1.patch
-  https://www.linuxfromscratch.org/patches/blfs/svn/libreoffice-$version-poppler_fixes-1.patch
+source=(https://downloadarchive.documentfoundation.org/libreoffice/src/${version%.1}/$name-$version.tar.xz
+  https://download.documentfoundation.org/libreoffice/src/${version%.1}/libreoffice-dictionaries-$version.tar.xz
+  https://download.documentfoundation.org/libreoffice/src/${version%.1}/libreoffice-help-$version.tar.xz
+  https://download.documentfoundation.org/libreoffice/src/${version%.1}/libreoffice-translations-$version.tar.xz
 )
 
 unpack_source() { :; }
 
 build() {
-  tar -xf libreoffice-$version.tar.xz --no-overwrite-dir
+  tar -xf libreoffice-$version.tar.xz
   cd $name-$version
 
-  # patch source code
-  patch -Np1 -i ../libreoffice-$version-icu76_fixes-1.patch
-  patch -Np1 -i ../libreoffice-$version-poppler_fixes-1.patch
+  # fix a problem with detecting Boost::System
+  export boost_cv_lib_system=yes
 
   # fix misc bugs
   sed -i '/icuuc \\/a zlib\\' writerperfect/Library_wpftdraw.mk
@@ -49,6 +46,7 @@ build() {
     --without-java \
     --without-junit \
     --without-system-dicts \
+    --without-system-poppler \
     --disable-avahi \
     --disable-dbus \
     --disable-dconf \
@@ -77,11 +75,11 @@ build() {
     --with-system-odbc \
     --with-system-openldap \
     --with-system-openssl \
-    --with-system-poppler \
     --with-system-redland \
     --with-system-libtiff \
     --with-system-libwebp \
     --with-system-zlib
+    #--with-system-poppler \
 
   sed -i -e 's/check-if-root //g' Makefile
   make build VERBOSE=yes
