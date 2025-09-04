@@ -27,7 +27,7 @@ test "$MIX_TST" = no && export TST=:
 
 P=$MIX/usr/packages
 
-BASE1="iana-etc glibc lzip tzdata zlib bzip2 xz lz4 zstd file readline m4 \
+BASE1="iana-etc glibc lzip tzdata zlib bzip2 xz lz4 zstd file readline libpcre2 m4 \
   bc flex tcl expect dejagnu pkgconf binutils libgmp libmpfr libmpc \
   attr acl libcap libxcrypt gcc"
 
