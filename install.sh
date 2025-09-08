@@ -33,9 +33,9 @@ BASE1="iana-etc glibc lzip tzdata zlib bzip2 xz lz4 zstd file readline libpcre2 
 
 BASE2="ncurses sed psmisc gettext bison grep bash libtool gdbm \
   gperf expat inetutils less perl autoconf automake openssl elfutils \
-  libffi mpdecimal python3 python3-flit-core python3-installer python3-pyproject-hooks python3-packaging python3-build python3-tomli python3-wheel python3-setuptools python3-pip ninja meson kmod coreutils check diffutils gawk findutils groff \
+  libffi sqlite3 mpdecimal python3 python3-flit-core python3-installer python3-pyproject-hooks python3-packaging python3-build python3-tomli python3-wheel python3-setuptools python3-pip ninja meson kmod coreutils check diffutils gawk findutils groff \
   gzip iproute2 kbd libpipeline make patch tar texinfo vim \
-  eudev man-pages man-db procps e2fsprogs sysklogd sysvinit nettle which rdfind linux-firmware linux-pam sqlite3 util-linux libmd libbsd shadow sudo rc"
+  eudev man-pages man-db procps e2fsprogs sysklogd sysvinit nettle which rdfind linux-firmware linux-pam util-linux libmd libbsd shadow sudo rc"
 
 BIOS_BOOT="nasm syslinux"
 UEFI_BOOT="libpng freetype libdevmapper grub2 grub2-efi efivar efibootmgr"
