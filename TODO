@@ -27,3 +27,4 @@ o ports (webkitgtk): breaks surf build if compiled with gtk4 (add '-D USE_GTK4=O
 + ports (python3-setuptools): add dependencies, use crux port, disable optimization
 + ports (util-linux): build after linux-pam and sqlite3
 + ports (shadow): add libbsd and libmd dep
+- ports (rust): upgrade to v1.80 (see crux, watch blfs)
