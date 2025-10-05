@@ -1,7 +1,7 @@
 # Description: core utilities
 
 name=coreutils
-version=9.7
+version=9.8
 release=0
 source=(https://ftpmirror.gnu.org/gnu/coreutils/coreutils-$version.tar.xz)
 

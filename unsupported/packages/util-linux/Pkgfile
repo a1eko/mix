@@ -1,30 +1,64 @@
 # Description: Miscellaneous system utilities
-# URL:         https://www.kernel.org/pub/linux/utils/util-linux/
-# Maintainer:  CRUX System Team, core-ports at crux dot nu
-# Depends on:  eudev ncurses zlib
+# URL: https://github.com/karelzak/util-linux
+# Maintainer: CRUX System Team, core-ports at crux dot nu
+# Depends on: eudev file libcap-ng linux-pam sqlite3
 
 name=util-linux
-version=2.36
+version=2.41.2
 release=mix-1
 source=(https://www.kernel.org/pub/linux/utils/$name/v${version:0:4}/$name-$version.tar.xz)
 
 build() {
-    cd $name-$version
+    meson setup $name-$version build \
+        --prefix=/usr \
+        --bindir=/usr/bin \
+        --sbindir=/sbin \
+        --libdir=/lib \
+        --buildtype=plain \
+        --wrap-mode=nodownload \
+        --default-library=both \
+        -D b_lto=false \
+        -D b_pie=true \
+        -D nls=disabled \
+        -D pamlibdir=/lib/security \
+        -D cryptsetup=disabled \
+        -D build-chfn-chsh=disabled \
+        -D build-login=disabled \
+        -D build-su=disabled \
+        -D build-sulogin=disabled \
+        -D build-nologin=disabled \
+        -D build-runuser=disabled \
+        -D build-vipw=disabled \
+        -D build-raw=disabled \
+        -D build-newgrp=disabled \
+        -D build-bfs=disabled \
+        -D build-minix=disabled
 
-    ./configure --prefix=/usr \
-                --disable-nls \
-                --disable-{login,su,sulogin,nologin,runuser} \
-                --disable-chfn-chsh \
-                --enable-{write,raw,kill} \
-                --without-python
+    meson compile -C build -j ${JOBS:-1}
+    DESTDIR=$PKG meson install -C build
 
-    make
-    make DESTDIR=$PKG install
+    rm -rf $PKG/usr/share/{doc,locale}
 
-    install -d $PKG/{etc,var/{lib/libuuid,run/uuidd}}
-    touch $PKG/etc/adjtime
+    install -d $PKG/{bin,usr/sbin,usr/lib,var/lib/lastlog}
 
-    rm -r $PKG/usr/share/{doc,bash-completion}
-    rm $PKG/sbin/{mkfs.bfs,mkfs.minix,fsck.minix}
-    rm $PKG/usr/share/man/man8/{fsck.minix,mkfs.bfs,mkfs.minix}.8
+    mv $PKG/usr/bin/{dmesg,findmnt,kill,lsblk,lsfd,more} $PKG/bin
+    mv $PKG/usr/bin/{mount,mountpoint,pipesz,umount,wdctl} $PKG/bin
+    mv $PKG/sbin/{addpart,delpart,ldattach,partx,readprofile} $PKG/usr/sbin
+    mv $PKG/sbin/{resizepart,rfkill,rtcwake,uuidd} $PKG/usr/sbin
+
+    mv $PKG/lib/pkgconfig $PKG/usr/lib
+
+    install -d $PKG/usr/share/man/{man1,man5,man8}
+    find $name-$version -type f -name '*.1' -exec cp -t $PKG/usr/share/man/man1 '{}' + ;
+    find $name-$version -type f -name '*.5' -exec cp -t $PKG/usr/share/man/man5 '{}' + ;
+    find $name-$version -type f -name '*.8' -exec cp -t $PKG/usr/share/man/man8 '{}' + ;
+    rm $PKG/usr/share/man/man1/{chfn,chsh,login,newgrp,su}.1
+    rm $PKG/usr/share/man/man8/{nologin,sulogin,vigr,vipw}.8
+
+    mv $PKG/lib/*.a $PKG/usr/lib
+    cd $PKG/lib
+    local LIB
+    for LIB in lib*.so; do
+        ln -s ../../lib/$(readlink $LIB) $PKG/usr/lib/$LIB && rm $LIB
+    done
 }

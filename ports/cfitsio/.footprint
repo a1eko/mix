@@ -22,6 +22,6 @@ drwxr-xr-x	root/root	usr/lib/
 lrwxrwxrwx	root/root	usr/lib/libcfitsio.so -> libcfitsio.so.10.0.0
 lrwxrwxrwx	root/root	usr/lib/libcfitsio.so.10 -> libcfitsio.so.10.0.0
 -rwxr-xr-x	root/root	usr/lib/libcfitsio.so.10.0.0
-lrwxrwxrwx	root/root	usr/lib/libcfitsio.so.10.4.6.0 -> libcfitsio.so.10.0.0
+lrwxrwxrwx	root/root	usr/lib/libcfitsio.so.10.4.6.3 -> libcfitsio.so.10.0.0
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/cfitsio.pc
