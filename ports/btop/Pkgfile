@@ -1,7 +1,7 @@
 # Description: a monitor of system resources, bpytop ported to C++
 
 name=btop
-version=1.4.0
+version=1.4.5
 release=mix-1
 source=(https://github.com/aristocratos/$name/archive/v$version/$name-$version.tar.gz)
 

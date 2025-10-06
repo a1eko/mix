@@ -8,6 +8,7 @@ drwxr-xr-x	root/root	usr/share/btop/
 drwxrwxr-x	root/root	usr/share/btop/themes/
 -rw-rw-r--	root/root	usr/share/btop/themes/HotPurpleTrafficLight.theme
 -rw-rw-r--	root/root	usr/share/btop/themes/adapta.theme
+-rw-rw-r--	root/root	usr/share/btop/themes/adwaita-dark.theme
 -rw-rw-r--	root/root	usr/share/btop/themes/adwaita.theme
 -rw-rw-r--	root/root	usr/share/btop/themes/ayu.theme
 -rw-rw-r--	root/root	usr/share/btop/themes/dracula.theme
@@ -15,6 +16,7 @@ drwxrwxr-x	root/root	usr/share/btop/themes/
 -rw-rw-r--	root/root	usr/share/btop/themes/elementarish.theme
 -rw-rw-r--	root/root	usr/share/btop/themes/everforest-dark-hard.theme
 -rw-rw-r--	root/root	usr/share/btop/themes/everforest-dark-medium.theme
+-rw-rw-r--	root/root	usr/share/btop/themes/everforest-light-medium.theme
 -rw-rw-r--	root/root	usr/share/btop/themes/flat-remix-light.theme
 -rw-rw-r--	root/root	usr/share/btop/themes/flat-remix.theme
 -rw-rw-r--	root/root	usr/share/btop/themes/greyscale.theme
@@ -23,6 +25,8 @@ drwxrwxr-x	root/root	usr/share/btop/themes/
 -rw-rw-r--	root/root	usr/share/btop/themes/gruvbox_light.theme
 -rw-rw-r--	root/root	usr/share/btop/themes/gruvbox_material_dark.theme
 -rw-rw-r--	root/root	usr/share/btop/themes/horizon.theme
+-rw-rw-r--	root/root	usr/share/btop/themes/kanagawa-lotus.theme
+-rw-rw-r--	root/root	usr/share/btop/themes/kanagawa-wave.theme
 -rw-rw-r--	root/root	usr/share/btop/themes/kyli0x.theme
 -rw-rw-r--	root/root	usr/share/btop/themes/matcha-dark-sea.theme
 -rw-rw-r--	root/root	usr/share/btop/themes/monokai.theme
@@ -30,7 +34,7 @@ drwxrwxr-x	root/root	usr/share/btop/themes/
 -rw-rw-r--	root/root	usr/share/btop/themes/nord.theme
 -rw-rw-r--	root/root	usr/share/btop/themes/onedark.theme
 -rw-rw-r--	root/root	usr/share/btop/themes/paper.theme
--rwxrwxr-x	root/root	usr/share/btop/themes/phoenix-night.theme
+-rw-rw-r--	root/root	usr/share/btop/themes/phoenix-night.theme
 -rw-rw-r--	root/root	usr/share/btop/themes/solarized_dark.theme
 -rw-rw-r--	root/root	usr/share/btop/themes/solarized_light.theme
 -rw-rw-r--	root/root	usr/share/btop/themes/tokyo-night.theme
