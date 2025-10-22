@@ -234,11 +234,11 @@ drwxr-xr-x	root/root	usr/lib/girepository-1.0/
 -rw-r--r--	root/root	usr/lib/girepository-1.0/WebKit2-4.1.typelib
 -rw-r--r--	root/root	usr/lib/girepository-1.0/WebKit2WebExtension-4.1.typelib
 lrwxrwxrwx	root/root	usr/lib/libjavascriptcoregtk-4.1.so -> libjavascriptcoregtk-4.1.so.0
-lrwxrwxrwx	root/root	usr/lib/libjavascriptcoregtk-4.1.so.0 -> libjavascriptcoregtk-4.1.so.0.8.8
--rwxr-xr-x	root/root	usr/lib/libjavascriptcoregtk-4.1.so.0.8.8
+lrwxrwxrwx	root/root	usr/lib/libjavascriptcoregtk-4.1.so.0 -> libjavascriptcoregtk-4.1.so.0.9.6
+-rwxr-xr-x	root/root	usr/lib/libjavascriptcoregtk-4.1.so.0.9.6
 lrwxrwxrwx	root/root	usr/lib/libwebkit2gtk-4.1.so -> libwebkit2gtk-4.1.so.0
-lrwxrwxrwx	root/root	usr/lib/libwebkit2gtk-4.1.so.0 -> libwebkit2gtk-4.1.so.0.17.10
--rwxr-xr-x	root/root	usr/lib/libwebkit2gtk-4.1.so.0.17.10
+lrwxrwxrwx	root/root	usr/lib/libwebkit2gtk-4.1.so.0 -> libwebkit2gtk-4.1.so.0.19.4
+-rwxr-xr-x	root/root	usr/lib/libwebkit2gtk-4.1.so.0.19.4
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/javascriptcoregtk-4.1.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/webkit2gtk-4.1.pc
