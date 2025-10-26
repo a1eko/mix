@@ -2,14 +2,11 @@
 # Depends on: libpng libtiff
 
 name=libpano13
-version=2.9.22
+version=2.9.23
 release=mix-1
-source=("http://downloads.sourceforge.net/sourceforge/panotools/$name-$version.tar.gz"
-  libpano13-$version-gcc15.patch)
+source=(http://downloads.sourceforge.net/sourceforge/panotools/$name-$version.tar.gz)
 
 build() {
-  patch -d $name-$version -Np1 -i $SRC/libpano13-$version-gcc15.patch
-
   cmake -B build -S $name-$version \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DUSE_SPARSE_LEVMAR=ON
