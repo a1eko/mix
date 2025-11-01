@@ -2,7 +2,7 @@
 # Depends on: zathura girara djvulibre
 
 name=zathura-djvu
-version=0.2.10
+version=0.2.11
 release=mix-1
 source=(https://pwmt.org/projects/$name/download/$name-$version.tar.xz)
  
