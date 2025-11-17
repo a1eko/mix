@@ -20,7 +20,6 @@ o tools, ports (*udev): use crux port, lfs switched to udev from systemd
 o tools, ports (cmake, ninja, meson): added to tools/base system, reinstalling crux ports afterwards
 o tools, ports (gcc-fortran): avoid crux port, enable fortran in base gcc package instead
 + ports (eudev): add 'sgx' to /etc/group (crux compat, lfs removes it)
-o ports (rust): remove rust before upgrading, cleanup rust dirs manually if needed
 o ports (webkitgtk): needs at least 2GB of RAM per CPU vcore, reduce number of threads ('cmake --build -j 4')
 o ports (webkitgtk): breaks surf build if compiled with gtk4 (add '-D USE_GTK4=OFF')
 + dist (nettle, rdfind, linux-{firmware,pam}, shadow): move to BASE2, add which as a dep for rdfind
