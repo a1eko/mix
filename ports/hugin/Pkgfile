@@ -3,7 +3,7 @@
 # Optional: isl openexr
 
 name=hugin
-version=2024.0.1
+version=2025.0.0
 release=mix-1
 source=(https://downloads.sourceforge.net/project/$name/$name/$name-${version%.*}/$name-$version.tar.bz2)
 
