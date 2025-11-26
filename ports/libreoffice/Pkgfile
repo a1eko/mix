@@ -2,9 +2,9 @@
 # Depends on: boost clucene curl expat glm gpgme graphite2 harfbuzz icu lcms2 libepoxy libjpeg-turbo libpng libtiff libwebp libxml2 nss openldap openssl poppler redland unixodbc xmlsec
 
 name=libreoffice
-version=25.8.1.1
+version=25.8.3.2
 release=mix-1
-source=(https://downloadarchive.documentfoundation.org/libreoffice/src/${version%.1}/$name-$version.tar.xz
+source=(https://download.documentfoundation.org/libreoffice/src/${version%.1}/$name-$version.tar.xz
   https://download.documentfoundation.org/libreoffice/src/${version%.1}/libreoffice-dictionaries-$version.tar.xz
   https://download.documentfoundation.org/libreoffice/src/${version%.1}/libreoffice-help-$version.tar.xz
   https://download.documentfoundation.org/libreoffice/src/${version%.1}/libreoffice-translations-$version.tar.xz
@@ -79,7 +79,6 @@ build() {
     --with-system-libtiff \
     --with-system-libwebp \
     --with-system-zlib
-    #--with-system-poppler \
 
   sed -i -e 's/check-if-root //g' Makefile
   make build VERBOSE=yes

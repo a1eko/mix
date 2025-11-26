@@ -5,9 +5,10 @@
 # Optional: bubblewrap enchant geoclue gst-plugins-bad lcms2 libavif libmanette libnotify openjpeg2 wpebackend-fdo xdg-dbus-proxy
 
 name=webkitgtk
-version=2.50.1
+version=2.50.2
 release=mix-1
-source=(https://webkitgtk.org/releases/webkitgtk-$version.tar.xz)
+source=(https://webkitgtk.org/releases/webkitgtk-$version.tar.xz
+  fix-link-error.patch)
 
 build() {
   # fail the build if dependencies are not met
@@ -27,8 +28,7 @@ build() {
   pkz -i list openjpeg2 || PKGMK_WEBKITGTK+=' -DUSE_OPENJPEG=OFF'
   pkz -i list wpebackend-fdo || PKGMK_WEBKITGTK+=' -DUSE_WPE_RENDERER=OFF'
 
-  # mix: limit number of threads in build, needs 2GB of RAM per CPU vcore
-  # mix: breaks surf build if compiled with gtk4 (add '-D USE_GTK4=OFF')
+  patch -Np1 -d webkitgtk-$version -i $SRC/fix-link-error.patch
 
   cmake -S webkitgtk-$version -B build -G Ninja ${PKGMK_WEBKITGTK} \
     -D CMAKE_INSTALL_PREFIX=/usr \
@@ -49,7 +49,7 @@ build() {
     -D ENABLE_SPEECH_SYNTHESIS=NO \
     -Wno-dev
 
-  cmake --build build -j4
+  cmake --build build -j 4
   DESTDIR=$PKG cmake --install build
 
   rm -r $PKG/usr/share/locale
