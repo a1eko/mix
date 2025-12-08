@@ -2,13 +2,16 @@
 # Depends on: autoconf-2.13 cbindgen dbus-glib gtk gtk3 libnotify llvm lld clang nasm nodejs nss alsa-lib python3 startup-notification unzip yasm zip
 
 name=firefox
-version=140.4.0
+version=140.5.0
 release=mix-1
 source=(https://archive.mozilla.org/pub/firefox/releases/${version}esr/source/firefox-${version}esr.source.tar.xz
   mozconfig)
 
 build() {
   cd $name-$version
+
+  # fix building with system icu
+  sed -i '/VIRAMA = 47/a CLASS_CHARACTER,' intl/lwbrk/LineBreaker.cpp
 
   cp -v $SRC/mozconfig .
 
