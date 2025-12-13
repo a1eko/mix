@@ -2,7 +2,7 @@
 # Depends on: boost cmake desktop-file-utils ffmpeg fftw freetype hicolor-icon-theme onetbb libpng libsdl2 libsndfile libtiff mesa ninja openexr openimageio openjpeg2 potrace python3-numpy shared-mime-info brotli
 
 name=blender
-version=4.5.3
+version=4.5.5
 release=mix-1
 source=(https://download.blender.org/source/$name-$version.tar.xz)
 

@@ -12,42 +12,6 @@ drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/exrmultiview
 -rwxr-xr-x	root/root	usr/bin/exrstdattr
 drwxr-xr-x	root/root	usr/include/
-drwxr-xr-x	root/root	usr/include/Imath/
--rw-r--r--	root/root	usr/include/Imath/ImathBox.h
--rw-r--r--	root/root	usr/include/Imath/ImathBoxAlgo.h
--rw-r--r--	root/root	usr/include/Imath/ImathColor.h
--rw-r--r--	root/root	usr/include/Imath/ImathColorAlgo.h
--rw-r--r--	root/root	usr/include/Imath/ImathConfig.h
--rw-r--r--	root/root	usr/include/Imath/ImathEuler.h
--rw-r--r--	root/root	usr/include/Imath/ImathExport.h
--rw-r--r--	root/root	usr/include/Imath/ImathForward.h
--rw-r--r--	root/root	usr/include/Imath/ImathFrame.h
--rw-r--r--	root/root	usr/include/Imath/ImathFrustum.h
--rw-r--r--	root/root	usr/include/Imath/ImathFrustumTest.h
--rw-r--r--	root/root	usr/include/Imath/ImathFun.h
--rw-r--r--	root/root	usr/include/Imath/ImathGL.h
--rw-r--r--	root/root	usr/include/Imath/ImathGLU.h
--rw-r--r--	root/root	usr/include/Imath/ImathInt64.h
--rw-r--r--	root/root	usr/include/Imath/ImathInterval.h
--rw-r--r--	root/root	usr/include/Imath/ImathLine.h
--rw-r--r--	root/root	usr/include/Imath/ImathLineAlgo.h
--rw-r--r--	root/root	usr/include/Imath/ImathMath.h
--rw-r--r--	root/root	usr/include/Imath/ImathMatrix.h
--rw-r--r--	root/root	usr/include/Imath/ImathMatrixAlgo.h
--rw-r--r--	root/root	usr/include/Imath/ImathNamespace.h
--rw-r--r--	root/root	usr/include/Imath/ImathPlane.h
--rw-r--r--	root/root	usr/include/Imath/ImathPlatform.h
--rw-r--r--	root/root	usr/include/Imath/ImathQuat.h
--rw-r--r--	root/root	usr/include/Imath/ImathRandom.h
--rw-r--r--	root/root	usr/include/Imath/ImathRoots.h
--rw-r--r--	root/root	usr/include/Imath/ImathShear.h
--rw-r--r--	root/root	usr/include/Imath/ImathSphere.h
--rw-r--r--	root/root	usr/include/Imath/ImathTypeTraits.h
--rw-r--r--	root/root	usr/include/Imath/ImathVec.h
--rw-r--r--	root/root	usr/include/Imath/ImathVecAlgo.h
--rw-r--r--	root/root	usr/include/Imath/half.h
--rw-r--r--	root/root	usr/include/Imath/halfFunction.h
--rw-r--r--	root/root	usr/include/Imath/halfLimits.h
 drwxr-xr-x	root/root	usr/include/OpenEXR/
 -rw-r--r--	root/root	usr/include/OpenEXR/Iex.h
 -rw-r--r--	root/root	usr/include/OpenEXR/IexBaseExc.h
@@ -74,6 +38,7 @@ drwxr-xr-x	root/root	usr/include/OpenEXR/
 -rw-r--r--	root/root	usr/include/OpenEXR/ImfArray.h
 -rw-r--r--	root/root	usr/include/OpenEXR/ImfAttribute.h
 -rw-r--r--	root/root	usr/include/OpenEXR/ImfBoxAttribute.h
+-rw-r--r--	root/root	usr/include/OpenEXR/ImfBytesAttribute.h
 -rw-r--r--	root/root	usr/include/OpenEXR/ImfCRgbaFile.h
 -rw-r--r--	root/root	usr/include/OpenEXR/ImfChannelList.h
 -rw-r--r--	root/root	usr/include/OpenEXR/ImfChannelListAttribute.h
@@ -118,6 +83,7 @@ drwxr-xr-x	root/root	usr/include/OpenEXR/
 -rw-r--r--	root/root	usr/include/OpenEXR/ImfFramesPerSecond.h
 -rw-r--r--	root/root	usr/include/OpenEXR/ImfGenericInputFile.h
 -rw-r--r--	root/root	usr/include/OpenEXR/ImfGenericOutputFile.h
+-rw-r--r--	root/root	usr/include/OpenEXR/ImfHTCompressor.h
 -rw-r--r--	root/root	usr/include/OpenEXR/ImfHeader.h
 -rw-r--r--	root/root	usr/include/OpenEXR/ImfHuf.h
 -rw-r--r--	root/root	usr/include/OpenEXR/ImfIDManifest.h
@@ -195,42 +161,52 @@ drwxr-xr-x	root/root	usr/include/OpenEXR/
 -rw-r--r--	root/root	usr/include/OpenEXR/openexr_part.h
 -rw-r--r--	root/root	usr/include/OpenEXR/openexr_std_attr.h
 -rw-r--r--	root/root	usr/include/OpenEXR/openexr_version.h
+drwxr-xr-x	root/root	usr/include/openjph/
+-rw-r--r--	root/root	usr/include/openjph/ojph_arch.h
+-rw-r--r--	root/root	usr/include/openjph/ojph_arg.h
+-rw-r--r--	root/root	usr/include/openjph/ojph_base.h
+-rw-r--r--	root/root	usr/include/openjph/ojph_codestream.h
+-rw-r--r--	root/root	usr/include/openjph/ojph_defs.h
+-rw-r--r--	root/root	usr/include/openjph/ojph_file.h
+-rw-r--r--	root/root	usr/include/openjph/ojph_mem.h
+-rw-r--r--	root/root	usr/include/openjph/ojph_message.h
+-rw-r--r--	root/root	usr/include/openjph/ojph_params.h
+-rw-r--r--	root/root	usr/include/openjph/ojph_version.h
 drwxr-xr-x	root/root	usr/lib64/
 drwxr-xr-x	root/root	usr/lib64/cmake/
-drwxr-xr-x	root/root	usr/lib64/cmake/Imath/
--rw-r--r--	root/root	usr/lib64/cmake/Imath/ImathConfig.cmake
--rw-r--r--	root/root	usr/lib64/cmake/Imath/ImathConfigVersion.cmake
--rw-r--r--	root/root	usr/lib64/cmake/Imath/ImathTargets-none.cmake
--rw-r--r--	root/root	usr/lib64/cmake/Imath/ImathTargets.cmake
 drwxr-xr-x	root/root	usr/lib64/cmake/OpenEXR/
 -rw-r--r--	root/root	usr/lib64/cmake/OpenEXR/OpenEXRConfig.cmake
 -rw-r--r--	root/root	usr/lib64/cmake/OpenEXR/OpenEXRConfigVersion.cmake
 -rw-r--r--	root/root	usr/lib64/cmake/OpenEXR/OpenEXRTargets-none.cmake
 -rw-r--r--	root/root	usr/lib64/cmake/OpenEXR/OpenEXRTargets.cmake
-lrwxrwxrwx	root/root	usr/lib64/libIex-3_3.so -> libIex-3_3.so.32
-lrwxrwxrwx	root/root	usr/lib64/libIex-3_3.so.32 -> libIex-3_3.so.32.3.3.4
--rwxr-xr-x	root/root	usr/lib64/libIex-3_3.so.32.3.3.4
-lrwxrwxrwx	root/root	usr/lib64/libIex.so -> libIex-3_3.so
-lrwxrwxrwx	root/root	usr/lib64/libIlmThread-3_3.so -> libIlmThread-3_3.so.32
-lrwxrwxrwx	root/root	usr/lib64/libIlmThread-3_3.so.32 -> libIlmThread-3_3.so.32.3.3.4
--rwxr-xr-x	root/root	usr/lib64/libIlmThread-3_3.so.32.3.3.4
-lrwxrwxrwx	root/root	usr/lib64/libIlmThread.so -> libIlmThread-3_3.so
-lrwxrwxrwx	root/root	usr/lib64/libImath-3_1.so -> libImath-3_1.so.29
-lrwxrwxrwx	root/root	usr/lib64/libImath-3_1.so.29 -> libImath-3_1.so.29.11.0
--rwxr-xr-x	root/root	usr/lib64/libImath-3_1.so.29.11.0
-lrwxrwxrwx	root/root	usr/lib64/libImath.so -> libImath-3_1.so
-lrwxrwxrwx	root/root	usr/lib64/libOpenEXR-3_3.so -> libOpenEXR-3_3.so.32
-lrwxrwxrwx	root/root	usr/lib64/libOpenEXR-3_3.so.32 -> libOpenEXR-3_3.so.32.3.3.4
--rwxr-xr-x	root/root	usr/lib64/libOpenEXR-3_3.so.32.3.3.4
-lrwxrwxrwx	root/root	usr/lib64/libOpenEXR.so -> libOpenEXR-3_3.so
-lrwxrwxrwx	root/root	usr/lib64/libOpenEXRCore-3_3.so -> libOpenEXRCore-3_3.so.32
-lrwxrwxrwx	root/root	usr/lib64/libOpenEXRCore-3_3.so.32 -> libOpenEXRCore-3_3.so.32.3.3.4
--rwxr-xr-x	root/root	usr/lib64/libOpenEXRCore-3_3.so.32.3.3.4
-lrwxrwxrwx	root/root	usr/lib64/libOpenEXRCore.so -> libOpenEXRCore-3_3.so
-lrwxrwxrwx	root/root	usr/lib64/libOpenEXRUtil-3_3.so -> libOpenEXRUtil-3_3.so.32
-lrwxrwxrwx	root/root	usr/lib64/libOpenEXRUtil-3_3.so.32 -> libOpenEXRUtil-3_3.so.32.3.3.4
--rwxr-xr-x	root/root	usr/lib64/libOpenEXRUtil-3_3.so.32.3.3.4
-lrwxrwxrwx	root/root	usr/lib64/libOpenEXRUtil.so -> libOpenEXRUtil-3_3.so
+drwxr-xr-x	root/root	usr/lib64/cmake/openjph/
+-rw-r--r--	root/root	usr/lib64/cmake/openjph/openjph-config-version.cmake
+-rw-r--r--	root/root	usr/lib64/cmake/openjph/openjph-config.cmake
+-rw-r--r--	root/root	usr/lib64/cmake/openjph/openjph-targets-none.cmake
+-rw-r--r--	root/root	usr/lib64/cmake/openjph/openjph-targets.cmake
+lrwxrwxrwx	root/root	usr/lib64/libIex-3_4.so -> libIex-3_4.so.33
+lrwxrwxrwx	root/root	usr/lib64/libIex-3_4.so.33 -> libIex-3_4.so.33.3.4.4
+-rwxr-xr-x	root/root	usr/lib64/libIex-3_4.so.33.3.4.4
+lrwxrwxrwx	root/root	usr/lib64/libIex.so -> libIex-3_4.so
+lrwxrwxrwx	root/root	usr/lib64/libIlmThread-3_4.so -> libIlmThread-3_4.so.33
+lrwxrwxrwx	root/root	usr/lib64/libIlmThread-3_4.so.33 -> libIlmThread-3_4.so.33.3.4.4
+-rwxr-xr-x	root/root	usr/lib64/libIlmThread-3_4.so.33.3.4.4
+lrwxrwxrwx	root/root	usr/lib64/libIlmThread.so -> libIlmThread-3_4.so
+lrwxrwxrwx	root/root	usr/lib64/libOpenEXR-3_4.so -> libOpenEXR-3_4.so.33
+lrwxrwxrwx	root/root	usr/lib64/libOpenEXR-3_4.so.33 -> libOpenEXR-3_4.so.33.3.4.4
+-rwxr-xr-x	root/root	usr/lib64/libOpenEXR-3_4.so.33.3.4.4
+lrwxrwxrwx	root/root	usr/lib64/libOpenEXR.so -> libOpenEXR-3_4.so
+lrwxrwxrwx	root/root	usr/lib64/libOpenEXRCore-3_4.so -> libOpenEXRCore-3_4.so.33
+lrwxrwxrwx	root/root	usr/lib64/libOpenEXRCore-3_4.so.33 -> libOpenEXRCore-3_4.so.33.3.4.4
+-rwxr-xr-x	root/root	usr/lib64/libOpenEXRCore-3_4.so.33.3.4.4
+lrwxrwxrwx	root/root	usr/lib64/libOpenEXRCore.so -> libOpenEXRCore-3_4.so
+lrwxrwxrwx	root/root	usr/lib64/libOpenEXRUtil-3_4.so -> libOpenEXRUtil-3_4.so.33
+lrwxrwxrwx	root/root	usr/lib64/libOpenEXRUtil-3_4.so.33 -> libOpenEXRUtil-3_4.so.33.3.4.4
+-rwxr-xr-x	root/root	usr/lib64/libOpenEXRUtil-3_4.so.33.3.4.4
+lrwxrwxrwx	root/root	usr/lib64/libOpenEXRUtil.so -> libOpenEXRUtil-3_4.so
+lrwxrwxrwx	root/root	usr/lib64/libopenjph.so -> libopenjph.so.0.24
+lrwxrwxrwx	root/root	usr/lib64/libopenjph.so.0.24 -> libopenjph.so.0.24.5
+-rwxr-xr-x	root/root	usr/lib64/libopenjph.so.0.24.5
 drwxr-xr-x	root/root	usr/lib64/pkgconfig/
--rw-r--r--	root/root	usr/lib64/pkgconfig/Imath.pc
 -rw-r--r--	root/root	usr/lib64/pkgconfig/OpenEXR.pc
+-rw-r--r--	root/root	usr/lib64/pkgconfig/openjph.pc

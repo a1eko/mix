@@ -2,7 +2,7 @@
 # Depends on: cmake
 
 name=openexr
-version=3.3.4
+version=3.4.4
 release=mix-1
 source=(https://github.com/openexr/openexr/archive/v$version/$name-$version.tar.gz)
 

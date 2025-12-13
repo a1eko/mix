@@ -2,9 +2,10 @@
 # Depends on: boost cmake freetype git glew hdf5 libheif libpng libraw libtiff libwebp ninja openexr openjpeg2 python3-pybind11 opencolorio
 
 name=openimageio
-version=3.1.7.0
+version=3.1.8.0
 release=mix-1
 source=(https://github.com/$name/oiio/archive/refs/tags/v$version.tar.gz)
+renames=($name-$version.tar.gz)
 
 build() {
   cmake -S OpenImageIO-$version -B build -G Ninja \
