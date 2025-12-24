@@ -5,10 +5,9 @@
 # Optional: bubblewrap enchant geoclue gst-plugins-bad lcms2 libavif libmanette libnotify openjpeg2 wpebackend-fdo xdg-dbus-proxy
 
 name=webkitgtk
-version=2.50.2
+version=2.50.4
 release=mix-1
-source=(https://webkitgtk.org/releases/webkitgtk-$version.tar.xz
-  fix-link-error.patch)
+source=(https://webkitgtk.org/releases/webkitgtk-$version.tar.xz)
 
 build() {
   # fail the build if dependencies are not met
@@ -27,8 +26,6 @@ build() {
   pkz -i list libmanette || PKGMK_WEBKITGTK+=' -DENABLE_GAMEPAD=OFF'
   pkz -i list openjpeg2 || PKGMK_WEBKITGTK+=' -DUSE_OPENJPEG=OFF'
   pkz -i list wpebackend-fdo || PKGMK_WEBKITGTK+=' -DUSE_WPE_RENDERER=OFF'
-
-  patch -Np1 -d webkitgtk-$version -i $SRC/fix-link-error.patch
 
   cmake -S webkitgtk-$version -B build -G Ninja ${PKGMK_WEBKITGTK} \
     -D CMAKE_INSTALL_PREFIX=/usr \
