@@ -1,13 +1,14 @@
 # Description: astronomical image processing software
 # Depends on: glib gtk3 gtksourceview4 lcms2 cfitsio wcslib fftw gsl libconfig opencv exiv2 intltool cmake libraw libtiff libjpeg-turbo libxisf libjxl libheif libpng ffmpeg libgit2
 
-name=siril
-version=1.4.0
+name=siril-dev
 release=mix-1
-source=(https://free-astro.org/download/$name-$version.tar.bz2)
+version=git
 
 build() {
-  cd $name-$version
+  git clone --recurse-submodules https://gitlab.com/free-astro/$name.git
+  cd $name
+
   meson setup --prefix /usr --buildtype release _build
   ninja -C _build -j ${JOBS:-1}
   DESTDIR=$PKG ninja -C _build install

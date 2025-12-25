@@ -1,0 +1,31 @@
+# Description: High productivity build system.
+# URL: https://mesonbuild.com/
+# Maintainer: CRUX System Team, core-ports at crux dot nu
+# Depends on: python3-setuptools
+
+name=meson
+version=1.9.0
+release=1
+source=(https://github.com/mesonbuild/meson/releases/download/$version/$name-$version.tar.gz)
+
+build() {
+    cd $name-$version
+
+    /usr/bin/python3 setup.py build
+
+    /usr/bin/python3 setup.py install \
+        --prefix=/usr --root=$PKG --optimize=1 --skip-build
+
+    pkz -i list bash-completion && install -m 0644 -Dt \
+        $PKG/usr/share/bash-completion/completions data/shell-completions/bash/*
+    pkz -i list zsh && install -m 0644 -Dt \
+        $PKG/usr/share/zsh/site-functions data/shell-completions/zsh/*
+
+    chmod -R g-w $PKG
+
+    pkz -i list bash-completion && install -m 0644 -Dt $PKG/usr/share/bash-completion/completions data/shell-completions/bash/*
+    pkz -i list zsh && install -m 0644 -Dt $PKG/usr/share/zsh/site-functions data/shell-completions/zsh/*
+
+    install -d $PKG/usr/share/vim/vimfiles
+    cp -rt $PKG/usr/share/vim/vimfiles data/syntax-highlighting/vim/*/
+}

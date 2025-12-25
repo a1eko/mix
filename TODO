@@ -26,4 +26,5 @@ o ports (webkitgtk): breaks surf build if compiled with gtk4 (add '-D USE_GTK4=O
 + ports (python3-setuptools): add dependencies, use crux port, disable optimization
 + ports (util-linux): build after linux-pam and sqlite3
 + ports (shadow): add libbsd and libmd dep
-- ports (siril): build error in v1.4.0 and v1.5.0.dev (git)
++ ports (siril): build error in version>=1.4.0, ERROR: Got unknown keyword arguments "soversion", "version"; workaround: downgrade meson to v1.9
+o ports (meson): watch meson devs address siril build error
