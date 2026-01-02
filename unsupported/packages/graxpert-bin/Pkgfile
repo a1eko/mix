@@ -1,0 +1,12 @@
+# Description: gradient removal tool for astro photographing (binary)
+
+name=graxpert-bin
+version=3.0.2
+release=mix-1
+source=(https://github.com/Steffenhir/GraXpert/releases/download/$version/graxpert-linux-amd64.zip)
+
+build() {
+  install -dv $PKG/usr/{bin,lib/$name}
+  unzip -d $PKG/usr/lib/ graxpert-linux-amd64.zip
+  ln -sv /usr/lib/GraXpert-linux/GraXpert $PKG/usr/bin/
+}
