@@ -28,3 +28,4 @@ o ports (webkitgtk): breaks surf build if compiled with gtk4 (add '-D USE_GTK4=O
 + ports (shadow): add libbsd and libmd dep
 + ports (siril): build error in version>=1.4.0, ERROR: Got unknown keyword arguments "soversion", "version"; workaround: downgrade meson to v1.9
 o ports (meson): watch meson devs address siril build error
+o ports (glm): remove old glm before upgrading or delete /usr/lib/cmake/glm directory

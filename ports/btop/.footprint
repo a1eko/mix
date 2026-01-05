@@ -19,6 +19,7 @@ drwxrwxr-x	root/root	usr/share/btop/themes/
 -rw-rw-r--	root/root	usr/share/btop/themes/everforest-light-medium.theme
 -rw-rw-r--	root/root	usr/share/btop/themes/flat-remix-light.theme
 -rw-rw-r--	root/root	usr/share/btop/themes/flat-remix.theme
+-rw-rw-r--	root/root	usr/share/btop/themes/gotham.theme
 -rw-rw-r--	root/root	usr/share/btop/themes/greyscale.theme
 -rw-rw-r--	root/root	usr/share/btop/themes/gruvbox_dark.theme
 -rw-rw-r--	root/root	usr/share/btop/themes/gruvbox_dark_v2.theme
