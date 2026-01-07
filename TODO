@@ -1,27 +1,27 @@
-# - to do, + done, o attention/pending, ? uncertain, x ignore
+# - to do, + done, ! attention, o pending, ? uncertain, x ignore
 
-o config (rc.conf): start dbus (runtime dependency/warnings of some X apps)
-o dist (install.sh): put public keys from https://crux.nu/keys/{core,contrib,opt,xorg}.pub to /etc/ports/
-o dist (install.sh, pkz): mix ports may contain crux .sigantures, pkz.sh will use .md5sum if it exists
-o ports (filesystem): never upgrade, overwrites /etc/{passwd,groups,shadow}
+! config (rc.conf): start dbus (runtime dependency/warnings of some X apps)
+! dist (install.sh): put public keys from https://crux.nu/keys/{core,contrib,opt,xorg}.pub to /etc/ports/
+! dist (install.sh, pkz): mix ports may contain crux .sigantures, pkz.sh will use .md5sum if it exists
+! ports (filesystem): never upgrade, overwrites /etc/{passwd,groups,shadow}
 x ports (rc): restore mode 1777 of /dev/shm in rc.local if needed
 x ports (firefox): disable WebGL (about:config, webgl.disabled=true) if needed (local AMD specific)
-o ports (dbus, firefox): rebuild dbus in net.mix for dbus-launch to work with firefox
-o ports (meson, python3-*): remove old version when upgrading (use 'pkz upgrade', not 'pkz -f install')
-o ports (pkz): if pkz-upgrade fails, the old package is marked not installed (copied to .bak)
-o ports (python3): rebuild with deps in coreopt and graphics
-o ports: beware lfs linking of /{bin,lib*,sbin} to /usr is not compatible with crux
-o tools, ports (gcc, glibc, rust): keep /usr/libexec as in lfs instructions
-o ports (tar, ...): let crux replace /usr/libexec with /usr/lib (FHS compliant)
-o ports: define unpack_source() in pkz, redefine in Pkgfile's if needed (crux compat)
-o ports: disable stripping if unneeded or fragile (file .nostripin pkgdir)
-o ports: replace 'pkginfo -i' and 'prt-get isinst' with 'pkz -i list' (crux compat)
-o tools, ports (*udev): use crux port, lfs switched to udev from systemd
-o tools, ports (cmake, ninja, meson): added to tools/base system, reinstalling crux ports afterwards
-o tools, ports (gcc-fortran): avoid crux port, enable fortran in base gcc package instead
+! ports (dbus, firefox): rebuild dbus in net.mix for dbus-launch to work with firefox
+! ports (meson, python3-*): remove old version when upgrading (use 'pkz upgrade', not 'pkz -f install')
+! ports (pkz): if pkz-upgrade fails, the old package is marked not installed (copied to .bak)
+! ports (python3): rebuild with deps in coreopt and graphics
+! ports: beware lfs linking of /{bin,lib*,sbin} to /usr is not compatible with crux
+! tools, ports (gcc, glibc, rust): keep /usr/libexec as in lfs instructions
+! ports (tar, ...): let crux replace /usr/libexec with /usr/lib (FHS compliant)
+! ports: define unpack_source() in pkz, redefine in Pkgfile's if needed (crux compat)
+! ports: disable stripping if unneeded or fragile (file .nostrip in pkgdir)
+! ports: replace 'pkginfo -i' and 'prt-get isinst' with 'pkz -i list' (crux compat)
+! tools, ports (*udev): use crux port, lfs switched to udev from systemd
+! tools, ports (cmake, ninja, meson): added to tools/base system, reinstalling crux ports afterwards
+! tools, ports (gcc-fortran): avoid crux port, enable fortran in base gcc package instead
 + ports (eudev): add 'sgx' to /etc/group (crux compat, lfs removes it)
-o ports (webkitgtk): needs at least 2GB of RAM per CPU vcore, reduce number of threads ('cmake --build -j 4')
-o ports (webkitgtk): breaks surf build if compiled with gtk4 (add '-D USE_GTK4=OFF')
+! ports (webkitgtk): needs at least 2GB of RAM per CPU vcore, reduce number of threads ('cmake --build -j 4')
+! ports (webkitgtk): breaks surf build if compiled with gtk4 (add '-D USE_GTK4=OFF')
 + dist (nettle, rdfind, linux-{firmware,pam}, shadow): move to BASE2, add which as a dep for rdfind
 + ports (python3-setuptools): add dependencies, use crux port, disable optimization
 + ports (util-linux): build after linux-pam and sqlite3

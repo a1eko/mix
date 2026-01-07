@@ -2,7 +2,7 @@
 # Depends on: glib gtk3 gtksourceview4 lcms2 cfitsio wcslib fftw gsl libconfig opencv exiv2 intltool cmake libraw libtiff libjpeg-turbo libxisf libjxl libheif libpng ffmpeg libgit2
 
 name=siril
-version=1.4.0
+version=1.4.1
 release=mix-1
 source=(https://free-astro.org/download/$name-$version.tar.bz2)
 
