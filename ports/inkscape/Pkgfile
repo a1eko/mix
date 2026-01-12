@@ -1,61 +1,58 @@
-# Description: An open source SVG editor.
+# Description: An open source SVG editor
 # URL: https://www.inkscape.org/
-# Maintainer: John McQuah, jmcquah at disroot dot org
-# Depends on: boehm-gc double-conversion graphicsmagick gsl gtkmm3 libsoup libxslt poppler-ink popt potrace
+# Maintainer: Tim Biermann, tbier at posteo dot de
+# Depends on: boehm-gc boost double-conversion graphicsmagick gsl gtkmm3 libsoup libxslt poppler popt potrace
 # Optional: libcdr libvisio libwpg
 
 name=inkscape
-version=1.4.2
+version=1.4.3
 release=mix-1
 source=(https://media.inkscape.org/dl/resources/file/$name-$version.tar.xz
-        MR7261.patch
-	MR7321.patch)
+  7690.patch
+  7691.patch
+  7738.patch
+)
 
 build() {
-    export LDFLAGS+=" -Wl,-rpath=/usr/lib/inkscape"
-    export PKG_CONFIG_PATH="/usr/lib/inkscape/pkgconfig:$PKG_CONFIG_PATH"
-    INK_OPTS="-D WITH_INTERNAL_2GEOM=ON -D BUILD_TESTING=OFF -D WITH_NLS=OFF"
-    pkz -i list libcdr || INK_OPTS+=" -D WITH_LIBCDR=OFF"
-    pkz -i list libvisio || INK_OPTS+=" -D WITH_LIBVISIO=OFF"
-    pkz -i list libwpg || INK_OPTS+=" -D WITH_LIBWPG=OFF"
+  #mv inkscape-* inkscape-$version
+  cd ${name}-${version}_*
 
-    cd ${name}-${version}_*
+  pkz -i list libcdr || PKGMK_INKSCAPE+=" -D WITH_LIBCDR=OFF"
+  pkz -i list libvisio || PKGMK_INKSCAPE+=" -D WITH_LIBVISIO=OFF"
+  pkz -i list libwpg || PKGMK_INKSCAPE+=" -D WITH_LIBWPG=OFF"
 
-    patch -Np1 -i ../MR7261.patch
-    patch -Np1 -i ../MR7321.patch
+  #patch -Np1 -d $name-$version -i $SRC/7691.patch
+  #patch -Np1 -d $name-$version -i $SRC/7690.patch
+  #patch -Np1 -d $name-$version -i $SRC/7738.patch
+  patch -Np1 -i $SRC/7738.patch
 
-    pkz -i list glibc || sed -e "/-Werror=format/d" \
-                                -i CMakeScripts/DefineDependsandFlags.cmake
+  #cmake -S $name-$version -B build -G Ninja $PKGMK_INKSCAPE \
+  cmake -S . -B build -G Ninja $PKGMK_INKSCAPE \
+    -D CMAKE_INSTALL_PREFIX=/usr \
+    -D CMAKE_INSTALL_LIBDIR=lib \
+    -D CMAKE_BUILD_TYPE=Release \
+    -D CMAKE_CXX_FLAGS_RELEASE="$CXXFLAGS" \
+    -D CMAKE_C_FLAGS_RELEASE="$CFLAGS" \
+    -D WITH_INTERNAL_2GEOM=ON \
+    -D BUILD_TESTING=OFF \
+    -D WITH_NLS=OFF \
+    -Wno-dev
+  cmake --build build
+  DESTDIR=$PKG cmake --install build
 
-    cmake -S . -B build -G Ninja \
-        -D CMAKE_INSTALL_PREFIX=/usr \
-        -D CMAKE_INSTALL_LIBDIR=lib \
-        -D CMAKE_BUILD_TYPE=Release \
-        -D CMAKE_CXX_FLAGS_RELEASE="-L/usr/lib/inkscape $CFLAGS" \
-        -D CMAKE_C_FLAGS_RELEASE="-L/usr/lib/inkscape $CXXFLAGS" \
-	-D POPPLER_INCLUDE_DIR="/usr/include/poppler-ink" \
-	-D POPPLER_GLIB_INCLUDE_DIR="/usr/include/poppler-ink/glib" \
-        $INK_OPTS \
-        -Wno-dev
+  rm -r $PKG/usr/share/man/?? \
+    $PKG/usr/share/man/??_?? \
+    $PKG/usr/share/inkscape/doc
 
-    for _f in pdf-input.cpp poppler-transition-api.h poppler-utils.cpp; do
-        sed -e '/^#include <poppler/s;poppler/;;' \
-            -i src/extension/internal/pdfinput/${_f};
-    done
+  find $PKG/usr/share/inkscape \(\
+    -name 'README' \
+    -o -name 'README.*' \
+    -o -name 'LICENSE.txt' \)\
+    -delete
 
-    cmake --build build
-    DESTDIR="$PKG" cmake --install build
+  pkz -i list bash-completion || rm -rf $PKG/usr/share/bash-completion
 
-    rm -r "$PKG"/usr/share/man/?? \
-          "$PKG"/usr/share/man/??_?? \
-          "$PKG"/usr/share/inkscape/doc
-
-    find "$PKG"/usr/share/inkscape \( -name 'README' -o -name 'README.*' \
-        -o -name 'LICENSE.txt' \) -delete
-
-    pkz -i list bash-completion || rm -rf "$PKG"/usr/share/bash-completion
-
-    /usr/bin/python3 -m compileall "$PKG"
-    /usr/bin/python3 -O -m compileall "$PKG"
-    /usr/bin/python3 -OO -m compileall "$PKG"
+  /usr/bin/python3 -m compileall $PKG
+  /usr/bin/python3 -O -m compileall $PKG
+  /usr/bin/python3 -OO -m compileall $PKG
 }

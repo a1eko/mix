@@ -107,8 +107,8 @@ drwxr-xr-x	root/root	usr/lib/cmake/2Geom/
 -rw-r--r--	root/root	usr/lib/cmake/2Geom/2GeomTargets-release.cmake
 -rw-r--r--	root/root	usr/lib/cmake/2Geom/2GeomTargets.cmake
 drwxr-xr-x	root/root	usr/lib/inkscape/
-lrwxrwxrwx	root/root	usr/lib/inkscape/libinkscape_base.so -> libinkscape_base.so.1.4.2.0
--rwxr-xr-x	root/root	usr/lib/inkscape/libinkscape_base.so.1.4.2.0
+lrwxrwxrwx	root/root	usr/lib/inkscape/libinkscape_base.so -> libinkscape_base.so.1.4.3.0
+-rwxr-xr-x	root/root	usr/lib/inkscape/libinkscape_base.so.1.4.3.0
 lrwxrwxrwx	root/root	usr/lib/lib2geom.so -> lib2geom.so.1.4.0
 -rwxr-xr-x	root/root	usr/lib/lib2geom.so.1.4.0
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
@@ -1243,6 +1243,8 @@ drwxr-xr-x	root/root	usr/share/inkscape/extensions/inkex/__pycache__/
 -rw-r--r--	root/root	usr/share/inkscape/extensions/inkex/__pycache__/utils.cpython-312.pyc
 -rw-r--r--	root/root	usr/share/inkscape/extensions/inkex/base.py
 -rw-r--r--	root/root	usr/share/inkscape/extensions/inkex/bezier.py
+drwxr-xr-x	root/root	usr/share/inkscape/extensions/inkex/colors/
+drwxr-xr-x	root/root	usr/share/inkscape/extensions/inkex/colors/spaces/
 -rw-r--r--	root/root	usr/share/inkscape/extensions/inkex/colors.py
 -rw-r--r--	root/root	usr/share/inkscape/extensions/inkex/command.py
 drwxr-xr-x	root/root	usr/share/inkscape/extensions/inkex/css/
@@ -5535,6 +5537,7 @@ drwxr-xr-x	root/root	usr/share/inkscape/tutorials/
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-advanced.it.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-advanced.ja.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-advanced.ko.svg
+-rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-advanced.my.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-advanced.nl.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-advanced.pl.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-advanced.pt.svg
@@ -5543,6 +5546,7 @@ drwxr-xr-x	root/root	usr/share/inkscape/tutorials/
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-advanced.sk.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-advanced.sl.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-advanced.sr.svg
+-rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-advanced.sv.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-advanced.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-advanced.uk.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-advanced.vi.svg
@@ -5559,11 +5563,13 @@ drwxr-xr-x	root/root	usr/share/inkscape/tutorials/
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-basic.fa.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-basic.fr.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-basic.gl.svg
+-rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-basic.hr.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-basic.hu.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-basic.id.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-basic.it.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-basic.ja.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-basic.ko.svg
+-rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-basic.my.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-basic.nl.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-basic.nn.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-basic.pl.svg
@@ -5573,6 +5579,7 @@ drwxr-xr-x	root/root	usr/share/inkscape/tutorials/
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-basic.sk.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-basic.sl.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-basic.sr.svg
+-rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-basic.sv.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-basic.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-basic.uk.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-basic.vi.svg
@@ -5590,6 +5597,7 @@ drwxr-xr-x	root/root	usr/share/inkscape/tutorials/
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-calligraphy.id.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-calligraphy.ja.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-calligraphy.ko.svg
+-rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-calligraphy.my.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-calligraphy.nl.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-calligraphy.pl.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-calligraphy.pt.svg
@@ -5598,6 +5606,7 @@ drwxr-xr-x	root/root	usr/share/inkscape/tutorials/
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-calligraphy.sk.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-calligraphy.sl.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-calligraphy.sr.svg
+-rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-calligraphy.sv.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-calligraphy.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-calligraphy.uk.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-calligraphy.vi.svg
@@ -5616,6 +5625,7 @@ drwxr-xr-x	root/root	usr/share/inkscape/tutorials/
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-elements.it.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-elements.ja.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-elements.ko.svg
+-rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-elements.my.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-elements.nl.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-elements.pl.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-elements.pt.svg
@@ -5624,6 +5634,7 @@ drwxr-xr-x	root/root	usr/share/inkscape/tutorials/
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-elements.sk.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-elements.sl.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-elements.sr.svg
+-rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-elements.sv.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-elements.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-elements.uk.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-elements.zh_CN.svg
@@ -5631,17 +5642,21 @@ drwxr-xr-x	root/root	usr/share/inkscape/tutorials/
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-interpolate.be.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-interpolate.de.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-interpolate.el.svg
+-rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-interpolate.es.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-interpolate.fr.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-interpolate.gl.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-interpolate.hu.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-interpolate.ja.svg
+-rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-interpolate.my.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-interpolate.nl.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-interpolate.pl.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-interpolate.pt.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-interpolate.pt_BR.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-interpolate.ru.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-interpolate.sk.svg
+-rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-interpolate.sl.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-interpolate.sr.svg
+-rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-interpolate.sv.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-interpolate.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-interpolate.uk.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-interpolate.vi.svg
@@ -5660,6 +5675,7 @@ drwxr-xr-x	root/root	usr/share/inkscape/tutorials/
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-shapes.it.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-shapes.ja.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-shapes.ko.svg
+-rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-shapes.my.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-shapes.nl.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-shapes.pl.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-shapes.pt.svg
@@ -5668,6 +5684,7 @@ drwxr-xr-x	root/root	usr/share/inkscape/tutorials/
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-shapes.sk.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-shapes.sl.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-shapes.sr.svg
+-rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-shapes.sv.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-shapes.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-shapes.uk.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-shapes.vi.svg
@@ -5686,6 +5703,7 @@ drwxr-xr-x	root/root	usr/share/inkscape/tutorials/
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tips.it.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tips.ja.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tips.ko.svg
+-rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tips.my.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tips.nl.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tips.pl.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tips.pt.svg
@@ -5694,6 +5712,7 @@ drwxr-xr-x	root/root	usr/share/inkscape/tutorials/
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tips.sk.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tips.sl.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tips.sr.svg
+-rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tips.sv.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tips.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tips.uk.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tips.vi.svg
@@ -5701,15 +5720,19 @@ drwxr-xr-x	root/root	usr/share/inkscape/tutorials/
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tips.zh_TW.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing-pixelart.de.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing-pixelart.el.svg
+-rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing-pixelart.es.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing-pixelart.fr.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing-pixelart.hu.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing-pixelart.ko.svg
+-rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing-pixelart.my.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing-pixelart.nl.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing-pixelart.pt.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing-pixelart.pt_BR.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing-pixelart.ru.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing-pixelart.sk.svg
+-rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing-pixelart.sl.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing-pixelart.sr.svg
+-rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing-pixelart.sv.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing-pixelart.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing-pixelart.uk.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing-pixelart.zh_CN.svg
@@ -5726,6 +5749,7 @@ drwxr-xr-x	root/root	usr/share/inkscape/tutorials/
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing.id.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing.ja.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing.ko.svg
+-rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing.my.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing.nl.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing.pl.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing.pt.svg
@@ -5734,6 +5758,7 @@ drwxr-xr-x	root/root	usr/share/inkscape/tutorials/
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing.sk.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing.sl.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing.sr.svg
+-rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing.sv.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing.uk.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing.vi.svg

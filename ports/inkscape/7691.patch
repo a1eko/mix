@@ -1,0 +1,25 @@
+From caa1f0964ec7a076e4a699bdc924f2d7439661a1 Mon Sep 17 00:00:00 2001
+From: Charlotte Curtis <ccurtis@mtroyal.ca>
+Date: Tue, 23 Dec 2025 12:48:35 -0700
+Subject: [PATCH] Fix poppler default transfer function
+
+---
+ src/extension/internal/pdfinput/pdf-parser.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/extension/internal/pdfinput/pdf-parser.cpp b/src/extension/internal/pdfinput/pdf-parser.cpp
+index e7048fe1be..05447c4106 100644
+--- a/src/extension/internal/pdfinput/pdf-parser.cpp
++++ b/src/extension/internal/pdfinput/pdf-parser.cpp
+@@ -753,7 +753,7 @@ void PdfParser::opSetExtGState(Object args[], int /*numArgs*/)
+         _POPPLER_CALL_ARGS(obj2, obj1.dictLookup, "TR");
+     }
+     if (obj2.isName(const_cast<char *>("Default")) || obj2.isName(const_cast<char *>("Identity"))) {
+-        state->setTransfer(std::move(funcs));
++        state->setTransfer({});
+     } else if (obj2.isArray() && obj2.arrayGetLength() == 4) {
+         int pos = 4;
+         for (int i = 0; i < 4; ++i) {
+-- 
+GitLab
+
