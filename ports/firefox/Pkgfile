@@ -2,13 +2,16 @@
 # Depends on: autoconf-2.13 cbindgen dbus-glib gtk gtk3 libnotify llvm lld clang nasm nodejs nss alsa-lib python3 startup-notification unzip yasm zip
 
 name=firefox
-version=140.6.0
+version=140.7.0
 release=mix-1
 source=(https://archive.mozilla.org/pub/firefox/releases/${version}esr/source/firefox-${version}esr.source.tar.xz
+  https://www.linuxfromscratch.org/patches/blfs/svn/firefox-${version}esr-ffmpeg-8.0.patch
   mozconfig)
 
 build() {
   cd $name-$version
+
+  patch -Np1 -i ../firefox-${version}esr-ffmpeg-8.0.patch
 
   # fix building with system icu
   sed -i '/VIRAMA = 47/a CLASS_CHARACTER,' intl/lwbrk/LineBreaker.cpp

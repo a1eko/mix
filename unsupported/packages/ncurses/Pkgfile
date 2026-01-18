@@ -1,40 +1,45 @@
 # Description: A System V Release 4.0 curses emulation library
-# URL:         http://www.gnu.org/software/ncurses/ncurses.html
-# Maintainer:  CRUX System Team, core-ports at crux dot nu
+# URL: https://invisible-island.net/ncurses/announce.html
+# Maintainer: CRUX System Team, core-ports at crux dot nu
 
 name=ncurses
-version=6.0
+version=6.6
 release=mix-1
-source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.gz)
+source=(https://invisible-mirror.net/archives/$name/current/$name-$version.tgz)
 
 build() {
     cd $name-$version
 
-    local OPTIONS="\
---with-install-prefix=$PKG \
---prefix=/usr \
---with-normal \
---with-shared \
---without-debug \
---without-ada \
---without-tests
---enable-pc-files
-"
+    ./configure --prefix=/usr \
+        --mandir=/usr/share/man \
+        --with-{normal,shared} \
+        --without-{debug,ada,tests} \
+        --enable-pc-files \
+        --with-pkg-config-libdir=/usr/lib/pkgconfig \
+        --enable-widec
 
-    ./configure $OPTIONS
     make
-    make install
-    make distclean
+    make DESTDIR=$PKG install
 
-    ./configure $OPTIONS --enable-widec
-    make
-    make install
+    install -d $PKG/lib
 
-    mkdir $PKG/lib
+    # move library to /lib and create symlinks
+    mv $PKG/usr/lib/libncursesw.so.* $PKG/lib
+    ln -sf ../../lib/libncursesw.so.${version%%-*}  $PKG/usr/lib/libncursesw.so
+    ln -s libncursesw.so.${version%%-*} $PKG/lib/libncurses.so.${version%%.*}
 
-    for i in w ''; do
-        mv $PKG/usr/lib/libncurses$i.so.* $PKG/lib
-        ln -sf libncurses$i.so $PKG/usr/lib/libcurses$i.so
-        ln -sf ../../lib/libncurses$i.so.$version $PKG/usr/lib/libncurses$i.so
+    # linker scripts and .pc files for non-wide ncurses
+    for LIB in ncurses form panel menu ; do
+        echo "INPUT(-l${LIB}w)" > $PKG/usr/lib/lib${LIB}.so
+        ln -s ${LIB}w.pc $PKG/usr/lib/pkgconfig/${LIB}.pc
     done
+
+    # provided by contrib/foot-terminfo
+    rm -r $PKG/usr/share/terminfo/f/foot{,-direct}
+
+    # linker script for the curses library
+    echo "INPUT(-lncursesw)" > $PKG/usr/lib/libcursesw.so
+    ln -s libncurses.so $PKG/usr/lib/libcurses.so
+
+    rm -rv $PKG/usr/share/man/man3
 }
