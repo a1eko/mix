@@ -29,3 +29,4 @@ x ports (firefox): disable WebGL (about:config, webgl.disabled=true) if needed (
 + ports (siril): build error in version>=1.4.0, ERROR: Got unknown keyword arguments "soversion", "version"; workaround: downgrade meson to v1.9
 o ports (meson): watch meson devs address siril build error
 o ports (glm): remove old glm before upgrading or delete /usr/lib/cmake/glm directory
+o ports (rust): watch lfs upgrade to v1.93
