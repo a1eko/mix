@@ -2,7 +2,7 @@
 # Depends on: gtk3 girara zathura poppler-glib meson ninja
 
 name=zathura-pdf-poppler
-version=0.3.4
+version=2026.02.03
 release=mix-1
 source=(https://pwmt.org/projects/$name/download/$name-$version.tar.xz)
 
