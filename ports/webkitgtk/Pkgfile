@@ -5,7 +5,7 @@
 # Optional: bubblewrap enchant geoclue gst-plugins-bad lcms2 libavif libmanette libnotify openjpeg2 wpebackend-fdo xdg-dbus-proxy
 
 name=webkitgtk
-version=2.50.4
+version=2.50.5
 release=mix-1
 source=(https://webkitgtk.org/releases/webkitgtk-$version.tar.xz)
 
