@@ -2,12 +2,13 @@
 # Depends on: boost clucene curl expat glm gpgme graphite2 harfbuzz icu lcms2 libepoxy libjpeg-turbo libpng libtiff libwebp libxml2 nss openldap openssl poppler redland unixodbc xmlsec
 
 name=libreoffice
-version=25.8.4.2
+version=26.2.0.3
 release=mix-1
-source=(https://download.documentfoundation.org/libreoffice/src/${version%.2}/$name-$version.tar.xz
-  https://download.documentfoundation.org/libreoffice/src/${version%.2}/libreoffice-dictionaries-$version.tar.xz
-  https://download.documentfoundation.org/libreoffice/src/${version%.2}/libreoffice-help-$version.tar.xz
-  https://download.documentfoundation.org/libreoffice/src/${version%.2}/libreoffice-translations-$version.tar.xz
+source=(https://download.documentfoundation.org/$name/src/26.2.0/$name-$version.tar.xz
+  https://download.documentfoundation.org/$name/src/26.2.0/$name-dictionaries-$version.tar.xz
+  https://download.documentfoundation.org/$name/src/26.2.0/$name-help-$version.tar.xz
+  https://download.documentfoundation.org/$name/src/26.2.0/$name-translations-$version.tar.xz
+  https://www.linuxfromscratch.org/patches/blfs/svn/libreoffice-$version-poppler_26.02-1.patch
 )
 
 unpack_source() { :; }
@@ -16,8 +17,8 @@ build() {
   tar -xf libreoffice-$version.tar.xz
   cd $name-$version
 
-  # fix a problem with detecting Boost::System
-  export boost_cv_lib_system=yes
+  # fix build failure with poppler v26
+  patch -Np1 -i ../libreoffice-$version-poppler_26.02-1.patch
 
   # fix misc bugs
   sed -i '/icuuc \\/a zlib\\' writerperfect/Library_wpftdraw.mk
@@ -46,7 +47,6 @@ build() {
     --without-java \
     --without-junit \
     --without-system-dicts \
-    --without-system-poppler \
     --disable-avahi \
     --disable-dbus \
     --disable-dconf \
@@ -75,6 +75,7 @@ build() {
     --with-system-odbc \
     --with-system-openldap \
     --with-system-openssl \
+    --with-system-poppler \
     --with-system-redland \
     --with-system-libtiff \
     --with-system-libwebp \
