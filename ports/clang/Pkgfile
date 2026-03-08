@@ -1,16 +1,12 @@
 # Description: clang compiler
 # URL: https://clang.llvm.org/
 # Maintainer: CRUX System Team, core-ports at crux dot nu
-# Depends on: compiler-rt
+# Depends on: llvm
 
 name=clang
-version=21.1.8
+version=22.1.0
 release=mix-1
-source=(https://github.com/llvm/llvm-project/releases/download/llvmorg-$version/clang-$version.src.tar.xz
-    https://github.com/llvm/llvm-project/releases/download/llvmorg-$version/clang-tools-extra-$version.src.tar.xz
-    https://github.com/llvm/llvm-project/releases/download/llvmorg-$version/llvm-$version.src.tar.xz
-    https://github.com/llvm/llvm-project/releases/download/llvmorg-$version/cmake-$version.src.tar.xz
-    )
+source=(https://github.com/llvm/llvm-project/releases/download/llvmorg-$version/llvm-project-$version.src.tar.xz)
 
 build() {
 #    llvm_version=$(prt-get current llvm)
@@ -24,18 +20,17 @@ build() {
 #        exit 1
 #    fi
 
-    mv clang-tools-extra-$version.src clang-$version.src/tools/extra
     pkz -i list ccache && PKGMK_CLANG+=' -D LLVM_CCACHE_BUILD=ON'
 
-    mv cmake-$version.src cmake
+    mv llvm-project-$version.src/clang-tools-extra llvm-project-$version.src/clang/tools/extra
 
-    cmake -S $name-$version.src -B build -G Ninja $PKGMK_CLANG \
+    cmake -S llvm-project-$version.src/clang -B build -G Ninja $PKGMK_CLANG \
         -D CMAKE_INSTALL_PREFIX=/usr \
         -D CMAKE_INSTALL_LIBEXECDIR=lib/clang \
         -D CMAKE_BUILD_TYPE=Release \
         -D CMAKE_C_FLAGS_RELEASE="$CFLAGS" \
         -D CMAKE_CXX_FLAGS_RELEASE="$CXXFLAGS" \
-        -D LLVM_MAIN_SRC_DIR="$SRC/llvm-$version.src" \
+        -D LLVM_MAIN_SRC_DIR="$SRC/llvm-project-$version.src/llvm" \
         -D LLVM_PARALLEL_COMPILE_JOBS="${JOBS:-1}" \
         -D LLVM_INCLUDE_TESTS=OFF \
         -Wno-dev
