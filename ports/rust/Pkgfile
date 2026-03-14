@@ -2,7 +2,7 @@
 # Depends on: curl cmake libssh2 llvm
 
 name=rust
-version=1.93.1
+version=1.94.0
 release=mix-1
 
 source=(https://static.rust-lang.org/dist/${name}c-$version-src.tar.xz)
@@ -12,7 +12,7 @@ build() {
 
   cat <<-EOF >config.toml
 profile = "dist"
-change-id = 148795
+change-id = 148671
 
 [llvm]
 download-ci-llvm = false
