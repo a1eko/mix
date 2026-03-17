@@ -2,10 +2,10 @@
 # URL: https://www.webkitgtk.org/
 # Maintainer: Tim Biermann, tbier at posteo dot de
 # Depends on: gst-plugins-base gtk4 hyphen icu libsecret libsoup3 libwebp ruby unifdef woff2 xorg-libxcomposite
-# Optional: bubblewrap enchant geoclue gst-plugins-bad lcms2 libavif libmanette libnotify openjpeg2 wpebackend-fdo xdg-dbus-proxy
+# Optional: bubblewrap enchant geoclue gst-plugins-bad lcms2 libavif libjxl libmanette libnotify openjpeg2 wpebackend-fdo xdg-dbus-proxy
 
 name=webkitgtk
-version=2.50.5
+version=2.50.6
 release=mix-1
 source=(https://webkitgtk.org/releases/webkitgtk-$version.tar.xz)
 
@@ -23,6 +23,7 @@ build() {
   pkz -i list gst_plugins-bad || PKGMK_WEBKITGTK+=' -DUSE_GSTREAMER_TRANSCODER=OFF'
   pkz -i list lcms2 || PKGMK_WEBKITGTK+=' -D USE_LCMS=OFF'
   pkz -i list libavif || PKGMK_WEBKITGTK+=' -DUSE_AVIF=OFF'
+  pkz -i list libjxl && PKGMK_WEBKITGTK+=' -DUSE_JPEGXL=ON'
   pkz -i list libmanette || PKGMK_WEBKITGTK+=' -DENABLE_GAMEPAD=OFF'
   pkz -i list openjpeg2 || PKGMK_WEBKITGTK+=' -DUSE_OPENJPEG=OFF'
   pkz -i list wpebackend-fdo || PKGMK_WEBKITGTK+=' -DUSE_WPE_RENDERER=OFF'
