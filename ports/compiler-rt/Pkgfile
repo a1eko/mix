@@ -4,7 +4,7 @@
 # Depends on: clang
 
 name=compiler-rt
-version=22.1.1
+version=22.1.2
 release=mix-1
 source=(https://github.com/llvm/llvm-project/releases/download/llvmorg-$version/llvm-project-$version.src.tar.xz)
 
@@ -26,7 +26,6 @@ build() {
         -D COMPILER_RT_INCLUDE_TESTS=OFF \
         -D CAN_TARGET_i386=OFF \
         -D CAN_TARGET_x86_64=ON \
-        -D LLVM_ENABLE_PER_TARGET_RUNTIME_DIR=ON \
         -Wno-dev
     cmake --build build -j ${JOBS:-1}
     DESTDIR=$PKG cmake --install build

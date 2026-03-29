@@ -1,3 +1,4 @@
 d3fbc4ff58eed3da5f49c5e70992a80b  mozconfig
-8bacda5cc536ba21ede51353d295ef13  firefox-140.8.0esr.source.tar.xz
-cc07a26371909b8688adc1f26b73bc05  firefox-140.8.0esr-ffmpeg-8.0.patch
+2212716729d8e809528a59180515454e  firefox-140.9.0esr.source.tar.xz
+cc07a26371909b8688adc1f26b73bc05  firefox-140.9.0esr-ffmpeg-8.0.patch
+4190421c8b093fdc288c7cd593424d42  firefox-140.9.0esr-llvm_22-1.patch

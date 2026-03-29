@@ -2,16 +2,28 @@
 # Depends on: autoconf-2.13 cbindgen dbus-glib gtk gtk3 libnotify llvm lld clang nasm nodejs nss alsa-lib python3 startup-notification unzip yasm zip
 
 name=firefox
-version=140.8.0
+version=140.9.0
 release=mix-1
 source=(https://archive.mozilla.org/pub/firefox/releases/${version}esr/source/firefox-${version}esr.source.tar.xz
   https://www.linuxfromscratch.org/patches/blfs/svn/firefox-${version}esr-ffmpeg-8.0.patch
+  https://www.linuxfromscratch.org/patches/blfs/svn/firefox-${version}esr-llvm_22-1.patch
   mozconfig)
+
+  #  https://www.linuxfromscratch.org/patches/blfs/svn/firefox-140.9.0esr-glibc-2.43.patch
 
 build() {
   cd $name-$version
 
   patch -Np1 -i ../firefox-${version}esr-ffmpeg-8.0.patch
+
+  # build with glibc-2.43
+  #patch -Np1 -i ../firefox-140.9.0esr-glibc-2.43.patch &&
+  #sed '/patch.crates-io/a glslopt={path="third_party/rust/glslopt"}' \
+  #  -i Cargo.toml &&
+  #sed '/name = "glslopt"/,/^$/{/source/d;/checksum/d}' -i Cargo.lock
+
+  # fix building with llvm v22
+  patch -Np1 -i ../firefox-${version}esr-llvm_22-1.patch
 
   # fix building with system icu
   sed -i '/VIRAMA = 47/a CLASS_CHARACTER,' intl/lwbrk/LineBreaker.cpp
