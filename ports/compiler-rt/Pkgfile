@@ -4,7 +4,7 @@
 # Depends on: clang
 
 name=compiler-rt
-version=22.1.2
+version=22.1.3
 release=mix-1
 source=(https://github.com/llvm/llvm-project/releases/download/llvmorg-$version/llvm-project-$version.src.tar.xz)
 
