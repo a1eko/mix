@@ -96,7 +96,6 @@ drwxr-xr-x	root/root	usr/include/webkitgtk-4.1/webkit/
 -rw-r--r--	root/root	usr/include/webkitgtk-4.1/webkit/WebKitWebEditor.h
 -rw-r--r--	root/root	usr/include/webkitgtk-4.1/webkit/WebKitWebExtension.h
 -rw-r--r--	root/root	usr/include/webkitgtk-4.1/webkit/WebKitWebExtensionAutocleanups.h
--rw-r--r--	root/root	usr/include/webkitgtk-4.1/webkit/WebKitWebExtensionMatchPattern.h
 -rw-r--r--	root/root	usr/include/webkitgtk-4.1/webkit/WebKitWebFormManager.h
 -rw-r--r--	root/root	usr/include/webkitgtk-4.1/webkit/WebKitWebHitTestResult.h
 -rw-r--r--	root/root	usr/include/webkitgtk-4.1/webkit/WebKitWebInspector.h
@@ -111,6 +110,7 @@ drwxr-xr-x	root/root	usr/include/webkitgtk-4.1/webkit/
 -rw-r--r--	root/root	usr/include/webkitgtk-4.1/webkit/WebKitWebsiteDataManager.h
 -rw-r--r--	root/root	usr/include/webkitgtk-4.1/webkit/WebKitWebsitePolicies.h
 -rw-r--r--	root/root	usr/include/webkitgtk-4.1/webkit/WebKitWindowProperties.h
+-rw-r--r--	root/root	usr/include/webkitgtk-4.1/webkit/WebKitXRPermissionRequest.h
 drwxr-xr-x	root/root	usr/include/webkitgtk-4.1/webkit2/
 -rw-r--r--	root/root	usr/include/webkitgtk-4.1/webkit2/webkit-web-extension.h
 -rw-r--r--	root/root	usr/include/webkitgtk-4.1/webkit2/webkit2.h
@@ -234,11 +234,11 @@ drwxr-xr-x	root/root	usr/lib/girepository-1.0/
 -rw-r--r--	root/root	usr/lib/girepository-1.0/WebKit2-4.1.typelib
 -rw-r--r--	root/root	usr/lib/girepository-1.0/WebKit2WebExtension-4.1.typelib
 lrwxrwxrwx	root/root	usr/lib/libjavascriptcoregtk-4.1.so -> libjavascriptcoregtk-4.1.so.0
-lrwxrwxrwx	root/root	usr/lib/libjavascriptcoregtk-4.1.so.0 -> libjavascriptcoregtk-4.1.so.0.9.11
--rwxr-xr-x	root/root	usr/lib/libjavascriptcoregtk-4.1.so.0.9.11
+lrwxrwxrwx	root/root	usr/lib/libjavascriptcoregtk-4.1.so.0 -> libjavascriptcoregtk-4.1.so.0.10.11
+-rwxr-xr-x	root/root	usr/lib/libjavascriptcoregtk-4.1.so.0.10.11
 lrwxrwxrwx	root/root	usr/lib/libwebkit2gtk-4.1.so -> libwebkit2gtk-4.1.so.0
-lrwxrwxrwx	root/root	usr/lib/libwebkit2gtk-4.1.so.0 -> libwebkit2gtk-4.1.so.0.19.9
--rwxr-xr-x	root/root	usr/lib/libwebkit2gtk-4.1.so.0.19.9
+lrwxrwxrwx	root/root	usr/lib/libwebkit2gtk-4.1.so.0 -> libwebkit2gtk-4.1.so.0.21.7
+-rwxr-xr-x	root/root	usr/lib/libwebkit2gtk-4.1.so.0.21.7
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/javascriptcoregtk-4.1.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/webkit2gtk-4.1.pc
