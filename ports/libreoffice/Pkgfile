@@ -2,13 +2,12 @@
 # Depends on: boost clucene curl expat glm gpgme graphite2 harfbuzz icu lcms2 libepoxy libjpeg-turbo libpng libtiff libwebp libxml2 nss openldap openssl poppler redland unixodbc xmlsec
 
 name=libreoffice
-version=26.2.1.2
+version=26.2.2.2
 release=mix-1
-source=(https://download.documentfoundation.org/$name/src/26.2.1/$name-$version.tar.xz
-  https://download.documentfoundation.org/$name/src/26.2.1/$name-dictionaries-$version.tar.xz
-  https://download.documentfoundation.org/$name/src/26.2.1/$name-help-$version.tar.xz
-  https://download.documentfoundation.org/$name/src/26.2.1/$name-translations-$version.tar.xz
-  https://www.linuxfromscratch.org/patches/blfs/svn/libreoffice-$version-poppler_26.02-1.patch
+source=(https://download.documentfoundation.org/$name/src/26.2.2/$name-$version.tar.xz
+  https://download.documentfoundation.org/$name/src/26.2.2/$name-dictionaries-$version.tar.xz
+  https://download.documentfoundation.org/$name/src/26.2.2/$name-help-$version.tar.xz
+  https://download.documentfoundation.org/$name/src/26.2.2/$name-translations-$version.tar.xz
 )
 
 unpack_source() { :; }
@@ -18,7 +17,9 @@ build() {
   cd $name-$version
 
   # fix build failure with poppler v26
-  patch -Np1 -i ../libreoffice-$version-poppler_26.02-1.patch
+  sed -e '/, const GooString/ s/GooString *\*/std::string \&/' \
+    -i sdext/source/pdfimport/xpdfwrapper/pdfioutdev_gpl.cxx \
+       sdext/source/pdfimport/xpdfwrapper/pdfioutdev_gpl.hxx
 
   # fix misc bugs
   sed -i '/icuuc \\/a zlib\\' writerperfect/Library_wpftdraw.mk
