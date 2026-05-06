@@ -30,3 +30,4 @@ x ports (firefox): disable WebGL (about:config, webgl.disabled=true) if needed (
 - ports (meson): watch meson devs address siril build error
 o ports (glm): remove old glm before upgrading or delete /usr/lib/cmake/glm directory
 ? ports, dist (binutils): lfs drops --enable-gold, crux/archlinux keep it
+- ports (blender): upgrade to v4.5.9
