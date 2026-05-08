@@ -39,7 +39,7 @@ monitor() {
 
   dist=https://distfiles.gentoo.org/distfiles/
   echo -n "$dist "
-  dirs=$(wget -qO- $dist | fmt -w1 | grep href= | grep -v https | cut -d'"' -f2 | grep -E '^../')
+  dirs=$(wget -qO- $dist | fmt -w1 | grep href= | grep -v https | cut -d'"' -f2 | grep -E '^../' | grep -v '\.\./')
   for d in $dirs; do
     mkdir -p gentoo
     dist_files ${dist}$d >gentoo/distfiles-${d:0:2} &
@@ -63,7 +63,7 @@ monitor() {
       fi
     done >$T
   fi
-  rm -rf .listing* index.html* wget-list gentoo
+  #rm -rf .listing* index.html* wget-list gentoo
   touch $S
   comm -13 <(sort $S) <(sort $T)
 }
