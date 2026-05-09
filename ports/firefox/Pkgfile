@@ -2,7 +2,7 @@
 # Depends on: autoconf-2.13 cbindgen dbus-glib gtk gtk3 libnotify llvm lld clang nasm nodejs nss alsa-lib python3 startup-notification unzip yasm zip
 
 name=firefox
-version=140.10.1
+version=140.10.2
 release=mix-1
 source=(https://archive.mozilla.org/pub/firefox/releases/${version}esr/source/firefox-${version}esr.source.tar.xz
   https://www.linuxfromscratch.org/patches/blfs/svn/firefox-${version}esr-llvm_22-1.patch
@@ -13,9 +13,6 @@ source=(https://archive.mozilla.org/pub/firefox/releases/${version}esr/source/fi
 
 build() {
   cd $name-$version
-
-  # fix video functionality with ffmpeg-8.1
-  sed -i '/so.61/i \  "libavcodec.so.62",' dom/media/platforms/ffmpeg/FFmpegRuntimeLinker.cpp
 
   # build with glibc-2.43 (see blfs)
 

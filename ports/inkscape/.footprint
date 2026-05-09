@@ -107,8 +107,8 @@ drwxr-xr-x	root/root	usr/lib/cmake/2Geom/
 -rw-r--r--	root/root	usr/lib/cmake/2Geom/2GeomTargets-release.cmake
 -rw-r--r--	root/root	usr/lib/cmake/2Geom/2GeomTargets.cmake
 drwxr-xr-x	root/root	usr/lib/inkscape/
-lrwxrwxrwx	root/root	usr/lib/inkscape/libinkscape_base.so -> libinkscape_base.so.1.4.3.0
--rwxr-xr-x	root/root	usr/lib/inkscape/libinkscape_base.so.1.4.3.0
+lrwxrwxrwx	root/root	usr/lib/inkscape/libinkscape_base.so -> libinkscape_base.so.1.4.4.0
+-rwxr-xr-x	root/root	usr/lib/inkscape/libinkscape_base.so.1.4.4.0
 lrwxrwxrwx	root/root	usr/lib/lib2geom.so -> lib2geom.so.1.4.0
 -rwxr-xr-x	root/root	usr/lib/lib2geom.so.1.4.0
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
@@ -1243,8 +1243,6 @@ drwxr-xr-x	root/root	usr/share/inkscape/extensions/inkex/__pycache__/
 -rw-r--r--	root/root	usr/share/inkscape/extensions/inkex/__pycache__/utils.cpython-312.pyc
 -rw-r--r--	root/root	usr/share/inkscape/extensions/inkex/base.py
 -rw-r--r--	root/root	usr/share/inkscape/extensions/inkex/bezier.py
-drwxr-xr-x	root/root	usr/share/inkscape/extensions/inkex/colors/
-drwxr-xr-x	root/root	usr/share/inkscape/extensions/inkex/colors/spaces/
 -rw-r--r--	root/root	usr/share/inkscape/extensions/inkex/colors.py
 -rw-r--r--	root/root	usr/share/inkscape/extensions/inkex/command.py
 drwxr-xr-x	root/root	usr/share/inkscape/extensions/inkex/css/
@@ -5275,6 +5273,7 @@ drwxr-xr-x	root/root	usr/share/inkscape/palettes/
 -rw-r--r--	root/root	usr/share/inkscape/palettes/Topographic.gpl
 -rw-r--r--	root/root	usr/share/inkscape/palettes/Ubuntu.gpl
 -rw-r--r--	root/root	usr/share/inkscape/palettes/echo-palette.gpl
+-rw-r--r--	root/root	usr/share/inkscape/palettes/elementary.gpl
 -rw-r--r--	root/root	usr/share/inkscape/palettes/inkscape.gpl
 -rw-r--r--	root/root	usr/share/inkscape/palettes/svg.gpl
 -rw-r--r--	root/root	usr/share/inkscape/palettes/webhex.gpl
@@ -5734,6 +5733,7 @@ drwxr-xr-x	root/root	usr/share/inkscape/tutorials/
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing-pixelart.sr.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing-pixelart.sv.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing-pixelart.svg
+-rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing-pixelart.tr.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing-pixelart.uk.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing-pixelart.zh_CN.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing-pixelart.zh_TW.svg
@@ -5760,6 +5760,7 @@ drwxr-xr-x	root/root	usr/share/inkscape/tutorials/
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing.sr.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing.sv.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing.svg
+-rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing.tr.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing.uk.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing.vi.svg
 -rw-r--r--	root/root	usr/share/inkscape/tutorials/tutorial-tracing.zh_CN.svg
