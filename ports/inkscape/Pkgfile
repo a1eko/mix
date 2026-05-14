@@ -6,12 +6,17 @@
 
 name=inkscape
 version=1.4.4
-release=mix-1
-source=(https://media.inkscape.org/dl/resources/file/$name-$version.tar.xz)
+release=mix-2
+source=(https://media.inkscape.org/dl/resources/file/$name-$version.tar.xz
+        https://www.linuxfromscratch.org/patches/blfs/svn/inkscape-${version}-poppler_fixes-1.patch
+  )
 
 build() {
   #mv inkscape-* inkscape-$version
   cd ${name}-${version}_*
+
+  # fix build with poppler >= 26.05
+  patch -Np1 -i ../inkscape-$version-poppler_fixes-1.patch
 
   pkz -i list libcdr || PKGMK_INKSCAPE+=" -D WITH_LIBCDR=OFF"
   pkz -i list libvisio || PKGMK_INKSCAPE+=" -D WITH_LIBVISIO=OFF"
