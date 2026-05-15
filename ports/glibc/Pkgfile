@@ -6,6 +6,7 @@ release=mix-2
 source=(https://ftpmirror.gnu.org/gnu/glibc/glibc-$version.tar.xz
   https://www.linuxfromscratch.org/patches/lfs/development/glibc-fhs-1.patch
   host.conf hosts ld.so.conf nsswitch.conf resolv.conf)
+  # see lfs for glibc-2.43-linux7_fixes-1.patch
 
 build() {
   cd $name-$version
@@ -16,6 +17,7 @@ build() {
     -i resolv/nss_dns/dns-host.c
 
   patch -Np1 -i ../glibc-fhs-1.patch
+  #patch -Np1 -i ../glibc-2.43-linux7_fixes-1.patch
 
   mkdir -v build
   cd build
@@ -31,7 +33,7 @@ build() {
     --disable-werror \
     --disable-nscd \
     --enable-stack-protector=strong \
-    --enable-kernel=5.4 \
+    --enable-kernel=5.10 \
     libc_cv_slibdir=/lib # crux compat
   #libc_cv_slibdir=/usr/lib  # lfs compat
   make
