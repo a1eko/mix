@@ -1,7 +1,7 @@
 # Description: Bourne shell compatible command language interpreter
 
 name=bash
-version=5.3-rc2
+version=5.3.12
 release=0
 source=(https://ftpmirror.gnu.org/gnu/bash/bash-$version.tar.gz)
 
