@@ -32,3 +32,4 @@ o ports (glm): remove old glm before upgrading or delete /usr/lib/cmake/glm dire
 ? ports, dist (binutils): lfs drops --enable-gold, crux/archlinux keep it
 - ports (blender): upgrade to v4.5.9
 o ports (linux,gdk-pixbuf,glycin): avoid CONFIG_USER_NS=y to disable sandboxing glycin/pixbuf (ignore warnings)
+- tools (binutils): watch lfs to upgrade to v2.46.1
