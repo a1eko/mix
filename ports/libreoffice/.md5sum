@@ -1,4 +1,5 @@
-acaa63689cc524173d0a79dcadb83367  libreoffice-26.2.2.2.tar.xz
-7fd7e703ac17a6970c8315d89b455e13  libreoffice-dictionaries-26.2.2.2.tar.xz
-97171746ac4ef40fbadc5e6b3d31a0a3  libreoffice-help-26.2.2.2.tar.xz
-49d9571fe2de9fd7d6405e097f6dd4f7  libreoffice-translations-26.2.2.2.tar.xz
+37824c911fecb2bbd038b5e4d04d8335  libreoffice-26.2.4.2.tar.xz
+3e5dc8a8306ec4ea42dc41785966f762  libreoffice-dictionaries-26.2.4.2.tar.xz
+68226bbe36bd41d37c449780602cfe69  libreoffice-help-26.2.4.2.tar.xz
+5508d97305c3b8ff905734754462201f  libreoffice-translations-26.2.4.2.tar.xz
+ca7ab25f953d39f7e8dea25b64fe237d  libreoffice-26.2.4.2-poppler_26.06-1.patch

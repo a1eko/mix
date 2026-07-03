@@ -3115,6 +3115,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/fingerprint/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/fon.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/fpdb.conf
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/fr.lm
+-rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/frp.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/fur.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/fy.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/ga.lm
@@ -3124,7 +3125,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/fingerprint/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/gu.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/gug.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/gv.lm
--rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/ha-NG.lm
+-rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/ha-Latn-NG.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/haw.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/he.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/hi.lm
@@ -3141,6 +3142,8 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/fingerprint/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/it.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/ja.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/ka.lm
+-rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/kaa.lm
+-rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/kab.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/kbd.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/kk.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/kl.lm
@@ -3161,6 +3164,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/fingerprint/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/lt.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/lv.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/mai.lm
+-rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/mfe.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/mi.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/min.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/mk.lm
@@ -3188,6 +3192,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/fingerprint/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/plt.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/pt.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/quh.lm
+-rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/qul.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/quz.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/rm.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/ro.lm
@@ -3202,9 +3207,12 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/fingerprint/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/sg.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/shs.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/si.lm
+-rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/sid.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/sk.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/skr.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/sl.lm
+-rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/smn.lm
+-rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/sms.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/so.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/sq.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/sr-Cyrl.lm
@@ -3216,6 +3224,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/fingerprint/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/sw.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/swb.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/ta.lm
+-rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/te.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/tet.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/tg.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/th.lm
@@ -3242,6 +3251,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/fingerprint/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/xh.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/yi.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/yo.lm
+-rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/yrk.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/zh-Hans.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/zh-Hant.lm
 -rw-r--r--	root/root	usr/lib/libreoffice/share/fingerprint/zu.lm
