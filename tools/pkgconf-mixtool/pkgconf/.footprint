@@ -1,23 +1,24 @@
-drwxr-xr-x	build/users	usr/
-drwxr-xr-x	build/users	usr/bin/
--rwxr-xr-x	build/users	usr/bin/bomtool
-lrwxrwxrwx	build/users	usr/bin/pkg-config -> pkgconf
--rwxr-xr-x	build/users	usr/bin/pkgconf
-drwxr-xr-x	build/users	usr/include/
-drwxr-xr-x	build/users	usr/include/pkgconf/
-drwxr-xr-x	build/users	usr/include/pkgconf/libpkgconf/
--rw-r--r--	build/users	usr/include/pkgconf/libpkgconf/bsdstubs.h
--rw-r--r--	build/users	usr/include/pkgconf/libpkgconf/iter.h
--rw-r--r--	build/users	usr/include/pkgconf/libpkgconf/libpkgconf-api.h
--rw-r--r--	build/users	usr/include/pkgconf/libpkgconf/libpkgconf.h
--rw-r--r--	build/users	usr/include/pkgconf/libpkgconf/stdinc.h
-drwxr-xr-x	build/users	usr/lib/
--rwxr-xr-x	build/users	usr/lib/libpkgconf.la
-lrwxrwxrwx	build/users	usr/lib/libpkgconf.so -> libpkgconf.so.7.0.0
-lrwxrwxrwx	build/users	usr/lib/libpkgconf.so.7 -> libpkgconf.so.7.0.0
--rwxr-xr-x	build/users	usr/lib/libpkgconf.so.7.0.0
-drwxr-xr-x	build/users	usr/lib/pkgconfig/
--rw-r--r--	build/users	usr/lib/pkgconfig/libpkgconf.pc
-drwxr-xr-x	build/users	usr/share/
-drwxr-xr-x	build/users	usr/share/aclocal/
--rw-r--r--	build/users	usr/share/aclocal/pkg.m4
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/bomtool
+-rwxr-xr-x	root/root	usr/bin/pccritic
+lrwxrwxrwx	root/root	usr/bin/pkg-config -> pkgconf
+-rwxr-xr-x	root/root	usr/bin/pkgconf
+-rwxr-xr-x	root/root	usr/bin/spdxtool
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/pkgconf/
+drwxr-xr-x	root/root	usr/include/pkgconf/libpkgconf/
+-rw-r--r--	root/root	usr/include/pkgconf/libpkgconf/bsdstubs.h
+-rw-r--r--	root/root	usr/include/pkgconf/libpkgconf/iter.h
+-rw-r--r--	root/root	usr/include/pkgconf/libpkgconf/libpkgconf-api.h
+-rw-r--r--	root/root	usr/include/pkgconf/libpkgconf/libpkgconf.h
+-rw-r--r--	root/root	usr/include/pkgconf/libpkgconf/stdinc.h
+drwxr-xr-x	root/root	usr/lib/
+lrwxrwxrwx	root/root	usr/lib/libpkgconf.so -> libpkgconf.so.8
+lrwxrwxrwx	root/root	usr/lib/libpkgconf.so.8 -> libpkgconf.so.8.0.0
+-rwxr-xr-x	root/root	usr/lib/libpkgconf.so.8.0.0
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/libpkgconf.pc
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/aclocal/
+-rw-r--r--	root/root	usr/share/aclocal/pkg.m4

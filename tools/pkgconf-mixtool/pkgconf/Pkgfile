@@ -1,15 +1,26 @@
 # Description: a program which helps to configure compiler and linker flags for development libraries
 
 name=pkgconf
-version=2.5.1
+version=3.0.2
 release=0
-source=(https://distfiles.ariadne.space/pkgconf/pkgconf-$version.tar.xz)
+source=(https://distfiles.ariadne.space/pkgconf/pkgconf-$version.tar.xz
+        https://github.com/mesonbuild/meson/releases/download/1.11.2/meson-1.11.2.tar.gz
+)
 
 build() {
   cd $name-$version
-  ./configure --prefix=/usr --disable-static
-  make
-  make DESTDIR=$PKG install
+
+  # work around a circular dependency on meson
+  tar -xf ../meson-1.11.2.tar.gz
+
+  mkdir build
+  cd build
+
+  python3 ../meson-1.11.2/meson.py setup --prefix=/usr --buildtype=release ..
+
+  ninja
+  DESTDIR=$PKG ninja install
+
   ln -sv pkgconf $PKG/usr/bin/pkg-config
   rm -rv $PKG/usr/share/{doc,man}
 }
