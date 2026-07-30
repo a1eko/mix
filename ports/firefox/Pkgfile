@@ -1,28 +1,14 @@
 # Description: Mozilla web browser
-# Depends on: autoconf-2.13 cbindgen dbus-glib gtk gtk3 libnotify llvm lld clang nasm nodejs nss alsa-lib python3 startup-notification unzip yasm zip
+# Depends on: autoconf-2.13 aom cbindgen dav1d dbus-glib gtk gtk3 libnotify llvm lld clang nasm nodejs nss alsa-lib python3 startup-notification unzip yasm zip
 
 name=firefox
-version=140.12.0
+version=153.0
 release=mix-1
 source=(https://archive.mozilla.org/pub/firefox/releases/${version}esr/source/firefox-${version}esr.source.tar.xz
-  https://www.linuxfromscratch.org/patches/blfs/svn/firefox-${version}esr-llvm_22-1.patch
   mozconfig)
-
-  #https://www.linuxfromscratch.org/patches/blfs/svn/firefox-${version}esr-glibc-2.43.patch
-  #https://www.linuxfromscratch.org/patches/blfs/svn/firefox-140.10.1esr-python_3.14_fixes-1.patch
 
 build() {
   cd $name-$version
-
-  # fix building with glibc-2.43 (see blfs)
-
-  # fix building with python-3.14 (see blfs)
-
-  # fix building with llvm-22
-  patch -Np1 -i ../firefox-${version}esr-llvm_22-1.patch
-
-  # fix building with system icu
-  sed -i '/VIRAMA = 47/a CLASS_CHARACTER,' intl/lwbrk/LineBreaker.cpp
 
   cp -v $SRC/mozconfig .
 

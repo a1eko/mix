@@ -8,7 +8,6 @@ ac_add_options --disable-tests
 ac_add_options --disable-updater
 ac_add_options --enable-audio-backends=alsa
 ac_add_options --enable-application=browser
-ac_add_options --enable-av1
 ac_add_options --enable-linker=lld
 ac_add_options --enable-official-branding
 ac_add_options --enable-optimize
@@ -16,6 +15,7 @@ ac_add_options --enable-release
 ac_add_options --enable-rust-simd
 ac_add_options --enable-system-ffi
 ac_add_options --enable-system-pixman
+#ac_add_options --with-system-av1
 ac_add_options --with-system-icu
 ac_add_options --with-system-jpeg
 ac_add_options --with-system-libevent
