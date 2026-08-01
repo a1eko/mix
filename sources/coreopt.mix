@@ -15,6 +15,7 @@ lzo
 libpcre
 libpcre2
 pigz
+pkgconf
 popt
 start-stop-daemon
 sysfsutils

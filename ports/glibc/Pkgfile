@@ -1,23 +1,16 @@
 # Description: system C library
 
 name=glibc
-version=2.43
-release=mix-2
-source=(https://ftpmirror.gnu.org/gnu/glibc/glibc-$version.tar.xz
+version=2.44
+release=mix-1
+source=(https://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz
   https://www.linuxfromscratch.org/patches/lfs/development/glibc-fhs-1.patch
   host.conf hosts ld.so.conf nsswitch.conf resolv.conf)
-  # see lfs for glibc-2.43-linux7_fixes-1.patch
 
 build() {
   cd $name-$version
 
-  # fix DNS processing
-  sed -e '/while..ancount/c\  for (; ancount > 0; --ancount)'  \
-    -e '/binary_hnok..expected/s/expected_name/name_buffer/' \
-    -i resolv/nss_dns/dns-host.c
-
   patch -Np1 -i ../glibc-fhs-1.patch
-  #patch -Np1 -i ../glibc-2.43-linux7_fixes-1.patch
 
   mkdir -v build
   cd build

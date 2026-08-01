@@ -1,16 +1,14 @@
 # Description: system C library
 
 name=glibc
-version=2.43
+version=2.44
 release=0
-source=(https://ftpmirror.gnu.org/gnu/glibc/glibc-$version.tar.xz
-  https://www.linuxfromscratch.org/patches/downloads/glibc/glibc-fhs-1.patch)
-  # see lfs for glibc-2.43-linux7_fixes-1.patch
+source=(https://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz
+        https://www.linuxfromscratch.org/patches/lfs/development/glibc-fhs-1.patch)
 
 build() {
   cd $name-$version
   patch -Np1 -i ../glibc-fhs-1.patch
-  #patch -Np1 -i ../glibc-2.43-linux7_fixes-1.patch
 
   # create compatibility symbolic links
   case $(uname -m) in

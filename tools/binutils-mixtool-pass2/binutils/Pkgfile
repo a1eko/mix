@@ -1,9 +1,9 @@
 # Description: linker, assembler and other development tools
 
 name=binutils
-version=2.46.0
+version=2.47.0
 release=0pass2
-source=(https://ftpmirror.gnu.org/gnu/binutils/binutils-$version.tar.xz)
+source=(https://sourceware.org/pub/binutils/releases/binutils-$version.tar.xz)
 
 build() {
   cd $name-$version
