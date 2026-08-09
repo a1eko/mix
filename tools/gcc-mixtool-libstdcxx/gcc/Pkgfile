@@ -1,7 +1,7 @@
 # Description: compiler collection
 
 name=gcc
-version=15.2.0
+version=16.2.0
 release=0libstdcxx
 source=(https://ftpmirror.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz)
 
@@ -14,6 +14,7 @@ build() {
   ../libstdc++-v3/configure --prefix=/usr \
     --host=$MIX_TGT \
     --build=$(../config.guess) \
+    CXX=$MIX_TGT-gcc \
     --disable-multilib \
     --disable-nls \
     --disable-libstdcxx-pch \

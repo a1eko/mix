@@ -1,7 +1,7 @@
 # Description: compiler collection
 
 name=gcc
-version=15.2.0
+version=16.2.0
 release=mix-1
 source=(https://ftpmirror.gnu.org/gnu/gcc/gcc-$version/gcc-$version.tar.xz)
 
