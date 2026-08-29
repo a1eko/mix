@@ -1,0 +1,74 @@
+# Description: The Rust language with Cargo included.
+# Depends on: curl cmake libssh2 llvm
+
+name=rust
+version=1.97.1
+release=mix-1
+
+source=(https://static.rust-lang.org/dist/${name}c-$version-src.tar.xz)
+
+build() {
+  cd ${name}c-$version-src
+
+  cat <<-EOF >config.toml
+profile = "dist"
+change-id = 154587
+
+[llvm]
+download-ci-llvm = false
+targets = "X86"
+link-shared = true
+
+[build]
+docs = false
+extended = true
+locked-deps = true
+tools = ["cargo", "clippy", "rustfmt"]
+
+[install]
+prefix = "/usr"
+
+[rust]
+channel = "stable"
+rpath = false
+codegen-tests = false
+lto = "thin"
+codegen-units = 1
+lld = false
+llvm-bitcode-linker = false
+
+[target.x86_64-unknown-linux-gnu]
+llvm-config = "/usr/bin/llvm-config"
+
+[target.i686-unknown-linux-gnu]
+llvm-config = "/usr/bin/llvm-config"
+EOF
+
+  { [ ! -e /usr/include/libssh2.h ] \
+    || export LIBSSH2_SYS_USE_PKG_CONFIG=1; }
+  { [ ! -e /usr/include/sqlite3.h ] \
+    || export LIBSQLITE3_SYS_USE_PKG_CONFIG=1; }
+
+  /usr/bin/python3 ./x.py build
+  DESTDIR=$PKG /usr/bin/python3 ./x.py install
+
+  [ -e '/usr/bin/zsh' ] || rm -rv $PKG/usr/share/zsh
+
+  # cleanup
+  rm -rv $PKG/usr/share/doc
+  rm -v $PKG/usr/lib/rustlib/{components,manifest-rustc,rust-installer-version,uninstall.sh}
+
+  # Remove analysis data for libs that weren't installed
+  local file lib
+  while read -rd '' file; do
+    lib="${file%.json}.rlib"
+    lib="${lib/\/analysis\///lib/}"
+    if [[ ! -e $lib ]]; then
+      echo "missing '$lib'"
+      rm -v "$file"
+    fi
+  done < <(find "$PKG/usr/lib/rustlib" -path '*/analysis/*.json' -print0)
+
+  find $PKG/usr -name "*.old" -delete
+  rm -v $PKG/usr/lib/rustlib/{install.log,manifest-*}
+}

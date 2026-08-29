@@ -1,74 +1,230 @@
 # Description: The Rust language with Cargo included.
-# Depends on: curl cmake libssh2 llvm
+# URL: https://www.rust-lang.org/
+# Maintainer: CRUX System Team, core-ports at crux dot nu
+# Depends on: compiler-rt lld
+# Optional: clang libgit2 polly sccache
 
 name=rust
-version=1.97.1
-release=mix-1
+version=1.98.0
+_date=2026-07-16
+_rustc=1.97.1
+_cargo=$_rustc
+release=mix-2
 
-source=(https://static.rust-lang.org/dist/${name}c-$version-src.tar.xz)
+source=(https://static.rust-lang.org/dist/${name}c-$version-src.tar.xz
+    https://static.rust-lang.org/dist/$_date/rust-std-$_rustc-x86_64-unknown-linux-gnu.tar.xz
+    https://static.rust-lang.org/dist/$_date/rustc-$_rustc-x86_64-unknown-linux-gnu.tar.xz
+    https://static.rust-lang.org/dist/$_date/cargo-$_cargo-x86_64-unknown-linux-gnu.tar.xz
+    0001-bootstrap-Change-libexec-dir.patch
+    0002-bootstrap-Change-bash-completion-dir.patch
+    0003-bootstrap-Workaround-for-system-stage0.patch
+    0004-compiler-Change-LLVM-targets.patch
+    0005-compiler-Use-aarch64-linux-gnu-gcc-to-link-aarch64-t.patch
+    0006-compiler-Swap-primary-and-secondary-lib-dirs.patch
+    llvm23.patch
+)
+
+unpack_source() {
+    for file in ${source[@]}; do
+        case ${file##*/} in
+            rustc-${version}-src.tar.xz)
+                echo "Unpacking $(get_filename $file)";
+                bsdtar -p -o -C ${SRC} -xf $(get_filename $file) ;;
+            *.tar.xz)
+                echo "Copying $(get_filename $file)";
+                mkdir -p ${SRC}/${name}c-$version-src/build/cache/${_date} || true
+                cp $(get_filename $file) ${SRC}/${name}c-$version-src/build/cache/${_date} ;;
+            *)
+                cp $(get_filename $file) ${SRC} ;;
+        esac
+    done
+}
+
+_check_version() {
+    local ERROR
+    local DATE="$(awk -F'=' '/^compiler_date=/ {print $2}' $SRC/${name}c-$version-src/src/stage0)"
+    local RUSTC="$(awk -F'=' '/^compiler_version=/ {print $2}' $SRC/${name}c-$version-src/src/stage0)"
+
+    printf '\033[0;32m%s\033[0m\n' "Checking versions for bootstrap compiler.."
+    printf '\033[0;32m%s\033[0m\n' "Got _date = $_date && _rustc = $_rustc"
+
+    if [ "$DATE" != "$_date" ]; then
+        printf '\e[1;31m%-6s\e[m\n' "Error: _date $_date != $DATE"
+        ERROR=1
+    fi
+    if [ "$RUSTC" != "$_rustc" ]; then
+        printf '\e[1;31m%-6s\e[m\n' "Error: _rustc $_rustc != $RUSTC"
+        ERROR=1
+    fi
+
+    [ $ERROR ] && exit 1
+    printf '\033[0;32m%s\033[0m\n' "Versions check out! Proceeding.."
+    unset DATE RUSTC ERROR
+}
 
 build() {
-  cd ${name}c-$version-src
+    _check_version
 
-  cat <<-EOF >config.toml
+    cd "${name}c-$version-src"
+
+    patch -p1 -i $SRC/0001-bootstrap-Change-libexec-dir.patch
+    patch -p1 -i $SRC/0002-bootstrap-Change-bash-completion-dir.patch
+    patch -p1 -i $SRC/0003-bootstrap-Workaround-for-system-stage0.patch
+    patch -p1 -i $SRC/0004-compiler-Change-LLVM-targets.patch
+    patch -p1 -i $SRC/0005-compiler-Use-aarch64-linux-gnu-gcc-to-link-aarch64-t.patch
+    patch -p1 -i $SRC/0006-compiler-Swap-primary-and-secondary-lib-dirs.patch
+    patch -p1 -i $SRC/llvm23.patch
+
+cat <<- EOF > $SRC/bootstrap.toml
 profile = "dist"
-change-id = 154587
+change-id = 158169
 
 [llvm]
 download-ci-llvm = false
-targets = "X86"
-link-shared = true
-
-[build]
-docs = false
-extended = true
-locked-deps = true
-tools = ["cargo", "clippy", "rustfmt"]
 
 [install]
 prefix = "/usr"
 
 [rust]
 channel = "stable"
-rpath = false
-codegen-tests = false
-lto = "thin"
 codegen-units = 1
+codegen-units-std = 1
+debuginfo-level = 1
+debuginfo-level-std = 2
+debug-assertions = false
+remap-debuginfo = false
+codegen-tests = false
+backtrace-on-ice = true
 lld = false
+bootstrap-override-lld = "external"
 llvm-bitcode-linker = false
+rpath = false
+frame-pointers = true
+deny-warnings = false
+lto = "fat"
+
+[build]
+target = ["x86_64-unknown-linux-gnu"]
+description = "CRUX"
+tools = ["cargo",
+  "clippy",
+  "rustfmt",
+  "analysis",
+  "src",
+  "rust-demangler",
+  "rust-analyzer",
+  "rust-analyzer-proc-macro-srv",
+  "rustdoc",
+  "rust-src"]
+docs = false
+extended = true
+sanitizers = true
+profiler = true
+vendor = true
+locked-deps = true
+python = "/usr/bin/python3"
+optimized-compiler-builtins = true
+@CARGO@
+@RUST@
+@RUSTFMT@
+@CCACHE@
+
+[dist]
+compression-formats = ["gz"]
+compression-profile = "fast"
 
 [target.x86_64-unknown-linux-gnu]
 llvm-config = "/usr/bin/llvm-config"
-
-[target.i686-unknown-linux-gnu]
-llvm-config = "/usr/bin/llvm-config"
+llvm-filecheck = "/usr/bin/FileCheck"
+cc = @TARGETCC@
+cxx = @TARGETCXX@
+ar = @TARGETAR@
+ranlib = @TARGETRANLIB@
+@CLANGDIR64@
 EOF
 
-  { [ ! -e /usr/include/libssh2.h ] \
-    || export LIBSSH2_SYS_USE_PKG_CONFIG=1; }
-  { [ ! -e /usr/include/sqlite3.h ] \
-    || export LIBSQLITE3_SYS_USE_PKG_CONFIG=1; }
-
-  /usr/bin/python3 ./x.py build
-  DESTDIR=$PKG /usr/bin/python3 ./x.py install
-
-  [ -e '/usr/bin/zsh' ] || rm -rv $PKG/usr/share/zsh
-
-  # cleanup
-  rm -rv $PKG/usr/share/doc
-  rm -v $PKG/usr/lib/rustlib/{components,manifest-rustc,rust-installer-version,uninstall.sh}
-
-  # Remove analysis data for libs that weren't installed
-  local file lib
-  while read -rd '' file; do
-    lib="${file%.json}.rlib"
-    lib="${lib/\/analysis\///lib/}"
-    if [[ ! -e $lib ]]; then
-      echo "missing '$lib'"
-      rm -v "$file"
+    if [ -e '/usr/bin/rustc' ]; then
+        if ! /usr/bin/ldd /usr/bin/rustc /usr/bin/cargo | grep -q -E '.*not found'; then
+            sed -e 's|@CARGO@|cargo = "/usr/bin/cargo"|' \
+              -e 's|@RUST@|rustc = "/usr/bin/rustc"|' \
+              -e 's|@RUSTFMT@|rustfmt = "/usr/bin/rustfmt"|' \
+              -i $SRC/bootstrap.toml
+        else
+            sed -e 's|@CARGO@||' \
+              -e 's|@RUST@||' \
+              -e 's|@RUSTFMT@||' \
+              -i $SRC/bootstrap.toml
+            printf "\e[031mShared library missing, not using system rust to bootstrap.\033[0m\n"
+        fi
+    else
+        sed -e 's|@CARGO@||' -e 's|@RUST@||' -e 's|@RUSTFMT@||' -i $SRC/bootstrap.toml
     fi
-  done < <(find "$PKG/usr/lib/rustlib" -path '*/analysis/*.json' -print0)
 
-  find $PKG/usr -name "*.old" -delete
-  rm -v $PKG/usr/lib/rustlib/{install.log,manifest-*}
+    if pkz -i list clang; then
+        clangdir="$(/usr/bin/clang -print-resource-dir)"
+        sed -e 's|@TARGETCC@|"clang"|g' \
+          -e 's|@TARGETCXX@|"clang++"|g' \
+          -e 's|@TARGETAR@|"llvm-ar"|g' \
+          -e 's|@TARGETRANLIB@|"llvm-ranlib"|g' \
+          -e "s|@CLANGDIR64@|optimized-compiler-builtins = \"$clangdir/lib/linux/libclang_rt.builtins-x86_64.a\"|g" \
+          -i $SRC/bootstrap.toml
+    else
+        sed -e 's|@TARGETCC@|"gcc"|g' \
+          -e 's|@TARGETCXX@|"g++"|g' \
+          -e 's|@TARGETAR@|"gcc-ar"|g' \
+          -e 's|@TARGETRANLIB@|"gcc-ranlib"|g' \
+          -e 's|@CLANGDIR64@||g' \
+          -i $SRC/bootstrap.toml
+    fi
+
+    cat $SRC/bootstrap.toml
+
+    mkdir "$PKGMK_SOURCE_DIR/rust" || true
+    export CARGO_HOME="$PKGMK_SOURCE_DIR/rust"
+
+    ## sccache currently leads to errors
+    if [ -e '/usr/bin/sccache' ]; then
+        sed -e 's|@CCACHE@|ccache = "sccache"|g' \
+          -i $SRC/bootstrap.toml
+      else
+        sed -e 's|@CCACHE@||g' \
+          -i $SRC/bootstrap.toml
+    fi
+
+    #error: field is never read: `id`
+    #   --> src/bootstrap/lib.rs:280:5
+    #   = note: `-D dead-code` implied by `-D warnings`
+    export RUSTFLAGS+=' -A dead_code'
+
+    unset CFLAGS CXXFLAGS
+
+    { [ ! -e /usr/include/libssh2.h ] ||
+        export LIBSSH2_SYS_USE_PKG_CONFIG=1; }
+    export RUST_BACKTRACE=full
+    DESTDIR=$PKG /usr/bin/python3 ./x.py --config="${SRC}"/bootstrap.toml install -j ${JOBS}
+
+    pkz -i list bash-completion || rm -r $PKG/usr/share/bash-completion
+    pkz -i list zsh || rm -r $PKG/usr/share/zsh
+
+    #install -d $PKG/etc/revdep.d
+    #echo "/usr/lib/rustlib/i686-unknown-linux-gnu/lib" > $PKG/etc/revdep.d/$name
+
+    # cleanup
+    rm -r $PKG/usr/share/doc
+    rm $PKG/usr/lib/rustlib/{components,manifest-rustc,rust-installer-version,uninstall.sh}
+
+    # Remove analysis data for libs that weren't installed
+    local file lib
+    while read -rd '' file; do
+        lib="${file%.json}.rlib"
+        lib="${lib/\/analysis\///lib/}"
+        if [[ ! -e $lib ]]; then
+            echo "missing '$lib'"
+            rm -v "$file"
+        fi
+    done < <(find "$PKG/usr/lib/rustlib"  -path '*/analysis/*.json' -print0)
+
+    find $PKG/usr -name "*.old" -delete
+    rm $PKG/etc/target-spec-json-schema.json
+    rm $PKG/usr/lib/rustlib/{install.log,manifest-*}
 }

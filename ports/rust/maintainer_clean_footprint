@@ -1,0 +1,11 @@
+#!/bin/sh
+# rust started doing these weird random hash files again.. so here we
+# go cleaning them out of the footprint again..
+
+rm -f footprint.in
+mv .footprint footprint.in
+
+hash_pattern="[0-9a-z]\{16\}"
+sed "/$hash_pattern/d" footprint.in > .footprint
+
+rm -f footprint.in
