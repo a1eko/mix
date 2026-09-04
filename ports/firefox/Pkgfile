@@ -2,22 +2,28 @@
 # Depends on: autoconf-2.13 aom cbindgen dav1d dbus-glib gtk gtk3 libnotify llvm lld clang nasm nodejs nss alsa-lib python3 startup-notification unzip yasm zip
 
 name=firefox
-version=153.1.0
+version=153.2.0
 release=mix-1
 source=(https://archive.mozilla.org/pub/firefox/releases/${version}esr/source/firefox-${version}esr.source.tar.xz
-  mozconfig)
+        fix-target-detection.patch
+        mozconfig)
 
 build() {
   cd $name-$version
 
+  patch -p1 -i $SRC/fix-target-detection.patch
+
   cp -v $SRC/mozconfig .
 
-  export CC=clang CXX=clang++ AR=llvm-ar NM=llvm-nm RANLIB=llvm-ranlib
+  export CFLAGS="$CFLAGS -w"
+  export CXXFLAGS="$CXXFLAGS -w"
+  #export CC=clang CXX=clang++ AR=llvm-ar NM=llvm-nm RANLIB=llvm-ranlib
+  export CC=gcc CXX=g++
   export MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE=none
   export MOZBUILD_STATE_PATH=${PWD}/mozbuild
   export MOZ_NOSPAM=1
 
-  ./mach configure
+  #./mach configure
   ./mach build
   DESTDIR=$PKG ./mach install
 

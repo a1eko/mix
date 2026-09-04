@@ -1,44 +1,37 @@
 # Description: TeX distribution for UNIX compatible systems
 # URL: https://www.tug.org/texlive
 # Maintainer: Tim Biermann, tbier at posteo dot de
-# Depends on: clisp ghostscript graphite2 harfbuzz icu libgd libmpfr paper potrace xorg-libxaw xorg-libxi zziplib
+# Depends on: brotli cairo clisp graphite2 harfbuzz icu libmpfr paper potrace xorg-libsm zziplib
 
 name=texlive
-version=20250308
-release=mix-1
-source=(ftp://tug.org/historic/systems/texlive/${version:0:4}/$name-$version-texmf.tar.xz
-  ftp://tug.org/historic/systems/texlive/${version:0:4}/$name-$version-source.tar.xz
+version=20260301
+release=2
+source=(https://src.rrz.uni-hamburg.de/files/src/texlive/texlive-$version-source.tar.xz
+  https://src.rrz.uni-hamburg.de/files/src/texlive/texlive-$version-texmf.tar.xz
   https://download.savannah.gnu.org/releases/texi2html/texi2html-5.0.tar.bz2
-  https://www.linuxfromscratch.org/patches/blfs/svn/texlive-20250308-source-upstream_fixes-1.patch
-  tabu.sty.diff)
+  tabu.sty.diff
+  lua-root.patch)
 
-# mix
-#unpack_source() {
-#  for file in ${source[@]}; do
-#    case ${file##*/} in
-#      $name-$version-source.tar.xz)
-#        bsdtar -p -o -C $SRC -xf $(get_filename $file) ;;
-#      $name-$version-texmf.tar.xz)
-#        mkdir -p $PKG/usr/share
-#        bsdtar -p -o -C $PKG/usr/share -xf $(get_filename $file) --strip-components 1 ;;
-#      texi2html-5.0.tar.bz2)
-#        bsdtar -p -o -C $SRC -xf $(get_filename $file) ;;
-#      *)
-#        cp $(get_filename $file) $SRC ;;
-#    esac
-#  done
-#}
+unpack_source() {
+  for file in ${source[@]}; do
+    case ${file##*/} in
+      $name-$version-source.tar.xz)
+        bsdtar -p -o -C $SRC -xf $(get_filename $file) ;;
+      $name-$version-texmf.tar.xz)
+        mkdir -p $PKG/usr/share
+        bsdtar -p -o -C $PKG/usr/share -xf $(get_filename $file) --strip-components 1 ;;
+      texi2html-5.0.tar.bz2)
+        bsdtar -p -o -C $SRC -xf $(get_filename $file) ;;
+      *)
+        cp $(get_filename $file) $SRC ;;
+    esac
+  done
+}
 
 build() {
-  # mix
-  mkdir -pv $PKG/usr/share
-  mv $name-$version-texmf/texmf-dist $PKG/usr/share/
-
   cd $name-$version-source
 
-  # blfs patch
-  patch -Np1 -i ../texlive-20250308-source-upstream_fixes-1.patch
-
+  patch -Np1 -i $SRC/lua-root.patch
   # Fix some paths
   sed -i 's/SELFAUTOPARENT/TEXMFROOT/' texk/tex4htk/t4ht.c
   sed -i -e 's|TEXMFROOT = .*|TEXMFROOT = $SELFAUTODIR/share|g' \
@@ -46,7 +39,6 @@ build() {
     texk/kpathsea/texmf.cnf
   sed -i '/AC_SEARCH_LIBS/a KPSE_KPATHSEA_FLAGS' texk/bibtex-x/configure.ac
   sed -i 's|-lXp ||' texk/xdvik/configure.ac
-
 
   export TEXMFCNF=""
   export KPATHSEA_WARNING=0
@@ -57,9 +49,9 @@ build() {
   mkdir build
   cd build
 
-  CFLAGS+=" -Wno-incompatible-pointer-types" \
+  CFLAGS+=" -Wno-incompatible-pointer-types -std=gnu17" \
   ax_cv_c_float_words_bigendian=no \
-  ../configure CC="gcc -std=gnu17" -C \
+  ../configure \
     --prefix=/usr \
     --with-banner-add=" $(crux)" \
     --with-clisp-runtime=system \
@@ -123,25 +115,22 @@ build() {
     -e 's/^xetex/#! xetex/g' \
     -e 's/^cslatex/#! cslatex/g' \
     -e 's/^lollipop/#! lollipop/g' \
+    -e 's/^hitex/#! hitex/g' \
+    -e 's/^hilatex/#! hilatex/g' \
     $PKG/usr/share/texmf-dist/web2c/fmtutil.cnf
- 
-  #PATH="$PKG/usr/bin:$PATH" LD_LIBRARY_PATH+="$PKG/usr/lib:$LD_LIBRARY_PATH" \
-  PATH="$PKG/usr/bin:$PATH" LD_LIBRARY_PATH="$PKG/usr/lib:$LD_LIBRARY_PATH" \
+
+  PATH="$PKG/usr/bin:$PATH" LD_LIBRARY_PATH+="$PKG/usr/lib:$LD_LIBRARY_PATH" \
     texlinks -f $PKG/usr/share/texmf-dist/web2c/fmtutil.cnf $PKG/usr/bin
 
   # context
   chmod +x $PKG/usr/share/texmf-dist/scripts/context/lua/mtxrun.lua
-  #PATH="$PKG/usr/bin:$PATH" LD_LIBRARY_PATH+="$PKG/usr/lib:$LD_LIBRARY_PATH" \
-  PATH="$PKG/usr/bin:$PATH" LD_LIBRARY_PATH="$PKG/usr/lib:$LD_LIBRARY_PATH" \
+  PATH="$PKG/usr/bin:$PATH" LD_LIBRARY_PATH+="$PKG/usr/lib:$LD_LIBRARY_PATH" \
   $PKG/usr/share/texmf-dist/scripts/context/lua/mtxrun.lua \
     --stubpath=$PKG/usr/bin \
     --unix \
     --makestubs
 
-  # mix
-  #cd $SRC/texi2html-*
   cd $SRC/texi2html-5.0
-
   ./configure --prefix=/usr
   make
   make install DESTDIR=$PKG
