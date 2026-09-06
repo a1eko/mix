@@ -1,7 +1,7 @@
 # Description: a program which helps to configure compiler and linker flags for development libraries
 
 name=pkgconf
-version=3.0.6
+version=3.0.7
 release=0
 _mesonver=1.12.0
 
