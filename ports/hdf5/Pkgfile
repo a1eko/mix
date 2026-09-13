@@ -1,20 +1,22 @@
-# Description: Hierarchical Data Format 5
-# URL: https://github.com/HDFGroup/hdf5
-# Maintainer: Petar Petrov, slackalaxy at gmail dot com
+# Description: management of extremely large and complex data collections
+# URL: https://www.hdfgroup.org/downloads/hdf5/
+# Maintainer: Daryl Fonseca-Holt, wyatt at prairieturtle dot ca
 # Depends on: gcc-fortran
 
 name=hdf5
-version=1.14.6
+version=2.2.0
 release=1
-source=(https://github.com/HDFGroup/hdf5/releases/download/hdf5_${version}/hdf5-${version}.tar.gz)
+source=(https://github.com/HDFGroup/hdf5/archive/refs/tags/$version.tar.gz)
+renames=($name-$version.tar.gz)
 
 build() {
-	cd $name-${version}
-	./configure --prefix=/usr \
-	--enable-cxx \
-	--with-examplesdir=/usr/share/$name
-	make
-	make DESTDIR=$PKG install
-	
-	find $PKG/ -name "README" -delete
+	cmake -B build -S $name-$version -G Ninja \
+		-D CMAKE_INSTALL_PREFIX=/usr \
+		-D CMAKE_BUILD_TYPE=Release \
+		-D CMAKE_BUILD_FORTRAN=ON \
+		-D HDF5_ENABLE_ZLIB_SUPPORT=ON \
+		-W no-dev
+
+	cmake --build build
+	DESTDIR=$PKG cmake --install build
 }
