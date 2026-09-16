@@ -1,3 +1,3 @@
 6d22e55c5abcd2f288d5236113eb1fbd  mozconfig
-127f9c7fe72cf8cc9a47f35a051303f0  firefox-153.2.0esr.source.tar.xz
-63298fc667a9ba67c138866359e4b99e  fix-target-detection.patch
+2ec4cfab2f71eaa38e4801b8323b4bc6  firefox-153.3.0esr.source.tar.xz
+763237b86219df2915db8b04676bafe4  firefox-153.3.0-clang_23_rust_1_98-1.patch

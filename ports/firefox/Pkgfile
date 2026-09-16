@@ -2,16 +2,16 @@
 # Depends on: autoconf-2.13 aom cbindgen dav1d dbus-glib gtk gtk3 libnotify llvm lld clang nasm nodejs nss alsa-lib python3 startup-notification unzip yasm zip
 
 name=firefox
-version=153.2.0
+version=153.3.0
 release=mix-1
 source=(https://archive.mozilla.org/pub/firefox/releases/${version}esr/source/firefox-${version}esr.source.tar.xz
-        fix-target-detection.patch
+        https://www.linuxfromscratch.org/patches/blfs/svn/firefox-$version-clang_23_rust_1_98-1.patch
         mozconfig)
 
 build() {
   cd $name-$version
 
-  patch -p1 -i $SRC/fix-target-detection.patch
+  patch -Np1 -i ../firefox-$version-clang_23_rust_1_98-1.patch
 
   cp -v $SRC/mozconfig .
 
