@@ -1,13 +1,14 @@
 # Description: Small, efficient and fast rendering engine for Web Browsers
 # URL: https://www.webkitgtk.org/
 # Maintainer: Tim Biermann, tbier at posteo dot de
-# Depends on: gst-plugins-base gtk4 hyphen icu libsecret libsoup3 libwebp ruby unifdef woff2 xorg-libxcomposite
+# Depends on: gst-plugins-bad gtk4 hyphen icu libsecret libsoup3 ruby unifdef woff2 xorg-libxcomposite
 # Optional: bubblewrap enchant geoclue lcms2 libavif libjxl libmanette libnotify xdg-dbus-proxy
 
 name=webkitgtk
-version=2.52.6
+version=2.54.0
 release=mix-1
-source=(https://webkitgtk.org/releases/webkitgtk-$version.tar.xz)
+source=(https://webkitgtk.org/releases/webkitgtk-$version.tar.xz
+  0002-WebDriver-Guard-LOG_CHANNEL-check-with-LOG_DISABLED.patch)
 
 build() {
   # fail the build if dependencies are not met
@@ -24,6 +25,8 @@ build() {
   pkz -i list libavif || PKGMK_WEBKITGTK+=' -DUSE_AVIF=OFF'
   pkz -i list libjxl || PKGMK_WEBKITGTK+=' -DUSE_JPEGXL=OFF'
   pkz -i list libmanette || PKGMK_WEBKITGTK+=' -DENABLE_GAMEPAD=OFF'
+
+  patch -Np1 -d webkitgtk-$version -i $SRC/0002-WebDriver-Guard-LOG_CHANNEL-check-with-LOG_DISABLED.patch
 
   cmake -S webkitgtk-$version -B build -G Ninja ${PKGMK_WEBKITGTK} \
     -D CMAKE_INSTALL_PREFIX=/usr \
