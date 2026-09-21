@@ -4,13 +4,15 @@ name=glibc
 version=2.44
 release=mix-1
 source=(https://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz
-  https://www.linuxfromscratch.org/patches/lfs/development/glibc-fhs-1.patch
-  host.conf hosts ld.so.conf nsswitch.conf resolv.conf)
+        https://www.linuxfromscratch.org/patches/lfs/development/glibc-fhs-1.patch
+        https://www.linuxfromscratch.org/patches/lfs/development/glibc-$version-upstream_fixes-2.patch
+        host.conf hosts ld.so.conf nsswitch.conf resolv.conf)
 
 build() {
   cd $name-$version
 
   patch -Np1 -i ../glibc-fhs-1.patch
+  patch -Np1 -i ../glibc-$version-upstream_fixes-2.patch
 
   mkdir -v build
   cd build

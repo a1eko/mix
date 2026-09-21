@@ -4,11 +4,13 @@ name=glibc
 version=2.44
 release=0
 source=(https://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz
-        https://www.linuxfromscratch.org/patches/lfs/development/glibc-fhs-1.patch)
+        https://www.linuxfromscratch.org/patches/lfs/development/glibc-fhs-1.patch
+        https://www.linuxfromscratch.org/patches/lfs/development/glibc-$version-upstream_fixes-2.patch)
 
 build() {
   cd $name-$version
   patch -Np1 -i ../glibc-fhs-1.patch
+  patch -Np1 -i ../glibc-$version-upstream_fixes-2.patch
 
   # create compatibility symbolic links
   case $(uname -m) in
