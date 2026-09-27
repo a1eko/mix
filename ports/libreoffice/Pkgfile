@@ -2,12 +2,12 @@
 # Depends on: boost clucene curl expat glm gpgme graphite2 harfbuzz icu lcms2 libepoxy libjpeg-turbo libpng libtiff libwebp libxml2 nss openldap openssl poppler redland unixodbc xmlsec
 
 name=libreoffice
-version=26.2.5.2
+version=26.8.0.3
 release=mix-1
-source=(https://download.documentfoundation.org/$name/src/26.2.5/$name-$version.tar.xz
-  https://download.documentfoundation.org/$name/src/26.2.5/$name-dictionaries-$version.tar.xz
-  https://download.documentfoundation.org/$name/src/26.2.5/$name-help-$version.tar.xz
-  https://download.documentfoundation.org/$name/src/26.2.5/$name-translations-$version.tar.xz
+source=(https://download.documentfoundation.org/$name/src/26.8.0/$name-$version.tar.xz
+  https://download.documentfoundation.org/$name/src/26.8.0/$name-dictionaries-$version.tar.xz
+  https://download.documentfoundation.org/$name/src/26.8.0/$name-help-$version.tar.xz
+  https://download.documentfoundation.org/$name/src/26.8.0/$name-translations-$version.tar.xz
 )
 
 unpack_source() { :; }
@@ -17,7 +17,6 @@ build() {
   cd $name-$version
 
   # fix misc bugs
-  sed -i '/icuuc \\/a zlib\\' writerperfect/Library_wpftdraw.mk
   sed -i "/distro-install-file-lists/d" Makefile.in
   sed -e "/gzip -f/d" \
     -e "s|.1.gz|.1|g" \
@@ -65,17 +64,18 @@ build() {
     --with-system-jpeg \
     --with-system-lcms2 \
     --with-system-libatomic_ops \
+    --with-system-libtiff \
     --with-system-libpng \
     --with-system-libxml \
+    --with-system-libwebp \
     --with-system-nss \
     --with-system-odbc \
     --with-system-openldap \
     --with-system-openssl \
     --with-system-poppler \
     --with-system-redland \
-    --with-system-libtiff \
-    --with-system-libwebp \
-    --with-system-zlib
+    --with-system-zlib \
+    --with-system-zstd
 
   sed -i -e 's/check-if-root //g' Makefile
   make build VERBOSE=yes

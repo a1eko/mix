@@ -295,6 +295,7 @@ lrwxrwxrwx	root/root	usr/lib/libreoffice/program/bootstraprc -> ../../../etc/lib
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libsduilo.so
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libsfxlo.so
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libsimplecanvaslo.so
+-rwxr-xr-x	root/root	usr/lib/libreoffice/program/libsingleprovlo.so
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libskialo.so
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libslideshowlo.so
 -rwxr-xr-x	root/root	usr/lib/libreoffice/program/libsmdlo.so
@@ -444,6 +445,8 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/program/services/
 -rw-r--r--	root/root	usr/lib/libreoffice/program/setuprc
 drwxr-xr-x	root/root	usr/lib/libreoffice/program/shell/
 -rw-r--r--	root/root	usr/lib/libreoffice/program/shell/about.svg
+-rw-r--r--	root/root	usr/lib/libreoffice/program/shell/donate1.png
+-rw-r--r--	root/root	usr/lib/libreoffice/program/shell/donate2.png
 -rw-r--r--	root/root	usr/lib/libreoffice/program/shell/logo-sc.svg
 -rw-r--r--	root/root	usr/lib/libreoffice/program/shell/logo-sc_inverted.svg
 -rw-r--r--	root/root	usr/lib/libreoffice/program/shell/logo.svg
@@ -757,6 +760,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/basic/SFWidgets/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/basic/SFWidgets/script.xlb
 drwxr-xr-x	root/root	usr/lib/libreoffice/share/basic/ScriptBindingLibrary/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/basic/ScriptBindingLibrary/Highlight.xdl
+-rw-r--r--	root/root	usr/lib/libreoffice/share/basic/ScriptBindingLibrary/MacroEditor.xdl
 -rw-r--r--	root/root	usr/lib/libreoffice/share/basic/ScriptBindingLibrary/dialog.xlb
 -rw-r--r--	root/root	usr/lib/libreoffice/share/basic/ScriptBindingLibrary/script.xlb
 drwxr-xr-x	root/root	usr/lib/libreoffice/share/basic/ScriptForge/
@@ -825,6 +829,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/basic/Tutorials/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/basic/script.xlc
 drwxr-xr-x	root/root	usr/lib/libreoffice/share/calc/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/calc/styles.xml
+-rw-r--r--	root/root	usr/lib/libreoffice/share/calc/tablestyles.xml
 drwxr-xr-x	root/root	usr/lib/libreoffice/share/classification/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/classification/example.xml
 -rw-r--r--	root/root	usr/lib/libreoffice/share/classification/example_ca-ES.xml
@@ -931,7 +936,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/hangulhanjaeditdictdialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/hangulhanjaoptdialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/hatchpage.ui
--rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/hyperlinkdialog.ui
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/hyperlinkdlg.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/hyperlinkdocpage.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/hyperlinkinternetpage.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/hyperlinkmailpage.ui
@@ -977,7 +982,6 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/optbasicidepage.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/optchartcolorspage.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/optctlpage.ui
--rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/optdeeplpage.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/optemailpage.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/optfltrembedpage.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/optfltrpage.ui
@@ -1363,6 +1367,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/popupmenu/column_operations.xml
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/popupmenu/conditional.xml
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/popupmenu/conditional_easy.xml
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/popupmenu/datatablemenu.xml
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/popupmenu/draw.xml
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/popupmenu/drawtext.xml
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/popupmenu/form.xml
@@ -1460,6 +1465,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/datetimetransformationentry.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/definedatabaserangedialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/definename.ui
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/definetablerangedialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/deletecells.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/deletecolumnentry.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/deletecontents.ui
@@ -1516,10 +1522,8 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/notebookbar_groupedbar_compact.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/notebookbar_groupedbar_full.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/notebookbar_groups.ui
--rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/notebookbar_online.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/numberbox.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/numbertransformationentry.ui
--rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/onlyactivesheetsaveddialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/optcalculatepage.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/optchangespage.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/optcompatibilitypage.ui
@@ -1535,6 +1539,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/paratemplatedialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/passfragment.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/pastespecial.ui
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/pivotcalcfielddialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/pivotfielddialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/pivotfilterdialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/pivottablelayoutdialog.ui
@@ -1576,6 +1581,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/showsheetdialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/sidebaralignment.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/sidebarcellappearance.ui
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/sidebardatabase.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/sidebarnumberformat.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/simplerefdialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/solverdlg.ui
@@ -1598,6 +1604,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/subtotaloptionspage.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/swaprowsentry.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/tabcolordialog.ui
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/tablestylesbox.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/textimportcsv.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/textimportoptions.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/texttransformationentry.ui
@@ -1783,7 +1790,6 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/sdraw/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/sdraw/ui/notebookbar.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/sdraw/ui/notebookbar_compact.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/sdraw/ui/notebookbar_groupedbar_compact.ui
--rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/sdraw/ui/notebookbar_online.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/sdraw/ui/notebookbar_single.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/sdraw/ui/paranumberingtab.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/sdraw/ui/queryunlinkimagedialog.ui
@@ -1877,6 +1883,8 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/simpre
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/popupmenu/outline.xml
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/popupmenu/page.xml
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/popupmenu/pagepane.xml
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/popupmenu/pagepanecanvas.xml
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/popupmenu/pagepanecanvasmaster.xml
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/popupmenu/pagepanemaster.xml
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/popupmenu/pagepanenosel.xml
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/popupmenu/pagepanenoselmaster.xml
@@ -1980,7 +1988,6 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/simpre
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/notebookbar_groupedbar_compact.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/notebookbar_groupedbar_full.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/notebookbar_groups.ui
--rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/notebookbar_online.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/notebookbar_single.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/noteschildwindow.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/notespanelcontextmenu.ui
@@ -2028,6 +2035,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/smath/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/smath/ui/fontsizedialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/smath/ui/fonttypedialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/smath/ui/mathwindow.ui
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/smath/ui/matrixeditor.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/smath/ui/printeroptions.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/smath/ui/savedefaultsdialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/smath/ui/sidebarelements_math.ui
@@ -2341,7 +2349,6 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swrite
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/cardmediumpage.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/ccdialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/characterproperties.ui
--rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/charurlpage.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/checkbox.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/columndialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/columnpage.ui
@@ -2448,7 +2455,6 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swrite
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/notebookbar_groupedbar_compact.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/notebookbar_groupedbar_full.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/notebookbar_groups.ui
--rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/notebookbar_online.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/notebookbar_single.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/numberingnamedialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/numberinput.ui
@@ -2508,7 +2514,6 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swrite
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/selectindexdialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/selecttabledialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/sidebarquickfind.ui
--rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/sidebarquickfindoptionsdialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/sidebarstylepresets.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/sidebartableedit.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/sidebartheme.ui
@@ -2538,14 +2543,12 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swrite
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/tokenwidget.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/toxbuttonwidget.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/toxentrywidget.ui
--rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/translationdialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/unfloatbutton.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/viewoptionspage.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/warndatasourcedialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/warnemaildialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/warnhiddensectiondialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/watermarkdialog.ui
--rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/wordcount-mobile.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/wordcount.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/wrapdialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/wrappage.ui
@@ -2658,6 +2661,9 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/sfx/ui/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/sfx/ui/panel.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/sfx/ui/password.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/sfx/ui/printeroptionsdialog.ui
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/sfx/ui/propertycategoryrow.ui
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/sfx/ui/propertychip.ui
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/sfx/ui/propertychiprow.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/sfx/ui/querysavedialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/sfx/ui/quickfind.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/sfx/ui/safemodequerydialog.ui
@@ -2756,14 +2762,12 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svx/ui/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svx/ui/docrecoveryprogressdialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svx/ui/docrecoveryrecoverdialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svx/ui/docrecoverysavedialog.ui
--rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svx/ui/dropdownfielddialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svx/ui/extrustiondepthdialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svx/ui/fileexporteddialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svx/ui/fillctrlbox.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svx/ui/filtermenu.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svx/ui/filternavigator.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svx/ui/findbox.ui
--rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svx/ui/findreplacedialog-mobile.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svx/ui/findreplacedialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svx/ui/floatingareastyle.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svx/ui/floatingcontour.ui
@@ -2844,9 +2848,12 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svx/ui/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svx/ui/sidebartextcolumnspanel.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svx/ui/sidebartexteffect.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svx/ui/sidebartextpanel.ui
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svx/ui/stringinput.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svx/ui/stylemenu.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svx/ui/stylespreview.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svx/ui/surfacewindow.ui
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svx/ui/tableautofmtdlg.ui
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svx/ui/tablestylesdlg.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svx/ui/tablewindow.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svx/ui/textcharacterspacingcontrol.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svx/ui/textcontrolchardialog.ui
@@ -2854,6 +2861,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svx/ui/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svx/ui/textunderlinecontrol.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svx/ui/themecoloreditdialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svx/ui/themedialog.ui
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svx/ui/themeselectorpanel.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svx/ui/toolbarpopover.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svx/ui/xformspage.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svx/ui/xmlsecstatmenu.ui
@@ -2888,6 +2896,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/vcl/ui/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/vcl/ui/printerpropertiesdialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/vcl/ui/printprogressdialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/vcl/ui/querydialog.ui
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/vcl/ui/screenshotmenu.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/vcl/ui/screenshotparent.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/vcl/ui/wizard.ui
 drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/writerperfect/
@@ -3051,9 +3060,9 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/extensions/dict-fr/META-INF/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/extensions/dict-fr/dictionaries.xcu
 -rw-r--r--	root/root	usr/lib/libreoffice/share/extensions/dict-fr/fr.aff
 -rw-r--r--	root/root	usr/lib/libreoffice/share/extensions/dict-fr/fr.dic
+-rw-r--r--	root/root	usr/lib/libreoffice/share/extensions/dict-fr/french_flag.png
 -rw-r--r--	root/root	usr/lib/libreoffice/share/extensions/dict-fr/hyph-fr.tex
 -rw-r--r--	root/root	usr/lib/libreoffice/share/extensions/dict-fr/hyph_fr.dic
--rw-r--r--	root/root	usr/lib/libreoffice/share/extensions/dict-fr/icon.png
 -rw-r--r--	root/root	usr/lib/libreoffice/share/extensions/dict-fr/package-description.txt
 -rw-r--r--	root/root	usr/lib/libreoffice/share/extensions/dict-fr/thes_fr.dat
 -rw-r--r--	root/root	usr/lib/libreoffice/share/extensions/dict-fr/thes_fr.idx
@@ -3569,6 +3578,8 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/registry/res/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/registry/xsltfilter.xcd
 drwxr-xr-x	root/root	usr/lib/libreoffice/share/skia/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/skia/skia_denylist_vulkan.xml
+drwxr-xr-x	root/root	usr/lib/libreoffice/share/svx/
+-rw-r--r--	root/root	usr/lib/libreoffice/share/svx/tablestyles.xml
 drwxr-xr-x	root/root	usr/lib/libreoffice/share/template/
 drwxr-xr-x	root/root	usr/lib/libreoffice/share/template/common/
 drwxr-xr-x	root/root	usr/lib/libreoffice/share/template/common/draw/
