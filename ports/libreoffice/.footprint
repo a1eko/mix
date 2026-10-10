@@ -1026,7 +1026,6 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/querydeletehatchdialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/querydeletelineenddialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/querydeletelinestyledialog.ui
--rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/querydialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/queryduplicatedialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/querynoloadedfiledialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/querynosavefiledialog.ui
@@ -2712,6 +2711,7 @@ drwxr-xr-x	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svt/ui/
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svt/ui/placeedit.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svt/ui/printersetupdialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svt/ui/querydeletedialog.ui
+-rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svt/ui/querydialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svt/ui/restartdialog.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svt/ui/scrollbars.ui
 -rw-r--r--	root/root	usr/lib/libreoffice/share/config/soffice.cfg/svt/ui/spinfieldcontrol.ui
