@@ -2,18 +2,17 @@
 # Depends on: curl cmake libssh2 llvm
 
 name=rust
-version=1.98.1
+version=1.99.0
 release=mix-1
 
-source=(https://static.rust-lang.org/dist/${name}c-$version-src.tar.xz
-   https://www.linuxfromscratch.org/patches/blfs/svn/rustc-$version-llvm_23-1.patch)
+source=(https://static.rust-lang.org/dist/${name}c-$version-src.tar.xz)
 
 build() {
   cd ${name}c-$version-src
 
   cat <<-EOF >config.toml
 profile = "dist"
-change-id = 158169
+change-id = 160100
 
 [llvm]
 download-ci-llvm = false
@@ -41,9 +40,6 @@ llvm-bitcode-linker = false
 [target.x86_64-unknown-linux-gnu]
 llvm-config = "/usr/bin/llvm-config"
 EOF
-
-  # fix compatibility with llvm-23
-  patch -Np1 -i ../rustc-$version-llvm_23-1.patch
 
   { [ ! -e /usr/include/libssh2.h ] \
     || export LIBSSH2_SYS_USE_PKG_CONFIG=1; }
