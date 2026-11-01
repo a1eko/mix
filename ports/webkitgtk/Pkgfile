@@ -5,10 +5,9 @@
 # Optional: bubblewrap enchant geoclue lcms2 libavif libjxl libmanette libnotify xdg-dbus-proxy
 
 name=webkitgtk
-version=2.54.0
+version=2.54.2
 release=mix-1
-source=(https://webkitgtk.org/releases/webkitgtk-$version.tar.xz
-  0002-WebDriver-Guard-LOG_CHANNEL-check-with-LOG_DISABLED.patch)
+source=(https://webkitgtk.org/releases/webkitgtk-$version.tar.xz)
 
 build() {
   # fail the build if dependencies are not met
@@ -25,8 +24,6 @@ build() {
   pkz -i list libavif || PKGMK_WEBKITGTK+=' -DUSE_AVIF=OFF'
   pkz -i list libjxl || PKGMK_WEBKITGTK+=' -DUSE_JPEGXL=OFF'
   pkz -i list libmanette || PKGMK_WEBKITGTK+=' -DENABLE_GAMEPAD=OFF'
-
-  patch -Np1 -d webkitgtk-$version -i $SRC/0002-WebDriver-Guard-LOG_CHANNEL-check-with-LOG_DISABLED.patch
 
   cmake -S webkitgtk-$version -B build -G Ninja ${PKGMK_WEBKITGTK} \
     -D CMAKE_INSTALL_PREFIX=/usr \

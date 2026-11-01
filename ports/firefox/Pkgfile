@@ -2,16 +2,16 @@
 # Depends on: autoconf-2.13 aom cbindgen dav1d dbus-glib gtk gtk3 libnotify llvm lld clang nasm nodejs nss alsa-lib python3 startup-notification unzip yasm zip
 
 name=firefox
-version=153.5.0
+version=153.6.0
 release=mix-1
 source=(https://archive.mozilla.org/pub/firefox/releases/${version}esr/source/firefox-${version}esr.source.tar.xz
-        https://www.linuxfromscratch.org/patches/blfs/svn/firefox-$version-clang_23_rust_1_98-1.patch
         mozconfig)
 
 build() {
   cd $name-$version
 
-  patch -Np1 -i ../firefox-$version-clang_23_rust_1_98-1.patch || true
+  # fix building with clang 23+
+  sed '/type-limits/a #pragma GCC diagnostic ignored "-Wunused-template"' -i gfx/harfbuzz/src/hb.hh
 
   cp -v $SRC/mozconfig .
 
